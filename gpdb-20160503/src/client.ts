@@ -7255,6 +7255,134 @@ export class ExecuteStatementResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetStatementResultResponseBodyDataColumnMetadata extends $dara.Model {
+  columnMetadata?: ColumnMetadata[];
+  static names(): { [key: string]: string } {
+    return {
+      columnMetadata: 'ColumnMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnMetadata: { 'type': 'array', 'itemType': ColumnMetadata },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columnMetadata)) {
+      $dara.Model.validateArray(this.columnMetadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStatementResultResponseBodyDataRecordsRecords extends $dara.Model {
+  record?: Field[];
+  static names(): { [key: string]: string } {
+    return {
+      record: 'Record',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      record: { 'type': 'array', 'itemType': Field },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.record)) {
+      $dara.Model.validateArray(this.record);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStatementResultResponseBodyDataRecords extends $dara.Model {
+  records?: GetStatementResultResponseBodyDataRecordsRecords[];
+  static names(): { [key: string]: string } {
+    return {
+      records: 'Records',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      records: { 'type': 'array', 'itemType': GetStatementResultResponseBodyDataRecordsRecords },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStatementResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of column metadata.
+   */
+  columnMetadata?: GetStatementResultResponseBodyDataColumnMetadata;
+  /**
+   * @remarks
+   * Multiple rows of data.
+   */
+  records?: GetStatementResultResponseBodyDataRecords;
+  /**
+   * @remarks
+   * Total number of entries.
+   * 
+   * @example
+   * 10
+   */
+  totalNumRows?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnMetadata: 'ColumnMetadata',
+      records: 'Records',
+      totalNumRows: 'TotalNumRows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnMetadata: GetStatementResultResponseBodyDataColumnMetadata,
+      records: GetStatementResultResponseBodyDataRecords,
+      totalNumRows: 'number',
+    };
+  }
+
+  validate() {
+    if(this.columnMetadata && typeof (this.columnMetadata as any).validate === 'function') {
+      (this.columnMetadata as any).validate();
+    }
+    if(this.records && typeof (this.records as any).validate === 'function') {
+      (this.records as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   /**
    * @remarks
@@ -34018,6 +34146,187 @@ export class GetSecretValueResponse extends $dara.Model {
   }
 }
 
+export class GetStatementResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID. Can be obtained by calling DescribeDBInstances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * Database name.
+   * 
+   * @example
+   * test
+   */
+  database?: string;
+  /**
+   * @remarks
+   * Task ID for asynchronous SQL execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9A920F47-416A-4044-817C-7C2A72AD16D3
+   */
+  id?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Region ID where the instance is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Access credential. Created through the CreateSecret interface.
+   * 
+   * > When accessing this interface with a sub-account, the sub-account must have the UseSecret or GetSecretValue permission for this SecretArn.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
+   */
+  secretArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      database: 'Database',
+      id: 'Id',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      secretArn: 'SecretArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      database: 'string',
+      id: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      secretArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStatementResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the asynchronous call.
+   */
+  data?: GetStatementResultResponseBodyData;
+  /**
+   * @remarks
+   * Return message.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * API execution status, with values as follows:
+   * 
+   * - **false**: Execution failed.
+   * - **true**: Execution succeeded.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetStatementResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStatementResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStatementResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStatementResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUploadDocumentJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -58359,6 +58668,73 @@ export default class Client extends OpenApi {
   async getSecretValue(request: GetSecretValueRequest): Promise<GetSecretValueResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecretValueWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Asynchronous SQL Execution Result
+   * 
+   * @param request - GetStatementResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStatementResultResponse
+   */
+  async getStatementResultWithOptions(request: GetStatementResultRequest, runtime: $dara.RuntimeOptions): Promise<GetStatementResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.database)) {
+      query["Database"] = request.database;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.secretArn)) {
+      query["SecretArn"] = request.secretArn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStatementResult",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetStatementResultResponse>(await this.callApi(params, req, runtime), new GetStatementResultResponse({}));
+    } else {
+      return $dara.cast<GetStatementResultResponse>(await this.execute(params, req, runtime), new GetStatementResultResponse({}));
+    }
+
+  }
+
+  /**
+   * Get Asynchronous SQL Execution Result
+   * 
+   * @param request - GetStatementResultRequest
+   * @returns GetStatementResultResponse
+   */
+  async getStatementResult(request: GetStatementResultRequest): Promise<GetStatementResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStatementResultWithOptions(request, runtime);
   }
 
   /**
