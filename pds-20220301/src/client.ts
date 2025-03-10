@@ -89,6 +89,32 @@ export class FaceGroupGroupCoverFaceBoundary extends $dara.Model {
   }
 }
 
+export class FileDirSizeInfo extends $dara.Model {
+  dirCount?: number;
+  fileCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dirCount: 'dir_count',
+      fileCount: 'file_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dirCount: 'number',
+      fileCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvestigationInfoVideoDetailBlockFrames extends $dara.Model {
   label?: string;
   offset?: number;
@@ -4437,6 +4463,7 @@ export class FaceThumbnail extends $dara.Model {
 
 export class File extends $dara.Model {
   actionList?: string[];
+  autoDeleteLeftSec?: number;
   category?: string;
   contentHash?: string;
   contentHashName?: string;
@@ -4444,6 +4471,7 @@ export class File extends $dara.Model {
   crc64Hash?: string;
   createdAt?: string;
   description?: string;
+  dirSizeInfo?: FileDirSizeInfo;
   domainId?: string;
   downloadUrl?: string;
   driveId?: string;
@@ -4473,6 +4501,7 @@ export class File extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       actionList: 'action_list',
+      autoDeleteLeftSec: 'auto_delete_left_sec',
       category: 'category',
       contentHash: 'content_hash',
       contentHashName: 'content_hash_name',
@@ -4480,6 +4509,7 @@ export class File extends $dara.Model {
       crc64Hash: 'crc64_hash',
       createdAt: 'created_at',
       description: 'description',
+      dirSizeInfo: 'dir_size_info',
       domainId: 'domain_id',
       downloadUrl: 'download_url',
       driveId: 'drive_id',
@@ -4512,6 +4542,7 @@ export class File extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       actionList: { 'type': 'array', 'itemType': 'string' },
+      autoDeleteLeftSec: 'number',
       category: 'string',
       contentHash: 'string',
       contentHashName: 'string',
@@ -4519,6 +4550,7 @@ export class File extends $dara.Model {
       crc64Hash: 'string',
       createdAt: 'string',
       description: 'string',
+      dirSizeInfo: FileDirSizeInfo,
       domainId: 'string',
       downloadUrl: 'string',
       driveId: 'string',
@@ -4551,6 +4583,9 @@ export class File extends $dara.Model {
   validate() {
     if(Array.isArray(this.actionList)) {
       $dara.Model.validateArray(this.actionList);
+    }
+    if(this.dirSizeInfo && typeof (this.dirSizeInfo as any).validate === 'function') {
+      (this.dirSizeInfo as any).validate();
     }
     if(this.imageMediaMetadata && typeof (this.imageMediaMetadata as any).validate === 'function') {
       (this.imageMediaMetadata as any).validate();
@@ -17828,12 +17863,14 @@ export class ListRecyclebinRequest extends $dara.Model {
    * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
    */
   marker?: string;
+  thumbnailProcesses?: { [key: string]: ImageProcess };
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
       fields: 'fields',
       limit: 'limit',
       marker: 'marker',
+      thumbnailProcesses: 'thumbnail_processes',
     };
   }
 
@@ -17843,10 +17880,14 @@ export class ListRecyclebinRequest extends $dara.Model {
       fields: 'string',
       limit: 'number',
       marker: 'string',
+      thumbnailProcesses: { 'type': 'map', 'keyType': 'string', 'valueType': ImageProcess },
     };
   }
 
   validate() {
+    if(this.thumbnailProcesses) {
+      $dara.Model.validateMap(this.thumbnailProcesses);
+    }
     super.validate();
   }
 
@@ -20212,6 +20253,7 @@ export class SearchFileRequest extends $dara.Model {
    * true
    */
   returnTotalCount?: boolean;
+  thumbnailProcesses?: { [key: string]: ImageProcess };
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
@@ -20222,6 +20264,7 @@ export class SearchFileRequest extends $dara.Model {
       query: 'query',
       recursive: 'recursive',
       returnTotalCount: 'return_total_count',
+      thumbnailProcesses: 'thumbnail_processes',
     };
   }
 
@@ -20235,10 +20278,14 @@ export class SearchFileRequest extends $dara.Model {
       query: 'string',
       recursive: 'boolean',
       returnTotalCount: 'boolean',
+      thumbnailProcesses: { 'type': 'map', 'keyType': 'string', 'valueType': ImageProcess },
     };
   }
 
   validate() {
+    if(this.thumbnailProcesses) {
+      $dara.Model.validateMap(this.thumbnailProcesses);
+    }
     super.validate();
   }
 
@@ -22844,8 +22891,15 @@ export class VideoDRMLicenseRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * widevine
    */
   drmType?: string;
+  /**
+   * @example
+   * CAES6B8SQgpACioSENGxDhqCLIVwwCBOyPayyWoSENGxDhqCLIVwwCBOyPayyWpI88aJmwYQARoQdRV32
+   */
   licenseRequest?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22871,8 +22925,20 @@ export class VideoDRMLicenseRequest extends $dara.Model {
 }
 
 export class VideoDRMLicenseResponseBody extends $dara.Model {
+  /**
+   * @example
+   * cb9swCy8P50H9KePsxET3jZ1tm41bDs9HTsxbWnsjf3bsf6QGdiS4kZPhDaskimbNyAfNjmhQRmWFt3AhwNF3
+   */
   data?: string;
+  /**
+   * @example
+   * ""
+   */
   deviceInfo?: string;
+  /**
+   * @example
+   * 0
+   */
   states?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27363,6 +27429,10 @@ export default class Client extends OpenApi {
       body["marker"] = request.marker;
     }
 
+    if (!$dara.isNull(request.thumbnailProcesses)) {
+      body["thumbnail_processes"] = request.thumbnailProcesses;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -28374,6 +28444,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.returnTotalCount)) {
       body["return_total_count"] = request.returnTotalCount;
+    }
+
+    if (!$dara.isNull(request.thumbnailProcesses)) {
+      body["thumbnail_processes"] = request.thumbnailProcesses;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
