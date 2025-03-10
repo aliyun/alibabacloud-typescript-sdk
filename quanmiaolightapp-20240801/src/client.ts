@@ -239,6 +239,228 @@ export class GenerateOutputFormatResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetTagMiningAnalysisTaskResponseBodyDataResultsHeader extends $dara.Model {
+  /**
+   * @example
+   * DataNotExists
+   */
+  errorCode?: string;
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadOutput extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputToken?: number;
+  /**
+   * @example
+   * 200
+   */
+  outputToken?: number;
+  /**
+   * @example
+   * 300
+   */
+  totalToken?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputToken: 'inputToken',
+      outputToken: 'outputToken',
+      totalToken: 'totalToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputToken: 'number',
+      outputToken: 'number',
+      totalToken: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBodyDataResultsPayload extends $dara.Model {
+  output?: GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadOutput;
+  usage?: GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadOutput,
+      usage: GetTagMiningAnalysisTaskResponseBodyDataResultsPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBodyDataResults extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  customId?: string;
+  header?: GetTagMiningAnalysisTaskResponseBodyDataResultsHeader;
+  payload?: GetTagMiningAnalysisTaskResponseBodyDataResultsPayload;
+  static names(): { [key: string]: string } {
+    return {
+      customId: 'customId',
+      header: 'header',
+      payload: 'payload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customId: 'string',
+      header: GetTagMiningAnalysisTaskResponseBodyDataResultsHeader,
+      payload: GetTagMiningAnalysisTaskResponseBodyDataResultsPayload,
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBodyData extends $dara.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  results?: GetTagMiningAnalysisTaskResponseBodyDataResults[];
+  /**
+   * @example
+   * RUNNIN
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      results: 'results',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      results: { 'type': 'array', 'itemType': GetTagMiningAnalysisTaskResponseBodyDataResults },
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVideoAnalysisConfigResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -4539,6 +4761,67 @@ export class RunVideoAnalysisResponseBodyPayload extends $dara.Model {
   }
 }
 
+export class SubmitTagMiningAnalysisTaskRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTagMiningAnalysisTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 3feb69ed02d9b1a17d0f1a942675d300
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitVideoAnalysisTaskRequestFrameSampleMethod extends $dara.Model {
   /**
    * @example
@@ -4956,6 +5239,132 @@ export class GenerateOutputFormatResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateOutputFormatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: GetTagMiningAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @example
+   * DataNotExists
+   */
+  message?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTagMiningAnalysisTaskResponseBodyData,
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTagMiningAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTagMiningAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTagMiningAnalysisTaskResponseBody,
     };
   }
 
@@ -7376,6 +7785,247 @@ export class RunVideoAnalysisResponse extends $dara.Model {
   }
 }
 
+export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  contents?: string[];
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tags?: SubmitTagMiningAnalysisTaskRequestTags[];
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.txt
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      contents: 'contents',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      contents: { 'type': 'array', 'itemType': 'string' },
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tags: { 'type': 'array', 'itemType': SubmitTagMiningAnalysisTaskRequestTags },
+      taskDescription: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contents)) {
+      $dara.Model.validateArray(this.contents);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  contentsShrink?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tagsShrink?: string;
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.txt
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      contentsShrink: 'contents',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      contentsShrink: 'string',
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTagMiningAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: SubmitTagMiningAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitTagMiningAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTagMiningAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTagMiningAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTagMiningAnalysisTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   frameSampleMethod?: SubmitVideoAnalysisTaskRequestFrameSampleMethod;
   generateOptions?: string[];
@@ -7913,6 +8563,56 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取挖掘分析任务结果
+   * 
+   * @param request - GetTagMiningAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTagMiningAnalysisTaskResponse
+   */
+  async getTagMiningAnalysisTaskWithOptions(workspaceId: string, request: GetTagMiningAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTagMiningAnalysisTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTagMiningAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getTagMiningAnalysisTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTagMiningAnalysisTaskResponse({}));
+    } else {
+      return $dara.cast<GetTagMiningAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetTagMiningAnalysisTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取挖掘分析任务结果
+   * 
+   * @param request - GetTagMiningAnalysisTaskRequest
+   * @returns GetTagMiningAnalysisTaskResponse
+   */
+  async getTagMiningAnalysisTask(workspaceId: string, request: GetTagMiningAnalysisTaskRequest): Promise<GetTagMiningAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -8983,6 +9683,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runVideoAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-标签挖掘
+   * 
+   * @param tmpReq - SubmitTagMiningAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTagMiningAnalysisTaskResponse
+   */
+  async submitTagMiningAnalysisTaskWithOptions(workspaceId: string, tmpReq: SubmitTagMiningAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitTagMiningAnalysisTaskResponse> {
+    tmpReq.validate();
+    let request = new SubmitTagMiningAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contents)) {
+      request.contentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contents, "contents", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.contentsShrink)) {
+      body["contents"] = request.contentsShrink;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitTagMiningAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/submitTagMiningAnalysisTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTagMiningAnalysisTaskResponse({}));
+    } else {
+      return $dara.cast<SubmitTagMiningAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitTagMiningAnalysisTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 轻应用-标签挖掘
+   * 
+   * @param request - SubmitTagMiningAnalysisTaskRequest
+   * @returns SubmitTagMiningAnalysisTaskResponse
+   */
+  async submitTagMiningAnalysisTask(workspaceId: string, request: SubmitTagMiningAnalysisTaskRequest): Promise<SubmitTagMiningAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
