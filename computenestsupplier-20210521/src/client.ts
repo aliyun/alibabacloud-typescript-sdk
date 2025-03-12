@@ -157,6 +157,8 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * main
    */
   branch?: string;
+  endpoint?: string;
+  orgId?: string;
   /**
    * @remarks
    * The owner of the code repository.
@@ -179,6 +181,7 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * github
    */
   platform?: string;
+  repoId?: number;
   /**
    * @remarks
    * The name of the repository.
@@ -190,8 +193,11 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       branch: 'Branch',
+      endpoint: 'Endpoint',
+      orgId: 'OrgId',
       owner: 'Owner',
       platform: 'Platform',
+      repoId: 'RepoId',
       repoName: 'RepoName',
     };
   }
@@ -199,8 +205,11 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       branch: 'string',
+      endpoint: 'string',
+      orgId: 'string',
       owner: 'string',
       platform: 'string',
+      repoId: 'number',
       repoName: 'string',
     };
   }
@@ -7985,6 +7994,8 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * main
    */
   branch?: string;
+  endpoint?: string;
+  orgId?: string;
   /**
    * @remarks
    * The owner of the code repository.
@@ -8003,6 +8014,7 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * github
    */
   platform?: string;
+  repoId?: number;
   /**
    * @remarks
    * The name of the repository.
@@ -8014,8 +8026,11 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       branch: 'Branch',
+      endpoint: 'Endpoint',
+      orgId: 'OrgId',
       owner: 'Owner',
       platform: 'Platform',
+      repoId: 'RepoId',
       repoName: 'RepoName',
     };
   }
@@ -8023,8 +8038,11 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       branch: 'string',
+      endpoint: 'string',
+      orgId: 'string',
       owner: 'string',
       platform: 'string',
+      repoId: 'number',
       repoName: 'string',
     };
   }
