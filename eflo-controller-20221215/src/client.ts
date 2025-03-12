@@ -1067,21 +1067,33 @@ export class CreateDiagnosticTaskRequestAiJobLogInfo extends $dara.Model {
 
 export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * IP address.
+   * 
    * @example
    * 169.253.253.15
    */
   IP?: string;
   /**
+   * @remarks
+   * Node ID.
+   * 
    * @example
    * e01-tw-bqisacl3z6l
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * i111670831721110797708
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * VBw
    */
@@ -1115,17 +1127,30 @@ export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
 
 export class CreateNetTestTaskRequestCommTest extends $dara.Model {
   /**
+   * @remarks
+   * Number of GPUs
+   * 
    * @example
    * 1
    */
   GPUNum?: number;
+  /**
+   * @remarks
+   * Resource ID
+   */
   hosts?: CreateNetTestTaskRequestCommTestHosts[];
   /**
+   * @remarks
+   * Communication library model
+   * 
    * @example
    * intention_v4
    */
   model?: string;
   /**
+   * @remarks
+   * Communication library test category: ACCL or NCCL
+   * 
    * @example
    * ACCL
    */
@@ -1162,26 +1187,41 @@ export class CreateNetTestTaskRequestCommTest extends $dara.Model {
 
 export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * Network interface bond port
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 125.210.225.48
    */
   IP?: string;
   /**
+   * @remarks
+   * Node ID.
+   * 
    * @example
    * e01-cn-fou43an0a05
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-bcd3u1aee06
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * NQU
    */
@@ -1216,6 +1256,10 @@ export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
 }
 
 export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
+  /**
+   * @remarks
+   * 输入测试节点的hosts
+   */
   hosts?: CreateNetTestTaskRequestDelayTestHosts[];
   static names(): { [key: string]: string } {
     return {
@@ -1243,26 +1287,41 @@ export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
 
 export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
   /**
+   * @remarks
+   * Network card bond interface
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 192.168.1.1
    */
   IP?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-tw-w5elqg7pw18
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-20s41p6cx01
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * xMv
    */
@@ -1298,26 +1357,41 @@ export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
 
 export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
   /**
+   * @remarks
+   * Network card bond interface
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 47.121.110.190
    */
   IP?: string;
   /**
+   * @remarks
+   * Node ID
+   * 
    * @example
    * e01-tw-bqisacl3z6l
    */
   nodeId?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-wwo3etaqu0b
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * xMv
    */
@@ -1352,29 +1426,53 @@ export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
 }
 
 export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
+  /**
+   * @remarks
+   * Resource ID.
+   */
   clients?: CreateNetTestTaskRequestTrafficTestClients[];
   /**
+   * @remarks
+   * The duration of the workflow task in seconds.
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * Enter True/False when the protocol is RDMA, 
+   * this field is empty when the protocol is TCP.
+   * 
    * @example
    * False
    */
   GDR?: boolean;
   /**
+   * @remarks
+   * Network protocol, either RDMA or TCP.
+   * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * Enter the number of concurrent connections when the protocol is TCP, or enter the configured QP value when the protocol is RDMA.
+   * 
    * @example
    * 1
    */
   QP?: number;
+  /**
+   * @remarks
+   * Service list
+   */
   servers?: CreateNetTestTaskRequestTrafficTestServers[];
   /**
+   * @remarks
+   * Traffic model, either MTON or Fullmesh.
+   * 
    * @example
    * Fullmesh
    */
@@ -1980,16 +2078,25 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
 
 export class DescribeNetTestResultResponseBodyCommTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * IP address
+   * 
    * @example
    * 169.253.253.15
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * i111670831721110797708
    */
   resourceId?: string;
   /**
+   * @remarks
+   * 服务名称。
+   * 
    * @example
    * VBw
    */
@@ -2021,17 +2128,30 @@ export class DescribeNetTestResultResponseBodyCommTestHosts extends $dara.Model 
 
 export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
   /**
+   * @remarks
+   * Number of GPUs
+   * 
    * @example
    * 1
    */
   GPUNum?: string;
+  /**
+   * @remarks
+   * Resource ID
+   */
   hosts?: DescribeNetTestResultResponseBodyCommTestHosts[];
   /**
+   * @remarks
+   * Communication library model
+   * 
    * @example
    * intention_v4
    */
   model?: string;
   /**
+   * @remarks
+   * Communication library test category: ACCL or NCCL
+   * 
    * @example
    * ACCL
    */
@@ -2068,21 +2188,33 @@ export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
 
 export class DescribeNetTestResultResponseBodyDelayTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * Network card bond interface
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 125.210.225.48
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-bcd3u1aee06
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name
+   * 
    * @example
    * NQU
    */
@@ -2115,6 +2247,10 @@ export class DescribeNetTestResultResponseBodyDelayTestHosts extends $dara.Model
 }
 
 export class DescribeNetTestResultResponseBodyDelayTest extends $dara.Model {
+  /**
+   * @remarks
+   * Input the hosts of the test nodes
+   */
   hosts?: DescribeNetTestResultResponseBodyDelayTestHosts[];
   static names(): { [key: string]: string } {
     return {
@@ -2142,21 +2278,33 @@ export class DescribeNetTestResultResponseBodyDelayTest extends $dara.Model {
 
 export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.Model {
   /**
+   * @remarks
+   * Network card bond interface
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 192.168.1.1
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-20s41p6cx01
    */
   resourceId?: string;
   /**
+   * @remarks
+   * 服务名称。
+   * 
    * @example
    * xMv
    */
@@ -2190,21 +2338,33 @@ export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.M
 
 export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.Model {
   /**
+   * @remarks
+   * Network card bond interface
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 47.121.110.190
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-wwo3etaqu0b
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name
+   * 
    * @example
    * xMv
    */
@@ -2237,29 +2397,52 @@ export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.M
 }
 
 export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
+  /**
+   * @remarks
+   * Resource ID.
+   */
   clients?: DescribeNetTestResultResponseBodyTrafficTestClients[];
   /**
+   * @remarks
+   * Duration of the workflow task in seconds.
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * For RDMA, enter True/False; for TCP, this field is empty.
+   * 
    * @example
    * False
    */
   GDR?: string;
   /**
+   * @remarks
+   * Network protocol, either RDMA or TCP.
+   * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * For TCP, enter the number of concurrent test connections; for RDMA, enter the configured QP value.
+   * 
    * @example
    * 1
    */
   QP?: number;
+  /**
+   * @remarks
+   * List of servers
+   */
   servers?: DescribeNetTestResultResponseBodyTrafficTestServers[];
   /**
+   * @remarks
+   * Traffic model, either MTON or Fullmesh.
+   * 
    * @example
    * Fullmesh
    */
@@ -3801,47 +3984,81 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
 
 export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i118578141694745246055
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * pjlab-lingjun
    */
   clusterName?: string;
   /**
+   * @remarks
+   * Creation time of the diagnostic task.
+   * 
    * @example
    * 2024-01-15T02:01:12Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * Diagnosis content. For example, in network diagnosis, there are static configuration checks, dynamic operation checks, etc.
+   * 
+   * @example
+   * diagcontent
+   */
   diagContent?: string;
   /**
+   * @remarks
+   * Diagnosis ID
+   * 
    * @example
    * 123
    */
   diagId?: string;
   /**
+   * @remarks
+   * Diagnosis result, success or failure.
+   * 
    * @example
    * Success
    */
   diagResult?: string;
   /**
+   * @remarks
+   * Completion time of the diagnostic task.
+   * 
    * @example
    * 2024-10-16T02:04Z
    */
   finishedTime?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-bl03ofg6206
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * proxy-rps.mos.csvw.com
    */
   serverName?: string;
   /**
+   * @remarks
+   * Governance status
+   * 
    * @example
    * succeed
    */
@@ -4107,16 +4324,25 @@ export class ListImagesResponseBodyImages extends $dara.Model {
 
 export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * C1
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * efg2.C48cNHmcn
    */
   machineType?: string;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-heyuan
    */
@@ -4148,36 +4374,57 @@ export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
 
 export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.Model {
   /**
+   * @remarks
+   * Cluster network
+   * 
    * @example
    * vpc/acl
    */
   clusterNet?: string;
   /**
+   * @remarks
+   * Whether jumbo frame capability is enabled
+   * 
    * @example
    * true
    */
   enableJumboFrame?: boolean;
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * B1
    */
   hpnZone?: string;
   /**
+   * @remarks
+   * Whether it is in DPU mode
+   * 
    * @example
    * true
    */
   isDpuMode?: boolean;
   /**
+   * @remarks
+   * Machine type
+   * 
    * @example
    * efg1.nvga8n
    */
   machineType?: string;
   /**
+   * @remarks
+   * Network architecture
+   * 
    * @example
    * XX-7.0
    */
   netArch?: string;
   /**
+   * @remarks
+   * 地域ID。
+   * 
    * @example
    * cn-heyuan
    */
@@ -4337,16 +4584,25 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
 
 export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 10.51.16.21
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID
+   * 
    * @example
    * e01-cn-wwo3eteze19
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name
+   * 
    * @example
    * www.xinjiaoyu.com
    */
@@ -4378,17 +4634,30 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $
 
 export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.Model {
   /**
+   * @remarks
+   * Number of GPUs
+   * 
    * @example
    * 4
    */
   GPUNum?: string;
+  /**
+   * @remarks
+   * Input hosts for the test nodes
+   */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsCommTestHosts[];
   /**
+   * @remarks
+   * Communication library model
+   * 
    * @example
    * AllToAll
    */
   model?: string;
   /**
+   * @remarks
+   * Communication library test category: ACCL or NCCL
+   * 
    * @example
    * ACCL
    */
@@ -4425,21 +4694,33 @@ export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.
 
 export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends $dara.Model {
   /**
+   * @remarks
+   * Bond interface of the network card
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * pgm-bp174z988a27wre71o.pg.rds.aliyuncs.com
    */
   IP?: string;
   /**
+   * @remarks
+   * 资源id
+   * 
    * @example
    * e01-cn-wwo3eteze19
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name
+   * 
    * @example
    * WrF
    */
@@ -4472,6 +4753,10 @@ export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends 
 }
 
 export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara.Model {
+  /**
+   * @remarks
+   * Resource list
+   */
   hosts?: ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts[];
   static names(): { [key: string]: string } {
     return {
@@ -4499,21 +4784,33 @@ export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara
 
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients extends $dara.Model {
   /**
+   * @remarks
+   * Network interface bond port
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * IP address.
+   * 
    * @example
    * 74.73.100.1
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID.
+   * 
    * @example
    * e01-cn-20p36bqet39
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * prod-gf-cn.juequling.com
    */
@@ -4547,21 +4844,33 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients exte
 
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers extends $dara.Model {
   /**
+   * @remarks
+   * Network interface bond port
+   * 
    * @example
    * bond1
    */
   bond?: string;
   /**
+   * @remarks
+   * Node IP
+   * 
    * @example
    * 10.1.168.183
    */
   IP?: string;
   /**
+   * @remarks
+   * Resource ID.
+   * 
    * @example
    * e01-cn-wwo3eteze19
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * prod-gf-cn.juequling.com
    */
@@ -4594,29 +4903,53 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers exte
 }
 
 export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $dara.Model {
+  /**
+   * @remarks
+   * Clients
+   */
   clients?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients[];
   /**
+   * @remarks
+   * Duration of the workflow task, in seconds.
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * 协议为RDMA时，填写True/False，
+   * 协议为TCP时，此字段为空。
+   * 
    * @example
    * True
    */
   GDR?: string;
   /**
+   * @remarks
+   * Network protocol, either RDMA or TCP.
+   * 
    * @example
    * TCP
    */
   protocol?: string;
   /**
+   * @remarks
+   * For TCP, enter the number of concurrent connections; for RDMA, enter the configured QP value.
+   * 
    * @example
    * RDMA
    */
   QP?: number;
+  /**
+   * @remarks
+   * This field is empty when the traffic model (TrafficModel) is Fullmesh.
+   */
   servers?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers[];
   /**
+   * @remarks
+   * Traffic model, either MTON or Fullmesh.
+   * 
    * @example
    * Fullmesh
    */
@@ -4662,52 +4995,94 @@ export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $da
 
 export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i110667211718265012218
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * test
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * To be filled when the network test type is communication library test
+   */
   commTest?: ListNetTestResultsResponseBodyNetTestResultsCommTest;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2024-01-19T02:18:12Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * Fill in when the network test type is latency test
+   */
   delayTest?: ListNetTestResultsResponseBodyNetTestResultsDelayTest;
   /**
+   * @remarks
+   * Completion time.
+   * 
    * @example
    * 2024-10-30T02:07Z
    */
   finishedTime?: string;
   /**
+   * @remarks
+   * Type of network test.
+   * 
    * @example
    * NetDiag
    */
   netTestType?: string;
   /**
+   * @remarks
+   * Network mode
+   * 
    * @example
    * 01
    */
   networkMode?: string;
   /**
+   * @remarks
+   * Test port number.
+   * 
    * @example
    * 80
    */
   port?: string;
   /**
+   * @remarks
+   * Status of the network test task. Possible values:</br>
+   * - InProgress: Testing in progress.</br>
+   * - Finished: Test completed.</br>
+   * - Failed: Test failed.
+   * 
    * @example
    * InProgress
    */
   status?: string;
   /**
+   * @remarks
+   * Test ID. A unique identifier for the resource test task.
+   * 
    * @example
    * String	i-uf6i0tv2refv8wz*****
    */
   testId?: string;
+  /**
+   * @remarks
+   * Fill in when the network test type is traffic test.
+   */
   trafficTest?: ListNetTestResultsResponseBodyNetTestResultsTrafficTest;
   static names(): { [key: string]: string } {
     return {
@@ -5029,11 +5404,17 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 
 export class ListUserClusterTypesResponseBodyClusterTypes extends $dara.Model {
   /**
+   * @remarks
+   * 访问类型。
+   * 
    * @example
    * Public
    */
   accessType?: string;
   /**
+   * @remarks
+   * Type name
+   * 
    * @example
    * AckEdgePro
    */
@@ -5377,11 +5758,13 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * cn-wulanchabu
    */
   resourceRegionId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
       resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -5390,6 +5773,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
       resourceGroupId: 'string',
       resourceId: 'string',
       resourceRegionId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -5469,11 +5853,17 @@ export class ChangeResourceGroupResponse extends $dara.Model {
 
 export class CloseSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * i207023871669364793713
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Session token
+   * 
    * @example
    * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
    */
@@ -5503,11 +5893,17 @@ export class CloseSessionRequest extends $dara.Model {
 
 export class CloseSessionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 07AA3A1F-321E-50D8-B834-88C411331C94
    */
   requestId?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * i206495551737511455528
    */
@@ -6124,32 +6520,60 @@ export class CreateDiagnosticTaskResponse extends $dara.Model {
 
 export class CreateNetTestTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i119982311660892626523
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * Eflo-YJ-Test-Cluster
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * Required when the test type is communication library testing
+   */
   commTest?: CreateNetTestTaskRequestCommTest;
+  /**
+   * @remarks
+   * Fill in this field when the network test type is delay testing.
+   */
   delayTest?: CreateNetTestTaskRequestDelayTest;
   /**
+   * @remarks
+   * Network test type.
+   * For example: DelayTest for latency testing, TrafficTest for traffic testing, CommTest for communication library testing.
+   * 
    * @example
    * DelayTest
    */
   netTestType?: string;
   /**
+   * @remarks
+   * Network mode
+   * 
    * @example
    * 2
    */
   networkMode?: string;
   /**
+   * @remarks
+   * Test port number.
+   * 
    * @example
    * 23604
    */
   port?: string;
+  /**
+   * @remarks
+   * This field is empty if the TrafficModel is Fullmesh.
+   */
   trafficTest?: CreateNetTestTaskRequestTrafficTest;
   static names(): { [key: string]: string } {
     return {
@@ -6197,32 +6621,60 @@ export class CreateNetTestTaskRequest extends $dara.Model {
 
 export class CreateNetTestTaskShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i119982311660892626523
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name
+   * 
    * @example
    * Eflo-YJ-Test-Cluster
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * Required when the test type is communication library testing
+   */
   commTestShrink?: string;
+  /**
+   * @remarks
+   * Fill in this field when the network test type is delay testing.
+   */
   delayTestShrink?: string;
   /**
+   * @remarks
+   * Network test type.
+   * For example: DelayTest for latency testing, TrafficTest for traffic testing, CommTest for communication library testing.
+   * 
    * @example
    * DelayTest
    */
   netTestType?: string;
   /**
+   * @remarks
+   * Network mode
+   * 
    * @example
    * 2
    */
   networkMode?: string;
   /**
+   * @remarks
+   * Test port number.
+   * 
    * @example
    * 23604
    */
   port?: string;
+  /**
+   * @remarks
+   * This field is empty if the TrafficModel is Fullmesh.
+   */
   trafficTestShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6262,13 +6714,16 @@ export class CreateNetTestTaskShrinkRequest extends $dara.Model {
 export class CreateNetTestTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * 启动测试任务ID，网络测试任务的唯一标志。
+   * 
    * @example
    * dr-uf6i0tv2refv8wz*****
    */
@@ -6333,12 +6788,27 @@ export class CreateNetTestTaskResponse extends $dara.Model {
 
 export class CreateSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * e01-cn-kvw44e6dn04
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Session type corresponding to the session package.
+   * 
+   * @example
+   * N	两种：
+   * Sol：基于串口[默认]
+   * Assistant：基于云助手
+   */
   sessionType?: string;
   /**
+   * @remarks
+   * Initiation time, 13-digit timestamp.
+   * 
    * @example
    * 1669340937156
    */
@@ -6371,28 +6841,40 @@ export class CreateSessionRequest extends $dara.Model {
 export class CreateSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
    */
   requestId?: string;
   /**
+   * @remarks
+   * 节点  ID。
+   * 
    * @example
    * 2A59143F1
    */
   serverSn?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * i207023871669364793713
    */
   sessionId?: string;
   /**
+   * @remarks
+   * Session token.
+   * 
    * @example
    * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
    */
   sessionToken?: string;
   /**
+   * @remarks
+   * WebSocket address
+   * 
    * @example
    * ws://x.x.x.x:xx/calypso_web_console
    */
@@ -6974,6 +7456,9 @@ export class DescribeInvocationsResponse extends $dara.Model {
 
 export class DescribeNetTestResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Test task ID.
+   * 
    * @example
    * dr-uf6i0tv2refv8wz*****
    */
@@ -7001,57 +7486,102 @@ export class DescribeNetTestResultRequest extends $dara.Model {
 
 export class DescribeNetTestResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID.
+   * 
    * @example
    * i119982311660892626523
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster name.
+   * 
    * @example
    * Standard_Cluster
    */
   clusterName?: string;
+  /**
+   * @remarks
+   * Fill in when the traffic test type is communication library test
+   */
   commTest?: DescribeNetTestResultResponseBodyCommTest;
   /**
+   * @remarks
+   * Diagnosis task creation time.
+   * 
    * @example
    * 2024-10-15T10:25:42+08:00
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * Fill in when the network test type is latency test
+   */
   delayTest?: DescribeNetTestResultResponseBodyDelayTest;
   /**
+   * @remarks
+   * Diagnosis task completion time.
+   * 
    * @example
    * 2024-10-16T02:04Z
    */
   finishedTime?: string;
   /**
+   * @remarks
+   * Network test type.
+   * 
    * @example
    * DelayTest
    */
   netTestType?: string;
   /**
+   * @remarks
+   * Test port number.
+   * 
    * @example
    * 23604
    */
   port?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Details of the diagnosis result. Returned as a JSON string.
+   * 
    * @example
    * {}
    */
   resultDetial?: string;
   /**
+   * @remarks
+   * Diagnosis task status. Possible values:
+   * - InProgress: Diagnosis in progress.
+   * - Finished: Diagnosis completed.
+   * - Failed: Diagnosis failed.
+   * 
    * @example
    * Failed
    */
   status?: string;
   /**
+   * @remarks
+   * Initiated test task ID, which is the unique identifier for the network test task.
+   * 
    * @example
    * af35ce53-7c35-4277-834a-fbf49c316a96
    */
   testId?: string;
+  /**
+   * @remarks
+   * This field is empty if the traffic model (TrafficModel) is Fullmesh.
+   */
   trafficTest?: DescribeNetTestResultResponseBodyTrafficTest;
   static names(): { [key: string]: string } {
     return {
@@ -8451,21 +8981,38 @@ export class ListClustersResponse extends $dara.Model {
 
 export class ListDiagnosticResultsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Type of diagnosis
+   * 
    * @example
    * NetDiag
    */
   diagType?: string;
   /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 20, the default is 20.
+   * - If the set value is greater than 100, the default is 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
+   * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-acfmywpvugkh7kq
    */
@@ -8498,20 +9045,36 @@ export class ListDiagnosticResultsRequest extends $dara.Model {
 }
 
 export class ListDiagnosticResultsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Diagnostic information
+   */
   diagnosticResults?: ListDiagnosticResultsResponseBodyDiagnosticResults[];
   /**
+   * @remarks
+   * 分页查询时每页行数。最大值为100。
+   * 
+   * 默认值：
+   * 
+   * •当不设置值或设置的值小于20时，默认值为20。
+   * 
+   * •当设置的值大于100时，默认值为100。
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * NextToken for the next page. Include this value when requesting the next page.
+   * 
    * @example
    * a3f2224a5ec7224116c4f5246120abe4
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
@@ -8873,6 +9436,10 @@ export class ListImagesResponse extends $dara.Model {
 }
 
 export class ListMachineNetworkInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Array
+   */
   machineHpnInfo?: ListMachineNetworkInfoRequestMachineHpnInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -8899,6 +9466,10 @@ export class ListMachineNetworkInfoRequest extends $dara.Model {
 }
 
 export class ListMachineNetworkInfoShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Array
+   */
   machineHpnInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8922,10 +9493,14 @@ export class ListMachineNetworkInfoShrinkRequest extends $dara.Model {
 }
 
 export class ListMachineNetworkInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Array
+   */
   machineNetworkInfo?: ListMachineNetworkInfoResponseBodyMachineNetworkInfo[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
@@ -9109,21 +9684,39 @@ export class ListMachineTypesResponse extends $dara.Model {
 
 export class ListNetTestResultsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 20, the default is 20.
+   * 
+   * - If the set value is greater than 100, the default is 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Type of network test.
+   * 
    * @example
    * DelayTest
    */
   netTestType?: string;
   /**
+   * @remarks
+   * Query token (Token), which should be the value of the NextToken parameter returned from the previous API call.
+   * 
    * @example
    * 3a6b93229825ac667104463b56790c91
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-acfmxno4vh5muoq
    */
@@ -9157,19 +9750,35 @@ export class ListNetTestResultsRequest extends $dara.Model {
 
 export class ListNetTestResultsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * 分页查询时每页行数。最大值为100。
+   * 
+   * 默认值：
+   * 
+   * •当不设置值或设置的值小于20时，默认值为20。
+   * 
+   * •当设置的值大于100时，默认值为100。
+   * 
    * @example
    * 20
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * List of nodes
+   */
   netTestResults?: ListNetTestResultsResponseBodyNetTestResults[];
   /**
+   * @remarks
+   * NextToken for the next page, to be included in the request for the next page
+   * 
    * @example
    * 3a6b93229825ac667104463b56790c91
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 3C683243-7915-57FB-9570-A2932C1C0F78
@@ -9552,8 +10161,15 @@ export class ListTagResourcesResponse extends $dara.Model {
 }
 
 export class ListUserClusterTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of cluster types. The number of array elements N ranges from 1 to 100.
+   */
   clusterTypes?: ListUserClusterTypesResponseBodyClusterTypes[];
   /**
+   * @remarks
+   * The NextToken for the next page. Include this value when requesting the next page.
+   * 
    * @example
    * 3a6b93229825ac667104463b56790c91
    */
@@ -11767,6 +12383,10 @@ export default class Client extends OpenApi {
       query["ResourceRegionId"] = request.resourceRegionId;
     }
 
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11801,7 +12421,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 断开连接
+   * Disconnect Connection
+   * 
+   * @remarks
+   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
    * 
    * @param request - CloseSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11841,7 +12464,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 断开连接
+   * Disconnect Connection
+   * 
+   * @remarks
+   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
    * 
    * @param request - CloseSessionRequest
    * @returns CloseSessionResponse
@@ -12032,7 +12658,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络测试任务
+   * Create Network Test Task
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param tmpReq - CreateNetTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12110,7 +12739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络测试任务
+   * Create Network Test Task
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - CreateNetTestTaskRequest
    * @returns CreateNetTestTaskResponse
@@ -12121,7 +12753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Web Terminal会话
+   * Create Web Terminal Session
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - CreateSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12165,7 +12800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Web Terminal会话
+   * Create Web Terminal Session
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - CreateSessionRequest
    * @returns CreateSessionResponse
@@ -12329,7 +12967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网络测试结果
+   * Query Network Test Result
+   * 
+   * @remarks
+   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
    * 
    * @param request - DescribeNetTestResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12365,7 +13006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网络测试结果
+   * Query Network Test Result
+   * 
+   * @remarks
+   * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
    * 
    * @param request - DescribeNetTestResultRequest
    * @returns DescribeNetTestResultResponse
@@ -12810,7 +13454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务列表
+   * List of Diagnostic Tasks
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - ListDiagnosticResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12858,7 +13505,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务列表
+   * List of Diagnostic Tasks
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - ListDiagnosticResultsRequest
    * @returns ListDiagnosticResultsResponse
@@ -12987,7 +13637,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用HPNZone和机型查询机型网络配置
+   * Query machine network configuration using HPNZone and machine type
+   * 
+   * @remarks
+   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
    * 
    * @param tmpReq - ListMachineNetworkInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13029,7 +13682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用HPNZone和机型查询机型网络配置
+   * Query machine network configuration using HPNZone and machine type
+   * 
+   * @remarks
+   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
    * 
    * @param request - ListMachineNetworkInfoRequest
    * @returns ListMachineNetworkInfoResponse
@@ -13087,7 +13743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网络测试列表
+   * Network Test List
+   * 
+   * @remarks
+   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
    * 
    * @param request - ListNetTestResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13135,7 +13794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网络测试列表
+   * Network Test List
+   * 
+   * @remarks
+   * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
    * 
    * @param request - ListNetTestResultsRequest
    * @returns ListNetTestResultsResponse
@@ -13268,7 +13930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可以使用的集群类型
+   * Query the cluster types available to the user
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
    * 
    * @param request - ListUserClusterTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13296,7 +13961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可以使用的集群类型
+   * Query the cluster types available to the user
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
    * @returns ListUserClusterTypesResponse
    */
   async listUserClusterTypes(): Promise<ListUserClusterTypesResponse> {
