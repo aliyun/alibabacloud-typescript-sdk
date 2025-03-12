@@ -10,6 +10,32 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
+export class CreateCollectionRequestSparseVectorIndexConfig extends $dara.Model {
+  hnswEfConstruction?: number;
+  hnswM?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hnswEfConstruction: 'HnswEfConstruction',
+      hnswM: 'HnswM',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hnswEfConstruction: 'number',
+      hnswM: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequestAINodeSpecInfos extends $dara.Model {
   AINodeNum?: string;
   AINodeSpec?: string;
@@ -1362,6 +1388,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 18:00Z
    */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The specifications of AI coordinator node resources of the instance. If the coordinator nodes of the instance are not AI nodes, null is returned.
+   * 
+   * @example
+   * ADB.AIMedium.2
+   */
   masterAISpec?: string;
   /**
    * @remarks
@@ -1512,6 +1545,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 4
    */
   segNodeNum?: number;
+  /**
+   * @remarks
+   * The specifications of AI compute node resources of the instance. If the compute nodes of the instance are not AI nodes, null is returned.
+   * 
+   * @example
+   * ADB.AIMedium.2
+   */
   segmentAISpec?: string;
   /**
    * @remarks
@@ -7127,6 +7167,32 @@ export class DescribeWaitingSQLRecordsResponseBodyItems extends $dara.Model {
   }
 }
 
+export class ExecuteStatementRequestRagWorkspaceCollection extends $dara.Model {
+  collection?: string;
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      namespace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecuteStatementResponseBodyDataColumnMetadata extends $dara.Model {
   columnMetadata?: ColumnMetadata[];
   static names(): { [key: string]: string } {
@@ -9702,6 +9768,38 @@ export class QueryCollectionDataRequestRelationalTableFilter extends $dara.Model
   }
 }
 
+export class QueryCollectionDataRequestSparseVector extends $dara.Model {
+  indices?: number[];
+  values?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: { 'type': 'array', 'itemType': 'number' },
+      values: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCollectionDataResponseBodyMatchesMatchValues extends $dara.Model {
   value?: number[];
   static names(): { [key: string]: string } {
@@ -10441,9 +10539,42 @@ export class UpsertChunksRequestTextChunks extends $dara.Model {
   }
 }
 
+export class UpsertCollectionDataRequestRowsSparseVector extends $dara.Model {
+  indices?: number[];
+  values?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: { 'type': 'array', 'itemType': 'number' },
+      values: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpsertCollectionDataRequestRows extends $dara.Model {
   id?: string;
   metadata?: { [key: string]: string };
+  sparseVector?: UpsertCollectionDataRequestRowsSparseVector;
   /**
    * @remarks
    * This parameter is required.
@@ -10453,6 +10584,7 @@ export class UpsertCollectionDataRequestRows extends $dara.Model {
     return {
       id: 'Id',
       metadata: 'Metadata',
+      sparseVector: 'SparseVector',
       vector: 'Vector',
     };
   }
@@ -10461,6 +10593,7 @@ export class UpsertCollectionDataRequestRows extends $dara.Model {
     return {
       id: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sparseVector: UpsertCollectionDataRequestRowsSparseVector,
       vector: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -10468,6 +10601,9 @@ export class UpsertCollectionDataRequestRows extends $dara.Model {
   validate() {
     if(this.metadata) {
       $dara.Model.validateMap(this.metadata);
+    }
+    if(this.sparseVector && typeof (this.sparseVector as any).validate === 'function') {
+      (this.sparseVector as any).validate();
     }
     if(Array.isArray(this.vector)) {
       $dara.Model.validateArray(this.vector);
@@ -12644,6 +12780,8 @@ export class CreateCollectionRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sparseVectorIndexConfig?: CreateCollectionRequestSparseVectorIndexConfig;
+  supportSparse?: boolean;
   /**
    * @remarks
    * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
@@ -12671,6 +12809,8 @@ export class CreateCollectionRequest extends $dara.Model {
       parser: 'Parser',
       pqEnable: 'PqEnable',
       regionId: 'RegionId',
+      sparseVectorIndexConfig: 'SparseVectorIndexConfig',
+      supportSparse: 'SupportSparse',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -12694,6 +12834,256 @@ export class CreateCollectionRequest extends $dara.Model {
       parser: 'string',
       pqEnable: 'number',
       regionId: 'string',
+      sparseVectorIndexConfig: CreateCollectionRequestSparseVectorIndexConfig,
+      supportSparse: 'boolean',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.sparseVectorIndexConfig && typeof (this.sparseVectorIndexConfig as any).validate === 'function') {
+      (this.sparseVectorIndexConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCollectionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the collection that you want to create.
+   * 
+   * >  The name must comply with the naming conventions of PostgreSQL objects.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * document
+   */
+  collection?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The number of vector dimensions.
+   * 
+   * >  If you specify this parameter, an index is created. When you call the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) operation, make sure that the length of the Rows.Vector parameter is the same as the value of this parameter. If you do not specify this parameter, you can call the [CreateVectorIndex](https://help.aliyun.com/document_detail/2401499.html) operation to create an index.
+   * 
+   * @example
+   * 1024
+   */
+  dimension?: number;
+  /**
+   * @remarks
+   * Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+   * 
+   * > 
+   * 
+   * *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
+   * 
+   * *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+   * 
+   * @example
+   * 0
+   */
+  externalStorage?: number;
+  /**
+   * @remarks
+   * The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
+   * 
+   * @example
+   * title,content
+   */
+  fullTextRetrievalFields?: string;
+  hnswEfConstruction?: string;
+  /**
+   * @remarks
+   * The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+   * 
+   * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
+   * 
+   * *If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
+   * 
+   * *If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
+   * 
+   * *If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
+   * 
+   * *If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+   * 
+   * @example
+   * 64
+   */
+  hnswM?: number;
+  /**
+   * @remarks
+   * Name of the management account with rds_superuser permissions.
+   * 
+   * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testaccount
+   */
+  managerAccount?: string;
+  /**
+   * @remarks
+   * The password of the manager account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  managerAccountPassword?: string;
+  /**
+   * @remarks
+   * The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
+   * 
+   * >  Supported data types:
+   * 
+   * *   For information about the supported data types, see [Data types](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
+   * 
+   * *   The money data type is not supported.
+   * 
+   * **
+   * 
+   * **Warning** Reserved fields such as id, vector, to_tsvector, and source cannot be used.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"title":"text","content":"text","response":"int"}
+   */
+  metadata?: string;
+  /**
+   * @remarks
+   * The scalar index fields. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
+   * 
+   * @example
+   * title
+   */
+  metadataIndices?: string;
+  /**
+   * @remarks
+   * The method that is used to create vector indexes. Valid values:
+   * 
+   * *   l2: Euclidean distance.
+   * *   ip: inner product distance.
+   * *   cosine: cosine similarity.
+   * 
+   * @example
+   * cosine
+   */
+  metrics?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The analyzer that is used for full-text search.
+   * 
+   * @example
+   * zh_cn
+   */
+  parser?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+   * 
+   * *   0: no.
+   * *   1 (default): yes.
+   * 
+   * @example
+   * 0
+   */
+  pqEnable?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  sparseVectorIndexConfigShrink?: string;
+  supportSparse?: boolean;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      dimension: 'Dimension',
+      externalStorage: 'ExternalStorage',
+      fullTextRetrievalFields: 'FullTextRetrievalFields',
+      hnswEfConstruction: 'HnswEfConstruction',
+      hnswM: 'HnswM',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      metadata: 'Metadata',
+      metadataIndices: 'MetadataIndices',
+      metrics: 'Metrics',
+      namespace: 'Namespace',
+      ownerId: 'OwnerId',
+      parser: 'Parser',
+      pqEnable: 'PqEnable',
+      regionId: 'RegionId',
+      sparseVectorIndexConfigShrink: 'SparseVectorIndexConfig',
+      supportSparse: 'SupportSparse',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      dimension: 'number',
+      externalStorage: 'number',
+      fullTextRetrievalFields: 'string',
+      hnswEfConstruction: 'string',
+      hnswM: 'number',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      metadata: 'string',
+      metadataIndices: 'string',
+      metrics: 'string',
+      namespace: 'string',
+      ownerId: 'number',
+      parser: 'string',
+      pqEnable: 'number',
+      regionId: 'string',
+      sparseVectorIndexConfigShrink: 'string',
+      supportSparse: 'boolean',
       workspaceId: 'string',
     };
   }
@@ -12901,9 +13291,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
   deployMode?: string;
   /**
    * @remarks
-   * Indicates whether to enable SSL encryption. The values are as follows:
-   * - **true**: Enable SSL encryption.
-   * - **false** (default): Do not enable SSL encryption.
+   * Specifies whether to enable SSL encryption. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
    * 
    * @example
    * false
@@ -13000,6 +13391,18 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 2C16G
    */
   instanceSpec?: string;
+  /**
+   * @remarks
+   * This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+   * 
+   * >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
+   * >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
+   * >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
+   * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+   * 
+   * @example
+   * ADB.AIMedium.2
+   */
   masterAISpec?: string;
   /**
    * @remarks
@@ -13026,13 +13429,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Billing type. The values are as follows:
+   * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: Pay-as-you-go
-   * - **Prepaid**: Subscription
+   * *   **Postpaid**: pay-as-you-go.
+   * *   **Prepaid**: subscription.
    * 
-   * > - If not specified, it will default to pay-as-you-go.
-   * > - When using the subscription billing model, there may be discounts for purchasing one year or longer at once. It is recommended to choose the billing type according to your needs.
+   * > 
+   * 
+   * *   If you do not specify this parameter, Postpaid is used.
+   * 
+   * *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
    * 
    * @example
    * Prepaid
@@ -13092,9 +13498,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * IP whitelist.
+   * The IP address whitelist of the instance.
    * 
-   * 127.0.0.1 indicates that no external IP addresses are allowed to access. You can modify the IP whitelist by calling the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) interface after the instance is created.
+   * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
    * 
    * @example
    * 127.0.0.1
@@ -13102,14 +13508,17 @@ export class CreateDBInstanceRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * ESSD cloud disk performance level. The values are as follows:
+   * The performance level of ESSDs. Valid values:
    * 
-   * - **pl0**: PL0 level.
-   * - **pl1**: PL1 level.
-   * - **pl2**: PL2 level.
+   * *   **pl0**
+   * *   **pl1**
+   * *   **pl2**
    * 
-   * > - This parameter is effective only if the disk storage type is ESSD cloud disk.
-   * > - If not specified, it defaults to PL1 level.
+   * > 
+   * 
+   * *   This parameter takes effect only when SegStorageType is set to cloud_essd.
+   * 
+   * *   If you do not specify this parameter, pl1 is used.
    * 
    * @example
    * pl1
@@ -15582,7 +15991,7 @@ export class CreateSampleDataRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2361776.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
    * 
    * This parameter is required.
    * 
@@ -15719,8 +16128,6 @@ export class CreateSecretRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -15780,6 +16187,7 @@ export class CreateSecretRequest extends $dara.Model {
    * testacc
    */
   username?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -15790,6 +16198,7 @@ export class CreateSecretRequest extends $dara.Model {
       secretName: 'SecretName',
       testConnection: 'TestConnection',
       username: 'Username',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -15803,6 +16212,7 @@ export class CreateSecretRequest extends $dara.Model {
       secretName: 'string',
       testConnection: 'boolean',
       username: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -17200,8 +17610,6 @@ export class CreateVectorIndexRequest extends $dara.Model {
    * Vector dimension.
    * > This value must be consistent with the length of the vector data (Rows. Vector) uploaded via the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) API.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1024
    */
@@ -17297,6 +17705,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
@@ -17312,6 +17721,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
       ownerId: 'OwnerId',
       pqEnable: 'PqEnable',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -17330,6 +17740,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
       ownerId: 'number',
       pqEnable: 'number',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -19763,8 +20174,6 @@ export class DeleteSecretRequest extends $dara.Model {
    * 
    * >
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -19800,6 +20209,7 @@ export class DeleteSecretRequest extends $dara.Model {
    * testsecret
    */
   secretName?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -19807,6 +20217,7 @@ export class DeleteSecretRequest extends $dara.Model {
       regionId: 'RegionId',
       secretArn: 'SecretArn',
       secretName: 'SecretName',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -19817,6 +20228,7 @@ export class DeleteSecretRequest extends $dara.Model {
       regionId: 'string',
       secretArn: 'string',
       secretName: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -20368,6 +20780,7 @@ export class DeleteVectorIndexRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
@@ -20377,6 +20790,7 @@ export class DeleteVectorIndexRequest extends $dara.Model {
       namespace: 'Namespace',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
@@ -20389,6 +20803,7 @@ export class DeleteVectorIndexRequest extends $dara.Model {
       namespace: 'string',
       ownerId: 'number',
       regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -21451,6 +21866,7 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  sparseVectorMetrics?: string;
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
@@ -21462,6 +21878,7 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * success
    */
   status?: string;
+  supportSparse?: boolean;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -21474,7 +21891,9 @@ export class DescribeCollectionResponseBody extends $dara.Model {
       parser: 'Parser',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      sparseVectorMetrics: 'SparseVectorMetrics',
       status: 'Status',
+      supportSparse: 'SupportSparse',
     };
   }
 
@@ -21490,7 +21909,9 @@ export class DescribeCollectionResponseBody extends $dara.Model {
       parser: 'string',
       regionId: 'string',
       requestId: 'string',
+      sparseVectorMetrics: 'string',
       status: 'string',
+      supportSparse: 'boolean',
     };
   }
 
@@ -27502,7 +27923,7 @@ export class DescribeHadoopDataSourceRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2361846.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -27604,7 +28025,7 @@ export class DescribeHadoopDataSourceResponseBody extends $dara.Model {
   emrInstanceId?: string;
   /**
    * @remarks
-   * The Id of External Data Service
+   * The ID of the external data service.
    * 
    * @example
    * 2988
@@ -27663,7 +28084,7 @@ export class DescribeHadoopDataSourceResponseBody extends $dara.Model {
   mapReduceConf?: string;
   /**
    * @remarks
-   * The time when the service was last modified.
+   * The time when the data source was last modified.
    * 
    * @example
    * 2024-08-23T02:11:47Z
@@ -31810,8 +32231,6 @@ export class DescribeTableRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -31869,6 +32288,7 @@ export class DescribeTableRequest extends $dara.Model {
    * mytable
    */
   table?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -31878,6 +32298,7 @@ export class DescribeTableRequest extends $dara.Model {
       schema: 'Schema',
       secretArn: 'SecretArn',
       table: 'Table',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31890,6 +32311,7 @@ export class DescribeTableRequest extends $dara.Model {
       schema: 'string',
       secretArn: 'string',
       table: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -33346,8 +33768,6 @@ export class ExecuteStatementRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -33368,6 +33788,7 @@ export class ExecuteStatementRequest extends $dara.Model {
    * The configuration parameters.
    */
   parameters?: any[];
+  ragWorkspaceCollection?: ExecuteStatementRequestRagWorkspaceCollection;
   /**
    * @remarks
    * The region ID of the instance.
@@ -33422,18 +33843,21 @@ export class ExecuteStatementRequest extends $dara.Model {
    * test
    */
   statementName?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       database: 'Database',
       ownerId: 'OwnerId',
       parameters: 'Parameters',
+      ragWorkspaceCollection: 'RagWorkspaceCollection',
       regionId: 'RegionId',
       runType: 'RunType',
       secretArn: 'SecretArn',
       sql: 'Sql',
       sqls: 'Sqls',
       statementName: 'StatementName',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -33443,18 +33867,23 @@ export class ExecuteStatementRequest extends $dara.Model {
       database: 'string',
       ownerId: 'number',
       parameters: { 'type': 'array', 'itemType': 'any' },
+      ragWorkspaceCollection: ExecuteStatementRequestRagWorkspaceCollection,
       regionId: 'string',
       runType: 'string',
       secretArn: 'string',
       sql: 'string',
       sqls: { 'type': 'array', 'itemType': 'string' },
       statementName: 'string',
+      workspaceId: 'string',
     };
   }
 
   validate() {
     if(Array.isArray(this.parameters)) {
       $dara.Model.validateArray(this.parameters);
+    }
+    if(this.ragWorkspaceCollection && typeof (this.ragWorkspaceCollection as any).validate === 'function') {
+      (this.ragWorkspaceCollection as any).validate();
     }
     if(Array.isArray(this.sqls)) {
       $dara.Model.validateArray(this.sqls);
@@ -33473,8 +33902,6 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
    * The instance ID.
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-   * 
-   * This parameter is required.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -33496,6 +33923,7 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
    * The configuration parameters.
    */
   parametersShrink?: string;
+  ragWorkspaceCollectionShrink?: string;
   /**
    * @remarks
    * The region ID of the instance.
@@ -33550,18 +33978,21 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
    * test
    */
   statementName?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       database: 'Database',
       ownerId: 'OwnerId',
       parametersShrink: 'Parameters',
+      ragWorkspaceCollectionShrink: 'RagWorkspaceCollection',
       regionId: 'RegionId',
       runType: 'RunType',
       secretArn: 'SecretArn',
       sql: 'Sql',
       sqlsShrink: 'Sqls',
       statementName: 'StatementName',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -33571,12 +34002,14 @@ export class ExecuteStatementShrinkRequest extends $dara.Model {
       database: 'string',
       ownerId: 'number',
       parametersShrink: 'string',
+      ragWorkspaceCollectionShrink: 'string',
       regionId: 'string',
       runType: 'string',
       secretArn: 'string',
       sql: 'string',
       sqlsShrink: 'string',
       statementName: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -33922,8 +34355,6 @@ export class GetSecretValueRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -33959,6 +34390,7 @@ export class GetSecretValueRequest extends $dara.Model {
    * testsecret
    */
   secretName?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -33966,6 +34398,7 @@ export class GetSecretValueRequest extends $dara.Model {
       regionId: 'RegionId',
       secretArn: 'SecretArn',
       secretName: 'SecretName',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -33976,6 +34409,7 @@ export class GetSecretValueRequest extends $dara.Model {
       regionId: 'string',
       secretArn: 'string',
       secretName: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -37480,8 +37914,6 @@ export class ListSecretsRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -37497,11 +37929,13 @@ export class ListSecretsRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -37510,6 +37944,7 @@ export class ListSecretsRequest extends $dara.Model {
       DBInstanceId: 'string',
       ownerId: 'number',
       regionId: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -40809,6 +41244,17 @@ export class ModifyMasterSpecRequest extends $dara.Model {
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+   * >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
+   * >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
+   * >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
+   * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+   * 
+   * @example
+   * ADB.AIMedium.2
+   */
   masterAISpec?: string;
   /**
    * @remarks
@@ -43141,6 +43587,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
    * > Data from the relational table can be returned by setting the `IncludeMetadataFields` parameter. For example, `rds_table_name.id` indicates returning the `id` field from the relational table.
    */
   relationalTableFilter?: QueryCollectionDataRequestRelationalTableFilter;
+  sparseVector?: QueryCollectionDataRequestSparseVector;
   /**
    * @remarks
    * Set the number of top results to return.
@@ -43183,6 +43630,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       relationalTableFilter: 'RelationalTableFilter',
+      sparseVector: 'SparseVector',
       topK: 'TopK',
       vector: 'Vector',
       workspaceId: 'WorkspaceId',
@@ -43207,6 +43655,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       relationalTableFilter: QueryCollectionDataRequestRelationalTableFilter,
+      sparseVector: QueryCollectionDataRequestSparseVector,
       topK: 'number',
       vector: { 'type': 'array', 'itemType': 'number' },
       workspaceId: 'string',
@@ -43219,6 +43668,9 @@ export class QueryCollectionDataRequest extends $dara.Model {
     }
     if(this.relationalTableFilter && typeof (this.relationalTableFilter as any).validate === 'function') {
       (this.relationalTableFilter as any).validate();
+    }
+    if(this.sparseVector && typeof (this.sparseVector as any).validate === 'function') {
+      (this.sparseVector as any).validate();
     }
     if(Array.isArray(this.vector)) {
       $dara.Model.validateArray(this.vector);
@@ -43409,6 +43861,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    * > Data from the relational table can be returned by setting the `IncludeMetadataFields` parameter. For example, `rds_table_name.id` indicates returning the `id` field from the relational table.
    */
   relationalTableFilterShrink?: string;
+  sparseVectorShrink?: string;
   /**
    * @remarks
    * Set the number of top results to return.
@@ -43451,6 +43904,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       relationalTableFilterShrink: 'RelationalTableFilter',
+      sparseVectorShrink: 'SparseVector',
       topK: 'TopK',
       vectorShrink: 'Vector',
       workspaceId: 'WorkspaceId',
@@ -43475,6 +43929,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       relationalTableFilterShrink: 'string',
+      sparseVectorShrink: 'string',
       topK: 'number',
       vectorShrink: 'string',
       workspaceId: 'string',
@@ -46109,7 +46564,7 @@ export class SwitchDBInstanceNetTypeRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2361776.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -50739,12 +51194,18 @@ export default class Client extends OpenApi {
   /**
    * Creates a vector collection.
    * 
-   * @param request - CreateCollectionRequest
+   * @param tmpReq - CreateCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCollectionResponse
    */
-  async createCollectionWithOptions(request: CreateCollectionRequest, runtime: $dara.RuntimeOptions): Promise<CreateCollectionResponse> {
-    request.validate();
+  async createCollectionWithOptions(tmpReq: CreateCollectionRequest, runtime: $dara.RuntimeOptions): Promise<CreateCollectionResponse> {
+    tmpReq.validate();
+    let request = new CreateCollectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sparseVectorIndexConfig)) {
+      request.sparseVectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sparseVectorIndexConfig, "SparseVectorIndexConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
@@ -50812,6 +51273,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sparseVectorIndexConfigShrink)) {
+      query["SparseVectorIndexConfig"] = request.sparseVectorIndexConfigShrink;
+    }
+
+    if (!$dara.isNull(request.supportSparse)) {
+      query["SupportSparse"] = request.supportSparse;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -51880,8 +52349,9 @@ export default class Client extends OpenApi {
    * Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to use or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
-   * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 and V6.3.10.3 or later, excluding the versions from V6.3.9.0 to V6.3.10.2.
+   *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+   * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
+   * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
    * 
    * @param request - CreateSampleDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51924,8 +52394,9 @@ export default class Client extends OpenApi {
    * Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to use or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
-   * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 and V6.3.10.3 or later, excluding the versions from V6.3.9.0 to V6.3.10.2.
+   *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+   * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
+   * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
    * 
    * @param request - CreateSampleDataRequest
    * @returns CreateSampleDataResponse
@@ -51975,6 +52446,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -52404,6 +52879,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -53475,6 +53954,10 @@ export default class Client extends OpenApi {
       query["SecretName"] = request.secretName;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -53709,6 +54192,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -54344,7 +54831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query detailed information about the instance
+   * Query detailed information about the instance.
    * 
    * @remarks
    * ## Usage Instructions
@@ -54395,7 +54882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query detailed information about the instance
+   * Query detailed information about the instance.
    * 
    * @remarks
    * ## Usage Instructions
@@ -57828,6 +58315,10 @@ export default class Client extends OpenApi {
       query["Table"] = request.table;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -58476,6 +58967,10 @@ export default class Client extends OpenApi {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.ragWorkspaceCollection)) {
+      request.ragWorkspaceCollectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ragWorkspaceCollection, "RagWorkspaceCollection", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sqls)) {
       request.sqlsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sqls, "Sqls", "json");
     }
@@ -58493,6 +58988,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.ragWorkspaceCollectionShrink)) {
+      query["RagWorkspaceCollection"] = request.ragWorkspaceCollectionShrink;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -58507,6 +59006,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.statementName)) {
       query["StatementName"] = request.statementName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -58635,6 +59138,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.secretName)) {
       query["SecretName"] = request.secretName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -59906,6 +60413,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -62077,6 +62588,10 @@ export default class Client extends OpenApi {
       request.relationalTableFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationalTableFilter, "RelationalTableFilter", "json");
     }
 
+    if (!$dara.isNull(tmpReq.sparseVector)) {
+      request.sparseVectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sparseVector, "SparseVector", "json");
+    }
+
     if (!$dara.isNull(tmpReq.vector)) {
       request.vectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vector, "Vector", "json");
     }
@@ -62144,6 +62659,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.relationalTableFilterShrink)) {
       query["RelationalTableFilter"] = request.relationalTableFilterShrink;
+    }
+
+    if (!$dara.isNull(request.sparseVectorShrink)) {
+      query["SparseVector"] = request.sparseVectorShrink;
     }
 
     if (!$dara.isNull(request.topK)) {
