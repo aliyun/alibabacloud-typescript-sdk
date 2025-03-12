@@ -2568,6 +2568,29 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway exte
   }
 }
 
+export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline extends $dara.Model {
+  polyline?: string;
+  static names(): { [key: string]: string } {
+    return {
+      polyline: 'polyline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      polyline: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends $dara.Model {
   /**
    * @example
@@ -2596,6 +2619,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
    * 116.476597,39.893420
    */
   originPoint?: string;
+  polyline?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline;
   /**
    * @example
    * 13.5
@@ -2610,6 +2634,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
       index: 'index',
       originName: 'originName',
       originPoint: 'originPoint',
+      polyline: 'polyline',
       price: 'price',
     };
   }
@@ -2623,11 +2648,15 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
       index: 'string',
       originName: 'string',
       originPoint: 'string',
+      polyline: TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxiPolyline,
       price: 'string',
     };
   }
 
   validate() {
+    if(this.polyline && typeof (this.polyline as any).validate === 'function') {
+      (this.polyline as any).validate();
+    }
     super.validate();
   }
 
@@ -3420,16 +3449,10 @@ export class BicyclingDirectionNovaRequest extends $dara.Model {
 export class BicyclingDirectionNovaResponseBody extends $dara.Model {
   data?: BicyclingDirectionNovaResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -3437,7 +3460,6 @@ export class BicyclingDirectionNovaResponseBody extends $dara.Model {
     return {
       data: BicyclingDirectionNovaResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -3728,16 +3750,10 @@ export class DrivingDirectionNovaRequest extends $dara.Model {
 export class DrivingDirectionNovaResponseBody extends $dara.Model {
   data?: DrivingDirectionNovaResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -3745,7 +3761,6 @@ export class DrivingDirectionNovaResponseBody extends $dara.Model {
     return {
       data: DrivingDirectionNovaResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -3850,16 +3865,10 @@ export class ElectrobikeDirectionNovaRequest extends $dara.Model {
 export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
   data?: ElectrobikeDirectionNovaResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -3867,7 +3876,6 @@ export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
     return {
       data: ElectrobikeDirectionNovaResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -3947,16 +3955,10 @@ export class GeoCodeRequest extends $dara.Model {
 export class GeoCodeResponseBody extends $dara.Model {
   data?: GeoCodeResponseBodyData[];
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -3964,7 +3966,6 @@ export class GeoCodeResponseBody extends $dara.Model {
     return {
       data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -4089,16 +4090,10 @@ export class NearbySearchNovaRequest extends $dara.Model {
 export class NearbySearchNovaResponseBody extends $dara.Model {
   data?: NearbySearchNovaResponseBodyData[];
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -4106,7 +4101,6 @@ export class NearbySearchNovaResponseBody extends $dara.Model {
     return {
       data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -4210,16 +4204,10 @@ export class PlaceSearchNovaRequest extends $dara.Model {
 export class PlaceSearchNovaResponseBody extends $dara.Model {
   data?: PlaceSearchNovaResponseBodyData[];
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -4227,7 +4215,6 @@ export class PlaceSearchNovaResponseBody extends $dara.Model {
     return {
       data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -4789,16 +4776,10 @@ export class RgeoCodeRequest extends $dara.Model {
 export class RgeoCodeResponseBody extends $dara.Model {
   data?: RgeoCodeResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -4806,7 +4787,6 @@ export class RgeoCodeResponseBody extends $dara.Model {
     return {
       data: RgeoCodeResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -4917,16 +4897,10 @@ export class TransitIntegratedDirectionRequest extends $dara.Model {
 export class TransitIntegratedDirectionResponseBody extends $dara.Model {
   data?: TransitIntegratedDirectionResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -4934,7 +4908,6 @@ export class TransitIntegratedDirectionResponseBody extends $dara.Model {
     return {
       data: TransitIntegratedDirectionResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
@@ -5039,16 +5012,10 @@ export class WalkingDirectionNovaRequest extends $dara.Model {
 export class WalkingDirectionNovaResponseBody extends $dara.Model {
   data?: WalkingDirectionNovaResponseBodyData;
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -5056,7 +5023,6 @@ export class WalkingDirectionNovaResponseBody extends $dara.Model {
     return {
       data: WalkingDirectionNovaResponseBodyData,
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
