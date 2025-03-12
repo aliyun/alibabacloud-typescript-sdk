@@ -4155,6 +4155,7 @@ export class Sku extends $dara.Model {
    * 21000017
    */
   shopId?: string;
+  skuAlias?: string;
   /**
    * @example
    * 660460842235822081
@@ -4192,6 +4193,7 @@ export class Sku extends $dara.Model {
       quantity: 'quantity',
       rankValue: 'rankValue',
       shopId: 'shopId',
+      skuAlias: 'skuAlias',
       skuId: 'skuId',
       skuSpecs: 'skuSpecs',
       skuSpecsCode: 'skuSpecsCode',
@@ -4216,6 +4218,7 @@ export class Sku extends $dara.Model {
       quantity: 'number',
       rankValue: 'number',
       shopId: 'string',
+      skuAlias: 'string',
       skuId: 'string',
       skuSpecs: { 'type': 'array', 'itemType': SkuSpec },
       skuSpecsCode: 'string',
@@ -5879,11 +5882,17 @@ export class SearchProductsRequest extends $dara.Model {
    */
   orderDirection?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 10
    */
@@ -5905,6 +5914,9 @@ export class SearchProductsRequest extends $dara.Model {
    */
   productStatus?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * PIDxxxx
    */
@@ -6070,8 +6082,15 @@ export class SearchProductsResponse extends $dara.Model {
 }
 
 export class SelectionGroupAddProductRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   productIds?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * PIDxxxxx
    */
@@ -6164,8 +6183,15 @@ export class SelectionGroupAddProductResponse extends $dara.Model {
 }
 
 export class SelectionGroupRemoveProductRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   productIds?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * PIDxxxxx
    */
