@@ -27694,6 +27694,7 @@ export class BatchCreateDataLakePartitionsRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -27704,6 +27705,7 @@ export class BatchCreateDataLakePartitionsRequest extends $dara.Model {
       partitionInputs: 'PartitionInputs',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -27717,6 +27719,7 @@ export class BatchCreateDataLakePartitionsRequest extends $dara.Model {
       partitionInputs: { 'type': 'array', 'itemType': DLPartitionInput },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -27785,6 +27788,7 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -27795,6 +27799,7 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
       partitionInputsShrink: 'PartitionInputs',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -27808,6 +27813,7 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
       partitionInputsShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -27957,6 +27963,7 @@ export class BatchDeleteDataLakePartitionsRequest extends $dara.Model {
    * 3****
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -27966,6 +27973,7 @@ export class BatchDeleteDataLakePartitionsRequest extends $dara.Model {
       partitionValuesList: 'PartitionValuesList',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -27978,6 +27986,7 @@ export class BatchDeleteDataLakePartitionsRequest extends $dara.Model {
       partitionValuesList: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -28125,6 +28134,7 @@ export class BatchUpdateDataLakePartitionsRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -28133,6 +28143,7 @@ export class BatchUpdateDataLakePartitionsRequest extends $dara.Model {
       partitionInputs: 'PartitionInputs',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -28144,6 +28155,7 @@ export class BatchUpdateDataLakePartitionsRequest extends $dara.Model {
       partitionInputs: { 'type': 'array', 'itemType': DLPartitionInput },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -28202,6 +28214,7 @@ export class BatchUpdateDataLakePartitionsShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -28210,6 +28223,7 @@ export class BatchUpdateDataLakePartitionsShrinkRequest extends $dara.Model {
       partitionInputsShrink: 'PartitionInputs',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -28221,6 +28235,7 @@ export class BatchUpdateDataLakePartitionsShrinkRequest extends $dara.Model {
       partitionInputsShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31059,6 +31074,7 @@ export class CreateDataLakeDatabaseRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31068,6 +31084,7 @@ export class CreateDataLakeDatabaseRequest extends $dara.Model {
       location: 'Location',
       parameters: 'Parameters',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31080,6 +31097,7 @@ export class CreateDataLakeDatabaseRequest extends $dara.Model {
       location: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31139,6 +31157,7 @@ export class CreateDataLakeDatabaseShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31148,6 +31167,7 @@ export class CreateDataLakeDatabaseShrinkRequest extends $dara.Model {
       location: 'Location',
       parametersShrink: 'Parameters',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31160,6 +31180,7 @@ export class CreateDataLakeDatabaseShrinkRequest extends $dara.Model {
       location: 'string',
       parametersShrink: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31542,6 +31563,7 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31552,6 +31574,7 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
       partitionInput: 'PartitionInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31565,6 +31588,7 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
       partitionInput: DLPartitionInput,
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31633,6 +31657,7 @@ export class CreateDataLakePartitionShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31643,6 +31668,7 @@ export class CreateDataLakePartitionShrinkRequest extends $dara.Model {
       partitionInputShrink: 'PartitionInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31656,6 +31682,7 @@ export class CreateDataLakePartitionShrinkRequest extends $dara.Model {
       partitionInputShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31788,6 +31815,7 @@ export class CreateDataLakeTableRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31795,6 +31823,7 @@ export class CreateDataLakeTableRequest extends $dara.Model {
       dbName: 'DbName',
       tableInput: 'TableInput',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31805,6 +31834,7 @@ export class CreateDataLakeTableRequest extends $dara.Model {
       dbName: 'string',
       tableInput: OpenStructDLTableInput,
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -31855,6 +31885,7 @@ export class CreateDataLakeTableShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -31862,6 +31893,7 @@ export class CreateDataLakeTableShrinkRequest extends $dara.Model {
       dbName: 'DbName',
       tableInputShrink: 'TableInput',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -31872,6 +31904,7 @@ export class CreateDataLakeTableShrinkRequest extends $dara.Model {
       dbName: 'string',
       tableInputShrink: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -36562,12 +36595,14 @@ export class DeleteDataLakeDatabaseRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
       dataRegion: 'DataRegion',
       dbName: 'DbName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -36577,6 +36612,7 @@ export class DeleteDataLakeDatabaseRequest extends $dara.Model {
       dataRegion: 'string',
       dbName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -36877,6 +36913,7 @@ export class DeleteDataLakePartitionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -36886,6 +36923,7 @@ export class DeleteDataLakePartitionRequest extends $dara.Model {
       partitionValues: 'PartitionValues',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -36898,6 +36936,7 @@ export class DeleteDataLakePartitionRequest extends $dara.Model {
       partitionValues: { 'type': 'array', 'itemType': 'string' },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -36961,6 +37000,7 @@ export class DeleteDataLakePartitionShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -36970,6 +37010,7 @@ export class DeleteDataLakePartitionShrinkRequest extends $dara.Model {
       partitionValuesShrink: 'PartitionValues',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -36982,6 +37023,7 @@ export class DeleteDataLakePartitionShrinkRequest extends $dara.Model {
       partitionValuesShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -37115,6 +37157,7 @@ export class DeleteDataLakeTableRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -37122,6 +37165,7 @@ export class DeleteDataLakeTableRequest extends $dara.Model {
       dbName: 'DbName',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -37132,6 +37176,7 @@ export class DeleteDataLakeTableRequest extends $dara.Model {
       dbName: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -44097,11 +44142,13 @@ export class GetDataLakeCatalogRequest extends $dara.Model {
    * 3
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
       dataRegion: 'DataRegion',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -44110,6 +44157,7 @@ export class GetDataLakeCatalogRequest extends $dara.Model {
       catalogName: 'string',
       dataRegion: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -44250,12 +44298,14 @@ export class GetDataLakeDatabaseRequest extends $dara.Model {
    * 3
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
       dataRegion: 'DataRegion',
       name: 'Name',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -44265,6 +44315,7 @@ export class GetDataLakeDatabaseRequest extends $dara.Model {
       dataRegion: 'string',
       name: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -44572,6 +44623,7 @@ export class GetDataLakePartitionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -44580,6 +44632,7 @@ export class GetDataLakePartitionRequest extends $dara.Model {
       partitionValues: 'PartitionValues',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -44591,6 +44644,7 @@ export class GetDataLakePartitionRequest extends $dara.Model {
       partitionValues: { 'type': 'array', 'itemType': 'string' },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -44649,6 +44703,7 @@ export class GetDataLakePartitionShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -44657,6 +44712,7 @@ export class GetDataLakePartitionShrinkRequest extends $dara.Model {
       partitionValuesShrink: 'PartitionValues',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -44668,6 +44724,7 @@ export class GetDataLakePartitionShrinkRequest extends $dara.Model {
       partitionValuesShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -44819,6 +44876,7 @@ export class GetDataLakeTableRequest extends $dara.Model {
    * 3
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -44826,6 +44884,7 @@ export class GetDataLakeTableRequest extends $dara.Model {
       dbName: 'DbName',
       name: 'Name',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -44836,6 +44895,7 @@ export class GetDataLakeTableRequest extends $dara.Model {
       dbName: 'string',
       name: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -54726,6 +54786,7 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
    * false
    */
   searchKey?: string;
+  sessionToken?: string;
   /**
    * @example
    * 3
@@ -54735,6 +54796,7 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
     return {
       dataRegion: 'DataRegion',
       searchKey: 'SearchKey',
+      sessionToken: 'SessionToken',
       tid: 'Tid',
     };
   }
@@ -54743,6 +54805,7 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
     return {
       dataRegion: 'string',
       searchKey: 'string',
+      sessionToken: 'string',
       tid: 'number',
     };
   }
@@ -54883,6 +54946,7 @@ export class ListDataLakeDatabaseRequest extends $dara.Model {
    * 3
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -54891,6 +54955,7 @@ export class ListDataLakeDatabaseRequest extends $dara.Model {
       nextToken: 'NextToken',
       searchKey: 'SearchKey',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -54902,6 +54967,7 @@ export class ListDataLakeDatabaseRequest extends $dara.Model {
       nextToken: 'string',
       searchKey: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55054,6 +55120,7 @@ export class ListDataLakeFunctionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55063,6 +55130,7 @@ export class ListDataLakeFunctionRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55075,6 +55143,7 @@ export class ListDataLakeFunctionRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55238,6 +55307,7 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55247,6 +55317,7 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55259,6 +55330,7 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55426,6 +55498,7 @@ export class ListDataLakePartitionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55436,6 +55509,7 @@ export class ListDataLakePartitionRequest extends $dara.Model {
       partNames: 'PartNames',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55449,6 +55523,7 @@ export class ListDataLakePartitionRequest extends $dara.Model {
       partNames: { 'type': 'array', 'itemType': 'string' },
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55516,6 +55591,7 @@ export class ListDataLakePartitionShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55526,6 +55602,7 @@ export class ListDataLakePartitionShrinkRequest extends $dara.Model {
       partNamesShrink: 'PartNames',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55539,6 +55616,7 @@ export class ListDataLakePartitionShrinkRequest extends $dara.Model {
       partNamesShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55713,6 +55791,7 @@ export class ListDataLakePartitionByFilterRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55723,6 +55802,7 @@ export class ListDataLakePartitionByFilterRequest extends $dara.Model {
       nextToken: 'NextToken',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55736,6 +55816,7 @@ export class ListDataLakePartitionByFilterRequest extends $dara.Model {
       nextToken: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -55902,6 +55983,7 @@ export class ListDataLakePartitionNameRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -55911,6 +55993,7 @@ export class ListDataLakePartitionNameRequest extends $dara.Model {
       nextToken: 'NextToken',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -55923,6 +56006,7 @@ export class ListDataLakePartitionNameRequest extends $dara.Model {
       nextToken: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -56091,6 +56175,7 @@ export class ListDataLakeTableRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -56101,6 +56186,7 @@ export class ListDataLakeTableRequest extends $dara.Model {
       tableNamePattern: 'TableNamePattern',
       tableType: 'TableType',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -56114,6 +56200,7 @@ export class ListDataLakeTableRequest extends $dara.Model {
       tableNamePattern: 'string',
       tableType: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -56282,6 +56369,7 @@ export class ListDataLakeTableNameRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -56292,6 +56380,7 @@ export class ListDataLakeTableNameRequest extends $dara.Model {
       tableNamePattern: 'TableNamePattern',
       tableType: 'TableType',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -56305,6 +56394,7 @@ export class ListDataLakeTableNameRequest extends $dara.Model {
       tableNamePattern: 'string',
       tableType: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -56465,6 +56555,7 @@ export class ListDataLakeTablebaseInfoRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -56474,6 +56565,7 @@ export class ListDataLakeTablebaseInfoRequest extends $dara.Model {
       rows: 'Rows',
       searchKey: 'SearchKey',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -56486,6 +56578,7 @@ export class ListDataLakeTablebaseInfoRequest extends $dara.Model {
       rows: 'number',
       searchKey: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -70745,6 +70838,123 @@ export class SyncInstanceMetaResponse extends $dara.Model {
   }
 }
 
+export class TryRunTaskFlowRequest extends $dara.Model {
+  /**
+   * @example
+   * 11****
+   */
+  dagId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dagId: 'DagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dagId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TryRunTaskFlowResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 169****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 9997630E-1993-5E6D-9DF1-4EFEE755FE31
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      instanceId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TryRunTaskFlowResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TryRunTaskFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TryRunTaskFlowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAbacPolicyRequest extends $dara.Model {
   /**
    * @example
@@ -71141,6 +71351,7 @@ export class UpdateDataLakeDatabaseRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71150,6 +71361,7 @@ export class UpdateDataLakeDatabaseRequest extends $dara.Model {
       location: 'Location',
       parameters: 'Parameters',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71162,6 +71374,7 @@ export class UpdateDataLakeDatabaseRequest extends $dara.Model {
       location: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -71221,6 +71434,7 @@ export class UpdateDataLakeDatabaseShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71230,6 +71444,7 @@ export class UpdateDataLakeDatabaseShrinkRequest extends $dara.Model {
       location: 'Location',
       parametersShrink: 'Parameters',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71242,6 +71457,7 @@ export class UpdateDataLakeDatabaseShrinkRequest extends $dara.Model {
       location: 'string',
       parametersShrink: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -71640,6 +71856,7 @@ export class UpdateDataLakePartitionRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71648,6 +71865,7 @@ export class UpdateDataLakePartitionRequest extends $dara.Model {
       partitionInput: 'PartitionInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71659,6 +71877,7 @@ export class UpdateDataLakePartitionRequest extends $dara.Model {
       partitionInput: DLPartitionInput,
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -71717,6 +71936,7 @@ export class UpdateDataLakePartitionShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71725,6 +71945,7 @@ export class UpdateDataLakePartitionShrinkRequest extends $dara.Model {
       partitionInputShrink: 'PartitionInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71736,6 +71957,7 @@ export class UpdateDataLakePartitionShrinkRequest extends $dara.Model {
       partitionInputShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -71867,6 +72089,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71875,6 +72098,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
       tableInput: 'TableInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71886,6 +72110,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
       tableInput: OpenStructDLTableInput,
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -71937,6 +72162,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
    * 3***
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -71945,6 +72171,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
       tableInputShrink: 'TableInput',
       tableName: 'TableName',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -71956,6 +72183,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
       tableInputShrink: 'string',
       tableName: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -76644,6 +76872,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.partitionInputsShrink)) {
       body["PartitionInputs"] = request.partitionInputsShrink;
@@ -76721,6 +76953,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -76788,6 +77024,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -77784,6 +78024,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -77936,6 +78180,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.partitionInputShrink)) {
       body["PartitionInput"] = request.partitionInputShrink;
@@ -78005,6 +78253,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -79776,6 +80028,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -79920,6 +80176,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -79981,6 +80241,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -82472,6 +82736,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -82529,6 +82797,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -82671,6 +82943,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -82732,6 +83008,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -86246,6 +86526,10 @@ export default class Client extends OpenApi {
       query["SearchKey"] = request.searchKey;
     }
 
+    if (!$dara.isNull(request.sessionToken)) {
+      query["SessionToken"] = request.sessionToken;
+    }
+
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
     }
@@ -86315,6 +86599,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -86388,6 +86676,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -86457,6 +86749,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -86536,6 +86832,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.partNamesShrink)) {
       body["PartNames"] = request.partNamesShrink;
@@ -86611,6 +86911,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
@@ -86690,6 +86994,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -86763,6 +87071,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -86840,6 +87152,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -86909,6 +87225,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -91886,6 +92206,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 任务编排试运行
+   * 
+   * @param request - TryRunTaskFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TryRunTaskFlowResponse
+   */
+  async tryRunTaskFlowWithOptions(request: TryRunTaskFlowRequest, runtime: $dara.RuntimeOptions): Promise<TryRunTaskFlowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dagId)) {
+      query["DagId"] = request.dagId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TryRunTaskFlow",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TryRunTaskFlowResponse>(await this.callApi(params, req, runtime), new TryRunTaskFlowResponse({}));
+    } else {
+      return $dara.cast<TryRunTaskFlowResponse>(await this.execute(params, req, runtime), new TryRunTaskFlowResponse({}));
+    }
+
+  }
+
+  /**
+   * 任务编排试运行
+   * 
+   * @param request - TryRunTaskFlowRequest
+   * @returns TryRunTaskFlowResponse
+   */
+  async tryRunTaskFlow(request: TryRunTaskFlowRequest): Promise<TryRunTaskFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tryRunTaskFlowWithOptions(request, runtime);
+  }
+
+  /**
    * 更新权限策略
    * 
    * @param request - UpdateAbacPolicyRequest
@@ -92057,6 +92424,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -92205,6 +92576,10 @@ export default class Client extends OpenApi {
       query["Tid"] = request.tid;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.partitionInputShrink)) {
       body["PartitionInput"] = request.partitionInputShrink;
@@ -92278,6 +92653,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
