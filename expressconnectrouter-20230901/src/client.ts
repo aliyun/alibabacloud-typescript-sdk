@@ -2689,11 +2689,17 @@ export class CreateFlowLogRequest extends $dara.Model {
    */
   flowLogName?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * vbr-xxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * VBR
    */
@@ -2704,11 +2710,17 @@ export class CreateFlowLogRequest extends $dara.Model {
    */
   interval?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * flowlog-logstore
    */
   logStoreName?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * flowlog-project
    */
@@ -2879,17 +2891,32 @@ export class CreateFlowLogResponse extends $dara.Model {
 
 export class DeactivateFlowLogRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 02fb3da4-130e-11e9-8e44-00****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run.
+   * *   **false** (default): performs a dry run and performs the actual request.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The ECR ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2898,6 +2925,8 @@ export class DeactivateFlowLogRequest extends $dara.Model {
   ecrId?: string;
   /**
    * @remarks
+   * The ID of the flow log.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2933,41 +2962,70 @@ export class DeactivateFlowLogRequest extends $dara.Model {
 
 export class DeactivateFlowLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial.
+   * 
    * @example
    * Authentication is failed for ****
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * IllegalParamFormat.EcrId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
+   * 
+   * >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * The param format of EcrId **** is illegal.
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6FABF516-FED3-5697-BDA2-B18C5D9A****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -10112,7 +10170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建流日志
+   * Creates a flow log and enables log delivery.
    * 
    * @param request - CreateFlowLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10190,7 +10248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建流日志
+   * Creates a flow log and enables log delivery.
    * 
    * @param request - CreateFlowLogRequest
    * @returns CreateFlowLogResponse
@@ -10201,7 +10259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止流日志
+   * Disables log delivery.
    * 
    * @param request - DeactivateFlowLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10249,7 +10307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止流日志
+   * Disables log delivery.
    * 
    * @param request - DeactivateFlowLogRequest
    * @returns DeactivateFlowLogResponse
