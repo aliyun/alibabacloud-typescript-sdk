@@ -816,6 +816,10 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResul
    * true
    */
   generateFinished?: boolean;
+  index?: number;
+  modelId?: string;
+  modelReduce?: boolean;
+  reasonText?: string;
   /**
    * @example
    * xxx
@@ -825,6 +829,10 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResul
   static names(): { [key: string]: string } {
     return {
       generateFinished: 'generateFinished',
+      index: 'index',
+      modelId: 'modelId',
+      modelReduce: 'modelReduce',
+      reasonText: 'reasonText',
       text: 'text',
       usage: 'usage',
     };
@@ -833,8 +841,82 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResul
   static types(): { [key: string]: any } {
     return {
       generateFinished: 'boolean',
+      index: 'number',
+      modelId: 'string',
+      modelReduce: 'boolean',
+      reasonText: 'string',
       text: 'string',
       usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultsUsage extends $dara.Model {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults extends $dara.Model {
+  generateFinished?: boolean;
+  index?: number;
+  modelId?: string;
+  reasonText?: string;
+  text?: string;
+  usage?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultsUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      index: 'index',
+      modelId: 'modelId',
+      reasonText: 'reasonText',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      index: 'number',
+      modelId: 'string',
+      reasonText: 'string',
+      text: 'string',
+      usage: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultsUsage,
     };
   }
 
@@ -1100,6 +1182,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
   videoAnalysisResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult;
   videoCaptionResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult;
   videoGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult;
+  videoGenerateResults?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults[];
   videoMindMappingGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult;
   videoTitleGenerateResult?: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult;
   static names(): { [key: string]: string } {
@@ -1108,6 +1191,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
       videoAnalysisResult: 'videoAnalysisResult',
       videoCaptionResult: 'videoCaptionResult',
       videoGenerateResult: 'videoGenerateResult',
+      videoGenerateResults: 'videoGenerateResults',
       videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
       videoTitleGenerateResult: 'videoTitleGenerateResult',
     };
@@ -1119,6 +1203,7 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
       videoAnalysisResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult,
       videoCaptionResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult,
       videoGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResult,
+      videoGenerateResults: { 'type': 'array', 'itemType': GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResults },
       videoMindMappingGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoMindMappingGenerateResult,
       videoTitleGenerateResult: GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoTitleGenerateResult,
     };
@@ -1133,6 +1218,9 @@ export class GetVideoAnalysisTaskResponseBodyDataPayloadOutput extends $dara.Mod
     }
     if(this.videoGenerateResult && typeof (this.videoGenerateResult as any).validate === 'function') {
       (this.videoGenerateResult as any).validate();
+    }
+    if(Array.isArray(this.videoGenerateResults)) {
+      $dara.Model.validateArray(this.videoGenerateResults);
     }
     if(this.videoMindMappingGenerateResult && typeof (this.videoMindMappingGenerateResult as any).validate === 'function') {
       (this.videoMindMappingGenerateResult as any).validate();
@@ -3890,6 +3978,35 @@ export class RunVideoAnalysisRequestFrameSampleMethod extends $dara.Model {
   }
 }
 
+export class RunVideoAnalysisRequestTextProcessTasks extends $dara.Model {
+  modelCustomPromptTemplate?: string;
+  modelCustomPromptTemplateId?: string;
+  modelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
+      modelId: 'modelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelCustomPromptTemplate: 'string',
+      modelCustomPromptTemplateId: 'string',
+      modelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisRequestVideoRoles extends $dara.Model {
   roleInfo?: string;
   roleName?: string;
@@ -4249,19 +4366,23 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult extend
    * true
    */
   generateFinished?: boolean;
+  index?: number;
   /**
    * @example
    * qwen-max
    */
   modelId?: string;
   modelReduce?: boolean;
+  reasonText?: string;
   text?: string;
   usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage;
   static names(): { [key: string]: string } {
     return {
       generateFinished: 'generateFinished',
+      index: 'index',
       modelId: 'modelId',
       modelReduce: 'modelReduce',
+      reasonText: 'reasonText',
       text: 'text',
       usage: 'usage',
     };
@@ -4270,10 +4391,82 @@ export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult extend
   static types(): { [key: string]: any } {
     return {
       generateFinished: 'boolean',
+      index: 'number',
       modelId: 'string',
       modelReduce: 'boolean',
+      reasonText: 'string',
       text: 'string',
       usage: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage,
+    };
+  }
+
+  validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultsUsage extends $dara.Model {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults extends $dara.Model {
+  generateFinished?: boolean;
+  index?: number;
+  modelId?: string;
+  reasonText?: string;
+  text?: string;
+  usage?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultsUsage;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'generateFinished',
+      index: 'index',
+      modelId: 'modelId',
+      reasonText: 'reasonText',
+      text: 'text',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      index: 'number',
+      modelId: 'string',
+      reasonText: 'string',
+      text: 'string',
+      usage: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultsUsage,
     };
   }
 
@@ -4646,6 +4839,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
   videoAnalysisResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult;
   videoCaptionResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult;
   videoGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult;
+  videoGenerateResults?: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults[];
   videoMindMappingGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult;
   videoShotSnapshotResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult;
   videoTitleGenerateResult?: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult;
@@ -4655,6 +4849,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
       videoAnalysisResult: 'videoAnalysisResult',
       videoCaptionResult: 'videoCaptionResult',
       videoGenerateResult: 'videoGenerateResult',
+      videoGenerateResults: 'videoGenerateResults',
       videoMindMappingGenerateResult: 'videoMindMappingGenerateResult',
       videoShotSnapshotResult: 'videoShotSnapshotResult',
       videoTitleGenerateResult: 'videoTitleGenerateResult',
@@ -4667,6 +4862,7 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
       videoAnalysisResult: RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult,
       videoCaptionResult: RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult,
       videoGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult,
+      videoGenerateResults: { 'type': 'array', 'itemType': RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults },
       videoMindMappingGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoMindMappingGenerateResult,
       videoShotSnapshotResult: RunVideoAnalysisResponseBodyPayloadOutputVideoShotSnapshotResult,
       videoTitleGenerateResult: RunVideoAnalysisResponseBodyPayloadOutputVideoTitleGenerateResult,
@@ -4682,6 +4878,9 @@ export class RunVideoAnalysisResponseBodyPayloadOutput extends $dara.Model {
     }
     if(this.videoGenerateResult && typeof (this.videoGenerateResult as any).validate === 'function') {
       (this.videoGenerateResult as any).validate();
+    }
+    if(Array.isArray(this.videoGenerateResults)) {
+      $dara.Model.validateArray(this.videoGenerateResults);
     }
     if(this.videoMindMappingGenerateResult && typeof (this.videoMindMappingGenerateResult as any).validate === 'function') {
       (this.videoMindMappingGenerateResult as any).validate();
@@ -4851,6 +5050,35 @@ export class SubmitVideoAnalysisTaskRequestFrameSampleMethod extends $dara.Model
       interval: 'number',
       methodName: 'string',
       pixel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVideoAnalysisTaskRequestTextProcessTasks extends $dara.Model {
+  modelCustomPromptTemplate?: string;
+  modelCustomPromptTemplateId?: string;
+  modelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelCustomPromptTemplate: 'modelCustomPromptTemplate',
+      modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
+      modelId: 'modelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelCustomPromptTemplate: 'string',
+      modelCustomPromptTemplateId: 'string',
+      modelId: 'string',
     };
   }
 
@@ -7523,6 +7751,7 @@ export class RunTagMiningAnalysisResponse extends $dara.Model {
 }
 
 export class RunVideoAnalysisRequest extends $dara.Model {
+  faceIdentitySimilarityMinScore?: number;
   frameSampleMethod?: RunVideoAnalysisRequestFrameSampleMethod;
   generateOptions?: string[];
   /**
@@ -7552,6 +7781,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
+  textProcessTasks?: RunVideoAnalysisRequestTextProcessTasks[];
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -7560,6 +7790,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
    */
   videoModelId?: string;
   videoRoles?: RunVideoAnalysisRequestVideoRoles[];
+  videoShotFaceIdentityCount?: number;
   /**
    * @example
    * http://xxxx.mp4
@@ -7567,6 +7798,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethod: 'frameSampleMethod',
       generateOptions: 'generateOptions',
       language: 'language',
@@ -7576,16 +7808,19 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       originalSessionId: 'originalSessionId',
       snapshotInterval: 'snapshotInterval',
       taskId: 'taskId',
+      textProcessTasks: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoRoles: 'videoRoles',
+      videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceIdentitySimilarityMinScore: 'number',
       frameSampleMethod: RunVideoAnalysisRequestFrameSampleMethod,
       generateOptions: { 'type': 'array', 'itemType': 'string' },
       language: 'string',
@@ -7595,10 +7830,12 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       originalSessionId: 'string',
       snapshotInterval: 'number',
       taskId: 'string',
+      textProcessTasks: { 'type': 'array', 'itemType': RunVideoAnalysisRequestTextProcessTasks },
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoRoles: { 'type': 'array', 'itemType': RunVideoAnalysisRequestVideoRoles },
+      videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
     };
   }
@@ -7609,6 +7846,9 @@ export class RunVideoAnalysisRequest extends $dara.Model {
     }
     if(Array.isArray(this.generateOptions)) {
       $dara.Model.validateArray(this.generateOptions);
+    }
+    if(Array.isArray(this.textProcessTasks)) {
+      $dara.Model.validateArray(this.textProcessTasks);
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);
@@ -7622,6 +7862,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
 }
 
 export class RunVideoAnalysisShrinkRequest extends $dara.Model {
+  faceIdentitySimilarityMinScore?: number;
   frameSampleMethodShrink?: string;
   generateOptionsShrink?: string;
   /**
@@ -7651,6 +7892,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
+  textProcessTasksShrink?: string;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -7659,6 +7901,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
    */
   videoModelId?: string;
   videoRolesShrink?: string;
+  videoShotFaceIdentityCount?: number;
   /**
    * @example
    * http://xxxx.mp4
@@ -7666,6 +7909,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethodShrink: 'frameSampleMethod',
       generateOptionsShrink: 'generateOptions',
       language: 'language',
@@ -7675,16 +7919,19 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       originalSessionId: 'originalSessionId',
       snapshotInterval: 'snapshotInterval',
       taskId: 'taskId',
+      textProcessTasksShrink: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoRolesShrink: 'videoRoles',
+      videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceIdentitySimilarityMinScore: 'number',
       frameSampleMethodShrink: 'string',
       generateOptionsShrink: 'string',
       language: 'string',
@@ -7694,10 +7941,12 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       originalSessionId: 'string',
       snapshotInterval: 'number',
       taskId: 'string',
+      textProcessTasksShrink: 'string',
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoRolesShrink: 'string',
+      videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
     };
   }
@@ -8027,6 +8276,7 @@ export class SubmitTagMiningAnalysisTaskResponse extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
+  faceIdentitySimilarityMinScore?: number;
   frameSampleMethod?: SubmitVideoAnalysisTaskRequestFrameSampleMethod;
   generateOptions?: string[];
   /**
@@ -8050,6 +8300,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
    * 2
    */
   snapshotInterval?: number;
+  textProcessTasks?: SubmitVideoAnalysisTaskRequestTextProcessTasks[];
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -8058,6 +8309,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
    */
   videoModelId?: string;
   videoRoles?: SubmitVideoAnalysisTaskRequestVideoRoles[];
+  videoShotFaceIdentityCount?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -8068,6 +8320,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethod: 'frameSampleMethod',
       generateOptions: 'generateOptions',
       language: 'language',
@@ -8075,16 +8328,19 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       snapshotInterval: 'snapshotInterval',
+      textProcessTasks: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoRoles: 'videoRoles',
+      videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceIdentitySimilarityMinScore: 'number',
       frameSampleMethod: SubmitVideoAnalysisTaskRequestFrameSampleMethod,
       generateOptions: { 'type': 'array', 'itemType': 'string' },
       language: 'string',
@@ -8092,10 +8348,12 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       snapshotInterval: 'number',
+      textProcessTasks: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestTextProcessTasks },
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoRoles: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestVideoRoles },
+      videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
     };
   }
@@ -8106,6 +8364,9 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.generateOptions)) {
       $dara.Model.validateArray(this.generateOptions);
+    }
+    if(Array.isArray(this.textProcessTasks)) {
+      $dara.Model.validateArray(this.textProcessTasks);
     }
     if(Array.isArray(this.videoRoles)) {
       $dara.Model.validateArray(this.videoRoles);
@@ -8119,6 +8380,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
+  faceIdentitySimilarityMinScore?: number;
   frameSampleMethodShrink?: string;
   generateOptionsShrink?: string;
   /**
@@ -8142,6 +8404,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
    * 2
    */
   snapshotInterval?: number;
+  textProcessTasksShrink?: string;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
   /**
@@ -8150,6 +8413,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
    */
   videoModelId?: string;
   videoRolesShrink?: string;
+  videoShotFaceIdentityCount?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -8160,6 +8424,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethodShrink: 'frameSampleMethod',
       generateOptionsShrink: 'generateOptions',
       language: 'language',
@@ -8167,16 +8432,19 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       snapshotInterval: 'snapshotInterval',
+      textProcessTasksShrink: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
       videoModelId: 'videoModelId',
       videoRolesShrink: 'videoRoles',
+      videoShotFaceIdentityCount: 'videoShotFaceIdentityCount',
       videoUrl: 'videoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      faceIdentitySimilarityMinScore: 'number',
       frameSampleMethodShrink: 'string',
       generateOptionsShrink: 'string',
       language: 'string',
@@ -8184,10 +8452,12 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       snapshotInterval: 'number',
+      textProcessTasksShrink: 'string',
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
       videoModelId: 'string',
       videoRolesShrink: 'string',
+      videoShotFaceIdentityCount: 'number',
       videoUrl: 'string',
     };
   }
@@ -9589,11 +9859,19 @@ export default class Client extends OpenApi {
       request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
     }
 
+    if (!$dara.isNull(tmpReq.textProcessTasks)) {
+      request.textProcessTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks, "textProcessTasks", "json");
+    }
+
     if (!$dara.isNull(tmpReq.videoRoles)) {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
+      body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
+    }
+
     if (!$dara.isNull(request.frameSampleMethodShrink)) {
       body["frameSampleMethod"] = request.frameSampleMethodShrink;
     }
@@ -9630,6 +9908,10 @@ export default class Client extends OpenApi {
       body["taskId"] = request.taskId;
     }
 
+    if (!$dara.isNull(request.textProcessTasksShrink)) {
+      body["textProcessTasks"] = request.textProcessTasksShrink;
+    }
+
     if (!$dara.isNull(request.videoExtraInfo)) {
       body["videoExtraInfo"] = request.videoExtraInfo;
     }
@@ -9644,6 +9926,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.videoRolesShrink)) {
       body["videoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoShotFaceIdentityCount)) {
+      body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount;
     }
 
     if (!$dara.isNull(request.videoUrl)) {
@@ -9793,11 +10079,19 @@ export default class Client extends OpenApi {
       request.generateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.generateOptions, "generateOptions", "json");
     }
 
+    if (!$dara.isNull(tmpReq.textProcessTasks)) {
+      request.textProcessTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textProcessTasks, "textProcessTasks", "json");
+    }
+
     if (!$dara.isNull(tmpReq.videoRoles)) {
       request.videoRolesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoRoles, "videoRoles", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
+      body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
+    }
+
     if (!$dara.isNull(request.frameSampleMethodShrink)) {
       body["frameSampleMethod"] = request.frameSampleMethodShrink;
     }
@@ -9826,6 +10120,10 @@ export default class Client extends OpenApi {
       body["snapshotInterval"] = request.snapshotInterval;
     }
 
+    if (!$dara.isNull(request.textProcessTasksShrink)) {
+      body["textProcessTasks"] = request.textProcessTasksShrink;
+    }
+
     if (!$dara.isNull(request.videoExtraInfo)) {
       body["videoExtraInfo"] = request.videoExtraInfo;
     }
@@ -9840,6 +10138,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.videoRolesShrink)) {
       body["videoRoles"] = request.videoRolesShrink;
+    }
+
+    if (!$dara.isNull(request.videoShotFaceIdentityCount)) {
+      body["videoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount;
     }
 
     if (!$dara.isNull(request.videoUrl)) {
