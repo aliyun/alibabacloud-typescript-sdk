@@ -104,6 +104,73 @@ export class CreateDialogResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreateDialogAnalysisTaskRequestConversationListDialogueList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogAnalysisTaskRequestConversationList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dialogueList?: CreateDialogAnalysisTaskRequestConversationListDialogueList[];
+  static names(): { [key: string]: string } {
+    return {
+      dialogueList: 'dialogueList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueList: { 'type': 'array', 'itemType': CreateDialogAnalysisTaskRequestConversationListDialogueList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dialogueList)) {
+      $dara.Model.validateArray(this.dialogueList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocsSummaryTaskRequestDocInfos extends $dara.Model {
   /**
    * @remarks
@@ -6513,6 +6580,186 @@ export class CreateDialogResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateDialogResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogAnalysisTaskRequest extends $dara.Model {
+  analysisNodes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  conversationList?: CreateDialogAnalysisTaskRequestConversationList[];
+  /**
+   * @example
+   * {
+   * "labels": "XXX",
+   * "summaryConstraints": "XXX",
+   * "sopInfo": "XXX"
+   * }
+   */
+  metaData?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * common
+   */
+  playCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0FC6636E-380A-5369-AE01-D1C15BB9B254
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisNodes: 'analysisNodes',
+      conversationList: 'conversationList',
+      metaData: 'metaData',
+      playCode: 'playCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisNodes: { 'type': 'array', 'itemType': 'string' },
+      conversationList: { 'type': 'array', 'itemType': CreateDialogAnalysisTaskRequestConversationList },
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      playCode: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.analysisNodes)) {
+      $dara.Model.validateArray(this.analysisNodes);
+    }
+    if(Array.isArray(this.conversationList)) {
+      $dara.Model.validateArray(this.conversationList);
+    }
+    if(this.metaData) {
+      $dara.Model.validateMap(this.metaData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: string[];
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: { 'type': 'array', 'itemType': 'string' },
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDialogAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDialogAnalysisTaskResponseBody,
     };
   }
 
@@ -13086,6 +13333,72 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createDialogWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建会话分析任务
+   * 
+   * @param request - CreateDialogAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDialogAnalysisTaskResponse
+   */
+  async createDialogAnalysisTaskWithOptions(workspaceId: string, request: CreateDialogAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateDialogAnalysisTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.analysisNodes)) {
+      body["analysisNodes"] = request.analysisNodes;
+    }
+
+    if (!$dara.isNull(request.conversationList)) {
+      body["conversationList"] = request.conversationList;
+    }
+
+    if (!$dara.isNull(request.metaData)) {
+      body["metaData"] = request.metaData;
+    }
+
+    if (!$dara.isNull(request.playCode)) {
+      body["playCode"] = request.playCode;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDialogAnalysisTask",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/virtualHuman/dialog/analysis/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDialogAnalysisTaskResponse>(await this.callApi(params, req, runtime), new CreateDialogAnalysisTaskResponse({}));
+    } else {
+      return $dara.cast<CreateDialogAnalysisTaskResponse>(await this.execute(params, req, runtime), new CreateDialogAnalysisTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建会话分析任务
+   * 
+   * @param request - CreateDialogAnalysisTaskRequest
+   * @returns CreateDialogAnalysisTaskResponse
+   */
+  async createDialogAnalysisTask(workspaceId: string, request: CreateDialogAnalysisTaskRequest): Promise<CreateDialogAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDialogAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
