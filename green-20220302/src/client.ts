@@ -4361,6 +4361,99 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustom
   }
 }
 
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLocation extends $dara.Model {
+  h?: number;
+  w?: number;
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo extends $dara.Model {
+  confidence?: number;
+  label?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'confidence',
+      label: 'label',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData extends $dara.Model {
+  location?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLocation;
+  logo?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo[];
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      logo: 'Logo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLocation,
+      logo: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoDataLogo },
+    };
+  }
+
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    if(Array.isArray(this.logo)) {
+      $dara.Model.validateArray(this.logo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $dara.Model {
   /**
    * @remarks
@@ -4447,6 +4540,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
    * If a custom image library is hit, information about the custom image library is returned.
    */
   customImage?: VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage[];
+  logoData?: VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData[];
   /**
    * @remarks
    * If the video contains a specific figure, the code of the identified figure is returned.
@@ -4473,6 +4567,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   static names(): { [key: string]: string } {
     return {
       customImage: 'CustomImage',
+      logoData: 'LogoData',
       publicFigure: 'PublicFigure',
       result: 'Result',
       service: 'Service',
@@ -4483,6 +4578,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   static types(): { [key: string]: any } {
     return {
       customImage: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage },
+      logoData: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsLogoData },
       publicFigure: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure },
       result: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsResult },
       service: 'string',
@@ -4493,6 +4589,9 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
   validate() {
     if(Array.isArray(this.customImage)) {
       $dara.Model.validateArray(this.customImage);
+    }
+    if(Array.isArray(this.logoData)) {
+      $dara.Model.validateArray(this.logoData);
     }
     if(Array.isArray(this.publicFigure)) {
       $dara.Model.validateArray(this.publicFigure);
