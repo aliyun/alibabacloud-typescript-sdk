@@ -1,13 +1,3139 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class CredentialConfig extends $tea.Model {
+export class CredentialConfigConfigsRolesUserInfo extends $dara.Model {
+  /**
+   * @example
+   * LT********
+   */
+  accessKeyId?: string;
+  /**
+   * @example
+   * 456******
+   */
+  id?: string;
+  /**
+   * @example
+   * ********
+   */
+  securityToken?: string;
+  /**
+   * @example
+   * S
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      id: 'Id',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      id: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigConfigsRoles extends $dara.Model {
+  /**
+   * @example
+   * 123******
+   */
+  assumeRoleFor?: string;
+  /**
+   * @example
+   * {}
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ram::123******:role/****
+   */
+  roleArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service
+   */
+  roleType?: string;
+  userInfo?: CredentialConfigConfigsRolesUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      policy: 'Policy',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'string',
+      policy: 'string',
+      roleArn: 'string',
+      roleType: 'string',
+      userInfo: CredentialConfigConfigsRolesUserInfo,
+    };
+  }
+
+  validate() {
+    if(this.userInfo && typeof (this.userInfo as any).validate === 'function') {
+      (this.userInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  key?: string;
+  roles?: CredentialConfigConfigsRoles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Role
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      roles: 'Roles',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      roles: { 'type': 'array', 'itemType': CredentialConfigConfigsRoles },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.roles)) {
+      $dara.Model.validateArray(this.roles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfoInternet extends $dara.Model {
+  /**
+   * @example
+   * 47.111.119.114
+   */
+  endpoint?: string;
+  /**
+   * @example
+   * 22
+   */
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      port: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfoIntranet extends $dara.Model {
+  /**
+   * @example
+   * dsw-notebook-22-urz3u6cnu0uts7ej9r.dsw-5cc6083084818f60.dsw.pai.alibaba.com
+   */
+  endpoint?: string;
+  /**
+   * @example
+   * 22
+   */
+  port?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      port: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ForwardInfoResponseConnectInfo extends $dara.Model {
+  internet?: ForwardInfoResponseConnectInfoInternet;
+  intranet?: ForwardInfoResponseConnectInfoIntranet;
+  /**
+   * @example
+   * DNAT and privateZone are both ready.
+   */
+  message?: string;
+  /**
+   * @example
+   * Ready
+   */
+  phase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internet: 'Internet',
+      intranet: 'Intranet',
+      message: 'Message',
+      phase: 'Phase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internet: ForwardInfoResponseConnectInfoInternet,
+      intranet: ForwardInfoResponseConnectInfoIntranet,
+      message: 'string',
+      phase: 'string',
+    };
+  }
+
+  validate() {
+    if(this.internet && typeof (this.internet as any).validate === 'function') {
+      (this.internet as any).validate();
+    }
+    if(this.intranet && typeof (this.intranet as any).validate === 'function') {
+      (this.intranet as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestAffinityCPU extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestAffinity extends $dara.Model {
+  CPU?: CreateInstanceRequestAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: CreateInstanceRequestAffinityCPU,
+    };
+  }
+
+  validate() {
+    if(this.CPU && typeof (this.CPU as any).validate === 'function') {
+      (this.CPU as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestCloudDisksStatus extends $dara.Model {
+  available?: number;
+  capacity?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      capacity: 'Capacity',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'number',
+      capacity: 'number',
+      usage: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestCloudDisks extends $dara.Model {
+  /**
+   * @example
+   * 30Gi
+   */
+  capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * workspace
+   */
+  path?: string;
+  status?: CreateInstanceRequestCloudDisksStatus;
+  /**
+   * @example
+   * rootfs
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      status: 'Status',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      status: CreateInstanceRequestCloudDisksStatus,
+      subType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.status && typeof (this.status as any).validate === 'function') {
+      (this.status as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestDatasets extends $dara.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
+  datasetId?: string;
+  datasetVersion?: string;
+  mountAccess?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  /**
+   * @deprecated
+   */
+  optionType?: string;
+  options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetVersion: 'DatasetVersion',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetVersion: 'string',
+      mountAccess: 'string',
+      mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestRequestedResource extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  CPU?: string;
+  /**
+   * @example
+   * 4
+   */
+  GPU?: string;
+  /**
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
+  memory?: string;
+  /**
+   * @example
+   * 32
+   */
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestUserVpc extends $dara.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
+  defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
+  extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfo[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    if(Array.isArray(this.forwardInfos)) {
+      $dara.Model.validateArray(this.forwardInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceSnapshotRequestLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyAffinityCPU extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyAffinity extends $dara.Model {
+  CPU?: GetInstanceResponseBodyAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: GetInstanceResponseBodyAffinityCPU,
+    };
+  }
+
+  validate() {
+    if(this.CPU && typeof (this.CPU as any).validate === 'function') {
+      (this.CPU as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
+  /**
+   * @example
+   * 30Gi
+   */
+  capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * /workspace
+   */
+  path?: string;
+  /**
+   * @example
+   * rootfs
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyDatasets extends $dara.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
+  datasetId?: string;
+  datasetVersion?: string;
+  mountAccess?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  optionType?: string;
+  options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetVersion: 'DatasetVersion',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetVersion: 'string',
+      mountAccess: 'string',
+      mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyIdleInstanceCuller extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
+  gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
+  idleTimeInMinutes?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 60
+   */
+  maxIdleTimeInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuPercentThreshold: 'CpuPercentThreshold',
+      gpuPercentThreshold: 'GpuPercentThreshold',
+      idleTimeInMinutes: 'IdleTimeInMinutes',
+      instanceId: 'InstanceId',
+      maxIdleTimeInMinutes: 'MaxIdleTimeInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuPercentThreshold: 'number',
+      gpuPercentThreshold: 'number',
+      idleTimeInMinutes: 'number',
+      instanceId: 'string',
+      maxIdleTimeInMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyInstanceShutdownTimer extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  dueTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 3600000
+   */
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
+  /**
+   * @remarks
+   * 快照创建时间
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @remarks
+   * 快照修改时间
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * 镜像Id
+   * 
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * 镜像名称
+   * 
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * 镜像Url
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * 实例快照错误代码
+   * 
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @remarks
+   * 实例快照错误消息
+   * 
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @remarks
+   * 镜像仓库Url
+   * 
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @remarks
+   * 实例快照状态
+   * 
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyLatestSnapshot extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * 实例快照错误代码
+   * 
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @remarks
+   * 实例快照错误消息
+   * 
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @remarks
+   * 实例快照状态
+   * 
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyNodeErrorRecovery extends $dara.Model {
+  autoSwitchCountdownSeconds?: number;
+  enableAutoSwitchOnNodeError?: boolean;
+  hasNodeError?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoSwitchCountdownSeconds: 'autoSwitchCountdownSeconds',
+      enableAutoSwitchOnNodeError: 'enableAutoSwitchOnNodeError',
+      hasNodeError: 'hasNodeError',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSwitchCountdownSeconds: 'number',
+      enableAutoSwitchOnNodeError: 'boolean',
+      hasNodeError: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyRequestedResource extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  CPU?: string;
+  /**
+   * @example
+   * 4
+   */
+  GPU?: string;
+  /**
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
+  memory?: string;
+  /**
+   * @example
+   * 32
+   */
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyUserVpc extends $dara.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
+  defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
+  extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfoResponse[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * Vpc Id。
+   * 
+   * @example
+   * vpc-xxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    if(Array.isArray(this.forwardInfos)) {
+      $dara.Model.validateArray(this.forwardInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $dara.Model {
+  /**
+   * @example
+   * 1670890560
+   */
+  time?: number;
+  /**
+   * @example
+   * 25.901031
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'Time',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'number',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceMetricsResponseBodyPodMetrics extends $dara.Model {
+  metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
+  /**
+   * @example
+   * dsw-15870-695f44c5bc-hd6xm
+   */
+  podId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+      podId: 'PodId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
+      podId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceSnapshotResponseBodyLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
+  /**
+   * @example
+   * Starting
+   */
+  status?: string;
+  /**
+   * @example
+   * “”
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * “”
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * 2022-10-21T07:27:44Z
+   */
+  gmtCreateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      gmtCreateTime: 'GmtCreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      gmtCreateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserConfigResponseBodyFreeTier extends $dara.Model {
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 个
+   */
+  initBaseUnit?: string;
+  /**
+   * @example
+   * 5000
+   */
+  initBaseValue?: number;
+  /**
+   * @example
+   * 个
+   */
+  initShowUnit?: string;
+  /**
+   * @example
+   * 5000
+   */
+  initShowValue?: string;
+  /**
+   * @example
+   * true
+   */
+  isFreeTierUser?: boolean;
+  /**
+   * @example
+   * 个
+   */
+  periodBaseUnit?: string;
+  /**
+   * @example
+   * 3000
+   */
+  periodBaseValue?: number;
+  /**
+   * @example
+   * 个
+   */
+  periodShowUnit?: string;
+  /**
+   * @example
+   * 3000
+   */
+  periodShowValue?: string;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * valid
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      initBaseUnit: 'InitBaseUnit',
+      initBaseValue: 'InitBaseValue',
+      initShowUnit: 'InitShowUnit',
+      initShowValue: 'InitShowValue',
+      isFreeTierUser: 'IsFreeTierUser',
+      periodBaseUnit: 'PeriodBaseUnit',
+      periodBaseValue: 'PeriodBaseValue',
+      periodShowUnit: 'PeriodShowUnit',
+      periodShowValue: 'PeriodShowValue',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      initBaseUnit: 'string',
+      initBaseValue: 'number',
+      initShowUnit: 'string',
+      initShowValue: 'string',
+      isFreeTierUser: 'boolean',
+      periodBaseUnit: 'string',
+      periodBaseValue: 'number',
+      periodShowUnit: 'string',
+      periodShowValue: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsResponseBodyEcsSpecsLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
+  /**
+   * @example
+   * CPU
+   */
+  acceleratorType?: string;
+  /**
+   * @example
+   * 32
+   */
+  CPU?: number;
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 4
+   */
+  GPU?: number;
+  /**
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @example
+   * 5120000
+   */
+  instanceBandwidthRx?: number;
+  /**
+   * @example
+   * ecs.gn5-c28g1.7xlarge
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * True
+   */
+  isAvailable?: boolean;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
+  labels?: ListEcsSpecsResponseBodyEcsSpecsLabels[];
+  /**
+   * @example
+   * 32
+   */
+  memory?: number;
+  /**
+   * @example
+   * 22.8
+   */
+  price?: number;
+  /**
+   * @example
+   * 500
+   */
+  systemDiskCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      CPU: 'CPU',
+      currency: 'Currency',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      instanceBandwidthRx: 'InstanceBandwidthRx',
+      instanceType: 'InstanceType',
+      isAvailable: 'IsAvailable',
+      labels: 'Labels',
+      memory: 'Memory',
+      price: 'Price',
+      systemDiskCapacity: 'SystemDiskCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      CPU: 'number',
+      currency: 'string',
+      GPU: 'number',
+      GPUType: 'string',
+      instanceBandwidthRx: 'number',
+      instanceType: 'string',
+      isAvailable: 'boolean',
+      labels: { 'type': 'array', 'itemType': ListEcsSpecsResponseBodyEcsSpecsLabels },
+      memory: 'number',
+      price: 'number',
+      systemDiskCapacity: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceSnapshotResponseBodySnapshotsLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceSnapshotResponseBodySnapshots extends $dara.Model {
+  /**
+   * @example
+   * ["/path1","/path2"]
+   */
+  excludePaths?: string[];
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
+  labels?: ListInstanceSnapshotResponseBodySnapshotsLabels[];
+  /**
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * snp-05cexxxxxxxxx
+   */
+  snapshotId?: string;
+  /**
+   * @example
+   * training_data_env
+   */
+  snapshotName?: string;
+  /**
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      excludePaths: 'ExcludePaths',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      labels: 'Labels',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludePaths: { 'type': 'array', 'itemType': 'string' },
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      labels: { 'type': 'array', 'itemType': ListInstanceSnapshotResponseBodySnapshotsLabels },
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      snapshotId: 'string',
+      snapshotName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludePaths)) {
+      $dara.Model.validateArray(this.excludePaths);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesAffinityCPU extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesAffinity extends $dara.Model {
+  CPU?: ListInstancesResponseBodyInstancesAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: ListInstancesResponseBodyInstancesAffinityCPU,
+    };
+  }
+
+  validate() {
+    if(this.CPU && typeof (this.CPU as any).validate === 'function') {
+      (this.CPU as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesCloudDisks extends $dara.Model {
+  /**
+   * @example
+   * 30Gi
+   */
+  capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * /workspace
+   */
+  path?: string;
+  /**
+   * @example
+   * rootfs
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      mountPath: 'MountPath',
+      path: 'Path',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      mountPath: 'string',
+      path: 'string',
+      subType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesDatasets extends $dara.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
+  datasetId?: string;
+  datasetVersion?: string;
+  mountAccess?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  optionType?: string;
+  options?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetVersion: 'DatasetVersion',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetVersion: 'string',
+      mountAccess: 'string',
+      mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
+  gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
+  idleTimeInMinutes?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 60
+   */
+  maxIdleTimeInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuPercentThreshold: 'CpuPercentThreshold',
+      gpuPercentThreshold: 'GpuPercentThreshold',
+      idleTimeInMinutes: 'IdleTimeInMinutes',
+      instanceId: 'InstanceId',
+      maxIdleTimeInMinutes: 'MaxIdleTimeInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuPercentThreshold: 'number',
+      gpuPercentThreshold: 'number',
+      idleTimeInMinutes: 'number',
+      instanceId: 'string',
+      maxIdleTimeInMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  dueTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 3600000
+   */
+  remainingTimeInMs?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dueTime: 'DueTime',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      instanceId: 'InstanceId',
+      remainingTimeInMs: 'RemainingTimeInMs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dueTime: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      instanceId: 'string',
+      remainingTimeInMs: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesLabels extends $dara.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
+  key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesLatestSnapshot extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
+  repositoryUrl?: string;
+  /**
+   * @example
+   * Pushing
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      repositoryUrl: 'RepositoryUrl',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      repositoryUrl: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesRequestedResource extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  CPU?: string;
+  /**
+   * @example
+   * 4
+   */
+  GPU?: string;
+  /**
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
+  memory?: string;
+  /**
+   * @example
+   * 32
+   */
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
+  defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
+  extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfoResponse[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    if(Array.isArray(this.forwardInfos)) {
+      $dara.Model.validateArray(this.forwardInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstances extends $dara.Model {
+  /**
+   * @example
+   * CPU
+   */
+  acceleratorType?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
+  accessibility?: string;
+  /**
+   * @example
+   * 3600000
+   */
+  accumulatedRunningTimeInMs?: number;
+  affinity?: ListInstancesResponseBodyInstancesAffinity;
+  /**
+   * @example
+   * []
+   */
+  cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
+  credentialConfig?: CredentialConfig;
+  datasets?: ListInstancesResponseBodyInstancesDatasets[];
+  /**
+   * @example
+   * 535.54.03
+   */
+  driver?: string;
+  /**
+   * @example
+   * ecs.c6.large
+   */
+  ecsSpec?: string;
+  /**
+   * @example
+   * {userName: "Chris"}
+   */
+  environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
+   */
+  idleInstanceCuller?: ListInstancesResponseBodyInstancesIdleInstanceCuller;
+  imageAuth?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
+  imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
+  imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * training_data
+   */
+  instanceName?: string;
+  instanceShutdownTimer?: ListInstancesResponseBodyInstancesInstanceShutdownTimer;
+  /**
+   * @example
+   * []
+   */
+  instanceSnapshotList?: ListInstancesResponseBodyInstancesInstanceSnapshotList[];
+  /**
+   * @example
+   * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
+   */
+  instanceUrl?: string;
+  /**
+   * @remarks
+   * Jupyterlab Url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
+   */
+  jupyterlabUrl?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
+  labels?: ListInstancesResponseBodyInstancesLabels[];
+  latestSnapshot?: ListInstancesResponseBodyInstancesLatestSnapshot;
+  /**
+   * @example
+   * PayAsYouGo
+   */
+  paymentType?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Internal Error
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
+  reasonMessage?: string;
+  /**
+   * @example
+   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
+   */
+  requestedResource?: ListInstancesResponseBodyInstancesRequestedResource;
+  /**
+   * @example
+   * dsw-123456789
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * resource_group
+   */
+  resourceName?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  tags?: ListInstancesResponseBodyInstancesTags[];
+  /**
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
+   */
+  terminalUrl?: string;
+  /**
+   * @example
+   * 1612285282502324
+   */
+  userId?: string;
+  /**
+   * @example
+   * 测试用户
+   */
+  userName?: string;
+  userVpc?: ListInstancesResponseBodyInstancesUserVpc;
+  /**
+   * @remarks
+   * Web IDE url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
+   */
+  webIDEUrl?: string;
+  /**
+   * @example
+   * 40823
+   */
+  workspaceId?: string;
+  /**
+   * @example
+   * training_data
+   */
+  workspaceName?: string;
+  /**
+   * @example
+   * d-123456789
+   */
+  workspaceSource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorType: 'AcceleratorType',
+      accessibility: 'Accessibility',
+      accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
+      affinity: 'Affinity',
+      cloudDisks: 'CloudDisks',
+      credentialConfig: 'CredentialConfig',
+      datasets: 'Datasets',
+      driver: 'Driver',
+      ecsSpec: 'EcsSpec',
+      environmentVariables: 'EnvironmentVariables',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      idleInstanceCuller: 'IdleInstanceCuller',
+      imageAuth: 'ImageAuth',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageUrl: 'ImageUrl',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceShutdownTimer: 'InstanceShutdownTimer',
+      instanceSnapshotList: 'InstanceSnapshotList',
+      instanceUrl: 'InstanceUrl',
+      jupyterlabUrl: 'JupyterlabUrl',
+      labels: 'Labels',
+      latestSnapshot: 'LatestSnapshot',
+      paymentType: 'PaymentType',
+      priority: 'Priority',
+      reasonCode: 'ReasonCode',
+      reasonMessage: 'ReasonMessage',
+      requestedResource: 'RequestedResource',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      status: 'Status',
+      tags: 'Tags',
+      terminalUrl: 'TerminalUrl',
+      userId: 'UserId',
+      userName: 'UserName',
+      userVpc: 'UserVpc',
+      webIDEUrl: 'WebIDEUrl',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+      workspaceSource: 'WorkspaceSource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorType: 'string',
+      accessibility: 'string',
+      accumulatedRunningTimeInMs: 'number',
+      affinity: ListInstancesResponseBodyInstancesAffinity,
+      cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
+      credentialConfig: CredentialConfig,
+      datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
+      driver: 'string',
+      ecsSpec: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      idleInstanceCuller: ListInstancesResponseBodyInstancesIdleInstanceCuller,
+      imageAuth: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageUrl: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceShutdownTimer: ListInstancesResponseBodyInstancesInstanceShutdownTimer,
+      instanceSnapshotList: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesInstanceSnapshotList },
+      instanceUrl: 'string',
+      jupyterlabUrl: 'string',
+      labels: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesLabels },
+      latestSnapshot: ListInstancesResponseBodyInstancesLatestSnapshot,
+      paymentType: 'string',
+      priority: 'number',
+      reasonCode: 'string',
+      reasonMessage: 'string',
+      requestedResource: ListInstancesResponseBodyInstancesRequestedResource,
+      resourceId: 'string',
+      resourceName: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesTags },
+      terminalUrl: 'string',
+      userId: 'string',
+      userName: 'string',
+      userVpc: ListInstancesResponseBodyInstancesUserVpc,
+      webIDEUrl: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+      workspaceSource: 'string',
+    };
+  }
+
+  validate() {
+    if(this.affinity && typeof (this.affinity as any).validate === 'function') {
+      (this.affinity as any).validate();
+    }
+    if(Array.isArray(this.cloudDisks)) {
+      $dara.Model.validateArray(this.cloudDisks);
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.datasets)) {
+      $dara.Model.validateArray(this.datasets);
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.idleInstanceCuller && typeof (this.idleInstanceCuller as any).validate === 'function') {
+      (this.idleInstanceCuller as any).validate();
+    }
+    if(this.instanceShutdownTimer && typeof (this.instanceShutdownTimer as any).validate === 'function') {
+      (this.instanceShutdownTimer as any).validate();
+    }
+    if(Array.isArray(this.instanceSnapshotList)) {
+      $dara.Model.validateArray(this.instanceSnapshotList);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    if(this.latestSnapshot && typeof (this.latestSnapshot as any).validate === 'function') {
+      (this.latestSnapshot as any).validate();
+    }
+    if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
+      (this.requestedResource as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestAffinityCPU extends $dara.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestAffinity extends $dara.Model {
+  CPU?: UpdateInstanceRequestAffinityCPU;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: UpdateInstanceRequestAffinityCPU,
+    };
+  }
+
+  validate() {
+    if(this.CPU && typeof (this.CPU as any).validate === 'function') {
+      (this.CPU as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestCloudDisks extends $dara.Model {
+  /**
+   * @example
+   * 30Gi
+   */
+  capacity?: string;
+  /**
+   * @example
+   * rootfs
+   */
+  subType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      subType: 'SubType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'string',
+      subType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestDatasets extends $dara.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
+  datasetId?: string;
+  datasetVersion?: string;
+  mountAccess?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  /**
+   * @deprecated
+   */
+  optionType?: string;
+  options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetVersion: 'DatasetVersion',
+      mountAccess: 'MountAccess',
+      mountPath: 'MountPath',
+      optionType: 'OptionType',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'string',
+      datasetVersion: 'string',
+      mountAccess: 'string',
+      mountPath: 'string',
+      optionType: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestRequestedResource extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  CPU?: string;
+  /**
+   * @example
+   * 4
+   */
+  GPU?: string;
+  /**
+   * @example
+   * v100
+   */
+  GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
+  memory?: string;
+  /**
+   * @example
+   * 32
+   */
+  sharedMemory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUType: 'GPUType',
+      memory: 'Memory',
+      sharedMemory: 'SharedMemory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      GPU: 'string',
+      GPUType: 'string',
+      memory: 'string',
+      sharedMemory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequestUserVpc extends $dara.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
+  defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
+  extendedCIDRs?: string[];
+  forwardInfos?: ForwardInfo[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      forwardInfos: 'ForwardInfos',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
+      securityGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    if(Array.isArray(this.forwardInfos)) {
+      $dara.Model.validateArray(this.forwardInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceLabelsRequestLabels extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * customLabelKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * labelValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfig extends $dara.Model {
   /**
    * @example
    * 0
@@ -35,12 +3161,19 @@ export class CredentialConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DemoCategory extends $tea.Model {
+export class DemoCategory extends $dara.Model {
   /**
    * @example
    * sdk
@@ -75,12 +3208,19 @@ export class DemoCategory extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subCategories)) {
+      $dara.Model.validateArray(this.subCategories);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ForwardInfo extends $tea.Model {
+export class ForwardInfo extends $dara.Model {
   accessType?: string[];
   /**
    * @example
@@ -146,12 +3286,19 @@ export class ForwardInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accessType)) {
+      $dara.Model.validateArray(this.accessType);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ForwardInfoResponse extends $tea.Model {
+export class ForwardInfoResponse extends $dara.Model {
   accessType?: string[];
   connectInfo?: ForwardInfoResponseConnectInfo;
   /**
@@ -220,12 +3367,22 @@ export class ForwardInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accessType)) {
+      $dara.Model.validateArray(this.accessType);
+    }
+    if(this.connectInfo && typeof (this.connectInfo as any).validate === 'function') {
+      (this.connectInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateIdleInstanceCullerRequest extends $tea.Model {
+export class CreateIdleInstanceCullerRequest extends $dara.Model {
   /**
    * @example
    * 20
@@ -257,12 +3414,16 @@ export class CreateIdleInstanceCullerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateIdleInstanceCullerResponseBody extends $tea.Model {
+export class CreateIdleInstanceCullerResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -308,12 +3469,16 @@ export class CreateIdleInstanceCullerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateIdleInstanceCullerResponse extends $tea.Model {
+export class CreateIdleInstanceCullerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateIdleInstanceCullerResponseBody;
@@ -333,12 +3498,22 @@ export class CreateIdleInstanceCullerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequest extends $tea.Model {
+export class CreateInstanceRequest extends $dara.Model {
   /**
    * @example
    * PRIVATE
@@ -472,12 +3647,43 @@ export class CreateInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.affinity && typeof (this.affinity as any).validate === 'function') {
+      (this.affinity as any).validate();
+    }
+    if(Array.isArray(this.cloudDisks)) {
+      $dara.Model.validateArray(this.cloudDisks);
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.datasets)) {
+      $dara.Model.validateArray(this.datasets);
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
+      (this.requestedResource as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceResponseBody extends $tea.Model {
+export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -530,12 +3736,16 @@ export class CreateInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceResponse extends $tea.Model {
+export class CreateInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateInstanceResponseBody;
@@ -555,12 +3765,22 @@ export class CreateInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceShutdownTimerRequest extends $tea.Model {
+export class CreateInstanceShutdownTimerRequest extends $dara.Model {
   /**
    * @example
    * 2021-01-12T14:36:01Z
@@ -585,12 +3805,16 @@ export class CreateInstanceShutdownTimerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceShutdownTimerResponseBody extends $tea.Model {
+export class CreateInstanceShutdownTimerResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -643,12 +3867,16 @@ export class CreateInstanceShutdownTimerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceShutdownTimerResponse extends $tea.Model {
+export class CreateInstanceShutdownTimerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateInstanceShutdownTimerResponseBody;
@@ -668,12 +3896,22 @@ export class CreateInstanceShutdownTimerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceSnapshotRequest extends $tea.Model {
+export class CreateInstanceSnapshotRequest extends $dara.Model {
   excludePaths?: string[];
   /**
    * @remarks
@@ -724,12 +3962,22 @@ export class CreateInstanceSnapshotRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.excludePaths)) {
+      $dara.Model.validateArray(this.excludePaths);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceSnapshotResponseBody extends $tea.Model {
+export class CreateInstanceSnapshotResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -789,12 +4037,16 @@ export class CreateInstanceSnapshotResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceSnapshotResponse extends $tea.Model {
+export class CreateInstanceSnapshotResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateInstanceSnapshotResponseBody;
@@ -814,12 +4066,22 @@ export class CreateInstanceSnapshotResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteIdleInstanceCullerResponseBody extends $tea.Model {
+export class DeleteIdleInstanceCullerResponseBody extends $dara.Model {
   /**
    * @example
    * ValidationError
@@ -865,12 +4127,16 @@ export class DeleteIdleInstanceCullerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteIdleInstanceCullerResponse extends $tea.Model {
+export class DeleteIdleInstanceCullerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteIdleInstanceCullerResponseBody;
@@ -890,12 +4156,22 @@ export class DeleteIdleInstanceCullerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceResponseBody extends $tea.Model {
+export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -948,12 +4224,16 @@ export class DeleteInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceResponse extends $tea.Model {
+export class DeleteInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstanceResponseBody;
@@ -973,12 +4253,22 @@ export class DeleteInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceLabelsRequest extends $tea.Model {
+export class DeleteInstanceLabelsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -999,12 +4289,16 @@ export class DeleteInstanceLabelsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceLabelsResponseBody extends $tea.Model {
+export class DeleteInstanceLabelsResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
@@ -1022,12 +4316,16 @@ export class DeleteInstanceLabelsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceLabelsResponse extends $tea.Model {
+export class DeleteInstanceLabelsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstanceLabelsResponseBody;
@@ -1047,12 +4345,22 @@ export class DeleteInstanceLabelsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceShutdownTimerResponseBody extends $tea.Model {
+export class DeleteInstanceShutdownTimerResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -1105,12 +4413,16 @@ export class DeleteInstanceShutdownTimerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceShutdownTimerResponse extends $tea.Model {
+export class DeleteInstanceShutdownTimerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstanceShutdownTimerResponseBody;
@@ -1130,12 +4442,22 @@ export class DeleteInstanceShutdownTimerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceSnapshotResponseBody extends $tea.Model {
+export class DeleteInstanceSnapshotResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -1195,12 +4517,16 @@ export class DeleteInstanceSnapshotResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteInstanceSnapshotResponse extends $tea.Model {
+export class DeleteInstanceSnapshotResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteInstanceSnapshotResponseBody;
@@ -1220,12 +4546,22 @@ export class DeleteInstanceSnapshotResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIdleInstanceCullerResponseBody extends $tea.Model {
+export class GetIdleInstanceCullerResponseBody extends $dara.Model {
   /**
    * @example
    * ValidationError
@@ -1299,12 +4635,16 @@ export class GetIdleInstanceCullerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIdleInstanceCullerResponse extends $tea.Model {
+export class GetIdleInstanceCullerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetIdleInstanceCullerResponseBody;
@@ -1324,12 +4664,22 @@ export class GetIdleInstanceCullerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceRequest extends $tea.Model {
+export class GetInstanceRequest extends $dara.Model {
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1343,12 +4693,16 @@ export class GetInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBody extends $tea.Model {
+export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * CPU
@@ -1668,12 +5022,58 @@ export class GetInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.affinity && typeof (this.affinity as any).validate === 'function') {
+      (this.affinity as any).validate();
+    }
+    if(Array.isArray(this.cloudDisks)) {
+      $dara.Model.validateArray(this.cloudDisks);
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.datasets)) {
+      $dara.Model.validateArray(this.datasets);
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.idleInstanceCuller && typeof (this.idleInstanceCuller as any).validate === 'function') {
+      (this.idleInstanceCuller as any).validate();
+    }
+    if(this.instanceShutdownTimer && typeof (this.instanceShutdownTimer as any).validate === 'function') {
+      (this.instanceShutdownTimer as any).validate();
+    }
+    if(Array.isArray(this.instanceSnapshotList)) {
+      $dara.Model.validateArray(this.instanceSnapshotList);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    if(this.latestSnapshot && typeof (this.latestSnapshot as any).validate === 'function') {
+      (this.latestSnapshot as any).validate();
+    }
+    if(this.nodeErrorRecovery && typeof (this.nodeErrorRecovery as any).validate === 'function') {
+      (this.nodeErrorRecovery as any).validate();
+    }
+    if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
+      (this.requestedResource as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponse extends $tea.Model {
+export class GetInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceResponseBody;
@@ -1693,12 +5093,22 @@ export class GetInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceEventsRequest extends $tea.Model {
+export class GetInstanceEventsRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-08T15:00:00Z
@@ -1733,12 +5143,16 @@ export class GetInstanceEventsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceEventsResponseBody extends $tea.Model {
+export class GetInstanceEventsResponseBody extends $dara.Model {
   /**
    * @example
    * None
@@ -1794,12 +5208,19 @@ export class GetInstanceEventsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceEventsResponse extends $tea.Model {
+export class GetInstanceEventsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceEventsResponseBody;
@@ -1819,12 +5240,22 @@ export class GetInstanceEventsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceMetricsRequest extends $tea.Model {
+export class GetInstanceMetricsRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-08T15:00:00Z
@@ -1866,12 +5297,16 @@ export class GetInstanceMetricsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceMetricsResponseBody extends $tea.Model {
+export class GetInstanceMetricsResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -1927,12 +5362,19 @@ export class GetInstanceMetricsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.podMetrics)) {
+      $dara.Model.validateArray(this.podMetrics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceMetricsResponse extends $tea.Model {
+export class GetInstanceMetricsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceMetricsResponseBody;
@@ -1952,12 +5394,22 @@ export class GetInstanceMetricsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceShutdownTimerResponseBody extends $tea.Model {
+export class GetInstanceShutdownTimerResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -2038,12 +5490,16 @@ export class GetInstanceShutdownTimerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceShutdownTimerResponse extends $tea.Model {
+export class GetInstanceShutdownTimerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceShutdownTimerResponseBody;
@@ -2063,12 +5519,22 @@ export class GetInstanceShutdownTimerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceSnapshotResponseBody extends $tea.Model {
+export class GetInstanceSnapshotResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -2194,12 +5660,22 @@ export class GetInstanceSnapshotResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.excludePaths)) {
+      $dara.Model.validateArray(this.excludePaths);
+    }
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceSnapshotResponse extends $tea.Model {
+export class GetInstanceSnapshotResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceSnapshotResponseBody;
@@ -2219,12 +5695,22 @@ export class GetInstanceSnapshotResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLifecycleRequest extends $tea.Model {
+export class GetLifecycleRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-08T15:00:00Z
@@ -2273,12 +5759,16 @@ export class GetLifecycleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLifecycleResponseBody extends $tea.Model {
+export class GetLifecycleResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -2331,12 +5821,19 @@ export class GetLifecycleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.lifecycle)) {
+      $dara.Model.validateArray(this.lifecycle);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLifecycleResponse extends $tea.Model {
+export class GetLifecycleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetLifecycleResponseBody;
@@ -2356,12 +5853,22 @@ export class GetLifecycleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMetricsRequest extends $tea.Model {
+export class GetMetricsRequest extends $dara.Model {
   /**
    * @example
    * {"userId":"16122852825*****","jobId":"dsw-328d2bbf605*****","regionId":"cn-wulanchabu","pod":"dsw-45680-76766f8778-95gxh"}
@@ -2428,12 +5935,16 @@ export class GetMetricsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMetricsResponseBody extends $tea.Model {
+export class GetMetricsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -2489,12 +6000,16 @@ export class GetMetricsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMetricsResponse extends $tea.Model {
+export class GetMetricsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetMetricsResponseBody;
@@ -2514,12 +6029,22 @@ export class GetMetricsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceGroupStatisticsRequest extends $tea.Model {
+export class GetResourceGroupStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2570,12 +6095,16 @@ export class GetResourceGroupStatisticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceGroupStatisticsResponseBody extends $tea.Model {
+export class GetResourceGroupStatisticsResponseBody extends $dara.Model {
   /**
    * @example
    * InternalError
@@ -2624,12 +6153,19 @@ export class GetResourceGroupStatisticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.statistics) {
+      $dara.Model.validateMap(this.statistics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceGroupStatisticsResponse extends $tea.Model {
+export class GetResourceGroupStatisticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetResourceGroupStatisticsResponseBody;
@@ -2649,12 +6185,22 @@ export class GetResourceGroupStatisticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenRequest extends $tea.Model {
+export class GetTokenRequest extends $dara.Model {
   /**
    * @example
    * 60
@@ -2682,12 +6228,16 @@ export class GetTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenResponseBody extends $tea.Model {
+export class GetTokenResponseBody extends $dara.Model {
   /**
    * @example
    * ValidationError
@@ -2733,12 +6283,16 @@ export class GetTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenResponse extends $tea.Model {
+export class GetTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTokenResponseBody;
@@ -2758,12 +6312,22 @@ export class GetTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserConfigResponseBody extends $tea.Model {
+export class GetUserConfigResponseBody extends $dara.Model {
   /**
    * @example
    * false
@@ -2833,12 +6397,19 @@ export class GetUserConfigResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.freeTier && typeof (this.freeTier as any).validate === 'function') {
+      (this.freeTier as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUserConfigResponse extends $tea.Model {
+export class GetUserConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetUserConfigResponseBody;
@@ -2858,12 +6429,22 @@ export class GetUserConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsRequest extends $tea.Model {
+export class ListEcsSpecsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2912,12 +6493,16 @@ export class ListEcsSpecsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsResponseBody extends $tea.Model {
+export class ListEcsSpecsResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -2973,12 +6558,19 @@ export class ListEcsSpecsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ecsSpecs)) {
+      $dara.Model.validateArray(this.ecsSpecs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsResponse extends $tea.Model {
+export class ListEcsSpecsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEcsSpecsResponseBody;
@@ -2998,12 +6590,22 @@ export class ListEcsSpecsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceSnapshotRequest extends $tea.Model {
+export class ListInstanceSnapshotRequest extends $dara.Model {
   /**
    * @example
    * DESC
@@ -3042,12 +6644,16 @@ export class ListInstanceSnapshotRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceSnapshotResponseBody extends $tea.Model {
+export class ListInstanceSnapshotResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -3103,12 +6709,19 @@ export class ListInstanceSnapshotResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.snapshots)) {
+      $dara.Model.validateArray(this.snapshots);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceSnapshotResponse extends $tea.Model {
+export class ListInstanceSnapshotResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstanceSnapshotResponseBody;
@@ -3128,12 +6741,22 @@ export class ListInstanceSnapshotResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceStatisticsRequest extends $tea.Model {
+export class ListInstanceStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3154,12 +6777,16 @@ export class ListInstanceStatisticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceStatisticsResponseBody extends $tea.Model {
+export class ListInstanceStatisticsResponseBody extends $dara.Model {
   /**
    * @example
    * InternalError
@@ -3208,12 +6835,19 @@ export class ListInstanceStatisticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.statistics) {
+      $dara.Model.validateMap(this.statistics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceStatisticsResponse extends $tea.Model {
+export class ListInstanceStatisticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstanceStatisticsResponseBody;
@@ -3233,12 +6867,22 @@ export class ListInstanceStatisticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesRequest extends $tea.Model {
+export class ListInstancesRequest extends $dara.Model {
   /**
    * @example
    * AcceleratorType
@@ -3372,12 +7016,22 @@ export class ListInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesShrinkRequest extends $tea.Model {
+export class ListInstancesShrinkRequest extends $dara.Model {
   /**
    * @example
    * AcceleratorType
@@ -3511,12 +7165,16 @@ export class ListInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBody extends $tea.Model {
+export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -3572,12 +7230,19 @@ export class ListInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponse extends $tea.Model {
+export class ListInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstancesResponseBody;
@@ -3597,12 +7262,22 @@ export class ListInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartInstanceResponseBody extends $tea.Model {
+export class StartInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -3655,12 +7330,16 @@ export class StartInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartInstanceResponse extends $tea.Model {
+export class StartInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartInstanceResponseBody;
@@ -3680,12 +7359,22 @@ export class StartInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopInstanceRequest extends $tea.Model {
+export class StopInstanceRequest extends $dara.Model {
   /**
    * @example
    * false
@@ -3703,12 +7392,16 @@ export class StopInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopInstanceResponseBody extends $tea.Model {
+export class StopInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -3761,12 +7454,16 @@ export class StopInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopInstanceResponse extends $tea.Model {
+export class StopInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopInstanceResponseBody;
@@ -3786,12 +7483,22 @@ export class StopInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequest extends $tea.Model {
+export class UpdateInstanceRequest extends $dara.Model {
   /**
    * @example
    * PRIVATE
@@ -3925,12 +7632,34 @@ export class UpdateInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.affinity && typeof (this.affinity as any).validate === 'function') {
+      (this.affinity as any).validate();
+    }
+    if(Array.isArray(this.cloudDisks)) {
+      $dara.Model.validateArray(this.cloudDisks);
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.datasets)) {
+      $dara.Model.validateArray(this.datasets);
+    }
+    if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
+      (this.requestedResource as any).validate();
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceResponseBody extends $tea.Model {
+export class UpdateInstanceResponseBody extends $dara.Model {
   /**
    * @example
    * null
@@ -3983,12 +7712,16 @@ export class UpdateInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceResponse extends $tea.Model {
+export class UpdateInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateInstanceResponseBody;
@@ -4008,12 +7741,22 @@ export class UpdateInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceLabelsRequest extends $tea.Model {
+export class UpdateInstanceLabelsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4031,12 +7774,19 @@ export class UpdateInstanceLabelsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceLabelsResponseBody extends $tea.Model {
+export class UpdateInstanceLabelsResponseBody extends $dara.Model {
   /**
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
@@ -4054,12 +7804,16 @@ export class UpdateInstanceLabelsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceLabelsResponse extends $tea.Model {
+export class UpdateInstanceLabelsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateInstanceLabelsResponseBody;
@@ -4079,2770 +7833,14 @@ export class UpdateInstanceLabelsResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialConfigConfigsRolesUserInfo extends $tea.Model {
-  /**
-   * @example
-   * LT********
-   */
-  accessKeyId?: string;
-  /**
-   * @example
-   * 456******
-   */
-  id?: string;
-  /**
-   * @example
-   * ********
-   */
-  securityToken?: string;
-  /**
-   * @example
-   * S
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      id: 'Id',
-      securityToken: 'SecurityToken',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      id: 'string',
-      securityToken: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialConfigConfigsRoles extends $tea.Model {
-  /**
-   * @example
-   * 123******
-   */
-  assumeRoleFor?: string;
-  /**
-   * @example
-   * {}
-   */
-  policy?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * acs:ram::123******:role/****
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * service
-   */
-  roleType?: string;
-  userInfo?: CredentialConfigConfigsRolesUserInfo;
-  static names(): { [key: string]: string } {
-    return {
-      assumeRoleFor: 'AssumeRoleFor',
-      policy: 'Policy',
-      roleArn: 'RoleArn',
-      roleType: 'RoleType',
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      assumeRoleFor: 'string',
-      policy: 'string',
-      roleArn: 'string',
-      roleType: 'string',
-      userInfo: CredentialConfigConfigsRolesUserInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CredentialConfigConfigs extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  key?: string;
-  roles?: CredentialConfigConfigsRoles[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Role
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      roles: 'Roles',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      roles: { 'type': 'array', 'itemType': CredentialConfigConfigsRoles },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ForwardInfoResponseConnectInfoInternet extends $tea.Model {
-  /**
-   * @example
-   * 47.111.119.114
-   */
-  endpoint?: string;
-  /**
-   * @example
-   * 22
-   */
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'Endpoint',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ForwardInfoResponseConnectInfoIntranet extends $tea.Model {
-  /**
-   * @example
-   * dsw-notebook-22-urz3u6cnu0uts7ej9r.dsw-5cc6083084818f60.dsw.pai.alibaba.com
-   */
-  endpoint?: string;
-  /**
-   * @example
-   * 22
-   */
-  port?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'Endpoint',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      port: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ForwardInfoResponseConnectInfo extends $tea.Model {
-  internet?: ForwardInfoResponseConnectInfoInternet;
-  intranet?: ForwardInfoResponseConnectInfoIntranet;
-  /**
-   * @example
-   * DNAT and privateZone are both ready.
-   */
-  message?: string;
-  /**
-   * @example
-   * Ready
-   */
-  phase?: string;
-  static names(): { [key: string]: string } {
-    return {
-      internet: 'Internet',
-      intranet: 'Intranet',
-      message: 'Message',
-      phase: 'Phase',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      internet: ForwardInfoResponseConnectInfoInternet,
-      intranet: ForwardInfoResponseConnectInfoIntranet,
-      message: 'string',
-      phase: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestAffinityCPU extends $tea.Model {
-  enable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestAffinity extends $tea.Model {
-  CPU?: CreateInstanceRequestAffinityCPU;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: CreateInstanceRequestAffinityCPU,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCloudDisksStatus extends $tea.Model {
-  available?: number;
-  capacity?: number;
-  usage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      available: 'Available',
-      capacity: 'Capacity',
-      usage: 'Usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      available: 'number',
-      capacity: 'number',
-      usage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestCloudDisks extends $tea.Model {
-  /**
-   * @example
-   * 30Gi
-   */
-  capacity?: string;
-  /**
-   * @example
-   * /mmt/workspace
-   */
-  mountPath?: string;
-  /**
-   * @example
-   * workspace
-   */
-  path?: string;
-  status?: CreateInstanceRequestCloudDisksStatus;
-  /**
-   * @example
-   * rootfs
-   */
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      mountPath: 'MountPath',
-      path: 'Path',
-      status: 'Status',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'string',
-      mountPath: 'string',
-      path: 'string',
-      status: CreateInstanceRequestCloudDisksStatus,
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestDatasets extends $tea.Model {
-  /**
-   * @example
-   * d-vsqjvsjp4orp5l206u
-   */
-  datasetId?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  /**
-   * @deprecated
-   */
-  optionType?: string;
-  options?: string;
-  /**
-   * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetId: 'DatasetId',
-      mountPath: 'MountPath',
-      optionType: 'OptionType',
-      options: 'Options',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetId: 'string',
-      mountPath: 'string',
-      optionType: 'string',
-      options: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestRequestedResource extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  CPU?: string;
-  /**
-   * @example
-   * 4
-   */
-  GPU?: string;
-  /**
-   * @example
-   * v100
-   */
-  GPUType?: string;
-  /**
-   * @example
-   * 32
-   */
-  memory?: string;
-  /**
-   * @example
-   * 32
-   */
-  sharedMemory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-      GPU: 'GPU',
-      GPUType: 'GPUType',
-      memory: 'Memory',
-      sharedMemory: 'SharedMemory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: 'string',
-      GPU: 'string',
-      GPUType: 'string',
-      memory: 'string',
-      sharedMemory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequestUserVpc extends $tea.Model {
-  /**
-   * @example
-   * eth0 | eth1
-   */
-  defaultRoute?: string;
-  /**
-   * @example
-   * ["192.168.0.1/24", "192.168.1.1/24"]
-   */
-  extendedCIDRs?: string[];
-  forwardInfos?: ForwardInfo[];
-  /**
-   * @example
-   * sg-xxxxxx
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vsw-xxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * vpc-xxxxx
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCIDRs: 'ExtendedCIDRs',
-      forwardInfos: 'ForwardInfos',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
-      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceSnapshotRequestLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyAffinityCPU extends $tea.Model {
-  enable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyAffinity extends $tea.Model {
-  CPU?: GetInstanceResponseBodyAffinityCPU;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: GetInstanceResponseBodyAffinityCPU,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyCloudDisks extends $tea.Model {
-  /**
-   * @example
-   * 30Gi
-   */
-  capacity?: string;
-  /**
-   * @example
-   * /mmt/workspace
-   */
-  mountPath?: string;
-  /**
-   * @example
-   * /workspace
-   */
-  path?: string;
-  /**
-   * @example
-   * rootfs
-   */
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      mountPath: 'MountPath',
-      path: 'Path',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'string',
-      mountPath: 'string',
-      path: 'string',
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyDatasets extends $tea.Model {
-  /**
-   * @example
-   * d-vsqjvsjp4orp5l206u
-   */
-  datasetId?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  optionType?: string;
-  options?: string;
-  /**
-   * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetId: 'DatasetId',
-      mountPath: 'MountPath',
-      optionType: 'OptionType',
-      options: 'Options',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetId: 'string',
-      mountPath: 'string',
-      optionType: 'string',
-      options: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyIdleInstanceCuller extends $tea.Model {
-  /**
-   * @example
-   * 20
-   */
-  cpuPercentThreshold?: number;
-  /**
-   * @example
-   * 10
-   */
-  gpuPercentThreshold?: number;
-  /**
-   * @example
-   * 30
-   */
-  idleTimeInMinutes?: number;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 60
-   */
-  maxIdleTimeInMinutes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpuPercentThreshold: 'CpuPercentThreshold',
-      gpuPercentThreshold: 'GpuPercentThreshold',
-      idleTimeInMinutes: 'IdleTimeInMinutes',
-      instanceId: 'InstanceId',
-      maxIdleTimeInMinutes: 'MaxIdleTimeInMinutes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuPercentThreshold: 'number',
-      gpuPercentThreshold: 'number',
-      idleTimeInMinutes: 'number',
-      instanceId: 'string',
-      maxIdleTimeInMinutes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyInstanceShutdownTimer extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  dueTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 3600000
-   */
-  remainingTimeInMs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dueTime: 'DueTime',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      instanceId: 'InstanceId',
-      remainingTimeInMs: 'RemainingTimeInMs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dueTime: 'string',
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      instanceId: 'string',
-      remainingTimeInMs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyInstanceSnapshotList extends $tea.Model {
-  /**
-   * @remarks
-   * 快照创建时间
-   * 
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @remarks
-   * 快照修改时间
-   * 
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @remarks
-   * 镜像Id
-   * 
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * 镜像名称
-   * 
-   * @example
-   * py36_cpu_tf1.12_ubuntu
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * 镜像Url
-   * 
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @remarks
-   * 实例快照错误代码
-   * 
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @remarks
-   * 实例快照错误消息
-   * 
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @remarks
-   * 镜像仓库Url
-   * 
-   * @example
-   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
-   */
-  repositoryUrl?: string;
-  /**
-   * @remarks
-   * 实例快照状态
-   * 
-   * @example
-   * Pushing
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageUrl: 'ImageUrl',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      repositoryUrl: 'RepositoryUrl',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageUrl: 'string',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      repositoryUrl: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @example
-   * py36_cpu_tf1.12_ubuntu
-   */
-  imageName?: string;
-  /**
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @remarks
-   * 实例快照错误代码
-   * 
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @remarks
-   * 实例快照错误消息
-   * 
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
-   */
-  repositoryUrl?: string;
-  /**
-   * @remarks
-   * 实例快照状态
-   * 
-   * @example
-   * Pushing
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageUrl: 'ImageUrl',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      repositoryUrl: 'RepositoryUrl',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageUrl: 'string',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      repositoryUrl: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyNodeErrorRecovery extends $tea.Model {
-  autoSwitchCountdownSeconds?: number;
-  enableAutoSwitchOnNodeError?: boolean;
-  hasNodeError?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      autoSwitchCountdownSeconds: 'autoSwitchCountdownSeconds',
-      enableAutoSwitchOnNodeError: 'enableAutoSwitchOnNodeError',
-      hasNodeError: 'hasNodeError',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoSwitchCountdownSeconds: 'number',
-      enableAutoSwitchOnNodeError: 'boolean',
-      hasNodeError: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  CPU?: string;
-  /**
-   * @example
-   * 4
-   */
-  GPU?: string;
-  /**
-   * @example
-   * v100
-   */
-  GPUType?: string;
-  /**
-   * @example
-   * 32
-   */
-  memory?: string;
-  /**
-   * @example
-   * 32
-   */
-  sharedMemory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-      GPU: 'GPU',
-      GPUType: 'GPUType',
-      memory: 'Memory',
-      sharedMemory: 'SharedMemory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: 'string',
-      GPU: 'string',
-      GPUType: 'string',
-      memory: 'string',
-      sharedMemory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyTags extends $tea.Model {
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBodyUserVpc extends $tea.Model {
-  /**
-   * @example
-   * eth0 | eth1
-   */
-  defaultRoute?: string;
-  /**
-   * @example
-   * ["192.168.0.1/24", "192.168.1.1/24"]
-   */
-  extendedCIDRs?: string[];
-  forwardInfos?: ForwardInfoResponse[];
-  /**
-   * @example
-   * sg-xxxxxx
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vsw-xxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * Vpc Id。
-   * 
-   * @example
-   * vpc-xxxxx
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCIDRs: 'ExtendedCIDRs',
-      forwardInfos: 'ForwardInfos',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
-      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model {
-  /**
-   * @example
-   * 1670890560
-   */
-  time?: number;
-  /**
-   * @example
-   * 25.901031
-   */
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      time: 'Time',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      time: 'number',
-      value: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
-  metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
-  /**
-   * @example
-   * dsw-15870-695f44c5bc-hd6xm
-   */
-  podId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metrics: 'Metrics',
-      podId: 'PodId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
-      podId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceSnapshotResponseBodyLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLifecycleResponseBodyLifecycle extends $tea.Model {
-  /**
-   * @example
-   * Starting
-   */
-  status?: string;
-  /**
-   * @example
-   * “”
-   */
-  reasonCode?: string;
-  /**
-   * @example
-   * “”
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * 2022-10-21T07:27:44Z
-   */
-  gmtCreateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      gmtCreateTime: 'GmtCreateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      gmtCreateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUserConfigResponseBodyFreeTier extends $tea.Model {
-  /**
-   * @example
-   * 2020-11-08T15:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @example
-   * 个
-   */
-  initBaseUnit?: string;
-  /**
-   * @example
-   * 5000
-   */
-  initBaseValue?: number;
-  /**
-   * @example
-   * 个
-   */
-  initShowUnit?: string;
-  /**
-   * @example
-   * 5000
-   */
-  initShowValue?: string;
-  /**
-   * @example
-   * true
-   */
-  isFreeTierUser?: boolean;
-  /**
-   * @example
-   * 个
-   */
-  periodBaseUnit?: string;
-  /**
-   * @example
-   * 3000
-   */
-  periodBaseValue?: number;
-  /**
-   * @example
-   * 个
-   */
-  periodShowUnit?: string;
-  /**
-   * @example
-   * 3000
-   */
-  periodShowValue?: string;
-  /**
-   * @example
-   * 2020-11-08T15:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @example
-   * valid
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      initBaseUnit: 'InitBaseUnit',
-      initBaseValue: 'InitBaseValue',
-      initShowUnit: 'InitShowUnit',
-      initShowValue: 'InitShowValue',
-      isFreeTierUser: 'IsFreeTierUser',
-      periodBaseUnit: 'PeriodBaseUnit',
-      periodBaseValue: 'PeriodBaseValue',
-      periodShowUnit: 'PeriodShowUnit',
-      periodShowValue: 'PeriodShowValue',
-      startTime: 'StartTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      initBaseUnit: 'string',
-      initBaseValue: 'number',
-      initShowUnit: 'string',
-      initShowValue: 'string',
-      isFreeTierUser: 'boolean',
-      periodBaseUnit: 'string',
-      periodBaseValue: 'number',
-      periodShowUnit: 'string',
-      periodShowValue: 'string',
-      startTime: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEcsSpecsResponseBodyEcsSpecsLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
-  /**
-   * @example
-   * CPU
-   */
-  acceleratorType?: string;
-  /**
-   * @example
-   * 32
-   */
-  CPU?: number;
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 4
-   */
-  GPU?: number;
-  /**
-   * @example
-   * v100
-   */
-  GPUType?: string;
-  /**
-   * @example
-   * 5120000
-   */
-  instanceBandwidthRx?: number;
-  /**
-   * @example
-   * ecs.gn5-c28g1.7xlarge
-   */
-  instanceType?: string;
-  /**
-   * @example
-   * True
-   */
-  isAvailable?: boolean;
-  /**
-   * @example
-   * {\\"foo\\": \\"bar\\"}
-   */
-  labels?: ListEcsSpecsResponseBodyEcsSpecsLabels[];
-  /**
-   * @example
-   * 32
-   */
-  memory?: number;
-  /**
-   * @example
-   * 22.8
-   */
-  price?: number;
-  /**
-   * @example
-   * 500
-   */
-  systemDiskCapacity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      acceleratorType: 'AcceleratorType',
-      CPU: 'CPU',
-      currency: 'Currency',
-      GPU: 'GPU',
-      GPUType: 'GPUType',
-      instanceBandwidthRx: 'InstanceBandwidthRx',
-      instanceType: 'InstanceType',
-      isAvailable: 'IsAvailable',
-      labels: 'Labels',
-      memory: 'Memory',
-      price: 'Price',
-      systemDiskCapacity: 'SystemDiskCapacity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceleratorType: 'string',
-      CPU: 'number',
-      currency: 'string',
-      GPU: 'number',
-      GPUType: 'string',
-      instanceBandwidthRx: 'number',
-      instanceType: 'string',
-      isAvailable: 'boolean',
-      labels: { 'type': 'array', 'itemType': ListEcsSpecsResponseBodyEcsSpecsLabels },
-      memory: 'number',
-      price: 'number',
-      systemDiskCapacity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceSnapshotResponseBodySnapshotsLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
-  /**
-   * @example
-   * ["/path1","/path2"]
-   */
-  excludePaths?: string[];
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * {\\"foo\\": \\"bar\\"}
-   */
-  labels?: ListInstanceSnapshotResponseBodySnapshotsLabels[];
-  /**
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * snp-05cexxxxxxxxx
-   */
-  snapshotId?: string;
-  /**
-   * @example
-   * training_data_env
-   */
-  snapshotName?: string;
-  /**
-   * @example
-   * Pushing
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      excludePaths: 'ExcludePaths',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      imageId: 'ImageId',
-      imageUrl: 'ImageUrl',
-      instanceId: 'InstanceId',
-      labels: 'Labels',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      snapshotId: 'SnapshotId',
-      snapshotName: 'SnapshotName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      excludePaths: { 'type': 'array', 'itemType': 'string' },
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      imageId: 'string',
-      imageUrl: 'string',
-      instanceId: 'string',
-      labels: { 'type': 'array', 'itemType': ListInstanceSnapshotResponseBodySnapshotsLabels },
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      snapshotId: 'string',
-      snapshotName: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesAffinityCPU extends $tea.Model {
-  enable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesAffinity extends $tea.Model {
-  CPU?: ListInstancesResponseBodyInstancesAffinityCPU;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: ListInstancesResponseBodyInstancesAffinityCPU,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
-  /**
-   * @example
-   * 30Gi
-   */
-  capacity?: string;
-  /**
-   * @example
-   * /mmt/workspace
-   */
-  mountPath?: string;
-  /**
-   * @example
-   * /workspace
-   */
-  path?: string;
-  /**
-   * @example
-   * rootfs
-   */
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      mountPath: 'MountPath',
-      path: 'Path',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'string',
-      mountPath: 'string',
-      path: 'string',
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesDatasets extends $tea.Model {
-  /**
-   * @example
-   * d-vsqjvsjp4orp5l206u
-   */
-  datasetId?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  optionType?: string;
-  options?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetId: 'DatasetId',
-      mountPath: 'MountPath',
-      optionType: 'OptionType',
-      options: 'Options',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetId: 'string',
-      mountPath: 'string',
-      optionType: 'string',
-      options: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $tea.Model {
-  /**
-   * @example
-   * 20
-   */
-  cpuPercentThreshold?: number;
-  /**
-   * @example
-   * 10
-   */
-  gpuPercentThreshold?: number;
-  /**
-   * @example
-   * 30
-   */
-  idleTimeInMinutes?: number;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 60
-   */
-  maxIdleTimeInMinutes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpuPercentThreshold: 'CpuPercentThreshold',
-      gpuPercentThreshold: 'GpuPercentThreshold',
-      idleTimeInMinutes: 'IdleTimeInMinutes',
-      instanceId: 'InstanceId',
-      maxIdleTimeInMinutes: 'MaxIdleTimeInMinutes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuPercentThreshold: 'number',
-      gpuPercentThreshold: 'number',
-      idleTimeInMinutes: 'number',
-      instanceId: 'string',
-      maxIdleTimeInMinutes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  dueTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 3600000
-   */
-  remainingTimeInMs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dueTime: 'DueTime',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      instanceId: 'InstanceId',
-      remainingTimeInMs: 'RemainingTimeInMs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dueTime: 'string',
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      instanceId: 'string',
-      remainingTimeInMs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @example
-   * py36_cpu_tf1.12_ubuntu
-   */
-  imageName?: string;
-  /**
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
-   */
-  repositoryUrl?: string;
-  /**
-   * @example
-   * Pushing
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageUrl: 'ImageUrl',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      repositoryUrl: 'RepositoryUrl',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageUrl: 'string',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      repositoryUrl: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesLabels extends $tea.Model {
-  /**
-   * @example
-   * stsTokenOwner
-   */
-  key?: string;
-  /**
-   * @example
-   * 123xxxxxxxx
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @example
-   * py36_cpu_tf1.12_ubuntu
-   */
-  imageName?: string;
-  /**
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
-   */
-  repositoryUrl?: string;
-  /**
-   * @example
-   * Pushing
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageUrl: 'ImageUrl',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      repositoryUrl: 'RepositoryUrl',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageUrl: 'string',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      repositoryUrl: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  CPU?: string;
-  /**
-   * @example
-   * 4
-   */
-  GPU?: string;
-  /**
-   * @example
-   * v100
-   */
-  GPUType?: string;
-  /**
-   * @example
-   * 32
-   */
-  memory?: string;
-  /**
-   * @example
-   * 32
-   */
-  sharedMemory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-      GPU: 'GPU',
-      GPUType: 'GPUType',
-      memory: 'Memory',
-      sharedMemory: 'SharedMemory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: 'string',
-      GPU: 'string',
-      GPUType: 'string',
-      memory: 'string',
-      sharedMemory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesTags extends $tea.Model {
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
-  /**
-   * @example
-   * eth0 | eth1
-   */
-  defaultRoute?: string;
-  /**
-   * @example
-   * ["192.168.0.1/24", "192.168.1.1/24"]
-   */
-  extendedCIDRs?: string[];
-  forwardInfos?: ForwardInfoResponse[];
-  /**
-   * @example
-   * sg-xxxxxx
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vsw-xxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * vpc-xxxxx
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCIDRs: 'ExtendedCIDRs',
-      forwardInfos: 'ForwardInfos',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
-      forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBodyInstances extends $tea.Model {
-  /**
-   * @example
-   * CPU
-   */
-  acceleratorType?: string;
-  /**
-   * @example
-   * PRIVATE
-   */
-  accessibility?: string;
-  /**
-   * @example
-   * 3600000
-   */
-  accumulatedRunningTimeInMs?: number;
-  affinity?: ListInstancesResponseBodyInstancesAffinity;
-  /**
-   * @example
-   * []
-   */
-  cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
-  credentialConfig?: CredentialConfig;
-  datasets?: ListInstancesResponseBodyInstancesDatasets[];
-  /**
-   * @example
-   * 535.54.03
-   */
-  driver?: string;
-  /**
-   * @example
-   * ecs.c6.large
-   */
-  ecsSpec?: string;
-  /**
-   * @example
-   * {userName: "Chris"}
-   */
-  environmentVariables?: { [key: string]: string };
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtModifiedTime?: string;
-  /**
-   * @example
-   * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
-   */
-  idleInstanceCuller?: ListInstancesResponseBodyInstancesIdleInstanceCuller;
-  imageAuth?: string;
-  /**
-   * @example
-   * image-05cefd0be2exxxx
-   */
-  imageId?: string;
-  /**
-   * @example
-   * py36_cpu_tf1.12_ubuntu
-   */
-  imageName?: string;
-  /**
-   * @example
-   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
-   */
-  imageUrl?: string;
-  /**
-   * @example
-   * dsw-730xxxxxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * training_data
-   */
-  instanceName?: string;
-  instanceShutdownTimer?: ListInstancesResponseBodyInstancesInstanceShutdownTimer;
-  /**
-   * @example
-   * []
-   */
-  instanceSnapshotList?: ListInstancesResponseBodyInstancesInstanceSnapshotList[];
-  /**
-   * @example
-   * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
-   */
-  instanceUrl?: string;
-  /**
-   * @remarks
-   * Jupyterlab Url。
-   * 
-   * @example
-   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
-   */
-  jupyterlabUrl?: string;
-  /**
-   * @example
-   * {\\"foo\\": \\"bar\\"}
-   */
-  labels?: ListInstancesResponseBodyInstancesLabels[];
-  latestSnapshot?: ListInstancesResponseBodyInstancesLatestSnapshot;
-  /**
-   * @example
-   * PayAsYouGo
-   */
-  paymentType?: string;
-  /**
-   * @example
-   * 1
-   */
-  priority?: number;
-  /**
-   * @example
-   * Internal Error
-   */
-  reasonCode?: string;
-  /**
-   * @example
-   * ImagePullBackOff
-   */
-  reasonMessage?: string;
-  /**
-   * @example
-   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
-   */
-  requestedResource?: ListInstancesResponseBodyInstancesRequestedResource;
-  /**
-   * @example
-   * dsw-123456789
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * resource_group
-   */
-  resourceName?: string;
-  /**
-   * @example
-   * Running
-   */
-  status?: string;
-  tags?: ListInstancesResponseBodyInstancesTags[];
-  /**
-   * @example
-   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
-   */
-  terminalUrl?: string;
-  /**
-   * @example
-   * 1612285282502324
-   */
-  userId?: string;
-  /**
-   * @example
-   * 测试用户
-   */
-  userName?: string;
-  userVpc?: ListInstancesResponseBodyInstancesUserVpc;
-  /**
-   * @remarks
-   * Web IDE url。
-   * 
-   * @example
-   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
-   */
-  webIDEUrl?: string;
-  /**
-   * @example
-   * 40823
-   */
-  workspaceId?: string;
-  /**
-   * @example
-   * training_data
-   */
-  workspaceName?: string;
-  /**
-   * @example
-   * d-123456789
-   */
-  workspaceSource?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceleratorType: 'AcceleratorType',
-      accessibility: 'Accessibility',
-      accumulatedRunningTimeInMs: 'AccumulatedRunningTimeInMs',
-      affinity: 'Affinity',
-      cloudDisks: 'CloudDisks',
-      credentialConfig: 'CredentialConfig',
-      datasets: 'Datasets',
-      driver: 'Driver',
-      ecsSpec: 'EcsSpec',
-      environmentVariables: 'EnvironmentVariables',
-      gmtCreateTime: 'GmtCreateTime',
-      gmtModifiedTime: 'GmtModifiedTime',
-      idleInstanceCuller: 'IdleInstanceCuller',
-      imageAuth: 'ImageAuth',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageUrl: 'ImageUrl',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      instanceShutdownTimer: 'InstanceShutdownTimer',
-      instanceSnapshotList: 'InstanceSnapshotList',
-      instanceUrl: 'InstanceUrl',
-      jupyterlabUrl: 'JupyterlabUrl',
-      labels: 'Labels',
-      latestSnapshot: 'LatestSnapshot',
-      paymentType: 'PaymentType',
-      priority: 'Priority',
-      reasonCode: 'ReasonCode',
-      reasonMessage: 'ReasonMessage',
-      requestedResource: 'RequestedResource',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      status: 'Status',
-      tags: 'Tags',
-      terminalUrl: 'TerminalUrl',
-      userId: 'UserId',
-      userName: 'UserName',
-      userVpc: 'UserVpc',
-      webIDEUrl: 'WebIDEUrl',
-      workspaceId: 'WorkspaceId',
-      workspaceName: 'WorkspaceName',
-      workspaceSource: 'WorkspaceSource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceleratorType: 'string',
-      accessibility: 'string',
-      accumulatedRunningTimeInMs: 'number',
-      affinity: ListInstancesResponseBodyInstancesAffinity,
-      cloudDisks: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesCloudDisks },
-      credentialConfig: CredentialConfig,
-      datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
-      driver: 'string',
-      ecsSpec: 'string',
-      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
-      idleInstanceCuller: ListInstancesResponseBodyInstancesIdleInstanceCuller,
-      imageAuth: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageUrl: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      instanceShutdownTimer: ListInstancesResponseBodyInstancesInstanceShutdownTimer,
-      instanceSnapshotList: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesInstanceSnapshotList },
-      instanceUrl: 'string',
-      jupyterlabUrl: 'string',
-      labels: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesLabels },
-      latestSnapshot: ListInstancesResponseBodyInstancesLatestSnapshot,
-      paymentType: 'string',
-      priority: 'number',
-      reasonCode: 'string',
-      reasonMessage: 'string',
-      requestedResource: ListInstancesResponseBodyInstancesRequestedResource,
-      resourceId: 'string',
-      resourceName: 'string',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesTags },
-      terminalUrl: 'string',
-      userId: 'string',
-      userName: 'string',
-      userVpc: ListInstancesResponseBodyInstancesUserVpc,
-      webIDEUrl: 'string',
-      workspaceId: 'string',
-      workspaceName: 'string',
-      workspaceSource: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestAffinityCPU extends $tea.Model {
-  enable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestAffinity extends $tea.Model {
-  CPU?: UpdateInstanceRequestAffinityCPU;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: UpdateInstanceRequestAffinityCPU,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestCloudDisks extends $tea.Model {
-  /**
-   * @example
-   * 30Gi
-   */
-  capacity?: string;
-  /**
-   * @example
-   * rootfs
-   */
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      capacity: 'Capacity',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      capacity: 'string',
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestDatasets extends $tea.Model {
-  /**
-   * @example
-   * d-vsqjvsjp4orp5l206u
-   */
-  datasetId?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  /**
-   * @deprecated
-   */
-  optionType?: string;
-  options?: string;
-  /**
-   * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetId: 'DatasetId',
-      mountPath: 'MountPath',
-      optionType: 'OptionType',
-      options: 'Options',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetId: 'string',
-      mountPath: 'string',
-      optionType: 'string',
-      options: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestRequestedResource extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  CPU?: string;
-  /**
-   * @example
-   * 4
-   */
-  GPU?: string;
-  /**
-   * @example
-   * v100
-   */
-  GPUType?: string;
-  /**
-   * @example
-   * 32
-   */
-  memory?: string;
-  /**
-   * @example
-   * 32
-   */
-  sharedMemory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      CPU: 'CPU',
-      GPU: 'GPU',
-      GPUType: 'GPUType',
-      memory: 'Memory',
-      sharedMemory: 'SharedMemory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      CPU: 'string',
-      GPU: 'string',
-      GPUType: 'string',
-      memory: 'string',
-      sharedMemory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequestUserVpc extends $tea.Model {
-  /**
-   * @example
-   * eth0 | eth1
-   */
-  defaultRoute?: string;
-  /**
-   * @example
-   * ["192.168.0.1/24", "192.168.1.1/24"]
-   */
-  extendedCIDRs?: string[];
-  forwardInfos?: ForwardInfo[];
-  /**
-   * @example
-   * sg-xxxxxx
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vsw-xxxxx
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * vpc-xxxxx
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCIDRs: 'ExtendedCIDRs',
-      forwardInfos: 'ForwardInfos',
-      securityGroupId: 'SecurityGroupId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
-      forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
-      securityGroupId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceLabelsRequestLabels extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * customLabelKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * labelValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6853,7 +7851,7 @@ export class UpdateInstanceLabelsRequestLabels extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -6862,15 +7860,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -6879,37 +7877,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIdleInstanceCullerResponse
    */
-  async createIdleInstanceCullerWithOptions(InstanceId: string, request: CreateIdleInstanceCullerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdleInstanceCullerResponse> {
-    Util.validateModel(request);
+  async createIdleInstanceCullerWithOptions(InstanceId: string, request: CreateIdleInstanceCullerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateIdleInstanceCullerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cpuPercentThreshold)) {
+    if (!$dara.isNull(request.cpuPercentThreshold)) {
       body["CpuPercentThreshold"] = request.cpuPercentThreshold;
     }
 
-    if (!Util.isUnset(request.gpuPercentThreshold)) {
+    if (!$dara.isNull(request.gpuPercentThreshold)) {
       body["GpuPercentThreshold"] = request.gpuPercentThreshold;
     }
 
-    if (!Util.isUnset(request.maxIdleTimeInMinutes)) {
+    if (!$dara.isNull(request.maxIdleTimeInMinutes)) {
       body["MaxIdleTimeInMinutes"] = request.maxIdleTimeInMinutes;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateIdleInstanceCuller",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/idleinstanceculler`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/idleinstanceculler`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
+    } else {
+      return $dara.cast<CreateIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
+    }
+
   }
 
   /**
@@ -6917,7 +7920,7 @@ export default class Client extends OpenApi {
    * @returns CreateIdleInstanceCullerResponse
    */
   async createIdleInstanceCuller(InstanceId: string, request: CreateIdleInstanceCullerRequest): Promise<CreateIdleInstanceCullerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIdleInstanceCullerWithOptions(InstanceId, request, headers, runtime);
   }
@@ -6930,98 +7933,98 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
    */
-  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(request);
+  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.affinity)) {
+    if (!$dara.isNull(request.affinity)) {
       body["Affinity"] = request.affinity;
     }
 
-    if (!Util.isUnset(request.cloudDisks)) {
+    if (!$dara.isNull(request.cloudDisks)) {
       body["CloudDisks"] = request.cloudDisks;
     }
 
-    if (!Util.isUnset(request.credentialConfig)) {
+    if (!$dara.isNull(request.credentialConfig)) {
       body["CredentialConfig"] = request.credentialConfig;
     }
 
-    if (!Util.isUnset(request.datasets)) {
+    if (!$dara.isNull(request.datasets)) {
       body["Datasets"] = request.datasets;
     }
 
-    if (!Util.isUnset(request.driver)) {
+    if (!$dara.isNull(request.driver)) {
       body["Driver"] = request.driver;
     }
 
-    if (!Util.isUnset(request.ecsSpec)) {
+    if (!$dara.isNull(request.ecsSpec)) {
       body["EcsSpec"] = request.ecsSpec;
     }
 
-    if (!Util.isUnset(request.environmentVariables)) {
+    if (!$dara.isNull(request.environmentVariables)) {
       body["EnvironmentVariables"] = request.environmentVariables;
     }
 
-    if (!Util.isUnset(request.imageAuth)) {
+    if (!$dara.isNull(request.imageAuth)) {
       body["ImageAuth"] = request.imageAuth;
     }
 
-    if (!Util.isUnset(request.imageId)) {
+    if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.requestedResource)) {
+    if (!$dara.isNull(request.requestedResource)) {
       body["RequestedResource"] = request.requestedResource;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userVpc)) {
+    if (!$dara.isNull(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    if (!Util.isUnset(request.workspaceSource)) {
+    if (!$dara.isNull(request.workspaceSource)) {
       body["WorkspaceSource"] = request.workspaceSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -7032,7 +8035,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -7042,7 +8050,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
@@ -7055,33 +8063,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceShutdownTimerResponse
    */
-  async createInstanceShutdownTimerWithOptions(InstanceId: string, request: CreateInstanceShutdownTimerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceShutdownTimerResponse> {
-    Util.validateModel(request);
+  async createInstanceShutdownTimerWithOptions(InstanceId: string, request: CreateInstanceShutdownTimerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceShutdownTimerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dueTime)) {
+    if (!$dara.isNull(request.dueTime)) {
       body["DueTime"] = request.dueTime;
     }
 
-    if (!Util.isUnset(request.remainingTimeInMs)) {
+    if (!$dara.isNull(request.remainingTimeInMs)) {
       body["RemainingTimeInMs"] = request.remainingTimeInMs;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstanceShutdownTimer",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/shutdowntimer`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/shutdowntimer`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
+    }
+
   }
 
   /**
@@ -7091,7 +8104,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceShutdownTimerResponse
    */
   async createInstanceShutdownTimer(InstanceId: string, request: CreateInstanceShutdownTimerRequest): Promise<CreateInstanceShutdownTimerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceShutdownTimerWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7104,49 +8117,54 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceSnapshotResponse
    */
-  async createInstanceSnapshotWithOptions(InstanceId: string, request: CreateInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceSnapshotResponse> {
-    Util.validateModel(request);
+  async createInstanceSnapshotWithOptions(InstanceId: string, request: CreateInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceSnapshotResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.excludePaths)) {
+    if (!$dara.isNull(request.excludePaths)) {
       body["ExcludePaths"] = request.excludePaths;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    if (!Util.isUnset(request.overwrite)) {
+    if (!$dara.isNull(request.overwrite)) {
       body["Overwrite"] = request.overwrite;
     }
 
-    if (!Util.isUnset(request.snapshotDescription)) {
+    if (!$dara.isNull(request.snapshotDescription)) {
       body["SnapshotDescription"] = request.snapshotDescription;
     }
 
-    if (!Util.isUnset(request.snapshotName)) {
+    if (!$dara.isNull(request.snapshotName)) {
       body["SnapshotName"] = request.snapshotName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstanceSnapshot",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshots`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/snapshots`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceSnapshotResponse>(await this.execute(params, req, runtime), new CreateInstanceSnapshotResponse({}));
+    }
+
   }
 
   /**
@@ -7156,7 +8174,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceSnapshotResponse
    */
   async createInstanceSnapshot(InstanceId: string, request: CreateInstanceSnapshotRequest): Promise<CreateInstanceSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceSnapshotWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7166,29 +8184,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIdleInstanceCullerResponse
    */
-  async deleteIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIdleInstanceCullerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteIdleInstanceCullerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteIdleInstanceCuller",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/idleinstanceculler`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/idleinstanceculler`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
+    } else {
+      return $dara.cast<DeleteIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
+    }
+
   }
 
   /**
    * @returns DeleteIdleInstanceCullerResponse
    */
   async deleteIdleInstanceCuller(InstanceId: string): Promise<DeleteIdleInstanceCullerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIdleInstanceCullerWithOptions(InstanceId, headers, runtime);
   }
@@ -7200,22 +8223,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
    */
-  async deleteInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -7223,7 +8251,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceResponse
    */
   async deleteInstance(InstanceId: string): Promise<DeleteInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(InstanceId, headers, runtime);
   }
@@ -7236,29 +8264,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceLabelsResponse
    */
-  async deleteInstanceLabelsWithOptions(InstanceId: string, request: DeleteInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceLabelsResponse> {
-    Util.validateModel(request);
+  async deleteInstanceLabelsWithOptions(InstanceId: string, request: DeleteInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceLabelsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelKeys)) {
+    if (!$dara.isNull(request.labelKeys)) {
       query["LabelKeys"] = request.labelKeys;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceLabels",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/labels`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/labels`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceLabelsResponse>(await this.callApi(params, req, runtime), new DeleteInstanceLabelsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceLabelsResponse>(await this.callApi(params, req, runtime), new DeleteInstanceLabelsResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceLabelsResponse>(await this.execute(params, req, runtime), new DeleteInstanceLabelsResponse({}));
+    }
+
   }
 
   /**
@@ -7268,7 +8301,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceLabelsResponse
    */
   async deleteInstanceLabels(InstanceId: string, request: DeleteInstanceLabelsRequest): Promise<DeleteInstanceLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7280,22 +8313,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceShutdownTimerResponse
    */
-  async deleteInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceShutdownTimerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceShutdownTimerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceShutdownTimer",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/shutdowntimer`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/shutdowntimer`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
+    }
+
   }
 
   /**
@@ -7303,7 +8341,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceShutdownTimerResponse
    */
   async deleteInstanceShutdownTimer(InstanceId: string): Promise<DeleteInstanceShutdownTimerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceShutdownTimerWithOptions(InstanceId, headers, runtime);
   }
@@ -7315,22 +8353,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceSnapshotResponse
    */
-  async deleteInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceSnapshotResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceSnapshotResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceSnapshot",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshots/${OpenApiUtil.getEncodeParam(SnapshotId)}`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/snapshots/${$dara.URL.percentEncode(SnapshotId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceSnapshotResponse>(await this.execute(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
+    }
+
   }
 
   /**
@@ -7338,7 +8381,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceSnapshotResponse
    */
   async deleteInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<DeleteInstanceSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceSnapshotWithOptions(InstanceId, SnapshotId, headers, runtime);
   }
@@ -7348,29 +8391,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIdleInstanceCullerResponse
    */
-  async getIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdleInstanceCullerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetIdleInstanceCullerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetIdleInstanceCuller",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/idleinstanceculler`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/idleinstanceculler`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new GetIdleInstanceCullerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new GetIdleInstanceCullerResponse({}));
+    } else {
+      return $dara.cast<GetIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new GetIdleInstanceCullerResponse({}));
+    }
+
   }
 
   /**
    * @returns GetIdleInstanceCullerResponse
    */
   async getIdleInstanceCuller(InstanceId: string): Promise<GetIdleInstanceCullerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIdleInstanceCullerWithOptions(InstanceId, headers, runtime);
   }
@@ -7383,29 +8431,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
    */
-  async getInstanceWithOptions(InstanceId: string, request: GetInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
-    Util.validateModel(request);
+  async getInstanceWithOptions(InstanceId: string, request: GetInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    } else {
+      return $dara.cast<GetInstanceResponse>(await this.execute(params, req, runtime), new GetInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -7415,7 +8468,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceResponse
    */
   async getInstance(InstanceId: string, request: GetInstanceRequest): Promise<GetInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7426,41 +8479,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceEventsResponse
    */
-  async getInstanceEventsWithOptions(InstanceId: string, request: GetInstanceEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceEventsResponse> {
-    Util.validateModel(request);
+  async getInstanceEventsWithOptions(InstanceId: string, request: GetInstanceEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceEventsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxEventsNum)) {
+    if (!$dara.isNull(request.maxEventsNum)) {
       query["MaxEventsNum"] = request.maxEventsNum;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceEvents",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/events`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
+    } else {
+      return $dara.cast<GetInstanceEventsResponse>(await this.execute(params, req, runtime), new GetInstanceEventsResponse({}));
+    }
+
   }
 
   /**
@@ -7468,7 +8526,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceEventsResponse
    */
   async getInstanceEvents(InstanceId: string, request: GetInstanceEventsRequest): Promise<GetInstanceEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceEventsWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7479,41 +8537,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceMetricsResponse
    */
-  async getInstanceMetricsWithOptions(InstanceId: string, request: GetInstanceMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
-    Util.validateModel(request);
+  async getInstanceMetricsWithOptions(InstanceId: string, request: GetInstanceMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.metricType)) {
+    if (!$dara.isNull(request.metricType)) {
       query["MetricType"] = request.metricType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.timeStep)) {
+    if (!$dara.isNull(request.timeStep)) {
       query["TimeStep"] = request.timeStep;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceMetrics",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instance/${OpenApiUtil.getEncodeParam(InstanceId)}/metrics`,
+      pathname: `/api/v2/instance/${$dara.URL.percentEncode(InstanceId)}/metrics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
+    } else {
+      return $dara.cast<GetInstanceMetricsResponse>(await this.execute(params, req, runtime), new GetInstanceMetricsResponse({}));
+    }
+
   }
 
   /**
@@ -7521,7 +8584,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceMetricsResponse
    */
   async getInstanceMetrics(InstanceId: string, request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceMetricsWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7533,22 +8596,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceShutdownTimerResponse
    */
-  async getInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceShutdownTimerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceShutdownTimerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceShutdownTimer",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/shutdowntimer`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/shutdowntimer`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
+    } else {
+      return $dara.cast<GetInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
+    }
+
   }
 
   /**
@@ -7556,7 +8624,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceShutdownTimerResponse
    */
   async getInstanceShutdownTimer(InstanceId: string): Promise<GetInstanceShutdownTimerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceShutdownTimerWithOptions(InstanceId, headers, runtime);
   }
@@ -7568,22 +8636,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceSnapshotResponse
    */
-  async getInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceSnapshotResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceSnapshotResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceSnapshot",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshots/${OpenApiUtil.getEncodeParam(SnapshotId)}`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/snapshots/${$dara.URL.percentEncode(SnapshotId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
+    } else {
+      return $dara.cast<GetInstanceSnapshotResponse>(await this.execute(params, req, runtime), new GetInstanceSnapshotResponse({}));
+    }
+
   }
 
   /**
@@ -7591,7 +8664,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceSnapshotResponse
    */
   async getInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<GetInstanceSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceSnapshotWithOptions(InstanceId, SnapshotId, headers, runtime);
   }
@@ -7602,49 +8675,54 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLifecycleResponse
    */
-  async getLifecycleWithOptions(InstanceId: string, request: GetLifecycleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLifecycleResponse> {
-    Util.validateModel(request);
+  async getLifecycleWithOptions(InstanceId: string, request: GetLifecycleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetLifecycleResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.sessionNumber)) {
+    if (!$dara.isNull(request.sessionNumber)) {
       query["SessionNumber"] = request.sessionNumber;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLifecycle",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/lifecycle`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/lifecycle`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetLifecycleResponse>(await this.callApi(params, req, runtime), new GetLifecycleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLifecycleResponse>(await this.callApi(params, req, runtime), new GetLifecycleResponse({}));
+    } else {
+      return $dara.cast<GetLifecycleResponse>(await this.execute(params, req, runtime), new GetLifecycleResponse({}));
+    }
+
   }
 
   /**
@@ -7652,7 +8730,7 @@ export default class Client extends OpenApi {
    * @returns GetLifecycleResponse
    */
   async getLifecycle(InstanceId: string, request: GetLifecycleRequest): Promise<GetLifecycleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLifecycleWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7665,57 +8743,62 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMetricsResponse
    */
-  async getMetricsWithOptions(InstanceId: string, request: GetMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMetricsResponse> {
-    Util.validateModel(request);
+  async getMetricsWithOptions(InstanceId: string, request: GetMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetMetricsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dimensions)) {
+    if (!$dara.isNull(request.dimensions)) {
       query["Dimensions"] = request.dimensions;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.length)) {
+    if (!$dara.isNull(request.length)) {
       query["Length"] = request.length;
     }
 
-    if (!Util.isUnset(request.metricName)) {
+    if (!$dara.isNull(request.metricName)) {
       query["MetricName"] = request.metricName;
     }
 
-    if (!Util.isUnset(request.namespace)) {
+    if (!$dara.isNull(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMetrics",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instance/${OpenApiUtil.getEncodeParam(InstanceId)}/cms/metrics`,
+      pathname: `/api/v2/instance/${$dara.URL.percentEncode(InstanceId)}/cms/metrics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetMetricsResponse>(await this.callApi(params, req, runtime), new GetMetricsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMetricsResponse>(await this.callApi(params, req, runtime), new GetMetricsResponse({}));
+    } else {
+      return $dara.cast<GetMetricsResponse>(await this.execute(params, req, runtime), new GetMetricsResponse({}));
+    }
+
   }
 
   /**
@@ -7725,7 +8808,7 @@ export default class Client extends OpenApi {
    * @returns GetMetricsResponse
    */
   async getMetrics(InstanceId: string, request: GetMetricsRequest): Promise<GetMetricsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMetricsWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7736,30 +8819,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupStatisticsResponse
    */
-  async getResourceGroupStatisticsWithOptions(request: GetResourceGroupStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupStatisticsResponse> {
-    Util.validateModel(request);
+  async getResourceGroupStatisticsWithOptions(request: GetResourceGroupStatisticsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetResourceGroupStatisticsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.workspaceIds)) {
+    if (!$dara.isNull(request.workspaceIds)) {
       query["WorkspaceIds"] = request.workspaceIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceGroupStatistics",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -7770,7 +8853,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceGroupStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetResourceGroupStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
+    } else {
+      return $dara.cast<GetResourceGroupStatisticsResponse>(await this.execute(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -7778,7 +8866,7 @@ export default class Client extends OpenApi {
    * @returns GetResourceGroupStatisticsResponse
    */
   async getResourceGroupStatistics(request: GetResourceGroupStatisticsRequest): Promise<GetResourceGroupStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourceGroupStatisticsWithOptions(request, headers, runtime);
   }
@@ -7789,22 +8877,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTokenResponse
    */
-  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
-    Util.validateModel(request);
+  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTokenResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expireTime)) {
+    if (!$dara.isNull(request.expireTime)) {
       query["ExpireTime"] = request.expireTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetToken",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -7815,7 +8903,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
+    } else {
+      return $dara.cast<GetTokenResponse>(await this.execute(params, req, runtime), new GetTokenResponse({}));
+    }
+
   }
 
   /**
@@ -7823,7 +8916,7 @@ export default class Client extends OpenApi {
    * @returns GetTokenResponse
    */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
   }
@@ -7835,11 +8928,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserConfigResponse
    */
-  async getUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetUserConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetUserConfig",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -7850,7 +8943,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetUserConfigResponse>(await this.callApi(params, req, runtime), new GetUserConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetUserConfigResponse>(await this.callApi(params, req, runtime), new GetUserConfigResponse({}));
+    } else {
+      return $dara.cast<GetUserConfigResponse>(await this.execute(params, req, runtime), new GetUserConfigResponse({}));
+    }
+
   }
 
   /**
@@ -7858,7 +8956,7 @@ export default class Client extends OpenApi {
    * @returns GetUserConfigResponse
    */
   async getUserConfig(): Promise<GetUserConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUserConfigWithOptions(headers, runtime);
   }
@@ -7871,34 +8969,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEcsSpecsResponse
    */
-  async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
-    Util.validateModel(request);
+  async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListEcsSpecsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceleratorType)) {
+    if (!$dara.isNull(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEcsSpecs",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -7909,7 +9007,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
+    } else {
+      return $dara.cast<ListEcsSpecsResponse>(await this.execute(params, req, runtime), new ListEcsSpecsResponse({}));
+    }
+
   }
 
   /**
@@ -7919,7 +9022,7 @@ export default class Client extends OpenApi {
    * @returns ListEcsSpecsResponse
    */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
@@ -7932,41 +9035,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceSnapshotResponse
    */
-  async listInstanceSnapshotWithOptions(InstanceId: string, request: ListInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSnapshotResponse> {
-    Util.validateModel(request);
+  async listInstanceSnapshotWithOptions(InstanceId: string, request: ListInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstanceSnapshotResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstanceSnapshot",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/snapshots`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/snapshots`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotResponse({}));
+    } else {
+      return $dara.cast<ListInstanceSnapshotResponse>(await this.execute(params, req, runtime), new ListInstanceSnapshotResponse({}));
+    }
+
   }
 
   /**
@@ -7976,7 +9084,7 @@ export default class Client extends OpenApi {
    * @returns ListInstanceSnapshotResponse
    */
   async listInstanceSnapshot(InstanceId: string, request: ListInstanceSnapshotRequest): Promise<ListInstanceSnapshotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceSnapshotWithOptions(InstanceId, request, headers, runtime);
   }
@@ -7989,18 +9097,18 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceStatisticsResponse
    */
-  async listInstanceStatisticsWithOptions(request: ListInstanceStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceStatisticsResponse> {
-    Util.validateModel(request);
+  async listInstanceStatisticsWithOptions(request: ListInstanceStatisticsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstanceStatisticsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceIds)) {
+    if (!$dara.isNull(request.workspaceIds)) {
       query["WorkspaceIds"] = request.workspaceIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstanceStatistics",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -8011,7 +9119,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new ListInstanceStatisticsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new ListInstanceStatisticsResponse({}));
+    } else {
+      return $dara.cast<ListInstanceStatisticsResponse>(await this.execute(params, req, runtime), new ListInstanceStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -8021,7 +9134,7 @@ export default class Client extends OpenApi {
    * @returns ListInstanceStatisticsResponse
    */
   async listInstanceStatistics(request: ListInstanceStatisticsRequest): Promise<ListInstanceStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceStatisticsWithOptions(request, headers, runtime);
   }
@@ -8032,124 +9145,124 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
    */
-  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
+    tmpReq.validate();
     let request = new ListInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.labels)) {
+    if (!$dara.isNull(tmpReq.labels)) {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tag)) {
+    if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceleratorType)) {
+    if (!$dara.isNull(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
     }
 
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.createUserId)) {
+    if (!$dara.isNull(request.createUserId)) {
       query["CreateUserId"] = request.createUserId;
     }
 
-    if (!Util.isUnset(request.gpuType)) {
+    if (!$dara.isNull(request.gpuType)) {
       query["GpuType"] = request.gpuType;
     }
 
-    if (!Util.isUnset(request.imageName)) {
+    if (!$dara.isNull(request.imageName)) {
       query["ImageName"] = request.imageName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.labelsShrink)) {
+    if (!$dara.isNull(request.labelsShrink)) {
       query["Labels"] = request.labelsShrink;
     }
 
-    if (!Util.isUnset(request.maxCpu)) {
+    if (!$dara.isNull(request.maxCpu)) {
       query["MaxCpu"] = request.maxCpu;
     }
 
-    if (!Util.isUnset(request.maxGpu)) {
+    if (!$dara.isNull(request.maxGpu)) {
       query["MaxGpu"] = request.maxGpu;
     }
 
-    if (!Util.isUnset(request.maxGpuMemory)) {
+    if (!$dara.isNull(request.maxGpuMemory)) {
       query["MaxGpuMemory"] = request.maxGpuMemory;
     }
 
-    if (!Util.isUnset(request.maxMemory)) {
+    if (!$dara.isNull(request.maxMemory)) {
       query["MaxMemory"] = request.maxMemory;
     }
 
-    if (!Util.isUnset(request.minCpu)) {
+    if (!$dara.isNull(request.minCpu)) {
       query["MinCpu"] = request.minCpu;
     }
 
-    if (!Util.isUnset(request.minGpu)) {
+    if (!$dara.isNull(request.minGpu)) {
       query["MinGpu"] = request.minGpu;
     }
 
-    if (!Util.isUnset(request.minGpuMemory)) {
+    if (!$dara.isNull(request.minGpuMemory)) {
       query["MinGpuMemory"] = request.minGpuMemory;
     }
 
-    if (!Util.isUnset(request.minMemory)) {
+    if (!$dara.isNull(request.minMemory)) {
       query["MinMemory"] = request.minMemory;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.paymentType)) {
+    if (!$dara.isNull(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagShrink)) {
+    if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstances",
       version: "2022-01-01",
       protocol: "HTTPS",
@@ -8160,7 +9273,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    } else {
+      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -8168,7 +9286,7 @@ export default class Client extends OpenApi {
    * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
@@ -8180,22 +9298,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartInstanceResponse
    */
-  async startInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async startInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartInstanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/start`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
+    } else {
+      return $dara.cast<StartInstanceResponse>(await this.execute(params, req, runtime), new StartInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -8203,7 +9326,7 @@ export default class Client extends OpenApi {
    * @returns StartInstanceResponse
    */
   async startInstance(InstanceId: string): Promise<StartInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startInstanceWithOptions(InstanceId, headers, runtime);
   }
@@ -8216,29 +9339,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopInstanceResponse
    */
-  async stopInstanceWithOptions(InstanceId: string, request: StopInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
-    Util.validateModel(request);
+  async stopInstanceWithOptions(InstanceId: string, request: StopInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.saveImage)) {
+    if (!$dara.isNull(request.saveImage)) {
       query["SaveImage"] = request.saveImage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/stop`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
+    } else {
+      return $dara.cast<StopInstanceResponse>(await this.execute(params, req, runtime), new StopInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -8248,7 +9376,7 @@ export default class Client extends OpenApi {
    * @returns StopInstanceResponse
    */
   async stopInstance(InstanceId: string, request: StopInstanceRequest): Promise<StopInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopInstanceWithOptions(InstanceId, request, headers, runtime);
   }
@@ -8261,109 +9389,114 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceResponse
    */
-  async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
-    Util.validateModel(request);
+  async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.affinity)) {
+    if (!$dara.isNull(request.affinity)) {
       body["Affinity"] = request.affinity;
     }
 
-    if (!Util.isUnset(request.cloudDisks)) {
+    if (!$dara.isNull(request.cloudDisks)) {
       body["CloudDisks"] = request.cloudDisks;
     }
 
-    if (!Util.isUnset(request.credentialConfig)) {
+    if (!$dara.isNull(request.credentialConfig)) {
       body["CredentialConfig"] = request.credentialConfig;
     }
 
-    if (!Util.isUnset(request.datasets)) {
+    if (!$dara.isNull(request.datasets)) {
       body["Datasets"] = request.datasets;
     }
 
-    if (!Util.isUnset(request.disassociateCredential)) {
+    if (!$dara.isNull(request.disassociateCredential)) {
       body["DisassociateCredential"] = request.disassociateCredential;
     }
 
-    if (!Util.isUnset(request.disassociateDatasets)) {
+    if (!$dara.isNull(request.disassociateDatasets)) {
       body["DisassociateDatasets"] = request.disassociateDatasets;
     }
 
-    if (!Util.isUnset(request.disassociateDriver)) {
+    if (!$dara.isNull(request.disassociateDriver)) {
       body["DisassociateDriver"] = request.disassociateDriver;
     }
 
-    if (!Util.isUnset(request.disassociateForwardInfos)) {
+    if (!$dara.isNull(request.disassociateForwardInfos)) {
       body["DisassociateForwardInfos"] = request.disassociateForwardInfos;
     }
 
-    if (!Util.isUnset(request.disassociateVpc)) {
+    if (!$dara.isNull(request.disassociateVpc)) {
       body["DisassociateVpc"] = request.disassociateVpc;
     }
 
-    if (!Util.isUnset(request.driver)) {
+    if (!$dara.isNull(request.driver)) {
       body["Driver"] = request.driver;
     }
 
-    if (!Util.isUnset(request.ecsSpec)) {
+    if (!$dara.isNull(request.ecsSpec)) {
       body["EcsSpec"] = request.ecsSpec;
     }
 
-    if (!Util.isUnset(request.imageAuth)) {
+    if (!$dara.isNull(request.imageAuth)) {
       body["ImageAuth"] = request.imageAuth;
     }
 
-    if (!Util.isUnset(request.imageId)) {
+    if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.requestedResource)) {
+    if (!$dara.isNull(request.requestedResource)) {
       body["RequestedResource"] = request.requestedResource;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       body["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userVpc)) {
+    if (!$dara.isNull(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
 
-    if (!Util.isUnset(request.workspaceSource)) {
+    if (!$dara.isNull(request.workspaceSource)) {
       body["WorkspaceSource"] = request.workspaceSource;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstance",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceResponse>(await this.execute(params, req, runtime), new UpdateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -8373,7 +9506,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceResponse
    */
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceWithOptions(InstanceId, request, headers, runtime);
   }
@@ -8386,29 +9519,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceLabelsResponse
    */
-  async updateInstanceLabelsWithOptions(InstanceId: string, request: UpdateInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceLabelsResponse> {
-    Util.validateModel(request);
+  async updateInstanceLabelsWithOptions(InstanceId: string, request: UpdateInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceLabelsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceLabels",
       version: "2022-01-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/labels`,
+      pathname: `/api/v2/instances/${$dara.URL.percentEncode(InstanceId)}/labels`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceLabelsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceLabelsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceLabelsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceLabelsResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceLabelsResponse>(await this.execute(params, req, runtime), new UpdateInstanceLabelsResponse({}));
+    }
+
   }
 
   /**
@@ -8418,7 +9556,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceLabelsResponse
    */
   async updateInstanceLabels(InstanceId: string, request: UpdateInstanceLabelsRequest): Promise<UpdateInstanceLabelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
   }
