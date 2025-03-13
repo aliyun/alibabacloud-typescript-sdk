@@ -63,6 +63,259 @@ export class BatchGetProjectTaskResponseBodyResultList extends $dara.Model {
   }
 }
 
+export class BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  voiceId?: number;
+  /**
+   * @example
+   * zh
+   */
+  voiceLanguage?: string;
+  /**
+   * @example
+   * http://www.voice.com
+   */
+  voiceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      voiceId: 'voiceId',
+      voiceLanguage: 'voiceLanguage',
+      voiceUrl: 'voiceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      voiceId: 'number',
+      voiceLanguage: 'string',
+      voiceUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetTrainTaskResponseBodyVoiceList extends $dara.Model {
+  /**
+   * @example
+   * 1524004782438111
+   */
+  aliyunSubId?: string;
+  auditFailMessage?: string;
+  /**
+   * @example
+   * auditFail
+   */
+  auditStatus?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  createTime?: string;
+  /**
+   * @example
+   * M
+   */
+  gender?: string;
+  name?: string;
+  /**
+   * @example
+   * BASIC_MODEL
+   */
+  resSpecType?: string;
+  /**
+   * @example
+   * 837091359375048704
+   */
+  taskId?: string;
+  /**
+   * @example
+   * CopyVoice
+   */
+  taskType?: string;
+  trainFailMessage?: string;
+  /**
+   * @example
+   * trainFail
+   */
+  trainStatus?: string;
+  /**
+   * @example
+   * realTimeInteractivity
+   */
+  useScene?: string;
+  voiceMaterial?: BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunSubId: 'aliyunSubId',
+      auditFailMessage: 'auditFailMessage',
+      auditStatus: 'auditStatus',
+      createTime: 'createTime',
+      gender: 'gender',
+      name: 'name',
+      resSpecType: 'resSpecType',
+      taskId: 'taskId',
+      taskType: 'taskType',
+      trainFailMessage: 'trainFailMessage',
+      trainStatus: 'trainStatus',
+      useScene: 'useScene',
+      voiceMaterial: 'voiceMaterial',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunSubId: 'string',
+      auditFailMessage: 'string',
+      auditStatus: 'string',
+      createTime: 'string',
+      gender: 'string',
+      name: 'string',
+      resSpecType: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      trainFailMessage: 'string',
+      trainStatus: 'string',
+      useScene: 'string',
+      voiceMaterial: BatchGetTrainTaskResponseBodyVoiceListVoiceMaterial,
+    };
+  }
+
+  validate() {
+    if(this.voiceMaterial && typeof (this.voiceMaterial as any).validate === 'function') {
+      (this.voiceMaterial as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskResponseBodyTaskListVideoList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  beginTime?: number;
+  description?: string;
+  /**
+   * @example
+   * 11110
+   */
+  endTime?: number;
+  errorMsg?: string;
+  title?: string;
+  /**
+   * @example
+   * https://e-ai.oss-cn-guangzhou.aliyuncs.com/video/jlkasdl.mp4
+   */
+  videoDownloadUrl?: string;
+  videoName?: string;
+  /**
+   * @example
+   * https://e-ai.oss-cn-guangzhou.aliyuncs.com/video/jlkasdl.mp4
+   */
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'beginTime',
+      description: 'description',
+      endTime: 'endTime',
+      errorMsg: 'errorMsg',
+      title: 'title',
+      videoDownloadUrl: 'videoDownloadUrl',
+      videoName: 'videoName',
+      videoUrl: 'videoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      description: 'string',
+      endTime: 'number',
+      errorMsg: 'string',
+      title: 'string',
+      videoDownloadUrl: 'string',
+      videoName: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskResponseBodyTaskList extends $dara.Model {
+  /**
+   * @example
+   * FINISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * 864413342857035776
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 43335
+   */
+  totalDuration?: number;
+  /**
+   * @example
+   * 11
+   */
+  totalToken?: number;
+  videoList?: BatchGetVideoClipTaskResponseBodyTaskListVideoList[];
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      taskId: 'taskId',
+      totalDuration: 'totalDuration',
+      totalToken: 'totalToken',
+      videoList: 'videoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      taskId: 'string',
+      totalDuration: 'number',
+      totalToken: 'number',
+      videoList: { 'type': 'array', 'itemType': BatchGetVideoClipTaskResponseBodyTaskListVideoList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.videoList)) {
+      $dara.Model.validateArray(this.videoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchQueryIndividuationTextResponseBodyTextList extends $dara.Model {
   content?: string;
   /**
@@ -400,6 +653,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerListParameters extends $dar
 
 export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   name?: string;
+  nameList?: string[];
+  operators?: string;
   parameters?: GetAICoachScriptResponseBodyPointsAnswerListParameters[];
   /**
    * @example
@@ -414,6 +669,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      nameList: 'nameList',
+      operators: 'operators',
       parameters: 'parameters',
       type: 'type',
       weight: 'weight',
@@ -423,6 +680,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operators: 'string',
       parameters: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerListParameters },
       type: 'string',
       weight: 'number',
@@ -430,6 +689,9 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.nameList)) {
+      $dara.Model.validateArray(this.nameList);
+    }
     if(Array.isArray(this.parameters)) {
       $dara.Model.validateArray(this.parameters);
     }
@@ -619,6 +881,7 @@ export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
 
 export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $dara.Model {
   audioUrl?: string;
+  evaluationFeedback?: string;
   /**
    * @example
    * {}
@@ -630,6 +893,7 @@ export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $d
   static names(): { [key: string]: string } {
     return {
       audioUrl: 'audioUrl',
+      evaluationFeedback: 'evaluationFeedback',
       evaluationResult: 'evaluationResult',
       message: 'message',
       recordId: 'recordId',
@@ -640,6 +904,7 @@ export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $d
   static types(): { [key: string]: any } {
     return {
       audioUrl: 'string',
+      evaluationFeedback: 'string',
       evaluationResult: 'string',
       message: 'string',
       recordId: 'string',
@@ -1107,6 +1372,103 @@ export class ListAICoachTaskPageResponseBodyTaskList extends $dara.Model {
   }
 }
 
+export class ListAgentsResponseBodyList extends $dara.Model {
+  /**
+   * @example
+   * 840016700254633984
+   */
+  agentId?: string;
+  agentName?: string;
+  /**
+   * @example
+   * text
+   */
+  agentScene?: string;
+  charactersDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  enableInteraction?: number;
+  /**
+   * @example
+   * Car
+   */
+  industry?: string;
+  /**
+   * @example
+   * true
+   */
+  onlineSearch?: boolean;
+  /**
+   * @example
+   * SYSTEM
+   */
+  owner?: string;
+  /**
+   * @example
+   * http
+   * ;//www.abc.com/111.mp4
+   */
+  referenceUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * RED_BOOK
+   */
+  textStyle?: string;
+  /**
+   * @example
+   * Seller
+   */
+  viewer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'agentId',
+      agentName: 'agentName',
+      agentScene: 'agentScene',
+      charactersDescription: 'charactersDescription',
+      enableInteraction: 'enableInteraction',
+      industry: 'industry',
+      onlineSearch: 'onlineSearch',
+      owner: 'owner',
+      referenceUrl: 'referenceUrl',
+      status: 'status',
+      textStyle: 'textStyle',
+      viewer: 'viewer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      agentScene: 'string',
+      charactersDescription: 'string',
+      enableInteraction: 'number',
+      industry: 'string',
+      onlineSearch: 'boolean',
+      owner: 'string',
+      referenceUrl: 'string',
+      status: 'number',
+      textStyle: 'string',
+      viewer: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAvatarProjectResponseBodyQueryAvatarProjectResultList extends $dara.Model {
   /**
    * @example
@@ -1506,6 +1868,7 @@ export class SaveAvatarProjectRequestFramesVideoScript extends $dara.Model {
    * 1.0
    */
   speedRate?: string;
+  voiceLanguage?: string;
   /**
    * @example
    * 1
@@ -1519,6 +1882,7 @@ export class SaveAvatarProjectRequestFramesVideoScript extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       speedRate: 'speedRate',
+      voiceLanguage: 'voiceLanguage',
       voiceTemplateId: 'voiceTemplateId',
       volume: 'volume',
     };
@@ -1527,6 +1891,7 @@ export class SaveAvatarProjectRequestFramesVideoScript extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       speedRate: 'string',
+      voiceLanguage: 'string',
       voiceTemplateId: 'string',
       volume: 'string',
     };
@@ -1890,6 +2255,8 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
    * https://meeting.dingtalk.com/j/1COFppy0POR
    */
   audioUrl?: string;
+  emotion?: string;
+  pitchRate?: string;
   speechOpen?: boolean;
   /**
    * @example
@@ -1902,6 +2269,7 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
    * TEXT
    */
   type?: string;
+  voiceLanguage?: string;
   /**
    * @example
    * 11
@@ -1915,10 +2283,13 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       audioUrl: 'audioUrl',
+      emotion: 'emotion',
+      pitchRate: 'pitchRate',
       speechOpen: 'speechOpen',
       speedRate: 'speedRate',
       textContent: 'textContent',
       type: 'type',
+      voiceLanguage: 'voiceLanguage',
       voiceTemplateId: 'voiceTemplateId',
       volume: 'volume',
     };
@@ -1927,10 +2298,13 @@ export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       audioUrl: 'string',
+      emotion: 'string',
+      pitchRate: 'string',
       speechOpen: 'boolean',
       speedRate: 'string',
       textContent: 'string',
       type: 'string',
+      voiceLanguage: 'string',
       voiceTemplateId: 'number',
       volume: 'number',
     };
@@ -1981,6 +2355,97 @@ export class SubmitProjectTaskRequestFrames extends $dara.Model {
     }
     if(this.videoScript && typeof (this.videoScript as any).validate === 'function') {
       (this.videoScript as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDocumentInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pdf
+   */
+  documentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentType: 'documentType',
+      name: 'name',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentType: 'string',
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDocumentResult extends $dara.Model {
+  /**
+   * @example
+   * example.pdf
+   */
+  docName?: string;
+  documentInfo?: DocumentInfo;
+  /**
+   * @example
+   * true
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      docName: 'docName',
+      documentInfo: 'documentInfo',
+      errorMessage: 'errorMessage',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docName: 'string',
+      documentInfo: DocumentInfo,
+      errorMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.documentInfo && typeof (this.documentInfo as any).validate === 'function') {
+      (this.documentInfo as any).validate();
     }
     super.validate();
   }
@@ -2047,6 +2512,108 @@ export class AnchorResponse extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDocumentResult extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  addDocumentResults?: AddDocumentResult[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addDocumentResults: 'addDocumentResults',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addDocumentResults: { 'type': 'array', 'itemType': AddDocumentResult },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addDocumentResults)) {
+      $dara.Model.validateArray(this.addDocumentResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocumentInfo extends $dara.Model {
+  documentType?: string;
+  id?: string;
+  name?: string;
+  processStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentType: 'documentType',
+      id: 'id',
+      name: 'name',
+      processStatus: 'processStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentType: 'string',
+      id: 'string',
+      name: 'string',
+      processStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DocumentResult extends $dara.Model {
+  documentInfo?: DocumentInfo;
+  /**
+   * @example
+   * 3239281273464326823
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentInfo: 'documentInfo',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentInfo: DocumentInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.documentInfo && typeof (this.documentInfo as any).validate === 'function') {
+      (this.documentInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -2290,6 +2857,84 @@ export class IllustrationTaskResult extends $dara.Model {
   validate() {
     if(this.illustrationTask && typeof (this.illustrationTask as any).validate === 'function') {
       (this.illustrationTask as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KnowledgeBaseInfo extends $dara.Model {
+  description?: string;
+  id?: string;
+  industry?: string;
+  knowledgeBaseType?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      id: 'id',
+      industry: 'industry',
+      knowledgeBaseType: 'knowledgeBaseType',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      industry: 'string',
+      knowledgeBaseType: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KnowledgeBaseListResult extends $dara.Model {
+  knowledgeBases?: KnowledgeBaseInfo[];
+  /**
+   * @example
+   * 3239281273464326823
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeBases: 'knowledgeBases',
+      requestId: 'requestId',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeBases: { 'type': 'array', 'itemType': KnowledgeBaseInfo },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.knowledgeBases)) {
+      $dara.Model.validateArray(this.knowledgeBases);
     }
     super.validate();
   }
@@ -3089,6 +3734,67 @@ export class AddTextFeedbackResponse extends $dara.Model {
   }
 }
 
+export class BatchAddDocumentRequest extends $dara.Model {
+  addDocumentInfos?: AddDocumentInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      addDocumentInfos: 'addDocumentInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addDocumentInfos: { 'type': 'array', 'itemType': AddDocumentInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addDocumentInfos)) {
+      $dara.Model.validateArray(this.addDocumentInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDocumentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchAddDocumentResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchAddDocumentResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchCreateAICoachTaskRequest extends $dara.Model {
   /**
    * @example
@@ -3302,6 +4008,254 @@ export class BatchGetProjectTaskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchGetProjectTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetTrainTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * 1524004782431111
+   */
+  aliyunMainId?: string;
+  taskIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      aliyunMainId: 'aliyunMainId',
+      taskIdList: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunMainId: 'string',
+      taskIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskIdList)) {
+      $dara.Model.validateArray(this.taskIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetTrainTaskShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1524004782431111
+   */
+  aliyunMainId?: string;
+  taskIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunMainId: 'aliyunMainId',
+      taskIdListShrink: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunMainId: 'string',
+      taskIdListShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetTrainTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2226A26A-26E5-5AB9-A14A-54D612FCF96A
+   */
+  requestId?: string;
+  voiceList?: BatchGetTrainTaskResponseBodyVoiceList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      voiceList: 'voiceList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      voiceList: { 'type': 'array', 'itemType': BatchGetTrainTaskResponseBodyVoiceList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.voiceList)) {
+      $dara.Model.validateArray(this.voiceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetTrainTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchGetTrainTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchGetTrainTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskRequest extends $dara.Model {
+  taskIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      taskIdList: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskIdList)) {
+      $dara.Model.validateArray(this.taskIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskShrinkRequest extends $dara.Model {
+  taskIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIdListShrink: 'taskIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIdListShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
+  requestId?: string;
+  taskList?: BatchGetVideoClipTaskResponseBodyTaskList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskList: 'taskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskList: { 'type': 'array', 'itemType': BatchGetVideoClipTaskResponseBodyTaskList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskList)) {
+      $dara.Model.validateArray(this.taskList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetVideoClipTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchGetVideoClipTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchGetVideoClipTaskResponseBody,
     };
   }
 
@@ -4685,6 +5639,255 @@ export class CreateTextTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateTrainTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * 13168123111
+   */
+  aliyunMainId?: string;
+  /**
+   * @example
+   * BASIC_MODEL
+   */
+  resSpecType?: string;
+  /**
+   * @example
+   * CopyAnchorAndVoice
+   */
+  taskType?: string;
+  /**
+   * @example
+   * realTimeInteractivity
+   */
+  useScene?: string;
+  /**
+   * @example
+   * M
+   */
+  voiceGender?: string;
+  /**
+   * @example
+   * zh
+   */
+  voiceLanguage?: string;
+  voiceName?: string;
+  /**
+   * @example
+   * https://yic-pre/video/test-0513.mp3
+   */
+  voicePath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunMainId: 'aliyunMainId',
+      resSpecType: 'resSpecType',
+      taskType: 'taskType',
+      useScene: 'useScene',
+      voiceGender: 'voiceGender',
+      voiceLanguage: 'voiceLanguage',
+      voiceName: 'voiceName',
+      voicePath: 'voicePath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunMainId: 'string',
+      resSpecType: 'string',
+      taskType: 'string',
+      useScene: 'string',
+      voiceGender: 'string',
+      voiceLanguage: 'string',
+      voiceName: 'string',
+      voicePath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrainTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 84657DE0-B68C-508B-AFE7-8ED921854E3C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 837091359375048704
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTrainTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTrainTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTrainTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoClipTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * 1314445556
+   */
+  aliyunMainId?: string;
+  description?: string;
+  ossKeys?: string[];
+  requirement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunMainId: 'aliyunMainId',
+      description: 'description',
+      ossKeys: 'ossKeys',
+      requirement: 'requirement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunMainId: 'string',
+      description: 'string',
+      ossKeys: { 'type': 'array', 'itemType': 'string' },
+      requirement: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ossKeys)) {
+      $dara.Model.validateArray(this.ossKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoClipTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 837091359375048704
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVideoClipTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVideoClipTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVideoClipTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndividuationProjectRequest extends $dara.Model {
   /**
    * @example
@@ -4870,6 +6073,41 @@ export class DeleteIndividuationTextResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteIndividuationTextResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocumentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DocumentResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DocumentResult,
     };
   }
 
@@ -5635,10 +6873,12 @@ export class GetOssUploadTokenRequest extends $dara.Model {
    * ProductImage
    */
   fileType?: string;
+  uploadType?: number;
   static names(): { [key: string]: string } {
     return {
       fileName: 'fileName',
       fileType: 'fileType',
+      uploadType: 'uploadType',
     };
   }
 
@@ -5646,6 +6886,7 @@ export class GetOssUploadTokenRequest extends $dara.Model {
     return {
       fileName: 'string',
       fileType: 'string',
+      uploadType: 'number',
     };
   }
 
@@ -6396,6 +7637,150 @@ export class ListAICoachTaskPageResponse extends $dara.Model {
   }
 }
 
+export class ListAgentsRequest extends $dara.Model {
+  /**
+   * @example
+   * 840016700254633984
+   */
+  agentId?: string;
+  /**
+   * @example
+   * text
+   */
+  agentScene?: string;
+  /**
+   * @example
+   * SYSTEM
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'agentId',
+      agentScene: 'agentScene',
+      owner: 'owner',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentScene: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentsResponseBody extends $dara.Model {
+  list?: ListAgentsResponseBodyList[];
+  /**
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      requestId: 'requestId',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListAgentsResponseBodyList },
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAgentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAgentsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAnchorRequest extends $dara.Model {
   anchorCategory?: string;
   /**
@@ -6690,6 +8075,82 @@ export class ListAvatarProjectResponse extends $dara.Model {
   }
 }
 
+export class ListKnowledgeBaseRequest extends $dara.Model {
+  /**
+   * @example
+   * "186432649"
+   */
+  knowledgeBaseId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeBaseId: 'knowledgeBaseId',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeBaseId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListKnowledgeBaseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: KnowledgeBaseListResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: KnowledgeBaseListResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTextThemesRequest extends $dara.Model {
   industry?: string;
   static names(): { [key: string]: string } {
@@ -6872,6 +8333,7 @@ export class ListVoiceModelsRequest extends $dara.Model {
    * offlineSynthesis
    */
   useScene?: string;
+  voiceLanguage?: string;
   /**
    * @example
    * PRIVATE_VOICE
@@ -6883,6 +8345,7 @@ export class ListVoiceModelsRequest extends $dara.Model {
       pageSize: 'pageSize',
       resSpecType: 'resSpecType',
       useScene: 'useScene',
+      voiceLanguage: 'voiceLanguage',
       voiceType: 'voiceType',
     };
   }
@@ -6893,6 +8356,7 @@ export class ListVoiceModelsRequest extends $dara.Model {
       pageSize: 'number',
       resSpecType: 'string',
       useScene: 'string',
+      voiceLanguage: 'string',
       voiceType: 'string',
     };
   }
@@ -7733,6 +9197,8 @@ export class SaveAvatarProjectRequest extends $dara.Model {
    * 1000196
    */
   agentId?: string;
+  bitRate?: string;
+  frameRate?: string;
   frames?: SaveAvatarProjectRequestFrames[];
   /**
    * @example
@@ -7760,9 +9226,12 @@ export class SaveAvatarProjectRequest extends $dara.Model {
    * 9:16
    */
   scaleType?: string;
+  synchronizedDisplay?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'agentId',
+      bitRate: 'bitRate',
+      frameRate: 'frameRate',
       frames: 'frames',
       operateType: 'operateType',
       projectId: 'projectId',
@@ -7770,12 +9239,15 @@ export class SaveAvatarProjectRequest extends $dara.Model {
       resSpecType: 'resSpecType',
       resolution: 'resolution',
       scaleType: 'scaleType',
+      synchronizedDisplay: 'synchronizedDisplay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentId: 'string',
+      bitRate: 'string',
+      frameRate: 'string',
       frames: { 'type': 'array', 'itemType': SaveAvatarProjectRequestFrames },
       operateType: 'string',
       projectId: 'string',
@@ -7783,6 +9255,7 @@ export class SaveAvatarProjectRequest extends $dara.Model {
       resSpecType: 'string',
       resolution: 'string',
       scaleType: 'string',
+      synchronizedDisplay: 'string',
     };
   }
 
@@ -9057,6 +10530,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量添加知识文档
+   * 
+   * @param request - BatchAddDocumentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchAddDocumentResponse
+   */
+  async batchAddDocumentWithOptions(knowledgeBaseId: string, request: BatchAddDocumentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<BatchAddDocumentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addDocumentInfos)) {
+      body["addDocumentInfos"] = request.addDocumentInfos;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchAddDocument",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/knowledge-base/${$dara.URL.percentEncode(knowledgeBaseId)}/documents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchAddDocumentResponse>(await this.callApi(params, req, runtime), new BatchAddDocumentResponse({}));
+    } else {
+      return $dara.cast<BatchAddDocumentResponse>(await this.execute(params, req, runtime), new BatchAddDocumentResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量添加知识文档
+   * 
+   * @param request - BatchAddDocumentRequest
+   * @returns BatchAddDocumentResponse
+   */
+  async batchAddDocument(knowledgeBaseId: string, request: BatchAddDocumentRequest): Promise<BatchAddDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchAddDocumentWithOptions(knowledgeBaseId, request, headers, runtime);
+  }
+
+  /**
    * 批量发布剧本任务
    * 
    * @param request - BatchCreateAICoachTaskRequest
@@ -9168,6 +10691,122 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.batchGetProjectTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量查询声音复刻任务
+   * 
+   * @param tmpReq - BatchGetTrainTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetTrainTaskResponse
+   */
+  async batchGetTrainTaskWithOptions(tmpReq: BatchGetTrainTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<BatchGetTrainTaskResponse> {
+    tmpReq.validate();
+    let request = new BatchGetTrainTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIdList)) {
+      request.taskIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIdList, "taskIdList", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunMainId)) {
+      query["aliyunMainId"] = request.aliyunMainId;
+    }
+
+    if (!$dara.isNull(request.taskIdListShrink)) {
+      query["taskIdList"] = request.taskIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetTrainTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/train/task/batchGetTrainTaskInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchGetTrainTaskResponse>(await this.callApi(params, req, runtime), new BatchGetTrainTaskResponse({}));
+    } else {
+      return $dara.cast<BatchGetTrainTaskResponse>(await this.execute(params, req, runtime), new BatchGetTrainTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量查询声音复刻任务
+   * 
+   * @param request - BatchGetTrainTaskRequest
+   * @returns BatchGetTrainTaskResponse
+   */
+  async batchGetTrainTask(request: BatchGetTrainTaskRequest): Promise<BatchGetTrainTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchGetTrainTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 批量查询视频切片任务信息
+   * 
+   * @param tmpReq - BatchGetVideoClipTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetVideoClipTaskResponse
+   */
+  async batchGetVideoClipTaskWithOptions(tmpReq: BatchGetVideoClipTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<BatchGetVideoClipTaskResponse> {
+    tmpReq.validate();
+    let request = new BatchGetVideoClipTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIdList)) {
+      request.taskIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIdList, "taskIdList", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskIdListShrink)) {
+      query["taskIdList"] = request.taskIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetVideoClipTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/video/clip/batchGetVideoClipTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchGetVideoClipTaskResponse>(await this.callApi(params, req, runtime), new BatchGetVideoClipTaskResponse({}));
+    } else {
+      return $dara.cast<BatchGetVideoClipTaskResponse>(await this.execute(params, req, runtime), new BatchGetVideoClipTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量查询视频切片任务信息
+   * 
+   * @param request - BatchGetVideoClipTaskRequest
+   * @returns BatchGetVideoClipTaskResponse
+   */
+  async batchGetVideoClipTask(request: BatchGetVideoClipTaskRequest): Promise<BatchGetVideoClipTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchGetVideoClipTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -9887,6 +11526,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交声音复刻任务
+   * 
+   * @param request - CreateTrainTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrainTaskResponse
+   */
+  async createTrainTaskWithOptions(request: CreateTrainTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTrainTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunMainId)) {
+      body["aliyunMainId"] = request.aliyunMainId;
+    }
+
+    if (!$dara.isNull(request.resSpecType)) {
+      body["resSpecType"] = request.resSpecType;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["taskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.useScene)) {
+      body["useScene"] = request.useScene;
+    }
+
+    if (!$dara.isNull(request.voiceGender)) {
+      body["voiceGender"] = request.voiceGender;
+    }
+
+    if (!$dara.isNull(request.voiceLanguage)) {
+      body["voiceLanguage"] = request.voiceLanguage;
+    }
+
+    if (!$dara.isNull(request.voiceName)) {
+      body["voiceName"] = request.voiceName;
+    }
+
+    if (!$dara.isNull(request.voicePath)) {
+      body["voicePath"] = request.voicePath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTrainTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/train/task/createTrainTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTrainTaskResponse>(await this.callApi(params, req, runtime), new CreateTrainTaskResponse({}));
+    } else {
+      return $dara.cast<CreateTrainTaskResponse>(await this.execute(params, req, runtime), new CreateTrainTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 提交声音复刻任务
+   * 
+   * @param request - CreateTrainTaskRequest
+   * @returns CreateTrainTaskResponse
+   */
+  async createTrainTask(request: CreateTrainTaskRequest): Promise<CreateTrainTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTrainTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 提交视频切片任务
+   * 
+   * @param request - CreateVideoClipTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoClipTaskResponse
+   */
+  async createVideoClipTaskWithOptions(request: CreateVideoClipTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateVideoClipTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunMainId)) {
+      body["aliyunMainId"] = request.aliyunMainId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.ossKeys)) {
+      body["ossKeys"] = request.ossKeys;
+    }
+
+    if (!$dara.isNull(request.requirement)) {
+      body["requirement"] = request.requirement;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVideoClipTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/video/clip/createVideoClipTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVideoClipTaskResponse>(await this.callApi(params, req, runtime), new CreateVideoClipTaskResponse({}));
+    } else {
+      return $dara.cast<CreateVideoClipTaskResponse>(await this.execute(params, req, runtime), new CreateVideoClipTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 提交视频切片任务
+   * 
+   * @param request - CreateVideoClipTaskRequest
+   * @returns CreateVideoClipTaskResponse
+   */
+  async createVideoClipTask(request: CreateVideoClipTaskRequest): Promise<CreateVideoClipTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVideoClipTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 删除个性化文案项目
    * 
    * @param request - DeleteIndividuationProjectRequest
@@ -9984,6 +11763,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteIndividuationTextWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询文档信息与状态
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocumentResponse
+   */
+  async describeDocumentWithOptions(knowledgeBaseId: string, documentId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeDocumentResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDocument",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/knowledge-base/${$dara.URL.percentEncode(knowledgeBaseId)}/documents/${$dara.URL.percentEncode(documentId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDocumentResponse>(await this.callApi(params, req, runtime), new DescribeDocumentResponse({}));
+    } else {
+      return $dara.cast<DescribeDocumentResponse>(await this.execute(params, req, runtime), new DescribeDocumentResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询文档信息与状态
+   * @returns DescribeDocumentResponse
+   */
+  async describeDocument(knowledgeBaseId: string, documentId: string): Promise<DescribeDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeDocumentWithOptions(knowledgeBaseId, documentId, headers, runtime);
   }
 
   /**
@@ -10303,6 +12122,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileType)) {
       query["fileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.uploadType)) {
+      query["uploadType"] = request.uploadType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -10715,6 +12538,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询智能体
+   * 
+   * @param request - ListAgentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentsResponse
+   */
+  async listAgentsWithOptions(request: ListAgentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAgentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentScene)) {
+      query["agentScene"] = request.agentScene;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgents",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/agent/listAgents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAgentsResponse>(await this.callApi(params, req, runtime), new ListAgentsResponse({}));
+    } else {
+      return $dara.cast<ListAgentsResponse>(await this.execute(params, req, runtime), new ListAgentsResponse({}));
+    }
+
+  }
+
+  /**
+   * 分页查询智能体
+   * 
+   * @param request - ListAgentsRequest
+   * @returns ListAgentsResponse
+   */
+  async listAgents(request: ListAgentsRequest): Promise<ListAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAgentsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取数字人模特列表
    * 
    * @param request - ListAnchorRequest
@@ -10846,6 +12739,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAvatarProjectWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询知识库
+   * 
+   * @param request - ListKnowledgeBaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseResponse
+   */
+  async listKnowledgeBaseWithOptions(request: ListKnowledgeBaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListKnowledgeBaseResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["knowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBase",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/knowledge-base`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new ListKnowledgeBaseResponse({}));
+    } else {
+      return $dara.cast<ListKnowledgeBaseResponse>(await this.execute(params, req, runtime), new ListKnowledgeBaseResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询知识库
+   * 
+   * @param request - ListKnowledgeBaseRequest
+   * @returns ListKnowledgeBaseResponse
+   */
+  async listKnowledgeBase(request: ListKnowledgeBaseRequest): Promise<ListKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listKnowledgeBaseWithOptions(request, headers, runtime);
   }
 
   /**
@@ -11001,6 +12952,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.useScene)) {
       query["useScene"] = request.useScene;
+    }
+
+    if (!$dara.isNull(request.voiceLanguage)) {
+      query["voiceLanguage"] = request.voiceLanguage;
     }
 
     if (!$dara.isNull(request.voiceType)) {
@@ -11377,6 +13332,14 @@ export default class Client extends OpenApi {
       body["agentId"] = request.agentId;
     }
 
+    if (!$dara.isNull(request.bitRate)) {
+      body["bitRate"] = request.bitRate;
+    }
+
+    if (!$dara.isNull(request.frameRate)) {
+      body["frameRate"] = request.frameRate;
+    }
+
     if (!$dara.isNull(request.frames)) {
       body["frames"] = request.frames;
     }
@@ -11403,6 +13366,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scaleType)) {
       body["scaleType"] = request.scaleType;
+    }
+
+    if (!$dara.isNull(request.synchronizedDisplay)) {
+      body["synchronizedDisplay"] = request.synchronizedDisplay;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
