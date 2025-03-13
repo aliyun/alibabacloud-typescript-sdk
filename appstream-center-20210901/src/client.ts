@@ -404,6 +404,8 @@ export class CreateAppInstanceGroupRequestNodePool extends $dara.Model {
 
 export class CreateAppInstanceGroupRequestRuntimePolicy extends $dara.Model {
   debugMode?: string;
+  perSessionPerApp?: boolean;
+  sessionPreOpen?: string;
   /**
    * @remarks
    * 会话类型。
@@ -412,17 +414,24 @@ export class CreateAppInstanceGroupRequestRuntimePolicy extends $dara.Model {
    * NORMAL
    */
   sessionType?: string;
+  sessionUserGenerationMode?: string;
   static names(): { [key: string]: string } {
     return {
       debugMode: 'DebugMode',
+      perSessionPerApp: 'PerSessionPerApp',
+      sessionPreOpen: 'SessionPreOpen',
       sessionType: 'SessionType',
+      sessionUserGenerationMode: 'SessionUserGenerationMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       debugMode: 'string',
+      perSessionPerApp: 'boolean',
+      sessionPreOpen: 'string',
       sessionType: 'string',
+      sessionUserGenerationMode: 'string',
     };
   }
 
@@ -469,23 +478,58 @@ export class CreateAppInstanceGroupRequestSecurityPolicy extends $dara.Model {
   }
 }
 
+export class CreateAppInstanceGroupRequestStoragePolicyUserProfile extends $dara.Model {
+  remoteStoragePath?: string;
+  remoteStorageType?: string;
+  userProfileSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      remoteStoragePath: 'RemoteStoragePath',
+      remoteStorageType: 'RemoteStorageType',
+      userProfileSwitch: 'UserProfileSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remoteStoragePath: 'string',
+      remoteStorageType: 'string',
+      userProfileSwitch: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInstanceGroupRequestStoragePolicy extends $dara.Model {
   storageTypeList?: string[];
+  userProfile?: CreateAppInstanceGroupRequestStoragePolicyUserProfile;
   static names(): { [key: string]: string } {
     return {
       storageTypeList: 'StorageTypeList',
+      userProfile: 'UserProfile',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       storageTypeList: { 'type': 'array', 'itemType': 'string' },
+      userProfile: CreateAppInstanceGroupRequestStoragePolicyUserProfile,
     };
   }
 
   validate() {
     if(Array.isArray(this.storageTypeList)) {
       $dara.Model.validateArray(this.storageTypeList);
+    }
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
     }
     super.validate();
   }
@@ -2030,9 +2074,6 @@ export class ListAccessPagesResponseBodyData extends $dara.Model {
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $dara.Model {
   /**
-   * @remarks
-   * 应用图标。
-   * 
    * @example
    * https://app-center-icon-****.png
    */
@@ -2044,20 +2085,10 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends 
   appId?: string;
   appName?: string;
   /**
-   * @remarks
-   * 应用版本。
-   * 
    * @example
    * 1.0.0
    */
   appVersion?: string;
-  /**
-   * @remarks
-   * 应用版本名称。
-   * 
-   * @example
-   * 初始版本
-   */
   appVersionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2174,6 +2205,13 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
    * 2
    */
   amount?: number;
+  /**
+   * @remarks
+   * The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+   * 
+   * @example
+   * 3
+   */
   maxIdleAppInstanceAmount?: number;
   /**
    * @example
@@ -2353,6 +2391,47 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo exten
   }
 }
 
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag type. Valid values: Custom and System.
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * The tag value.
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   /**
    * @example
@@ -2376,9 +2455,6 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
    */
   appInstanceType?: string;
   /**
-   * @remarks
-   * 策略ID。
-   * 
    * @example
    * pg-g3k5wa2ms2****
    */
@@ -2387,9 +2463,6 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
   appPolicyVersion?: string;
   apps?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
   /**
-   * @remarks
-   * 售卖模式。
-   * 
    * @example
    * Node
    */
@@ -2419,9 +2492,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
    * 1
    */
   minAmount?: number;
+  /**
+   * @remarks
+   * The resource groups.
+   */
   nodePool?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
   officeSiteId?: string;
   /**
+   * @remarks
+   * The type of the operating system.
+   * 
+   * Valid value:
+   * 
+   * *   Windows
+   * 
    * @example
    * Windows
    */
@@ -2457,6 +2541,11 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
    * AVAILABLE
    */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The tags added to the resources.
+   */
+  resourceTags?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags[];
   /**
    * @example
    * 5
@@ -2519,6 +2608,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
       reserveMaxAmount: 'ReserveMaxAmount',
       reserveMinAmount: 'ReserveMinAmount',
       resourceStatus: 'ResourceStatus',
+      resourceTags: 'ResourceTags',
       scalingDownAfterIdleMinutes: 'ScalingDownAfterIdleMinutes',
       scalingStep: 'ScalingStep',
       scalingUsageThreshold: 'ScalingUsageThreshold',
@@ -2556,6 +2646,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
       reserveMaxAmount: 'number',
       reserveMinAmount: 'number',
       resourceStatus: 'string',
+      resourceTags: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags },
       scalingDownAfterIdleMinutes: 'number',
       scalingStep: 'number',
       scalingUsageThreshold: 'string',
@@ -2575,6 +2666,9 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
     }
     if(this.otaInfo && typeof (this.otaInfo as any).validate === 'function') {
       (this.otaInfo as any).validate();
+    }
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
     }
     super.validate();
   }
@@ -2646,6 +2740,18 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
    * The information about the binding between the application instance and end users.
    */
   bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
+  /**
+   * @remarks
+   * The billing method of the app instance. Valid values:
+   * 
+   * *   **PrePaid**: subscription.
+   * *   **PostPaid**: pay-as-you-go
+   * 
+   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
   /**
    * @remarks
@@ -2671,6 +2777,16 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
    * 10.13.13.211
    */
   mainEthPublicIp?: string;
+  networkInterfaceIp?: string;
+  /**
+   * @remarks
+   * The ID of the node on which the app instance runs.
+   * 
+   * >  This parameter is returned only if the ChargeResourceMode parameter of the delivery group to which the app instance belongs is set to Node.
+   * 
+   * @example
+   * i-bp13********
+   */
   nodeId?: string;
   /**
    * @remarks
@@ -2702,6 +2818,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       mainEthPublicIp: 'MainEthPublicIp',
+      networkInterfaceIp: 'NetworkInterfaceIp',
       nodeId: 'NodeId',
       sessionStatus: 'SessionStatus',
       status: 'Status',
@@ -2717,6 +2834,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       gmtCreate: 'string',
       gmtModified: 'string',
       mainEthPublicIp: 'string',
+      networkInterfaceIp: 'string',
       nodeId: 'string',
       sessionStatus: 'string',
       status: 'string',
@@ -2929,6 +3047,40 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   }
 }
 
+export class ListNodesResponseBodyNodeModels extends $dara.Model {
+  /**
+   * @example
+   * PostPaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * i-bp13********
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
@@ -3001,6 +3153,13 @@ export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
 }
 
 export class ListRegionsResponseBodyRegionModels extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3232,6 +3391,118 @@ export class ListSessionPackagesResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListTagCloudResourcesResponseBodyResourceTagsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Resolution
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag type.
+   * 
+   * Valid values:
+   * 
+   * *   Custom: custom tag.
+   * *   System: system tag.
+   * 
+   * @example
+   * Custom
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 1080p
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * aig-0001
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tags?: ListTagCloudResourcesResponseBodyResourceTagsTags[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagCloudResourcesResponseBodyResourceTagsTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
   /**
    * @remarks
@@ -3439,7 +3710,26 @@ export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.
 }
 
 export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the File Storage NAS (NAS) file system used to store user data.
+   * 
+   * @example
+   * 06ae94****
+   */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * Specifies whether user data roaming is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   userProfileSwitch?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3496,6 +3786,10 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.M
    * The storage types.
    */
   storageTypeList?: string[];
+  /**
+   * @remarks
+   * The configurations of user data roaming.
+   */
   userProfile?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile;
   userProfileFollow?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow;
   static names(): { [key: string]: string } {
@@ -3585,6 +3879,76 @@ export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
       terminalResolutionAdaptive: 'boolean',
       visualQualityStrategy: 'string',
       webrtc: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  nodeAmount?: number;
+  /**
+   * @example
+   * EXPAND_FROM_POST_PAID_EXPLICIT
+   */
+  prePaidNodeAmountModifyMode?: string;
+  prePaidNodeAmountModifyNodeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeAmount: 'NodeAmount',
+      prePaidNodeAmountModifyMode: 'PrePaidNodeAmountModifyMode',
+      prePaidNodeAmountModifyNodeIds: 'PrePaidNodeAmountModifyNodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeAmount: 'number',
+      prePaidNodeAmountModifyMode: 'string',
+      prePaidNodeAmountModifyNodeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.prePaidNodeAmountModifyNodeIds)) {
+      $dara.Model.validateArray(this.prePaidNodeAmountModifyNodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 23429322113****
+   */
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
     };
   }
 
@@ -3802,6 +4166,263 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model 
   validate() {
     if(Array.isArray(this.recurrenceSchedules)) {
       $dara.Model.validateArray(this.recurrenceSchedules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Resolution
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 720p
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Model {
+  /**
+   * @example
+   * System/Scheduler/STOP_NEW_USER_CONNECTION
+   */
+  key?: string;
+  /**
+   * @example
+   * System
+   */
+  scope?: string;
+  /**
+   * @example
+   * true
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
+  /**
+   * @example
+   * TAG_KEY_DUPLICATED
+   */
+  code?: string;
+  /**
+   * @example
+   * Duplicate tag keys exist.
+   */
+  message?: string;
+  /**
+   * @example
+   * aig-001
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  tags?: TagCloudResourcesResponseBodyFailedResourcesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': TagCloudResourcesResponseBodyFailedResourcesTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Resolution
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag type.
+   * 
+   * Valid values:
+   * 
+   * *   Custom: custom tag.
+   * *   System: system tag.
+   * 
+   * @example
+   * Custom
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * UNTAG_RESOURCE_FAILED
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Failed to untag resource.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * @example
+   * aig-00000001
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags that failed to be removed from the cloud resources.
+   */
+  tags?: UntagCloudResourcesResponseBodyFailedResourcesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': UntagCloudResourcesResponseBodyFailedResourcesTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -4774,6 +5395,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    */
   appCenterImageId?: string;
   appInstanceGroupName?: string;
+  appPackageType?: string;
   appPolicyId?: string;
   /**
    * @example
@@ -4809,6 +5431,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  clusterId?: string;
   network?: CreateAppInstanceGroupRequestNetwork;
   nodePool?: CreateAppInstanceGroupRequestNodePool;
   /**
@@ -4853,6 +5476,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    */
   sessionTimeout?: number;
   storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
+  subPayType?: string;
   userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
   userInfo?: CreateAppInstanceGroupRequestUserInfo;
   users?: string[];
@@ -4861,12 +5485,14 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
     return {
       appCenterImageId: 'AppCenterImageId',
       appInstanceGroupName: 'AppInstanceGroupName',
+      appPackageType: 'AppPackageType',
       appPolicyId: 'AppPolicyId',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
       chargeResourceMode: 'ChargeResourceMode',
       chargeType: 'ChargeType',
+      clusterId: 'ClusterId',
       network: 'Network',
       nodePool: 'NodePool',
       period: 'Period',
@@ -4878,6 +5504,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
       securityPolicy: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
       storagePolicy: 'StoragePolicy',
+      subPayType: 'SubPayType',
       userDefinePolicy: 'UserDefinePolicy',
       userInfo: 'UserInfo',
       users: 'Users',
@@ -4889,12 +5516,14 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
     return {
       appCenterImageId: 'string',
       appInstanceGroupName: 'string',
+      appPackageType: 'string',
       appPolicyId: 'string',
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bizRegionId: 'string',
       chargeResourceMode: 'string',
       chargeType: 'string',
+      clusterId: 'string',
       network: CreateAppInstanceGroupRequestNetwork,
       nodePool: CreateAppInstanceGroupRequestNodePool,
       period: 'number',
@@ -4906,6 +5535,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
       securityPolicy: CreateAppInstanceGroupRequestSecurityPolicy,
       sessionTimeout: 'number',
       storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
+      subPayType: 'string',
       userDefinePolicy: CreateAppInstanceGroupRequestUserDefinePolicy,
       userInfo: CreateAppInstanceGroupRequestUserInfo,
       users: { 'type': 'array', 'itemType': 'string' },
@@ -4959,6 +5589,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    */
   appCenterImageId?: string;
   appInstanceGroupName?: string;
+  appPackageType?: string;
   appPolicyId?: string;
   /**
    * @example
@@ -4994,6 +5625,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  clusterId?: string;
   networkShrink?: string;
   nodePoolShrink?: string;
   /**
@@ -5038,6 +5670,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    */
   sessionTimeout?: number;
   storagePolicyShrink?: string;
+  subPayType?: string;
   userDefinePolicyShrink?: string;
   userInfoShrink?: string;
   users?: string[];
@@ -5046,12 +5679,14 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
     return {
       appCenterImageId: 'AppCenterImageId',
       appInstanceGroupName: 'AppInstanceGroupName',
+      appPackageType: 'AppPackageType',
       appPolicyId: 'AppPolicyId',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
       chargeResourceMode: 'ChargeResourceMode',
       chargeType: 'ChargeType',
+      clusterId: 'ClusterId',
       networkShrink: 'Network',
       nodePoolShrink: 'NodePool',
       period: 'Period',
@@ -5063,6 +5698,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
       securityPolicyShrink: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
       storagePolicyShrink: 'StoragePolicy',
+      subPayType: 'SubPayType',
       userDefinePolicyShrink: 'UserDefinePolicy',
       userInfoShrink: 'UserInfo',
       users: 'Users',
@@ -5074,12 +5710,14 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
     return {
       appCenterImageId: 'string',
       appInstanceGroupName: 'string',
+      appPackageType: 'string',
       appPolicyId: 'string',
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bizRegionId: 'string',
       chargeResourceMode: 'string',
       chargeType: 'string',
+      clusterId: 'string',
       networkShrink: 'string',
       nodePoolShrink: 'string',
       period: 'number',
@@ -5091,6 +5729,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
       securityPolicyShrink: 'string',
       sessionTimeout: 'number',
       storagePolicyShrink: 'string',
+      subPayType: 'string',
       userDefinePolicyShrink: 'string',
       userInfoShrink: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
@@ -5931,22 +6570,16 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The delivery groups.
    * 
-   * > 
-   * 
-   * *   If you configure this parameter, the system assigns application instances only among the specified authorized delivery groups.
-   * 
-   * *   This parameter is required if you configure `AppInstanceId` or `AppInstancePersistentId`.
+   * > *   If you configure this parameter, the system assigns application instances only among the specified authorized delivery groups. 
+   * > *   This parameter is required if you configure `AppInstanceId` or `AppInstancePersistentId`.
    */
   appInstanceGroupIdList?: string[];
   /**
    * @remarks
    * The ID of the application instance.
    * 
-   * > 
-   * 
-   * *   If you configure this parameter, the system attempts to assign only the specified application instance.
-   * 
-   * *   If you configure this parameter, you must also configure `AppInstanceGroupIdList` and the number of delivery groups specified by `AppInstanceGroupIdList` must be 1.
+   * > *   If you configure this parameter, the system attempts to assign only the specified application instance.
+   * > *   If you configure this parameter, you must also configure `AppInstanceGroupIdList` and the number of delivery groups specified by `AppInstanceGroupIdList` must be 1.
    * 
    * @example
    * ai-1rznfnrvsa99d****
@@ -5962,7 +6595,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   appInstancePersistentId?: string;
   /**
    * @remarks
-   * The parameters that are configured to start the application. For information about how to obtain these parameters, see [Obtain parameters configured to install and start an application](https://help.aliyun.com/zh/wuying-appstreaming/user-guide/create-an-application?#how-to-get-installation-and-startup-para).
+   * The parameters that are configured to start the application. For information about how to obtain these parameters, see [Obtain parameters configured to install and start an application](https://help.aliyun.com/document_detail/426045.html).
    * 
    * @example
    * /q /n
@@ -7145,8 +7778,23 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
+   * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
@@ -7158,6 +7806,9 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The value cannot be greater than `100`.
+   * 
    * @example
    * 10
    */
@@ -7171,6 +7822,9 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    * 
@@ -7223,6 +7877,10 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
 }
 
 export class ListAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery groups.
+   */
   appInstanceGroupModels?: ListAppInstanceGroupResponseBodyAppInstanceGroupModels[];
   /**
    * @example
@@ -7340,7 +7998,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   appInstanceIdList?: string[];
   /**
    * @remarks
-   * Specifies whether to query the information about deleted application instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
+   * Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
    * 
    * Valid values:
    * 
@@ -7353,7 +8011,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   includeDeleted?: boolean;
   /**
    * @remarks
-   * The number of the page to return. Default value: `1`. We recommend that you configure this parameter.
+   * The page number. Default value: `1`. We recommend that you specify this parameter.
    * 
    * @example
    * 1
@@ -7361,7 +8019,7 @@ export class ListAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The value cannot be greater than `100`. Default value: `20`. We recommend that you configure this parameter.
+   * The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
    * 
    * @example
    * 20
@@ -7375,6 +8033,11 @@ export class ListAppInstancesRequest extends $dara.Model {
    * false
    */
   status?: string[];
+  /**
+   * @remarks
+   * The user IDs. You can specify up to 100 IDs.
+   */
+  userIdList?: string[];
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
@@ -7384,6 +8047,7 @@ export class ListAppInstancesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       status: 'Status',
+      userIdList: 'UserIdList',
     };
   }
 
@@ -7396,6 +8060,7 @@ export class ListAppInstancesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       status: { 'type': 'array', 'itemType': 'string' },
+      userIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7405,6 +8070,9 @@ export class ListAppInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.status)) {
       $dara.Model.validateArray(this.status);
+    }
+    if(Array.isArray(this.userIdList)) {
+      $dara.Model.validateArray(this.userIdList);
     }
     super.validate();
   }
@@ -7417,7 +8085,7 @@ export class ListAppInstancesRequest extends $dara.Model {
 export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the application instances.
+   * The app instances.
    */
   appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
   /**
@@ -7912,6 +8580,155 @@ export class ListNodeInstanceTypeResponse extends $dara.Model {
   }
 }
 
+export class ListNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-53fvrq1oanz6c****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  count?: number;
+  nodeModels?: ListNodesResponseBodyNodeModels[];
+  /**
+   * @example
+   * 10
+   */
+  perPageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  toPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      nodeModels: 'NodeModels',
+      perPageSize: 'PerPageSize',
+      requestId: 'RequestId',
+      toPage: 'ToPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      nodeModels: { 'type': 'array', 'itemType': ListNodesResponseBodyNodeModels },
+      perPageSize: 'number',
+      requestId: 'string',
+      toPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeModels)) {
+      $dara.Model.validateArray(this.nodeModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOtaTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -8090,7 +8907,25 @@ export class ListOtaTaskResponse extends $dara.Model {
 }
 
 export class ListRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   bizSource?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8116,7 +8951,18 @@ export class ListRegionsRequest extends $dara.Model {
 }
 
 export class ListRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The region IDs.
+   */
   regionModels?: ListRegionsResponseBodyRegionModels[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8314,6 +9160,192 @@ export class ListSessionPackagesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSessionPackagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: 1000. Default value: 50.
+   * 
+   * @example
+   * 50
+   * 
+   * **if can be null:**
+   * true
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * ptnJAAAAAAAxNzE5OTEwNQ==
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
+   */
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag type.
+   * 
+   * Valid values:
+   * 
+   * *   All (default): all tags.
+   * *   Custom: custom tag.
+   * *   System: system tag.
+   * 
+   * @example
+   * Custom
+   * 
+   * **if can be null:**
+   * true
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      scope: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the next query is required.
+   * 
+   * @example
+   * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The tags added to the cloud resources.
+   */
+  resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceTags: 'ResourceTags',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resourceTags: { 'type': 'array', 'itemType': ListTagCloudResourcesResponseBodyResourceTags },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagCloudResourcesResponseBody,
     };
   }
 
@@ -8568,6 +9600,20 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
    * The information about the resource group.
    */
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
+  /**
+   * @remarks
+   * Specifies whether only one application can be opened in a session.
+   * 
+   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   perSessionPerApp?: boolean;
   /**
    * @remarks
@@ -8703,6 +9749,20 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
    * The information about the resource group.
    */
   nodePoolShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether only one application can be opened in a session.
+   * 
+   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   perSessionPerApp?: boolean;
   /**
    * @remarks
@@ -9016,6 +10076,171 @@ export class ModifyAppPolicyResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAppPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  nodePool?: ModifyNodePoolAmountRequestNodePool;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      nodePool: 'NodePool',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      nodePool: ModifyNodePoolAmountRequestNodePool,
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.nodePool && typeof (this.nodePool as any).validate === 'function') {
+      (this.nodePool as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  nodePoolShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      nodePoolShrink: 'NodePool',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      nodePoolShrink: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountResponseBody extends $dara.Model {
+  data?: ModifyNodePoolAmountResponseBodyData;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ModifyNodePoolAmountResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNodePoolAmountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNodePoolAmountResponseBody,
     };
   }
 
@@ -9667,10 +10892,124 @@ export class RenewAppInstanceGroupResponse extends $dara.Model {
   }
 }
 
+export class TagCloudResourcesRequest extends $dara.Model {
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tags?: TagCloudResourcesRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': TagCloudResourcesRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponseBody extends $dara.Model {
+  failedResources?: TagCloudResourcesResponseBodyFailedResources[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'array', 'itemType': TagCloudResourcesResponseBodyFailedResources },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResources)) {
+      $dara.Model.validateArray(this.failedResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagCloudResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * The ID of the delivery group. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -9680,7 +11019,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * The session ID. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
    * 
    * @example
    * ai-d297eyf83g5ni****
@@ -9688,7 +11027,7 @@ export class UnbindRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The ID of the persistent session. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * The ID of the persistent session. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
    * 
    * @example
    * p-0bxls9m3cl7s****
@@ -9794,6 +11133,147 @@ export class UnbindResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnbindResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
+   */
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource from which you want to remove tags.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags that you want to remove from the cloud resources. System and custom tags are supported. You can specify up to 10 tags.
+   * 
+   * Valid values for system tags:
+   * 
+   * *   `System/Scheduler/GRAYSCALE`: canary tags.
+   * *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
+   * 
+   * This parameter is required.
+   */
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud resources whose tags failed to be removed and the corresponding tags.
+   */
+  failedResources?: UntagCloudResourcesResponseBodyFailedResources[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E25FC620-6B6F-12D2-A992-AD8727DC****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'array', 'itemType': UntagCloudResourcesResponseBodyFailedResources },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResources)) {
+      $dara.Model.validateArray(this.failedResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagCloudResourcesResponseBody,
     };
   }
 
@@ -10484,6 +11964,10 @@ export default class Client extends OpenApi {
       body["AppInstanceGroupName"] = request.appInstanceGroupName;
     }
 
+    if (!$dara.isNull(request.appPackageType)) {
+      body["AppPackageType"] = request.appPackageType;
+    }
+
     if (!$dara.isNull(request.appPolicyId)) {
       body["AppPolicyId"] = request.appPolicyId;
     }
@@ -10506,6 +11990,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
     }
 
     if (!$dara.isNull(request.networkShrink)) {
@@ -10550,6 +12038,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.storagePolicyShrink)) {
       body["StoragePolicy"] = request.storagePolicyShrink;
+    }
+
+    if (!$dara.isNull(request.subPayType)) {
+      body["SubPayType"] = request.subPayType;
     }
 
     if (!$dara.isNull(request.userInfoShrink)) {
@@ -11317,7 +12809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表展示云应用交付组
+   * Queries the details of multiple delivery groups that meet the query conditions.
    * 
    * @param request - ListAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11395,7 +12887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表展示云应用交付组
+   * Queries the details of multiple delivery groups that meet the query conditions.
    * 
    * @param request - ListAppInstanceGroupRequest
    * @returns ListAppInstanceGroupResponse
@@ -11433,6 +12925,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.userIdList)) {
+      query["UserIdList"] = request.userIdList;
     }
 
     let body : {[key: string ]: any} = { };
@@ -11649,6 +13145,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询节点列表
+   * 
+   * @param request - ListNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodesResponse
+   */
+  async listNodesWithOptions(request: ListNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListNodesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodes",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    } else {
+      return $dara.cast<ListNodesResponse>(await this.execute(params, req, runtime), new ListNodesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询节点列表
+   * 
+   * @param request - ListNodesRequest
+   * @returns ListNodesResponse
+   */
+  async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about over-the-air (OTA) update tasks.
    * 
    * @param request - ListOtaTaskRequest
@@ -11708,7 +13263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云应用支持的地域列表
+   * Queries the regions that are supported by App Streaming.
+   * 
+   * @remarks
+   * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11748,7 +13306,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云应用支持的地域列表
+   * Queries the regions that are supported by App Streaming.
+   * 
+   * @remarks
+   * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @param request - ListRegionsRequest
    * @returns ListRegionsResponse
@@ -11827,6 +13388,69 @@ export default class Client extends OpenApi {
   async listSessionPackages(request: ListSessionPackagesRequest): Promise<ListSessionPackagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSessionPackagesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the tags added to one or more cloud resources.
+   * 
+   * @param request - ListTagCloudResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagCloudResourcesResponse
+   */
+  async listTagCloudResourcesWithOptions(request: ListTagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagCloudResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      body["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagCloudResources",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagCloudResourcesResponse>(await this.callApi(params, req, runtime), new ListTagCloudResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagCloudResourcesResponse>(await this.execute(params, req, runtime), new ListTagCloudResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the tags added to one or more cloud resources.
+   * 
+   * @param request - ListTagCloudResourcesRequest
+   * @returns ListTagCloudResourcesResponse
+   */
+  async listTagCloudResources(request: ListTagCloudResourcesRequest): Promise<ListTagCloudResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagCloudResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -12092,6 +13716,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 包年包月交付组节点数量升级
+   * 
+   * @param tmpReq - ModifyNodePoolAmountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNodePoolAmountResponse
+   */
+  async modifyNodePoolAmountWithOptions(tmpReq: ModifyNodePoolAmountRequest, runtime: $dara.RuntimeOptions): Promise<ModifyNodePoolAmountResponse> {
+    tmpReq.validate();
+    let request = new ModifyNodePoolAmountShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodePool)) {
+      request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.nodePoolShrink)) {
+      body["NodePool"] = request.nodePoolShrink;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyNodePoolAmount",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyNodePoolAmountResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAmountResponse({}));
+    } else {
+      return $dara.cast<ModifyNodePoolAmountResponse>(await this.execute(params, req, runtime), new ModifyNodePoolAmountResponse({}));
+    }
+
+  }
+
+  /**
+   * 包年包月交付组节点数量升级
+   * 
+   * @param request - ModifyNodePoolAmountRequest
+   * @returns ModifyNodePoolAmountResponse
+   */
+  async modifyNodePoolAmount(request: ModifyNodePoolAmountRequest): Promise<ModifyNodePoolAmountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyNodePoolAmountWithOptions(request, runtime);
+  }
+
+  /**
    * @param tmpReq - ModifyNodePoolAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyNodePoolAttributeResponse
@@ -12336,6 +14021,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为云资源创建并绑定标签
+   * 
+   * @param request - TagCloudResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagCloudResourcesResponse
+   */
+  async tagCloudResourcesWithOptions(request: TagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagCloudResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceIds)) {
+      body["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagCloudResources",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagCloudResourcesResponse>(await this.callApi(params, req, runtime), new TagCloudResourcesResponse({}));
+    } else {
+      return $dara.cast<TagCloudResourcesResponse>(await this.execute(params, req, runtime), new TagCloudResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * 为云资源创建并绑定标签
+   * 
+   * @param request - TagCloudResourcesRequest
+   * @returns TagCloudResourcesResponse
+   */
+  async tagCloudResources(request: TagCloudResourcesRequest): Promise<TagCloudResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagCloudResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Unbinds a user and a session.
    * 
    * @param request - UnbindRequest
@@ -12396,6 +14136,61 @@ export default class Client extends OpenApi {
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes tags from cloud resources.
+   * 
+   * @param request - UntagCloudResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagCloudResourcesResponse
+   */
+  async untagCloudResourcesWithOptions(request: UntagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagCloudResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceIds)) {
+      body["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeys)) {
+      body["TagKeys"] = request.tagKeys;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagCloudResources",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagCloudResourcesResponse>(await this.callApi(params, req, runtime), new UntagCloudResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagCloudResourcesResponse>(await this.execute(params, req, runtime), new UntagCloudResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * Removes tags from cloud resources.
+   * 
+   * @param request - UntagCloudResourcesRequest
+   * @returns UntagCloudResourcesResponse
+   */
+  async untagCloudResources(request: UntagCloudResourcesRequest): Promise<UntagCloudResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagCloudResourcesWithOptions(request, runtime);
   }
 
   /**
