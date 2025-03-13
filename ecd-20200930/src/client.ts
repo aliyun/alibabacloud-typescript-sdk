@@ -5786,6 +5786,62 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
   }
 }
 
+export class DescribeDesktopsResponseBodyDesktopsDesktopDurationList extends $dara.Model {
+  orderInstanceId?: string;
+  packageCreationTime?: string;
+  packageExpiredTime?: string;
+  packageId?: string;
+  packageStatus?: string;
+  packageType?: string;
+  packageUsedUpStrategy?: string;
+  periodEndTime?: string;
+  periodStartTime?: string;
+  postPaidLimitFee?: number;
+  totalDuration?: number;
+  usedDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderInstanceId: 'OrderInstanceId',
+      packageCreationTime: 'PackageCreationTime',
+      packageExpiredTime: 'PackageExpiredTime',
+      packageId: 'PackageId',
+      packageStatus: 'PackageStatus',
+      packageType: 'PackageType',
+      packageUsedUpStrategy: 'PackageUsedUpStrategy',
+      periodEndTime: 'PeriodEndTime',
+      periodStartTime: 'PeriodStartTime',
+      postPaidLimitFee: 'PostPaidLimitFee',
+      totalDuration: 'TotalDuration',
+      usedDuration: 'UsedDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderInstanceId: 'string',
+      packageCreationTime: 'string',
+      packageExpiredTime: 'string',
+      packageId: 'string',
+      packageStatus: 'string',
+      packageType: 'string',
+      packageUsedUpStrategy: 'string',
+      periodEndTime: 'string',
+      periodStartTime: 'string',
+      postPaidLimitFee: 'number',
+      totalDuration: 'number',
+      usedDuration: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   /**
    * @remarks
@@ -6201,6 +6257,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * null
    */
   dataDiskSize?: string;
+  desktopDurationList?: DescribeDesktopsResponseBodyDesktopsDesktopDurationList[];
   /**
    * @remarks
    * The ID of the cloud computer pool to which cloud computers belong. Default value: null.``
@@ -6650,6 +6707,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       creationTime: 'CreationTime',
       dataDiskCategory: 'DataDiskCategory',
       dataDiskSize: 'DataDiskSize',
+      desktopDurationList: 'DesktopDurationList',
       desktopGroupId: 'DesktopGroupId',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
@@ -6716,6 +6774,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       creationTime: 'string',
       dataDiskCategory: 'string',
       dataDiskSize: 'string',
+      desktopDurationList: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsDesktopDurationList },
       desktopGroupId: 'string',
       desktopId: 'string',
       desktopName: 'string',
@@ -6772,6 +6831,9 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.desktopDurationList)) {
+      $dara.Model.validateArray(this.desktopDurationList);
+    }
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
     }
@@ -6960,7 +7022,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   diskType?: string;
   /**
    * @remarks
-   * The ID of the authorized user of the cloud computer.
+   * The ID of the authorized user.
    * 
    * @example
    * alice
@@ -6968,7 +7030,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserId?: string;
   /**
    * @remarks
-   * The IDs of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+   * The IDs of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
    */
   endUserIds?: string[];
   /**
@@ -6981,7 +7043,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserName?: string;
   /**
    * @remarks
-   * The usernames of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+   * The usernames of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
    */
   endUserNames?: string[];
   /**
@@ -7238,7 +7300,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   connectionStatus?: string;
   /**
    * @remarks
-   * The retention period of the cloud computer.
+   * The retention period. Unit: milliseconds.
    * 
    * @example
    * 4153958447
@@ -31104,7 +31166,7 @@ export class DeleteConfigGroupResponse extends $dara.Model {
 export class DeleteDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -34949,6 +35011,10 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * dg-2i8qxpv6t1a03****
    */
   desktopGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the cloud computer pool.
+   */
   desktopGroupIds?: string[];
   /**
    * @remarks
@@ -34984,6 +35050,18 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Specifies whether the shared group is a multi-cloud computer type.
+   * 
+   * Valid values:
+   * 
+   * - true: a multi-cloud computer type.
+   * - false: a single-cloud computer type.
+   * 
+   * @example
+   * true
+   */
   multiResource?: boolean;
   /**
    * @remarks
@@ -37031,7 +37109,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   customStartTimePeriod?: number;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -37054,7 +37132,10 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   ignoreDeleted?: boolean;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of entries per page.
+   * 
+   * *   Default value: 10.
+   * *   Maximum value: 100.
    * 
    * @example
    * 10
@@ -37062,7 +37143,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the NextToken parameter is empty, no next page exists.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -37070,7 +37151,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The billing method of the desktop group.
+   * The billing method of the cloud computer share.
    * 
    * @example
    * PrePaid
@@ -37124,7 +37205,8 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
 export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * If NextToken is empty, no next page exists.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -37140,12 +37222,12 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   onlinePrePaidDesktopsCount?: number;
   /**
    * @remarks
-   * The details about subscription cloud computers.
+   * The subscription cloud computers.
    */
   paidDesktops?: DescribeDesktopsInGroupResponseBodyPaidDesktops[];
   /**
    * @remarks
-   * The total number of queried subscription cloud computers.
+   * The total number of subscription cloud computers.
    * 
    * @example
    * 10
@@ -37153,12 +37235,12 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   paidDesktopsCount?: number;
   /**
    * @remarks
-   * The details about pay-as-you-go cloud computers.
+   * The pay-as-you-go cloud computers.
    */
   postPaidDesktops?: DescribeDesktopsInGroupResponseBodyPostPaidDesktops[];
   /**
    * @remarks
-   * The total number of queried pay-as-you-go cloud computers.
+   * The total number of pay-as-you-go cloud computers.
    * 
    * @example
    * 10
@@ -40600,7 +40682,7 @@ export class DescribePriceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The number of cloud computers in the cloud computer pool. Default value: 1.
+   * The number of cloud computer shares. Default value: 1.
    * 
    * >  This parameter takes effect only if you set `ResourceType` to `DesktopGroup`.
    * 
@@ -40610,31 +40692,10 @@ export class DescribePriceRequest extends $dara.Model {
   groupDesktopCount?: number;
   /**
    * @remarks
-   * The resource specifications.
+   * The specifications of the resource.
    * 
-   * *   If you set `ResourceType` to `Desktop`, you must specify this parameter.
-   * 
-   *     *   ecd.basic.small
-   *     *   ecd.basic.large
-   *     *   ecd.advanced.large
-   *     *   ecd.advanced.xlarge
-   *     *   ecd.performance.2xlarge
-   *     *   ecd.graphics.xlarge
-   *     *   ecd.graphics.2xlarge
-   *     *   ecd.advanced.xlarge_s8d2
-   *     *   ecd.advanced.xlarge_s8d7
-   *     *   ecd.graphics.1g72c
-   *     *   eds.general.2c2g
-   *     *   eds.general.2c4g
-   *     *   eds.general.2c8g
-   *     *   eds.general.4c8g
-   *     *   eds.general.4c16g
-   *     *   eds.general.8c16g
-   *     *   eds.general.8c32g
-   *     *   eds.general.16c32g
-   * 
+   * *   This parameter is required if you set `ResourceType` to `Desktop`. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the available cloud computer types that correspond to the value of `DesktopTypeId`.
    * *   If you set `ResourceType` to `DesktopGroup`, set the value of this parameter to `large`.
-   * 
    * *   If you set `ResourceType` to `Bandwidth`, you can leave this parameter empty.
    * 
    * @example
@@ -40715,20 +40776,29 @@ export class DescribePriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * Valid values:
    * 
-   * *   DesktopMonthPackage: the monthly subscription plan (also known as the 120-hour or 250-hour computing plan).
-   * *   Desktop (default): the pay-as-you-go cloud computer or the monthly subscription cloud computer (also known as the Unlimited computing plan).
-   * *   Bandwidth: the premium bandwidth plan.
-   * *   DesktopGroup: the cloud computer pool.
+   * *   DesktopMonthPackage: monthly subscription cloud computers that use hourly limit plans.
+   * *   Desktop (default): pay-as-you-go cloud computers/monthly subscription cloud computers that use unlimited plans.
+   * *   Bandwidth: premium bandwidth plans.
+   * *   DesktopGroup: cloud computer shares.
    * 
    * @example
    * Desktop
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The category of the system disk.
+   * 
+   * Valid values:
+   * 
+   * *   cloud_efficiency: the ultra disk
+   * *   cloud_auto: the standard SSD.
+   * *   cloud_essd: the Enterprise SSD (ESSD). Take note that only specific cloud computer types support ESSDs.
+   * 
    * @example
    * 40
    */
@@ -40742,6 +40812,15 @@ export class DescribePriceRequest extends $dara.Model {
    */
   rootDiskSizeGib?: number;
   /**
+   * @remarks
+   * The category of the data disk.
+   * 
+   * Valid values:
+   * 
+   * *   cloud_efficiency: the ultra disk
+   * *   cloud_auto: the standard SSD.
+   * *   cloud_essd: the ESSD. Take note that only specific cloud computer types support ESSDs.
+   * 
    * @example
    * 80
    */
@@ -40808,7 +40887,7 @@ export class DescribePriceRequest extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The price details.
    */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**
@@ -43718,7 +43797,7 @@ export class DetachEndUserResponse extends $dara.Model {
 export class DisableDesktopsInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -43728,14 +43807,14 @@ export class DisableDesktopsInGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of cloud desktops.
+   * The IDs of the cloud computers.
    * 
    * This parameter is required.
    */
   desktopIds?: string[];
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -43774,7 +43853,7 @@ export class DisableDesktopsInGroupRequest extends $dara.Model {
 export class DisableDesktopsInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34FB4D97-C0D9-5534-ABC6-90C7EBD5****
@@ -64742,12 +64821,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a desktop group.
+   * Releases a cloud computer share.
    * 
    * @remarks
-   *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+   *   Before releasing a cloud computer share, ensure that no cloud computers within it are in the Connected state and that no end users have access permissions to it.
+   * *   You cannot delete a cloud computer share with an active subscription if it contains cloud computers that have not yet expired.
+   * *   Deleting a pay-as-you-go cloud computer share will release all pay-as-you-go cloud computers within it.
    * 
    * @param request - DeleteDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64787,12 +64866,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a desktop group.
+   * Releases a cloud computer share.
    * 
    * @remarks
-   *   Before you delete a desktop group, make sure that cloud desktops in the desktop group are not connected and no users are authorized to use the cloud desktops.
-   * *   You cannot delete a subscription desktop group when cloud desktops in the group are in valid period.
-   * *   If you delete a pay-as-you-go desktop group, cloud desktops in the group are deleted.
+   *   Before releasing a cloud computer share, ensure that no cloud computers within it are in the Connected state and that no end users have access permissions to it.
+   * *   You cannot delete a cloud computer share with an active subscription if it contains cloud computers that have not yet expired.
+   * *   Deleting a pay-as-you-go cloud computer share will release all pay-as-you-go cloud computers within it.
    * 
    * @param request - DeleteDesktopGroupRequest
    * @returns DeleteDesktopGroupResponse
@@ -67100,7 +67179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cloud computers in a cloud computer pool by billing method.
+   * Queries the cloud computers in a share by billing method.
    * 
    * @param request - DescribeDesktopsInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -67164,7 +67243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cloud computers in a cloud computer pool by billing method.
+   * Queries the cloud computers in a share by billing method.
    * 
    * @param request - DescribeDesktopsInGroupRequest
    * @returns DescribeDesktopsInGroupResponse
@@ -69730,7 +69809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables cloud desktops in a desktop group.
+   * Disables specific cloud computers in a cloud computer share. After you call this operation to disable specific cloud computers, they enter the unavailable state.
    * 
    * @param request - DisableDesktopsInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69774,7 +69853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables cloud desktops in a desktop group.
+   * Disables specific cloud computers in a cloud computer share. After you call this operation to disable specific cloud computers, they enter the unavailable state.
    * 
    * @param request - DisableDesktopsInGroupRequest
    * @returns DisableDesktopsInGroupResponse
