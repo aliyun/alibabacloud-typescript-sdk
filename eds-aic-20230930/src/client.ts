@@ -286,7 +286,21 @@ export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Mod
 }
 
 export class CreateAndroidInstanceGroupRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2191,12 +2205,19 @@ export class DescribeKeyPairsResponseBodyData extends $dara.Model {
 export class DescribeRegionsResponseBodyRegionModels extends $dara.Model {
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The region name.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4061,13 +4082,22 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * asadbuvwiabdbvchjsbj
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   enableIpv6?: boolean;
   /**
    * @remarks
    * Specifies whether to enable GPU acceleration.
    * 
-   * *   true
-   * *   false (true)
+   * Valid values:
+   * 
+   * *   true: enables GPU acceleration.
+   * *   false (default): disables GPU acceleration.
    * 
    * @example
    * false
@@ -4087,7 +4117,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * @remarks
    * The name of the instance group.
    * 
-   * > The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
+   * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with `http://` or `https://`.
    * 
    * @example
    * defaultInstanceGroup
@@ -4109,12 +4139,19 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * acp.basic.small
    */
   instanceGroupSpec?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   ipv6Bandwidth?: number;
   /**
    * @remarks
-   * The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually call the operation to bind key pairs to individual cloud phone instances.
+   * The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually bind key pairs to individual cloud phone instances.
    * 
-   * Take note that binding key pairs to cloud phone instances is currently not supported during instance group resizing.
+   * >  Binding key pairs to cloud phone instances is currently not supported during instance group resizing.
    * 
    * @example
    * kp-7o9xywwfutc1l****
@@ -4169,6 +4206,10 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * pg-b7bxrrwxkijjh****
    */
   policyGroupId?: string;
+  /**
+   * @remarks
+   * The tags
+   */
   tag?: CreateAndroidInstanceGroupRequestTag[];
   /**
    * @remarks
@@ -7372,7 +7413,29 @@ export class DescribeKeyPairsResponse extends $dara.Model {
 }
 
 export class DescribeRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The display language of the console. Valid values:
+   * 
+   * *   cn: Simplified Chinese
+   * *   en: English
+   * 
+   * @example
+   * en
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The sales mode.
+   * 
+   * Valid values:
+   * 
+   * *   Instance: the instance group mode. [Default]
+   * *   Node: the matrix mode. [Whitelist required]
+   * 
+   * @example
+   * Instance
+   */
   saleMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7405,7 +7468,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   regionModels?: DescribeRegionsResponseBodyRegionModels[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A87B3769-0D05-5383-B236-5798B455****
@@ -9488,6 +9551,180 @@ export class ModifyAppResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAppResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceChargeTypeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the auto-payment feature. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the auto-renewal feature. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The IDs of the instance groups.
+   * 
+   * This parameter is required.
+   */
+  instanceGroupIds?: string[];
+  /**
+   * @remarks
+   * The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   **Month**
+   * *   **Year**
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      instanceGroupIds: 'InstanceGroupIds',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      period: 'number',
+      periodUnit: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceGroupIds)) {
+      $dara.Model.validateArray(this.instanceGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceChargeTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the instance groups.
+   */
+  instanceGroupIds?: string[];
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 22326560487****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1A923337-44D9-5CAD-9A53-95084BD4****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceGroupIds: 'InstanceGroupIds',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceGroupIds)) {
+      $dara.Model.validateArray(this.instanceGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceChargeTypeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceChargeTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceChargeTypeResponseBody,
     };
   }
 
@@ -14376,6 +14613,73 @@ export default class Client extends OpenApi {
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
+   * 
+   * @param request - ModifyInstanceChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceChargeTypeResponse
+   */
+  async modifyInstanceChargeTypeWithOptions(request: ModifyInstanceChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyInstanceChargeTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.instanceGroupIds)) {
+      query["InstanceGroupIds"] = request.instanceGroupIds;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceChargeType",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceChargeTypeResponse({}));
+    } else {
+      return $dara.cast<ModifyInstanceChargeTypeResponse>(await this.execute(params, req, runtime), new ModifyInstanceChargeTypeResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
+   * 
+   * @param request - ModifyInstanceChargeTypeRequest
+   * @returns ModifyInstanceChargeTypeResponse
+   */
+  async modifyInstanceChargeType(request: ModifyInstanceChargeTypeRequest): Promise<ModifyInstanceChargeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
   }
 
   /**
