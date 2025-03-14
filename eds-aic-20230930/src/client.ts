@@ -788,6 +788,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * The disks.
    */
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
+  enableIpv6?: boolean;
   /**
    * @remarks
    * The error code.
@@ -876,6 +877,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * RUNNING
    */
   instanceGroupStatus?: string;
+  ipv6Bandwidth?: number;
   /**
    * @remarks
    * The memory size.
@@ -972,6 +974,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
+      enableIpv6: 'EnableIpv6',
       errorCode: 'ErrorCode',
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
@@ -983,6 +986,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       instanceGroupSpec: 'InstanceGroupSpec',
       instanceGroupSpecDescribe: 'InstanceGroupSpecDescribe',
       instanceGroupStatus: 'InstanceGroupStatus',
+      ipv6Bandwidth: 'Ipv6Bandwidth',
       memory: 'Memory',
       numberOfInstances: 'NumberOfInstances',
       officeSiteId: 'OfficeSiteId',
@@ -1005,6 +1009,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
+      enableIpv6: 'boolean',
       errorCode: 'string',
       gmtCreate: 'string',
       gmtExpired: 'string',
@@ -1016,6 +1021,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       instanceGroupSpec: 'string',
       instanceGroupSpecDescribe: 'string',
       instanceGroupStatus: 'string',
+      ipv6Bandwidth: 'number',
       memory: 'number',
       numberOfInstances: 'string',
       officeSiteId: 'string',
@@ -1288,6 +1294,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * 2023-05-06 10:42:10
    */
   gmtModified?: string;
+  imageId?: string;
   /**
    * @remarks
    * The version of the image.
@@ -1420,6 +1427,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
+      imageId: 'ImageId',
       imageVersion: 'ImageVersion',
       instanceType: 'InstanceType',
       keyPairId: 'KeyPairId',
@@ -1457,6 +1465,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       gmtCreate: 'string',
       gmtExpired: 'string',
       gmtModified: 'string',
+      imageId: 'string',
       imageVersion: 'string',
       instanceType: 'string',
       keyPairId: 'string',
@@ -1957,6 +1966,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
    * System
    */
   imageType?: string;
+  imageVersion?: string;
   /**
    * @remarks
    * The language of the image.
@@ -2022,6 +2032,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
       imageRegionDistributeMap: 'ImageRegionDistributeMap',
       imageRegionList: 'ImageRegionList',
       imageType: 'ImageType',
+      imageVersion: 'ImageVersion',
       language: 'Language',
       releaseTime: 'ReleaseTime',
       renderingType: 'RenderingType',
@@ -2041,6 +2052,7 @@ export class DescribeImageListResponseBodyData extends $dara.Model {
       imageRegionDistributeMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataImageRegionDistributeMapValue },
       imageRegionList: { 'type': 'array', 'itemType': 'string' },
       imageType: 'string',
+      imageVersion: 'string',
       language: 'string',
       releaseTime: 'string',
       renderingType: 'string',
@@ -2251,6 +2263,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
    * 8
    */
   core?: number;
+  maxPhoneCount?: string;
   /**
    * @remarks
    * Memory size.
@@ -2259,6 +2272,7 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
    * 16
    */
   memory?: number;
+  minPhoneCount?: string;
   phoneCount?: string;
   resolution?: string;
   /**
@@ -2296,7 +2310,9 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       core: 'Core',
+      maxPhoneCount: 'MaxPhoneCount',
       memory: 'Memory',
+      minPhoneCount: 'MinPhoneCount',
       phoneCount: 'PhoneCount',
       resolution: 'Resolution',
       specId: 'SpecId',
@@ -2309,7 +2325,9 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       core: 'number',
+      maxPhoneCount: 'string',
       memory: 'number',
+      minPhoneCount: 'string',
       phoneCount: 'string',
       resolution: 'string',
       specId: 'string',
@@ -11038,6 +11056,7 @@ export class SendFileRequest extends $dara.Model {
    * /data
    */
   sourceFilePath?: string;
+  targetFileName?: string;
   /**
    * @remarks
    * The endpoint of the OSS bucket in which the file is stored.
@@ -11073,6 +11092,7 @@ export class SendFileRequest extends $dara.Model {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
       sourceFilePath: 'SourceFilePath',
+      targetFileName: 'TargetFileName',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
       uploadUrl: 'UploadUrl',
@@ -11083,6 +11103,7 @@ export class SendFileRequest extends $dara.Model {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePath: 'string',
+      targetFileName: 'string',
       uploadEndpoint: 'string',
       uploadType: 'string',
       uploadUrl: 'string',
@@ -15197,6 +15218,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceFilePath)) {
       query["SourceFilePath"] = request.sourceFilePath;
+    }
+
+    if (!$dara.isNull(request.targetFileName)) {
+      query["TargetFileName"] = request.targetFileName;
     }
 
     if (!$dara.isNull(request.uploadEndpoint)) {
