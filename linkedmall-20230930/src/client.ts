@@ -4242,6 +4242,11 @@ export class Sku extends $dara.Model {
 
 export class SkuQueryParam extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  buyAmount?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -4259,6 +4264,7 @@ export class SkuQueryParam extends $dara.Model {
   skuId?: string;
   static names(): { [key: string]: string } {
     return {
+      buyAmount: 'buyAmount',
       productId: 'productId',
       skuId: 'skuId',
     };
@@ -4266,6 +4272,7 @@ export class SkuQueryParam extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      buyAmount: 'number',
       productId: 'string',
       skuId: 'string',
     };
@@ -4281,6 +4288,11 @@ export class SkuQueryParam extends $dara.Model {
 }
 
 export class SkuSaleInfo extends $dara.Model {
+  /**
+   * @example
+   * 不可售
+   */
+  canNotSellReason?: string;
   /**
    * @example
    * true
@@ -4338,6 +4350,7 @@ export class SkuSaleInfo extends $dara.Model {
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      canNotSellReason: 'canNotSellReason',
       canSell: 'canSell',
       divisionCode: 'divisionCode',
       fuzzyQuantity: 'fuzzyQuantity',
@@ -4354,6 +4367,7 @@ export class SkuSaleInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      canNotSellReason: 'string',
       canSell: 'boolean',
       divisionCode: 'string',
       fuzzyQuantity: 'string',
