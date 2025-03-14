@@ -1772,6 +1772,10 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
    * polar.mysql.x4.large
    */
   DBNodeClass?: string;
+  /**
+   * @example
+   * test
+   */
   DBNodeDescription?: string;
   /**
    * @remarks
@@ -2216,6 +2220,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
    * ********.rwlb.polardb-pg-public.rds.aliyuncs.com
    */
   connectionString?: string;
+  dashboardUsed?: boolean;
   /**
    * @remarks
    * The IP address.
@@ -2280,6 +2285,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
+      dashboardUsed: 'DashboardUsed',
       IPAddress: 'IPAddress',
       netType: 'NetType',
       port: 'Port',
@@ -2293,6 +2299,7 @@ export class DescribeDBClusterEndpointsResponseBodyItemsAddressItems extends $da
   static types(): { [key: string]: any } {
     return {
       connectionString: 'string',
+      dashboardUsed: 'boolean',
       IPAddress: 'string',
       netType: 'string',
       port: 'string',
@@ -2409,7 +2416,24 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * pi-***************,pi-***************
    */
   nodes?: string;
+  /**
+   * @remarks
+   * The global consistency timeout policy. Valid values:
+   * 
+   * *   **0**: sends the request to the primary node.
+   * *   **2**: downgrades the consistency level of a query to inconsistent read when a global consistent read in the query times out. No error message is returned to the client.
+   * 
+   * @example
+   * 0
+   */
   polarSccTimeoutAction?: string;
+  /**
+   * @remarks
+   * Global consistency timeout.
+   * 
+   * @example
+   * 100
+   */
   polarSccWaitTimeout?: string;
   /**
    * @remarks
@@ -2422,6 +2446,16 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * ReadOnly
    */
   readWriteMode?: string;
+  /**
+   * @remarks
+   * Indicates whether the global consistency (high-performance mode) feature is enabled for the node. Valid values:
+   * 
+   * *   **on**: enabled.
+   * *   **off**: disabled
+   * 
+   * @example
+   * on
+   */
   sccMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9779,6 +9813,7 @@ export class CreateAccountRequest extends $dara.Model {
    * testdb
    */
   DBName?: string;
+  nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   privForAllDB?: string;
@@ -9794,6 +9829,7 @@ export class CreateAccountRequest extends $dara.Model {
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       DBName: 'DBName',
+      nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       privForAllDB: 'PrivForAllDB',
@@ -9812,6 +9848,7 @@ export class CreateAccountRequest extends $dara.Model {
       clientToken: 'string',
       DBClusterId: 'string',
       DBName: 'string',
+      nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       privForAllDB: 'string',
@@ -10480,6 +10517,10 @@ export class CreateDBClusterRequest extends $dara.Model {
    * NONE
    */
   backupRetentionPolicyOnClusterDeletion?: string;
+  /**
+   * @example
+   * false
+   */
   burstingEnabled?: string;
   /**
    * @remarks
@@ -10600,8 +10641,6 @@ export class CreateDBClusterRequest extends $dara.Model {
    * 
    * > - For a Serverless cluster in PolarDB MySQL, enter **polar.mysql.sl.small**.
    * <props="china">> - For a Serverless cluster in both PolarDB PostgreSQL (Oracle Compatible) and PolarDB PostgreSQL, enter **polar.pg.sl.small.c**.
-   * 
-   * This parameter is required.
    * 
    * @example
    * polar.mysql.x4.medium
@@ -10928,7 +10967,28 @@ export class CreateDBClusterRequest extends $dara.Model {
    * Enable
    */
   storageAutoScale?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable disk encryption. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  This parameter takes effect only when **DBType** is set to **MySQL**.
+   * 
+   * >  This parameter takes effect only when **StorageType** is set to one of the Standard Edition storage types.
+   */
   storageEncryption?: boolean;
+  /**
+   * @remarks
+   * The ID of the custom key that is used for disk encryption in the region in which the instance resides. If this parameter is specified, disk encryption is automatically enabled and cannot be disabled afterwards. If you want to use the default service key for disk encryption, leave this parameter empty.
+   * 
+   * You can obtain the ID of the key in the KMS console or create a key.
+   * 
+   * >  This parameter takes effect only when **DBType** is set to **MySQL**.
+   * 
+   * >  This parameter takes effect only when **StorageType** is set to one of the Standard Edition storage types.
+   */
   storageEncryptionKey?: string;
   /**
    * @remarks
@@ -10943,9 +11003,13 @@ export class CreateDBClusterRequest extends $dara.Model {
   storagePayType?: string;
   /**
    * @remarks
-   * Storage space for pay-by-space (subscription) billing. Unit: GB.
-   * > - For PolarDB MySQL Standard Edition, the storage space range is 20 to 32000.
-   * > - When the Standard Edition storage type is ESSDAUTOPL, the storage space range is 40 to 64000, with a minimum step size of 10, meaning you can only enter values like 40, 50, 60, and so on.
+   * The storage that is billed based on the subscription billing method. Unit: GB.
+   * 
+   * > 
+   * 
+   * *   Valid values for the subscription storage capacity of a PolarDB for MySQL Standard Edition cluster: 20 to 32000.
+   * 
+   * *   Valid values for the subscription storage capacity of a Standard Edition cluster that uses the ESSD AUTOPL storage type: 40 to 64000, in increments of 10.
    * 
    * @example
    * 50
@@ -11422,6 +11486,11 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
    * 
    * *   **ON**
    * *   **OFF**
+   * 
+   * Enumerated values:
+   * 
+   * *   on
+   * *   off
    * 
    * @example
    * on
@@ -14809,6 +14878,7 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
    * pc-*****************
    */
   DBClusterId?: string;
+  interfaceVersion?: string;
   /**
    * @remarks
    * The name of the masking rule. You can specify multiple masking rules at a time. Separate the masking rules with commas (,).
@@ -14824,6 +14894,7 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      interfaceVersion: 'InterfaceVersion',
       ruleNameList: 'RuleNameList',
     };
   }
@@ -14831,6 +14902,7 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      interfaceVersion: 'string',
       ruleNameList: 'string',
     };
   }
@@ -15251,6 +15323,7 @@ export class DescribeAccountsRequest extends $dara.Model {
    * pc-***************
    */
   DBClusterId?: string;
+  nodeType?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -15281,6 +15354,7 @@ export class DescribeAccountsRequest extends $dara.Model {
     return {
       accountName: 'AccountName',
       DBClusterId: 'DBClusterId',
+      nodeType: 'NodeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -15294,6 +15368,7 @@ export class DescribeAccountsRequest extends $dara.Model {
     return {
       accountName: 'string',
       DBClusterId: 'string',
+      nodeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -17685,6 +17760,10 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * 5,242,880
    */
   blktagUsed?: number;
+  /**
+   * @example
+   * false
+   */
   burstingEnabled?: string;
   /**
    * @remarks
@@ -17884,6 +17963,13 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * OFF
    */
   imciAutoIndex?: string;
+  /**
+   * @remarks
+   * Indicates whether failover with hot replica is enabled. Valid values:
+   * 
+   * *   `true`
+   * *   `false` (default)
+   */
   imperceptibleSwitch?: string;
   /**
    * @remarks
@@ -24174,6 +24260,7 @@ export class DescribeMaskingRulesRequest extends $dara.Model {
    * pc-*****************
    */
   DBClusterId?: string;
+  interfaceVersion?: string;
   /**
    * @remarks
    * The name of the masking rule.
@@ -24185,6 +24272,7 @@ export class DescribeMaskingRulesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      interfaceVersion: 'InterfaceVersion',
       ruleNameList: 'RuleNameList',
     };
   }
@@ -24192,6 +24280,7 @@ export class DescribeMaskingRulesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      interfaceVersion: 'string',
       ruleNameList: 'string',
     };
   }
@@ -30065,6 +30154,130 @@ export class ModifyDBClusterAndNodesParametersResponse extends $dara.Model {
   }
 }
 
+export class ModifyDBClusterArchRequest extends $dara.Model {
+  /**
+   * @example
+   * pc-****************
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * on
+   */
+  hotStandbyCluster?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @example
+   * cn-beijing-i
+   */
+  standbyAZ?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      hotStandbyCluster: 'HotStandbyCluster',
+      regionId: 'RegionId',
+      standbyAZ: 'StandbyAZ',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      hotStandbyCluster: 'string',
+      regionId: 'string',
+      standbyAZ: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterArchResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pc-**************
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2148126708*****
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 6A2EE5B4-CC9F-46E1-A747-E43BC9******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterArchResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBClusterArchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterArchResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBClusterAuditLogCollectorRequest extends $dara.Model {
   /**
    * @remarks
@@ -34571,6 +34784,7 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
    * true
    */
   enable?: string;
+  interfaceVersion?: string;
   /**
    * @remarks
    * The parameter that is used to specify the masking rule that you want to modify and the value in the JSON format. All parameter values are of the string type. Example: `{"auto": {"databases": ["db1"], "tables": ["tb1"], "columns": ["c1,c2"] }, "description": "This rule will be applied to the columns c1 and c2 in table t1", "enabled": true, "applies_to": ["user"]}`. Parameters in the function:
@@ -34627,6 +34841,7 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
     return {
       DBClusterId: 'DBClusterId',
       enable: 'Enable',
+      interfaceVersion: 'InterfaceVersion',
       ruleConfig: 'RuleConfig',
       ruleName: 'RuleName',
       ruleNameList: 'RuleNameList',
@@ -34638,6 +34853,7 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       enable: 'string',
+      interfaceVersion: 'string',
       ruleConfig: 'string',
       ruleName: 'string',
       ruleNameList: 'string',
@@ -37895,6 +38111,10 @@ export default class Client extends OpenApi {
       query["DBName"] = request.DBName;
     }
 
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -40185,6 +40405,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.interfaceVersion)) {
+      query["InterfaceVersion"] = request.interfaceVersion;
+    }
+
     if (!$dara.isNull(request.ruleNameList)) {
       query["RuleNameList"] = request.ruleNameList;
     }
@@ -40360,6 +40584,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -43558,6 +43786,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.interfaceVersion)) {
+      query["InterfaceVersion"] = request.interfaceVersion;
+    }
+
     if (!$dara.isNull(request.ruleNameList)) {
       query["RuleNameList"] = request.ruleNameList;
     }
@@ -46088,6 +46320,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 变更standby模式
+   * 
+   * @param request - ModifyDBClusterArchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterArchResponse
+   */
+  async modifyDBClusterArchWithOptions(request: ModifyDBClusterArchRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBClusterArchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.hotStandbyCluster)) {
+      query["HotStandbyCluster"] = request.hotStandbyCluster;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.standbyAZ)) {
+      query["StandbyAZ"] = request.standbyAZ;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterArch",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDBClusterArchResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterArchResponse({}));
+    } else {
+      return $dara.cast<ModifyDBClusterArchResponse>(await this.execute(params, req, runtime), new ModifyDBClusterArchResponse({}));
+    }
+
+  }
+
+  /**
+   * 变更standby模式
+   * 
+   * @param request - ModifyDBClusterArchRequest
+   * @returns ModifyDBClusterArchResponse
+   */
+  async modifyDBClusterArch(request: ModifyDBClusterArchRequest): Promise<ModifyDBClusterArchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterArchWithOptions(request, runtime);
+  }
+
+  /**
    * Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
    * 
    * @param request - ModifyDBClusterAuditLogCollectorRequest
@@ -48269,6 +48560,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.interfaceVersion)) {
+      query["InterfaceVersion"] = request.interfaceVersion;
     }
 
     if (!$dara.isNull(request.ruleConfig)) {
