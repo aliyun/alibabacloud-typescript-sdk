@@ -4335,6 +4335,10 @@ export class CreateScalingGroupRequestCapacityOptions extends $dara.Model {
    * 20
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @example
+   * PricePerUnit
+   */
   priceComparisonMode?: string;
   /**
    * @remarks
@@ -4723,7 +4727,7 @@ export class CreateScalingGroupRequestServerGroups extends $dara.Model {
 export class CreateScalingGroupRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key that you want to add to the scaling group.
    * 
    * @example
    * Department
@@ -4731,10 +4735,10 @@ export class CreateScalingGroupRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Specifies whether to propagate the tag that you want to add. Valid values:
+   * Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
    * 
-   * *   true: propagates the tag to new instances.
-   * *   false: does not propagate the tag to any instance.
+   * *   true: propagates the tag to only instances that are newly created.
+   * *   false: does not propagate the tag to any instances.
    * 
    * Default value: false.
    * 
@@ -4744,7 +4748,7 @@ export class CreateScalingGroupRequestTags extends $dara.Model {
   propagate?: boolean;
   /**
    * @remarks
-   * The tag value.
+   * The tag value that you want to add to the scaling group.
    * 
    * @example
    * Finance
@@ -10474,6 +10478,38 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $d
   }
 }
 
+export class DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth extends $dara.Model {
+  adequacyScore?: number;
+  healthScore?: number;
+  hotScore?: number;
+  supplyScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adequacyScore: 'AdequacyScore',
+      healthScore: 'HealthScore',
+      hotScore: 'HotScore',
+      supplyScore: 'SupplyScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adequacyScore: 'number',
+      healthScore: 'number',
+      hotScore: 'number',
+      supplyScore: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Model {
   /**
    * @remarks
@@ -10491,6 +10527,7 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
    * ecs.c7t.xlarge
    */
   instanceType?: string;
+  inventoryHealth?: DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth;
   /**
    * @remarks
    * The error message returned when the scaling strength is the weakest.
@@ -10499,6 +10536,7 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
    * The instanceType does not support the image in the configuration.
    */
   msg?: string;
+  status?: string;
   /**
    * @remarks
    * The scaling strength of the resource pool.
@@ -10524,7 +10562,9 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
     return {
       code: 'Code',
       instanceType: 'InstanceType',
+      inventoryHealth: 'InventoryHealth',
       msg: 'Msg',
+      status: 'Status',
       strength: 'Strength',
       vSwitchIds: 'VSwitchIds',
       zoneId: 'ZoneId',
@@ -10535,7 +10575,9 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
     return {
       code: 'string',
       instanceType: 'string',
+      inventoryHealth: DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth,
       msg: 'string',
+      status: 'string',
       strength: 'number',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       zoneId: 'string',
@@ -10543,6 +10585,9 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
   }
 
   validate() {
+    if(this.inventoryHealth && typeof (this.inventoryHealth as any).validate === 'function') {
+      (this.inventoryHealth as any).validate();
+    }
     if(Array.isArray(this.vSwitchIds)) {
       $dara.Model.validateArray(this.vSwitchIds);
     }
@@ -14360,6 +14405,16 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
    * 0
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * The price comparison mode. Valid values:
+   * 
+   * *   PricePerUnit: compares prices based on capacity. The capacity of instances in a scaling group is determined by the weights of the instance types used. If no weight is specified, the default weight is 1.
+   * *   PricePerVCpu: compares prices based on the price per vCPU.
+   * 
+   * @example
+   * PricePerUnit
+   */
   priceComparisonMode?: string;
   /**
    * @remarks
@@ -20982,7 +21037,7 @@ export class ModifyScalingConfigurationShrinkRequestSpotPriceLimits extends $dar
 export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as cost-related issues and insufficient resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:
+   * Specifies whether to automatically create pay-as-you-go ECS instances to reach the required number of ECS instances when preemptible ECS instances cannot be created due to high prices or insufficient inventory of resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:
    * 
    * *   true
    * *   false
@@ -20993,7 +21048,7 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The minimum number of pay-as-you-go instances that must be contained in the scaling group. When the actual number of pay-as-you-go instances in the scaling group drops below the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+   * The minimum number of pay-as-you-go instances required in the scaling group. When the number of pay-as-you-go instances drops below the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
    * 
    * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 0.
    * 
@@ -21003,7 +21058,7 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
   onDemandBaseCapacity?: number;
   /**
    * @remarks
-   * The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 100
+   * The percentage of additional pay-as-you-go instances beyond the minimum required by `OnDemandBaseCapacity` in the scaling group. Valid values: 0 to 100
    * 
    * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 100.
    * 
@@ -21011,10 +21066,25 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
    * 20
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * The price comparison mode. Valid values:
+   * 
+   * *   PricePerUnit: compares prices based on capacity.
+   * 
+   *     The capacity of instances in a scaling group is determined by the weights of the instance types used. If no weight is specified, the default weight is 1, which specifies that each instance in the scaling group has a capacity of 1.
+   * 
+   * *   PricePerVCpu: compares prices based on the price per vCPU.
+   * 
+   * Default value: PricePerUnit.
+   * 
+   * @example
+   * PricePerUnit
+   */
   priceComparisonMode?: string;
   /**
    * @remarks
-   * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+   * Specifies whether to replace pay-as-you-go instances with preemptible instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this case, Auto Scaling will try to deploy preemptible instances to replace the surplus pay-as-you-go instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
    * 
    * *   true
    * *   false
@@ -29999,6 +30069,7 @@ export class DescribeElasticStrengthRequest extends $dara.Model {
 }
 
 export class DescribeElasticStrengthResponseBody extends $dara.Model {
+  elasticStrength?: string;
   /**
    * @remarks
    * The scaling strength models.
@@ -30031,6 +30102,7 @@ export class DescribeElasticStrengthResponseBody extends $dara.Model {
   totalStrength?: number;
   static names(): { [key: string]: string } {
     return {
+      elasticStrength: 'ElasticStrength',
       elasticStrengthModels: 'ElasticStrengthModels',
       requestId: 'RequestId',
       resourcePools: 'ResourcePools',
@@ -30040,6 +30112,7 @@ export class DescribeElasticStrengthResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      elasticStrength: 'string',
       elasticStrengthModels: { 'type': 'array', 'itemType': DescribeElasticStrengthResponseBodyElasticStrengthModels },
       requestId: 'string',
       resourcePools: { 'type': 'array', 'itemType': DescribeElasticStrengthResponseBodyResourcePools },
@@ -32566,7 +32639,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Minimum value: 1.
    * 
    * Default value: 1.
    * 
