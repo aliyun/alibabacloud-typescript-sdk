@@ -106,6 +106,7 @@ export class RunDataAnalysisResponseBodyDataVisualization extends $dara.Model {
 }
 
 export class RunDataAnalysisResponseBodyData extends $dara.Model {
+  attempts?: any[];
   /**
    * @example
    * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
@@ -144,6 +145,7 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
   visualization?: RunDataAnalysisResponseBodyDataVisualization;
   static names(): { [key: string]: string } {
     return {
+      attempts: 'attempts',
       errorMessage: 'errorMessage',
       event: 'event',
       evidence: 'evidence',
@@ -161,6 +163,7 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attempts: { 'type': 'array', 'itemType': 'any' },
       errorMessage: 'string',
       event: 'string',
       evidence: 'string',
@@ -177,6 +180,9 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.attempts)) {
+      $dara.Model.validateArray(this.attempts);
+    }
     if(Array.isArray(this.selector)) {
       $dara.Model.validateArray(this.selector);
     }
