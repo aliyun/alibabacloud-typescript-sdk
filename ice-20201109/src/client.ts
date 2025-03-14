@@ -94575,6 +94575,138 @@ export class SubmitScreenMediaHighlightsJobResponse extends $dara.Model {
   }
 }
 
+export class SubmitSegmentationJobRequest extends $dara.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
+  clientToken?: string;
+  inputConfig?: string;
+  /**
+   * @example
+   * {
+   * 	"Mode": "UserDefined",
+   * 	"Ranges": [{
+   * 		"In": 10,
+   * 		"Out": 20
+   * 	}, {
+   * 		"In": 35,
+   * 		"Out": 50
+   * 	}]
+   * }
+   */
+  jobParams?: string;
+  /**
+   * @example
+   * {
+   * 	"OutputMediaTarget": "oss-object",
+   * 	"Bucket": "test-bucket",
+   * 	"ObjectKey": "path/to/test_{index}.mp4",
+   * 	"Width": 1920,
+   * 	"Height": 1080,
+   * 	"ExportAsNewMedia": false
+   * }
+   */
+  outputConfig?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      inputConfig: 'InputConfig',
+      jobParams: 'JobParams',
+      outputConfig: 'OutputConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      inputConfig: 'string',
+      jobParams: 'string',
+      outputConfig: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSegmentationJobResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSegmentationJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSegmentationJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitSegmentationJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitSmarttagJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -119720,6 +119852,71 @@ export default class Client extends OpenApi {
   async submitScreenMediaHighlightsJob(request: SubmitScreenMediaHighlightsJobRequest): Promise<SubmitScreenMediaHighlightsJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitScreenMediaHighlightsJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交拆条任务
+   * 
+   * @param request - SubmitSegmentationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSegmentationJobResponse
+   */
+  async submitSegmentationJobWithOptions(request: SubmitSegmentationJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitSegmentationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.jobParams)) {
+      query["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSegmentationJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitSegmentationJobResponse>(await this.callApi(params, req, runtime), new SubmitSegmentationJobResponse({}));
+    } else {
+      return $dara.cast<SubmitSegmentationJobResponse>(await this.execute(params, req, runtime), new SubmitSegmentationJobResponse({}));
+    }
+
+  }
+
+  /**
+   * 提交拆条任务
+   * 
+   * @param request - SubmitSegmentationJobRequest
+   * @returns SubmitSegmentationJobResponse
+   */
+  async submitSegmentationJob(request: SubmitSegmentationJobRequest): Promise<SubmitSegmentationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSegmentationJobWithOptions(request, runtime);
   }
 
   /**
