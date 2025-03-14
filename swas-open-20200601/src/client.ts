@@ -3959,10 +3959,10 @@ export class ListInstancesResponseBodyInstancesDisks extends $dara.Model {
   diskTags?: ListInstancesResponseBodyInstancesDisksDiskTags[];
   /**
    * @remarks
-   * The disk type. Valid values:
+   * The type of the disk. Valid values:
    * 
-   * *   system: system disk
-   * *   data: data disk
+   * *   system: system disk.
+   * *   data: data disk.
    * 
    * @example
    * system
@@ -3994,7 +3994,7 @@ export class ListInstancesResponseBodyInstancesDisks extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB.
+   * The size of the disk. Unit: GiB.
    * 
    * @example
    * 50
@@ -4147,10 +4147,42 @@ export class ListInstancesResponseBodyInstancesImage extends $dara.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstancesNetworkAttributes extends $dara.Model {
+  peakBandwidth?: number;
+  privateIpAddress?: string;
+  publicIpAddress?: string;
+  publicIpDdosStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peakBandwidth: 'PeakBandwidth',
+      privateIpAddress: 'PrivateIpAddress',
+      publicIpAddress: 'PublicIpAddress',
+      publicIpDdosStatus: 'PublicIpDdosStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peakBandwidth: 'number',
+      privateIpAddress: 'string',
+      publicIpAddress: 'string',
+      publicIpDdosStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of the server. Unit: Mbps.
+   * The bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 5
@@ -4178,7 +4210,7 @@ export class ListInstancesResponseBodyInstancesResourceSpec extends $dara.Model 
   diskCategory?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB.
+   * The size of the disk. Unit: GiB.
    * 
    * @example
    * 60
@@ -4197,7 +4229,7 @@ export class ListInstancesResponseBodyInstancesResourceSpec extends $dara.Model 
   flow?: number;
   /**
    * @remarks
-   * The memory size of the server. Unit: GiB.
+   * The size of the memory. Unit: GiB.
    * 
    * @example
    * 2
@@ -4345,7 +4377,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   disableReason?: string;
   /**
    * @remarks
-   * The disks that are attached to the simple application server.
+   * The information about the disks on the simple application server.
    */
   disks?: ListInstancesResponseBodyInstancesDisks[];
   /**
@@ -4393,6 +4425,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * test-InstanceName
    */
   instanceName?: string;
+  networkAttributes?: ListInstancesResponseBodyInstancesNetworkAttributes[];
   /**
    * @remarks
    * The ID of the instance plan.
@@ -4427,7 +4460,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The specifications of the resource.
+   * The specifications of the resources on the simple application server.
    */
   resourceSpec?: ListInstancesResponseBodyInstancesResourceSpec;
   /**
@@ -4476,6 +4509,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       innerIpAddress: 'InnerIpAddress',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      networkAttributes: 'NetworkAttributes',
       planId: 'PlanId',
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
@@ -4503,6 +4537,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       innerIpAddress: 'string',
       instanceId: 'string',
       instanceName: 'string',
+      networkAttributes: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesNetworkAttributes },
       planId: 'string',
       publicIpAddress: 'string',
       regionId: 'string',
@@ -4520,6 +4555,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
     }
     if(this.image && typeof (this.image as any).validate === 'function') {
       (this.image as any).validate();
+    }
+    if(Array.isArray(this.networkAttributes)) {
+      $dara.Model.validateArray(this.networkAttributes);
     }
     if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
       (this.resourceSpec as any).validate();
@@ -11842,7 +11880,7 @@ export class DescribeInstancePasswordsSettingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+   * The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/2361076.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -12484,7 +12522,7 @@ export class DescribeMonitorDataRequest extends $dara.Model {
    * @remarks
    * The interval at which the monitoring data is queried. Valid values: 60, 300, and 900. Unit: seconds.
    * 
-   * > If MetricName is set to FLOW_USED, Period is set to 3600 (one hour). In other cases, set Period based on your business requirements.
+   * >  If MetricName is set to FLOW_USED, set Period to 3600 (one hour). In other cases, set Period based on your business requirements.
    * 
    * This parameter is required.
    * 
@@ -12576,7 +12614,7 @@ export class DescribeMonitorDataResponseBody extends $dara.Model {
    * @remarks
    * The interval at which the monitoring data is queried. Valid values: 60, 300, and 900. Unit: seconds.
    * 
-   * > If MetricName is set to FLOW_USED, Period is set to 3600 (one hour). In other cases, set Period based on your business requirements.
+   * >  If you set the MetricName request parameter to FLOW_USED, the value of Period is 3600 (one hour).
    * 
    * @example
    * 60
@@ -14823,7 +14861,7 @@ export class ListImagesRequest extends $dara.Model {
 export class ListImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the image.
+   * Details of the queried images.
    */
   images?: ListImagesResponseBodyImages[];
   /**
@@ -15325,7 +15363,7 @@ export class ListInstancesRequest extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the simple application servers.
+   * Details about the queried simple application servers.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**
