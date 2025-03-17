@@ -26982,6 +26982,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * 123456789
    */
   endUserId?: string[];
+  extendInfo?: string;
   /**
    * @remarks
    * The ID of the cloud computer pool.
@@ -27200,6 +27201,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       desktopTimers: 'DesktopTimers',
       directoryId: 'DirectoryId',
       endUserId: 'EndUserId',
+      extendInfo: 'ExtendInfo',
       groupId: 'GroupId',
       hostname: 'Hostname',
       monthDesktopSetting: 'MonthDesktopSetting',
@@ -27238,6 +27240,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       desktopTimers: { 'type': 'array', 'itemType': CreateDesktopsRequestDesktopTimers },
       directoryId: 'string',
       endUserId: { 'type': 'array', 'itemType': 'string' },
+      extendInfo: 'string',
       groupId: 'string',
       hostname: 'string',
       monthDesktopSetting: CreateDesktopsRequestMonthDesktopSetting,
@@ -27433,6 +27436,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * 123456789
    */
   endUserId?: string[];
+  extendInfo?: string;
   /**
    * @remarks
    * The ID of the cloud computer pool.
@@ -27651,6 +27655,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       desktopTimers: 'DesktopTimers',
       directoryId: 'DirectoryId',
       endUserId: 'EndUserId',
+      extendInfo: 'ExtendInfo',
       groupId: 'GroupId',
       hostname: 'Hostname',
       monthDesktopSetting: 'MonthDesktopSetting',
@@ -27689,6 +27694,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       desktopTimers: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestDesktopTimers },
       directoryId: 'string',
       endUserId: { 'type': 'array', 'itemType': 'string' },
+      extendInfo: 'string',
       groupId: 'string',
       hostname: 'string',
       monthDesktopSetting: CreateDesktopsShrinkRequestMonthDesktopSetting,
@@ -63548,6 +63554,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.extendInfo)) {
+      query["ExtendInfo"] = request.extendInfo;
     }
 
     if (!$dara.isNull(request.groupId)) {
