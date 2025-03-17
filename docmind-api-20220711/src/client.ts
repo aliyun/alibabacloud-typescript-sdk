@@ -2699,6 +2699,8 @@ export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
    */
   fileUrl?: string;
   forceExportInnerImage?: boolean;
+  formulaEnhancement?: boolean;
+  option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
@@ -2706,6 +2708,8 @@ export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       forceExportInnerImage: 'ForceExportInnerImage',
+      formulaEnhancement: 'FormulaEnhancement',
+      option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
     };
@@ -2716,6 +2720,8 @@ export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
       fileName: 'string',
       fileUrl: 'string',
       forceExportInnerImage: 'boolean',
+      formulaEnhancement: 'boolean',
+      option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
     };
@@ -2742,6 +2748,8 @@ export class SubmitConvertPdfToWordJobAdvanceRequest extends $dara.Model {
    */
   fileUrlObject?: Readable;
   forceExportInnerImage?: boolean;
+  formulaEnhancement?: boolean;
+  option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
@@ -2749,6 +2757,8 @@ export class SubmitConvertPdfToWordJobAdvanceRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
       forceExportInnerImage: 'ForceExportInnerImage',
+      formulaEnhancement: 'FormulaEnhancement',
+      option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
     };
@@ -2759,6 +2769,8 @@ export class SubmitConvertPdfToWordJobAdvanceRequest extends $dara.Model {
       fileName: 'string',
       fileUrlObject: 'Readable',
       forceExportInnerImage: 'boolean',
+      formulaEnhancement: 'boolean',
+      option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
     };
@@ -5042,6 +5054,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.forceExportInnerImage)) {
       query["ForceExportInnerImage"] = request.forceExportInnerImage;
+    }
+
+    if (!$dara.isNull(request.formulaEnhancement)) {
+      query["FormulaEnhancement"] = request.formulaEnhancement;
+    }
+
+    if (!$dara.isNull(request.option)) {
+      query["Option"] = request.option;
     }
 
     if (!$dara.isNull(request.ossBucket)) {
