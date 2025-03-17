@@ -32544,6 +32544,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
    * Disable
    */
   modelOption?: string;
+  natGatewayOption?: string;
   ossPath?: string;
   ossResourceId?: number;
   payPeriod?: number;
@@ -32619,6 +32620,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStoreType: 'KvStoreType',
       modelId: 'ModelId',
       modelOption: 'ModelOption',
+      natGatewayOption: 'NatGatewayOption',
       ossPath: 'OssPath',
       ossResourceId: 'OssResourceId',
       payPeriod: 'PayPeriod',
@@ -32677,6 +32679,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStoreType: 'string',
       modelId: 'string',
       modelOption: 'string',
+      natGatewayOption: 'string',
       ossPath: 'string',
       ossResourceId: 'number',
       payPeriod: 'number',
@@ -54786,18 +54789,18 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
    * false
    */
   searchKey?: string;
-  sessionToken?: string;
   /**
    * @example
    * 3
    */
   tid?: number;
+  workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
       dataRegion: 'DataRegion',
       searchKey: 'SearchKey',
-      sessionToken: 'SessionToken',
       tid: 'Tid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -54805,8 +54808,8 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
     return {
       dataRegion: 'string',
       searchKey: 'string',
-      sessionToken: 'string',
       tid: 'number',
+      workspaceId: 'number',
     };
   }
 
@@ -78570,6 +78573,10 @@ export default class Client extends OpenApi {
       query["ModelOption"] = request.modelOption;
     }
 
+    if (!$dara.isNull(request.natGatewayOption)) {
+      query["NatGatewayOption"] = request.natGatewayOption;
+    }
+
     if (!$dara.isNull(request.ossPath)) {
       query["OssPath"] = request.ossPath;
     }
@@ -86526,12 +86533,12 @@ export default class Client extends OpenApi {
       query["SearchKey"] = request.searchKey;
     }
 
-    if (!$dara.isNull(request.sessionToken)) {
-      query["SessionToken"] = request.sessionToken;
-    }
-
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
