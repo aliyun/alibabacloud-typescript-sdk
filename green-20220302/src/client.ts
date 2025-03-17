@@ -686,11 +686,13 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
    * violent_explosion
    */
   label?: string;
+  riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
       description: 'Description',
       label: 'Label',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -699,6 +701,7 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $dara.M
       confidence: 'number',
       description: 'string',
       label: 'string',
+      riskLevel: 'string',
     };
   }
 
@@ -3468,11 +3471,13 @@ export class ImageModerationResponseBodyDataResult extends $dara.Model {
    * violent_explosion
    */
   label?: string;
+  riskLevel?: string;
   static names(): { [key: string]: string } {
     return {
       confidence: 'Confidence',
       description: 'Description',
       label: 'Label',
+      riskLevel: 'RiskLevel',
     };
   }
 
@@ -3481,6 +3486,7 @@ export class ImageModerationResponseBodyDataResult extends $dara.Model {
       confidence: 'number',
       description: 'string',
       label: 'string',
+      riskLevel: 'string',
     };
   }
 
