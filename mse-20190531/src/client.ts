@@ -1779,11 +1779,11 @@ export class AddGatewaySlbRequestVServiceList extends $dara.Model {
 export class AddMigrationTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance. Valid values:
+   * Cluster type.
    * 
-   * *   Nacos-Ans
-   * *   ZooKeeper
-   * *   Eureka
+   * - Nacos-Ans
+   * - ZooKeeper
+   * - Eureka
    * 
    * @example
    * Nacos-Ans
@@ -1791,7 +1791,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * Task ID.
    * 
    * @example
    * 12
@@ -1799,7 +1799,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The endpoint of the source instance node.
+   * Source instance node address.
    * 
    * @example
    * 192.168.1.1:8848
@@ -1807,7 +1807,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceAddress?: string;
   /**
    * @remarks
-   * The name of the source instance.
+   * Source instance name.
    * 
    * @example
    * Source instance
@@ -1815,7 +1815,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceName?: string;
   /**
    * @remarks
-   * The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
+   * Namespace list, required when the source cluster is Nacos.
    * 
    * @example
    * namesapceId1,namesapceId2
@@ -1823,16 +1823,23 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * The description.
+   * Description.
    * 
    * @example
    * testsdfsdfsd
    */
   projectDesc?: string;
+  /**
+   * @remarks
+   * SyncType
+   * 
+   * @example
+   * Service
+   */
   syncType?: string;
   /**
    * @remarks
-   * The name of the destination instance.
+   * Target instance name.
    * 
    * @example
    * Destination instance
@@ -1840,7 +1847,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   targetClusterName?: string;
   /**
    * @remarks
-   * The URL of the destination instance.
+   * Target instance URL.
    * 
    * @example
    * mse-94d****-nacos-ans.mse.aliyuncs.com:8848
@@ -1848,7 +1855,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   targetClusterUrl?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * Target instance ID.
    * 
    * @example
    * mse-cn-7pp2w*****
@@ -1856,7 +1863,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * User ID.
    * 
    * @example
    * 183876217*****
@@ -2306,7 +2313,7 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
 export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
   /**
    * @remarks
-   * mse-200-105
+   * Data ID.
    * 
    * @example
    * test2.yaml
@@ -2314,12 +2321,19 @@ export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * duplicatedClusterAliasName
+   * Group ID.
    * 
    * @example
    * test
    */
   group?: string;
+  /**
+   * @remarks
+   * The reason for the current operation.
+   * 
+   * @example
+   * param not support
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2349,7 +2363,7 @@ export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
 export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
   /**
    * @remarks
-   * The details of the failed configurations.
+   * Data ID.
    * 
    * @example
    * test.yaml
@@ -2357,7 +2371,7 @@ export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The data structure.
+   * Group ID.
    * 
    * @example
    * public
@@ -2389,12 +2403,12 @@ export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
 export class CloneNacosConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the failed configurations.
+   * Failed configuration information.
    */
   failData?: CloneNacosConfigResponseBodyDataFailData[];
   /**
    * @remarks
-   * The data structure.
+   * Number of skips.
    * 
    * @example
    * 1
@@ -2402,12 +2416,12 @@ export class CloneNacosConfigResponseBodyData extends $dara.Model {
   skipCount?: number;
   /**
    * @remarks
-   * The ID of the data.
+   * Skipped configuration information.
    */
   skipData?: CloneNacosConfigResponseBodyDataSkipData[];
   /**
    * @remarks
-   * The details of the skipped configurations.
+   * Number of successes.
    * 
    * @example
    * 100
@@ -2798,7 +2812,7 @@ export class CreateCircuitBreakerRuleResponseBodyData extends $dara.Model {
 export class CreateClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource.
+   * Tag key.
    * 
    * @example
    * env
@@ -2806,7 +2820,7 @@ export class CreateClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource.
+   * Tag value.
    * 
    * @example
    * prd
@@ -7366,6 +7380,64 @@ export class GetGatewayAuthDetailResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter extends $dara.Model {
+  enable?: boolean;
+  filterOpt?: string;
+  labelKey?: string;
+  labelValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      filterOpt: 'FilterOpt',
+      labelKey: 'LabelKey',
+      labelValue: 'LabelValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      filterOpt: 'string',
+      labelKey: 'string',
+      labelValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs extends $dara.Model {
+  enable?: boolean;
+  ipListContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      ipListContent: 'IpListContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      ipListContent: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayConfigResponseBodyDataSlsConfigDetails extends $dara.Model {
   /**
    * @example
@@ -7590,6 +7662,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
    * false
    */
   enableHttp3?: boolean;
+  enableK8sSourceWorkloadFilter?: GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter;
   /**
    * @example
    * true
@@ -7605,6 +7678,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
    * true
    */
   enableWaf?: boolean;
+  enableXffTrustedCidrs?: GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs;
   /**
    * @example
    * gw-61f465fa2dd044069e2208c4912*****
@@ -7684,9 +7758,11 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       enableHardwareAccelerate: 'EnableHardwareAccelerate',
       enableHttp2: 'EnableHttp2',
       enableHttp3: 'EnableHttp3',
+      enableK8sSourceWorkloadFilter: 'EnableK8sSourceWorkloadFilter',
       enableProxyProtocol: 'EnableProxyProtocol',
       enableSlashMerge: 'EnableSlashMerge',
       enableWaf: 'EnableWaf',
+      enableXffTrustedCidrs: 'EnableXffTrustedCidrs',
       gatewayUniqueId: 'GatewayUniqueId',
       initialConnectionWindowSize: 'InitialConnectionWindowSize',
       initialStreamWindowSize: 'InitialStreamWindowSize',
@@ -7717,9 +7793,11 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       enableHardwareAccelerate: 'boolean',
       enableHttp2: 'boolean',
       enableHttp3: 'boolean',
+      enableK8sSourceWorkloadFilter: GetGatewayConfigResponseBodyDataEnableK8sSourceWorkloadFilter,
       enableProxyProtocol: 'boolean',
       enableSlashMerge: 'boolean',
       enableWaf: 'boolean',
+      enableXffTrustedCidrs: GetGatewayConfigResponseBodyDataEnableXffTrustedCidrs,
       gatewayUniqueId: 'string',
       initialConnectionWindowSize: 'number',
       initialStreamWindowSize: 'number',
@@ -7739,6 +7817,12 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.enableK8sSourceWorkloadFilter && typeof (this.enableK8sSourceWorkloadFilter as any).validate === 'function') {
+      (this.enableK8sSourceWorkloadFilter as any).validate();
+    }
+    if(this.enableXffTrustedCidrs && typeof (this.enableXffTrustedCidrs as any).validate === 'function') {
+      (this.enableXffTrustedCidrs as any).validate();
+    }
     if(this.slsConfigDetails && typeof (this.slsConfigDetails as any).validate === 'function') {
       (this.slsConfigDetails as any).validate();
     }
@@ -10517,9 +10601,37 @@ export class GetMseSourceResponseBodyData extends $dara.Model {
 }
 
 export class GetNacosConfigResponseBodyConfigurationGrayVersions extends $dara.Model {
+  /**
+   * @remarks
+   * Gray version name
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The priority of the current gray rule.
+   * 
+   * @example
+   * 20
+   */
   priority?: number;
+  /**
+   * @remarks
+   * Rules of the current gray version
+   * 
+   * @example
+   * a=b
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Gray type
+   * 
+   * @example
+   * Beta
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10551,7 +10663,7 @@ export class GetNacosConfigResponseBodyConfigurationGrayVersions extends $dara.M
 export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * Application name.
    * 
    * @example
    * test
@@ -10559,15 +10671,15 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The list of IP addresses where the beta release of the configuration is performed.
+   * List of IPs for Beta release.
    * 
    * @example
-   * 1.1.XX.XX,2.2.XX.XX
+   * 1.1.XX.XX，2.2.XX.XX
    */
   betaIps?: string;
   /**
    * @remarks
-   * The content of the configuration.
+   * Configuration content.
    * 
    * @example
    * log.level=error
@@ -10575,7 +10687,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the configuration.
+   * Configuration ID.
    * 
    * @example
    * log.yaml
@@ -10583,7 +10695,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The description of the configuration.
+   * Configuration description.
    * 
    * @example
    * For testing
@@ -10591,16 +10703,20 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   desc?: string;
   /**
    * @remarks
-   * The encryption key.
+   * Encrypted key.
    * 
    * @example
    * key
    */
   encryptedDataKey?: string;
+  /**
+   * @remarks
+   * Current gray version information
+   */
   grayVersions?: GetNacosConfigResponseBodyConfigurationGrayVersions[];
   /**
    * @remarks
-   * The name of the configuration group.
+   * Configuration group name.
    * 
    * @example
    * test
@@ -10608,7 +10724,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The message digest of the configuration.
+   * Message digest of the configuration.
    * 
    * @example
    * 123rfsdf3
@@ -10616,7 +10732,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The tags of the configuration.
+   * Tags of the configuration.
    * 
    * @example
    * context
@@ -10624,7 +10740,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The format of the configuration.
+   * Format of the configuration content.
    * 
    * @example
    * text
@@ -14156,6 +14272,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
    * {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported. Upgrade the engine to the latest version at the earliest opportunity. \\\\"}
    */
   description?: string;
+  descriptionEn?: string;
   /**
    * @remarks
    * The ID.
@@ -14227,6 +14344,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
    * The engine version is outdated.
    */
   riskName?: string;
+  riskNameEn?: string;
   /**
    * @remarks
    * The type of the risk.
@@ -14243,6 +14361,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
    * {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported.\\\\",\\\\"links\\\\":[{\\\\"type\\\\":\\\\"url\\\\",\\\\"value\\\\":\\\\"https://xxxx"\\\\",\\\\"desc\\\\":\\\\"Release notes\\\\"}]}
    */
   situation?: string;
+  situationEn?: string;
   /**
    * @remarks
    * The suggestion.
@@ -14251,6 +14370,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
    * {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":[{"type": "upgrade", "desc": "Click to upgrade"}]}
    */
   suggestion?: string;
+  suggestionEn?: string;
   /**
    * @remarks
    * The ID of the associated parent task.
@@ -14278,6 +14398,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      descriptionEn: 'DescriptionEn',
       id: 'Id',
       module: 'Module',
       mute: 'Mute',
@@ -14286,9 +14407,12 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
       riskCode: 'RiskCode',
       riskLevel: 'RiskLevel',
       riskName: 'RiskName',
+      riskNameEn: 'RiskNameEn',
       riskType: 'RiskType',
       situation: 'Situation',
+      situationEn: 'SituationEn',
       suggestion: 'Suggestion',
+      suggestionEn: 'SuggestionEn',
       taskId: 'TaskId',
       type: 'Type',
       values: 'Values',
@@ -14298,6 +14422,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      descriptionEn: 'string',
       id: 'number',
       module: 'string',
       mute: 'boolean',
@@ -14306,9 +14431,12 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
       riskCode: 'string',
       riskLevel: 'string',
       riskName: 'string',
+      riskNameEn: 'string',
       riskType: 'string',
       situation: 'string',
+      situationEn: 'string',
       suggestion: 'string',
+      suggestionEn: 'string',
       taskId: 'number',
       type: 'number',
       values: 'string',
@@ -15644,6 +15772,13 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
    * "{\\"appName\\":\\"spring-cloud-a\\",\\"fallbackBehavior\\":{\\"webFallbackMode\\":0,\\"webRespContentType\\":0,\\"webRespMessage\\":\\"Blocked\\",\\"webRespStatusCode\\":429},\\"id\\":977,\\"name\\":\\"Fallback\\",\\"namespace\\":\\"default\\",\\"resourceClassification\\":1}"
    */
   fallbackObject?: string;
+  /**
+   * @remarks
+   * Requests source application.
+   * 
+   * @example
+   * spring-cloud-a
+   */
   limitApp?: string;
   /**
    * @remarks
@@ -15685,6 +15820,13 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
    * /a
    */
   resource?: string;
+  /**
+   * @remarks
+   * Interface resource type.
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
   /**
    * @remarks
@@ -22112,36 +22254,57 @@ export class ListSecurityGroupRuleResponseBodyData extends $dara.Model {
 
 export class ListSentinelBlockFallbackDefinitionsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * spring-cloud-a
    */
   appName?: string;
   /**
+   * @remarks
+   * Behavior  detail.
+   * 
    * @example
    * {"webRespStatusCode":429,"webRespMessage":"test","webFallbackMode":0,"webRespContentType":0}
    */
   fallbackBehavior?: { [key: string]: any };
   /**
+   * @remarks
+   * Behavior Id
+   * 
    * @example
    * 12
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the behavior.
+   * 
    * @example
    * defaultFallback
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the Microservices namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * Behavior classification.
+   * 
    * @example
    * 1
    */
   resourceClassification?: string;
   /**
+   * @remarks
+   * Resource information bound to the behavior.
+   * 
    * @example
    * {"/params/{hot}":[1]}
    */
@@ -33122,10 +33285,10 @@ export class AddGatewaySlbResponse extends $dara.Model {
 export class AddMigrationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -33133,11 +33296,11 @@ export class AddMigrationTaskRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The type of the instance. Valid values:
+   * Cluster type.
    * 
-   * *   Nacos-Ans
-   * *   ZooKeeper
-   * *   Eureka
+   * - Nacos-Ans
+   * - ZooKeeper
+   * - Eureka
    * 
    * @example
    * Nacos-Ans
@@ -33145,7 +33308,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The endpoint of the source instance node.
+   * Source instance node address.
    * 
    * @example
    * 192.168.1.1:8848
@@ -33153,7 +33316,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   originInstanceAddress?: string;
   /**
    * @remarks
-   * The name of the source instance.
+   * Source instance name.
    * 
    * @example
    * Source instance
@@ -33161,7 +33324,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   originInstanceName?: string;
   /**
    * @remarks
-   * The list of namespaces. This parameter is optional if you want to migrate applications from a Nacos instance.
+   * Namespace list, required when the source cluster is Nacos.
    * 
    * @example
    * namesapceId1,namesapceId2
@@ -33169,7 +33332,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * The description.
+   * Description.
    * 
    * @example
    * This is a description.
@@ -33177,16 +33340,23 @@ export class AddMigrationTaskRequest extends $dara.Model {
   projectDesc?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * Extended request parameters, in JSON format.
    * 
    * @example
    * {}
    */
   requestPars?: string;
+  /**
+   * @remarks
+   * SyncType
+   * 
+   * @example
+   * Service
+   */
   syncType?: string;
   /**
    * @remarks
-   * The name of the destination instance.
+   * Target instance name.
    * 
    * @example
    * Destination instance
@@ -33194,7 +33364,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   targetClusterName?: string;
   /**
    * @remarks
-   * The URL of the destination instance.
+   * Target instance URL.
    * 
    * @example
    * mse-66*****-nacos-ans.mse.aliyuncs.com:8848
@@ -33202,7 +33372,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   targetClusterUrl?: string;
   /**
    * @remarks
-   * The ID of the destination instance.
+   * Target instance ID.
    * 
    * @example
    * mse-cn-ud82*****
@@ -33252,12 +33422,12 @@ export class AddMigrationTaskRequest extends $dara.Model {
 export class AddMigrationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data structure.
+   * Data structure.
    */
   data?: AddMigrationTaskResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Error code.
    * 
    * @example
    * mse-100-000
@@ -33265,7 +33435,7 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * Message.
    * 
    * @example
    * The request is processed successfully.
@@ -33273,7 +33443,7 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 7466566F-F30F-4A29-965D-3E0AF21D****
@@ -33281,10 +33451,9 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * 请求结果，取值如下：
+   * - `true`：请求成功。
+   * - `false`：请求失败。
    * 
    * @example
    * true
@@ -34866,12 +35035,20 @@ export class ApplyTagPoliciesResponse extends $dara.Model {
 
 export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34880,6 +35057,8 @@ export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * Behavior ID. 0:the default behavior.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34888,6 +35067,8 @@ export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
   fallbackId?: number;
   /**
    * @remarks
+   * The microservice namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34896,6 +35077,8 @@ export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
+   * Interface Name: The resource to which the rule applies. It must match the interface name in the console\\"s interface details.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34904,6 +35087,8 @@ export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
+   * Target rule type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34943,31 +35128,52 @@ export class BindSentinelBlockFallbackDefinitionRequest extends $dara.Model {
 
 export class BindSentinelBlockFallbackDefinitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of 200 is returned if the request is successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E9FDCFE-0738-493B-B801-82BDFBCB****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`: The request was successful.
+   * *   `false`: The request failed.
+   * 
    * @example
    * true
    */
@@ -35040,12 +35246,17 @@ export class BindSentinelBlockFallbackDefinitionResponse extends $dara.Model {
 
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which the response is displayed. Values: zh (default): Chinese, en: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * Target resource group
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35054,6 +35265,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * Resource ID, which is the ID of the registration and configuration center instance or the unique ID of the gateway
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35063,6 +35276,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * Region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35070,6 +35285,9 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * Resource type, such as a registration and configuration center cluster or gateway instance
+   * 
    * @example
    * Cluster,Gateway
    */
@@ -35171,10 +35389,10 @@ export class ChangeResourceGroupResponse extends $dara.Model {
 export class CloneNacosConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned message:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -35182,12 +35400,15 @@ export class CloneNacosConfigRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The configuration items that you want to clone. The value of this parameter is the combination of the values of the dataId and group parameters. Separate multiple configuration items with commas (,).
+   * Configuration items to be cloned, in the format of dataId+group, with multiple items separated by commas.
+   * 
+   * @example
+   * test+test,test1+test1
    */
   dataIds?: string;
   /**
    * @remarks
-   * The list of configuration IDs.
+   * List of configuration IDs.
    * 
    * @example
    * 253661,253662
@@ -35197,7 +35418,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The ID of the destination namespace.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -35207,11 +35428,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The policy used when a write conflict occurs.
-   * 
-   * *   ABORT
-   * *   SKIP
-   * *   OVERWRITE
+   * Source namespace ID.
    * 
    * @example
    * be821963-6d48-4ea5-9910-6057d****
@@ -35219,10 +35436,11 @@ export class CloneNacosConfigRequest extends $dara.Model {
   originNamespaceId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The strategy used when a write conflict occurs.
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - ABORT
+   * - SKIP
+   * - OVERWRITE
    * 
    * This parameter is required.
    * 
@@ -35232,7 +35450,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The IDs of configurations.
+   * Target namespace ID.
    * 
    * @example
    * 08be4b5d-2d1c-4e6e-aa85-83b9****
@@ -35274,9 +35492,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
 export class CloneNacosConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * Response code.
    * 
    * @example
    * 200
@@ -35284,12 +35500,13 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * Data overview.
    */
   data?: CloneNacosConfigResponseBodyData;
   /**
    * @remarks
-   * The number of successful operations.
+   * Dynamic error message, used to replace the **%s** in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -35297,7 +35514,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The message returned.
+   * Error code.
    * 
    * @example
    * mse-100-000
@@ -35305,10 +35522,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -35316,7 +35530,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the data.
+   * Response message.
    * 
    * @example
    * Clone Completed Successfully
@@ -35324,7 +35538,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Request ID.
    * 
    * @example
    * 6678DBA9-5600-5948-ACF8-ED3105B288A3
@@ -35332,7 +35546,9 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response code returned.
+   * Request result, with the following values:
+   * - `true`: Request succeeded.
+   * - `false`: Request failed.
    * 
    * @example
    * true
@@ -35446,6 +35662,13 @@ export class CloneSentinelRuleFromAhasRequest extends $dara.Model {
    * false
    */
   isAHASPublicRegion?: boolean;
+  /**
+   * @remarks
+   * The name of the MSE application after migration. If this parameter is not specified, the name of the Application High Availability Service (AHAS) application is used by default.
+   * 
+   * @example
+   * spring-cloud-a
+   */
   mseAppName?: string;
   /**
    * @remarks
@@ -36164,10 +36387,10 @@ export class CreateCircuitBreakerRuleResponse extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -36175,9 +36398,9 @@ export class CreateClusterRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The billing method. Valid values: PREPAY and POSTPAY.
+   * Billing method, including PREPAY (Subscription) and POSTPAY (Pay-As-You-Go).
    * 
-   * Ignore this parameter for serverless instances.
+   * This parameter is ignored for the Serverless edition.
    * 
    * @example
    * POSTPAY
@@ -36185,24 +36408,24 @@ export class CreateClusterRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The engine specifications. Valid values:
+   * Engine specifications, with the following values:
    * 
-   * [Professional Edition]
+   * [Professional Edition] 
    * 
-   * *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
-   * *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
-   * *   `MSE_SC_4_8_60_c`: 4 vCPUs and 8 GB of memory
-   * *   `MSE_SC_8_16_60_c`: 8 vCPUs and 16 GB of memory
-   * *   `MSE_SC_16_32_60_c`: 16 vCPUs and 32 GB of memory
+   * - `MSE_SC_2_4_60_c`: 2 cores, 4GB
+   * - `MSE_SC_1_2_60_c`: 1 core, 2GB
+   * - `MSE_SC_4_8_60_c`: 4 cores, 8GB
+   * - `MSE_SC_8_16_60_c`: 8 cores, 16GB
+   * - `MSE_SC_16_32_60_c`: 16 cores, 32GB
    * 
-   * [Developer Edition]
+   * [Developer Edition] 
    * 
-   * *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
-   * *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
+   * - `MSE_SC_1_2_60_c`: 1 core, 2GB
+   * - `MSE_SC_2_4_60_c`: 2 cores, 4GB
    * 
    * [Serverless Edition]
    * 
-   * Ignore this parameter or set this parameter to `MSE_SC_SERVERLESS`.
+   * Ignore this parameter, or you can fill in `MSE_SC_SERVERLESS`.
    * 
    * This parameter is required.
    * 
@@ -36212,7 +36435,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterSpecification?: string;
   /**
    * @remarks
-   * The type of the instance. Valid values: ZooKeeper and Nacos-Ans.
+   * Cluster type, including ZooKeeper, Nacos-Ans.
    * 
    * This parameter is required.
    * 
@@ -36222,22 +36445,22 @@ export class CreateClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The engine version of the instance. Valid values:
+   * Cluster version, with the following values:
    * 
-   * [Professional Edition]
+   * [Professional Edition] 
    * 
-   * *   `NACOS_2_0_0`
-   * *   `ZooKeeper_3_8_0`
+   * - `NACOS_2_0_0`: indicates Nacos 2.x.x version.
+   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
    * 
-   * [Developer Edition]
+   * [Developer Edition] 
    * 
-   * *   `NACOS_2_0_0`
-   * *   `ZooKeeper_3_8_0`
+   * - `NACOS_2_0_0`: indicates Nacos 2.x version.
+   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
    * 
    * [Serverless Edition]
    * 
-   * *   `NACOS_2_0_0`
-   * *   `ZooKeeper_3_8_0`
+   * - `NACOS_2_0_0`: indicates Nacos 2.x version.
+   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
    * 
    * This parameter is required.
    * 
@@ -36247,7 +36470,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterVersion?: string;
   /**
    * @remarks
-   * The network connection type. Valid values: `slb` or `single_eni`. For instances of the Developer Edition in some regions, only the value `single_eni` is supported.
+   * Network access type, `slb` or `single_eni`; some regions\\" Developer Edition only support the `single_eni` type.
    * 
    * @example
    * slb
@@ -36255,7 +36478,7 @@ export class CreateClusterRequest extends $dara.Model {
   connectionType?: string;
   /**
    * @remarks
-   * This parameter is obsolete.
+   * No longer in use
    * 
    * @example
    * alicloud-disk-ssd
@@ -36265,12 +36488,7 @@ export class CreateClusterRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * Specifies whether to enable elastic IP addresses. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Valid when `ConnectionType` is `single_eni`, indicating whether to enable public network access (Elastic IP).
    * 
    * **if can be null:**
    * false
@@ -36278,15 +36496,13 @@ export class CreateClusterRequest extends $dara.Model {
   eipEnabled?: boolean;
   /**
    * @remarks
-   * The number of nodes in the instance. Valid values: 1 to 9.
+   * Number of instance nodes, with a range limit of 1 to 9.
    * 
-   * [Professional Edition]
+   * [Professional Edition] 
+   * - The number of instances must be 3 or more and must be an odd number.
    * 
-   * *   The value must be greater than or equal to 3 and must be an odd number.
-   * 
-   * [Developer Edition]
-   * 
-   * *   The value must be 1.
+   * [Developer Edition] 
+   * - The number of instances can only be 1.
    * 
    * [Serverless Edition]
    * 
@@ -36300,7 +36516,7 @@ export class CreateClusterRequest extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The custom name of the instance.
+   * Custom instance name
    * 
    * @example
    * tanshuyingtest001
@@ -36308,11 +36524,11 @@ export class CreateClusterRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Configure this parameter unless otherwise specified. Valid values:
+   * Required unless under special circumstances, with the following values:
    * 
-   * *   `mse_pro`: Professional Edition
-   * *   `mse_dev`: Developer Edition
-   * *   `mse_dev`: Serverless Edition
+   * - `mse_pro`: indicates Professional Edition.
+   * - `mse_dev`: indicates Developer Edition.
+   * - `mse_serverless`: indicates Serverless Edition.
    * 
    * @example
    * mse_pro
@@ -36320,10 +36536,9 @@ export class CreateClusterRequest extends $dara.Model {
   mseVersion?: string;
   /**
    * @remarks
-   * The network type of the MSE instance. Valid values:
-   * 
-   * *   `privatenet`: VPC
-   * *   `pubnet`: Internet
+   * Network type, with the following values:
+   * - `privatenet`: indicates a private network.
+   * - `pubnet`: indicates a public network.
    * 
    * This parameter is required.
    * 
@@ -36333,7 +36548,7 @@ export class CreateClusterRequest extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * This parameter is obsolete.
+   * No longer in use
    * 
    * @example
    * slb.s1.small
@@ -36343,9 +36558,9 @@ export class CreateClusterRequest extends $dara.Model {
   privateSlbSpecification?: string;
   /**
    * @remarks
-   * This parameter is valid only if the ConnectionType parameter is set to `slb`. The value 0 indicates that the Server Load Balancer (SLB) instance is not connected over the Internet. A value greater than 1 indicates the fixed bandwidth that is used to access the SLB instance over the Internet. Unit: Mbit/s.
+   * Valid when `ConnectionType` is `slb`. 0 indicates no public network access SLB creation, and values above 1 indicate a fixed bandwidth for public network access SLB; unit: Mbps.
    * 
-   * Valid values: 0 to 5000.
+   * Value range: 0~5000.
    * 
    * @example
    * 0
@@ -36353,7 +36568,7 @@ export class CreateClusterRequest extends $dara.Model {
   pubNetworkFlow?: string;
   /**
    * @remarks
-   * This parameter is obsolete.
+   * No longer in use
    * 
    * @example
    * slb.s1.small
@@ -36363,13 +36578,12 @@ export class CreateClusterRequest extends $dara.Model {
   pubSlbSpecification?: string;
   /**
    * @remarks
-   * The region where the instance resides. Examples:
-   * 
-   * *   `cn-hangzhou`: China (Hangzhou)
-   * *   `cn-beijing`: China (Beijing)
-   * *   `cn-shanghai`: China (Shanghai)
-   * *   `cn-zhangjiakou`: China (Zhangjiakou)
-   * *   `cn-shenzhen`: China (Shenzhen)
+   * The region where the cluster is located, including but not limited to the following regions:
+   * - `cn-hangzhou`: Hangzhou
+   * - `cn-beijing`: Beijing
+   * - `cn-shanghai`: Shanghai
+   * - `cn-zhangjiakou`: Zhangjiakou
+   * - `cn-shenzhen`: Shenzhen
    * 
    * @example
    * cn-hangzhou
@@ -36377,7 +36591,7 @@ export class CreateClusterRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * Extended request parameters, in JSON format.
    * 
    * @example
    * {}
@@ -36385,7 +36599,7 @@ export class CreateClusterRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * The ID of the resource group. For the details of resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/457230.html).
+   * Resource group ID. For more details about the resource group, see [Basic Information of Resource Group](https://help.aliyun.com/document_detail/457230.html).
    * 
    * @example
    * rg-aekzcqmoay3dlyq
@@ -36393,7 +36607,7 @@ export class CreateClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the security group to which the instance belongs. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
+   * Valid when `ConnectionType` is `single_eni`, indicating the security group type of the instance.
    * 
    * @example
    * enterprise
@@ -36401,12 +36615,12 @@ export class CreateClusterRequest extends $dara.Model {
   securityGroupType?: string;
   /**
    * @remarks
-   * The tags to add to the resource. You can specify up to 20 tags.
+   * List of tags to be added. Contains up to 20 items.
    */
   tag?: CreateClusterRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * Switch ID.
    * 
    * @example
    * vsw-bp17opt4v18sto39k****
@@ -36414,7 +36628,7 @@ export class CreateClusterRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * VPC ID.
    * 
    * @example
    * vpc-bp1t50e045b5g7i3p****
@@ -36489,7 +36703,7 @@ export class CreateClusterRequest extends $dara.Model {
 export class CreateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Error code.
    * 
    * @example
    * mse-100-000
@@ -36497,7 +36711,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -36505,7 +36719,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The message returned.
+   * Return message.
    * 
    * @example
    * The request is successfully processed.
@@ -36513,7 +36727,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * Order ID.
    * 
    * @example
    * 20574710974****
@@ -36521,7 +36735,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * dc63-465d-8ef5-20dc18af****
@@ -36529,10 +36743,9 @@ export class CreateClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Request result, with the following values:
+   * - `true`: Request succeeded.
+   * - `false`: Request failed.
    * 
    * @example
    * true
@@ -43610,10 +43823,10 @@ export class DeleteMigrationTaskResponse extends $dara.Model {
 export class DeleteNacosConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -43621,7 +43834,10 @@ export class DeleteNacosConfigRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Whether it is a Beta release. Default is false.
+   * 
+   * - `true`: Yes
+   * - `false`: No
    * 
    * @example
    * true
@@ -43629,7 +43845,7 @@ export class DeleteNacosConfigRequest extends $dara.Model {
   beta?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * Configuration ID.
    * 
    * This parameter is required.
    * 
@@ -43639,7 +43855,7 @@ export class DeleteNacosConfigRequest extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The message returned.
+   * Group type.
    * 
    * This parameter is required.
    * 
@@ -43649,7 +43865,7 @@ export class DeleteNacosConfigRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -43659,7 +43875,7 @@ export class DeleteNacosConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The request is successfully processed.
+   * Namespace ID. Default is public.
    * 
    * @example
    * 0e9d849b-****-8435da6c21ad
@@ -43698,33 +43914,49 @@ export class DeleteNacosConfigRequest extends $dara.Model {
 
 export class DeleteNacosConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * mse-100-000
    */
   errorCode?: string;
   /**
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * HTTP status code.
    * 
    * @example
    * 202
    */
   httpCode?: string;
+  /**
+   * @remarks
+   * Message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
-   * Deletes a Nacos configuration.
+   * Request ID.
    * 
    * @example
    * 4FEFC13F-EB50-51E1-97D8-C5CBA8CD1B84
    */
   requestId?: string;
   /**
+   * @remarks
+   * Request result, with the following values: - `true`: The request was successful. - `false`: The request failed.
+   * 
    * @example
    * true
    */
@@ -50750,10 +50982,10 @@ export class GetMseSourceResponse extends $dara.Model {
 export class GetNacosConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -50761,10 +50993,10 @@ export class GetNacosConfigRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to perform a beta release. Valid values:
+   * Whether it is a Beta release.
    * 
-   * *   `true`: yes
-   * *   `false`: no
+   * - `true`: Yes
+   * - `false`: No
    * 
    * @example
    * true
@@ -50772,7 +51004,7 @@ export class GetNacosConfigRequest extends $dara.Model {
   beta?: boolean;
   /**
    * @remarks
-   * The ID of the data.
+   * Data ID.
    * 
    * This parameter is required.
    * 
@@ -50782,7 +51014,7 @@ export class GetNacosConfigRequest extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The name of the configuration group.
+   * Configuration group information.
    * 
    * This parameter is required.
    * 
@@ -50792,7 +51024,7 @@ export class GetNacosConfigRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -50802,7 +51034,7 @@ export class GetNacosConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * Namespace ID.
    * 
    * @example
    * ddaf8f12-****-b1c1-86e7c72e266b
@@ -50842,12 +51074,12 @@ export class GetNacosConfigRequest extends $dara.Model {
 export class GetNacosConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration information.
+   * Configuration information.
    */
   configuration?: GetNacosConfigResponseBodyConfiguration;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Error code.
    * 
    * @example
    * mse-100-000
@@ -50855,7 +51087,7 @@ export class GetNacosConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * Message.
    * 
    * @example
    * success
@@ -50863,7 +51095,7 @@ export class GetNacosConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * B4EAB48C-BB4B-5B8D-B33B-35D69606C5AD
@@ -50871,10 +51103,9 @@ export class GetNacosConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The result of the request, with values as follows:
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -58201,6 +58432,9 @@ export class ListFlowRulesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * OK
    */
   message?: string;
   /**
@@ -63361,21 +63595,35 @@ export class ListSecurityGroupRuleResponse extends $dara.Model {
 
 export class ListSentinelBlockFallbackDefinitionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
    * spring-cloud-a
    */
   appName?: string;
+  /**
+   * @remarks
+   * Behavior Classification Set.
+   */
   classificationSet?: number[];
   /**
    * @remarks
+   * The name of the Microservices namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63414,21 +63662,35 @@ export class ListSentinelBlockFallbackDefinitionsRequest extends $dara.Model {
 
 export class ListSentinelBlockFallbackDefinitionsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
    * spring-cloud-a
    */
   appName?: string;
+  /**
+   * @remarks
+   * Behavior Classification Set.
+   */
   classificationSetShrink?: string;
   /**
    * @remarks
+   * The name of the Microservices namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63463,23 +63725,42 @@ export class ListSentinelBlockFallbackDefinitionsShrinkRequest extends $dara.Mod
 }
 
 export class ListSentinelBlockFallbackDefinitionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the data.
+   */
   data?: ListSentinelBlockFallbackDefinitionsResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E9FDCFE-0738-493B-B801-82BDFBCB****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   `true`: The request was successful.
+   * *   `false`: The request failed.
+   * 
    * @example
    * true
    */
@@ -68650,7 +68931,7 @@ export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   data?: QuerySwimmingLaneByIdResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
    * mse-100-000
@@ -68658,7 +68939,7 @@ export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned.
    * 
    * @example
    * The request was successfully processed.
@@ -73673,6 +73954,125 @@ export class UpdateGatewayCircuitBreakerRuleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateGatewayCircuitBreakerRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayConfigRequest extends $dara.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * EnableK8sSourceWorkloadFilter
+   */
+  configName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"enable":true,"filterOpt":"EQUAL","labelKey":"key","labelValue":"value"}
+   */
+  configValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gw-b525dc1adf3c486ab96224a6346*****
+   */
+  gatewayUniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      configName: 'ConfigName',
+      configValue: 'ConfigValue',
+      gatewayUniqueId: 'GatewayUniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      configName: 'string',
+      configValue: 'string',
+      gatewayUniqueId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * AF21683A-29C7-4853-AC0F-B5ADEE4D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGatewayConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayConfigResponseBody,
     };
   }
 
@@ -82828,7 +83228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a migration task.
+   * Create a new migration task
    * 
    * @param request - AddMigrationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82904,7 +83304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a migration task.
+   * Create a new migration task
    * 
    * @param request - AddMigrationTaskRequest
    * @returns AddMigrationTaskResponse
@@ -83365,7 +83765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定流量防护行为
+   * Binds traffic protection behavior.
    * 
    * @param request - BindSentinelBlockFallbackDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83421,7 +83821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定流量防护行为
+   * Binds traffic protection behavior.
    * 
    * @param request - BindSentinelBlockFallbackDefinitionRequest
    * @returns BindSentinelBlockFallbackDefinitionResponse
@@ -83432,7 +83832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Resource Transfer
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83484,7 +83884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源转组
+   * Resource Transfer
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -83495,10 +83895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing Nacos configuration from a namespace to another namespace.
+   * Copy Nacos Configuration
    * 
    * @remarks
-   * mse-200-105
+   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - CloneNacosConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83558,10 +83958,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing Nacos configuration from a namespace to another namespace.
+   * Copy Nacos Configuration
    * 
    * @remarks
-   * mse-200-105
+   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - CloneNacosConfigRequest
    * @returns CloneNacosConfigResponse
@@ -83572,7 +83972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从AHAS侧复制规则
+   * Clones rules from Application High Availability Service.
    * 
    * @param request - CloneSentinelRuleFromAhasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83628,7 +84028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从AHAS侧复制规则
+   * Clones rules from Application High Availability Service.
    * 
    * @param request - CloneSentinelRuleFromAhasRequest
    * @returns CloneSentinelRuleFromAhasResponse
@@ -83821,10 +84221,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+   * Create an MSE registration and configuration center instance
    * 
    * @remarks
-   * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+   * Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
    * 
    * @param request - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83944,10 +84344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+   * Create an MSE registration and configuration center instance
    * 
    * @remarks
-   * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+   * Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -86315,7 +86715,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除nacos指定配置
+   * Delete specified Nacos configuration
+   * 
+   * @remarks
+   * > The current OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - DeleteNacosConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -86371,7 +86774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除nacos指定配置
+   * Delete specified Nacos configuration
+   * 
+   * @remarks
+   * > The current OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - DeleteNacosConfigRequest
    * @returns DeleteNacosConfigResponse
@@ -88673,10 +89079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos configurations.
+   * Get Nacos Configuration
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - GetNacosConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -88732,10 +89138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos configurations.
+   * Get Nacos Configuration
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - GetNacosConfigRequest
    * @returns GetNacosConfigResponse
@@ -92521,7 +92927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询流量防护行为
+   * Obtains the custom behavior of traffic protection.
    * 
    * @param tmpReq - ListSentinelBlockFallbackDefinitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92575,7 +92981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询流量防护行为
+   * Obtains the custom behavior of traffic protection.
    * 
    * @param request - ListSentinelBlockFallbackDefinitionsRequest
    * @returns ListSentinelBlockFallbackDefinitionsResponse
@@ -95816,6 +96222,65 @@ export default class Client extends OpenApi {
   async updateGatewayCircuitBreakerRule(request: UpdateGatewayCircuitBreakerRuleRequest): Promise<UpdateGatewayCircuitBreakerRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateGatewayCircuitBreakerRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网关配置
+   * 
+   * @param request - UpdateGatewayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayConfigResponse
+   */
+  async updateGatewayConfigWithOptions(request: UpdateGatewayConfigRequest, runtime: $dara.RuntimeOptions): Promise<UpdateGatewayConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      query["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayConfigResponse>(await this.callApi(params, req, runtime), new UpdateGatewayConfigResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayConfigResponse>(await this.execute(params, req, runtime), new UpdateGatewayConfigResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新网关配置
+   * 
+   * @param request - UpdateGatewayConfigRequest
+   * @returns UpdateGatewayConfigResponse
+   */
+  async updateGatewayConfig(request: UpdateGatewayConfigRequest): Promise<UpdateGatewayConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGatewayConfigWithOptions(request, runtime);
   }
 
   /**
