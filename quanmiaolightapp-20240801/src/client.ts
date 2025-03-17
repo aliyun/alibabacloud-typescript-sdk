@@ -2169,9 +2169,6 @@ export class RunHotTopicSummaryRequestStepForCustomSummaryStyleConfig extends $d
    */
   summaryImageCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * qwen-max
    */
