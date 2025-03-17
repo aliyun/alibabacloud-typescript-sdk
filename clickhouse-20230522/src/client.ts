@@ -74,11 +74,17 @@ export class CreateAccountRequestDmlAuthSetting extends $dara.Model {
 
 export class CreateAccountResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * test1
    */
   account?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
@@ -108,11 +114,17 @@ export class CreateAccountResponseBodyData extends $dara.Model {
 
 export class CreateDBResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * testdb001
    */
@@ -141,8 +153,15 @@ export class CreateDBResponseBodyData extends $dara.Model {
 }
 
 export class CreateDBInstanceRequestMultiZone extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -175,16 +194,25 @@ export class CreateDBInstanceRequestMultiZone extends $dara.Model {
 
 export class CreateDBInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint.
+   * 
    * @example
    * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 21154955706****
    */
@@ -216,11 +244,17 @@ export class CreateDBInstanceResponseBodyData extends $dara.Model {
 
 export class DeleteAccountResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the account.
+   * 
    * @example
    * test1
    */
   account?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
@@ -250,11 +284,17 @@ export class DeleteAccountResponseBodyData extends $dara.Model {
 
 export class DeleteDBResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * testdb001
    */
@@ -284,6 +324,9 @@ export class DeleteDBResponseBodyData extends $dara.Model {
 
 export class DeleteDBInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
@@ -311,28 +354,63 @@ export class DeleteDBInstanceResponseBodyData extends $dara.Model {
 
 export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * test1
    */
   account?: string;
+  /**
+   * @remarks
+   * The databases on which permissions are granted.
+   */
   allowDatabases?: string[];
+  /**
+   * @remarks
+   * The dictionaries on which permissions are granted.
+   */
   allowDictionaries?: string[];
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the DDL permissions are granted to the database account. Valid values:
+   * 
+   * *   **true**: The account has the permissions to execute DDL statements.
+   * *   **false**: The account does not have the permissions to execute DDL statements.
+   * 
    * @example
    * true
    */
   ddlAuthority?: boolean;
   /**
+   * @remarks
+   * Indicates whether the DML permissions are granted to the database account. Valid values:
+   * 
+   * *   0: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
+   * *   1: The account only has the permissions to read data from the database.
+   * *   2: The account only has the permissions to read data from the database and modify the settings of the database.
+   * 
    * @example
    * 0
    */
   dmlAuthority?: number;
+  /**
+   * @remarks
+   * All databases.
+   */
   totalDatabases?: string[];
+  /**
+   * @remarks
+   * The database.
+   */
   totalDictionaries?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -383,17 +461,40 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
 
 export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
   /**
+   * @remarks
+   * The username of the database account.
+   * 
    * @example
    * test
    */
   account?: string;
   /**
+   * @remarks
+   * The type of the database account. Valid values:
+   * 
+   * *   **1**: standard account
+   * *   **6**: privileged account
+   * 
    * @example
    * NormalAccount
    */
   accountType?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Used for test
+   */
   description?: string;
   /**
+   * @remarks
+   * The state of the database account. Valid values:
+   * 
+   * *   **0**: The database account is being created.
+   * *   **1**: The database account is in use.
+   * *   **3**: The database account is being deleted.
+   * 
    * @example
    * 1
    */
@@ -426,18 +527,35 @@ export class DescribeAccountsResponseBodyDataAccounts extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The database accounts.
+   */
   accounts?: DescribeAccountsResponseBodyDataAccounts[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * *   **30** (default)
+   * *   **50**
+   * *   **100**
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -472,13 +590,59 @@ export class DescribeAccountsResponseBodyData extends $dara.Model {
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyDataMultiZones extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
+  vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * The node status.
+   * 
    * @example
    * active
    */
   nodeStatus?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -508,11 +672,17 @@ export class DescribeDBInstanceAttributeResponseBodyDataNodes extends $dara.Mode
 
 export class DescribeDBInstanceAttributeResponseBodyDataTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * id
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * ck
    */
@@ -542,138 +712,255 @@ export class DescribeDBInstanceAttributeResponseBodyDataTags extends $dara.Model
 
 export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 140692647406****
    */
   aliUid?: number;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * PD39050615820269****
    */
   bid?: string;
   /**
+   * @remarks
+   * The billing method. Enterprise Edition clusters use the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * @example
    * 2023-09-14T08:14:48Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the release protection feature is enabled for the cluster.
+   * 
    * @example
    * 0/1
    */
   deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The deployment mode of the cluster. Valid values: single_az and multi_az.
+   * 
+   * *   single_az: indicates that the server nodes are deployed in the primary zone. The ID of the primary zone is specified by the ZoneID parameter.
+   * *   multi_az: indicates that the server nodes are deployed in multiple zones. The information about the zones is specified by the MultiZones parameter.
+   * 
+   * The keeper nodes are deployed in multiple zones.
+   * 
+   * @example
+   * single_az
+   */
+  deploySchema?: string;
+  /**
+   * @remarks
+   * The cluster description.
+   * 
+   * @example
+   * Used for test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The disabled database ports. Multiple database ports are separated by commas (,).
+   * 
+   * @example
+   * 9001,8123
+   */
   disabledPorts?: string;
   /**
+   * @remarks
+   * The engine type.
+   * 
    * @example
    * clickhouse
    */
   engine?: string;
   /**
+   * @remarks
+   * The minor engine version of the cluster.
+   * 
    * @example
    * 23.8.1.41495_6
    */
   engineMinorVersion?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 23.8
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The time when the cluster expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
+   * >  Pay-as-you-go clusters never expire. If the cluster is a pay-as-you-go cluster, an empty string is returned for this parameter.
+   * 
    * @example
    * 2024-04-17T08:14:48Z
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The latest minor engine version.
+   * 
    * @example
    * 23.8.1.41495_6
    */
   latestEngineMinorVersion?: string;
   /**
+   * @remarks
+   * The lock mode of the cluster.
+   * 
    * @example
    * 0
    */
   lockMode?: string;
   /**
+   * @remarks
+   * The reason why the cluster was locked.
+   * 
    * @example
    * nolock
    */
   lockReason?: string;
   /**
+   * @remarks
+   * The end time of the maintenance window.
+   * 
    * @example
    * 21:00
    */
   maintainEndTime?: string;
   /**
+   * @remarks
+   * The start time of the maintenance window.
+   * 
    * @example
    * 12:00
    */
   maintainStartTime?: string;
+  /**
+   * @remarks
+   * The information about the zones.
+   */
+  multiZones?: DescribeDBInstanceAttributeResponseBodyDataMultiZones[];
+  /**
+   * @remarks
+   * The nodes.
+   */
   nodes?: DescribeDBInstanceAttributeResponseBodyDataNodes[];
   /**
+   * @remarks
+   * The size of the object storage space.
+   * 
    * @example
    * 13
    */
   objectStoreSize?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * rg-acfmzygvt54****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The maximum capacity for elastic scaling.
+   * 
    * @example
    * 32
    */
   scaleMax?: number;
   /**
+   * @remarks
+   * The minimum capacity for elastic scaling.
+   * 
    * @example
    * 8
    */
   scaleMin?: number;
   /**
+   * @remarks
+   * The cluster status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The size of the storage space. Unit: GB.
+   * 
    * @example
    * 12
    */
   storageSize?: number;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * 100
    */
   storageType?: string;
+  /**
+   * @remarks
+   * The details of the tags.
+   */
   tags?: DescribeDBInstanceAttributeResponseBodyDataTags[];
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-uf67ij56zm9x4uc6hmilg
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-wz9duj8xd6r1gzhsg*****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -686,6 +973,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       createTime: 'CreateTime',
       DBInstanceId: 'DBInstanceId',
       deletionProtection: 'DeletionProtection',
+      deploySchema: 'DeploySchema',
       description: 'Description',
       disabledPorts: 'DisabledPorts',
       engine: 'Engine',
@@ -697,6 +985,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
+      multiZones: 'MultiZones',
       nodes: 'Nodes',
       objectStoreSize: 'ObjectStoreSize',
       regionId: 'RegionId',
@@ -721,6 +1010,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       createTime: 'string',
       DBInstanceId: 'string',
       deletionProtection: 'boolean',
+      deploySchema: 'string',
       description: 'string',
       disabledPorts: 'string',
       engine: 'string',
@@ -732,6 +1022,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       lockReason: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
+      multiZones: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataMultiZones },
       nodes: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataNodes },
       objectStoreSize: 'string',
       regionId: 'string',
@@ -749,6 +1040,9 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.multiZones)) {
+      $dara.Model.validateArray(this.multiZones);
+    }
     if(Array.isArray(this.nodes)) {
       $dara.Model.validateArray(this.nodes);
     }
@@ -765,27 +1059,52 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
 
 export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.Model {
   /**
+   * @remarks
+   * The column name.
+   * 
    * @example
    * c31
    */
   columnName?: string;
+  /**
+   * @remarks
+   * The description of the database account.
+   * 
+   * @example
+   * Used for test
+   */
   comment?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * dbtest
    */
   DBName?: string;
   /**
+   * @remarks
+   * Indicates whether the column is the primary key of the table. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   primaryKey?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * tableTest
    */
   tableName?: string;
   /**
+   * @remarks
+   * The type of the stored data.
+   * 
    * @example
    * UInt64
    */
@@ -822,17 +1141,31 @@ export class DescribeDBInstanceDataSourcesResponseBodyDataColumns extends $dara.
 }
 
 export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The columns.
+   */
   columns?: DescribeDBInstanceDataSourcesResponseBodyDataColumns[];
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The account.
+   * 
    * @example
    * default
    */
   schemas?: string;
+  /**
+   * @remarks
+   * The tables.
+   */
   tables?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -869,11 +1202,17 @@ export class DescribeDBInstanceDataSourcesResponseBodyData extends $dara.Model {
 
 export class DescribeDBInstancesResponseBodyDataDBInstancesTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * tag
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -903,115 +1242,185 @@ export class DescribeDBInstancesResponseBodyDataDBInstancesTags extends $dara.Mo
 
 export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1294****
    */
   aliUid?: string;
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * 186681****
    */
   bid?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PrePaid: subscription
+   * *   PostPaid: pay-as-you-go
+   * 
    * @example
    * PostPaid
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
    * @example
    * 2022-12-04 21:16:15
    */
   createTime?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-xxxxxxx
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the release protection feature is enabled for the cluster.
+   * 
    * @example
    * False
    */
   deletionProtection?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * test_desc
    */
   description?: string;
   /**
+   * @remarks
+   * The engine type.
+   * 
    * @example
    * clickhouse
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 22.8
    */
   engineVersion?: string;
   /**
+   * @remarks
+   * The time when the cluster expires.
+   * 
    * @example
    * 2024-02-16 11:51:06
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The lock mode.
+   * 
    * @example
    * 0
    */
   lockMode?: string;
   /**
+   * @remarks
+   * The reason why the cluster was locked.
+   * 
    * @example
    * null
    */
   lockReason?: string;
   /**
+   * @remarks
+   * The end time of the maintenance window.
+   * 
    * @example
    * 04:00:00Z
    */
   maintainEndTime?: string;
   /**
+   * @remarks
+   * The start time of the maintenance window.
+   * 
    * @example
    * 00:00Z
    */
   maintainStartTime?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfmzy****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The maximum capacity for elastic scaling.
+   * 
    * @example
    * 13
    */
   scaleMax?: number;
   /**
+   * @remarks
+   * The minimum capacity for elastic scaling.
+   * 
    * @example
    * 1
    */
   scaleMin?: number;
   /**
+   * @remarks
+   * The cluster status.
+   * 
    * @example
    * active
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: DescribeDBInstancesResponseBodyDataDBInstancesTags[];
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-8vb5mw****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-uf6kg****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-i
    */
@@ -1085,18 +1494,31 @@ export class DescribeDBInstancesResponseBodyDataDBInstances extends $dara.Model 
 }
 
 export class DescribeDBInstancesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The clusters.
+   */
   DBInstances?: DescribeDBInstancesResponseBodyDataDBInstances[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -1133,11 +1555,25 @@ export class DescribeDBInstancesResponseBodyData extends $dara.Model {
 
 export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model {
   /**
+   * @remarks
+   * The port used to connect to the cluster. Valid values:
+   * 
+   * *   8123: This value is returned when the value of Protocol is HttpPort.
+   * *   8443: This value is returned when the value of Protocol is HttpsPort.
+   * *   9000: This value is returned when the value of Protocol is TcpPort.
+   * 
    * @example
    * 8123
    */
   port?: number;
   /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   HttpPort
+   * *   HttpsPort
+   * *   TcpPort
+   * 
    * @example
    * HttpPort
    */
@@ -1167,40 +1603,65 @@ export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model
 
 export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The endpoint of the cluster.
+   * 
    * @example
    * cc-****-clickhouse.clickhouseserver.pre.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
+   * @remarks
+   * The IP address.
+   * 
    * @example
    * 172.30.XX.XX
    */
   IPAddress?: string;
   /**
+   * @remarks
+   * The network type of the endpoint. Valid values:
+   * 
+   * *   VPC
+   * *   PUBLIC
+   * 
    * @example
    * VPC
    */
   netType?: string;
+  /**
+   * @remarks
+   * The details of the ports.
+   */
   ports?: DescribeEndpointsResponseBodyDataEndpointsPorts[];
   /**
+   * @remarks
+   * The state of the cluster.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-0xi8829****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-uf61z****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-uf61z****
    */
@@ -1244,8 +1705,18 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
 }
 
 export class DescribeEndpointsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the endpoints.
+   */
   endpoints?: DescribeEndpointsResponseBodyDataEndpoints[];
   /**
+   * @remarks
+   * The network type of the cluster. Valid values:
+   * 
+   * *   **VPC**
+   * *   **PUBLIC**
+   * 
    * @example
    * VPC
    */
@@ -1368,6 +1839,9 @@ export class DescribeProcessListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * test
    */
   DBInstanceName?: string;
   /**
@@ -1495,6 +1969,9 @@ export class DescribeSecurityIPListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * TestCluster
    */
   DBInstanceName?: string;
   /**
@@ -1672,6 +2149,9 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * TestCluster
    */
   DBInstanceName?: string;
   /**
@@ -1719,26 +2199,41 @@ export class DescribeSlowLogRecordsResponseBodyData extends $dara.Model {
 
 export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
   /**
+   * @remarks
+   * The average execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * 
    * @example
    * 2000
    */
   avgQueryDurationMs?: number;
   /**
+   * @remarks
+   * The total number of SQL queries within the specified time range.
+   * 
    * @example
    * 1
    */
   cnt?: number;
   /**
+   * @remarks
+   * The maximum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * 
    * @example
    * 3000
    */
   maxQueryDurationMs?: number;
   /**
+   * @remarks
+   * The minimum execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * 
    * @example
    * 1000
    */
   minQueryDurationMs?: number;
   /**
+   * @remarks
+   * The beginning of the time range to query. The time is in the yyyy-MM-dd hh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-04-13 17:48:00
    */
@@ -1774,11 +2269,25 @@ export class DescribeSlowLogTrendResponseBodyDataResultSet extends $dara.Model {
 
 export class DescribeSlowLogTrendResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceID?: number;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * clusterTest
+   */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The result sets.
+   */
   resultSet?: DescribeSlowLogTrendResponseBodyDataResultSet[];
   static names(): { [key: string]: string } {
     return {
@@ -1931,11 +2440,17 @@ export class ModifyAccountAuthorityRequestDmlAuthSetting extends $dara.Model {
 
 export class ModifyAccountAuthorityResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * test1
    */
   account?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
@@ -1965,6 +2480,9 @@ export class ModifyAccountAuthorityResponseBodyData extends $dara.Model {
 
 export class ModifyAccountDescriptionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * testuser
    */
@@ -2002,26 +2520,41 @@ export class ModifyAccountDescriptionResponseBodyData extends $dara.Model {
 
 export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-xxxxxxx
    */
   DBInstanceID?: number;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * cc-xxxxxxx
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The maximum capacity for elastic scaling.
+   * 
    * @example
    * 32
    */
   scaleMax?: number;
   /**
+   * @remarks
+   * The minimum capacity for elastic scaling.
+   * 
    * @example
    * 2
    */
   scaleMin?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 10000****
    */
@@ -2080,6 +2613,13 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Mode
    * cc-xxxxx
    */
   DBInstanceName?: string;
+  /**
+   * @remarks
+   * The disabled database ports.
+   * 
+   * @example
+   * 9001,8123
+   */
   disabledPorts?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2110,41 +2650,65 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Mode
 
 export class ModifySecurityIPListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-xxxx
    */
   DBInstanceID?: number;
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * cc-xxxx
    */
   DBInstanceName?: string;
   /**
+   * @remarks
+   * The name of the whitelist.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The tag of the whitelist.
+   * 
    * @example
    * test
    */
   groupTag?: string;
   /**
+   * @remarks
+   * The IP addresses and CIDR blocks in the whitelist.
+   * 
    * @example
    * 192.168.0.0/24,172.16.0.0/24
    */
   securityIPList?: string;
   /**
+   * @remarks
+   * The IP address type.
+   * 
    * @example
    * ipv4
    */
   securityIPType?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1
    */
   taskId?: number;
   /**
+   * @remarks
+   * The network type of the whitelist.
+   * 
    * @example
    * mix
    */
@@ -2186,11 +2750,17 @@ export class ModifySecurityIPListResponseBodyData extends $dara.Model {
 
 export class ResetAccountPasswordResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the account.
+   * 
    * @example
    * test1
    */
   account?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc-bp100p4q1g9z3****
    */
@@ -2230,6 +2800,9 @@ export class RestartDBInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * test1
    */
   DBInstanceName?: string;
   /**
@@ -2277,6 +2850,9 @@ export class StartDBInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * test1
    */
   DBInstanceName?: string;
   /**
@@ -2324,6 +2900,9 @@ export class StopDBInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cluster name.
+   * 
+   * @example
+   * test1
    */
   DBInstanceName?: string;
   /**
@@ -2361,6 +2940,9 @@ export class StopDBInstanceResponseBodyData extends $dara.Model {
 
 export class UpgradeMinorVersionResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cc-uf6x229yeq166****
    */
@@ -2389,6 +2971,8 @@ export class UpgradeMinorVersionResponseBodyData extends $dara.Model {
 export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2410,12 +2994,21 @@ export class CreateAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * @example
+   * Used for account
+   */
   description?: string;
   /**
    * @remarks
@@ -2424,6 +3017,12 @@ export class CreateAccountRequest extends $dara.Model {
   dmlAuthSetting?: CreateAccountRequestDmlAuthSetting;
   /**
    * @remarks
+   * The password of the database account. The password must meet the following requirements:
+   * 
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
+   * - The password must be 8 to 32 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2440,6 +3039,8 @@ export class CreateAccountRequest extends $dara.Model {
   product?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2487,6 +3088,8 @@ export class CreateAccountRequest extends $dara.Model {
 export class CreateAccountShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2508,12 +3111,21 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the account.
+   * 
+   * @example
+   * Used for account
+   */
   description?: string;
   /**
    * @remarks
@@ -2522,6 +3134,12 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   dmlAuthSettingShrink?: string;
   /**
    * @remarks
+   * The password of the database account. The password must meet the following requirements:
+   * 
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
+   * - The password must be 8 to 32 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2538,6 +3156,8 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   product?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2580,6 +3200,10 @@ export class CreateAccountShrinkRequest extends $dara.Model {
 }
 
 export class CreateAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateAccountResponseBodyData;
   /**
    * @remarks
@@ -2652,12 +3276,17 @@ export class CreateAccountResponse extends $dara.Model {
 
 export class CreateDBRequest extends $dara.Model {
   /**
+   * @remarks
+   * Database remark information.
+   * 
    * @example
    * test
    */
   comment?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2666,10 +3295,10 @@ export class CreateDBRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database. The name must meet the following requirements:
+   * The database name. The name must meet the following requirements:
    * 
    * *   The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+   * *   The name must start with a lowercase letter and end with a lowercase letter or digit.
    * *   The name can be up to 64 characters in length.
    * 
    * >  An underscore (_) is counted as two characters.
@@ -2718,8 +3347,15 @@ export class CreateDBRequest extends $dara.Model {
 }
 
 export class CreateDBResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateDBResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 94F92113-FF63-5E57-8401-6FE123AD11DD
    */
@@ -2786,30 +3422,67 @@ export class CreateDBResponse extends $dara.Model {
 }
 
 export class CreateDBInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The backup set ID.
+   * 
+   * @example
+   * 1
+   */
   backupSetId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AB
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The cluster description.
+   * 
+   * @example
+   * Used for test
+   */
   DBInstanceDescription?: string;
+  /**
+   * @remarks
+   * The deployment status of the cluster.
+   * 
+   * @example
+   * multi_az
+   */
   deploySchema?: string;
   /**
    * @remarks
    * The engine type.
+   * 
+   * Valid values:
+   * 
+   * *   clickhouse
    * 
    * @example
    * clickhouse
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 23.8
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The configurations of multi-zone deployment.
+   */
   multiZone?: CreateDBInstanceRequestMultiZone[];
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2817,30 +3490,49 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The maximum capacity for auto scaling.
+   * 
    * @example
    * 32
    */
   scaleMax?: string;
   /**
+   * @remarks
+   * The minimum capacity for auto scaling.
+   * 
    * @example
    * 8
    */
   scaleMin?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cc-2ze1*********
+   */
   sourceDBInstanceId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-uf6xmupdn7v6ui9f****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-uf632qye9oqt4x4sr****
    */
   vswitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -2896,30 +3588,67 @@ export class CreateDBInstanceRequest extends $dara.Model {
 }
 
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The backup set ID.
+   * 
+   * @example
+   * 1
+   */
   backupSetId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AB
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The cluster description.
+   * 
+   * @example
+   * Used for test
+   */
   DBInstanceDescription?: string;
+  /**
+   * @remarks
+   * The deployment status of the cluster.
+   * 
+   * @example
+   * multi_az
+   */
   deploySchema?: string;
   /**
    * @remarks
    * The engine type.
+   * 
+   * Valid values:
+   * 
+   * *   clickhouse
    * 
    * @example
    * clickhouse
    */
   engine?: string;
   /**
+   * @remarks
+   * The engine version.
+   * 
    * @example
    * 23.8
    */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The configurations of multi-zone deployment.
+   */
   multiZoneShrink?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2927,30 +3656,49 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The maximum capacity for auto scaling.
+   * 
    * @example
    * 32
    */
   scaleMax?: string;
   /**
+   * @remarks
+   * The minimum capacity for auto scaling.
+   * 
    * @example
    * 8
    */
   scaleMin?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * cc-2ze1*********
+   */
   sourceDBInstanceId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-uf6xmupdn7v6ui9f****
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-uf632qye9oqt4x4sr****
    */
   vswitchId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -3003,8 +3751,15 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
 }
 
 export class CreateDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: CreateDBInstanceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
@@ -3072,12 +3827,17 @@ export class CreateDBInstanceResponse extends $dara.Model {
 
 export class CreateEndpointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The prefix of the new endpoint. The prefix of the ConnectionString parameter.
+   * 
    * @example
    * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
    */
   connectionPrefix?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3088,12 +3848,18 @@ export class CreateEndpointRequest extends $dara.Model {
    * @remarks
    * The network type.
    * 
+   * Valid values:
+   * 
+   * *   Public
+   * 
    * @example
    * Public
    */
   DBInstanceNetType?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3129,6 +3895,9 @@ export class CreateEndpointRequest extends $dara.Model {
 
 export class CreateEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627FA5A19
    */
@@ -3192,6 +3961,8 @@ export class CreateEndpointResponse extends $dara.Model {
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The destination database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3200,6 +3971,8 @@ export class DeleteAccountRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3216,6 +3989,8 @@ export class DeleteAccountRequest extends $dara.Model {
   product?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3250,8 +4025,15 @@ export class DeleteAccountRequest extends $dara.Model {
 }
 
 export class DeleteAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DeleteAccountResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 21D06907-CEA5-561D-B6B1-198BCCE99ED1
    */
@@ -3320,6 +4102,8 @@ export class DeleteAccountResponse extends $dara.Model {
 export class DeleteDBRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3328,7 +4112,7 @@ export class DeleteDBRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The name of the destination database.
    * 
    * This parameter is required.
    * 
@@ -3372,8 +4156,15 @@ export class DeleteDBRequest extends $dara.Model {
 }
 
 export class DeleteDBResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DeleteDBResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 06798FEE-BEF2-5FAF-A30D-728973BBE97C
    */
@@ -3442,6 +4233,8 @@ export class DeleteDBResponse extends $dara.Model {
 export class DeleteDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the destination cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3449,6 +4242,9 @@ export class DeleteDBInstanceRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -3477,8 +4273,15 @@ export class DeleteDBInstanceRequest extends $dara.Model {
 }
 
 export class DeleteDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DeleteDBInstanceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
    */
@@ -3546,19 +4349,28 @@ export class DeleteDBInstanceResponse extends $dara.Model {
 
 export class DeleteEndpointRequest extends $dara.Model {
   /**
+   * @remarks
+   * The prefix of the endpoint, which indicates the prefix of the value of the ConnectionString parameter.
+   * 
    * @example
    * cc-bp100p4q1g9z3****-clickhouse.clickhouseserver.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cc-bp100p4q1g9z3****
    */
   DBInstanceId?: string;
+  DBInstanceNetType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -3567,6 +4379,7 @@ export class DeleteEndpointRequest extends $dara.Model {
     return {
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
+      DBInstanceNetType: 'DBInstanceNetType',
       regionId: 'RegionId',
     };
   }
@@ -3575,6 +4388,7 @@ export class DeleteEndpointRequest extends $dara.Model {
     return {
       connectionString: 'string',
       DBInstanceId: 'string',
+      DBInstanceNetType: 'string',
       regionId: 'string',
     };
   }
@@ -3590,6 +4404,9 @@ export class DeleteEndpointRequest extends $dara.Model {
 
 export class DeleteEndpointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
@@ -3653,6 +4470,8 @@ export class DeleteEndpointResponse extends $dara.Model {
 export class DescribeAccountAuthorityRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3661,6 +4480,8 @@ export class DescribeAccountAuthorityRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3669,6 +4490,8 @@ export class DescribeAccountAuthorityRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3701,8 +4524,15 @@ export class DescribeAccountAuthorityRequest extends $dara.Model {
 }
 
 export class DescribeAccountAuthorityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeAccountAuthorityResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
@@ -3771,6 +4601,8 @@ export class DescribeAccountAuthorityResponse extends $dara.Model {
 export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3778,11 +4610,21 @@ export class DescribeAccountsRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values:
+   * 
+   * *   **30** (default)
+   * *   **50**
+   * *   **100**
+   * 
    * @example
    * 30
    */
@@ -3796,6 +4638,9 @@ export class DescribeAccountsRequest extends $dara.Model {
    */
   product?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -3830,8 +4675,15 @@ export class DescribeAccountsRequest extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result returned.
+   */
   data?: DescribeAccountsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
@@ -3900,6 +4752,8 @@ export class DescribeAccountsResponse extends $dara.Model {
 export class DescribeDBInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3907,6 +4761,13 @@ export class DescribeDBInstanceAttributeRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * Valid values:
+   * 
+   * *   cn-beijing
+   * 
    * @example
    * cn-hangzhou
    */
@@ -3941,6 +4802,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    */
   data?: DescribeDBInstanceAttributeResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627FA5A19
    */
@@ -4009,6 +4873,8 @@ export class DescribeDBInstanceAttributeResponse extends $dara.Model {
 export class DescribeDBInstanceDataSourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4016,16 +4882,25 @@ export class DescribeDBInstanceDataSourcesRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * dbtest
    */
   DBName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * tableTest
    */
@@ -4058,8 +4933,15 @@ export class DescribeDBInstanceDataSourcesRequest extends $dara.Model {
 }
 
 export class DescribeDBInstanceDataSourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeDBInstanceDataSourcesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F543E6CC-6868-523D-8D28-0E92CF977ED2
    */
@@ -4127,16 +5009,25 @@ export class DescribeDBInstanceDataSourcesResponse extends $dara.Model {
 
 export class DescribeDBInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster IDs. Separate multiple cluster IDs with commas (,).
+   * 
    * @example
    * cc-xxxxx,cx-xxxx
    */
   DBInstanceIds?: string;
   /**
+   * @remarks
+   * The cluster status.
+   * 
    * @example
    * active
    */
   DBInstanceStatus?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * test
    */
@@ -4158,11 +5049,17 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-4690g37929****
    */
@@ -4201,8 +5098,15 @@ export class DescribeDBInstancesRequest extends $dara.Model {
 }
 
 export class DescribeDBInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeDBInstancesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx-xxx-xxx
    */
@@ -4271,6 +5175,8 @@ export class DescribeDBInstancesResponse extends $dara.Model {
 export class DescribeEndpointsRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4278,6 +5184,9 @@ export class DescribeEndpointsRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -4306,8 +5215,15 @@ export class DescribeEndpointsRequest extends $dara.Model {
 }
 
 export class DescribeEndpointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeEndpointsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx-xxx-xxx
    */
@@ -4855,6 +5771,8 @@ export class DescribeSlowLogRecordsResponse extends $dara.Model {
 export class DescribeSlowLogTrendRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4862,6 +5780,9 @@ export class DescribeSlowLogTrendRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+   * 
    * @example
    * 2023-06-07 10:03:00
    */
@@ -4875,16 +5796,25 @@ export class DescribeSlowLogTrendRequest extends $dara.Model {
    */
   product?: string;
   /**
+   * @remarks
+   * The execution duration of slow SQL queries. Minimum value: **1000**. Unit: milliseconds.
+   * 
    * @example
    * 3000
    */
   queryDurationMs?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The start of the time range to query. Specify the time in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
+   * 
    * @example
    * 2023-04-13 17:48:00
    */
@@ -4921,8 +5851,15 @@ export class DescribeSlowLogTrendRequest extends $dara.Model {
 }
 
 export class DescribeSlowLogTrendResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: DescribeSlowLogTrendResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
    */
@@ -5128,6 +6065,8 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5194,6 +6133,8 @@ export class ModifyAccountAuthorityShrinkRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5245,8 +6186,15 @@ export class ModifyAccountAuthorityShrinkRequest extends $dara.Model {
 }
 
 export class ModifyAccountAuthorityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result returned.
+   */
   data?: ModifyAccountAuthorityResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 05321590-BB65-4720-8CB6-8218E041CDD0
    */
@@ -5471,6 +6419,8 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   attributeType?: string;
   /**
    * @remarks
+   * The new value of the configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5479,6 +6429,8 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   attributeValue?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5495,6 +6447,8 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   product?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5532,6 +6486,9 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
 
 export class ModifyDBInstanceAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx-xxx-xxx
    */
@@ -5595,6 +6552,8 @@ export class ModifyDBInstanceAttributeResponse extends $dara.Model {
 export class ModifyDBInstanceClassRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5602,18 +6561,24 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The maximum capacity for elastic scaling.
+   * 
    * @example
    * 32
    */
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum capacity for auto scaling.
+   * The minimum capacity for elastic scaling.
    * 
    * @example
    * 2
@@ -5647,8 +6612,15 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
 }
 
 export class ModifyDBInstanceClassResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: ModifyDBInstanceClassResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx-xxx-xxx
    */
@@ -5741,6 +6713,20 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * cc-xxxxx
    */
   DBInstanceId?: string;
+  DBInstanceNetType?: string;
+  /**
+   * @remarks
+   * *   The database ports that you want to disable. Separate multiple ports with commas (,).
+   * 
+   * *   This parameter is supported only for clusters whose minor engine version is 24.10.1.11098_1 or later.
+   * 
+   *     **
+   * 
+   *     **Note** If you create a cluster whose minor engine version is earlier than 24.10.1.11098_1 and you update the minor engine version to 24.10.1.11098_1 or later, the cluster still does not support this parameter.
+   * 
+   * @example
+   * 9001,8123
+   */
   disablePorts?: string;
   /**
    * @remarks
@@ -5755,6 +6741,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
       connectionString: 'ConnectionString',
       connectionStringPrefix: 'ConnectionStringPrefix',
       DBInstanceId: 'DBInstanceId',
+      DBInstanceNetType: 'DBInstanceNetType',
       disablePorts: 'DisablePorts',
       regionId: 'RegionId',
     };
@@ -5765,6 +6752,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
       connectionString: 'string',
       connectionStringPrefix: 'string',
       DBInstanceId: 'string',
+      DBInstanceNetType: 'string',
       disablePorts: 'string',
       regionId: 'string',
     };
@@ -5782,7 +6770,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
 export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ModifyDBInstanceConnectionStringResponseBodyData;
   /**
@@ -5857,6 +6845,8 @@ export class ModifyDBInstanceConnectionStringResponse extends $dara.Model {
 export class ModifySecurityIPListRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5864,21 +6854,39 @@ export class ModifySecurityIPListRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The name of the whitelist whose settings you want to modify.
+   * 
    * @example
    * test
    */
   groupName?: string;
   /**
+   * @remarks
+   * The modification mode.
+   * 
+   * *   0: overwrites the original IP addresses and CIDR blocks in the whitelist.
+   * *   1: adds the IP addresses and CIDR blocks to the whitelist.
+   * *   2: removes the IP addresses and CIDR blocks from the whitelist.
+   * 
+   * >  We recommend that you set the value to 0.
+   * 
    * @example
    * 0
    */
   modifyMode?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The IP addresses and CIDR blocks in the whitelist.
+   * 
    * @example
    * 192.168.0.0/24,172.16.0.0/24
    */
@@ -5913,8 +6921,15 @@ export class ModifySecurityIPListRequest extends $dara.Model {
 }
 
 export class ModifySecurityIPListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: ModifySecurityIPListResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * xxx-xxx-xxx
    */
@@ -5983,6 +6998,8 @@ export class ModifySecurityIPListResponse extends $dara.Model {
 export class ResetAccountPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5991,6 +7008,8 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5999,6 +7018,12 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The password of the database account. The password must meet the following requirements:
+   * 
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The following special characters are supported: ! @ # $ % ^ & * ( ) _ + - =
+   * - The password must be 8 to 32 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6007,7 +7032,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * clickhouse
@@ -6015,6 +7040,8 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   product?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6051,8 +7078,15 @@ export class ResetAccountPasswordRequest extends $dara.Model {
 }
 
 export class ResetAccountPasswordResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result returned.
+   */
   data?: ResetAccountPasswordResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A6A077A-577C-536E-AC13-8E715D7A34C8
    */
@@ -6472,6 +7506,8 @@ export class StopDBInstanceResponse extends $dara.Model {
 export class UpgradeMinorVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6479,11 +7515,19 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  If you set SwitchTimeMode to SpecifyTime, you must configure this parameter to specify the update time.
+   * 
    * @example
    * 2023-01-09T05:00:00Z
    */
@@ -6501,6 +7545,11 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
    */
   switchTimeMode?: string;
   /**
+   * @remarks
+   * The minor engine version to which you want to update.
+   * 
+   * >  By default, TargetMinorVersion is not set and the minor engine version of the cluster is updated to the latest version.
+   * 
    * @example
    * 23.8.1.41495_6
    */
@@ -6535,8 +7584,15 @@ export class UpgradeMinorVersionRequest extends $dara.Model {
 }
 
 export class UpgradeMinorVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: UpgradeMinorVersionResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE242962-6DA3-5FC8-9691-37B62A3210F7
    */
@@ -6672,7 +7728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账号
+   * Creates a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param tmpReq - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6742,7 +7798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账号
+   * Creates a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -6753,7 +7809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据库
+   * Creates an ApsaraDB for ClickHouse database.
    * 
    * @param request - CreateDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6801,7 +7857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据库
+   * Creates an ApsaraDB for ClickHouse database.
    * 
    * @param request - CreateDBRequest
    * @returns CreateDBResponse
@@ -6812,7 +7868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建企业版Clickhouse实例
+   * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6906,7 +7962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建企业版Clickhouse实例
+   * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -6917,7 +7973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请外网地址
+   * Applies for a public endpoint.
    * 
    * @param request - CreateEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6965,7 +8021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请外网地址
+   * Applies for a public endpoint.
    * 
    * @param request - CreateEndpointRequest
    * @returns CreateEndpointResponse
@@ -6976,7 +8032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账号
+   * Deletes a database account from an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7024,7 +8080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账号
+   * Deletes a database account from an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -7035,7 +8091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库
+   * Deletes an ApsaraDB for ClickHouse database.
    * 
    * @param request - DeleteDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7079,7 +8135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据库
+   * Deletes an ApsaraDB for ClickHouse database.
    * 
    * @param request - DeleteDBRequest
    * @returns DeleteDBResponse
@@ -7090,7 +8146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放实例
+   * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7130,7 +8186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放实例
+   * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -7141,7 +8197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除链接地址
+   * Releases a public endpoint.
    * 
    * @param request - DeleteEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7156,6 +8212,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceNetType)) {
+      query["DBInstanceNetType"] = request.DBInstanceNetType;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -7185,7 +8245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除链接地址
+   * Releases a public endpoint.
    * 
    * @param request - DeleteEndpointRequest
    * @returns DeleteEndpointResponse
@@ -7196,7 +8256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号的授权信息
+   * Queries the permissions of a database account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7240,7 +8300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号的授权信息
+   * Queries the permissions of a database account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @returns DescribeAccountAuthorityResponse
@@ -7251,7 +8311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号列表
+   * Queries database accounts for an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7303,7 +8363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账号列表
+   * Queries database accounts for an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeAccountsRequest
    * @returns DescribeAccountsResponse
@@ -7314,7 +8374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例详情
+   * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7354,7 +8414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例详情
+   * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -7365,7 +8425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DB或者Table数据结构
+   * Queries the schema of a database or a table.
    * 
    * @param request - DescribeDBInstanceDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7413,7 +8473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DB或者Table数据结构
+   * Queries the schema of a database or a table.
    * 
    * @param request - DescribeDBInstanceDataSourcesRequest
    * @returns DescribeDBInstanceDataSourcesResponse
@@ -7424,7 +8484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例列表
+   * Queries a list of ApsaraDB for ClickHouse clusters.
    * 
    * @param request - DescribeDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7484,7 +8544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例列表
+   * Queries a list of ApsaraDB for ClickHouse clusters.
    * 
    * @param request - DescribeDBInstancesRequest
    * @returns DescribeDBInstancesResponse
@@ -7495,7 +8555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例访问地址
+   * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7535,7 +8595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例访问地址
+   * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeEndpointsRequest
    * @returns DescribeEndpointsResponse
@@ -7747,7 +8807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 慢查询趋势
+   * Queries the trend of slow query logs.
    * 
    * @param request - DescribeSlowLogTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7803,7 +8863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 慢查询趋势
+   * Queries the trend of slow query logs.
    * 
    * @param request - DescribeSlowLogTrendRequest
    * @returns DescribeSlowLogTrendResponse
@@ -7869,7 +8929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号的授权信息
+   * Modifies the permissions of a database account.
    * 
    * @param tmpReq - ModifyAccountAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7923,7 +8983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号的授权信息
+   * Modifies the permissions of a database account.
    * 
    * @param request - ModifyAccountAuthorityRequest
    * @returns ModifyAccountAuthorityResponse
@@ -7934,7 +8994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号备注
+   * Modifies the description of a database account.
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7982,7 +9042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改账号备注
+   * Modifies the description of a database account.
    * 
    * @param request - ModifyAccountDescriptionRequest
    * @returns ModifyAccountDescriptionResponse
@@ -7993,7 +9053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置属性，包括名称、运维时间等
+   * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8045,7 +9105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置属性，包括名称、运维时间等
+   * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @returns ModifyDBInstanceAttributeResponse
@@ -8056,7 +9116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例弹性配置
+   * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8064,7 +9124,23 @@ export default class Client extends OpenApi {
    */
   async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8073,7 +9149,7 @@ export default class Client extends OpenApi {
       version: "2023-05-22",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -8088,7 +9164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例弹性配置
+   * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifyDBInstanceClassRequest
    * @returns ModifyDBInstanceClassResponse
@@ -8118,6 +9194,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceNetType)) {
+      query["DBInstanceNetType"] = request.DBInstanceNetType;
     }
 
     if (!$dara.isNull(request.disablePorts)) {
@@ -8162,7 +9242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变更白名单
+   * Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifySecurityIPListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8214,7 +9294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变更白名单
+   * Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - ModifySecurityIPListRequest
    * @returns ModifySecurityIPListResponse
@@ -8225,7 +9305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置账号密码
+   * Resets the password of a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - ResetAccountPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8277,7 +9357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置账号密码
+   * Resets the password of a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - ResetAccountPasswordRequest
    * @returns ResetAccountPasswordResponse
@@ -8441,7 +9521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级实例内核小版本
+   * Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - UpgradeMinorVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8493,7 +9573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级实例内核小版本
+   * Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
    * 
    * @param request - UpgradeMinorVersionRequest
    * @returns UpgradeMinorVersionResponse
