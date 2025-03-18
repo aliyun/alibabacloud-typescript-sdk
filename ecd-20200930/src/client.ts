@@ -6023,6 +6023,67 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   }
 }
 
+export class DescribeDesktopsResponseBodyDesktopsOsUpdatePackages extends $dara.Model {
+  description?: string;
+  kb?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      kb: 'Kb',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      kb: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDesktopsResponseBodyDesktopsOsUpdate extends $dara.Model {
+  checkId?: string;
+  packageCount?: number;
+  packages?: DescribeDesktopsResponseBodyDesktopsOsUpdatePackages[];
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      packageCount: 'PackageCount',
+      packages: 'Packages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
+      packageCount: 'number',
+      packages: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsOsUpdatePackages },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.packages)) {
+      $dara.Model.validateArray(this.packages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Model {
   /**
    * @remarks
@@ -6511,6 +6572,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * Windows
    */
   osType?: string;
+  osUpdate?: DescribeDesktopsResponseBodyDesktopsOsUpdate;
   /**
    * @remarks
    * The information about the OS platform.
@@ -6739,6 +6801,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       officeSiteType: 'OfficeSiteType',
       officeSiteVpcType: 'OfficeSiteVpcType',
       osType: 'OsType',
+      osUpdate: 'OsUpdate',
       platform: 'Platform',
       policyGroupId: 'PolicyGroupId',
       policyGroupIdList: 'PolicyGroupIdList',
@@ -6806,6 +6869,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       officeSiteType: 'string',
       officeSiteVpcType: 'string',
       osType: 'string',
+      osUpdate: DescribeDesktopsResponseBodyDesktopsOsUpdate,
       platform: 'string',
       policyGroupId: 'string',
       policyGroupIdList: { 'type': 'array', 'itemType': 'string' },
@@ -6845,6 +6909,9 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
     }
     if(Array.isArray(this.managementFlags)) {
       $dara.Model.validateArray(this.managementFlags);
+    }
+    if(this.osUpdate && typeof (this.osUpdate as any).validate === 'function') {
+      (this.osUpdate as any).validate();
     }
     if(Array.isArray(this.policyGroupIdList)) {
       $dara.Model.validateArray(this.policyGroupIdList);
@@ -12193,6 +12260,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   endUserGroupCoordinate?: string;
+  fileMigrate?: string;
   /**
    * @remarks
    * Transfers files.
@@ -12955,6 +13023,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * EndUserId
    */
   watermarkType?: string;
+  wuyingKeeper?: string;
   /**
    * @remarks
    * Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
@@ -12998,6 +13067,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       edsCount: 'EdsCount',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      fileMigrate: 'FileMigrate',
       fileTransfer: 'FileTransfer',
       gpuAcceleration: 'GpuAcceleration',
       html5Access: 'Html5Access',
@@ -13072,6 +13142,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       watermarkTransparency: 'WatermarkTransparency',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
+      wuyingKeeper: 'WuyingKeeper',
       wyAssistant: 'WyAssistant',
     };
   }
@@ -13104,6 +13175,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       edsCount: 'number',
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
+      fileMigrate: 'string',
       fileTransfer: 'string',
       gpuAcceleration: 'string',
       html5Access: 'string',
@@ -13178,6 +13250,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       watermarkTransparency: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
+      wuyingKeeper: 'string',
       wyAssistant: 'string',
     };
   }
@@ -55473,6 +55546,7 @@ export class RebootDesktopsRequest extends $dara.Model {
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string[];
+  osUpdate?: boolean;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
@@ -55486,6 +55560,7 @@ export class RebootDesktopsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
+      osUpdate: 'OsUpdate',
       regionId: 'RegionId',
     };
   }
@@ -55493,6 +55568,7 @@ export class RebootDesktopsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
+      osUpdate: 'boolean',
       regionId: 'string',
     };
   }
@@ -59038,6 +59114,7 @@ export class StopDesktopsRequest extends $dara.Model {
    * ecd-7w78ozhjcwa3u****
    */
   desktopId?: string[];
+  osUpdate?: boolean;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
@@ -59077,6 +59154,7 @@ export class StopDesktopsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
+      osUpdate: 'OsUpdate',
       regionId: 'RegionId',
       stoppedMode: 'StoppedMode',
     };
@@ -59085,6 +59163,7 @@ export class StopDesktopsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
+      osUpdate: 'boolean',
       regionId: 'string',
       stoppedMode: 'string',
     };
@@ -74431,6 +74510,10 @@ export default class Client extends OpenApi {
       query["DesktopId"] = request.desktopId;
     }
 
+    if (!$dara.isNull(request.osUpdate)) {
+      query["OsUpdate"] = request.osUpdate;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -75965,6 +76048,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.osUpdate)) {
+      query["OsUpdate"] = request.osUpdate;
     }
 
     if (!$dara.isNull(request.regionId)) {
