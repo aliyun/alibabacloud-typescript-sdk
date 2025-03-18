@@ -35574,6 +35574,7 @@ export class DescribeDatasetListRequest extends $dara.Model {
    * 4add6a61804e47858266883e********
    */
   datasetIds?: string;
+  datasetName?: string;
   /**
    * @remarks
    * The number of the page to return. Pages start from page 1. Default value: 1.
@@ -35599,6 +35600,7 @@ export class DescribeDatasetListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       datasetIds: 'DatasetIds',
+      datasetName: 'DatasetName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       securityToken: 'SecurityToken',
@@ -35609,6 +35611,7 @@ export class DescribeDatasetListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       datasetIds: 'string',
+      datasetName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       securityToken: 'string',
@@ -61527,6 +61530,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.datasetIds)) {
       query["DatasetIds"] = request.datasetIds;
+    }
+
+    if (!$dara.isNull(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
