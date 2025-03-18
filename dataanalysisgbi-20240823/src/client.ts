@@ -38,16 +38,20 @@ export class RunDataAnalysisResponseBodyDataSqlData extends $dara.Model {
 }
 
 export class RunDataAnalysisResponseBodyDataVisualizationData extends $dara.Model {
+  option?: string;
   /**
    * @example
    * bar
    */
   plotType?: string;
+  stack?: boolean;
   xAxis?: string[];
   yAxis?: string[];
   static names(): { [key: string]: string } {
     return {
+      option: 'option',
       plotType: 'plotType',
+      stack: 'stack',
       xAxis: 'xAxis',
       yAxis: 'yAxis',
     };
@@ -55,7 +59,9 @@ export class RunDataAnalysisResponseBodyDataVisualizationData extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      option: 'string',
       plotType: 'string',
+      stack: 'boolean',
       xAxis: { 'type': 'array', 'itemType': 'string' },
       yAxis: { 'type': 'array', 'itemType': 'string' },
     };
