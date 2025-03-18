@@ -2779,9 +2779,6 @@ export class GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig extends 
    */
   summaryImageCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 摘要模型
    */
@@ -11751,6 +11748,160 @@ export class RunDocTranslationResponseBodyPayload extends $dara.Model {
   }
 }
 
+export class RunDocWashingResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20247a52-23e2-46fb-943d-309cdee2bc6d
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      requestId: 'RequestId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingResponseBodyPayload extends $dara.Model {
+  output?: RunDocWashingResponseBodyPayloadOutput;
+  usage?: RunDocWashingResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocWashingResponseBodyPayloadOutput,
+      usage: RunDocWashingResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunExpandContentResponseBodyHeader extends $dara.Model {
   /**
    * @example
@@ -12826,15 +12977,18 @@ export class RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSele
 
 export class RunSearchGenerationRequestAgentContextBizContext extends $dara.Model {
   multimodalMediaSelection?: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection;
+  skipCurrentSupplement?: boolean;
   static names(): { [key: string]: string } {
     return {
       multimodalMediaSelection: 'MultimodalMediaSelection',
+      skipCurrentSupplement: 'SkipCurrentSupplement',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       multimodalMediaSelection: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection,
+      skipCurrentSupplement: 'boolean',
     };
   }
 
@@ -16337,10 +16491,12 @@ export class RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources e
    * SystemSearch
    */
   code?: string;
+  datasetName?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      datasetName: 'DatasetName',
       name: 'Name',
     };
   }
@@ -16348,6 +16504,7 @@ export class RunSearchSimilarArticlesRequestChatConfigSearchParamSearchSources e
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      datasetName: 'string',
       name: 'string',
     };
   }
@@ -16469,6 +16626,7 @@ export class RunSearchSimilarArticlesResponseBodyHeader extends $dara.Model {
 }
 
 export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $dara.Model {
+  docId?: string;
   /**
    * @example
    * a26c2c1
@@ -16498,6 +16656,7 @@ export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      docId: 'DocId',
       docUuid: 'DocUuid',
       pubTime: 'PubTime',
       searchSourceName: 'SearchSourceName',
@@ -16510,6 +16669,7 @@ export class RunSearchSimilarArticlesResponseBodyPayloadOutputArticles extends $
 
   static types(): { [key: string]: any } {
     return {
+      docId: 'string',
       docUuid: 'string',
       pubTime: 'string',
       searchSourceName: 'string',
@@ -19260,9 +19420,6 @@ export class SubmitCustomHotTopicBroadcastJobRequestHotTopicBroadcastConfigStepF
    */
   summaryImageCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * qwen-max
    */
@@ -35697,6 +35854,7 @@ export class RunBookIntroductionRequest extends $dara.Model {
    * 3YQRatoe8phnpIsIE6z7DTPknhG8Fj
    */
   docId?: string;
+  keyPointPrompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -35705,6 +35863,7 @@ export class RunBookIntroductionRequest extends $dara.Model {
    * 0f56f98a-f2d8-47ec-98e9-1cbdcffa9539
    */
   sessionId?: string;
+  summaryPrompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -35716,7 +35875,9 @@ export class RunBookIntroductionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       docId: 'DocId',
+      keyPointPrompt: 'KeyPointPrompt',
       sessionId: 'SessionId',
+      summaryPrompt: 'SummaryPrompt',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -35724,7 +35885,9 @@ export class RunBookIntroductionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       docId: 'string',
+      keyPointPrompt: 'string',
       sessionId: 'string',
+      summaryPrompt: 'string',
       workspaceId: 'string',
     };
   }
@@ -35978,6 +36141,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
    * {"positive":"50","negative":"50"}
    */
   sentiment?: { [key: string]: any };
+  sessionId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36008,6 +36172,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
       lengthRange: 'LengthRange',
       numComments: 'NumComments',
       sentiment: 'Sentiment',
+      sessionId: 'SessionId',
       sourceMaterial: 'SourceMaterial',
       style: 'Style',
       type: 'Type',
@@ -36023,6 +36188,7 @@ export class RunCommentGenerationRequest extends $dara.Model {
       lengthRange: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       numComments: 'string',
       sentiment: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sessionId: 'string',
       sourceMaterial: 'string',
       style: 'string',
       type: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -36084,6 +36250,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
    * {"positive":"50","negative":"50"}
    */
   sentimentShrink?: string;
+  sessionId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36114,6 +36281,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
       lengthRangeShrink: 'LengthRange',
       numComments: 'NumComments',
       sentimentShrink: 'Sentiment',
+      sessionId: 'SessionId',
       sourceMaterial: 'SourceMaterial',
       style: 'Style',
       typeShrink: 'Type',
@@ -36129,6 +36297,7 @@ export class RunCommentGenerationShrinkRequest extends $dara.Model {
       lengthRangeShrink: 'string',
       numComments: 'string',
       sentimentShrink: 'string',
+      sessionId: 'string',
       sourceMaterial: 'string',
       style: 'string',
       typeShrink: 'string',
@@ -36662,6 +36831,7 @@ export class RunCustomHotTopicViewPointAnalysisResponse extends $dara.Model {
 }
 
 export class RunDocBrainmapRequest extends $dara.Model {
+  cleanCache?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -36670,6 +36840,8 @@ export class RunDocBrainmapRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  nodeNumber?: number;
+  prompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36678,6 +36850,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
+  wordNumber?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -36688,16 +36861,24 @@ export class RunDocBrainmapRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
+      nodeNumber: 'NodeNumber',
+      prompt: 'Prompt',
       sessionId: 'SessionId',
+      wordNumber: 'WordNumber',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
+      nodeNumber: 'number',
+      prompt: 'string',
       sessionId: 'string',
+      wordNumber: 'number',
       workspaceId: 'string',
     };
   }
@@ -36786,6 +36967,7 @@ export class RunDocBrainmapResponse extends $dara.Model {
 }
 
 export class RunDocIntroductionRequest extends $dara.Model {
+  cleanCache?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -36794,6 +36976,8 @@ export class RunDocIntroductionRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  introductionPrompt?: string;
+  keyPointPrompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36802,6 +36986,7 @@ export class RunDocIntroductionRequest extends $dara.Model {
    * a3b5eb35-6b28-4cf9-ac09-1dec25ab4df6
    */
   sessionId?: string;
+  summaryPrompt?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -36812,16 +36997,24 @@ export class RunDocIntroductionRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
+      introductionPrompt: 'IntroductionPrompt',
+      keyPointPrompt: 'KeyPointPrompt',
       sessionId: 'SessionId',
+      summaryPrompt: 'SummaryPrompt',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
+      introductionPrompt: 'string',
+      keyPointPrompt: 'string',
       sessionId: 'string',
+      summaryPrompt: 'string',
       workspaceId: 'string',
     };
   }
@@ -37258,6 +37451,7 @@ export class RunDocSmartCardResponse extends $dara.Model {
 }
 
 export class RunDocSummaryRequest extends $dara.Model {
+  cleanCache?: boolean;
   /**
    * @example
    * 12345
@@ -37283,6 +37477,7 @@ export class RunDocSummaryRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
       query: 'Query',
       recommendContent: 'RecommendContent',
@@ -37293,6 +37488,7 @@ export class RunDocSummaryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
       query: 'string',
       recommendContent: 'string',
@@ -37385,6 +37581,7 @@ export class RunDocSummaryResponse extends $dara.Model {
 }
 
 export class RunDocTranslationRequest extends $dara.Model {
+  cleanCache?: boolean;
   /**
    * @example
    * 12345
@@ -37415,6 +37612,7 @@ export class RunDocTranslationRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
       recommendContent: 'RecommendContent',
       sessionId: 'SessionId',
@@ -37425,6 +37623,7 @@ export class RunDocTranslationRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
       recommendContent: 'string',
       sessionId: 'string',
@@ -37498,6 +37697,149 @@ export class RunDocTranslationResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunDocTranslationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingRequest extends $dara.Model {
+  prompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  referenceContent?: string;
+  sessionId?: string;
+  topic?: string;
+  /**
+   * @example
+   * 500
+   */
+  wordNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  writingTypeName?: string;
+  writingTypeRefDoc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      prompt: 'Prompt',
+      referenceContent: 'ReferenceContent',
+      sessionId: 'SessionId',
+      topic: 'Topic',
+      wordNumber: 'WordNumber',
+      workspaceId: 'WorkspaceId',
+      writingTypeName: 'WritingTypeName',
+      writingTypeRefDoc: 'WritingTypeRefDoc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      prompt: 'string',
+      referenceContent: 'string',
+      sessionId: 'string',
+      topic: 'string',
+      wordNumber: 'number',
+      workspaceId: 'string',
+      writingTypeName: 'string',
+      writingTypeRefDoc: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingResponseBody extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  end?: boolean;
+  header?: RunDocWashingResponseBodyHeader;
+  payload?: RunDocWashingResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunDocWashingResponseBodyHeader,
+      payload: RunDocWashingResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocWashingResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocWashingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocWashingResponseBody,
     };
   }
 
@@ -49370,8 +49712,16 @@ export default class Client extends OpenApi {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.keyPointPrompt)) {
+      body["KeyPointPrompt"] = request.keyPointPrompt;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.summaryPrompt)) {
+      body["SummaryPrompt"] = request.summaryPrompt;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -49512,6 +49862,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sentimentShrink)) {
       body["Sentiment"] = request.sentimentShrink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
     }
 
     if (!$dara.isNull(request.sourceMaterial)) {
@@ -49778,12 +50132,28 @@ export default class Client extends OpenApi {
   async runDocBrainmapWithOptions(request: RunDocBrainmapRequest, runtime: $dara.RuntimeOptions): Promise<RunDocBrainmapResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.nodeNumber)) {
+      body["NodeNumber"] = request.nodeNumber;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.wordNumber)) {
+      body["WordNumber"] = request.wordNumber;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -49832,13 +50202,30 @@ export default class Client extends OpenApi {
    */
   async runDocIntroductionWithOptions(request: RunDocIntroductionRequest, runtime: $dara.RuntimeOptions): Promise<RunDocIntroductionResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      query["CleanCache"] = request.cleanCache;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
 
+    if (!$dara.isNull(request.introductionPrompt)) {
+      body["IntroductionPrompt"] = request.introductionPrompt;
+    }
+
+    if (!$dara.isNull(request.keyPointPrompt)) {
+      body["KeyPointPrompt"] = request.keyPointPrompt;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.summaryPrompt)) {
+      body["SummaryPrompt"] = request.summaryPrompt;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -49846,6 +50233,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -50032,6 +50420,10 @@ export default class Client extends OpenApi {
   async runDocSummaryWithOptions(request: RunDocSummaryRequest, runtime: $dara.RuntimeOptions): Promise<RunDocSummaryResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
@@ -50095,6 +50487,10 @@ export default class Client extends OpenApi {
   async runDocTranslationWithOptions(request: RunDocTranslationRequest, runtime: $dara.RuntimeOptions): Promise<RunDocTranslationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
@@ -50146,6 +50542,81 @@ export default class Client extends OpenApi {
   async runDocTranslation(request: RunDocTranslationRequest): Promise<RunDocTranslationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runDocTranslationWithOptions(request, runtime);
+  }
+
+  /**
+   * 文档改写
+   * 
+   * @param request - RunDocWashingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocWashingResponse
+   */
+  async runDocWashingWithOptions(request: RunDocWashingRequest, runtime: $dara.RuntimeOptions): Promise<RunDocWashingResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.referenceContent)) {
+      body["ReferenceContent"] = request.referenceContent;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!$dara.isNull(request.wordNumber)) {
+      body["WordNumber"] = request.wordNumber;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.writingTypeName)) {
+      body["WritingTypeName"] = request.writingTypeName;
+    }
+
+    if (!$dara.isNull(request.writingTypeRefDoc)) {
+      body["WritingTypeRefDoc"] = request.writingTypeRefDoc;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunDocWashing",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunDocWashingResponse>(await this.callApi(params, req, runtime), new RunDocWashingResponse({}));
+    } else {
+      return $dara.cast<RunDocWashingResponse>(await this.execute(params, req, runtime), new RunDocWashingResponse({}));
+    }
+
+  }
+
+  /**
+   * 文档改写
+   * 
+   * @param request - RunDocWashingRequest
+   * @returns RunDocWashingResponse
+   */
+  async runDocWashing(request: RunDocWashingRequest): Promise<RunDocWashingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runDocWashingWithOptions(request, runtime);
   }
 
   /**
