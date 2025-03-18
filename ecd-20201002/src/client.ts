@@ -1164,6 +1164,73 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   }
 }
 
+export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends $dara.Model {
+  description?: string;
+  kb?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      kb: 'Kb',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      kb: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Model {
+  checkId?: string;
+  kbListString?: string;
+  packageCount?: number;
+  packages?: DescribeUserResourcesResponseBodyResourcesOsUpdatePackages[];
+  updateCatalogUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      kbListString: 'KbListString',
+      packageCount: 'PackageCount',
+      packages: 'Packages',
+      updateCatalogUrl: 'UpdateCatalogUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'string',
+      kbListString: 'string',
+      packageCount: 'number',
+      packages: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesOsUpdatePackages },
+      updateCatalogUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.packages)) {
+      $dara.Model.validateArray(this.packages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Model {
   /**
    * @example
@@ -1285,6 +1352,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * true
    */
   globalStatus?: boolean;
+  hasUpgrade?: boolean;
   /**
    * @example
    * false
@@ -1323,6 +1391,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * Windows
    */
   osType?: string;
+  osUpdate?: DescribeUserResourcesResponseBodyResourcesOsUpdate;
   /**
    * @example
    * AndroidCloud
@@ -1428,6 +1497,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       externalUserId: 'ExternalUserId',
       fotaUpdate: 'FotaUpdate',
       globalStatus: 'GlobalStatus',
+      hasUpgrade: 'HasUpgrade',
       hibernationBeta: 'HibernationBeta',
       icon: 'Icon',
       lastStartTime: 'LastStartTime',
@@ -1438,6 +1508,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       os: 'Os',
       osDescription: 'OsDescription',
       osType: 'OsType',
+      osUpdate: 'OsUpdate',
       productType: 'ProductType',
       protocolType: 'ProtocolType',
       realDesktopId: 'RealDesktopId',
@@ -1482,6 +1553,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       externalUserId: 'string',
       fotaUpdate: DescribeUserResourcesResponseBodyResourcesFotaUpdate,
       globalStatus: 'boolean',
+      hasUpgrade: 'boolean',
       hibernationBeta: 'boolean',
       icon: 'string',
       lastStartTime: 'string',
@@ -1492,6 +1564,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       os: 'string',
       osDescription: 'string',
       osType: 'string',
+      osUpdate: DescribeUserResourcesResponseBodyResourcesOsUpdate,
       productType: 'string',
       protocolType: 'string',
       realDesktopId: 'string',
@@ -1530,6 +1603,9 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
     }
     if(Array.isArray(this.managementStatuses)) {
       $dara.Model.validateArray(this.managementStatuses);
+    }
+    if(this.osUpdate && typeof (this.osUpdate as any).validate === 'function') {
+      (this.osUpdate as any).validate();
     }
     if(Array.isArray(this.sessions)) {
       $dara.Model.validateArray(this.sessions);
@@ -1837,6 +1913,7 @@ export class ApproveFotaUpdateRequest extends $dara.Model {
    * 4771b873-c757-4893-973c-7f5beejh****
    */
   sessionId?: string;
+  targetStatus?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1846,6 +1923,7 @@ export class ApproveFotaUpdateRequest extends $dara.Model {
       loginToken: 'LoginToken',
       regionId: 'RegionId',
       sessionId: 'SessionId',
+      targetStatus: 'TargetStatus',
       uuid: 'Uuid',
     };
   }
@@ -1858,6 +1936,7 @@ export class ApproveFotaUpdateRequest extends $dara.Model {
       loginToken: 'string',
       regionId: 'string',
       sessionId: 'string',
+      targetStatus: 'string',
       uuid: 'string',
     };
   }
@@ -4617,6 +4696,7 @@ export class RebootDesktopsRequest extends $dara.Model {
    * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
    */
   loginToken?: string;
+  osUpdate?: boolean;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
@@ -4659,6 +4739,7 @@ export class RebootDesktopsRequest extends $dara.Model {
       clientVersion: 'ClientVersion',
       desktopId: 'DesktopId',
       loginToken: 'LoginToken',
+      osUpdate: 'OsUpdate',
       regionId: 'RegionId',
       sessionId: 'SessionId',
       sessionToken: 'SessionToken',
@@ -4674,6 +4755,7 @@ export class RebootDesktopsRequest extends $dara.Model {
       clientVersion: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       loginToken: 'string',
+      osUpdate: 'boolean',
       regionId: 'string',
       sessionId: 'string',
       sessionToken: 'string',
@@ -6247,6 +6329,7 @@ export class StopDesktopsRequest extends $dara.Model {
    * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
    */
   loginToken?: string;
+  osUpdate?: boolean;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
@@ -6281,6 +6364,7 @@ export class StopDesktopsRequest extends $dara.Model {
       clientVersion: 'ClientVersion',
       desktopId: 'DesktopId',
       loginToken: 'LoginToken',
+      osUpdate: 'OsUpdate',
       regionId: 'RegionId',
       sessionId: 'SessionId',
       sessionToken: 'SessionToken',
@@ -6295,6 +6379,7 @@ export class StopDesktopsRequest extends $dara.Model {
       clientVersion: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       loginToken: 'string',
+      osUpdate: 'boolean',
       regionId: 'string',
       sessionId: 'string',
       sessionToken: 'string',
@@ -6852,6 +6937,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.targetStatus)) {
+      query["TargetStatus"] = request.targetStatus;
     }
 
     if (!$dara.isNull(request.uuid)) {
@@ -8058,6 +8147,10 @@ export default class Client extends OpenApi {
       query["LoginToken"] = request.loginToken;
     }
 
+    if (!$dara.isNull(request.osUpdate)) {
+      query["OsUpdate"] = request.osUpdate;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -8842,6 +8935,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.loginToken)) {
       query["LoginToken"] = request.loginToken;
+    }
+
+    if (!$dara.isNull(request.osUpdate)) {
+      query["OsUpdate"] = request.osUpdate;
     }
 
     if (!$dara.isNull(request.regionId)) {
