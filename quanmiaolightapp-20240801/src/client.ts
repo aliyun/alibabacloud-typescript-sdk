@@ -7775,6 +7775,11 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   snapshotInterval?: number;
   /**
    * @example
+   * 10
+   */
+  splitInterval?: number;
+  /**
+   * @example
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
@@ -7804,6 +7809,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
       snapshotInterval: 'snapshotInterval',
+      splitInterval: 'splitInterval',
       taskId: 'taskId',
       textProcessTasks: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
@@ -7826,6 +7832,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       modelId: 'string',
       originalSessionId: 'string',
       snapshotInterval: 'number',
+      splitInterval: 'number',
       taskId: 'string',
       textProcessTasks: { 'type': 'array', 'itemType': RunVideoAnalysisRequestTextProcessTasks },
       videoExtraInfo: 'string',
@@ -7886,6 +7893,11 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
   snapshotInterval?: number;
   /**
    * @example
+   * 10
+   */
+  splitInterval?: number;
+  /**
+   * @example
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
@@ -7915,6 +7927,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
       snapshotInterval: 'snapshotInterval',
+      splitInterval: 'splitInterval',
       taskId: 'taskId',
       textProcessTasksShrink: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
@@ -7937,6 +7950,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
       modelId: 'string',
       originalSessionId: 'string',
       snapshotInterval: 'number',
+      splitInterval: 'number',
       taskId: 'string',
       textProcessTasksShrink: 'string',
       videoExtraInfo: 'string',
@@ -8297,6 +8311,11 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
    * 2
    */
   snapshotInterval?: number;
+  /**
+   * @example
+   * 10
+   */
+  splitInterval?: number;
   textProcessTasks?: SubmitVideoAnalysisTaskRequestTextProcessTasks[];
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
@@ -8325,6 +8344,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       snapshotInterval: 'snapshotInterval',
+      splitInterval: 'splitInterval',
       textProcessTasks: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
@@ -8345,6 +8365,7 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       snapshotInterval: 'number',
+      splitInterval: 'number',
       textProcessTasks: { 'type': 'array', 'itemType': SubmitVideoAnalysisTaskRequestTextProcessTasks },
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
@@ -8401,6 +8422,11 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
    * 2
    */
   snapshotInterval?: number;
+  /**
+   * @example
+   * 10
+   */
+  splitInterval?: number;
   textProcessTasksShrink?: string;
   videoExtraInfo?: string;
   videoModelCustomPromptTemplate?: string;
@@ -8429,6 +8455,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'modelCustomPromptTemplateId',
       modelId: 'modelId',
       snapshotInterval: 'snapshotInterval',
+      splitInterval: 'splitInterval',
       textProcessTasksShrink: 'textProcessTasks',
       videoExtraInfo: 'videoExtraInfo',
       videoModelCustomPromptTemplate: 'videoModelCustomPromptTemplate',
@@ -8449,6 +8476,7 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
       modelCustomPromptTemplateId: 'string',
       modelId: 'string',
       snapshotInterval: 'number',
+      splitInterval: 'number',
       textProcessTasksShrink: 'string',
       videoExtraInfo: 'string',
       videoModelCustomPromptTemplate: 'string',
@@ -9901,6 +9929,10 @@ export default class Client extends OpenApi {
       body["snapshotInterval"] = request.snapshotInterval;
     }
 
+    if (!$dara.isNull(request.splitInterval)) {
+      body["splitInterval"] = request.splitInterval;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["taskId"] = request.taskId;
     }
@@ -10115,6 +10147,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.snapshotInterval)) {
       body["snapshotInterval"] = request.snapshotInterval;
+    }
+
+    if (!$dara.isNull(request.splitInterval)) {
+      body["splitInterval"] = request.splitInterval;
     }
 
     if (!$dara.isNull(request.textProcessTasksShrink)) {
