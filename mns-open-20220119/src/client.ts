@@ -5,9 +5,70 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class CreateEventRuleRequestEndpoints extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http
+   */
+  endpointType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-xxx-queue
+   */
+  endpointValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointType: 'EndpointType',
+      endpointValue: 'EndpointValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointType: 'string',
+      endpointValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateQueueRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxReceiveCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36,11 +97,17 @@ export class CreateQueueRequestDlqPolicy extends $dara.Model {
 
 export class CreateQueueRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * tag1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -70,11 +137,17 @@ export class CreateQueueRequestTag extends $dara.Model {
 
 export class CreateQueueShrinkRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * tag1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -286,9 +359,9 @@ export class DeleteQueueResponseBodyData extends $dara.Model {
 export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid value:
+   * The ACL policy. Valid values:
    * 
-   * *   **allow**: indicates that the current endpoint allows access from the corresponding CIDR block. (Only allow is supported)
+   * *   **allow**: indicates that the current endpoint allows access from the corresponding CIDR block. (Only allow is supported.)
    * 
    * @example
    * allow
@@ -304,7 +377,7 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
   cidr?: string;
   /**
    * @remarks
-   * The time when the list was created.
+   * The creation time.
    * 
    * @example
    * 1701951224000
@@ -338,7 +411,7 @@ export class GetEndpointAttributeResponseBodyDataCidrList extends $dara.Model {
 export class GetEndpointAttributeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of CIDR block.
    */
   cidrList?: GetEndpointAttributeResponseBodyDataCidrList[];
   /**
@@ -377,11 +450,17 @@ export class GetEndpointAttributeResponseBodyData extends $dara.Model {
 
 export class GetQueueAttributesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * tag1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -410,8 +489,29 @@ export class GetQueueAttributesRequestTag extends $dara.Model {
 }
 
 export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxReceiveCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -440,11 +540,17 @@ export class GetQueueAttributesResponseBodyDataDlqPolicy extends $dara.Model {
 
 export class GetQueueAttributesResponseBodyDataTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * tag1
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -505,6 +611,10 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * 30
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: GetQueueAttributesResponseBodyDataDlqPolicy;
   /**
    * @remarks
@@ -565,6 +675,10 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tag.
+   */
   tags?: GetQueueAttributesResponseBodyDataTags[];
   /**
    * @remarks
@@ -628,7 +742,21 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
 }
 
 export class GetSubscriptionAttributesResponseBodyDataDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -662,6 +790,10 @@ export class GetSubscriptionAttributesResponseBodyData extends $dara.Model {
    * 1449554806
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: GetSubscriptionAttributesResponseBodyDataDlqPolicy;
   /**
    * @remarks
@@ -955,11 +1087,17 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
 
 export class ListQueueRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * tag1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test
    */
@@ -988,8 +1126,29 @@ export class ListQueueRequestTag extends $dara.Model {
 }
 
 export class ListQueueResponseBodyDataPageDataDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxReceiveCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1059,7 +1218,7 @@ export class ListQueueResponseBodyDataPageDataTags extends $dara.Model {
 export class ListQueueResponseBodyDataPageData extends $dara.Model {
   /**
    * @remarks
-   * The total number of messages that are in the Active state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The total number of messages that are in the Active state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 20
@@ -1075,7 +1234,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The total number of messages that are in the Delayed state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -1089,10 +1248,14 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
    * 30
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: ListQueueResponseBodyDataPageDataDlqPolicy;
   /**
    * @remarks
-   * The total number of messages that are in the Inactive state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
+   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
    * 
    * @example
    * 0
@@ -1296,7 +1459,21 @@ export class ListQueueResponseBodyData extends $dara.Model {
 }
 
 export class ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * dead-letter-queue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1330,6 +1507,10 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $dara.Model
    * 1449554806
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: ListSubscriptionByTopicResponseBodyDataPageDataDlqPolicy;
   /**
    * @remarks
@@ -1788,8 +1969,29 @@ export class ListTopicResponseBodyData extends $dara.Model {
 }
 
 export class SetQueueAttributesRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxReceiveCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1864,7 +2066,21 @@ export class SetQueueAttributesResponseBodyData extends $dara.Model {
 }
 
 export class SetSubscriptionAttributesRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1984,7 +2200,21 @@ export class SetTopicAttributesResponseBodyData extends $dara.Model {
 }
 
 export class SubscribeRequestDlqPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The queue to which dead-letter messages are delivered.
+   * 
+   * @example
+   * deadLetterTargetQueue
+   */
   deadLetterTargetQueue?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dead-letter message delivery.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2095,9 +2325,9 @@ export class EventMatchRule extends $dara.Model {
 export class AuthorizeEndpointAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid value:
+   * The ACL policy. Valid values:
    * 
-   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
    * 
    * This parameter is required.
    * 
@@ -2107,16 +2337,16 @@ export class AuthorizeEndpointAclRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of CIDR block.
    * 
    * This parameter is required.
    */
   cidrList?: string[];
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Valid values:
    * 
-   * *   **public**: indicates public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public endpoint is supported.)
    * 
    * This parameter is required.
    * 
@@ -2155,9 +2385,9 @@ export class AuthorizeEndpointAclRequest extends $dara.Model {
 export class AuthorizeEndpointAclShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid value:
+   * The ACL policy. Valid values:
    * 
-   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
    * 
    * This parameter is required.
    * 
@@ -2167,16 +2397,16 @@ export class AuthorizeEndpointAclShrinkRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of CIDR block.
    * 
    * This parameter is required.
    */
   cidrListShrink?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Valid values:
    * 
-   * *   **public**: indicates public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public endpoint is supported.)
    * 
    * This parameter is required.
    * 
@@ -2212,7 +2442,7 @@ export class AuthorizeEndpointAclShrinkRequest extends $dara.Model {
 export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -2220,7 +2450,7 @@ export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -2228,7 +2458,7 @@ export class AuthorizeEndpointAclResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -2314,6 +2544,234 @@ export class AuthorizeEndpointAclResponse extends $dara.Model {
   }
 }
 
+export class CreateEventRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  endpoints?: CreateEventRuleRequestEndpoints[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  eventTypes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  matchRules?: EventMatchRule[][];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
+  productName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rule-xsXDW
+   */
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoints: 'Endpoints',
+      eventTypes: 'EventTypes',
+      matchRules: 'MatchRules',
+      productName: 'ProductName',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoints: { 'type': 'array', 'itemType': CreateEventRuleRequestEndpoints },
+      eventTypes: { 'type': 'array', 'itemType': 'string' },
+      matchRules: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': EventMatchRule } },
+      productName: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.endpoints)) {
+      $dara.Model.validateArray(this.endpoints);
+    }
+    if(Array.isArray(this.eventTypes)) {
+      $dara.Model.validateArray(this.eventTypes);
+    }
+    if(Array.isArray(this.matchRules)) {
+      $dara.Model.validateArray(this.matchRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventRuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  endpointsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  eventTypesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  matchRulesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
+  productName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rule-xsXDW
+   */
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointsShrink: 'Endpoints',
+      eventTypesShrink: 'EventTypes',
+      matchRulesShrink: 'MatchRules',
+      productName: 'ProductName',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointsShrink: 'string',
+      eventTypesShrink: 'string',
+      matchRulesShrink: 'string',
+      productName: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * rule-xsXDW
+   */
+  data?: string;
+  /**
+   * @example
+   * operation success
+   */
+  message?: string;
+  /**
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEventRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEventRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateQueueRequest extends $dara.Model {
   /**
    * @remarks
@@ -2323,6 +2781,10 @@ export class CreateQueueRequest extends $dara.Model {
    * 0
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: CreateQueueRequestDlqPolicy;
   /**
    * @remarks
@@ -2347,7 +2809,7 @@ export class CreateQueueRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is consumed. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
    * 
    * @example
    * 345600
@@ -2371,6 +2833,10 @@ export class CreateQueueRequest extends $dara.Model {
    * 06273500-249F-5863-121D-74D51123****
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateQueueRequestTag[];
   /**
    * @remarks
@@ -2432,6 +2898,10 @@ export class CreateQueueShrinkRequest extends $dara.Model {
    * 0
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicyShrink?: string;
   /**
    * @remarks
@@ -2456,7 +2926,7 @@ export class CreateQueueShrinkRequest extends $dara.Model {
   maximumMessageSize?: number;
   /**
    * @remarks
-   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is consumed. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
    * 
    * @example
    * 345600
@@ -2480,6 +2950,10 @@ export class CreateQueueShrinkRequest extends $dara.Model {
    * 06273500-249F-5863-121D-74D51123****
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateQueueShrinkRequestTag[];
   /**
    * @remarks
@@ -2824,6 +3298,136 @@ export class CreateTopicResponse extends $dara.Model {
   }
 }
 
+export class DeleteEventRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
+  productName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rule-xsXDW
+   */
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productName: 'ProductName',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productName: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEventRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * operation success
+   */
+  message?: string;
+  /**
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEventRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEventRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEventRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteQueueRequest extends $dara.Model {
   /**
    * @remarks
@@ -3121,9 +3725,9 @@ export class DeleteTopicResponse extends $dara.Model {
 export class DisableEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Value:
    * 
-   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates an public endpoint. (Only the public endpoint is supported.)
    * 
    * This parameter is required.
    * 
@@ -3155,7 +3759,7 @@ export class DisableEndpointRequest extends $dara.Model {
 export class DisableEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -3163,7 +3767,7 @@ export class DisableEndpointResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -3171,7 +3775,7 @@ export class DisableEndpointResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -3262,7 +3866,7 @@ export class EnableEndpointRequest extends $dara.Model {
    * @remarks
    * The type of the endpoint. Valid value:
    * 
-   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public is supported.)
    * 
    * This parameter is required.
    * 
@@ -3294,7 +3898,7 @@ export class EnableEndpointRequest extends $dara.Model {
 export class EnableEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -3302,7 +3906,7 @@ export class EnableEndpointResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -3310,7 +3914,7 @@ export class EnableEndpointResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -3399,9 +4003,9 @@ export class EnableEndpointResponse extends $dara.Model {
 export class GetEndpointAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Value:
    * 
-   * *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public is supported.)
    * 
    * This parameter is required.
    * 
@@ -3433,7 +4037,7 @@ export class GetEndpointAttributeRequest extends $dara.Model {
 export class GetEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -3441,12 +4045,12 @@ export class GetEndpointAttributeResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetEndpointAttributeResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -3556,6 +4160,10 @@ export class GetQueueAttributesRequest extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: GetQueueAttributesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -3753,7 +4361,7 @@ export class GetSubscriptionAttributesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: GetSubscriptionAttributesResponseBodyData;
   /**
@@ -4035,6 +4643,10 @@ export class ListQueueRequest extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListQueueRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -4252,7 +4864,7 @@ export class ListSubscriptionByTopicResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListSubscriptionByTopicResponseBodyData;
   /**
@@ -4534,9 +5146,9 @@ export class ListTopicResponse extends $dara.Model {
 export class RevokeEndpointAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid value:
+   * The ACL policy. Value:
    * 
-   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
    * 
    * This parameter is required.
    * 
@@ -4546,16 +5158,16 @@ export class RevokeEndpointAclRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of CIDR block.
    * 
    * This parameter is required.
    */
   cidrList?: string[];
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Valid values:
    * 
-   * *   **public**: indicates an public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public is supported.)
    * 
    * This parameter is required.
    * 
@@ -4594,9 +5206,9 @@ export class RevokeEndpointAclRequest extends $dara.Model {
 export class RevokeEndpointAclShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACL policy. Valid value:
+   * The ACL policy. Value:
    * 
-   * *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+   * *   **allow**: indicates that this operation is included in the Cidr whitelist. (Only the allow is supported.)
    * 
    * This parameter is required.
    * 
@@ -4606,16 +5218,16 @@ export class RevokeEndpointAclShrinkRequest extends $dara.Model {
   aclStrategy?: string;
   /**
    * @remarks
-   * The CIDR blocks.
+   * The list of CIDR block.
    * 
    * This parameter is required.
    */
   cidrListShrink?: string;
   /**
    * @remarks
-   * The type of the endpoint. Valid value:
+   * The type of the endpoint. Valid values:
    * 
-   * *   **public**: indicates an public endpoint. (Only public endpoint is supported.)
+   * *   **public**: indicates public endpoint. (Only the public is supported.)
    * 
    * This parameter is required.
    * 
@@ -4651,7 +5263,7 @@ export class RevokeEndpointAclShrinkRequest extends $dara.Model {
 export class RevokeEndpointAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -4659,7 +5271,7 @@ export class RevokeEndpointAclResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -4667,7 +5279,7 @@ export class RevokeEndpointAclResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06273500-249F-5863-121D-74D51123****
@@ -4762,6 +5374,10 @@ export class SetQueueAttributesRequest extends $dara.Model {
    * 0
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: SetQueueAttributesRequestDlqPolicy;
   /**
    * @remarks
@@ -4863,6 +5479,10 @@ export class SetQueueAttributesShrinkRequest extends $dara.Model {
    * 0
    */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicyShrink?: string;
   /**
    * @remarks
@@ -5068,6 +5688,10 @@ export class SetQueueAttributesResponse extends $dara.Model {
 }
 
 export class SetSubscriptionAttributesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: SetSubscriptionAttributesRequestDlqPolicy;
   /**
    * @remarks
@@ -5131,6 +5755,10 @@ export class SetSubscriptionAttributesRequest extends $dara.Model {
 }
 
 export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicyShrink?: string;
   /**
    * @remarks
@@ -5476,6 +6104,10 @@ export class SetTopicAttributesResponse extends $dara.Model {
 }
 
 export class SubscribeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicy?: SubscribeRequestDlqPolicy;
   /**
    * @remarks
@@ -5601,6 +6233,10 @@ export class SubscribeRequest extends $dara.Model {
 }
 
 export class SubscribeShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dead-letter queue policy.
+   */
   dlqPolicyShrink?: string;
   /**
    * @remarks
@@ -6020,7 +6656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more ACLrules for an endpoint of a specified type.
+   * You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
    * 
    * @param tmpReq - AuthorizeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6070,7 +6706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more ACLrules for an endpoint of a specified type.
+   * You can call this operation to add one or more rules of access control lists (ACLs) for the endpoint of a type.
    * 
    * @param request - AuthorizeEndpointAclRequest
    * @returns AuthorizeEndpointAclResponse
@@ -6078,6 +6714,83 @@ export default class Client extends OpenApi {
   async authorizeEndpointAcl(request: AuthorizeEndpointAclRequest): Promise<AuthorizeEndpointAclResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.authorizeEndpointAclWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建事件规则
+   * 
+   * @param tmpReq - CreateEventRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEventRuleResponse
+   */
+  async createEventRuleWithOptions(tmpReq: CreateEventRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateEventRuleResponse> {
+    tmpReq.validate();
+    let request = new CreateEventRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.endpoints)) {
+      request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.eventTypes)) {
+      request.eventTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventTypes, "EventTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.matchRules)) {
+      request.matchRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.matchRules, "MatchRules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endpointsShrink)) {
+      query["Endpoints"] = request.endpointsShrink;
+    }
+
+    if (!$dara.isNull(request.eventTypesShrink)) {
+      query["EventTypes"] = request.eventTypesShrink;
+    }
+
+    if (!$dara.isNull(request.matchRulesShrink)) {
+      query["MatchRules"] = request.matchRulesShrink;
+    }
+
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEventRule",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateEventRuleResponse>(await this.callApi(params, req, runtime), new CreateEventRuleResponse({}));
+    } else {
+      return $dara.cast<CreateEventRuleResponse>(await this.execute(params, req, runtime), new CreateEventRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建事件规则
+   * 
+   * @param request - CreateEventRuleRequest
+   * @returns CreateEventRuleResponse
+   */
+  async createEventRule(request: CreateEventRuleRequest): Promise<CreateEventRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEventRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6227,6 +6940,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除事件规则
+   * 
+   * @param request - DeleteEventRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEventRuleResponse
+   */
+  async deleteEventRuleWithOptions(request: DeleteEventRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEventRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEventRule",
+      version: "2022-01-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteEventRuleResponse>(await this.callApi(params, req, runtime), new DeleteEventRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteEventRuleResponse>(await this.execute(params, req, runtime), new DeleteEventRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除事件规则
+   * 
+   * @param request - DeleteEventRuleRequest
+   * @returns DeleteEventRuleResponse
+   */
+  async deleteEventRule(request: DeleteEventRuleRequest): Promise<DeleteEventRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEventRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a queue.
    * 
    * @param request - DeleteQueueRequest
@@ -6321,7 +7085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
+   * You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6357,7 +7121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
+   * You can call this operation to disenable the endpoint of a type. After the endpoint is disabled, all requests from the endpoint are blocked and an error is returned.
    * 
    * @param request - DisableEndpointRequest
    * @returns DisableEndpointResponse
@@ -6368,7 +7132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+   * You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6404,7 +7168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
+   * You can call this operation to enable the endpoint of a type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
    * 
    * @param request - EnableEndpointRequest
    * @returns EnableEndpointResponse
@@ -6792,7 +7556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more ACLs from an endpoint of a specified type.
+   * You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
    * 
    * @param tmpReq - RevokeEndpointAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6842,7 +7606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more ACLs from an endpoint of a specified type.
+   * You can call this operation to delete one or more rules of access control lists (ACLs) for the endpoint of a type.
    * 
    * @param request - RevokeEndpointAclRequest
    * @returns RevokeEndpointAclResponse
