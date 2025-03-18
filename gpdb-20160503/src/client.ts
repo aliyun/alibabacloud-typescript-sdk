@@ -27224,15 +27224,18 @@ export class DescribeDownloadRecordsRequest extends $dara.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  downloadTaskType?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      downloadTaskType: 'DownloadTaskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      downloadTaskType: 'string',
     };
   }
 
@@ -56597,6 +56600,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.downloadTaskType)) {
+      query["DownloadTaskType"] = request.downloadTaskType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
