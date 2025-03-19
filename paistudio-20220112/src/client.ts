@@ -2891,6 +2891,45 @@ export class AllocateStrategySpec extends $dara.Model {
   }
 }
 
+export class BindingPolicy extends $dara.Model {
+  excludeNodes?: string[];
+  includeNodes?: string[];
+  /**
+   * @example
+   * 5
+   */
+  nodeSpecCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      excludeNodes: 'ExcludeNodes',
+      includeNodes: 'IncludeNodes',
+      nodeSpecCount: 'NodeSpecCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNodes: { 'type': 'array', 'itemType': 'string' },
+      includeNodes: { 'type': 'array', 'itemType': 'string' },
+      nodeSpecCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNodes)) {
+      $dara.Model.validateArray(this.excludeNodes);
+    }
+    if(Array.isArray(this.includeNodes)) {
+      $dara.Model.validateArray(this.includeNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Channel extends $dara.Model {
   description?: string;
   /**
@@ -3954,6 +3993,35 @@ export class NodeMetric extends $dara.Model {
   }
 }
 
+export class NodeOperationResult extends $dara.Model {
+  message?: string;
+  nodeName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      nodeName: 'NodeName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      nodeName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NodePodInfo extends $dara.Model {
   /**
    * @example
@@ -4073,6 +4141,7 @@ export class NodeSnapshot extends $dara.Model {
 }
 
 export class NodeSpec extends $dara.Model {
+  bindingPolicy?: BindingPolicy;
   /**
    * @example
    * 10
@@ -4085,6 +4154,7 @@ export class NodeSpec extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      bindingPolicy: 'BindingPolicy',
       count: 'Count',
       type: 'Type',
     };
@@ -4092,12 +4162,16 @@ export class NodeSpec extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindingPolicy: BindingPolicy,
       count: 'number',
       type: 'string',
     };
   }
 
   validate() {
+    if(this.bindingPolicy && typeof (this.bindingPolicy as any).validate === 'function') {
+      (this.bindingPolicy as any).validate();
+    }
     super.validate();
   }
 
@@ -5375,6 +5449,38 @@ export class ResourceGroupMetric extends $dara.Model {
   validate() {
     if(Array.isArray(this.metrics)) {
       $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResourceLimitDetails extends $dara.Model {
+  GCLevel?: string;
+  resourceLimit?: { [key: string]: any };
+  shouldIgnoreResourceCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      GCLevel: 'GCLevel',
+      resourceLimit: 'ResourceLimit',
+      shouldIgnoreResourceCheck: 'ShouldIgnoreResourceCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GCLevel: 'string',
+      resourceLimit: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      shouldIgnoreResourceCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.resourceLimit) {
+      $dara.Model.validateMap(this.resourceLimit);
     }
     super.validate();
   }
@@ -10210,6 +10316,7 @@ export class ListNodesRequest extends $dara.Model {
    * T4
    */
   GPUType?: string;
+  machineGroupIds?: string;
   /**
    * @example
    * lingjxxxx
@@ -10271,6 +10378,7 @@ export class ListNodesRequest extends $dara.Model {
       filterByQuotaId: 'FilterByQuotaId',
       filterByResourceGroupIds: 'FilterByResourceGroupIds',
       GPUType: 'GPUType',
+      machineGroupIds: 'MachineGroupIds',
       nodeNames: 'NodeNames',
       nodeStatuses: 'NodeStatuses',
       nodeTypes: 'NodeTypes',
@@ -10291,6 +10399,7 @@ export class ListNodesRequest extends $dara.Model {
       filterByQuotaId: 'string',
       filterByResourceGroupIds: 'string',
       GPUType: 'string',
+      machineGroupIds: 'string',
       nodeNames: 'string',
       nodeStatuses: 'string',
       nodeTypes: 'string',
@@ -10443,6 +10552,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
    * 29043893812,23829093093
    */
   userIds?: string;
+  withHistoricalData?: boolean;
   workloadCreatedTimeRange?: TimeRangeFilter;
   /**
    * @example
@@ -10479,6 +10589,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
       status: 'Status',
       subQuotaIds: 'SubQuotaIds',
       userIds: 'UserIds',
+      withHistoricalData: 'WithHistoricalData',
       workloadCreatedTimeRange: 'WorkloadCreatedTimeRange',
       workloadIds: 'WorkloadIds',
       workloadStatuses: 'WorkloadStatuses',
@@ -10502,6 +10613,7 @@ export class ListQuotaWorkloadsRequest extends $dara.Model {
       status: 'string',
       subQuotaIds: 'string',
       userIds: 'string',
+      withHistoricalData: 'boolean',
       workloadCreatedTimeRange: TimeRangeFilter,
       workloadIds: 'string',
       workloadStatuses: 'string',
@@ -10797,6 +10909,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
    * ecs.c6.large
    */
   ecsSpec?: string;
+  machineGroupIDs?: string;
   /**
    * @example
    * test
@@ -10851,6 +10964,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
     return {
       creatorID: 'CreatorID',
       ecsSpec: 'EcsSpec',
+      machineGroupIDs: 'MachineGroupIDs',
       name: 'Name',
       order: 'Order',
       orderInstanceId: 'OrderInstanceId',
@@ -10868,6 +10982,7 @@ export class ListResourceGroupMachineGroupsRequest extends $dara.Model {
     return {
       creatorID: 'string',
       ecsSpec: 'string',
+      machineGroupIDs: 'string',
       name: 'string',
       order: 'string',
       orderInstanceId: 'string',
@@ -14731,6 +14846,10 @@ export default class Client extends OpenApi {
       query["GPUType"] = request.GPUType;
     }
 
+    if (!$dara.isNull(request.machineGroupIds)) {
+      query["MachineGroupIds"] = request.machineGroupIds;
+    }
+
     if (!$dara.isNull(request.nodeNames)) {
       query["NodeNames"] = request.nodeNames;
     }
@@ -14871,6 +14990,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.userIds)) {
       query["UserIds"] = request.userIds;
+    }
+
+    if (!$dara.isNull(request.withHistoricalData)) {
+      query["WithHistoricalData"] = request.withHistoricalData;
     }
 
     if (!$dara.isNull(request.workloadCreatedTimeRange)) {
@@ -15047,6 +15170,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ecsSpec)) {
       query["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!$dara.isNull(request.machineGroupIDs)) {
+      query["MachineGroupIDs"] = request.machineGroupIDs;
     }
 
     if (!$dara.isNull(request.name)) {
