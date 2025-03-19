@@ -4185,6 +4185,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
    * rg-acfmwavnfdf****
    */
   resourceGroupId?: string;
+  secondaryBandwidth?: number;
+  secondaryCapacity?: number;
   /**
    * @remarks
    * The status of the file system. Valid values:
@@ -4279,6 +4281,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
       quorumVswId: 'QuorumVswId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      secondaryBandwidth: 'SecondaryBandwidth',
+      secondaryCapacity: 'SecondaryCapacity',
       status: 'Status',
       storageType: 'StorageType',
       supportedFeatures: 'SupportedFeatures',
@@ -4315,6 +4319,8 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $dara.
       quorumVswId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      secondaryBandwidth: 'number',
+      secondaryCapacity: 'number',
       status: 'string',
       storageType: 'string',
       supportedFeatures: DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures,
@@ -4408,7 +4414,7 @@ export class DescribeFilesetsRequestFilters extends $dara.Model {
    * *   If Key is set to QuotaExists, set Value to true or false. If you do not specify the parameter, all filesets are returned.
    * 
    * @example
-   * fset-12345678,fset-12345679
+   * fset-1902718ea0ae****,fset-3212718ea0ae****
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -4437,11 +4443,10 @@ export class DescribeFilesetsRequestFilters extends $dara.Model {
 export class DescribeFilesetsResponseBodyEntriesEntrieQuota extends $dara.Model {
   /**
    * @remarks
-   * The limit of the file quantity of the quota. Valid values:
+   * The file quantity quota. Valid values:
    * 
-   * Minimum value: 10000.
-   * 
-   * Maximum value: 10000000000.
+   * *   Minimum value: 10000.
+   * *   Maximum value: 10000000000.
    * 
    * @example
    * 10000
@@ -4449,13 +4454,10 @@ export class DescribeFilesetsResponseBodyEntriesEntrieQuota extends $dara.Model 
   fileCountLimit?: number;
   /**
    * @remarks
-   * The limit of the quota capacity. Unit: bytes.
+   * The capacity quota. Unit: bytes.
    * 
-   * Minimum value: 10737418240 (10 GiB).
-   * 
-   * Maximum value: 1073741824000 (1024000 GiB).
-   * 
-   * Step size: 1073741824 (1 GiB).
+   * *   Minimum value: 10737418240 (10 GiB).
+   * *   Step size: 1073741824 (1 GiB).
    * 
    * @example
    * 10737418240
@@ -4559,7 +4561,7 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $dara.Model {
    * @remarks
    * The quota information.
    * 
-   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   * >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
    */
   quota?: DescribeFilesetsResponseBodyEntriesEntrieQuota;
   /**
@@ -4676,6 +4678,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * 2019-10-30T10:08:08Z
    */
   createTime?: string;
+  enableLifecycle?: boolean;
   /**
    * @remarks
    * The ID of the file system.
@@ -4684,6 +4687,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * 31a8e4****
    */
   fileSystemId?: string;
+  fsetIds?: string[];
   /**
    * @remarks
    * The name of the lifecycle policy.
@@ -4707,6 +4711,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * DEFAULT_ATIME_14
    */
   lifecycleRuleName?: string;
+  lifecycleRuleType?: string;
   /**
    * @remarks
    * The absolute path of a directory with which the lifecycle policy is associated.
@@ -4720,6 +4725,7 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
    * The absolute paths to multiple directories associated with the lifecycle policy.
    */
   paths?: string[];
+  status?: string;
   /**
    * @remarks
    * The storage type of the data that is dumped to the IA storage medium.
@@ -4733,11 +4739,15 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      enableLifecycle: 'EnableLifecycle',
       fileSystemId: 'FileSystemId',
+      fsetIds: 'FsetIds',
       lifecyclePolicyName: 'LifecyclePolicyName',
       lifecycleRuleName: 'LifecycleRuleName',
+      lifecycleRuleType: 'LifecycleRuleType',
       path: 'Path',
       paths: 'Paths',
+      status: 'Status',
       storageType: 'StorageType',
     };
   }
@@ -4745,16 +4755,23 @@ export class DescribeLifecyclePoliciesResponseBodyLifecyclePolicies extends $dar
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      enableLifecycle: 'boolean',
       fileSystemId: 'string',
+      fsetIds: { 'type': 'array', 'itemType': 'string' },
       lifecyclePolicyName: 'string',
       lifecycleRuleName: 'string',
+      lifecycleRuleType: 'string',
       path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
       storageType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.fsetIds)) {
+      $dara.Model.validateArray(this.fsetIds);
+    }
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
     }
@@ -11824,6 +11841,7 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * 31a8e4****
    */
   fileSystemId?: string;
+  fsetIds?: string[];
   /**
    * @remarks
    * The name of the lifecycle policy. The name must be 3 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
@@ -11845,12 +11863,11 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
    * *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
    * *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
    * 
-   * This parameter is required.
-   * 
    * @example
    * DEFAULT_ATIME_14
    */
   lifecycleRuleName?: string;
+  lifecycleRuleType?: string;
   /**
    * @remarks
    * The absolute path of the directory that is associated with the lifecycle policy.
@@ -11888,8 +11905,10 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
+      fsetIds: 'FsetIds',
       lifecyclePolicyName: 'LifecyclePolicyName',
       lifecycleRuleName: 'LifecycleRuleName',
+      lifecycleRuleType: 'LifecycleRuleType',
       path: 'Path',
       paths: 'Paths',
       storageType: 'StorageType',
@@ -11899,8 +11918,10 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      fsetIds: { 'type': 'array', 'itemType': 'string' },
       lifecyclePolicyName: 'string',
       lifecycleRuleName: 'string',
+      lifecycleRuleType: 'string',
       path: 'string',
       paths: { 'type': 'array', 'itemType': 'string' },
       storageType: 'string',
@@ -11908,6 +11929,9 @@ export class CreateLifecyclePolicyRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.fsetIds)) {
+      $dara.Model.validateArray(this.fsetIds);
+    }
     if(Array.isArray(this.paths)) {
       $dara.Model.validateArray(this.paths);
     }
@@ -17257,7 +17281,31 @@ export class DescribeFilesetsRequest extends $dara.Model {
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The condition by which the results are sorted. Valid values:
+   * 
+   * *   FileCountLimit: the file quantity quota
+   * *   SizeLimit: the capacity quota
+   * *   FileCountUsage: the usage of the file quantity quota
+   * *   SpaceUsage: the capacity usage
+   * 
+   * @example
+   * FileCountLimit
+   */
   orderByField?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the results. Valid values:
+   * 
+   * *   asc (default): ascending order
+   * *   desc: descending order
+   * 
+   * >  This parameter takes effect only if you specify the OrderByField parameter.
+   * 
+   * @example
+   * asc
+   */
   sortOrder?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17404,6 +17452,8 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
    * 31a8e4****
    */
   fileSystemId?: string;
+  fileSystemType?: string;
+  fsetId?: string;
   /**
    * @remarks
    * The name of the lifecycle policy. The name must meet the following conventions:
@@ -17455,6 +17505,8 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
+      fsetId: 'FsetId',
       lifecyclePolicyName: 'LifecyclePolicyName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -17465,6 +17517,8 @@ export class DescribeLifecyclePoliciesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemId: 'string',
+      fileSystemType: 'string',
+      fsetId: 'string',
       lifecyclePolicyName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -22794,6 +22848,7 @@ export class ModifyLDAPConfigResponse extends $dara.Model {
 }
 
 export class ModifyLifecyclePolicyRequest extends $dara.Model {
+  enableLifecycle?: boolean;
   /**
    * @remarks
    * The ID of the file system.
@@ -22804,6 +22859,7 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
    * 31a8e4****
    */
   fileSystemId?: string;
+  fsetIds?: string[];
   /**
    * @remarks
    * The name of the lifecycle policy.
@@ -22826,8 +22882,6 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
    * *   DEFAULT_ATIME_30: Files that are not accessed in the last 30 days are dumped to the IA storage medium.
    * *   DEFAULT_ATIME_60: Files that are not accessed in the last 60 days are dumped to the IA storage medium.
    * *   DEFAULT_ATIME_90: Files that are not accessed in the last 90 days are dumped to the IA storage medium.
-   * 
-   * This parameter is required.
    * 
    * @example
    * DEFAULT_ATIME_14
@@ -22855,7 +22909,9 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      enableLifecycle: 'EnableLifecycle',
       fileSystemId: 'FileSystemId',
+      fsetIds: 'FsetIds',
       lifecyclePolicyName: 'LifecyclePolicyName',
       lifecycleRuleName: 'LifecycleRuleName',
       path: 'Path',
@@ -22865,7 +22921,9 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableLifecycle: 'boolean',
       fileSystemId: 'string',
+      fsetIds: { 'type': 'array', 'itemType': 'string' },
       lifecyclePolicyName: 'string',
       lifecycleRuleName: 'string',
       path: 'string',
@@ -22874,6 +22932,9 @@ export class ModifyLifecyclePolicyRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.fsetIds)) {
+      $dara.Model.validateArray(this.fsetIds);
+    }
     super.validate();
   }
 
@@ -27372,12 +27433,20 @@ export default class Client extends OpenApi {
       query["FileSystemId"] = request.fileSystemId;
     }
 
+    if (!$dara.isNull(request.fsetIds)) {
+      query["FsetIds"] = request.fsetIds;
+    }
+
     if (!$dara.isNull(request.lifecyclePolicyName)) {
       query["LifecyclePolicyName"] = request.lifecyclePolicyName;
     }
 
     if (!$dara.isNull(request.lifecycleRuleName)) {
       query["LifecycleRuleName"] = request.lifecycleRuleName;
+    }
+
+    if (!$dara.isNull(request.lifecycleRuleType)) {
+      query["LifecycleRuleType"] = request.lifecycleRuleType;
     }
 
     if (!$dara.isNull(request.path)) {
@@ -31937,8 +32006,16 @@ export default class Client extends OpenApi {
   async modifyLifecyclePolicyWithOptions(request: ModifyLifecyclePolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyLifecyclePolicyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.enableLifecycle)) {
+      query["EnableLifecycle"] = request.enableLifecycle;
+    }
+
     if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.fsetIds)) {
+      query["FsetIds"] = request.fsetIds;
     }
 
     if (!$dara.isNull(request.lifecyclePolicyName)) {
