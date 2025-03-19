@@ -157,7 +157,22 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * main
    */
   branch?: string;
+  /**
+   * @remarks
+   * The endpoint. 
+   * The URL address used to access the privately deployed GitLab instance.
+   * 
+   * @example
+   * http://121.40.25.0
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The organization ID.
+   * 
+   * @example
+   * 455231
+   */
   orgId?: string;
   /**
    * @remarks
@@ -176,11 +191,20 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * - github
    * 
    * - gitee
+   * - gitlab
+   * - codeup
    * 
    * @example
    * github
    */
   platform?: string;
+  /**
+   * @remarks
+   * The repository ID.
+   * 
+   * @example
+   * 103
+   */
   repoId?: number;
   /**
    * @remarks
@@ -3940,6 +3964,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
    * 2021-05-20T00:00:00Z
    */
   modifiedTime?: string;
+  namespace?: string;
   /**
    * @remarks
    * The image repo ID.
@@ -3971,6 +3996,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
     return {
       createTime: 'CreateTime',
       modifiedTime: 'ModifiedTime',
+      namespace: 'Namespace',
       repoId: 'RepoId',
       repoName: 'RepoName',
       repoType: 'RepoType',
@@ -3981,6 +4007,7 @@ export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Mode
     return {
       createTime: 'string',
       modifiedTime: 'string',
+      namespace: 'string',
       repoId: 'string',
       repoName: 'string',
       repoType: 'string',
@@ -7994,7 +8021,22 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
    * main
    */
   branch?: string;
+  /**
+   * @remarks
+   * The endpoint. 
+   * The URL address used to access the privately deployed GitLab instance.
+   * 
+   * @example
+   * http://121.40.25.0
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The organization ID.
+   * 
+   * @example
+   * 455231
+   */
   orgId?: string;
   /**
    * @remarks
@@ -8008,12 +8050,27 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Mo
   owner?: string;
   /**
    * @remarks
-   * The platform where the code repository is hosted.
+   * The platform type. Valid values:
+   * 
+   * - github
+   * 
+   * - gitee
+   * 
+   * - gitlab
+   * 
+   * - codeup
    * 
    * @example
    * github
    */
   platform?: string;
+  /**
+   * @remarks
+   * The repository ID.
+   * 
+   * @example
+   * 103
+   */
   repoId?: number;
   /**
    * @remarks
@@ -16057,6 +16114,14 @@ export class GetSupplierInformationRequest extends $dara.Model {
 export class GetSupplierInformationResponseBody extends $dara.Model {
   /**
    * @remarks
+   * Acr container namespace
+   * 
+   * @example
+   * computenest
+   */
+  acrNamespace?: string;
+  /**
+   * @remarks
    * The delivery settings.
    */
   deliverySettings?: GetSupplierInformationResponseBodyDeliverySettings;
@@ -16126,6 +16191,7 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
   supplierUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      acrNamespace: 'AcrNamespace',
       deliverySettings: 'DeliverySettings',
       enableReseller: 'EnableReseller',
       operationIp: 'OperationIp',
@@ -16140,6 +16206,7 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acrNamespace: 'string',
       deliverySettings: GetSupplierInformationResponseBodyDeliverySettings,
       enableReseller: 'boolean',
       operationIp: 'string',
@@ -26601,9 +26668,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取服务商信息
    * 
-   *  * @param request GetSupplierInformationRequest
-   * 
+   * @param request - GetSupplierInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSupplierInformationResponse
    */
@@ -26637,8 +26704,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取服务商信息
    * 
-   *  * @param request GetSupplierInformationRequest
+   * @param request - GetSupplierInformationRequest
    * @returns GetSupplierInformationResponse
    */
   async getSupplierInformation(request: GetSupplierInformationRequest): Promise<GetSupplierInformationResponse> {
