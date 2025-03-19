@@ -764,6 +764,7 @@ export class CreateFunctionInput extends $dara.Model {
    * my function
    */
   description?: string;
+  disableOndemand?: boolean;
   /**
    * @example
    * 512
@@ -836,6 +837,7 @@ export class CreateFunctionInput extends $dara.Model {
       customDNS: 'customDNS',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionName: 'functionName',
@@ -866,6 +868,7 @@ export class CreateFunctionInput extends $dara.Model {
       customDNS: CustomDNS,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      disableOndemand: 'boolean',
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionName: 'string',
@@ -1874,6 +1877,7 @@ export class Function extends $dara.Model {
    * my function
    */
   description?: string;
+  disableOndemand?: boolean;
   /**
    * @example
    * 512
@@ -1984,6 +1988,7 @@ export class Function extends $dara.Model {
       customDNS: 'customDNS',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       functionArn: 'functionArn',
@@ -2025,6 +2030,7 @@ export class Function extends $dara.Model {
       customDNS: CustomDNS,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      disableOndemand: 'boolean',
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionArn: 'string',
@@ -5377,6 +5383,7 @@ export class UpdateFunctionInput extends $dara.Model {
    * my function
    */
   description?: string;
+  disableOndemand?: boolean;
   /**
    * @example
    * 512
@@ -5430,6 +5437,7 @@ export class UpdateFunctionInput extends $dara.Model {
       customDNS: 'customDNS',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       gpuConfig: 'gpuConfig',
@@ -5458,6 +5466,7 @@ export class UpdateFunctionInput extends $dara.Model {
       customDNS: CustomDNS,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      disableOndemand: 'boolean',
       diskSize: 'number',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gpuConfig: GPUConfig,
@@ -6394,7 +6403,7 @@ export class DeleteLayerVersionResponse extends $dara.Model {
 export class DeleteProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The function alias or LATEST.
+   * The function alias.
    * 
    * @example
    * LATEST
@@ -6946,7 +6955,7 @@ export class GetLayerVersionByArnResponse extends $dara.Model {
 export class GetProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The function alias or LATEST.
+   * The function alias.
    * 
    * @example
    * LATEST
@@ -7420,14 +7429,15 @@ export class ListAsyncTasksRequest extends $dara.Model {
    * @remarks
    * The state of asynchronous tasks. The following items list the states of an asynchronous task:
    * 
-   * *   Enqueued: The asynchronous invocation is enqueued and is waiting to be executed.
+   * *   Enqueued: The asynchronous invocation is enqueued and waiting to be executed.
+   * *   Dequeued: The asynchronous invocation is dequeued and waiting to be triggered.
+   * *   Running: The invocation is being executed.
    * *   Succeeded: The invocation is successful.
    * *   Failed: The invocation fails.
-   * *   Running: The invocation is being executed.
    * *   Stopped: The invocation is terminated.
    * *   Stopping: The invocation is being terminated.
+   * *   Expired: The maximum validity period of messages is specified for asynchronous invocation. The invocation is discarded and not executed because the specified maximum validity period of messages expires.
    * *   Invalid: The invocation is invalid and not executed due to specific reasons. For example, the function is deleted.
-   * *   Expired: The maximum validity period of messages is specified for asynchronous invocation. The invocation is discarded and not executed because the specified maximum validity period has elapsed.
    * *   Retrying: The asynchronous invocation is being retried due to an execution error.
    * 
    * @example
@@ -7764,7 +7774,7 @@ export class ListFunctionVersionsResponse extends $dara.Model {
 export class ListFunctionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 2.0 and Function Compute 3.0 are listed.
+   * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
    * 
    * @example
    * v3
@@ -7794,12 +7804,14 @@ export class ListFunctionsRequest extends $dara.Model {
    * my-func
    */
   prefix?: string;
+  tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
       fcVersion: 'fcVersion',
       limit: 'limit',
       nextToken: 'nextToken',
       prefix: 'prefix',
+      tags: 'tags',
     };
   }
 
@@ -7809,6 +7821,73 @@ export class ListFunctionsRequest extends $dara.Model {
       limit: 'number',
       nextToken: 'string',
       prefix: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
+   * 
+   * @example
+   * v3
+   */
+  fcVersion?: string;
+  /**
+   * @remarks
+   * The number of functions to return. The minimum value is 1 and the maximum value is 100.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * The pagination token.
+   * 
+   * @example
+   * MTIzNCNhYmM=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The prefix of the function name.
+   * 
+   * @example
+   * my-func
+   */
+  prefix?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fcVersion: 'fcVersion',
+      limit: 'limit',
+      nextToken: 'nextToken',
+      prefix: 'prefix',
+      tagsShrink: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fcVersion: 'string',
+      limit: 'number',
+      nextToken: 'string',
+      prefix: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -8302,7 +8381,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * This parameter is required.
    * 
@@ -8376,7 +8455,7 @@ export class ListTagResourcesShrinkRequest extends $dara.Model {
   resourceIdShrink?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * This parameter is required.
    * 
@@ -8645,7 +8724,7 @@ export class PublishFunctionVersionResponse extends $dara.Model {
 export class PutAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous invocation configurations.
+   * The configurations of asynchronous function invocations.
    * 
    * This parameter is required.
    */
@@ -8860,14 +8939,14 @@ export class PutLayerACLResponse extends $dara.Model {
 export class PutProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The provisioned instance configurations.
+   * The provisioned configuration information.
    * 
    * This parameter is required.
    */
   body?: PutProvisionConfigInput;
   /**
    * @remarks
-   * The function alias or LATEST.
+   * The function alias.
    * 
    * @example
    * LATEST
@@ -9989,7 +10068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a function version.
+   * http://pre.hhht/#vpc
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10019,7 +10098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a function version.
+   * http://pre.hhht/#vpc
    * @returns DeleteFunctionVersionResponse
    */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
@@ -11144,13 +11223,19 @@ export default class Client extends OpenApi {
   /**
    * 列出函数。
    * 
-   * @param request - ListFunctionsRequest
+   * @param tmpReq - ListFunctionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFunctionsResponse
    */
-  async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListFunctionsResponse> {
-    request.validate();
+  async listFunctionsWithOptions(tmpReq: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListFunctionsResponse> {
+    tmpReq.validate();
+    let request = new ListFunctionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.fcVersion)) {
       query["fcVersion"] = request.fcVersion;
@@ -11166,6 +11251,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
