@@ -2140,38 +2140,84 @@ export class GetMessageContactDeletionStatusResponseBodyContactDeletionStatus ex
 
 export class GetResourceDirectoryResponseBodyResourceDirectory extends $dara.Model {
   /**
+   * @remarks
+   * The status of the Control Policy feature. Valid values:
+   * 
+   * - Enabled: The feature is enabled.
+   * - PendingEnable: The feature is being enabled.
+   * - Disabled: The feature is disabled.
+   * - PendingDisable: The feature is being disabled.
+   * 
    * @example
    * Enabled
    */
   controlPolicyStatus?: string;
   /**
+   * @remarks
+   * The time when the resource directory was enabled.
+   * 
    * @example
    * 2019-02-18T15:32:10.473Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The real-name verification information.
+   * 
+   * @example
+   * *** Co., Ltd.
+   */
   identityInformation?: string;
   /**
+   * @remarks
+   * The ID of the management account.
+   * 
    * @example
    * 172845045600****
    */
   masterAccountId?: string;
   /**
+   * @remarks
+   * The name of the management account.
+   * 
    * @example
    * aliyun-admin
    */
   masterAccountName?: string;
+  /**
+   * @remarks
+   * The status of the Member Display Name Synchronization feature. Valid values:
+   * 
+   * *   Enabled
+   * *   Disabled
+   * 
+   * @example
+   * Enabled
+   */
   memberAccountDisplayNameSyncStatus?: string;
   /**
+   * @remarks
+   * The status of the member deletion feature. Valid values:
+   * 
+   * - Enabled: The feature is enabled. You can call the [DeleteAccount](~~DeleteAccount~~) operation to delete members of the resource account type.
+   * - Disabled: The feature is disabled. You cannot delete members of the resource account type.
+   * 
    * @example
    * Enabled
    */
   memberDeletionStatus?: string;
   /**
+   * @remarks
+   * The ID of the resource directory.
+   * 
    * @example
    * rd-St****
    */
   resourceDirectoryId?: string;
   /**
+   * @remarks
+   * The ID of the Root folder.
+   * 
    * @example
    * r-Zo****
    */
@@ -3062,7 +3108,21 @@ export class ListAncestorsResponseBodyFolders extends $dara.Model {
 }
 
 export class ListControlPoliciesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tag_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3088,7 +3148,21 @@ export class ListControlPoliciesRequestTag extends $dara.Model {
 }
 
 export class ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tag_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3202,6 +3276,10 @@ export class ListControlPoliciesResponseBodyControlPoliciesControlPolicy extends
    * System
    */
   policyType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags;
   /**
    * @remarks
@@ -9044,10 +9122,17 @@ export class GetPayerForAccountResponse extends $dara.Model {
 
 export class GetResourceDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CD76D376-2517-4924-92C5-DBC52262F93A
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the resource directory.
+   */
   resourceDirectory?: GetResourceDirectoryResponseBodyResourceDirectory;
   static names(): { [key: string]: string } {
     return {
@@ -9276,7 +9361,23 @@ export class ListAccountsRequest extends $dara.Model {
    * true
    */
   includeTags?: boolean;
+  /**
+   * @remarks
+   * The number of entries per page. After you configure this parameter, token-based paging is preferentially used.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -9355,6 +9456,13 @@ export class ListAccountsResponseBody extends $dara.Model {
    * The information about the members.
    */
   accounts?: ListAccountsResponseBodyAccounts;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * TGlzdFJlc291cm****
+   */
   nextToken?: string;
   /**
    * @remarks
@@ -9775,9 +9883,9 @@ export class ListControlPoliciesRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Page starts from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -9785,7 +9893,7 @@ export class ListControlPoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -9804,6 +9912,10 @@ export class ListControlPoliciesRequest extends $dara.Model {
    * System
    */
   policyType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListControlPoliciesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9840,7 +9952,7 @@ export class ListControlPoliciesRequest extends $dara.Model {
 export class ListControlPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the access control policies.
+   * The access control policies.
    */
   controlPolicies?: ListControlPoliciesResponseBodyControlPolicies;
   /**
@@ -13062,6 +13174,119 @@ export class SetMemberDeletionPermissionResponse extends $dara.Model {
   }
 }
 
+export class SetMemberDisplayNameSyncStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Member Display Name Synchronization feature. Valid values:
+   * 
+   * *   Enabled: The feature is enabled. This indicates that the display names specified by the management account for the members will be synchronized to the basic account information of the members. The display name information will be visible and perceptible to the members. If a notification is sent to a member, the display name of the member will be used as the appellation of the member.
+   * *   Disabled: The feature is disabled. This indicates that the display names specified by the management account for the members are valid only in the resource directory and will not be updated to the basic account information of the members.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetMemberDisplayNameSyncStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Member Display Name Synchronization feature. Valid values:
+   * 
+   * *   Enabled
+   * *   Disabled
+   * 
+   * @example
+   * Enabled
+   */
+  memberAccountDisplayNameSyncStatus?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9B34724D-54B0-4A51-B34D-4512372FE1BE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberAccountDisplayNameSyncStatus: 'MemberAccountDisplayNameSyncStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberAccountDisplayNameSyncStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetMemberDisplayNameSyncStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetMemberDisplayNameSyncStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetMemberDisplayNameSyncStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
@@ -13948,6 +14173,8 @@ export class UpdateMessageContactResponse extends $dara.Model {
 export class UpdatePayerForAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13956,6 +14183,8 @@ export class UpdatePayerForAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
+   * The ID of the billing account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13987,6 +14216,9 @@ export class UpdatePayerForAccountRequest extends $dara.Model {
 
 export class UpdatePayerForAccountResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9B34724D-54B0-4A51-B34D-4512372FE1BE
    */
@@ -15935,7 +16167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * \\*\\*\\* Co., Ltd.
+   * Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
    * 
    * @param request - GetResourceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15963,7 +16195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * \\*\\*\\* Co., Ltd.
+   * Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
    * @returns GetResourceDirectoryResponse
    */
   async getResourceDirectory(): Promise<GetResourceDirectoryResponse> {
@@ -16035,7 +16267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the members in a resource directory.
+   * Queries a list of members in a resource directory.
    * 
    * @remarks
    * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
@@ -16098,7 +16330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the members in a resource directory.
+   * Queries a list of members in a resource directory.
    * 
    * @remarks
    * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
@@ -17548,6 +17780,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables the Member Display Name Synchronization feature.
+   * 
+   * @param request - SetMemberDisplayNameSyncStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetMemberDisplayNameSyncStatusResponse
+   */
+  async setMemberDisplayNameSyncStatusWithOptions(request: SetMemberDisplayNameSyncStatusRequest, runtime: $dara.RuntimeOptions): Promise<SetMemberDisplayNameSyncStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetMemberDisplayNameSyncStatus",
+      version: "2022-04-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetMemberDisplayNameSyncStatusResponse>(await this.callApi(params, req, runtime), new SetMemberDisplayNameSyncStatusResponse({}));
+    } else {
+      return $dara.cast<SetMemberDisplayNameSyncStatusResponse>(await this.execute(params, req, runtime), new SetMemberDisplayNameSyncStatusResponse({}));
+    }
+
+  }
+
+  /**
+   * Enables or disables the Member Display Name Synchronization feature.
+   * 
+   * @param request - SetMemberDisplayNameSyncStatusRequest
+   * @returns SetMemberDisplayNameSyncStatusResponse
+   */
+  async setMemberDisplayNameSyncStatus(request: SetMemberDisplayNameSyncStatusRequest): Promise<SetMemberDisplayNameSyncStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setMemberDisplayNameSyncStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Adds tags to the members in a resource directory.
    * 
    * @param request - TagResourcesRequest
@@ -17908,7 +18187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新成员的结算账号
+   * Updates the billing account of a member.
    * 
    * @param request - UpdatePayerForAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17948,7 +18227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新成员的结算账号
+   * Updates the billing account of a member.
    * 
    * @param request - UpdatePayerForAccountRequest
    * @returns UpdatePayerForAccountResponse
