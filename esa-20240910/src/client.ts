@@ -15091,6 +15091,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
    * on
    */
   range?: string;
+  rangeChunkSize?: string;
   /**
    * @remarks
    * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
@@ -15148,6 +15149,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
       range: 'Range',
+      rangeChunkSize: 'RangeChunkSize',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
@@ -15169,6 +15171,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originSni: 'string',
       originVerify: 'string',
       range: 'string',
+      rangeChunkSize: 'string',
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
@@ -26470,6 +26473,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * on
    */
   range?: string;
+  rangeChunkSize?: string;
   /**
    * @remarks
    * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
@@ -26527,6 +26531,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
       range: 'Range',
+      rangeChunkSize: 'RangeChunkSize',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
@@ -26546,6 +26551,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originSni: 'string',
       originVerify: 'string',
       range: 'string',
+      rangeChunkSize: 'string',
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
@@ -43478,6 +43484,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * on
    */
   range?: string;
+  rangeChunkSize?: string;
   /**
    * @remarks
    * Request ID.
@@ -43543,6 +43550,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
       range: 'Range',
+      rangeChunkSize: 'RangeChunkSize',
       requestId: 'RequestId',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -43565,6 +43573,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originSni: 'string',
       originVerify: 'string',
       range: 'string',
+      rangeChunkSize: 'string',
       requestId: 'string',
       rule: 'string',
       ruleEnable: 'string',
@@ -64362,6 +64371,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
    * on
    */
   range?: string;
+  rangeChunkSize?: string;
   /**
    * @remarks
    * Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
@@ -64412,6 +64422,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
       range: 'Range',
+      rangeChunkSize: 'RangeChunkSize',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
@@ -64431,6 +64442,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originSni: 'string',
       originVerify: 'string',
       range: 'string',
+      rangeChunkSize: 'string',
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
@@ -71356,6 +71368,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.range)) {
       query["Range"] = request.range;
+    }
+
+    if (!$dara.isNull(request.rangeChunkSize)) {
+      query["RangeChunkSize"] = request.rangeChunkSize;
     }
 
     if (!$dara.isNull(request.rule)) {
@@ -83617,6 +83633,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.range)) {
       query["Range"] = request.range;
+    }
+
+    if (!$dara.isNull(request.rangeChunkSize)) {
+      query["RangeChunkSize"] = request.rangeChunkSize;
     }
 
     if (!$dara.isNull(request.rule)) {
