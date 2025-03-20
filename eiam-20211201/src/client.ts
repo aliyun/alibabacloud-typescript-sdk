@@ -1079,6 +1079,46 @@ export class CreateIdentityProviderRequestOidcConfig extends $dara.Model {
   }
 }
 
+export class CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig extends $dara.Model {
+  /**
+   * @example
+   * 0 45 1 * * ?
+   */
+  periodicSyncCron?: string;
+  periodicSyncTimes?: number[];
+  /**
+   * @example
+   * cron
+   */
+  periodicSyncType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodicSyncCron: 'PeriodicSyncCron',
+      periodicSyncTimes: 'PeriodicSyncTimes',
+      periodicSyncType: 'PeriodicSyncType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodicSyncCron: 'string',
+      periodicSyncTimes: { 'type': 'array', 'itemType': 'number' },
+      periodicSyncType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.periodicSyncTimes)) {
+      $dara.Model.validateArray(this.periodicSyncTimes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
@@ -1136,6 +1176,7 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
    * disabled
    */
   incrementalCallbackStatus?: string;
+  periodicSyncConfig?: CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig;
   /**
    * @example
    * disabled
@@ -1152,6 +1193,7 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
     return {
       groupSyncStatus: 'GroupSyncStatus',
       incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      periodicSyncConfig: 'PeriodicSyncConfig',
       periodicSyncStatus: 'PeriodicSyncStatus',
       udSyncScopeConfig: 'UdSyncScopeConfig',
     };
@@ -1161,12 +1203,16 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
     return {
       groupSyncStatus: 'string',
       incrementalCallbackStatus: 'string',
+      periodicSyncConfig: CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig,
       periodicSyncStatus: 'string',
       udSyncScopeConfig: CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig,
     };
   }
 
   validate() {
+    if(this.periodicSyncConfig && typeof (this.periodicSyncConfig as any).validate === 'function') {
+      (this.periodicSyncConfig as any).validate();
+    }
     if(this.udSyncScopeConfig && typeof (this.udSyncScopeConfig as any).validate === 'function') {
       (this.udSyncScopeConfig as any).validate();
     }
@@ -4736,6 +4782,43 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   }
 }
 
+export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig extends $dara.Model {
+  /**
+   * @example
+   * 0 45 1 * * ?
+   */
+  periodicSyncCron?: string;
+  periodicSyncTimes?: number;
+  /**
+   * @example
+   * cron
+   */
+  periodicSyncType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodicSyncCron: 'PeriodicSyncCron',
+      periodicSyncTimes: 'PeriodicSyncTimes',
+      periodicSyncType: 'PeriodicSyncType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodicSyncCron: 'string',
+      periodicSyncTimes: 'number',
+      periodicSyncType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule extends $dara.Model {
   /**
    * @remarks
@@ -4864,6 +4947,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
    * ldap同步侧相关配置信息
    */
   ldapUdPullConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig;
+  periodicSyncConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig;
   /**
    * @example
    * enabled
@@ -4886,6 +4970,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
       incrementalCallbackStatus: 'IncrementalCallbackStatus',
       instanceId: 'InstanceId',
       ldapUdPullConfig: 'LdapUdPullConfig',
+      periodicSyncConfig: 'PeriodicSyncConfig',
       periodicSyncStatus: 'PeriodicSyncStatus',
       pullProtectedRule: 'PullProtectedRule',
       udSyncScopeConfig: 'UdSyncScopeConfig',
@@ -4899,6 +4984,7 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
       incrementalCallbackStatus: 'string',
       instanceId: 'string',
       ldapUdPullConfig: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig,
+      periodicSyncConfig: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPeriodicSyncConfig,
       periodicSyncStatus: 'string',
       pullProtectedRule: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule,
       udSyncScopeConfig: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig,
@@ -4908,6 +4994,9 @@ export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurati
   validate() {
     if(this.ldapUdPullConfig && typeof (this.ldapUdPullConfig as any).validate === 'function') {
       (this.ldapUdPullConfig as any).validate();
+    }
+    if(this.periodicSyncConfig && typeof (this.periodicSyncConfig as any).validate === 'function') {
+      (this.periodicSyncConfig as any).validate();
     }
     if(this.pullProtectedRule && typeof (this.pullProtectedRule as any).validate === 'function') {
       (this.pullProtectedRule as any).validate();
@@ -14365,6 +14454,46 @@ export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig exten
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig extends $dara.Model {
+  /**
+   * @example
+   * 0 45 1 * * ?
+   */
+  periodicSyncCron?: string;
+  periodicSyncTimes?: number[];
+  /**
+   * @example
+   * cron
+   */
+  periodicSyncType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodicSyncCron: 'PeriodicSyncCron',
+      periodicSyncTimes: 'PeriodicSyncTimes',
+      periodicSyncType: 'PeriodicSyncType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodicSyncCron: 'string',
+      periodicSyncTimes: { 'type': 'array', 'itemType': 'number' },
+      periodicSyncType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.periodicSyncTimes)) {
+      $dara.Model.validateArray(this.periodicSyncTimes);
+    }
     super.validate();
   }
 
@@ -29537,6 +29666,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
    * ldap同步侧相关配置信息
    */
   ldapUdPullConfig?: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig;
+  periodicSyncConfig?: SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig;
   /**
    * @example
    * disabled
@@ -29559,6 +29689,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
       incrementalCallbackStatus: 'IncrementalCallbackStatus',
       instanceId: 'InstanceId',
       ldapUdPullConfig: 'LdapUdPullConfig',
+      periodicSyncConfig: 'PeriodicSyncConfig',
       periodicSyncStatus: 'PeriodicSyncStatus',
       pullProtectedRule: 'PullProtectedRule',
       udSyncScopeConfig: 'UdSyncScopeConfig',
@@ -29572,6 +29703,7 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
       incrementalCallbackStatus: 'string',
       instanceId: 'string',
       ldapUdPullConfig: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig,
+      periodicSyncConfig: SetIdentityProviderUdPullConfigurationRequestPeriodicSyncConfig,
       periodicSyncStatus: 'string',
       pullProtectedRule: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule,
       udSyncScopeConfig: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig,
@@ -29581,6 +29713,9 @@ export class SetIdentityProviderUdPullConfigurationRequest extends $dara.Model {
   validate() {
     if(this.ldapUdPullConfig && typeof (this.ldapUdPullConfig as any).validate === 'function') {
       (this.ldapUdPullConfig as any).validate();
+    }
+    if(this.periodicSyncConfig && typeof (this.periodicSyncConfig as any).validate === 'function') {
+      (this.periodicSyncConfig as any).validate();
     }
     if(this.pullProtectedRule && typeof (this.pullProtectedRule as any).validate === 'function') {
       (this.pullProtectedRule as any).validate();
@@ -38837,6 +38972,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ldapUdPullConfig)) {
       query["LdapUdPullConfig"] = request.ldapUdPullConfig;
+    }
+
+    if (!$dara.isNull(request.periodicSyncConfig)) {
+      query["PeriodicSyncConfig"] = request.periodicSyncConfig;
     }
 
     if (!$dara.isNull(request.periodicSyncStatus)) {
