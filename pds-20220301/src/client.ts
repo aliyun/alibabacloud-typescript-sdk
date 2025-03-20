@@ -8301,6 +8301,116 @@ export class AssignRoleResponse extends $dara.Model {
   }
 }
 
+export class AuditLogExportRequest extends $dara.Model {
+  /**
+   * @example
+   * 2024-01-log.csv
+   */
+  fileName?: string;
+  /**
+   * @example
+   * zh_CN
+   */
+  language?: string;
+  /**
+   * @example
+   * acted_at DESC
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * acted_at > \\"2025-03-10T16:00:00\\" and acted_at < \\"2025-03-17T15:59:59\\"
+   */
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'file_name',
+      language: 'language',
+      orderBy: 'order_by',
+      query: 'query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      language: 'string',
+      orderBy: 'string',
+      query: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuditLogExportResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d31****
+   */
+  asyncTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asyncTaskId: 'async_task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asyncTaskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuditLogExportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuditLogExportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuditLogExportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AuthorizeRequest extends $dara.Model {
   /**
    * @remarks
@@ -17833,9 +17943,9 @@ export class ListRecyclebinRequest extends $dara.Model {
   driveId?: string;
   /**
    * @remarks
-   * Specifies the returned fields.
+   * The fields of an entry (file or folder) to return.
    * 
-   * 1\\. If you set this parameter to \\*, all fields of the file are returned.
+   * 1\\. If you set this parameter to \\*, all fields are returned.
    * 
    * 2\\. If you set this parameter to a null value or leave this parameter empty, the fields, such as file creator, file modifier, and custom tags, are not returned.
    * 
@@ -17847,9 +17957,9 @@ export class ListRecyclebinRequest extends $dara.Model {
   fields?: string;
   /**
    * @remarks
-   * The maximum number of results to return. Valid values: 1 to 200. Default value: 50.
+   * The maximum number of entries to return. Valid values: 1 to 200. Default value: 50.
    * 
-   * The number of returned results must be less than or equal to the specified number.
+   * The number of returned entries must be less than or equal to the value of this parameter.
    * 
    * @example
    * 50
@@ -17857,12 +17967,16 @@ export class ListRecyclebinRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * The name of the entry after which the list begins. Entries whose names are alphabetically after the value of this parameter are returned. If you do not specify this parameter, all entries are returned. This parameter is left empty by default.
    * 
    * @example
    * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
    */
   marker?: string;
+  /**
+   * @remarks
+   * The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
+   */
   thumbnailProcesses?: { [key: string]: ImageProcess };
   static names(): { [key: string]: string } {
     return {
@@ -22890,6 +23004,13 @@ export class UpdateUserResponse extends $dara.Model {
 export class VideoDRMLicenseRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of DRM encryption.
+   * 
+   * Valid values:
+   * 
+   * *   fairplay
+   * *   widevine
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22897,6 +23018,9 @@ export class VideoDRMLicenseRequest extends $dara.Model {
    */
   drmType?: string;
   /**
+   * @remarks
+   * The request that is initiated to obtain the license.
+   * 
    * @example
    * CAES6B8SQgpACioSENGxDhqCLIVwwCBOyPayyWoSENGxDhqCLIVwwCBOyPayyWpI88aJmwYQARoQdRV32
    */
@@ -22926,16 +23050,25 @@ export class VideoDRMLicenseRequest extends $dara.Model {
 
 export class VideoDRMLicenseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned DRM license.
+   * 
    * @example
    * cb9swCy8P50H9KePsxET3jZ1tm41bDs9HTsxbWnsjf3bsf6QGdiS4kZPhDaskimbNyAfNjmhQRmWFt3AhwNF3
    */
   data?: string;
   /**
+   * @remarks
+   * The information about the device from which the DRM request was initiated.
+   * 
    * @example
    * ""
    */
   deviceInfo?: string;
   /**
+   * @remarks
+   * The request state returned by the DRM server.
+   * 
    * @example
    * 0
    */
@@ -23180,6 +23313,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.assignRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 导出审计日志
+   * 
+   * @param request - AuditLogExportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuditLogExportResponse
+   */
+  async auditLogExportWithOptions(request: AuditLogExportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AuditLogExportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      body["file_name"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      body["order_by"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuditLogExport",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/audit_log/export`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<AuditLogExportResponse>(await this.execute(params, req, runtime), new AuditLogExportResponse({}));
+  }
+
+  /**
+   * 导出审计日志
+   * 
+   * @param request - AuditLogExportRequest
+   * @returns AuditLogExportResponse
+   */
+  async auditLogExport(request: AuditLogExportRequest): Promise<AuditLogExportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.auditLogExportWithOptions(request, headers, runtime);
   }
 
   /**
@@ -29686,7 +29876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频的DRM License
+   * Obtain the digital rights management (DRM) license of a video.
    * 
    * @param request - VideoDRMLicenseRequest
    * @param headers - map
@@ -29723,7 +29913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取视频的DRM License
+   * Obtain the digital rights management (DRM) license of a video.
    * 
    * @param request - VideoDRMLicenseRequest
    * @returns VideoDRMLicenseResponse
