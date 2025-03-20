@@ -55,6 +55,299 @@ export class CreateApplicationClientSecretResponseBodyApplicationClientSecret ex
   }
 }
 
+export class CreateConditionalAccessPolicyRequestConditionsConfigApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded applications
+   */
+  excludeApplications?: string[];
+  /**
+   * @remarks
+   * Included applications
+   */
+  includeApplications?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeApplications: 'ExcludeApplications',
+      includeApplications: 'IncludeApplications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeApplications: { 'type': 'array', 'itemType': 'string' },
+      includeApplications: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeApplications)) {
+      $dara.Model.validateArray(this.excludeApplications);
+    }
+    if(Array.isArray(this.includeApplications)) {
+      $dara.Model.validateArray(this.includeApplications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded network zones
+   */
+  excludeNetworkZones?: string[];
+  /**
+   * @remarks
+   * Included network zones
+   */
+  includeNetworkZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeNetworkZones: 'ExcludeNetworkZones',
+      includeNetworkZones: 'IncludeNetworkZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+      includeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNetworkZones)) {
+      $dara.Model.validateArray(this.excludeNetworkZones);
+    }
+    if(Array.isArray(this.includeNetworkZones)) {
+      $dara.Model.validateArray(this.includeNetworkZones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyRequestConditionsConfigUsers extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded user groups
+   */
+  excludeGroups?: string[];
+  /**
+   * @remarks
+   * Excluded organizations
+   */
+  excludeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Excluded users
+   */
+  excludeUsers?: string[];
+  /**
+   * @remarks
+   * Included user groups
+   */
+  includeGroups?: string[];
+  /**
+   * @remarks
+   * Included organizations
+   */
+  includeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Selected user
+   */
+  includeUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeGroups: 'ExcludeGroups',
+      excludeOrganizationalUnits: 'ExcludeOrganizationalUnits',
+      excludeUsers: 'ExcludeUsers',
+      includeGroups: 'IncludeGroups',
+      includeOrganizationalUnits: 'IncludeOrganizationalUnits',
+      includeUsers: 'IncludeUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeGroups: { 'type': 'array', 'itemType': 'string' },
+      excludeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      excludeUsers: { 'type': 'array', 'itemType': 'string' },
+      includeGroups: { 'type': 'array', 'itemType': 'string' },
+      includeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      includeUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeGroups)) {
+      $dara.Model.validateArray(this.excludeGroups);
+    }
+    if(Array.isArray(this.excludeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.excludeOrganizationalUnits);
+    }
+    if(Array.isArray(this.excludeUsers)) {
+      $dara.Model.validateArray(this.excludeUsers);
+    }
+    if(Array.isArray(this.includeGroups)) {
+      $dara.Model.validateArray(this.includeGroups);
+    }
+    if(Array.isArray(this.includeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.includeOrganizationalUnits);
+    }
+    if(Array.isArray(this.includeUsers)) {
+      $dara.Model.validateArray(this.includeUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyRequestConditionsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Target applications for the conditional access policy
+   */
+  applications?: CreateConditionalAccessPolicyRequestConditionsConfigApplications;
+  /**
+   * @remarks
+   * Network zones for conditional access policy
+   */
+  networkZones?: CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones;
+  /**
+   * @remarks
+   * Target users of the conditional access policy
+   */
+  users?: CreateConditionalAccessPolicyRequestConditionsConfigUsers;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      networkZones: 'NetworkZones',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: CreateConditionalAccessPolicyRequestConditionsConfigApplications,
+      networkZones: CreateConditionalAccessPolicyRequestConditionsConfigNetworkZones,
+      users: CreateConditionalAccessPolicyRequestConditionsConfigUsers,
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    if(this.networkZones && typeof (this.networkZones as any).validate === 'function') {
+      (this.networkZones as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyRequestDecisionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable session reuse
+   * 
+   * @example
+   * enabled
+   */
+  activeSessionReuseStatus?: string;
+  /**
+   * @remarks
+   * Decision action for the conditional access policy, with the following options:
+   * 
+   * - allow: Allow.
+   * - deny: Deny.
+   * 
+   * @example
+   * allow or deny
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * Re-authentication interval (in seconds) for the conditional access policy
+   * 
+   * - Maximum MFA re-authentication interval: 86400
+   * - Minimum MFA re-authentication interval: 300
+   * 
+   * @example
+   * 500
+   */
+  mfaAuthenticationIntervalSeconds?: number;
+  /**
+   * @remarks
+   * Allowed MFA types for the conditional access policy, with the following options:
+   * - ia_otp_sms: SMS verification code
+   * - ia_otp_email: Email verification code
+   * - ia_totp: OTP dynamic password
+   * - ia_webauthn: WebAuthn
+   */
+  mfaAuthenticationMethods?: string[];
+  /**
+   * @remarks
+   * MFA type for the conditional access policy, with the following options:
+   * 
+   * - directly_access: Direct access
+   * - mfa_required: MFA required
+   * 
+   * @example
+   * directly_access
+   */
+  mfaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionReuseStatus: 'ActiveSessionReuseStatus',
+      effect: 'Effect',
+      mfaAuthenticationIntervalSeconds: 'MfaAuthenticationIntervalSeconds',
+      mfaAuthenticationMethods: 'MfaAuthenticationMethods',
+      mfaType: 'MfaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionReuseStatus: 'string',
+      effect: 'string',
+      mfaAuthenticationIntervalSeconds: 'number',
+      mfaAuthenticationMethods: { 'type': 'array', 'itemType': 'string' },
+      mfaType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mfaAuthenticationMethods)) {
+      $dara.Model.validateArray(this.mfaAuthenticationMethods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestFiling extends $dara.Model {
   /**
    * @remarks
@@ -2489,6 +2782,436 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $da
     }
     if(this.samlSsoConfig && typeof (this.samlSsoConfig as any).validate === 'function') {
       (this.samlSsoConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded applications
+   */
+  excludeApplications?: string[];
+  /**
+   * @remarks
+   * Selected applications
+   */
+  includeApplications?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeApplications: 'ExcludeApplications',
+      includeApplications: 'IncludeApplications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeApplications: { 'type': 'array', 'itemType': 'string' },
+      includeApplications: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeApplications)) {
+      $dara.Model.validateArray(this.excludeApplications);
+    }
+    if(Array.isArray(this.includeApplications)) {
+      $dara.Model.validateArray(this.includeApplications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded network zones
+   */
+  excludeNetworkZones?: string[];
+  /**
+   * @remarks
+   * Included network zones
+   */
+  includeNetworkZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeNetworkZones: 'ExcludeNetworkZones',
+      includeNetworkZones: 'IncludeNetworkZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+      includeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNetworkZones)) {
+      $dara.Model.validateArray(this.excludeNetworkZones);
+    }
+    if(Array.isArray(this.includeNetworkZones)) {
+      $dara.Model.validateArray(this.includeNetworkZones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded user groups
+   */
+  excludeGroups?: string[];
+  /**
+   * @remarks
+   * Excluded organizations
+   */
+  excludeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Excluded users
+   */
+  excludeUsers?: string[];
+  /**
+   * @remarks
+   * Selected user groups
+   */
+  includeGroups?: string[];
+  /**
+   * @remarks
+   * Included organizations
+   */
+  includeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Selected users
+   */
+  includeUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeGroups: 'ExcludeGroups',
+      excludeOrganizationalUnits: 'ExcludeOrganizationalUnits',
+      excludeUsers: 'ExcludeUsers',
+      includeGroups: 'IncludeGroups',
+      includeOrganizationalUnits: 'IncludeOrganizationalUnits',
+      includeUsers: 'IncludeUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeGroups: { 'type': 'array', 'itemType': 'string' },
+      excludeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      excludeUsers: { 'type': 'array', 'itemType': 'string' },
+      includeGroups: { 'type': 'array', 'itemType': 'string' },
+      includeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      includeUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeGroups)) {
+      $dara.Model.validateArray(this.excludeGroups);
+    }
+    if(Array.isArray(this.excludeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.excludeOrganizationalUnits);
+    }
+    if(Array.isArray(this.excludeUsers)) {
+      $dara.Model.validateArray(this.excludeUsers);
+    }
+    if(Array.isArray(this.includeGroups)) {
+      $dara.Model.validateArray(this.includeGroups);
+    }
+    if(Array.isArray(this.includeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.includeOrganizationalUnits);
+    }
+    if(Array.isArray(this.includeUsers)) {
+      $dara.Model.validateArray(this.includeUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Target applications of the conditional access policy
+   */
+  applications?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications;
+  /**
+   * @remarks
+   * Network zones for the conditional access policy
+   */
+  networkZones?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones;
+  /**
+   * @remarks
+   * Target users of the conditional access policy
+   */
+  users?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      networkZones: 'NetworkZones',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigApplications,
+      networkZones: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigNetworkZones,
+      users: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfigUsers,
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    if(this.networkZones && typeof (this.networkZones as any).validate === 'function') {
+      (this.networkZones as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable session reuse
+   * 
+   * @example
+   * enabled
+   */
+  activeSessionReuseStatus?: string;
+  /**
+   * @remarks
+   * Decision action of the conditional access policy
+   * 
+   * @example
+   * allow
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * Re-authentication interval (in seconds) for the conditional access policy
+   * 
+   * @example
+   * 300
+   */
+  mfaAuthenticationIntervalSeconds?: number;
+  /**
+   * @remarks
+   * Allowed MFA types for the conditional access policy
+   */
+  mfaAuthenticationMethods?: string[];
+  /**
+   * @remarks
+   * MFA authentication type of the conditional access policy
+   * 
+   * @example
+   * directly_access
+   */
+  mfaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionReuseStatus: 'ActiveSessionReuseStatus',
+      effect: 'Effect',
+      mfaAuthenticationIntervalSeconds: 'MfaAuthenticationIntervalSeconds',
+      mfaAuthenticationMethods: 'MfaAuthenticationMethods',
+      mfaType: 'MfaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionReuseStatus: 'string',
+      effect: 'string',
+      mfaAuthenticationIntervalSeconds: 'number',
+      mfaAuthenticationMethods: { 'type': 'array', 'itemType': 'string' },
+      mfaType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mfaAuthenticationMethods)) {
+      $dara.Model.validateArray(this.mfaAuthenticationMethods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * @example
+   * cp_xxxxx
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Conditional Access Policy Name
+   * 
+   * @example
+   * My Policy
+   */
+  conditionalAccessPolicyName?: string;
+  /**
+   * @remarks
+   * Type of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:policy:system
+   */
+  conditionalAccessPolicyType?: string;
+  /**
+   * @remarks
+   * Conditional access policy content
+   */
+  conditionsConfig?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig;
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 1741857554000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * Action of the conditional access policy
+   */
+  decisionConfig?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig;
+  /**
+   * @remarks
+   * Execution type of the conditional access policy
+   * 
+   * @example
+   * enforcement
+   */
+  decisionType?: string;
+  /**
+   * @remarks
+   * Description of the conditional access policy
+   * 
+   * @example
+   * ga access port for ecs: internal-cn-hangzhou-docker-builder-2(i-bp19g1pheaailkk1xvr6)
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Execution point of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
+   */
+  evaluateAt?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * idaas_qnx6fbrinlecptl5hld23lfkvy
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Last updated time
+   * 
+   * @example
+   * 1741857554000
+   */
+  lastUpdatedTime?: number;
+  /**
+   * @remarks
+   * Priority
+   * 
+   * @example
+   * 5
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * Enable or disable status of the conditional access policy
+   * 
+   * @example
+   * enabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      conditionalAccessPolicyName: 'ConditionalAccessPolicyName',
+      conditionalAccessPolicyType: 'ConditionalAccessPolicyType',
+      conditionsConfig: 'ConditionsConfig',
+      createTime: 'CreateTime',
+      decisionConfig: 'DecisionConfig',
+      decisionType: 'DecisionType',
+      description: 'Description',
+      evaluateAt: 'EvaluateAt',
+      instanceId: 'InstanceId',
+      lastUpdatedTime: 'LastUpdatedTime',
+      priority: 'Priority',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      conditionalAccessPolicyName: 'string',
+      conditionalAccessPolicyType: 'string',
+      conditionsConfig: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyConditionsConfig,
+      createTime: 'number',
+      decisionConfig: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicyDecisionConfig,
+      decisionType: 'string',
+      description: 'string',
+      evaluateAt: 'string',
+      instanceId: 'string',
+      lastUpdatedTime: 'number',
+      priority: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.conditionsConfig && typeof (this.conditionsConfig as any).validate === 'function') {
+      (this.conditionsConfig as any).validate();
+    }
+    if(this.decisionConfig && typeof (this.decisionConfig as any).validate === 'function') {
+      (this.decisionConfig as any).validate();
     }
     super.validate();
   }
@@ -7964,6 +8687,868 @@ export class ListApplicationsForUserResponseBodyApplications extends $dara.Model
   }
 }
 
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded applications
+   */
+  excludeApplications?: string[];
+  /**
+   * @remarks
+   * Selected applications
+   */
+  includeApplications?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeApplications: 'ExcludeApplications',
+      includeApplications: 'IncludeApplications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeApplications: { 'type': 'array', 'itemType': 'string' },
+      includeApplications: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeApplications)) {
+      $dara.Model.validateArray(this.excludeApplications);
+    }
+    if(Array.isArray(this.includeApplications)) {
+      $dara.Model.validateArray(this.includeApplications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded network zones
+   */
+  excludeNetworkZones?: string[];
+  /**
+   * @remarks
+   * Included network ranges
+   */
+  includeNetworkZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeNetworkZones: 'ExcludeNetworkZones',
+      includeNetworkZones: 'IncludeNetworkZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+      includeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNetworkZones)) {
+      $dara.Model.validateArray(this.excludeNetworkZones);
+    }
+    if(Array.isArray(this.includeNetworkZones)) {
+      $dara.Model.validateArray(this.includeNetworkZones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded user groups
+   */
+  excludeGroups?: string[];
+  /**
+   * @remarks
+   * Excluded organizations
+   */
+  excludeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Excluded users
+   */
+  excludeUsers?: string[];
+  /**
+   * @remarks
+   * Included user groups
+   */
+  includeGroups?: string[];
+  /**
+   * @remarks
+   * Included organizations
+   */
+  includeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Selected users
+   */
+  includeUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeGroups: 'ExcludeGroups',
+      excludeOrganizationalUnits: 'ExcludeOrganizationalUnits',
+      excludeUsers: 'ExcludeUsers',
+      includeGroups: 'IncludeGroups',
+      includeOrganizationalUnits: 'IncludeOrganizationalUnits',
+      includeUsers: 'IncludeUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeGroups: { 'type': 'array', 'itemType': 'string' },
+      excludeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      excludeUsers: { 'type': 'array', 'itemType': 'string' },
+      includeGroups: { 'type': 'array', 'itemType': 'string' },
+      includeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      includeUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeGroups)) {
+      $dara.Model.validateArray(this.excludeGroups);
+    }
+    if(Array.isArray(this.excludeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.excludeOrganizationalUnits);
+    }
+    if(Array.isArray(this.excludeUsers)) {
+      $dara.Model.validateArray(this.excludeUsers);
+    }
+    if(Array.isArray(this.includeGroups)) {
+      $dara.Model.validateArray(this.includeGroups);
+    }
+    if(Array.isArray(this.includeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.includeOrganizationalUnits);
+    }
+    if(Array.isArray(this.includeUsers)) {
+      $dara.Model.validateArray(this.includeUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Target applications of the conditional access policy
+   */
+  applications?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications;
+  /**
+   * @remarks
+   * Network zones for conditional access policies
+   */
+  networkZones?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones;
+  /**
+   * @remarks
+   * Target users of the conditional access policy
+   */
+  users?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      networkZones: 'NetworkZones',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigApplications,
+      networkZones: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones,
+      users: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfigUsers,
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    if(this.networkZones && typeof (this.networkZones as any).validate === 'function') {
+      (this.networkZones as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable session reuse for secondary authentication
+   * 
+   * @example
+   * disabled
+   */
+  activeSessionReuseStatus?: string;
+  /**
+   * @remarks
+   * Decision action of the conditional access policy:
+   * deny  Deny
+   * allow Allow
+   * 
+   * @example
+   * deny
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * Re-authentication interval for the conditional access policy (in seconds) 300-86400
+   * 
+   * @example
+   * 300
+   */
+  mfaAuthenticationIntervalSeconds?: number;
+  /**
+   * @remarks
+   * MFA types allowed by the conditional access policy
+   */
+  mfaAuthenticationMethods?: string[];
+  /**
+   * @remarks
+   * Conditional Access Policy Mfa Type
+   * 
+   * @example
+   * directly_access
+   */
+  mfaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionReuseStatus: 'ActiveSessionReuseStatus',
+      effect: 'Effect',
+      mfaAuthenticationIntervalSeconds: 'MfaAuthenticationIntervalSeconds',
+      mfaAuthenticationMethods: 'MfaAuthenticationMethods',
+      mfaType: 'MfaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionReuseStatus: 'string',
+      effect: 'string',
+      mfaAuthenticationIntervalSeconds: 'number',
+      mfaAuthenticationMethods: { 'type': 'array', 'itemType': 'string' },
+      mfaType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mfaAuthenticationMethods)) {
+      $dara.Model.validateArray(this.mfaAuthenticationMethods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional access policy ID
+   * 
+   * @example
+   * cp_xxxxx
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Conditional access policy name
+   * 
+   * @example
+   * My Policy
+   */
+  conditionalAccessPolicyName?: string;
+  /**
+   * @remarks
+   * Type of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:policy:system
+   */
+  conditionalAccessPolicyType?: string;
+  /**
+   * @remarks
+   * Content of the conditional access policy
+   */
+  conditionsConfig?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig;
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 1741857554000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * Action of the conditional access policy
+   */
+  decisionConfig?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig;
+  /**
+   * @remarks
+   * Execution type of the conditional access policy
+   * 
+   * @example
+   * enforcement
+   */
+  decisionType?: string;
+  /**
+   * @remarks
+   * Description of the conditional access policy
+   * 
+   * @example
+   * My Policy Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Execution point of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
+   */
+  evaluateAt?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * idaas_ksvv5c7f2l6uzh6oqspeks23ni
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Last updated time
+   * 
+   * @example
+   * 1741857554000
+   */
+  lastUpdatedTime?: number;
+  /**
+   * @remarks
+   * Priority, 1-100
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * Enable or disable status of the conditional access policy
+   * 
+   * @example
+   * disabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      conditionalAccessPolicyName: 'ConditionalAccessPolicyName',
+      conditionalAccessPolicyType: 'ConditionalAccessPolicyType',
+      conditionsConfig: 'ConditionsConfig',
+      createTime: 'CreateTime',
+      decisionConfig: 'DecisionConfig',
+      decisionType: 'DecisionType',
+      description: 'Description',
+      evaluateAt: 'EvaluateAt',
+      instanceId: 'InstanceId',
+      lastUpdatedTime: 'LastUpdatedTime',
+      priority: 'Priority',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      conditionalAccessPolicyName: 'string',
+      conditionalAccessPolicyType: 'string',
+      conditionsConfig: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesConditionsConfig,
+      createTime: 'number',
+      decisionConfig: ListConditionalAccessPoliciesResponseBodyConditionalAccessPoliciesDecisionConfig,
+      decisionType: 'string',
+      description: 'string',
+      evaluateAt: 'string',
+      instanceId: 'string',
+      lastUpdatedTime: 'number',
+      priority: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.conditionsConfig && typeof (this.conditionsConfig as any).validate === 'function') {
+      (this.conditionsConfig as any).validate();
+    }
+    if(this.decisionConfig && typeof (this.decisionConfig as any).validate === 'function') {
+      (this.decisionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded applications
+   */
+  excludeApplications?: string[];
+  /**
+   * @remarks
+   * Selected applications
+   */
+  includeApplications?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeApplications: 'ExcludeApplications',
+      includeApplications: 'IncludeApplications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeApplications: { 'type': 'array', 'itemType': 'string' },
+      includeApplications: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeApplications)) {
+      $dara.Model.validateArray(this.excludeApplications);
+    }
+    if(Array.isArray(this.includeApplications)) {
+      $dara.Model.validateArray(this.includeApplications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded network zones
+   */
+  excludeNetworkZones?: string[];
+  /**
+   * @remarks
+   * Included network zones
+   */
+  includeNetworkZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeNetworkZones: 'ExcludeNetworkZones',
+      includeNetworkZones: 'IncludeNetworkZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+      includeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNetworkZones)) {
+      $dara.Model.validateArray(this.excludeNetworkZones);
+    }
+    if(Array.isArray(this.includeNetworkZones)) {
+      $dara.Model.validateArray(this.includeNetworkZones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded user groups
+   */
+  excludeGroups?: string[];
+  /**
+   * @remarks
+   * Excluded organizations
+   */
+  excludeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Excluded Users
+   */
+  excludeUsers?: string[];
+  /**
+   * @remarks
+   * Selected user groups
+   */
+  includeGroups?: string[];
+  /**
+   * @remarks
+   * Selected organizations
+   */
+  includeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Selected users
+   */
+  includeUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeGroups: 'ExcludeGroups',
+      excludeOrganizationalUnits: 'ExcludeOrganizationalUnits',
+      excludeUsers: 'ExcludeUsers',
+      includeGroups: 'IncludeGroups',
+      includeOrganizationalUnits: 'IncludeOrganizationalUnits',
+      includeUsers: 'IncludeUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeGroups: { 'type': 'array', 'itemType': 'string' },
+      excludeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      excludeUsers: { 'type': 'array', 'itemType': 'string' },
+      includeGroups: { 'type': 'array', 'itemType': 'string' },
+      includeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      includeUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeGroups)) {
+      $dara.Model.validateArray(this.excludeGroups);
+    }
+    if(Array.isArray(this.excludeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.excludeOrganizationalUnits);
+    }
+    if(Array.isArray(this.excludeUsers)) {
+      $dara.Model.validateArray(this.excludeUsers);
+    }
+    if(Array.isArray(this.includeGroups)) {
+      $dara.Model.validateArray(this.includeGroups);
+    }
+    if(Array.isArray(this.includeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.includeOrganizationalUnits);
+    }
+    if(Array.isArray(this.includeUsers)) {
+      $dara.Model.validateArray(this.includeUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Target applications of the conditional access policy
+   */
+  applications?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications;
+  /**
+   * @remarks
+   * Network zones for conditional access policies
+   */
+  networkZones?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones;
+  /**
+   * @remarks
+   * Target users of the conditional access policy
+   */
+  users?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      networkZones: 'NetworkZones',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigApplications,
+      networkZones: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigNetworkZones,
+      users: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfigUsers,
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    if(this.networkZones && typeof (this.networkZones as any).validate === 'function') {
+      (this.networkZones as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether session reuse is enabled
+   * 
+   * @example
+   * enabled
+   */
+  activeSessionReuseStatus?: string;
+  /**
+   * @remarks
+   * Decision action of the conditional access policy
+   * 
+   * @example
+   * allow
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * Re-authentication interval for conditional access policy (seconds)
+   * 
+   * @example
+   * 300
+   */
+  mfaAuthenticationIntervalSeconds?: number;
+  /**
+   * @remarks
+   * MFA types allowed by the conditional access policy
+   */
+  mfaAuthenticationMethods?: string[];
+  /**
+   * @remarks
+   * MFA type of the conditional access policy
+   * 
+   * @example
+   * directly_access
+   */
+  mfaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionReuseStatus: 'ActiveSessionReuseStatus',
+      effect: 'Effect',
+      mfaAuthenticationIntervalSeconds: 'MfaAuthenticationIntervalSeconds',
+      mfaAuthenticationMethods: 'MfaAuthenticationMethods',
+      mfaType: 'MfaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionReuseStatus: 'string',
+      effect: 'string',
+      mfaAuthenticationIntervalSeconds: 'number',
+      mfaAuthenticationMethods: { 'type': 'array', 'itemType': 'string' },
+      mfaType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mfaAuthenticationMethods)) {
+      $dara.Model.validateArray(this.mfaAuthenticationMethods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional access policy ID
+   * 
+   * @example
+   * cp_xxxxx
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Conditional access policy name
+   * 
+   * @example
+   * My Policy
+   */
+  conditionalAccessPolicyName?: string;
+  /**
+   * @remarks
+   * Type of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:policy:system
+   */
+  conditionalAccessPolicyType?: string;
+  /**
+   * @remarks
+   * Content of the conditional access policy
+   */
+  conditionsConfig?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig;
+  /**
+   * @remarks
+   * Creation Time
+   * 
+   * @example
+   * 1741857554000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * Action of the conditional access policy
+   */
+  decisionConfig?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig;
+  /**
+   * @remarks
+   * Execution type of the conditional access policy
+   * 
+   * @example
+   * enforcement
+   */
+  decisionType?: string;
+  /**
+   * @remarks
+   * Description of the conditional access policy
+   * 
+   * @example
+   * terraform-example
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Execution point of the conditional access policy
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
+   */
+  evaluateAt?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * idaas_oynbcyaaejuik6b37eldz4pinu
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Last Updated Time
+   * 
+   * @example
+   * 1741857554000
+   */
+  lastUpdatedTime?: number;
+  /**
+   * @remarks
+   * Priority
+   * 
+   * @example
+   * 10
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * Enable or disable status of the conditional access policy
+   * 
+   * @example
+   * disabled
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      conditionalAccessPolicyName: 'ConditionalAccessPolicyName',
+      conditionalAccessPolicyType: 'ConditionalAccessPolicyType',
+      conditionsConfig: 'ConditionsConfig',
+      createTime: 'CreateTime',
+      decisionConfig: 'DecisionConfig',
+      decisionType: 'DecisionType',
+      description: 'Description',
+      evaluateAt: 'EvaluateAt',
+      instanceId: 'InstanceId',
+      lastUpdatedTime: 'LastUpdatedTime',
+      priority: 'Priority',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      conditionalAccessPolicyName: 'string',
+      conditionalAccessPolicyType: 'string',
+      conditionsConfig: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesConditionsConfig,
+      createTime: 'number',
+      decisionConfig: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPoliciesDecisionConfig,
+      decisionType: 'string',
+      description: 'string',
+      evaluateAt: 'string',
+      instanceId: 'string',
+      lastUpdatedTime: 'number',
+      priority: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.conditionsConfig && typeof (this.conditionsConfig as any).validate === 'function') {
+      (this.conditionsConfig as any).validate();
+    }
+    if(this.decisionConfig && typeof (this.decisionConfig as any).validate === 'function') {
+      (this.decisionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Model {
   /**
    * @remarks
@@ -12917,6 +14502,286 @@ export class SetPasswordComplexityConfigurationRequestPasswordComplexityRules ex
   }
 }
 
+export class UpdateConditionalAccessPolicyRequestConditionsConfigApplications extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded Applications
+   */
+  excludeApplications?: string[];
+  /**
+   * @remarks
+   * Included Applications
+   */
+  includeApplications?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeApplications: 'ExcludeApplications',
+      includeApplications: 'IncludeApplications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeApplications: { 'type': 'array', 'itemType': 'string' },
+      includeApplications: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeApplications)) {
+      $dara.Model.validateArray(this.excludeApplications);
+    }
+    if(Array.isArray(this.includeApplications)) {
+      $dara.Model.validateArray(this.includeApplications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded network zones
+   */
+  excludeNetworkZones?: string[];
+  /**
+   * @remarks
+   * Included network zones
+   */
+  includeNetworkZones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeNetworkZones: 'ExcludeNetworkZones',
+      includeNetworkZones: 'IncludeNetworkZones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+      includeNetworkZones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeNetworkZones)) {
+      $dara.Model.validateArray(this.excludeNetworkZones);
+    }
+    if(Array.isArray(this.includeNetworkZones)) {
+      $dara.Model.validateArray(this.includeNetworkZones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyRequestConditionsConfigUsers extends $dara.Model {
+  /**
+   * @remarks
+   * Excluded user groups
+   */
+  excludeGroups?: string[];
+  /**
+   * @remarks
+   * Excluded organizations
+   */
+  excludeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Excluded Users
+   */
+  excludeUsers?: string[];
+  /**
+   * @remarks
+   * Included User Groups
+   */
+  includeGroups?: string[];
+  /**
+   * @remarks
+   * Included organizations
+   */
+  includeOrganizationalUnits?: string[];
+  /**
+   * @remarks
+   * Included Users
+   */
+  includeUsers?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      excludeGroups: 'ExcludeGroups',
+      excludeOrganizationalUnits: 'ExcludeOrganizationalUnits',
+      excludeUsers: 'ExcludeUsers',
+      includeGroups: 'IncludeGroups',
+      includeOrganizationalUnits: 'IncludeOrganizationalUnits',
+      includeUsers: 'IncludeUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      excludeGroups: { 'type': 'array', 'itemType': 'string' },
+      excludeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      excludeUsers: { 'type': 'array', 'itemType': 'string' },
+      includeGroups: { 'type': 'array', 'itemType': 'string' },
+      includeOrganizationalUnits: { 'type': 'array', 'itemType': 'string' },
+      includeUsers: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.excludeGroups)) {
+      $dara.Model.validateArray(this.excludeGroups);
+    }
+    if(Array.isArray(this.excludeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.excludeOrganizationalUnits);
+    }
+    if(Array.isArray(this.excludeUsers)) {
+      $dara.Model.validateArray(this.excludeUsers);
+    }
+    if(Array.isArray(this.includeGroups)) {
+      $dara.Model.validateArray(this.includeGroups);
+    }
+    if(Array.isArray(this.includeOrganizationalUnits)) {
+      $dara.Model.validateArray(this.includeOrganizationalUnits);
+    }
+    if(Array.isArray(this.includeUsers)) {
+      $dara.Model.validateArray(this.includeUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyRequestConditionsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Target Applications for the Conditional Access Policy
+   */
+  applications?: UpdateConditionalAccessPolicyRequestConditionsConfigApplications;
+  /**
+   * @remarks
+   * Network zones for conditional access policy
+   */
+  networkZones?: UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones;
+  /**
+   * @remarks
+   * Target Users for the Conditional Access Policy
+   */
+  users?: UpdateConditionalAccessPolicyRequestConditionsConfigUsers;
+  static names(): { [key: string]: string } {
+    return {
+      applications: 'Applications',
+      networkZones: 'NetworkZones',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applications: UpdateConditionalAccessPolicyRequestConditionsConfigApplications,
+      networkZones: UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones,
+      users: UpdateConditionalAccessPolicyRequestConditionsConfigUsers,
+    };
+  }
+
+  validate() {
+    if(this.applications && typeof (this.applications as any).validate === 'function') {
+      (this.applications as any).validate();
+    }
+    if(this.networkZones && typeof (this.networkZones as any).validate === 'function') {
+      (this.networkZones as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyRequestDecisionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable session reuse
+   * 
+   * @example
+   * enabled
+   */
+  activeSessionReuseStatus?: string;
+  /**
+   * @remarks
+   * Conditional Access Policy Decision Action
+   * 
+   * @example
+   * allow
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * Conditional Access Policy Re-authentication Interval (seconds)
+   * 
+   * @example
+   * 300
+   */
+  mfaAuthenticationIntervalSeconds?: number;
+  /**
+   * @remarks
+   * Allowed MFA types for the Conditional Access Policy
+   */
+  mfaAuthenticationMethods?: string[];
+  /**
+   * @remarks
+   * Conditional Access Policy MFA Type
+   * 
+   * @example
+   * directly_access
+   */
+  mfaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionReuseStatus: 'ActiveSessionReuseStatus',
+      effect: 'Effect',
+      mfaAuthenticationIntervalSeconds: 'MfaAuthenticationIntervalSeconds',
+      mfaAuthenticationMethods: 'MfaAuthenticationMethods',
+      mfaType: 'MfaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionReuseStatus: 'string',
+      effect: 'string',
+      mfaAuthenticationIntervalSeconds: 'number',
+      mfaAuthenticationMethods: { 'type': 'array', 'itemType': 'string' },
+      mfaType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mfaAuthenticationMethods)) {
+      $dara.Model.validateArray(this.mfaAuthenticationMethods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model {
   /**
    * @remarks
@@ -14305,6 +16170,219 @@ export class CreateApplicationClientSecretResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateApplicationClientSecretResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Idempotent token.
+   * 
+   * @example
+   * client-token-example
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Conditional access policy name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * My Conditional Access Policy
+   */
+  conditionalAccessPolicyName?: string;
+  /**
+   * @remarks
+   * Type of the conditional access policy, with the following options:
+   * 
+   * arn:alibaba:idaas:authn:access:policy:system: System policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:policy:system
+   */
+  conditionalAccessPolicyType?: string;
+  /**
+   * @remarks
+   * Condition content configuration for the conditional access policy
+   */
+  conditionsConfig?: CreateConditionalAccessPolicyRequestConditionsConfig;
+  /**
+   * @remarks
+   * Action configuration for the conditional access policy
+   */
+  decisionConfig?: CreateConditionalAccessPolicyRequestDecisionConfig;
+  /**
+   * @remarks
+   * Execution type of the conditional access policy, with the following options:
+   * 
+   * enforcement: Enforce the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * enforcement
+   */
+  decisionType?: string;
+  /**
+   * @remarks
+   * Description of the conditional access policy
+   * 
+   * @example
+   * Test Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Execution point of the conditional access policy, with the following options:
+   * 
+   * - arn:alibaba:idaas:authn:access:rule:eval_at:after_step1: Allow.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * arn:alibaba:idaas:authn:access:rule:eval_at:after_step1
+   */
+  evaluateAt?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Priority of the conditional access policy, lower values indicate higher priority
+   * Minimum value: 1
+   * Maximum value: 100
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      conditionalAccessPolicyName: 'ConditionalAccessPolicyName',
+      conditionalAccessPolicyType: 'ConditionalAccessPolicyType',
+      conditionsConfig: 'ConditionsConfig',
+      decisionConfig: 'DecisionConfig',
+      decisionType: 'DecisionType',
+      description: 'Description',
+      evaluateAt: 'EvaluateAt',
+      instanceId: 'InstanceId',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      conditionalAccessPolicyName: 'string',
+      conditionalAccessPolicyType: 'string',
+      conditionsConfig: CreateConditionalAccessPolicyRequestConditionsConfig,
+      decisionConfig: CreateConditionalAccessPolicyRequestDecisionConfig,
+      decisionType: 'string',
+      description: 'string',
+      evaluateAt: 'string',
+      instanceId: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    if(this.conditionsConfig && typeof (this.conditionsConfig as any).validate === 'function') {
+      (this.conditionsConfig as any).validate();
+    }
+    if(this.decisionConfig && typeof (this.decisionConfig as any).validate === 'function') {
+      (this.decisionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * @example
+   * cp_xxxxx
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConditionalAccessPolicyResponseBody,
     };
   }
 
@@ -15846,6 +17924,115 @@ export class DeleteApplicationClientSecretResponse extends $dara.Model {
   }
 }
 
+export class DeleteConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConditionalAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDomainRequest extends $dara.Model {
   /**
    * @remarks
@@ -17369,6 +19556,115 @@ export class DisableApplicationSsoResponse extends $dara.Model {
   }
 }
 
+export class DisableConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableConditionalAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableDomainProxyTokenRequest extends $dara.Model {
   /**
    * @remarks
@@ -18332,6 +20628,115 @@ export class EnableApplicationSsoResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnableApplicationSsoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableConditionalAccessPolicyResponseBody,
     };
   }
 
@@ -19354,6 +21759,125 @@ export class GetApplicationSsoConfigResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetApplicationSsoConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the conditional access policy
+   */
+  conditionalAccessPolicy?: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicy: 'ConditionalAccessPolicy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicy: GetConditionalAccessPolicyResponseBodyConditionalAccessPolicy,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.conditionalAccessPolicy && typeof (this.conditionalAccessPolicy as any).validate === 'function') {
+      (this.conditionalAccessPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConditionalAccessPolicyResponseBody,
     };
   }
 
@@ -21912,6 +24436,292 @@ export class ListApplicationsForUserResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListApplicationsForUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Number of items per page in a paginated query.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Token for the next page query.
+   * 
+   * @example
+   * NTxxxxxexample
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Token for the previous page query.
+   * 
+   * @example
+   * PTxxxxxexample
+   */
+  previousToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      previousToken: 'PreviousToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      previousToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of conditional access policies
+   */
+  conditionalAccessPolicies?: ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies[];
+  /**
+   * @remarks
+   * The token value returned by this call for the next page query.
+   * 
+   * @example
+   * NTxxxexample
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Previous page query token (Token)
+   * 
+   * @example
+   * PTxxxxxexample
+   */
+  previousToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Total number of items in the list.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicies: 'ConditionalAccessPolicies',
+      nextToken: 'NextToken',
+      previousToken: 'PreviousToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicies: { 'type': 'array', 'itemType': ListConditionalAccessPoliciesResponseBodyConditionalAccessPolicies },
+      nextToken: 'string',
+      previousToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditionalAccessPolicies)) {
+      $dara.Model.validateArray(this.conditionalAccessPolicies);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConditionalAccessPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConditionalAccessPoliciesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Application ID associated with the conditional access policy
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * app_11111
+   */
+  networkZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      networkZoneId: 'NetworkZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      networkZoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of conditional access policies
+   */
+  conditionalAccessPolicies?: ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicies: 'ConditionalAccessPolicies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicies: { 'type': 'array', 'itemType': ListConditionalAccessPoliciesForNetworkZoneResponseBodyConditionalAccessPolicies },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditionalAccessPolicies)) {
+      $dara.Model.validateArray(this.conditionalAccessPolicies);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConditionalAccessPoliciesForNetworkZoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConditionalAccessPoliciesForNetworkZoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConditionalAccessPoliciesForNetworkZoneResponseBody,
     };
   }
 
@@ -27900,6 +30710,290 @@ export class UpdateApplicationDescriptionResponse extends $dara.Model {
   }
 }
 
+export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Conditional Access Policy Name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * My Policy
+   */
+  conditionalAccessPolicyName?: string;
+  /**
+   * @remarks
+   * Conditional Access Policy Condition Content Configuration
+   */
+  conditionsConfig?: UpdateConditionalAccessPolicyRequestConditionsConfig;
+  /**
+   * @remarks
+   * Conditional Access Policy Action Configuration
+   */
+  decisionConfig?: UpdateConditionalAccessPolicyRequestDecisionConfig;
+  /**
+   * @remarks
+   * Conditional Access Policy Execution Type
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * enforcement
+   */
+  decisionType?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Priority of the conditional access policy
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      conditionalAccessPolicyName: 'ConditionalAccessPolicyName',
+      conditionsConfig: 'ConditionsConfig',
+      decisionConfig: 'DecisionConfig',
+      decisionType: 'DecisionType',
+      instanceId: 'InstanceId',
+      priority: 'Priority',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      conditionalAccessPolicyName: 'string',
+      conditionsConfig: UpdateConditionalAccessPolicyRequestConditionsConfig,
+      decisionConfig: UpdateConditionalAccessPolicyRequestDecisionConfig,
+      decisionType: 'string',
+      instanceId: 'string',
+      priority: 'number',
+    };
+  }
+
+  validate() {
+    if(this.conditionsConfig && typeof (this.conditionsConfig as any).validate === 'function') {
+      (this.conditionsConfig as any).validate();
+    }
+    if(this.decisionConfig && typeof (this.decisionConfig as any).validate === 'function') {
+      (this.decisionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConditionalAccessPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConditionalAccessPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyDescriptionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conditional Access Policy ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cap_11111
+   */
+  conditionalAccessPolicyId?: string;
+  /**
+   * @remarks
+   * Description of the conditional access policy
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Test Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditionalAccessPolicyId: 'ConditionalAccessPolicyId',
+      description: 'Description',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditionalAccessPolicyId: 'string',
+      description: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyDescriptionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConditionalAccessPolicyDescriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConditionalAccessPolicyDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConditionalAccessPolicyDescriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGroupRequest extends $dara.Model {
   /**
    * @remarks
@@ -29793,6 +32887,95 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create Conditional Access Policy
+   * 
+   * @remarks
+   * Create Conditional Access Policy
+   * 
+   * @param request - CreateConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConditionalAccessPolicyResponse
+   */
+  async createConditionalAccessPolicyWithOptions(request: CreateConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreateConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.conditionalAccessPolicyName)) {
+      query["ConditionalAccessPolicyName"] = request.conditionalAccessPolicyName;
+    }
+
+    if (!$dara.isNull(request.conditionalAccessPolicyType)) {
+      query["ConditionalAccessPolicyType"] = request.conditionalAccessPolicyType;
+    }
+
+    if (!$dara.isNull(request.conditionsConfig)) {
+      query["ConditionsConfig"] = request.conditionsConfig;
+    }
+
+    if (!$dara.isNull(request.decisionConfig)) {
+      query["DecisionConfig"] = request.decisionConfig;
+    }
+
+    if (!$dara.isNull(request.decisionType)) {
+      query["DecisionType"] = request.decisionType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.evaluateAt)) {
+      query["EvaluateAt"] = request.evaluateAt;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new CreateConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<CreateConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new CreateConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Create Conditional Access Policy
+   * 
+   * @remarks
+   * Create Conditional Access Policy
+   * 
+   * @param request - CreateConditionalAccessPolicyRequest
+   * @returns CreateConditionalAccessPolicyResponse
+   */
+  async createConditionalAccessPolicy(request: CreateConditionalAccessPolicyRequest): Promise<CreateConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * 创建域名。
    * 
    * @param request - CreateDomainRequest
@@ -30454,6 +33637,63 @@ export default class Client extends OpenApi {
   async deleteApplicationClientSecret(request: DeleteApplicationClientSecretRequest): Promise<DeleteApplicationClientSecretResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApplicationClientSecretWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Conditional Access Policy
+   * 
+   * @remarks
+   * When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+   * 
+   * @param request - DeleteConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConditionalAccessPolicyResponse
+   */
+  async deleteConditionalAccessPolicyWithOptions(request: DeleteConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeleteConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new DeleteConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<DeleteConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new DeleteConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete Conditional Access Policy
+   * 
+   * @remarks
+   * When deleting a specified conditional access policy, please ensure that the policy is no longer in use. After deletion, all configuration data will be removed and cannot be recovered.
+   * 
+   * @param request - DeleteConditionalAccessPolicyRequest
+   * @returns DeleteConditionalAccessPolicyResponse
+   */
+  async deleteConditionalAccessPolicy(request: DeleteConditionalAccessPolicyRequest): Promise<DeleteConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteConditionalAccessPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -31187,6 +34427,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disable Conditional Access Policy
+   * 
+   * @remarks
+   * When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * 
+   * @param request - DisableConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableConditionalAccessPolicyResponse
+   */
+  async disableConditionalAccessPolicyWithOptions(request: DisableConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DisableConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new DisableConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<DisableConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new DisableConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Disable Conditional Access Policy
+   * 
+   * @remarks
+   * When changing a conditional access policy from an enabled state to a disabled state, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * 
+   * @param request - DisableConditionalAccessPolicyRequest
+   * @returns DisableConditionalAccessPolicyResponse
+   */
+  async disableConditionalAccessPolicy(request: DisableConditionalAccessPolicyRequest): Promise<DisableConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用指定域名代理Token。
    * 
    * @param request - DisableDomainProxyTokenRequest
@@ -31650,6 +34947,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enable Conditional Access Policy
+   * 
+   * @remarks
+   * When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * 
+   * @param request - EnableConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableConditionalAccessPolicyResponse
+   */
+  async enableConditionalAccessPolicyWithOptions(request: EnableConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<EnableConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new EnableConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<EnableConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new EnableConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Enable Conditional Access Policy
+   * 
+   * @remarks
+   * When changing the status of a conditional access policy from enabled to disabled, the policy will no longer intercept. Please confirm that you are aware of the potential risks associated with this action.
+   * 
+   * @param request - EnableConditionalAccessPolicyRequest
+   * @returns EnableConditionalAccessPolicyResponse
+   */
+  async enableConditionalAccessPolicy(request: EnableConditionalAccessPolicyRequest): Promise<EnableConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * 启用指定域名代理Token。
    * 
    * @param request - EnableDomainProxyTokenRequest
@@ -32106,6 +35460,63 @@ export default class Client extends OpenApi {
   async getApplicationSsoConfig(request: GetApplicationSsoConfigRequest): Promise<GetApplicationSsoConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getApplicationSsoConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Conditional Access Policy
+   * 
+   * @remarks
+   * Query Conditional Access Policy
+   * 
+   * @param request - GetConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConditionalAccessPolicyResponse
+   */
+  async getConditionalAccessPolicyWithOptions(request: GetConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new GetConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<GetConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new GetConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Get Conditional Access Policy
+   * 
+   * @remarks
+   * Query Conditional Access Policy
+   * 
+   * @param request - GetConditionalAccessPolicyRequest
+   * @returns GetConditionalAccessPolicyResponse
+   */
+  async getConditionalAccessPolicy(request: GetConditionalAccessPolicyRequest): Promise<GetConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getConditionalAccessPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -33220,6 +36631,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * List of Conditional Access Policies
+   * 
+   * @remarks
+   * Paginated query for the list of conditional access policies
+   * 
+   * @param request - ListConditionalAccessPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConditionalAccessPoliciesResponse
+   */
+  async listConditionalAccessPoliciesWithOptions(request: ListConditionalAccessPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListConditionalAccessPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConditionalAccessPolicies",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConditionalAccessPoliciesResponse>(await this.callApi(params, req, runtime), new ListConditionalAccessPoliciesResponse({}));
+    } else {
+      return $dara.cast<ListConditionalAccessPoliciesResponse>(await this.execute(params, req, runtime), new ListConditionalAccessPoliciesResponse({}));
+    }
+
+  }
+
+  /**
+   * List of Conditional Access Policies
+   * 
+   * @remarks
+   * Paginated query for the list of conditional access policies
+   * 
+   * @param request - ListConditionalAccessPoliciesRequest
+   * @returns ListConditionalAccessPoliciesResponse
+   */
+  async listConditionalAccessPolicies(request: ListConditionalAccessPoliciesRequest): Promise<ListConditionalAccessPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConditionalAccessPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * List Conditional Access Policies Associated with Network Areas
+   * 
+   * @remarks
+   * List Conditional Access Policies Associated with Network Zones
+   * 
+   * @param request - ListConditionalAccessPoliciesForNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConditionalAccessPoliciesForNetworkZoneResponse
+   */
+  async listConditionalAccessPoliciesForNetworkZoneWithOptions(request: ListConditionalAccessPoliciesForNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<ListConditionalAccessPoliciesForNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConditionalAccessPoliciesForNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConditionalAccessPoliciesForNetworkZoneResponse>(await this.callApi(params, req, runtime), new ListConditionalAccessPoliciesForNetworkZoneResponse({}));
+    } else {
+      return $dara.cast<ListConditionalAccessPoliciesForNetworkZoneResponse>(await this.execute(params, req, runtime), new ListConditionalAccessPoliciesForNetworkZoneResponse({}));
+    }
+
+  }
+
+  /**
+   * List Conditional Access Policies Associated with Network Areas
+   * 
+   * @remarks
+   * List Conditional Access Policies Associated with Network Zones
+   * 
+   * @param request - ListConditionalAccessPoliciesForNetworkZoneRequest
+   * @returns ListConditionalAccessPoliciesForNetworkZoneResponse
+   */
+  async listConditionalAccessPoliciesForNetworkZone(request: ListConditionalAccessPoliciesForNetworkZoneRequest): Promise<ListConditionalAccessPoliciesForNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConditionalAccessPoliciesForNetworkZoneWithOptions(request, runtime);
+  }
+
+  /**
    * 列表查询域名代理Token信息。
    * 
    * @param request - ListDomainProxyTokensRequest
@@ -33868,7 +37401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表某个网络访问端点下的访问路径。
+   * 列表查询某个网络访问端点下的访问路径。
    * 
    * @param request - ListNetworkAccessPathsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33908,7 +37441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表某个网络访问端点下的访问路径。
+   * 列表查询某个网络访问端点下的访问路径。
    * 
    * @param request - ListNetworkAccessPathsRequest
    * @returns ListNetworkAccessPathsResponse
@@ -35817,6 +39350,144 @@ export default class Client extends OpenApi {
   async updateApplicationDescription(request: UpdateApplicationDescriptionRequest): Promise<UpdateApplicationDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApplicationDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Conditional Access Policy
+   * 
+   * @remarks
+   * Update Conditional Access Policy
+   * 
+   * @param request - UpdateConditionalAccessPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConditionalAccessPolicyResponse
+   */
+  async updateConditionalAccessPolicyWithOptions(request: UpdateConditionalAccessPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateConditionalAccessPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.conditionalAccessPolicyName)) {
+      query["ConditionalAccessPolicyName"] = request.conditionalAccessPolicyName;
+    }
+
+    if (!$dara.isNull(request.conditionsConfig)) {
+      query["ConditionsConfig"] = request.conditionsConfig;
+    }
+
+    if (!$dara.isNull(request.decisionConfig)) {
+      query["DecisionConfig"] = request.decisionConfig;
+    }
+
+    if (!$dara.isNull(request.decisionType)) {
+      query["DecisionType"] = request.decisionType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConditionalAccessPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateConditionalAccessPolicyResponse>(await this.callApi(params, req, runtime), new UpdateConditionalAccessPolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateConditionalAccessPolicyResponse>(await this.execute(params, req, runtime), new UpdateConditionalAccessPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * Update Conditional Access Policy
+   * 
+   * @remarks
+   * Update Conditional Access Policy
+   * 
+   * @param request - UpdateConditionalAccessPolicyRequest
+   * @returns UpdateConditionalAccessPolicyResponse
+   */
+  async updateConditionalAccessPolicy(request: UpdateConditionalAccessPolicyRequest): Promise<UpdateConditionalAccessPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Conditional Access Policy Description
+   * 
+   * @remarks
+   * Update Conditional Access Policy Description
+   * 
+   * @param request - UpdateConditionalAccessPolicyDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConditionalAccessPolicyDescriptionResponse
+   */
+  async updateConditionalAccessPolicyDescriptionWithOptions(request: UpdateConditionalAccessPolicyDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateConditionalAccessPolicyDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.conditionalAccessPolicyId)) {
+      query["ConditionalAccessPolicyId"] = request.conditionalAccessPolicyId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConditionalAccessPolicyDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateConditionalAccessPolicyDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateConditionalAccessPolicyDescriptionResponse({}));
+    } else {
+      return $dara.cast<UpdateConditionalAccessPolicyDescriptionResponse>(await this.execute(params, req, runtime), new UpdateConditionalAccessPolicyDescriptionResponse({}));
+    }
+
+  }
+
+  /**
+   * Update Conditional Access Policy Description
+   * 
+   * @remarks
+   * Update Conditional Access Policy Description
+   * 
+   * @param request - UpdateConditionalAccessPolicyDescriptionRequest
+   * @returns UpdateConditionalAccessPolicyDescriptionResponse
+   */
+  async updateConditionalAccessPolicyDescription(request: UpdateConditionalAccessPolicyDescriptionRequest): Promise<UpdateConditionalAccessPolicyDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
   }
 
   /**
