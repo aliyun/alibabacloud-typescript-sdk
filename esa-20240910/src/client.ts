@@ -2617,7 +2617,7 @@ export class CreateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
    * Operation type. Possible values:
    * 
    * - add: Add.
-   * - del: Delete.
+   * - del: Delete
    * - modify: Modify.
    * 
    * This parameter is required.
@@ -2672,10 +2672,10 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
   name?: string;
   /**
    * @remarks
-   * Operation method. Possible values:
+   * Operation type. Possible values:
    * 
    * - add: Add.
-   * - del: Delete.
+   * - del: Delete
    * - modify: Modify.
    * 
    * This parameter is required.
@@ -2753,7 +2753,7 @@ export class CreateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
 export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   /**
    * @remarks
-   * Number of consecutive failed probes required to consider the target as down, such as `5`.
+   * Number of consecutive failed probes required to consider the target unhealthy, such as `5`.
    * 
    * @example
    * 5
@@ -2761,7 +2761,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   consecutiveDown?: number;
   /**
    * @remarks
-   * Number of consecutive successful probes required to consider the target as up, such as `3`.
+   * Number of consecutive successful probes required to consider the target healthy, such as `3`.
    * 
    * @example
    * 3
@@ -2788,7 +2788,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   followRedirects?: boolean;
   /**
    * @remarks
-   * Header information included during the probe, which is an HTTP header.
+   * Header information included in the probe, which is the HTTP header.
    * 
    * @example
    * {
@@ -2801,7 +2801,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * Monitoring interval, such as `60` seconds, indicating the frequency of checks.
+   * Monitoring interval, such as `60` seconds, representing the frequency of checks.
    * 
    * @example
    * 60
@@ -2817,7 +2817,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * Monitor check path, such as `/healthcheck`, which is an HTTP request path.
+   * Monitor check path, such as `/healthcheck`, which is the HTTP request path.
    * 
    * @example
    * /health
@@ -2841,7 +2841,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Monitor protocol type, such as HTTP, used for health checks. When the value is `off`, it indicates that no check will be performed.
+   * Monitor protocol type, such as HTTP, used for health checks. When set to `off`, no check is performed.
    * 
    * - TCP
    * - UDP
@@ -2899,7 +2899,7 @@ export class CreateLoadBalancerRequestMonitor extends $dara.Model {
 export class CreateLoadBalancerRequestRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * Default weight for all pools that do not have individual weights specified. The value range is an integer between 0 and 100.
+   * Default weight for round-robin, used for all pools that do not have a specific weight set. The value range is an integer between 0 and 100.
    * 
    * @example
    * 50
@@ -3007,7 +3007,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   fixedResponse?: CreateLoadBalancerRequestRulesFixedResponse;
   /**
    * @remarks
-   * Modify the corresponding load balancing configuration after matching the rule. The configured fields will override the corresponding fields in the load balancer configuration.
+   * Modify the corresponding load balancing configuration after matching the rule. The fields in the configuration will override the corresponding fields in the load balancer configuration.
    * 
    * @example
    * {
@@ -3056,7 +3056,9 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   overrides?: any;
   /**
    * @remarks
-   * Matching rule information.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.request.method eq "GET" and http.request.version eq "HTTP/1.0") or (ip.geoip.country eq "CN") or (http.host eq "www.example.com")
@@ -3064,10 +3066,9 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch.
-   * 
-   * - on: Enable the rule.
-   * - off: Disable the rule.
+   * Rule switch. This parameter does not need to be set when adding global configurations. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -3075,7 +3076,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter does not need to be set when adding global configurations.
    * 
    * @example
    * rule_1
@@ -3083,7 +3084,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. It can be left blank, in which case the rules will be executed in the list order. If filled, it should be a positive integer greater than 0.
+   * The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it should be an integer greater than 0, with higher values indicating a higher priority for execution.
    * 
    * @example
    * 1
@@ -3094,7 +3095,7 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
    * Whether to terminate the execution of subsequent rules.
    * 
    * - true: Yes.
-   * - false: No.
+   * - false: No, default value.
    * 
    * @example
    * true
@@ -5614,7 +5615,7 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
 export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   /**
    * @remarks
-   * DCV ID.
+   * The DCV ID.
    * 
    * @example
    * bababf7cdd1546a2ad04c0def1f4c980
@@ -5622,7 +5623,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * DCV name. For the DNS type, it is the TXT record name; for the HTTP type, it is the URL.
+   * The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
    * 
    * @example
    * http://www.example.com/.well-known/acme-challenge/pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow
@@ -5630,7 +5631,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Verification status.
+   * The verification status.
    * 
    * @example
    * pending
@@ -5638,7 +5639,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * DCV type. Possible values: DNS; HTTP.
+   * The DCV type. Valid values: DNS and HTTP.
    * 
    * @example
    * HTTP
@@ -5646,7 +5647,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * DCV content.
+   * The DCV content.
    * 
    * @example
    * pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow.KfzYo4LH3EgOt7a73G-RqZkbR0eYtLfEUmtmqGmr4FQ
@@ -5684,7 +5685,7 @@ export class GetCertificateResponseBodyResultDCV extends $dara.Model {
 export class GetCertificateResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Certificate application error code.
+   * The error code returned for certificate application.
    * 
    * @example
    * 2
@@ -5692,7 +5693,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   applyCode?: number;
   /**
    * @remarks
-   * Certificate application error message.
+   * The error message returned for certificate application.
    * 
    * @example
    * canceled
@@ -5724,7 +5725,7 @@ export class GetCertificateResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * DCV information.
+   * The Domain Control Validation (DCV) information.
    */
   DCV?: GetCertificateResponseBodyResultDCV[];
   /**
@@ -5978,6 +5979,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
    * 2024-03-05 18:24:04
    */
   createTime?: string;
+  fingerprintSha256?: string;
   /**
    * @remarks
    * The certificate ID.
@@ -6034,6 +6036,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
    * www.example.com,*.example.com
    */
   SAN?: string;
+  serialNumber?: string;
   /**
    * @remarks
    * The signature algorithm of the certificate.
@@ -6070,6 +6073,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
     return {
       commonName: 'CommonName',
       createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
       id: 'Id',
       issuer: 'Issuer',
       name: 'Name',
@@ -6077,6 +6081,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
       notBefore: 'NotBefore',
       pubkeyAlgorithm: 'PubkeyAlgorithm',
       SAN: 'SAN',
+      serialNumber: 'SerialNumber',
       signatureAlgorithm: 'SignatureAlgorithm',
       status: 'Status',
       type: 'Type',
@@ -6088,6 +6093,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
     return {
       commonName: 'string',
       createTime: 'string',
+      fingerprintSha256: 'string',
       id: 'string',
       issuer: 'string',
       name: 'string',
@@ -6095,6 +6101,7 @@ export class GetClientCaCertificateResponseBodyResult extends $dara.Model {
       notBefore: 'string',
       pubkeyAlgorithm: 'string',
       SAN: 'string',
+      serialNumber: 'string',
       signatureAlgorithm: 'string',
       status: 'string',
       type: 'string',
@@ -6136,6 +6143,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
    * 2024-06-24 07:48:51
    */
   createTime?: string;
+  fingerprintSha256?: string;
   /**
    * @remarks
    * The certificate ID.
@@ -6192,6 +6200,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
    * www.example.com,*.example.com
    */
   SAN?: string;
+  serialNumber?: string;
   /**
    * @remarks
    * The signature algorithm of the certificate.
@@ -6229,6 +6238,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
       CACertificateId: 'CACertificateId',
       commonName: 'CommonName',
       createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
       id: 'Id',
       issuer: 'Issuer',
       name: 'Name',
@@ -6236,6 +6246,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
       notBefore: 'NotBefore',
       pubkeyAlgorithm: 'PubkeyAlgorithm',
       SAN: 'SAN',
+      serialNumber: 'SerialNumber',
       signatureAlgorithm: 'SignatureAlgorithm',
       status: 'Status',
       type: 'Type',
@@ -6248,6 +6259,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
       CACertificateId: 'string',
       commonName: 'string',
       createTime: 'string',
+      fingerprintSha256: 'string',
       id: 'string',
       issuer: 'string',
       name: 'string',
@@ -6255,6 +6267,7 @@ export class GetClientCertificateResponseBodyResult extends $dara.Model {
       notBefore: 'string',
       pubkeyAlgorithm: 'string',
       SAN: 'string',
+      serialNumber: 'string',
       signatureAlgorithm: 'string',
       status: 'string',
       type: 'string',
@@ -6543,6 +6556,47 @@ export class GetEdgeContainerAppResponseBodyApp extends $dara.Model {
     if(this.healthCheck && typeof (this.healthCheck as any).validate === 'function') {
       (this.healthCheck as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceReserveResponseBodyReserveSet extends $dara.Model {
+  /**
+   * @example
+   * cmcc
+   */
+  isp?: string;
+  /**
+   * @example
+   * huazhong
+   */
+  region?: string;
+  /**
+   * @example
+   * 1
+   */
+  replicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isp: 'Isp',
+      region: 'Region',
+      replicas: 'Replicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isp: 'string',
+      region: 'string',
+      replicas: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -7319,7 +7373,7 @@ export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState exte
 export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the request header.
+   * Request header name.
    * 
    * @example
    * headerName
@@ -7327,11 +7381,11 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
   name?: string;
   /**
    * @remarks
-   * The action. Valid values:
+   * Operation method. Possible values:
    * 
-   * *   add: adds a header.
-   * *   del: deletes a header.
-   * *   modify: modifies a header.
+   * - add: Add.
+   * - del: Delete
+   * - modify: Modify.
    * 
    * @example
    * add
@@ -7339,7 +7393,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
   operation?: string;
   /**
    * @remarks
-   * The value of the request header.
+   * Request header value.
    * 
    * @example
    * headValue
@@ -7373,7 +7427,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
 export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the response header.
+   * Response header name.
    * 
    * @example
    * headerName
@@ -7381,11 +7435,11 @@ export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModi
   name?: string;
   /**
    * @remarks
-   * The action. Valid values:
+   * Operation method. Possible values are:
    * 
-   * *   add: adds a response header.
-   * *   del: deletes a response header.
-   * *   modify: modifies a response header.
+   * - add: Add.
+   * - del: Delete
+   * - modify: Modify.
    * 
    * @example
    * add
@@ -7393,7 +7447,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModi
   operation?: string;
   /**
    * @remarks
-   * The value of the response header.
+   * Response header value.
    * 
    * @example
    * headerValue
@@ -7565,7 +7619,7 @@ export class GetLoadBalancerResponseBodyAdaptiveRouting extends $dara.Model {
 export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed health checks before the backend is considered down, for example, `5`.
+   * The number of consecutive failed probes required to consider the target as unhealthy, for example, `5`.
    * 
    * @example
    * 5
@@ -7573,7 +7627,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   consecutiveDown?: number;
   /**
    * @remarks
-   * The number of consecutive successful probes required to consider the target as up, e.g., `3`.
+   * The number of consecutive successful probes required to consider the target as healthy, for example, `3`.
    * 
    * @example
    * 3
@@ -7581,7 +7635,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   consecutiveUp?: number;
   /**
    * @remarks
-   * Expected status codes, such as 200, 202, indicating successful HTTP responses.
+   * Expected status codes, such as 200, 202, for successful HTTP responses.
    * 
    * @example
    * 200,202
@@ -7600,7 +7654,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   followRedirects?: boolean;
   /**
    * @remarks
-   * The HTTP headers to be included in the health check request.
+   * The HTTP headers to be included in the probe request.
    * 
    * @example
    * {
@@ -7613,7 +7667,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * The interval for health checks, in seconds.
+   * Health check interval, in seconds.
    * 
    * @example
    * 60
@@ -7621,7 +7675,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The method for the health check.
+   * Health check method.
    * 
    * @example
    * GET
@@ -7629,7 +7683,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The path.
+   * Path.
    * 
    * @example
    * /
@@ -7637,7 +7691,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The target port.
+   * Target port.
    * 
    * @example
    * 80
@@ -7653,7 +7707,7 @@ export class GetLoadBalancerResponseBodyMonitor extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The type of monitor protocol, such as HTTP, used for health checks. When the value is `off`, it indicates that no check is performed.
+   * Monitor protocol type, such as HTTP, used for health checks. When the value is `off`, it indicates that no check is performed.
    * 
    * @example
    * HTTP
@@ -7711,7 +7765,7 @@ export class GetLoadBalancerResponseBodyRandomSteering extends $dara.Model {
   defaultWeight?: number;
   /**
    * @remarks
-   * Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the proportion of relative traffic distribution.
+   * Weight configurations for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the relative traffic distribution ratio.
    */
   poolWeights?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -7808,7 +7862,7 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   fixedResponse?: GetLoadBalancerResponseBodyRulesFixedResponse;
   /**
    * @remarks
-   * Modifies the load balancer configuration for the corresponding request after matching the rule. The fields in this configuration will override the corresponding fields in the load balancer configuration.
+   * Modifies the load balancer configuration for the corresponding request after matching the rule. The fields in this configuration will override the corresponding fields in the load balancer\\"s configuration.
    * 
    * @example
    * {
@@ -7865,7 +7919,9 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   overrides?: any;
   /**
    * @remarks
-   * Information about the matching rule.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * http.request.uri.path contains "/testing"
@@ -7873,10 +7929,9 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch.
-   * 
-   * - on: Enable the rule.
-   * - off: Disable the rule.
+   * Rule switch. This parameter is not required when adding global configurations. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -7884,7 +7939,7 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * Rule name. This parameter is not required when adding global configurations.
    * 
    * @example
    * r2
@@ -7892,7 +7947,7 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule.
+   * Rule execution order. The higher the number, the higher the priority.
    * 
    * @example
    * 1
@@ -7903,7 +7958,7 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
    * Whether to terminate the execution of subsequent rules.
    * 
    * - true: Yes.
-   * - false: No.
+   * - false: No, default value.
    * 
    * @example
    * true
@@ -9001,56 +9056,6 @@ export class GetRecordResponseBodyRecordModel extends $dara.Model {
   }
 }
 
-export class GetRoutineResponseBodyCodeVersions extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the code version.
-   * 
-   * @example
-   * test ver code desc
-   */
-  codeDescription?: string;
-  /**
-   * @remarks
-   * The code version.
-   * 
-   * @example
-   * 1710120201067203242
-   */
-  codeVersion?: string;
-  /**
-   * @remarks
-   * The time when the code version was created.
-   * 
-   * @example
-   * 2024-03-11T01:23:21Z
-   */
-  createTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeDescription: 'CodeDescription',
-      codeVersion: 'CodeVersion',
-      createTime: 'CreateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeDescription: 'string',
-      codeVersion: 'string',
-      createTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
   /**
    * @remarks
@@ -9113,129 +9118,6 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
     if(Array.isArray(this.canaryAreaList)) {
       $dara.Model.validateArray(this.canaryAreaList);
     }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRoutineResponseBodyRelatedRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The record ID.
-   * 
-   * @example
-   * 509348423011904
-   */
-  recordId?: number;
-  /**
-   * @remarks
-   * The record name.
-   * 
-   * @example
-   * test-record-1.example.com
-   */
-  recordName?: string;
-  /**
-   * @remarks
-   * The website ID.
-   * 
-   * @example
-   * 54362329990032
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The website name.
-   * 
-   * @example
-   * example.com
-   */
-  siteName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      recordId: 'RecordId',
-      recordName: 'RecordName',
-      siteId: 'SiteId',
-      siteName: 'SiteName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordId: 'number',
-      recordName: 'string',
-      siteId: 'number',
-      siteName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRoutineResponseBodyRelatedRoutes extends $dara.Model {
-  byPass?: string;
-  /**
-   * @remarks
-   * The route.
-   * 
-   * @example
-   * *.example.com/path1*
-   */
-  route?: string;
-  /**
-   * @remarks
-   * The route ID.
-   * 
-   * @example
-   * d501cb8a2c951f32922d260040780c06
-   */
-  routeId?: string;
-  /**
-   * @remarks
-   * The website ID.
-   * 
-   * @example
-   * 54362329990032
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The website name.
-   * 
-   * @example
-   * example.com
-   */
-  siteName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      byPass: 'ByPass',
-      route: 'Route',
-      routeId: 'RouteId',
-      siteId: 'SiteId',
-      siteName: 'SiteName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      byPass: 'string',
-      route: 'string',
-      routeId: 'string',
-      siteId: 'number',
-      siteName: 'string',
-    };
-  }
-
-  validate() {
     super.validate();
   }
 
@@ -10251,11 +10133,12 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * Instance status. Values:
-   * - **online**: Normal service status.
-   * - **offline**: Expired but not overdue, in an unavailable state.
-   * - **disable**: Released status.
-   * - **overdue**: Overdue and suspended status.
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   **online**: The instance is in service.
+   * *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
+   * *   **disable**: The instance has been released.
+   * *   **overdue**: The instance has been stopped due to overdue payments.
    * 
    * @example
    * online
@@ -10299,7 +10182,7 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Enable caching on specified ports. The value range is 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, 2096.
+   * Enable caching on specified ports. Value range: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, 2096.
    * 
    * @example
    * 2082
@@ -10318,7 +10201,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   browserCacheMode?: string;
   /**
    * @remarks
-   * Browser cache expiration time in seconds.
+   * Browser cache expiration time, in seconds.
    * 
    * @example
    * 300
@@ -10326,7 +10209,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   browserCacheTtl?: string;
   /**
    * @remarks
-   * Bypass cache mode. Possible values:
+   * Set bypass cache mode. Possible values:
    * - cache_all: Cache all requests.
    * - bypass_all: Bypass cache for all requests.
    * 
@@ -10336,9 +10219,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   bypassCache?: string;
   /**
    * @remarks
-   * Cache deception defense. Used to defend against web cache deception attacks, only the verified cache content will be cached. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Cache deception defense. Used to defend against web cache deception attacks; only verified cache content will be cached. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -10346,7 +10229,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * Cache reserve eligibility. Used to control whether user requests bypass the cache reserve node during origin pull. Possible values:
+   * Cache reserve eligibility. This is used to control whether user requests bypass the cache reserve node when returning to the origin. The value range is as follows:
    * - bypass_cache_reserve: Requests bypass the cache reserve.
    * - eligible_for_cache_reserve: Eligible for cache reserve.
    * 
@@ -10356,7 +10239,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * Check if the cookie exists when generating the cache key. If it exists, add the cookie name (case-insensitive) to the cache key. Multiple cookie names are supported, separated by spaces.
+   * When generating the cache key, check if the cookie exists. If it does, add the cookie name (case-insensitive) to the cache key. Multiple cookie names are supported, separated by spaces.
    * 
    * @example
    * cookiename
@@ -10364,7 +10247,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * Check if the header exists when generating the cache key. If it exists, add the header name (case-insensitive) to the cache key. Multiple header names are supported, separated by spaces.
+   * When generating the cache key, check if the header exists. If it does, add the header name (case-insensitive) to the cache key. Multiple header names are supported, separated by spaces.
    * 
    * @example
    * headername
@@ -10381,7 +10264,6 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * Configuration type, which can be used to query global or rule-based configurations. Possible values:
-   * 
    * - global: Query global configuration.
    * - rule: Query rule-based configuration.
    * 
@@ -10391,7 +10273,11 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Node cache mode. The value range includes: - follow_origin: Follow the origin\\"s cache strategy (if any), otherwise use the default cache strategy. - no_cache: Do not cache. - override_origin: Override the origin\\"s cache strategy. - follow_origin_bypass: Follow the origin\\"s cache strategy (if any), otherwise do not cache.
+   * Edge cache mode. The value range is as follows:
+   * - follow_origin: Follow the origin server\\"s cache policy (if it exists), otherwise use the default cache policy.
+   * - no_cache: Do not cache.
+   * - override_origin: Override the origin server\\"s cache policy.
+   * - follow_origin_bypass: Follow the origin server\\"s cache policy (if it exists), otherwise do not cache.
    * 
    * @example
    * follow_origin
@@ -10439,10 +10325,10 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The processing mode for query strings when generating the cache key. Possible values:
-   * - ignore_all: Ignore all.
+   * The processing mode for query strings when generating the cache key. The value range is as follows:
+   * - ignore_all: Ignore all query strings.
    * - exclude_query_string: Exclude specified query strings.
-   * - reserve_all: Default, reserve all.
+   * - reserve_all: Default, reserve all query strings.
    * - include_query_string: Include specified query strings.
    * 
    * @example
@@ -10451,7 +10337,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   queryStringMode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -10459,7 +10347,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -10469,7 +10357,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -10477,7 +10365,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -10485,7 +10373,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Serve stale cache. When enabled, the node can still use the cached expired files to respond to user requests even if the origin server is unavailable. Possible values:
+   * Serve stale cache. When enabled, the node can still respond to user requests with expired cached files even when the origin server is unavailable. Value range:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -10495,7 +10383,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   serveStale?: string;
   /**
    * @remarks
-   * Site version number.
+   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
    * 
    * @example
    * 1
@@ -10503,9 +10391,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Query string sorting. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Query string sorting. The value range is as follows:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -10513,9 +10401,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * Include the client device type when generating the cache key. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Include the client device type when generating the cache key. The value range is as follows:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -10523,9 +10411,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   userDeviceType?: string;
   /**
    * @remarks
-   * Include the client\\"s geographic location when generating the cache key. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Include the client\\"s geographic location when generating the cache key. The value range is as follows:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -10533,9 +10421,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
   userGeo?: string;
   /**
    * @remarks
-   * Include the client\\"s language type when generating the cache key. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Include the client\\"s language type when generating the cache key. The value range is as follows:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -10617,7 +10505,7 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
 export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   /**
    * @remarks
-   * DCV ID.
+   * The DCV ID.
    * 
    * @example
    * bababf7cdd1546a2ad04c0def1f4****
@@ -10625,7 +10513,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * DCV name. For DNS type, it is the TXT record name; for HTTP type, it is the URL.
+   * The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
    * 
    * @example
    * http://www.example.com/.well-known/acme-challenge/pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow
@@ -10633,7 +10521,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Verification status.
+   * The verification status.
    * 
    * @example
    * pending
@@ -10641,7 +10529,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * DCV type. Possible values: DNS; HTTP.
+   * The DCV type. Valid values: DNS and HTTP.
    * 
    * @example
    * HTTP
@@ -10649,7 +10537,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * DCV content.
+   * The DCV content.
    * 
    * @example
    * pH20CqwS5L3ZnvkhI436DCzadKFuG7QcUcvB_4KsAow.KfzYo4LH3EgOt7a73G-RqZkbR0eYtLfEUmtmqGmr4FQ
@@ -10687,7 +10575,7 @@ export class ListCertificatesResponseBodyResultDCV extends $dara.Model {
 export class ListCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Certificate application error code.
+   * The error code returned for certificate application.
    * 
    * @example
    * 2
@@ -10695,7 +10583,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   applyCode?: number;
   /**
    * @remarks
-   * Certificate application error message.
+   * The error message returned for certificate application.
    * 
    * @example
    * canceled
@@ -10703,7 +10591,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   applyMessage?: string;
   /**
    * @remarks
-   * Cloud certificate ID.
+   * The certificate ID on Certificate Management Service.
    * 
    * @example
    * 30000569
@@ -10711,7 +10599,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   casId?: string;
   /**
    * @remarks
-   * Common name of the certificate.
+   * The Common Name of the certificate.
    * 
    * @example
    * www.example.com
@@ -10719,7 +10607,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The time when the certificate was created.
    * 
    * @example
    * 2022-06-24 07:48:51
@@ -10727,12 +10615,12 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * DCV information.
+   * The Domain Control Validation (DCV) information.
    */
   DCV?: ListCertificatesResponseBodyResultDCV[];
   /**
    * @remarks
-   * Certificate SHA256 fingerprint.
+   * The SHA-256 fingerprint of the certificate.
    * 
    * @example
    * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
@@ -10740,7 +10628,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   fingerprintSha256?: string;
   /**
    * @remarks
-   * Certificate ID.
+   * The certificate ID on ESA.
    * 
    * @example
    * baba39055622c008b90285a8838e****
@@ -10748,7 +10636,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Certificate issuer.
+   * The certificate authority (CA) that issued the certificate.
    * 
    * @example
    * GlobalSign nv-sa
@@ -10756,7 +10644,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Common name of the certificate issuer.
+   * The Common Name of the certificate issuer.
    * 
    * @example
    * GlobalSign Organization Validation CA - SHA256 - G3
@@ -10764,7 +10652,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   issuerCN?: string;
   /**
    * @remarks
-   * Certificate name.
+   * The certificate name.
    * 
    * @example
    * yourCertName
@@ -10772,7 +10660,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * End date of the certificate validity period.
+   * The time when the certificate expires.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -10780,7 +10668,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * Start date of the certificate validity period.
+   * The time when the certificate takes effect.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -10788,7 +10676,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   notBefore?: string;
   /**
    * @remarks
-   * Certificate public key algorithm.
+   * The public key algorithm of the certificate.
    * 
    * @example
    * RSA
@@ -10796,7 +10684,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   pubAlg?: string;
   /**
    * @remarks
-   * Region information.
+   * The region where the certificate is stored.
    * 
    * @example
    * cn-hangzhou
@@ -10804,7 +10692,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Subject Alternative Name of the certificate.
+   * The Subject Alternative Name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -10812,7 +10700,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   SAN?: string;
   /**
    * @remarks
-   * Certificate serial number.
+   * The serial number of the certificate.
    * 
    * @example
    * babab022c5e9b27bf9c64d7f4b16****
@@ -10820,7 +10708,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * Certificate signature algorithm.
+   * The signature algorithm of the certificate.
    * 
    * @example
    * SHA256-RSA
@@ -10828,14 +10716,15 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   sigAlg?: string;
   /**
    * @remarks
-   * Certificate status.
-   * - OK: Normal.
-   * - Expired: The certificate has expired.
-   * - Expiring: The certificate is about to expire (within 30 days).
-   * - Issued: Free certificate - issued.
-   * - Applying: Free certificate - applying.
-   * - ApplyFailed: Free certificate - application failed.
-   * - Canceled: Free certificate - canceled.
+   * The certificate status.
+   * 
+   * *   OK
+   * *   Expired
+   * *   Expiring
+   * *   Issued
+   * *   Applying
+   * *   ApplyFailed
+   * *   Canceled
    * 
    * @example
    * OK
@@ -10843,10 +10732,11 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Certificate type.
-   * - cas: Cloud Shield certificate.
-   * - upload: Custom uploaded certificate.
-   * - free: Free certificate.
+   * The certificate type.
+   * 
+   * *   cas: certificate that is purchased by using Certificate Management Service
+   * *   upload: custom certificate that you upload
+   * *   free: free certificate
    * 
    * @example
    * free
@@ -10854,7 +10744,7 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Update time.
+   * The time when the certificate was updated.
    * 
    * @example
    * 2023-04-20 06:18:42
@@ -10941,6 +10831,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
    * 2024-06-24 07:48:51
    */
   createTime?: string;
+  fingerprintSha256?: string;
   /**
    * @remarks
    * The certificate ID.
@@ -10997,6 +10888,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
    * www.example.com,*.example.com
    */
   SAN?: string;
+  serialNumber?: string;
   /**
    * @remarks
    * The signature algorithm of the certificate.
@@ -11033,6 +10925,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
     return {
       commonName: 'CommonName',
       createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
       id: 'Id',
       issuer: 'Issuer',
       name: 'Name',
@@ -11040,6 +10933,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
       notBefore: 'NotBefore',
       pubkeyAlgorithm: 'PubkeyAlgorithm',
       SAN: 'SAN',
+      serialNumber: 'SerialNumber',
       signatureAlgorithm: 'SignatureAlgorithm',
       status: 'Status',
       type: 'Type',
@@ -11051,6 +10945,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
     return {
       commonName: 'string',
       createTime: 'string',
+      fingerprintSha256: 'string',
       id: 'string',
       issuer: 'string',
       name: 'string',
@@ -11058,6 +10953,7 @@ export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
       notBefore: 'string',
       pubkeyAlgorithm: 'string',
       SAN: 'string',
+      serialNumber: 'string',
       signatureAlgorithm: 'string',
       status: 'string',
       type: 'string',
@@ -11099,6 +10995,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
    * 2024-06-24 07:48:51
    */
   createTime?: string;
+  fingerprintSha256?: string;
   /**
    * @remarks
    * The certificate ID.
@@ -11155,6 +11052,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
    * www.example.com,*.example.com
    */
   SAN?: string;
+  serialNumber?: string;
   /**
    * @remarks
    * The signature algorithm of the certificate.
@@ -11192,6 +11090,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
       CACertificateId: 'CACertificateId',
       commonName: 'CommonName',
       createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
       id: 'Id',
       issuer: 'Issuer',
       name: 'Name',
@@ -11199,6 +11098,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
       notBefore: 'NotBefore',
       pubkeyAlgorithm: 'PubkeyAlgorithm',
       SAN: 'SAN',
+      serialNumber: 'SerialNumber',
       signatureAlgorithm: 'SignatureAlgorithm',
       status: 'Status',
       type: 'Type',
@@ -11211,6 +11111,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
       CACertificateId: 'string',
       commonName: 'string',
       createTime: 'string',
+      fingerprintSha256: 'string',
       id: 'string',
       issuer: 'string',
       name: 'string',
@@ -11218,6 +11119,7 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
       notBefore: 'string',
       pubkeyAlgorithm: 'string',
       SAN: 'string',
+      serialNumber: 'string',
       signatureAlgorithm: 'string',
       status: 'string',
       type: 'string',
@@ -11237,10 +11139,9 @@ export class ListClientCertificatesResponseBodyResult extends $dara.Model {
 export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Brotli compression is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Brotli compression. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -11248,7 +11149,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   brotli?: string;
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -11256,10 +11157,9 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * rule
@@ -11267,10 +11167,9 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether Gzip compression is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Gzip compression. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -11278,7 +11177,9 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   gzip?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -11286,10 +11187,9 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -11297,7 +11197,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -11305,7 +11205,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -11313,12 +11213,19 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 1
    */
   siteVersion?: number;
+  /**
+   * @remarks
+   * Zstd compression. Value range: - on: Enable. - off: Disable.
+   * 
+   * @example
+   * on
+   */
   zstd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12384,7 +12291,7 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $dara.Model {
 export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * Request header name.
+   * The name of the request header.
    * 
    * @example
    * headerName
@@ -12392,9 +12299,10 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
   name?: string;
   /**
    * @remarks
-   * Operation method. Value range:
-   * - add: Add. 
-   * - del: Delete. 
+   * The operation type. The value range is as follows:
+   * 
+   * - add: Add.
+   * - del: Delete.
    * - modify: Modify.
    * 
    * @example
@@ -12460,7 +12368,9 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   requestHeaderModification?: ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHeaderModification[];
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -12468,9 +12378,9 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -12478,7 +12388,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -12486,7 +12396,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -12494,7 +12404,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
   sequence?: number;
   /**
    * @remarks
-   * Version number of the site configuration.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 1
@@ -12541,7 +12451,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification extends $dara.Model {
   /**
    * @remarks
-   * The name of the response header.
+   * Name of the response header.
    * 
    * @example
    * headerName
@@ -12549,11 +12459,10 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
   name?: string;
   /**
    * @remarks
-   * The action. Valid values:
-   * 
-   * *   add: adds a response header.
-   * *   del: deletes a response header.
-   * *   modify: modifies a response header.
+   * Operation type. The value range is as follows:
+   * - add: Add.
+   * - del: Delete
+   * - modify: Modify.
    * 
    * @example
    * add
@@ -12561,7 +12470,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
   operation?: string;
   /**
    * @remarks
-   * The value of the response header.
+   * Response header value.
    * 
    * @example
    * headerValue
@@ -12595,7 +12504,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -12603,10 +12512,9 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule configuration.
    * 
    * @example
    * rule
@@ -12614,12 +12522,14 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   configType?: string;
   /**
    * @remarks
-   * The configurations of modifying response headers. You can add, delete, or modify a response header.
+   * Modify response headers, supporting add, delete, and modify operations.
    */
   responseHeaderModification?: ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification[];
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -12627,10 +12537,9 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -12638,7 +12547,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -12646,7 +12555,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -12654,7 +12563,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, with the default being version 0.
    * 
    * @example
    * 0
@@ -12701,9 +12610,9 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends 
 export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Alt-Svc feature switch, default is disabled. Values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Alt-Svc feature switch, default is off. Value range: 
+   * - on: enabled. 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -12711,7 +12620,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvc?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the clear parameter, default is disabled. Values:
+   * Whether the Alt-Svc header includes the clear parameter, default is off. Values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -12721,7 +12630,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvcClear?: string;
   /**
    * @remarks
-   * The effective duration of Alt-Svc, in seconds. The default is 86400 seconds.
+   * The validity period of Alt-Svc in seconds, default is 86400 seconds.
    * 
    * @example
    * 86400
@@ -12729,7 +12638,9 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   altSvcMa?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header contains the persist parameter, default is off. Values: - on: enabled. - off: disabled.
+   * Whether the Alt-Svc header includes the persist parameter, default is off. Values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -12745,10 +12656,9 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
-   * 
+   * Configuration type, which can be used to query global or rule-based configurations. Possible values:
    * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * - rule: Query rule-based configuration.
    * 
    * @example
    * global
@@ -12756,7 +12666,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   configType?: string;
   /**
    * @remarks
-   * Indicates whether HSTS is enabled. The default is off. Possible values:
+   * Whether HSTS is enabled, default is off. Value range:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -12766,9 +12676,9 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hsts?: string;
   /**
    * @remarks
-   * Indicates whether to include subdomains in HSTS. The default is off. Possible values:
-   * - on: Include subdomains.
-   * - off: Do not include subdomains.
+   * Whether to include subdomains in HSTS, default is off. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -12776,7 +12686,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsIncludeSubdomains?: string;
   /**
    * @remarks
-   * The expiration time of HSTS, in seconds.
+   * The expiration time of HSTS in seconds.
    * 
    * @example
    * 3600
@@ -12784,7 +12694,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsMaxAge?: string;
   /**
    * @remarks
-   * Indicates whether HSTS preloading is enabled. The default is off. Possible values:
+   * Whether HSTS preloading is enabled, default is off. Value range:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -12794,8 +12704,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   hstsPreload?: string;
   /**
    * @remarks
-   * Whether to enable forced HTTPS, default is disabled. Values:
-   * 
+   * Whether to enable forced HTTPS, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -12805,7 +12714,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   httpsForce?: string;
   /**
    * @remarks
-   * Forced HTTPS redirect status code, value range:
+   * Forced HTTPS redirect status code. Possible values:
    * - 301
    * - 302
    * - 307
@@ -12817,7 +12726,9 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   httpsForceCode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -12825,7 +12736,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -12835,7 +12746,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -12843,7 +12754,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -12851,7 +12762,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration is effective, default is version 0.
    * 
    * @example
    * 1
@@ -12913,7 +12824,7 @@ export class ListHttpsApplicationConfigurationsResponseBodyConfigs extends $dara
 export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Custom cipher suite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
+   * Custom ciphersuite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
    * 
    * @example
    * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
@@ -12921,10 +12832,10 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ciphersuite?: string;
   /**
    * @remarks
-   * Cipher suite group, default is all cipher suites. Value range:
-   * - all: All cipher suites.
-   * - strict: Strong cipher suites.
-   * - custom: Custom cipher suites.
+   * Ciphersuite group, defaults to enabling all ciphersuites. Value range:
+   * - all: all ciphersuites.
+   * - strict: strong ciphersuites.
+   * - custom: custom ciphersuites.
    * 
    * @example
    * strict
@@ -12950,9 +12861,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   configType?: string;
   /**
    * @remarks
-   * Indicates whether HTTP2 is enabled. Default is on. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable HTTP2, default is on. Value range:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -12960,9 +12871,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   http2?: string;
   /**
    * @remarks
-   * Indicates whether HTTP3 is enabled. Default is on. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable HTTP3, default is on. Value range:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -12971,8 +12882,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   /**
    * @remarks
    * Whether to enable HTTPS, default is enabled. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -12980,9 +12891,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   https?: string;
   /**
    * @remarks
-   * Indicates whether OCSP is enabled. Default is off. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable OCSP, default is off. Value range:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -12990,7 +12901,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ocspStapling?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -12998,9 +12911,9 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -13008,7 +12921,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -13016,7 +12929,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -13025,8 +12938,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   /**
    * @remarks
    * Whether to enable TLS1.0, default is disabled. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -13035,8 +12948,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   /**
    * @remarks
    * Whether to enable TLS1.1, default is disabled. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -13045,8 +12958,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   /**
    * @remarks
    * Whether to enable TLS1.2, default is disabled. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -13055,8 +12968,8 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   /**
    * @remarks
    * Whether to enable TLS1.3, default is disabled. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -13116,7 +13029,7 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
 export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID,
+   * Configuration ID.
    * 
    * @example
    * 395386449776640
@@ -13124,10 +13037,9 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration;
+   * - rule: Rule configuration;
    * 
    * @example
    * global
@@ -13135,10 +13047,10 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether cache reserve is enabled. Indicates whether the task name is valid. Valid values:
+   * Switch. Possible values:
    * 
-   * *   **on**
-   * *   **off**
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -13146,7 +13058,9 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The rule content, which is a policy or conditional expression.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -13154,10 +13068,9 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -13165,7 +13078,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test
@@ -13173,7 +13086,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -13181,7 +13094,7 @@ export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website.
+   * Site configuration version number. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 1
@@ -13838,7 +13751,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting extends $
 export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed probes required to consider the target as unhealthy, e.g., 5.
+   * The number of consecutive failed probes required to consider the target unhealthy, such as 5.
    * 
    * @example
    * 5
@@ -13846,7 +13759,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   consecutiveDown?: number;
   /**
    * @remarks
-   * The number of consecutive successful probes required to consider the target as healthy, e.g., 3.
+   * The number of consecutive successful probes required to consider the target healthy, such as 3.
    * 
    * @example
    * 3
@@ -13854,7 +13767,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   consecutiveUp?: number;
   /**
    * @remarks
-   * The expected status codes, such as 200, 202, indicating a successful HTTP response.
+   * The expected status codes, such as 200,202, indicating successful HTTP responses.
    * 
    * @example
    * 200,202
@@ -13873,7 +13786,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   followRedirects?: boolean;
   /**
    * @remarks
-   * The header information included during the probe, i.e., HTTP headers.
+   * The header information included in the probe, such as HTTP headers.
    * 
    * @example
    * {
@@ -13886,7 +13799,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   header?: any;
   /**
    * @remarks
-   * The interval time for the health check, in seconds.
+   * The interval for the health check, in seconds.
    * 
    * @example
    * 60
@@ -13894,7 +13807,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   interval?: number;
   /**
    * @remarks
-   * The method used for the health check.
+   * The method for the health check.
    * 
    * @example
    * GET
@@ -13918,7 +13831,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersMonitor extends $dara.Mod
   port?: number;
   /**
    * @remarks
-   * The timeout for the health check, in seconds.
+   * Application health check timeout, in seconds.
    * 
    * @example
    * 5
@@ -14138,7 +14051,9 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   overrides?: any;
   /**
    * @remarks
-   * Matching rule information.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios: 
+   * - Match all incoming requests: set the value to true 
+   * - Match specific requests: set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * http.request.uri.path contains "/testing"
@@ -14146,9 +14061,9 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Rule switch.
-   * - on: Enable the rule. 
-   * - off: Disable the rule.
+   * The switch for the rule. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -14156,7 +14071,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * The name of the rule. This parameter is not required when adding a global configuration.
    * 
    * @example
    * r2
@@ -14164,7 +14079,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule.
+   * The execution order of the rule. The higher the value, the higher the priority.
    * 
    * @example
    * 1
@@ -14175,7 +14090,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
    * Whether to terminate the execution of subsequent rules.
    * 
    * - true: Yes.
-   * - false: No.
+   * - false: No, which is the default value.
    * 
    * @example
    * true
@@ -14220,17 +14135,17 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
 export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * Cross-pool fallback configuration.
+   * Cross-pool failover configuration.
    */
   adaptiveRouting?: ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting;
   /**
    * @remarks
-   * List of default pool IDs.
+   * List of default address pool IDs.
    */
   defaultPools?: number[];
   /**
    * @remarks
-   * Description of the load balancer.
+   * The description of the load balancer.
    * 
    * @example
    * test
@@ -14249,7 +14164,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Fallback pool ID, to which traffic will be redirected if all other pools are unavailable.
+   * The fallback pool ID, to which traffic will be redirected if all other pools are unavailable.
    * 
    * @example
    * 96228666776****
@@ -14257,7 +14172,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Unique identifier ID of the load balancer.
+   * The unique identifier ID of the load balancer.
    * 
    * @example
    * 998676487607104
@@ -14270,7 +14185,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   monitor?: ListLoadBalancersResponseBodyLoadBalancersMonitor;
   /**
    * @remarks
-   * Name of the load balancer.
+   * The name of the load balancer.
    * 
    * @example
    * lb.example.com
@@ -14278,12 +14193,12 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Weighted round-robin configuration, used to control the traffic distribution weights among different address pools.
+   * Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
    */
   randomSteering?: ListLoadBalancersResponseBodyLoadBalancersRandomSteering;
   /**
    * @remarks
-   * Address pool corresponding to the primary region.
+   * Address pools corresponding to primary regions.
    * 
    * @example
    * {
@@ -14304,10 +14219,10 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   rules?: ListLoadBalancersResponseBodyLoadBalancersRules[];
   /**
    * @remarks
-   * Session persistence, with values:
+   * Session persistence, with possible values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -14315,7 +14230,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   sessionAffinity?: string;
   /**
    * @remarks
-   * Site ID to which the load balancer belongs.
+   * The site ID to which the load balancer belongs.
    * 
    * @example
    * 1159101787****
@@ -14331,7 +14246,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Load balancing policy.
+   * The load balancing policy.
    * 
    * @example
    * order
@@ -14339,7 +14254,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * The address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
+   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -14347,7 +14262,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * TTL value, the time-to-live for DNS records, default is 30.
+   * The TTL value, which is the DNS record\\"s time to live, with a default value of 30.
    * 
    * @example
    * 30
@@ -14475,7 +14390,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
    * Configuration type, which can be used to query global or rule-based configurations. The value range is as follows:
    * 
    * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * - rule: Query rule-based configuration.
    * 
    * @example
    * global
@@ -14483,9 +14398,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Whether to enable GRPC, defaulting to disabled. The value range is as follows:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to enable GRPC, default is off. The value range is:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -14493,7 +14408,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   grpc?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2 origin, defaulting to disabled. The value range is as follows:
+   * Whether to enable HTTP2 origin, defaulting to off. The value range is as follows:
    * 
    * - on: Enabled.
    * - off: Disabled.
@@ -14504,7 +14419,9 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   http2Origin?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -14512,7 +14429,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. The value range is as follows:
+   * Rule switch. This parameter is not required when adding a global configuration. The value range is as follows:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -14522,7 +14439,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -14530,7 +14447,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -14538,7 +14455,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
    * 
    * @example
    * 1
@@ -14546,7 +14463,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Whether to enable smart routing service, defaulting to disabled. The value range is as follows:
+   * Whether to enable smart routing service, defaulting to off. The value range is as follows:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -14556,7 +14473,7 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * Maximum upload file size in MB, with a range from 100 to 500.
+   * Maximum file size for upload, in MB. The value range is 100 to 500.
    * 
    * @example
    * 500
@@ -14564,8 +14481,8 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Whether to enable Websocket, defaulting to enabled. The value range is as follows:
-   * - on: Enabled.
+   * Whether to enable Websocket, enabled by default. Value range: 
+   * - on: Enabled. 
    * - off: Disabled.
    * 
    * @example
@@ -15110,7 +15027,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originHost?: string;
   /**
    * @remarks
-   * The origin server port accessed when using the HTTP protocol.
+   * The port of the origin server to access when using the HTTP protocol for origin requests.
    * 
    * @example
    * 8080
@@ -15118,19 +15035,28 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originHttpPort?: string;
   /**
    * @remarks
-   * The origin server port to access when using the HTTPS protocol for back-to-origin requests.
+   * The port of the origin server to access when using the HTTPS protocol for origin requests.
    * 
    * @example
    * 4433
    */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * mTLS switch. Value range:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originMtls?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Value range:
-   * - http: Use HTTP protocol for origin requests.
-   * - https: Use HTTPS protocol for origin requests.
-   * - follow: Follow the client\\"s protocol for origin requests.
+   * - http: Use HTTP protocol for origin.
+   * - https: Use HTTPS protocol for origin.
+   * - follow: Follow the client\\"s protocol for origin.
    * 
    * @example
    * http
@@ -15138,19 +15064,28 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   originScheme?: string;
   /**
    * @remarks
-   * SNI carried in the origin request.
+   * SNI carried in the back-to-origin request.
    * 
    * @example
    * origin.example.com
    */
   originSni?: string;
+  /**
+   * @remarks
+   * Origin certificate verification switch. Value range:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originVerify?: string;
   /**
    * @remarks
-   * Use range slicing to download files from the origin. The value range is:
-   * - on: enabled
-   * - off: disabled
-   * - force: forced
+   * Use range slicing to download files from the origin. Value range:
+   * - on: Enable
+   * - off: Disable
+   * - force: Force
    * 
    * @example
    * on
@@ -15158,7 +15093,9 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   range?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -15166,9 +15103,9 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
-   * - on: Enabled
-   * - off: Disabled
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -15176,7 +15113,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -15184,7 +15121,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -15192,7 +15129,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
    * 
    * @example
    * 1
@@ -15819,7 +15756,7 @@ export class ListRecordsResponseBodyRecords extends $dara.Model {
 export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -15827,10 +15764,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule configuration.
    * 
    * @example
    * rule
@@ -15838,10 +15774,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether the feature of retaining the query string is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Preserve query string. Value range:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -15849,7 +15784,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -15857,10 +15794,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -15868,7 +15804,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -15876,7 +15812,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -15884,7 +15820,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, with the default being version 0.
    * 
    * @example
    * 1
@@ -15892,13 +15828,12 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The response code that you want to use to indicate URL redirection. Valid values:
-   * 
-   * *   301
-   * *   302
-   * *   303
-   * *   307
-   * *   308
+   * Response status code used by the node to respond to the client with the redirect address. Possible values:
+   * - 301
+   * - 302
+   * - 303
+   * - 307
+   * - 308
    * 
    * @example
    * 301
@@ -15906,7 +15841,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The destination URL to which requests are redirected.
+   * Target URL after redirection.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -15914,9 +15849,9 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * The redirect type. Valid values:
-   * 
-   * *   static
+   * Redirect type. Possible values:
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -15966,7 +15901,7 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
 export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 39538644977****
@@ -15974,10 +15909,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Value range:
+   * - global: Global configuration;
+   * - rule: Rule configuration;
    * 
    * @example
    * global
@@ -15985,7 +15919,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The desired query string to which you want to rewrite the query string in the original request.
+   * The rewritten query string.
    * 
    * @example
    * example=123
@@ -15993,9 +15927,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The query string rewrite method. Valid values:
-   * 
-   * *   static
+   * Query string rewrite type. Value range:
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -16003,9 +15937,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * The path rewrite method. Valid values:
-   * 
-   * *   static
+   * URI rewrite type. Value range:
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -16013,7 +15947,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. Not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -16021,10 +15957,9 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. Not required when adding a global configuration. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -16032,7 +15967,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. Not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -16040,7 +15975,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -16048,7 +15983,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -16056,7 +15991,7 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The desired URI to which you want to rewrite the path in the original request.
+   * Target URI after rewriting.
    * 
    * @example
    * /image.example.com/index.html
@@ -16285,6 +16220,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
    * invalid domain:test.com
    */
   errorInfo?: string;
+  executionCount?: number;
   /**
    * @remarks
    * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
@@ -16371,6 +16307,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
       createdAt: 'CreatedAt',
       domains: 'Domains',
       errorInfo: 'ErrorInfo',
+      executionCount: 'ExecutionCount',
       failedFileOss: 'FailedFileOss',
       fileId: 'FileId',
       id: 'Id',
@@ -16390,6 +16327,7 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $dara.Model {
       createdAt: 'string',
       domains: 'string',
       errorInfo: 'string',
+      executionCount: 'number',
       failedFileOss: 'string',
       fileId: 'string',
       id: 'string',
@@ -17883,7 +17821,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
 export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $dara.Model {
   /**
    * @remarks
-   * The rule content, which is a policy or conditional expression.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configuration. There are two usage scenarios:
+   * - Match all incoming requests: set the value to true
+   * - Match specific requests: set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -17891,10 +17831,9 @@ export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $dara.Mode
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter does not need to be set when adding global configuration. Value range:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -17902,7 +17841,7 @@ export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $dara.Mode
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter does not need to be set when adding global configuration.
    * 
    * @example
    * ip
@@ -17910,7 +17849,7 @@ export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $dara.Mode
   ruleName?: string;
   /**
    * @remarks
-   * The rule ID.
+   * Rule ID.
    * 
    * @example
    * 37286782688****
@@ -18343,6 +18282,88 @@ export class PurgeCachesRequestContent extends $dara.Model {
   }
 }
 
+export class UpdateEdgeContainerAppResourceReserveRequestReserveSet extends $dara.Model {
+  /**
+   * @example
+   * cmcc
+   */
+  isp?: string;
+  /**
+   * @example
+   * huazhong
+   */
+  region?: string;
+  /**
+   * @example
+   * 1
+   */
+  replicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isp: 'Isp',
+      region: 'Region',
+      replicas: 'Replicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isp: 'string',
+      region: 'string',
+      replicas: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppResourceReserveResponseBodyReserveSet extends $dara.Model {
+  /**
+   * @example
+   * cmcc
+   */
+  isp?: string;
+  /**
+   * @example
+   * huazhong
+   */
+  region?: string;
+  /**
+   * @example
+   * 1
+   */
+  replicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isp: 'Isp',
+      region: 'Region',
+      replicas: 'Replicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isp: 'string',
+      region: 'string',
+      replicas: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModification extends $dara.Model {
   /**
    * @remarks
@@ -18356,10 +18377,10 @@ export class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
   name?: string;
   /**
    * @remarks
-   * Operation type. Value range:
+   * Operation method. Possible values:
    * 
    * - add: Add.
-   * - del: Delete.
+   * - del: Delete
    * - modify: Modify.
    * 
    * This parameter is required.
@@ -18415,7 +18436,6 @@ export class UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
   /**
    * @remarks
    * Operation method. Value range:
-   * 
    * - add: Add.
    * - del: Delete
    * - modify: Modify.
@@ -18462,7 +18482,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
 export class UpdateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
   /**
    * @remarks
-   * Whether to perform cross-pool origin fallback.
+   * Whether to failover across pools.
    * 
    * - true: Yes.
    * - false: No.
@@ -18511,7 +18531,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   consecutiveUp?: number;
   /**
    * @remarks
-   * Expected status codes, such as 200,202, which are successful HTTP responses.
+   * Expected status codes, such as 200,202, which indicate successful HTTP responses.
    * 
    * @example
    * 200,202
@@ -18543,7 +18563,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * Monitor interval, such as 60 seconds, which is the check frequency.
+   * Monitor interval, such as 60 seconds, which is the frequency of checks.
    * 
    * @example
    * 100
@@ -18575,7 +18595,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * Application health check timeout, in seconds. The range is 1-10.
+   * Application health check timeout, in seconds, with a range of 1-10.
    * 
    * @example
    * 5
@@ -18583,7 +18603,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * Monitor protocol type, such as HTTP, used for health checks. When the value is \\"off\\", it indicates that no check will be performed.
+   * Monitor protocol type, such as HTTP, used for health checks. When set to \\"off\\", no check is performed.
    * 
    * @example
    * HTTP
@@ -18633,7 +18653,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
 export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * The default round-robin weight, used for all pools that do not have a specific weight set. The value range is an integer between 0 and 100.
+   * The default round-robin weight, used for all pools that do not have a specific weight set. Value range: integers between 0-100.
    * 
    * @example
    * 50
@@ -18787,7 +18807,9 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   overrides?: any;
   /**
    * @remarks
-   * Matching condition, such as a rule based on the request URI.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * http.request.method eq "GET"
@@ -18795,10 +18817,9 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch.
-   * 
-   * - on: Enable the rule.
-   * - off: Disable the rule.
+   * Rule switch. This parameter does not need to be set when adding global configurations. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -18806,7 +18827,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter does not need to be set when adding global configurations.
    * 
    * @example
    * rule_1
@@ -18814,7 +18835,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. It can be left blank, in which case the rules will be executed in the list order. If specified, it must be a positive integer.
+   * The execution order of the rule. It can be left empty, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
    * 
    * @example
    * 1
@@ -18823,9 +18844,8 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   /**
    * @remarks
    * Whether to terminate the execution of subsequent rules.
-   * 
    * - true: Yes.
-   * - false: No.
+   * - false: No, default value.
    * 
    * @example
    * true
@@ -20156,7 +20176,7 @@ export class ApplyCertificateRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Certificate type. Possible values: lets_encrypt: Let\\"s Encrypt certificate; digicert_single: Digicert single domain certificate; digicert_wildcard: Digicert wildcard certificate.
+   * The certificate type. Valid values: lets_encrypt, digicert_single, and digicert_wildcard.
    * 
    * @example
    * lets_encrypt
@@ -22170,7 +22190,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   browserCacheMode?: string;
   /**
    * @remarks
-   * Browser cache expiration time in seconds.
+   * Browser cache expiration time, in seconds.
    * 
    * @example
    * 300
@@ -22188,9 +22208,9 @@ export class CreateCacheRuleRequest extends $dara.Model {
   bypassCache?: string;
   /**
    * @remarks
-   * Cache deception protection. Used to defend against web cache deception attacks, only the cache content that passes the validation will be cached. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Cache deception defense. Used to defend against web cache deception attacks; only the verified cache content will be cached. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -22236,7 +22256,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   edgeCacheMode?: string;
   /**
    * @remarks
-   * Edge cache expiration time in seconds.
+   * Edge cache expiration time, in seconds.
    * 
    * @example
    * 300
@@ -22244,7 +22264,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   edgeCacheTtl?: string;
   /**
    * @remarks
-   * Status code cache expiration time in seconds.
+   * Status code cache expiration time, in seconds.
    * 
    * @example
    * 300
@@ -22288,7 +22308,9 @@ export class CreateCacheRuleRequest extends $dara.Model {
   queryStringMode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -22296,7 +22318,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -22306,7 +22328,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -22314,9 +22336,9 @@ export class CreateCacheRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Serve stale cache. When enabled, the node can still respond to user requests with expired cached files when the origin server is unavailable. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Serve stale cache. When enabled, the node can still use the expired cached files to respond to user requests even if the origin server is unavailable. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -22352,7 +22374,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * When generating the cache key, add the client device type. Possible values:
+   * When generating the cache key, include the client device type. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -22362,7 +22384,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
   userDeviceType?: string;
   /**
    * @remarks
-   * When generating the cache key, add the client\\"s geographic location. Possible values:
+   * Include the client\\"s geographical location when generating the cache key. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -22372,7 +22394,9 @@ export class CreateCacheRuleRequest extends $dara.Model {
   userGeo?: string;
   /**
    * @remarks
-   * When generating cache keys, include the client\\"s language type. The value can be: - on: enabled. - off: disabled.
+   * Include the client\\"s language type when generating the cache key. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -22806,7 +22830,9 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   gzip?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -22814,10 +22840,9 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * 
-   * - **on**: Enable.
-   * - **off**: Disable.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -22825,7 +22850,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -22843,12 +22868,22 @@ export class CreateCompressionRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 0
    */
   siteVersion?: number;
+  /**
+   * @remarks
+   * Zstd compression. Value range:
+   * 
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   zstd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23802,7 +23837,9 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   requestHeaderModification?: CreateHttpRequestHeaderModificationRuleRequestRequestHeaderModification[];
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -23810,8 +23847,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -23821,7 +23857,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -23839,7 +23875,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter specifies the version to apply the configuration to, defaulting to version 0.
+   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
    * 
    * @example
    * 0
@@ -23889,7 +23925,9 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   requestHeaderModificationShrink?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -23897,8 +23935,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -23908,7 +23945,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -23926,7 +23963,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter specifies the version to apply the configuration to, defaulting to version 0.
+   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
    * 
    * @example
    * 0
@@ -24048,7 +24085,9 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   responseHeaderModification?: CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModification[];
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -24056,8 +24095,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24067,7 +24105,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -24135,7 +24173,9 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   responseHeaderModificationShrink?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -24143,8 +24183,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24154,7 +24193,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -24287,7 +24326,7 @@ export class CreateHttpResponseHeaderModificationRuleResponse extends $dara.Mode
 export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Alt-Svc feature switch. Default is disabled. Possible values:
+   * Alt-Svc feature switch, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24297,7 +24336,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvc?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the clear parameter. Default is disabled. Possible values:
+   * Whether the Alt-Svc header includes the clear parameter, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24307,7 +24346,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcClear?: string;
   /**
    * @remarks
-   * Validity period of Alt-Svc in seconds. The default is 86400 seconds.
+   * Alt-Svc validity period in seconds, default is 86400 seconds.
    * 
    * @example
    * 86400
@@ -24315,7 +24354,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcMa?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the persist parameter. Default is disabled. Possible values:
+   * Whether the Alt-Svc header includes the persist parameter, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24325,7 +24364,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcPersist?: string;
   /**
    * @remarks
-   * Whether to enable HSTS. Default is disabled. Possible values:
+   * Whether to enable HSTS, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24335,7 +24374,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   hsts?: string;
   /**
    * @remarks
-   * Whether to include subdomains in HSTS. Default is disabled. Possible values:
+   * Whether to include subdomains in HSTS, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24353,7 +24392,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsMaxAge?: string;
   /**
    * @remarks
-   * Whether to enable HSTS preloading. Default is disabled. Possible values:
+   * Whether to enable HSTS preload, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24363,7 +24402,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsPreload?: string;
   /**
    * @remarks
-   * Whether to enable forced HTTPS. Default is disabled. Possible values:
+   * Whether to enable forced HTTPS, default is disabled. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24373,7 +24412,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForce?: string;
   /**
    * @remarks
-   * Status code for forced HTTPS redirection. Possible values:
+   * Forced HTTPS redirect status code. Possible values:
    * - 301
    * - 302
    * - 307
@@ -24385,7 +24424,9 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForceCode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -24393,7 +24434,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -24403,7 +24444,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -24421,7 +24462,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration will take effect. The default is version 0.
+   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
    * 
    * @example
    * 1
@@ -24562,7 +24603,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ciphersuite?: string;
   /**
    * @remarks
-   * Cipher suite group. Default is all cipher suites. Possible values:
+   * Cipher suite group. Default uses all cipher suites. Value range:
    * - all: All cipher suites.
    * - strict: Strong cipher suites.
    * - custom: Custom cipher suites.
@@ -24573,7 +24614,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ciphersuiteGroup?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2. Default is enabled. Possible values:
+   * Whether to enable HTTP2. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24583,7 +24624,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   http2?: string;
   /**
    * @remarks
-   * Whether to enable HTTP3. Default is enabled. Possible values:
+   * Whether to enable HTTP3. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24593,7 +24634,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   http3?: string;
   /**
    * @remarks
-   * Whether to enable HTTPS. Default is enabled. Possible values:
+   * Whether to enable HTTPS. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24603,7 +24644,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   https?: string;
   /**
    * @remarks
-   * Whether to enable OCSP. Default is disabled. Possible values:
+   * Whether to enable OCSP. Default is disabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24613,7 +24654,9 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ocspStapling?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -24621,7 +24664,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24631,7 +24674,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -24649,7 +24692,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Whether to enable TLS1.0. Default is disabled. Possible values:
+   * Whether to enable TLS1.0. Default is disabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24659,7 +24702,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls10?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.1. Default is enabled. Possible values:
+   * Whether to enable TLS1.1. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24669,7 +24712,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls11?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.2. Default is enabled. Possible values:
+   * Whether to enable TLS1.2. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24679,7 +24722,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
   tls12?: string;
   /**
    * @remarks
-   * Whether to enable TLS1.3. Default is enabled. Possible values:
+   * Whether to enable TLS1.3. Default is enabled. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -24822,7 +24865,9 @@ export class CreateImageTransformRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Rule content, specifically the strategy or condition expression being implemented.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -24830,10 +24875,9 @@ export class CreateImageTransformRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -24841,7 +24885,7 @@ export class CreateImageTransformRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test
@@ -25375,7 +25419,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Monitor configuration for health checks.
+   * Monitor configuration, used for health checks.
    * 
    * This parameter is required.
    * 
@@ -25385,7 +25429,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   monitor?: CreateLoadBalancerRequestMonitor;
   /**
    * @remarks
-   * The name of the load balancer, which must meet domain name format validation and be a subdomain under the site.
+   * The name of the load balancer, which must meet the domain name format validation and be a subdomain under the site.
    * 
    * This parameter is required.
    * 
@@ -25435,10 +25479,10 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   rules?: CreateLoadBalancerRequestRules[];
   /**
    * @remarks
-   * Session persistence, with values:
+   * Session persistence, with possible values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -25458,7 +25502,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * @remarks
    * Load balancing strategy.
    * 
-   * - geo: Geographical strategy.
+   * - geo: Geographic strategy.
    * - random: Weighted round-robin.
    * - order: Primary and backup method.
    * 
@@ -25470,7 +25514,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, you can use a comma-separated list of secondary regions as the key.
+   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -25598,7 +25642,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Monitor configuration for health checks.
+   * Monitor configuration, used for health checks.
    * 
    * This parameter is required.
    * 
@@ -25608,7 +25652,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   monitorShrink?: string;
   /**
    * @remarks
-   * The name of the load balancer, which must meet domain name format validation and be a subdomain under the site.
+   * The name of the load balancer, which must meet the domain name format validation and be a subdomain under the site.
    * 
    * This parameter is required.
    * 
@@ -25658,10 +25702,10 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * Session persistence, with values:
+   * Session persistence, with possible values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -25681,7 +25725,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    * @remarks
    * Load balancing strategy.
    * 
-   * - geo: Geographical strategy.
+   * - geo: Geographic strategy.
    * - random: Weighted round-robin.
    * - order: Primary and backup method.
    * 
@@ -25693,7 +25737,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, you can use a comma-separated list of secondary regions as the key.
+   * Address pools corresponding to secondary regions. When multiple secondary regions share a set of address pools, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -25759,7 +25803,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
 export class CreateLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Load Balancer ID.
+   * Load balancer ID.
    * 
    * @example
    * 99867648760****
@@ -25834,7 +25878,7 @@ export class CreateLoadBalancerResponse extends $dara.Model {
 export class CreateNetworkOptimizationRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable GRPC, disabled by default. Possible values:
+   * Whether to enable GRPC, disabled by default. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -25844,7 +25888,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   grpc?: string;
   /**
    * @remarks
-   * Indicates whether to enable HTTP2 origin, disabled by default. Possible values:
+   * Whether to enable HTTP2 origin, disabled by default. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -25854,7 +25898,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   http2Origin?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -25862,9 +25908,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * - on: Enable
-   * - off: Disable
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -25872,7 +25918,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -25890,7 +25936,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter specifies the version to which the configuration applies, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 1
@@ -25898,7 +25944,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Indicates whether to enable smart routing service, disabled by default. Possible values:
+   * Whether to enable smart routing service, disabled by default. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -25908,7 +25954,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * Maximum file size for upload, in MB. Range: 100～500.
+   * Maximum upload file size in MB, range: 100～500.
    * 
    * @example
    * 100
@@ -25916,7 +25962,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Indicates whether to enable Websocket, enabled by default. Possible values:
+   * Whether to enable Websocket, enabled by default. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -26374,6 +26420,15 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * 4433
    */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * mTLS switch. Possible values:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originMtls?: string;
   /**
    * @remarks
@@ -26388,16 +26443,25 @@ export class CreateOriginRuleRequest extends $dara.Model {
   originScheme?: string;
   /**
    * @remarks
-   * The SNI carried in the origin request.
+   * SNI carried in the origin request.
    * 
    * @example
    * origin.example.com
    */
   originSni?: string;
+  /**
+   * @remarks
+   * Origin certificate verification switch. Possible values:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originVerify?: string;
   /**
    * @remarks
-   * Use range chunking for downloading files from the origin. Possible values:
+   * Use range chunking for origin downloads. Possible values:
    * - on: Enable
    * - off: Disable
    * - force: Force
@@ -26408,7 +26472,9 @@ export class CreateOriginRuleRequest extends $dara.Model {
   range?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configurations. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -26416,7 +26482,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding global configurations. Possible values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -26426,7 +26492,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding global configurations.
    * 
    * @example
    * rule_example
@@ -26756,8 +26822,8 @@ export class CreateRecordRequest extends $dara.Model {
    * @remarks
    * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
    * 
-   * *   **follow_hostname**: Follow the host record.
-   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * *   follow_hostname: Follow the host record.
+   * *   follow_origin_domain: match the origin\\"s domain name.
    * 
    * @example
    * follow_origin_domain
@@ -26917,8 +26983,8 @@ export class CreateRecordShrinkRequest extends $dara.Model {
    * @remarks
    * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
    * 
-   * *   **follow_hostname**: Follow the host record.
-   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * *   follow_hostname: Follow the host record.
+   * *   follow_origin_domain: match the origin\\"s domain name.
    * 
    * @example
    * follow_origin_domain
@@ -27108,10 +27174,10 @@ export class CreateRecordResponse extends $dara.Model {
 export class CreateRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to preserve the query string. Allowed values:
+   * Preserve query string. Value range:
    * 
-   * - on: Preserve.
-   * - off: Do not preserve.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * This parameter is required.
    * 
@@ -27121,7 +27187,9 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * The content of the rule.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -27129,8 +27197,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The switch for the rule. Allowed values:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -27140,7 +27207,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -27148,7 +27215,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -27158,7 +27225,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0. vvvv
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration will take effect. The default is version 0.
    * 
    * @example
    * 0
@@ -27166,7 +27233,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The HTTP status code used by the node when responding to the client with the redirect address. Allowed values:
+   * Response status code used by the node to respond to the client with the redirect address. Value range:
    * 
    * - 301
    * - 302
@@ -27182,7 +27249,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The target URL after redirection.
+   * Target URL after redirection.
    * 
    * This parameter is required.
    * 
@@ -27192,9 +27259,10 @@ export class CreateRedirectRuleRequest extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * The type of redirection. Allowed values:
+   * Redirect type. Value range:
    * 
    * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * This parameter is required.
    * 
@@ -27250,7 +27318,7 @@ export class CreateRedirectRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 1FCB0DA6-9B6D-509D-B91C-B9B9F0780D0E
@@ -27317,7 +27385,7 @@ export class CreateRedirectRuleResponse extends $dara.Model {
 export class CreateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Query string after rewriting.
+   * The query string after rewriting.
    * 
    * @example
    * example=123
@@ -27327,7 +27395,8 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
    * @remarks
    * Query string rewrite type. Value range:
    * 
-   * - static: Static mode.
+   * - static: static mode.
+   * - dynamic: dynamic mode.
    * 
    * @example
    * static
@@ -27340,7 +27409,8 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
    * @remarks
    * URI rewrite type. Value range:
    * 
-   * - static: Static mode.
+   * - static: static mode.
+   * - dynamic: dynamic mode.
    * 
    * @example
    * static
@@ -27351,7 +27421,9 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: set the value to true
+   * - Match specific requests: set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -27359,10 +27431,9 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
-   * 
-   * - on: Enable.
-   * - off: Disable.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: enable.
+   * - off: disable.
    * 
    * @example
    * on
@@ -27370,7 +27441,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -27388,7 +27459,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -27396,7 +27467,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Target URI after rewriting.
+   * The target URI after rewriting.
    * 
    * @example
    * /image/example.jpg
@@ -27536,8 +27607,6 @@ export class CreateRoutineRequest extends $dara.Model {
   /**
    * @remarks
    * The specification of the routine.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 5ms
@@ -30513,7 +30582,9 @@ export class CreateWaitingRoomEventResponse extends $dara.Model {
 export class CreateWaitingRoomRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule content, which is a policy or conditional expression.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * This parameter is required.
    * 
@@ -30523,10 +30594,9 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * This parameter is required.
    * 
@@ -30536,7 +30606,7 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * This parameter is required.
    * 
@@ -30546,7 +30616,7 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 
@@ -30556,7 +30626,7 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the waiting room to be bypassed.
+   * The ID of the waiting room to bypass.
    * 
    * This parameter is required.
    * 
@@ -30596,12 +30666,19 @@ export class CreateWaitingRoomRuleRequest extends $dara.Model {
 export class CreateWaitingRoomRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Waiting room bypass rule ID.
+   * 
+   * @example
+   * 420072638347264
+   */
   waitingRoomRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30664,7 +30741,7 @@ export class CreateWaitingRoomRuleResponse extends $dara.Model {
 export class DeactivateVersionManagementRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -30696,7 +30773,7 @@ export class DeactivateVersionManagementRequest extends $dara.Model {
 export class DeactivateVersionManagementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
@@ -31287,7 +31364,7 @@ export class DeleteClientCertificateResponse extends $dara.Model {
 export class DeleteCompressionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListCompressionRules](~~ListCompressionRules~~) operation.
+   * Configuration ID. It can be obtained by calling the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) interface.
    * 
    * This parameter is required.
    * 
@@ -31297,7 +31374,7 @@ export class DeleteCompressionRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -31331,7 +31408,7 @@ export class DeleteCompressionRuleRequest extends $dara.Model {
 export class DeleteCompressionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
@@ -32272,7 +32349,7 @@ export class DeleteHttpsBasicConfigurationResponse extends $dara.Model {
 export class DeleteImageTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListImageTransforms](~~ListImageTransforms~~) operation.
+   * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
    * 
    * This parameter is required.
    * 
@@ -32282,7 +32359,7 @@ export class DeleteImageTransformRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -32316,7 +32393,7 @@ export class DeleteImageTransformRequest extends $dara.Model {
 export class DeleteImageTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -36675,7 +36752,7 @@ export class DescribePurgeTasksResponse extends $dara.Model {
 export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID, obtained from the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) API.
+   * The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation.
    * 
    * @example
    * xcdn-91fknmb80f0g***
@@ -36705,7 +36782,7 @@ export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
 export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * xcdn-91fknmb80f0g***
@@ -36713,14 +36790,15 @@ export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Instance status, with possible values:
-   * - running: Running
-   * - renewing: Renewing
-   * - upgrading: Upgrading
-   * - releasePrepaidService: Prepaid service released due to expiration
-   * - creating: Creating
-   * - downgrading: Downgrading
-   * - ceasePrepaidService: Prepaid service ceased upon expiration
+   * The instance status. Valid values:
+   * 
+   * *   running: The instance is running.
+   * *   renewing: The instance is being renewed.
+   * *   upgrading: The configuration of the instance is being upgraded.
+   * *   releasePrepaidService: The instance is released due to expiration.
+   * *   creating: The instance is being created.
+   * *   downgrading: The configuration of the instance is being downgraded.
+   * *   ceasePrepaidService: The instance has expired.
    * 
    * @example
    * running
@@ -36728,7 +36806,7 @@ export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 60423A7F-A83D-1E24-B80E-86DD25790759
@@ -37467,7 +37545,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the cookie exists. If it does, add the cookie name (case-insensitive) to the cache key. Supports multiple cookie names, separated by spaces.
+   * When generating the cache key, check if the cookie exists. If it does, add the cookie name (cookie names are case-insensitive) to the cache key. Supports multiple cookie names, separated by spaces.
    * 
    * @example
    * cookiename
@@ -37475,7 +37553,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * When generating the cache key, check if the header exists. If it does, add the header name (case-insensitive) to the cache key. Supports multiple header names, separated by spaces.
+   * When generating the cache key, check if the header exists. If it does, add the header name (header names are case-insensitive) to the cache key. Supports multiple header names, separated by spaces.
    * 
    * @example
    * headername
@@ -37502,7 +37580,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * Edge cache mode. Value range:
-   * - follow_origin: Follow origin cache policy (if exists), otherwise use default cache policy.
+   * - follow_origin: Follow origin cache policy (if exists), otherwise use the default cache policy.
    * - no_cache: Do not cache.
    * - override_origin: Override origin cache policy.
    * - follow_origin_bypass: Follow origin cache policy (if exists), otherwise do not cache.
@@ -37545,7 +37623,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   includeHeader?: string;
   /**
    * @remarks
-   * Query strings to be retained or deleted. Supports multiple values, separated by spaces.
+   * The query strings to be retained or deleted, supporting multiple values separated by spaces.
    * 
    * @example
    * example
@@ -37574,7 +37652,9 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -37582,9 +37662,9 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -37592,7 +37672,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -37600,7 +37680,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -37619,7 +37699,7 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   serveStale?: string;
   /**
    * @remarks
-   * Site version number.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 1
@@ -37628,8 +37708,8 @@ export class GetCacheRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * Query string sorting. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -37980,7 +38060,7 @@ export class GetCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Certificate information.
+   * The certificate information.
    */
   result?: GetCertificateResponseBodyResult;
   /**
@@ -38238,7 +38318,7 @@ export class GetCertificateQuotaResponse extends $dara.Model {
 export class GetClientCaCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID, which can be obtained by calling the [ListClientCaCertificates](~~ListClientCaCertificates~~) operation.
+   * The certificate ID, which can be obtained by calling the [ListClientCaCertificates](https://help.aliyun.com/document_detail/2860651.html) operation.
    * 
    * This parameter is required.
    * 
@@ -38248,7 +38328,7 @@ export class GetClientCaCertificateRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -38857,9 +38937,9 @@ export class GetCompressionRuleRequest extends $dara.Model {
 export class GetCompressionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Brotli compression. Value range: 
-   * - on: Enable. 
-   * - off: Disable.
+   * Brotli compression. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -38877,7 +38957,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
    * @remarks
    * Configuration type. Possible values:
    * - global: Global configuration.
-   * - rule: Rule configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * rule
@@ -38903,7 +38983,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -38911,10 +38993,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -38922,7 +39003,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -38930,7 +39011,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -38938,7 +39019,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site configuration version.
+   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -38947,8 +39028,8 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * Zstd compression. Value range: 
-   * - on: Enable. 
-   * - off: Disable.
+   * - on: enabled. 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -39249,6 +39330,9 @@ export class GetEdgeContainerAppResponse extends $dara.Model {
 
 export class GetEdgeContainerAppLogRiverRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * app-880688675****88
    */
@@ -39276,15 +39360,25 @@ export class GetEdgeContainerAppLogRiverRequest extends $dara.Model {
 
 export class GetEdgeContainerAppLogRiverResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The log path of the container. It must be an absolute path that starts with a forward slash (/). You can use asterisks (\\*) and question marks (?) as wildcards.
+   * 
    * @example
    * /root/hello.log
    */
   path?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the standard output of the container is collected.
+   */
   stdout?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -39328,6 +39422,122 @@ export class GetEdgeContainerAppLogRiverResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetEdgeContainerAppLogRiverResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceReserveRequest extends $dara.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceReserveResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z
+   */
+  durationTime?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * true
+   */
+  forever?: boolean;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  reserveSet?: GetEdgeContainerAppResourceReserveResponseBodyReserveSet[];
+  static names(): { [key: string]: string } {
+    return {
+      durationTime: 'DurationTime',
+      enable: 'Enable',
+      forever: 'Forever',
+      requestId: 'RequestId',
+      reserveSet: 'ReserveSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationTime: 'string',
+      enable: 'boolean',
+      forever: 'boolean',
+      requestId: 'string',
+      reserveSet: { 'type': 'array', 'itemType': GetEdgeContainerAppResourceReserveResponseBodyReserveSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reserveSet)) {
+      $dara.Model.validateArray(this.reserveSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceReserveResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppResourceReserveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppResourceReserveResponseBody,
     };
   }
 
@@ -40155,7 +40365,7 @@ export class GetEdgeContainerTerminalResponse extends $dara.Model {
 export class GetHttpRequestHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListHttpRequestHeaderModificationRules](~~ListHttpRequestHeaderModificationRules~~) operation.
+   * Configuration ID. It can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) interface.
    * 
    * This parameter is required.
    * 
@@ -40165,7 +40375,7 @@ export class GetHttpRequestHeaderModificationRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -40199,7 +40409,7 @@ export class GetHttpRequestHeaderModificationRuleRequest extends $dara.Model {
 export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 3528160969****
@@ -40207,10 +40417,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * global
@@ -40218,12 +40427,12 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   configType?: string;
   /**
    * @remarks
-   * The configurations of modifying request headers. You can add, delete, or modify a request header.
+   * Modify request headers, supporting add, delete, and modify operations.
    */
   requestHeaderModification?: GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModification[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -40231,7 +40440,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -40239,10 +40450,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -40250,7 +40460,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -40258,7 +40468,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -40266,7 +40476,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site, defaulting to version 0.
    * 
    * @example
    * 0
@@ -40350,7 +40560,7 @@ export class GetHttpRequestHeaderModificationRuleResponse extends $dara.Model {
 export class GetHttpResponseHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListHttpResponseHeaderModificationRules](~~ListHttpResponseHeaderModificationRules~~) operation.
+   * Configuration ID, which can be obtained by calling the [ListHttpResponseHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) interface.
    * 
    * This parameter is required.
    * 
@@ -40360,7 +40570,7 @@ export class GetHttpResponseHeaderModificationRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -40394,7 +40604,7 @@ export class GetHttpResponseHeaderModificationRuleRequest extends $dara.Model {
 export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -40402,10 +40612,9 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type, with the following values:
+   * - global: Global configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * rule
@@ -40413,7 +40622,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   configType?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -40421,12 +40630,14 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The configurations of modifying response headers. You can add, delete, or modify a response header.
+   * Modify response headers, supporting add, delete, and modify operations.
    */
   responseHeaderModification?: GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModification[];
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -40434,10 +40645,9 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values are:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -40445,7 +40655,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -40453,7 +40663,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -40461,7 +40671,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBody extends $dara.Mod
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * The version number of the site configuration. For sites that have enabled configuration version management, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -40589,10 +40799,10 @@ export class GetHttpsApplicationConfigurationRequest extends $dara.Model {
 export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Alt-Svc feature switch, default is disabled. Value range:
+   * Alt-Svc feature switch. Default is disabled. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40600,10 +40810,10 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   altSvc?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the clear parameter, default is disabled. Values:
+   * Whether the Alt-Svc header includes the clear parameter. Default is disabled. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40611,7 +40821,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   altSvcClear?: string;
   /**
    * @remarks
-   * Alt-Svc validity period in seconds, default is 86400 seconds.
+   * Alt-Svc validity period in seconds. The default is 86400 seconds.
    * 
    * @example
    * 86400
@@ -40619,10 +40829,10 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   altSvcMa?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the persist parameter, default is disabled. Values:
+   * Whether the Alt-Svc header includes the persist parameter. Default is disabled. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40638,7 +40848,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
+   * Configuration type, which can be used to query global or rule configurations. Possible values:
    * 
    * - global: Query global configuration.
    * - rule: Query rule configuration.
@@ -40649,10 +40859,10 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Whether to enable HSTS, default is disabled. Value range:
+   * Whether to enable HSTS. Default is disabled. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40660,10 +40870,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   hsts?: string;
   /**
    * @remarks
-   * Whether to include subdomains in HSTS, default is disabled. Value range:
-   * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * Whether to include subdomains in HSTS, default is off. Value range:
+   * - on: enabled. 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -40680,7 +40889,8 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Whether to enable HSTS preload, default is off. Value range:
-   * - on: enabled. 
+   * 
+   * - on: enabled.
    * - off: disabled.
    * 
    * @example
@@ -40689,10 +40899,10 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   hstsPreload?: string;
   /**
    * @remarks
-   * Whether to enable forced HTTPS, default is disabled. Value range:
+   * Whether to enable forced HTTPS. Default is disabled. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40700,7 +40910,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   httpsForce?: string;
   /**
    * @remarks
-   * Forced HTTPS redirect status code. Value range:
+   * Status code for forced HTTPS redirection. Possible values:
    * 
    * - 301
    * - 302
@@ -40721,7 +40931,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -40729,10 +40941,9 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -40740,7 +40951,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -40748,7 +40959,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -40756,7 +40967,7 @@ export class GetHttpsApplicationConfigurationResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration takes effect. The default is version 0.
    * 
    * @example
    * 1
@@ -41152,7 +41363,7 @@ export class GetHttpsBasicConfigurationResponse extends $dara.Model {
 export class GetIPv6Request extends $dara.Model {
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -41184,9 +41395,10 @@ export class GetIPv6Request extends $dara.Model {
 export class GetIPv6ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * IPv6 switch. Values:
-   * - **on**: Enable. 
-   * - **off**: Disable.
+   * Indicates whether IPv6 is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
    * 
    * @example
    * on
@@ -41194,7 +41406,7 @@ export class GetIPv6ResponseBody extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 156A6B-677B1A-4297B7-9187B7-2B44792
@@ -41261,7 +41473,7 @@ export class GetIPv6Response extends $dara.Model {
 export class GetImageTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListImageTransforms](~~ListImageTransforms~~) operation.
+   * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
    * 
    * This parameter is required.
    * 
@@ -41271,7 +41483,7 @@ export class GetImageTransformRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -41305,7 +41517,7 @@ export class GetImageTransformRequest extends $dara.Model {
 export class GetImageTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 352816096987136
@@ -41313,10 +41525,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration;
+   * - rule: Rule-based configuration;
    * 
    * @example
    * global
@@ -41324,10 +41535,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Indicates whether the image transformations feature is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Whether to enable image transformation. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -41335,7 +41545,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -41343,7 +41553,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The rule content, which is a policy or conditional expression.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -41351,10 +41563,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   **on**
-   * *   **off**
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -41362,7 +41573,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter does not need to be set when adding global configuration.
    * 
    * @example
    * test
@@ -41370,7 +41581,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 2
@@ -41378,7 +41589,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website.
+   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the site, defaulting to version 0.
    * 
    * @example
    * 0
@@ -42119,7 +42330,7 @@ export class GetLoadBalancerRequest extends $dara.Model {
 export class GetLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Cross-pool origin configuration.
+   * Cross-pool failover configuration.
    */
   adaptiveRouting?: GetLoadBalancerResponseBodyAdaptiveRouting;
   /**
@@ -42206,7 +42417,7 @@ export class GetLoadBalancerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule configuration list, used to define behavior under specific conditions.
+   * A list of rule configurations, used to define behavior under specific conditions.
    */
   rules?: GetLoadBalancerResponseBodyRules[];
   /**
@@ -42214,7 +42425,7 @@ export class GetLoadBalancerResponseBody extends $dara.Model {
    * Session persistence, with values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -42368,7 +42579,7 @@ export class GetLoadBalancerResponse extends $dara.Model {
 export class GetManagedTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
    * 
    * This parameter is required.
    * 
@@ -42378,7 +42589,7 @@ export class GetManagedTransformRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -42410,10 +42621,9 @@ export class GetManagedTransformRequest extends $dara.Model {
 export class GetManagedTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to include the header that indicates the geographical location of a client in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Add visitor geolocation header. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -42421,10 +42631,9 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   addClientGeolocationHeader?: string;
   /**
    * @remarks
-   * Indicates whether to include the "ali-real-client-ip" header that contains the client\\"s real IP address in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Add the "ali-real-client-ip" header containing the real client IP. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -42432,7 +42641,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   addRealClientIpHeader?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -42440,7 +42649,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version number of the website.
+   * The version number of the site. For sites with version management enabled, this parameter can be used to specify the site version for which the configuration takes effect, defaulting to version 0.
    * 
    * @example
    * 0
@@ -42511,7 +42720,7 @@ export class GetManagedTransformResponse extends $dara.Model {
 export class GetNetworkOptimizationRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the ListNetworkOptimizations.
+   * Configuration ConfigId, which can be obtained by calling the [ListNetworkOptimizations](https://help.aliyun.com/document_detail/2869051.html) interface.
    * 
    * This parameter is required.
    * 
@@ -42575,8 +42784,8 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Whether to enable GRPC, default is disabled. Value range:
-   * - on: Enabled
-   * - off: Disabled
+   * - on: Enable
+   * - off: Disable
    * 
    * @example
    * on
@@ -42586,8 +42795,8 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
    * @remarks
    * Whether to enable HTTP2 origin, default is disabled. Value range:
    * 
-   * - on: Enabled
-   * - off: Disabled
+   * - on: Enable
+   * - off: Disable
    * 
    * @example
    * on
@@ -42603,7 +42812,9 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -42611,9 +42822,9 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * - on: Enabled
-   * - off: Disabled
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -42621,7 +42832,7 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -42629,7 +42840,7 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 2
@@ -42637,7 +42848,7 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Site configuration version number. For sites with version management enabled, this parameter can specify the effective site version, defaulting to version 0.
    * 
    * @example
    * 1
@@ -42646,8 +42857,8 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Whether to enable smart routing service, default is disabled. Value range:
-   * - on: Enabled
-   * - off: Disabled
+   * - on: Enable
+   * - off: Disable
    * 
    * @example
    * on
@@ -42655,7 +42866,7 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * Maximum upload file size, in MB, value range: 100～500.
+   * Maximum upload file size in MB, with a range from 100 to 500.
    * 
    * @example
    * 500
@@ -42664,8 +42875,8 @@ export class GetNetworkOptimizationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Whether to enable Websocket, default is enabled. Value range:
-   * - on: Enabled
-   * - off: Disabled
+   * - on: Enable
+   * - off: Disable
    * 
    * @example
    * on
@@ -43201,7 +43412,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   originHost?: string;
   /**
    * @remarks
-   * Source site port accessed when using the HTTP protocol for origin.
+   * Port of the origin server accessed when using the HTTP protocol for origin.
    * 
    * @example
    * 8080
@@ -43209,12 +43420,21 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   originHttpPort?: string;
   /**
    * @remarks
-   * Source site port accessed when using the HTTPS protocol for origin.
+   * Port of the origin server accessed when using the HTTPS protocol for origin.
    * 
    * @example
    * 4433
    */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * mTLS switch. Value range:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originMtls?: string;
   /**
    * @remarks
@@ -43222,7 +43442,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * 
    * - http: Use HTTP protocol for origin.
    * - https: Use HTTPS protocol for origin.
-   * - follow: Follow client protocol for origin.
+   * - follow: Follow the client\\"s protocol for origin.
    * 
    * @example
    * http
@@ -43236,10 +43456,19 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * origin.example.com
    */
   originSni?: string;
+  /**
+   * @remarks
+   * Origin certificate verification switch. Value range: 
+   * - on: Enable. 
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originVerify?: string;
   /**
    * @remarks
-   * Use range chunking method for origin download. Value range:
+   * Use the range chunk method for origin file download. Value range:
    * 
    * - on: Enable.
    * - off: Disable.
@@ -43259,7 +43488,9 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -43267,7 +43498,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -43277,7 +43508,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -43285,7 +43516,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution sequence.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -43293,7 +43524,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Site version number.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 1
@@ -43912,7 +44143,7 @@ export class GetRecordResponse extends $dara.Model {
 export class GetRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListRedirectRules](~~ListRedirectRules~~) operation.
+   * Configuration ID. It can be obtained by calling the [ListRedirectRules](~~ListRedirectRules~~) interface.
    * 
    * This parameter is required.
    * 
@@ -43922,7 +44153,7 @@ export class GetRedirectRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -43956,7 +44187,7 @@ export class GetRedirectRuleRequest extends $dara.Model {
 export class GetRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -43964,10 +44195,9 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * rule
@@ -43975,7 +44205,7 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -43983,10 +44213,9 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the feature of retaining the query string is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Preserve query string. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -43994,7 +44223,9 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -44002,10 +44233,9 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   **on**
-   * *   **off**
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -44013,7 +44243,7 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -44021,7 +44251,7 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority.
    * 
    * @example
    * 1
@@ -44029,7 +44259,7 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version of the website configurations.
+   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the site, defaulting to version 0.
    * 
    * @example
    * 0
@@ -44037,13 +44267,12 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The response code that you want to use to indicate URL redirection. Valid values:
-   * 
-   * *   301
-   * *   302
-   * *   303
-   * *   307
-   * *   308
+   * Response status code used by the node to respond to the client with the redirect address. Possible values:
+   * - 301
+   * - 302
+   * - 303
+   * - 307
+   * - 308
    * 
    * @example
    * 301
@@ -44051,7 +44280,7 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The destination URL to which requests are redirected.
+   * Target URL after redirection.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -44059,9 +44288,9 @@ export class GetRedirectRuleResponseBody extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * The redirect type. Valid value:
-   * 
-   * *   static
+   * Redirect type. Possible values:
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -44148,7 +44377,7 @@ export class GetRedirectRuleResponse extends $dara.Model {
 export class GetRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListRewriteUrlRules](~~ListRewriteUrlRules~~) operation.
+   * Configuration ID, which can be obtained by calling the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) interface.
    * 
    * This parameter is required.
    * 
@@ -44158,7 +44387,7 @@ export class GetRewriteUrlRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -44192,7 +44421,7 @@ export class GetRewriteUrlRuleRequest extends $dara.Model {
 export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -44200,10 +44429,9 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration;
+   * - rule: Rule-based configuration;
    * 
    * @example
    * global
@@ -44211,7 +44439,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The desired query string to which you want to rewrite the query string in the original request.
+   * The rewritten query string.
    * 
    * @example
    * example=123
@@ -44219,7 +44447,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -44227,9 +44455,10 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The query string rewrite method. Valid value:
+   * Query string rewrite type. Possible values:
    * 
-   * *   static
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -44237,9 +44466,10 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   rewriteQueryStringType?: string;
   /**
    * @remarks
-   * The path rewrite method. Valid value:
+   * URI rewrite type. Possible values:
    * 
-   * *   static
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -44247,7 +44477,9 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * The rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -44255,10 +44487,9 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -44266,7 +44497,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter does not need to be set when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -44274,7 +44505,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The order in which the rule is executed.
+   * Rule execution order. The smaller the value, the higher the priority for execution.
    * 
    * @example
    * 1
@@ -44282,7 +44513,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site, defaulting to version 0.
    * 
    * @example
    * 0
@@ -44290,7 +44521,7 @@ export class GetRewriteUrlRuleResponseBody extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The desired URI to which you want to rewrite the path in the original request.
+   * The target URI after rewriting.
    * 
    * @example
    * /image/example.jpg
@@ -44409,11 +44640,6 @@ export class GetRoutineRequest extends $dara.Model {
 export class GetRoutineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code versions.
-   */
-  codeVersions?: GetRoutineResponseBodyCodeVersions[];
-  /**
-   * @remarks
    * The time when the routine was created.
    * 
    * @example
@@ -44443,16 +44669,6 @@ export class GetRoutineResponseBody extends $dara.Model {
   envs?: GetRoutineResponseBodyEnvs[];
   /**
    * @remarks
-   * The records associated with the routine.
-   */
-  relatedRecords?: GetRoutineResponseBodyRelatedRecords[];
-  /**
-   * @remarks
-   * The routes associated with the routine.
-   */
-  relatedRoutes?: GetRoutineResponseBodyRelatedRoutes[];
-  /**
-   * @remarks
    * The request ID.
    * 
    * @example
@@ -44461,42 +44677,27 @@ export class GetRoutineResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      codeVersions: 'CodeVersions',
       createTime: 'CreateTime',
       defaultRelatedRecord: 'DefaultRelatedRecord',
       description: 'Description',
       envs: 'Envs',
-      relatedRecords: 'RelatedRecords',
-      relatedRoutes: 'RelatedRoutes',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      codeVersions: { 'type': 'array', 'itemType': GetRoutineResponseBodyCodeVersions },
       createTime: 'string',
       defaultRelatedRecord: 'string',
       description: 'string',
       envs: { 'type': 'array', 'itemType': GetRoutineResponseBodyEnvs },
-      relatedRecords: { 'type': 'array', 'itemType': GetRoutineResponseBodyRelatedRecords },
-      relatedRoutes: { 'type': 'array', 'itemType': GetRoutineResponseBodyRelatedRoutes },
       requestId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.codeVersions)) {
-      $dara.Model.validateArray(this.codeVersions);
-    }
     if(Array.isArray(this.envs)) {
       $dara.Model.validateArray(this.envs);
-    }
-    if(Array.isArray(this.relatedRecords)) {
-      $dara.Model.validateArray(this.relatedRecords);
-    }
-    if(Array.isArray(this.relatedRoutes)) {
-      $dara.Model.validateArray(this.relatedRoutes);
     }
     super.validate();
   }
@@ -45924,7 +46125,7 @@ export class GetSiteLogDeliveryQuotaResponse extends $dara.Model {
 export class GetSiteNameExclusiveRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -45956,10 +46157,10 @@ export class GetSiteNameExclusiveRequest extends $dara.Model {
 export class GetSiteNameExclusiveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Feature switch. Possible values:
+   * Indicates whether site hold is enabled. Valid values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * *   on
+   * *   off
    * 
    * @example
    * on
@@ -45967,7 +46168,7 @@ export class GetSiteNameExclusiveResponseBody extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 35C66C7B-671H-4297-9187-2C4477247A78
@@ -46034,7 +46235,7 @@ export class GetSiteNameExclusiveResponse extends $dara.Model {
 export class GetSitePauseRequest extends $dara.Model {
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -46066,9 +46267,10 @@ export class GetSitePauseRequest extends $dara.Model {
 export class GetSitePauseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether acceleration has been paused. Possible values:
-   * - true: The site\\"s acceleration is paused.
-   * - false: The site is accelerating normally.
+   * Indicates whether ESA is paused on the website. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -46076,7 +46278,7 @@ export class GetSitePauseResponseBody extends $dara.Model {
   paused?: boolean;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -47179,9 +47381,10 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Sorting method. Values:
-   * - **ExpireTime**: Expiration time.
-   * - **CreateTime**: Purchase time.
+   * The criterion by which you want to sort the queried instances. Valid values:
+   * 
+   * *   **ExpireTime**
+   * *   **CreateTime**
    * 
    * @example
    * ExpireTime
@@ -47189,9 +47392,10 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Sorting order. Supported values:
-   * - **asc**: Ascending.
-   * - **desc**: Descending.
+   * The order by which you want to sort the queried instances. Valid values:
+   * 
+   * *   **asc**
+   * *   **desc**
    * 
    * @example
    * desc
@@ -47199,12 +47403,12 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * Cache reserve instance status. Supported values:
+   * The status of the cache reserve instance. Valid values:
    * 
-   * - **online**: Normal service status.
-   * - **offline**: Expired but not overdue, in an unavailable state.
-   * - **disable**: Released status.
-   * - **overdue**: Overdue and suspended status.
+   * *   **online**: The instance is in service.
+   * *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
+   * *   **disable**: The instance has been released.
+   * *   **overdue**: The instance has been stopped due to overdue payments.
    * 
    * @example
    * online
@@ -47247,7 +47451,7 @@ export class ListCacheReserveInstancesRequest extends $dara.Model {
 export class ListCacheReserveInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of cache reserve instances.
+   * The cache reserve instances.
    */
   instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
   /**
@@ -47374,7 +47578,7 @@ export class ListCacheRulesRequest extends $dara.Model {
    * - global: Query global configuration.
    * - rule: Query rule-based configuration.
    * 
-   * This parameter is optional; if not provided, it does not distinguish between global and rule-based configurations.
+   * This parameter is optional; if not provided, it will not distinguish between global and rule-based configurations.
    * 
    * @example
    * global
@@ -47398,7 +47602,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name, which can be used to find the rule with the specified name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test
@@ -47416,7 +47620,7 @@ export class ListCacheRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version number. For sites with version management enabled, this parameter can specify the version for which the configuration is effective, defaulting to version 0.
+   * Site version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
    * 
    * @example
    * 1
@@ -47573,7 +47777,7 @@ export class ListCacheRulesResponse extends $dara.Model {
 export class ListCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * Search keyword.
+   * The keyword that is used for the search.
    * 
    * @example
    * example
@@ -47581,7 +47785,7 @@ export class ListCertificatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Page number of the returned data.
+   * The page number.
    * 
    * @example
    * 3
@@ -47589,7 +47793,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -47597,7 +47801,7 @@ export class ListCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -47607,7 +47811,7 @@ export class ListCertificatesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Whether to return only valid certificates.
+   * Specifies whether to return only valid certificates.
    * 
    * @example
    * 1
@@ -47645,7 +47849,7 @@ export class ListCertificatesRequest extends $dara.Model {
 export class ListCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number of the returned data.
+   * The page number.
    * 
    * @example
    * 1
@@ -47653,7 +47857,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -47661,7 +47865,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -47669,12 +47873,12 @@ export class ListCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result array.
+   * The queried certificates.
    */
   result?: ListCertificatesResponseBodyResult[];
   /**
    * @remarks
-   * Site ID.
+   * The website ID.
    * 
    * @example
    * 1234567890123
@@ -47682,7 +47886,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site name.
+   * The website name.
    * 
    * @example
    * example.com
@@ -47690,7 +47894,7 @@ export class ListCertificatesResponseBody extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries returned.
    * 
    * @example
    * 10
@@ -48251,7 +48455,7 @@ export class ListClientCertificatesResponse extends $dara.Model {
 export class ListCompressionRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the [ListRedirectRules](~~ListRedirectRules~~) operation.
+   * Configuration ID, which can be obtained by calling the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) interface.
    * 
    * @example
    * 35281609698****
@@ -48259,10 +48463,9 @@ export class ListCompressionRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule-based configuration.
    * 
    * @example
    * rule
@@ -48270,7 +48473,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number.
+   * Page number.
    * 
    * @example
    * 1
@@ -48278,7 +48481,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -48286,7 +48489,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -48294,7 +48497,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -48304,7 +48507,7 @@ export class ListCompressionRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -48346,12 +48549,12 @@ export class ListCompressionRulesRequest extends $dara.Model {
 export class ListCompressionRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configured compression rules.
+   * List of compression rule configurations.
    */
   configs?: ListCompressionRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number.
+   * Current page number.
    * 
    * @example
    * 1
@@ -48359,7 +48562,7 @@ export class ListCompressionRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -48367,7 +48570,7 @@ export class ListCompressionRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -48375,7 +48578,7 @@ export class ListCompressionRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total number of items.
    * 
    * @example
    * 16
@@ -48383,7 +48586,7 @@ export class ListCompressionRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * Total number of pages.
    * 
    * @example
    * 1
@@ -49532,7 +49735,7 @@ export class ListEdgeRoutineRecordsResponse extends $dara.Model {
 export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID, which can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) interface.
+   * Configuration ID, which can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) API.
    * 
    * @example
    * 35281609698****
@@ -49550,7 +49753,7 @@ export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Page number, default is 1 if not provided.
+   * Page number, defaulting to 1 if not provided.
    * 
    * @example
    * 1
@@ -49558,7 +49761,7 @@ export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, maximum is 500, default is 500 if not provided.
+   * Number of items per page, with a maximum of 500. Defaults to 500 if not provided.
    * 
    * @example
    * 20
@@ -49566,7 +49769,7 @@ export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name, which can be used to find the rule with the specified name. It only takes effect when provided.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -49574,7 +49777,7 @@ export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 
@@ -49584,7 +49787,7 @@ export class ListHttpRequestHeaderModificationRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Version number of the site configuration.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -49639,7 +49842,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBody extends $dara.Mo
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, default is **500**, range: **1~500**.
+   * Page size, default **500**, with a range of **1~500**.
    * 
    * @example
    * 20
@@ -49741,7 +49944,7 @@ export class ListHttpRequestHeaderModificationRulesResponse extends $dara.Model 
 export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -49749,12 +49952,11 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   configId?: number;
   /**
    * @remarks
-   * The configuration type to query. Valid values:
+   * Configuration type, which can be used to query global or rule configurations. Possible values:
+   * - global: Query global configuration.
+   * - rule: Query rule configuration.
    * 
-   * *   global: global configurations.
-   * *   rule: queries rule configurations.
-   * 
-   * If this parameter is left empty, all configuration types are returned.
+   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
    * 
    * @example
    * rule
@@ -49762,7 +49964,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   configType?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * Page number.
    * 
    * @example
    * 1
@@ -49770,7 +49972,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Default value: 500. Valid values: 1 to 500.
+   * Page size, default is 500. The value range is any integer from 1 to 500.
    * 
    * @example
    * 20
@@ -49778,7 +49980,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -49786,7 +49988,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * This parameter is required.
    * 
@@ -49796,7 +49998,7 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, with the default being version 0.
    * 
    * @example
    * 0
@@ -49838,12 +50040,12 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
 export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration list of modifying a response header.
+   * List of modified HTTP response headers.
    */
   configs?: ListHttpResponseHeaderModificationRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number.
+   * Page number.
    * 
    * @example
    * 1
@@ -49851,7 +50053,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -49859,7 +50061,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -49867,7 +50069,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total count.
    * 
    * @example
    * 14
@@ -49875,7 +50077,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * Total pages.
    * 
    * @example
    * 1
@@ -49961,11 +50163,11 @@ export class ListHttpsApplicationConfigurationsRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
+   * Configuration type, which can be used to query global or rule-based configurations. Possible values:
    * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * - rule: Query rule-based configuration.
    * 
-   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
+   * This parameter is optional. If not provided, it will not distinguish between global and rule-based configurations.
    * 
    * @example
    * global
@@ -50049,12 +50251,12 @@ export class ListHttpsApplicationConfigurationsRequest extends $dara.Model {
 export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body configuration.
+   * Response body configurations.
    */
   configs?: ListHttpsApplicationConfigurationsResponseBodyConfigs[];
   /**
    * @remarks
-   * The current page number.
+   * Current page number.
    * 
    * @example
    * 1
@@ -50062,7 +50264,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The size of the page.
+   * Page size.
    * 
    * @example
    * 10
@@ -50078,7 +50280,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * Total number of records.
    * 
    * @example
    * 16
@@ -50086,7 +50288,7 @@ export class ListHttpsApplicationConfigurationsResponseBody extends $dara.Model 
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * Total number of pages.
    * 
    * @example
    * 2
@@ -50176,7 +50378,7 @@ export class ListHttpsBasicConfigurationsRequest extends $dara.Model {
    * - global: Query global configuration.
    * - rule: Query rule configuration.
    * 
-   * This parameter is optional; if not provided, it will not distinguish between global and rule configurations.
+   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
    * 
    * @example
    * global
@@ -50255,7 +50457,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   configs?: ListHttpsBasicConfigurationsResponseBodyConfigs[];
   /**
    * @remarks
-   * The current page number.
+   * Current page number.
    * 
    * @example
    * 1
@@ -50263,7 +50465,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of each page.
+   * Page size.
    * 
    * @example
    * 10
@@ -50279,7 +50481,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * Total number of records.
    * 
    * @example
    * 20
@@ -50287,7 +50489,7 @@ export class ListHttpsBasicConfigurationsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * Total number of pages.
    * 
    * @example
    * 2
@@ -50365,7 +50567,7 @@ export class ListHttpsBasicConfigurationsResponse extends $dara.Model {
 export class ListImageTransformsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID, which can be obtained by calling the ListImageTransforms operation.[](~~2869056~~)
+   * Configuration ID. Can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
    * 
    * @example
    * 352816096987136
@@ -50373,12 +50575,11 @@ export class ListImageTransformsRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type to query. Valid values:
+   * Configuration type, which can be used to query global or rule configurations. Possible values:
+   * - global: Query global configuration;
+   * - rule: Query rule configuration;
    * 
-   * *   global: global configurations.
-   * *   rule: rule configurations.
-   * 
-   * This parameter takes effect only when parameter functionName is specified. If this parameter is left empty, all configuration types are returned.
+   * This parameter is optional. If not provided, it will not distinguish between global and rule configurations.
    * 
    * @example
    * global
@@ -50386,7 +50587,7 @@ export class ListImageTransformsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * Page number. The default value is 1 if not provided.
    * 
    * @example
    * 1
@@ -50394,7 +50595,7 @@ export class ListImageTransformsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 500. Default value: 500.
+   * Number of items per page. The maximum value is 500, and the default value is 500 if not provided.
    * 
    * @example
    * 20
@@ -50402,7 +50603,7 @@ export class ListImageTransformsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name. This parameter takes effect only when parameter functionName is specified.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test1
@@ -50410,7 +50611,7 @@ export class ListImageTransformsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * Site ID. Can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -50420,7 +50621,7 @@ export class ListImageTransformsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * Site version number. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 1
@@ -50462,12 +50663,12 @@ export class ListImageTransformsRequest extends $dara.Model {
 export class ListImageTransformsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configurations.
+   * Configuration list.
    */
   configs?: ListImageTransformsResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number returned.
+   * Current page number.
    * 
    * @example
    * 1
@@ -50475,7 +50676,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+   * Page size. Range: **1~500**, default is **500**.
    * 
    * @example
    * 10
@@ -50483,7 +50684,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -50491,7 +50692,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records returned.
+   * Total number of records.
    * 
    * @example
    * 16
@@ -50499,7 +50700,7 @@ export class ListImageTransformsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * Total number of pages.
    * 
    * @example
    * 2
@@ -51653,7 +51854,7 @@ export class ListLoadBalancerRegionsResponse extends $dara.Model {
 export class ListLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
-   * Name matching strategy when querying by name:
+   * The name matching strategy when querying by name:
    * 
    * - fuzzy: Fuzzy match;
    * - exact: Exact match, equivalent to an equality query.
@@ -51664,7 +51865,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * Name of the load balancer, which can be used for querying by name.
+   * The name of the load balancer, which can be used to query by name.
    * 
    * @example
    * lb.example.com
@@ -51672,7 +51873,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Sorting field, currently only supports sorting by id. \\"id\\" indicates ascending order by id, \\"-id\\" indicates descending order by id. The id is positively correlated with the creation time. If not provided, it defaults to descending order by id.
+   * The sorting field. Currently, only sorting by id is supported. \\"id\\" indicates ascending order by id, and \\"-id\\" indicates descending order by id. The id size is positively correlated with the creation time. If not provided, it defaults to descending order by id.
    * 
    * @example
    * id
@@ -51680,7 +51881,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Page number for paginated queries.
+   * The page number for paginated queries.
    * 
    * @example
    * 2
@@ -51688,7 +51889,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size for paginated queries, with a value range of 1-500.
+   * The page size for paginated queries, with a value range of 1-500.
    * 
    * @example
    * 20
@@ -51696,7 +51897,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
    * 
    * This parameter is required.
    * 
@@ -51738,7 +51939,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
 export class ListLoadBalancersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Array format, returns a list of load balancers.
+   * An array format that returns the list of load balancers.
    */
   loadBalancers?: ListLoadBalancersResponseBodyLoadBalancers[];
   /**
@@ -51751,7 +51952,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of each page.
+   * Number of items per page.
    * 
    * @example
    * 10
@@ -51759,7 +51960,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -52009,9 +52210,9 @@ export class ListNetworkOptimizationsRequest extends $dara.Model {
    * Configuration type, which can be used to query global or rule-based configurations. The value range is as follows:
    * 
    * - global: Query global configuration.
-   * - rule: Query rule configuration.
+   * - rule: Query rule-based configuration.
    * 
-   * This parameter is optional. If not provided, it will not distinguish between global and rule configurations.
+   * This parameter is optional; if not provided, it does not distinguish between global and rule-based configurations.
    * 
    * @example
    * global
@@ -52108,7 +52309,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of the page, i.e., the number of items per page.
+   * The size of the page.
    * 
    * @example
    * 10
@@ -52124,7 +52325,7 @@ export class ListNetworkOptimizationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * Total number of records.
    * 
    * @example
    * 100
@@ -52425,7 +52626,7 @@ export class ListOriginRulesRequest extends $dara.Model {
    * - global: Query global configuration.
    * - rule: Query rule configuration.
    * 
-   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
+   * This parameter is optional; if not provided, it does not distinguish between global and rule configurations.
    * 
    * @example
    * global
@@ -52449,7 +52650,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Rule name, which can be used to find the rule with the specified name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test
@@ -52467,7 +52668,7 @@ export class ListOriginRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Site version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
+   * Version number of the site. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
    * 
    * @example
    * 1
@@ -52514,7 +52715,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   configs?: ListOriginRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The current page number.
+   * Current page number.
    * 
    * @example
    * 1
@@ -52522,7 +52723,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The size of each page.
+   * Page size.
    * 
    * @example
    * 10
@@ -52538,7 +52739,7 @@ export class ListOriginRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * Total number of records.
    * 
    * @example
    * 100
@@ -53063,7 +53264,7 @@ export class ListRecordsResponse extends $dara.Model {
 export class ListRedirectRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID,
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -53071,10 +53272,9 @@ export class ListRedirectRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The type of the configuration. Valid values:
-   * 
-   * *   global: global configuration.
-   * *   rule: rule configuration.
+   * Configuration type. Possible values:
+   * - global: Global configuration.
+   * - rule: Rule configuration.
    * 
    * @example
    * rule
@@ -53082,7 +53282,7 @@ export class ListRedirectRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * Page number.
    * 
    * @example
    * 1
@@ -53090,7 +53290,7 @@ export class ListRedirectRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
+   * Page size, default is **500**, and the value range is **1~500**.
    * 
    * @example
    * 20
@@ -53098,7 +53298,7 @@ export class ListRedirectRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * Rule name, which can be used to find the rule with the specified name.
    * 
    * @example
    * rule_example
@@ -53106,7 +53306,7 @@ export class ListRedirectRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -53116,7 +53316,7 @@ export class ListRedirectRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website configurations.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, with the default being version 0.
    * 
    * @example
    * 0
@@ -53158,12 +53358,12 @@ export class ListRedirectRulesRequest extends $dara.Model {
 export class ListRedirectRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration list of the the URL redirect rule.
+   * List of redirect configurations.
    */
   configs?: ListRedirectRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number returned.
+   * Current page number.
    * 
    * @example
    * 1
@@ -53171,7 +53371,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -53179,7 +53379,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -53187,7 +53387,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total number of items.
    * 
    * @example
    * 10
@@ -53195,7 +53395,7 @@ export class ListRedirectRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * Total number of pages.
    * 
    * @example
    * 1
@@ -53273,7 +53473,7 @@ export class ListRedirectRulesResponse extends $dara.Model {
 export class ListRewriteUrlRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * Configuration ID.
    * 
    * @example
    * 35281609698****
@@ -53281,12 +53481,11 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type to query. Valid values:
+   * Configuration type, which can be used to query global or rule configurations. Value range:
+   * - global: Query global configuration;
+   * - rule: Query rule configuration;
    * 
-   * *   global: global configurations.
-   * *   rule: rule configurations.
-   * 
-   * If this parameter is left empty, all configuration types are returned. This parameter takes effect only when parameter functionName is specified.
+   * This parameter is optional. If not provided, it does not distinguish between global and rule configurations. This parameter only takes effect when the functionName parameter is provided.
    * 
    * @example
    * global
@@ -53294,7 +53493,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * Page number.
    * 
    * @example
    * 1
@@ -53302,7 +53501,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+   * Page size. Range: **1~500**, default is **500**.
    * 
    * @example
    * 10
@@ -53310,7 +53509,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. Not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -53318,7 +53517,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -53328,7 +53527,7 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
    * 
    * @example
    * 0
@@ -53370,12 +53569,12 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
 export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL rewrite configuration list.
+   * List of rewrite URL configurations.
    */
   configs?: ListRewriteUrlRulesResponseBodyConfigs[];
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -53383,7 +53582,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The size of the page.
    * 
    * @example
    * 10
@@ -53391,7 +53590,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -53399,7 +53598,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 8
@@ -53407,7 +53606,7 @@ export class ListRewriteUrlRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * Total number of pages.
    * 
    * @example
    * 1
@@ -56079,7 +56278,7 @@ export class ListWaitingRoomEventsResponse extends $dara.Model {
 export class ListWaitingRoomRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Optional. The rule name, which can be used to query a specific bypass rule.
+   * Rule name, optional, used for querying by the name of the waiting room bypass rule.
    * 
    * @example
    * test
@@ -56087,7 +56286,7 @@ export class ListWaitingRoomRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -56097,7 +56296,7 @@ export class ListWaitingRoomRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the waiting room to be bypassed, which can be obtained by calling the [ListWatingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * The ID of the waiting room to bypass, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) interface.
    * 
    * This parameter is required.
    * 
@@ -56107,7 +56306,7 @@ export class ListWaitingRoomRulesRequest extends $dara.Model {
   waitingRoomId?: string;
   /**
    * @remarks
-   * Optional. The rule ID, which can be used to query a specific rule.
+   * The ID of the waiting room bypass rule to update, which can be obtained by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) interface.
    * 
    * @example
    * 37286782688****
@@ -56143,7 +56342,7 @@ export class ListWaitingRoomRulesRequest extends $dara.Model {
 export class ListWaitingRoomRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to trace a call.
+   * Request ID, used for tracking the call status.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
@@ -56151,7 +56350,7 @@ export class ListWaitingRoomRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting room bypass rules.
+   * List of waiting room bypass rules.
    */
   waitingRoomRules?: ListWaitingRoomRulesResponseBodyWaitingRoomRules[];
   static names(): { [key: string]: string } {
@@ -57035,11 +57234,12 @@ export class PublishRoutineCodeVersionResponse extends $dara.Model {
   }
 }
 
-export class PurchaseRatePlanRequest extends $dara.Model {
-  amount?: number;
+export class PurchaseCacheReserveRequest extends $dara.Model {
   /**
    * @remarks
-   * Automatic payment.
+   * Whether to automatically pay. The default value is false.
+   * - true: Automatically pay.
+   * - false: Do not automatically pay.
    * 
    * @example
    * true
@@ -57047,9 +57247,9 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Auto-renewal:
-   * - true: Enable auto-renewal.
-   * - false: Disable auto-renewal.
+   * Whether to auto-renew:
+   * - true: Auto-renew.
+   * - false: Do not auto-renew.
    * 
    * @example
    * true
@@ -57067,10 +57267,184 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Acceleration area:
-   * - domestic: Mainland China only.
-   * - global: Worldwide.
-   * - overseas: Global (excluding Mainland China).
+   * Cache retention region
+   * - HK: Hong Kong, China
+   * - CN-beijing: Mainland China - Beijing
+   * 
+   * @example
+   * HK
+   */
+  crRegion?: string;
+  /**
+   * @remarks
+   * Purchase period (unit: month).
+   * 
+   * @example
+   * 3
+   */
+  period?: number;
+  /**
+   * @remarks
+   * Cache retention specification (unit: GB).
+   * 
+   * @example
+   * 512000
+   */
+  quotaGb?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      crRegion: 'CrRegion',
+      period: 'Period',
+      quotaGb: 'QuotaGb',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      crRegion: 'string',
+      period: 'number',
+      quotaGb: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PurchaseCacheReserveResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * @example
+   * xcdn-ad*****s11w
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Order ID.
+   * 
+   * @example
+   * 31223****11
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 30423A7F-A83D-1E24-B80E-86DD25790758
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PurchaseCacheReserveResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseCacheReserveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PurchaseCacheReserveResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PurchaseRatePlanRequest extends $dara.Model {
+  amount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable auto payment.
+   * 
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Auto-renewal:
+   * - true: Enable auto-renewal.
+   * - false: Disable auto-renewal.
+   * 
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PREPAY: subscription.
+   * *   POSTPAY: pay-as-you-go.
+   * 
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The service location. Valid values:
+   * 
+   * *   domestic: the Chinese mainland.
+   * *   global: global.
+   * *   overseas: outside the Chinese mainland.
    * 
    * @example
    * domestic
@@ -57110,9 +57484,10 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Site access type:
-   * - NS: NS access.
-   * - CNAME: CNAME access.
+   * The DNS setup option for the website. Valid values:
+   * 
+   * *   NS
+   * *   CNAME
    * 
    * @example
    * CNAME
@@ -58556,6 +58931,13 @@ export class SetCertificateRequest extends $dara.Model {
 }
 
 export class SetCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaffe176ae44e2ad16d3e309b9e506
+   */
   id?: string;
   /**
    * @remarks
@@ -58729,6 +59111,7 @@ export class SetClientCertificateHostnamesShrinkRequest extends $dara.Model {
 }
 
 export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
+  hostnames?: string[];
   /**
    * @remarks
    * The ID of the client CA certificate.
@@ -58763,6 +59146,7 @@ export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
   siteName?: string;
   static names(): { [key: string]: string } {
     return {
+      hostnames: 'Hostnames',
       id: 'Id',
       requestId: 'RequestId',
       siteId: 'SiteId',
@@ -58772,6 +59156,7 @@ export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
       id: 'string',
       requestId: 'string',
       siteId: 'number',
@@ -58780,6 +59165,9 @@ export class SetClientCertificateHostnamesResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
     super.validate();
   }
 
@@ -59642,6 +60030,133 @@ export class UntagResourcesResponse extends $dara.Model {
   }
 }
 
+export class UpdateCacheReserveSpecRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto payment.
+   * 
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * esa-cr-9tuv*********
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1000
+   */
+  targetQuotaGb?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+      targetQuotaGb: 'TargetQuotaGb',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      chargeType: 'string',
+      instanceId: 'string',
+      targetQuotaGb: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCacheReserveSpecResponseBody extends $dara.Model {
+  /**
+   * @example
+   * esa-cr-9tuv*********
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2223332122***
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 40423A7F-A83D-1E24-B80E-86DD25790759
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCacheReserveSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCacheReserveSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCacheReserveSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCacheRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -59682,9 +60197,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   bypassCache?: string;
   /**
    * @remarks
-   * Cache deception defense. Used to defend against web cache deception attacks, only the cache content that passes the validation will be cached. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Cache deception defense. Used to defend against web cache deception attacks; only the cache content that passes the validation will be cached. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -59692,9 +60207,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * Cache reservation eligibility. Used to control whether user requests bypass the cache reservation node during origin pull. Value range:
-   * - bypass_cache_reserve: Requests bypass cache reservation.
-   * - eligible_for_cache_reserve: Eligible for cache reservation.
+   * Cache retention eligibility. Used to control whether user requests bypass the cache retention node when returning to the origin. Value range:
+   * - bypass_cache_reserve: Requests bypass cache retention.
+   * - eligible_for_cache_reserve: Eligible for cache retention.
    * 
    * @example
    * bypass_cache_reserve
@@ -59729,7 +60244,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Edge cache mode. Value range:
-   * - follow_origin: Follow origin cache policy (if exists), otherwise use default cache policy.
+   * - follow_origin: Follow origin cache policy (if exists), otherwise use the default cache policy.
    * - no_cache: Do not cache.
    * - override_origin: Override origin cache policy.
    * - follow_origin_bypass: Follow origin cache policy (if exists), otherwise do not cache.
@@ -59756,7 +60271,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   edgeStatusCodeCacheTtl?: string;
   /**
    * @remarks
-   * Include specified cookie names and their values when generating cache keys, supporting multiple values separated by spaces.
+   * Include the specified cookie names and their values when generating cache keys, supporting multiple values separated by spaces.
    * 
    * @example
    * cookiename
@@ -59764,7 +60279,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   includeCookie?: string;
   /**
    * @remarks
-   * Include specified header names and their values when generating cache keys, supporting multiple values separated by spaces.
+   * Include the specified header names and their values when generating cache keys, supporting multiple values separated by spaces.
    * 
    * @example
    * headername
@@ -59772,7 +60287,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   includeHeader?: string;
   /**
    * @remarks
-   * Query strings to be reserved or excluded, supporting multiple values separated by spaces.
+   * Query strings to be retained or excluded, supporting multiple values separated by spaces.
    * 
    * @example
    * example
@@ -59780,7 +60295,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   queryString?: string;
   /**
    * @remarks
-   * Query string handling mode when generating cache keys. Values:
+   * The processing mode of query strings when generating cache keys. Values:
    * - ignore_all: Ignore all.
    * - exclude_query_string: Exclude specified query strings.
    * - reserve_all: Default, reserve all.
@@ -59792,7 +60307,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   queryStringMode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -59800,7 +60317,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -59810,7 +60327,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -59818,9 +60335,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Serve stale cache. When enabled, the node can still respond to user requests with expired cached files when the origin server is unavailable. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Serve stale cache. When enabled, the node can still use the expired cached files to respond to user requests even if the origin server is unavailable. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -59848,9 +60365,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * Include client device type when generating cache keys. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * When generating cache keys, include the client device type. Value range: 
+   * - on: enabled. 
+   * - off: disabled.
    * 
    * @example
    * on
@@ -59858,7 +60375,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   userDeviceType?: string;
   /**
    * @remarks
-   * Include client geographic location when generating cache keys. Value range:
+   * Include the client\\"s geographical location when generating the cache key. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -59868,9 +60385,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
   userGeo?: string;
   /**
    * @remarks
-   * When generating cache keys, include the client\\"s language type. Value range: 
-   * - on: enabled. 
-   * - off: disabled.
+   * Include the client\\"s language type when generating the cache key. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60013,9 +60530,10 @@ export class UpdateCacheRuleResponse extends $dara.Model {
 export class UpdateCacheTagRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to ignore case. Value range:
-   * - on: Enabled, ignores case.
-   * - off: Disabled, does not ignore case.
+   * Specifies whether to ignore case sensitivity. Valid values:
+   * 
+   * *   on
+   * *   off
    * 
    * @example
    * on
@@ -60023,7 +60541,7 @@ export class UpdateCacheTagRequest extends $dara.Model {
   caseInsensitive?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -60033,7 +60551,7 @@ export class UpdateCacheTagRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
    * 
    * @example
    * 1
@@ -60041,7 +60559,7 @@ export class UpdateCacheTagRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Custom CacheTag name.
+   * The name of the custom cache tag.
    * 
    * @example
    * example
@@ -60077,7 +60595,7 @@ export class UpdateCacheTagRequest extends $dara.Model {
 export class UpdateCacheTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -60254,8 +60772,8 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Brotli compression. Value range:
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60274,8 +60792,8 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Gzip compression. Value range:
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60283,7 +60801,9 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
   gzip?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -60291,10 +60811,9 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60302,7 +60821,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -60318,6 +60837,15 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
    * 5407498413****
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Zstd compression. Value range:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   zstd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60445,6 +60973,8 @@ export class UpdateCustomScenePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
+   * 
+   * This parameter is required.
    * 
    * @example
    * 123456****
@@ -60649,10 +61179,10 @@ export class UpdateCustomScenePolicyResponse extends $dara.Model {
 export class UpdateDevelopmentModeRequest extends $dara.Model {
   /**
    * @remarks
-   * Feature switch. Possible values:
+   * Specifies whether to enable Development Mode. Valid values:
    * 
-   * - on: Enable.
-   * - off: Disable.
+   * *   on
+   * *   off
    * 
    * This parameter is required.
    * 
@@ -60662,7 +61192,7 @@ export class UpdateDevelopmentModeRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -60696,7 +61226,7 @@ export class UpdateDevelopmentModeRequest extends $dara.Model {
 export class UpdateDevelopmentModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 65C66B7B-671A-8297-9187-2R5477247B76
@@ -60760,16 +61290,25 @@ export class UpdateDevelopmentModeResponse extends $dara.Model {
 
 export class UpdateEdgeContainerAppLogRiverRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](https://help.aliyun.com/document_detail/2852396.html) operation.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
   /**
+   * @remarks
+   * The log path of the container.
+   * 
    * @example
    * /root/hello.log
    */
   path?: string;
   /**
+   * @remarks
+   * Specifies whether to collect the standard output of the container.
+   * 
    * @example
    * true
    */
@@ -60801,16 +61340,25 @@ export class UpdateEdgeContainerAppLogRiverRequest extends $dara.Model {
 
 export class UpdateEdgeContainerAppLogRiverResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The log path of the container.
+   * 
    * @example
    * /root/hello.log
    */
   path?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 42DE97FA-45D2-5615-9A31-55D9EC0D7563
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the standard output of the container is collected.
+   * 
    * @example
    * true
    */
@@ -60875,6 +61423,200 @@ export class UpdateEdgeContainerAppLogRiverResponse extends $dara.Model {
   }
 }
 
+export class UpdateEdgeContainerAppResourceReserveRequest extends $dara.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z
+   */
+  durationTime?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * true
+   */
+  forever?: boolean;
+  reserveSet?: UpdateEdgeContainerAppResourceReserveRequestReserveSet[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      durationTime: 'DurationTime',
+      enable: 'Enable',
+      forever: 'Forever',
+      reserveSet: 'ReserveSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      durationTime: 'string',
+      enable: 'boolean',
+      forever: 'boolean',
+      reserveSet: { 'type': 'array', 'itemType': UpdateEdgeContainerAppResourceReserveRequestReserveSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reserveSet)) {
+      $dara.Model.validateArray(this.reserveSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppResourceReserveShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z
+   */
+  durationTime?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * true
+   */
+  forever?: boolean;
+  reserveSetShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      durationTime: 'DurationTime',
+      enable: 'Enable',
+      forever: 'Forever',
+      reserveSetShrink: 'ReserveSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      durationTime: 'string',
+      enable: 'boolean',
+      forever: 'boolean',
+      reserveSetShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppResourceReserveResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2006-01-02T15:04:05Z
+   */
+  durationTime?: string;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * true
+   */
+  forever?: boolean;
+  /**
+   * @example
+   * 1AB799CF-562A-5CAF-A99E-4354053D814F
+   */
+  requestId?: string;
+  reserveSet?: UpdateEdgeContainerAppResourceReserveResponseBodyReserveSet[];
+  static names(): { [key: string]: string } {
+    return {
+      durationTime: 'DurationTime',
+      enable: 'Enable',
+      forever: 'Forever',
+      requestId: 'RequestId',
+      reserveSet: 'ReserveSet',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationTime: 'string',
+      enable: 'boolean',
+      forever: 'boolean',
+      requestId: 'string',
+      reserveSet: { 'type': 'array', 'itemType': UpdateEdgeContainerAppResourceReserveResponseBodyReserveSet },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reserveSet)) {
+      $dara.Model.validateArray(this.reserveSet);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppResourceReserveResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEdgeContainerAppResourceReserveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEdgeContainerAppResourceReserveResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -60893,7 +61635,9 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   requestHeaderModification?: UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModification[];
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -60901,10 +61645,9 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60912,7 +61655,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -60980,7 +61723,9 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   requestHeaderModificationShrink?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -60988,10 +61733,9 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -60999,7 +61743,7 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61124,12 +61868,14 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   configId?: number;
   /**
    * @remarks
-   * Modify response headers, supporting add, delete, and modify operations.
+   * Modify response headers, supporting three operation methods: add, delete, and modify.
    */
   responseHeaderModification?: UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModification[];
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -61137,10 +61883,9 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -61148,7 +61893,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61211,12 +61956,14 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   configId?: number;
   /**
    * @remarks
-   * Modify response headers, supporting add, delete, and modify operations.
+   * Modify response headers, supporting three operation methods: add, delete, and modify.
    */
   responseHeaderModificationShrink?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -61224,10 +61971,9 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -61235,7 +61981,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61350,9 +62096,9 @@ export class UpdateHttpResponseHeaderModificationRuleResponse extends $dara.Mode
 export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Feature switch, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Feature switch, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61360,9 +62106,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvc?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the clear parameter, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether the Alt-Svc header includes the clear parameter, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61370,7 +62116,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcClear?: string;
   /**
    * @remarks
-   * Alt-Svc validity period in seconds, default is 86400 seconds.
+   * Alt-Svc validity period, in seconds, default is 86400 seconds.
    * 
    * @example
    * 86400
@@ -61378,9 +62124,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcMa?: string;
   /**
    * @remarks
-   * Whether the Alt-Svc header includes the persist parameter, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether the Alt-Svc header includes the persist parameter, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61398,9 +62144,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Whether to enable HSTS, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable HSTS, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61408,9 +62154,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hsts?: string;
   /**
    * @remarks
-   * Whether to include subdomains in HSTS, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to include subdomains in HSTS, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61418,7 +62164,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsIncludeSubdomains?: string;
   /**
    * @remarks
-   * HSTS expiration time in seconds.
+   * HSTS expiration time, in seconds.
    * 
    * @example
    * 3600
@@ -61426,9 +62172,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsMaxAge?: string;
   /**
    * @remarks
-   * Whether to enable HSTS preload, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable HSTS preload, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61436,9 +62182,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsPreload?: string;
   /**
    * @remarks
-   * Whether to enable forced HTTPS, default is disabled. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Whether to enable forced HTTPS, default is disabled. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61446,7 +62192,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForce?: string;
   /**
    * @remarks
-   * Forced HTTPS redirect status code. Values:
+   * Forced HTTPS redirect status code, value range:
    * - 301
    * - 302
    * - 307
@@ -61458,7 +62204,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForceCode?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -61466,9 +62214,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * - on: Enable.
-   * - off: Disable.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -61476,7 +62224,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61678,7 +62426,9 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
   ocspStapling?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -61686,7 +62436,7 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -61696,7 +62446,7 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -61869,10 +62619,10 @@ export class UpdateHttpsBasicConfigurationResponse extends $dara.Model {
 export class UpdateIPv6Request extends $dara.Model {
   /**
    * @remarks
-   * Switch. Values:
+   * Specifies whether to enable IPv6. Valid values:
    * 
-   * - **on**: Enable.
-   * - **off**: Disable.
+   * *   **on**
+   * *   **off**
    * 
    * This parameter is required.
    * 
@@ -61882,7 +62632,7 @@ export class UpdateIPv6Request extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -61916,7 +62666,7 @@ export class UpdateIPv6Request extends $dara.Model {
 export class UpdateIPv6ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -61981,7 +62731,7 @@ export class UpdateIPv6Response extends $dara.Model {
 export class UpdateImageTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) API.
+   * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
    * 
    * This parameter is required.
    * 
@@ -61993,8 +62743,8 @@ export class UpdateImageTransformRequest extends $dara.Model {
    * @remarks
    * Indicates whether to enable image transformation. Possible values:
    * 
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -62002,7 +62752,9 @@ export class UpdateImageTransformRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Rule content, which specifies the strategy or condition expression to be implemented.
+   * Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - To match all incoming requests: Set the value to true.
+   * - To match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -62010,10 +62762,9 @@ export class UpdateImageTransformRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
-   * 
-   * - **on**: Enabled.
-   * - **off**: Disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -62021,7 +62772,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * test
@@ -62029,7 +62780,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -62340,7 +63091,7 @@ export class UpdateListResponse extends $dara.Model {
 export class UpdateLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration for cross-pool origin fallback.
+   * Configuration for failover across pools.
    */
   adaptiveRouting?: UpdateLoadBalancerRequestAdaptiveRouting;
   /**
@@ -62350,7 +63101,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   defaultPools?: number[];
   /**
    * @remarks
-   * Detailed description of the load balancer, which is useful for management and identification.
+   * Detailed description of the load balancer, for easier management and identification.
    * 
    * @example
    * 负载均衡器描述
@@ -62377,7 +63128,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
+   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API.
    * 
    * This parameter is required.
    * 
@@ -62397,7 +63148,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   randomSteering?: UpdateLoadBalancerRequestRandomSteering;
   /**
    * @remarks
-   * Address pools corresponding to the primary region.
+   * Address pool corresponding to the primary region.
    * 
    * @example
    * {
@@ -62421,10 +63172,10 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   rules?: UpdateLoadBalancerRequestRules[];
   /**
    * @remarks
-   * Session persistence, with values:
+   * Session persistence, with possible values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -62450,7 +63201,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to the secondary region. When multiple secondary regions share a set of address pools, you can use a comma-separated list of secondary regions as the key.
+   * Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -62458,7 +63209,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * TTL value, the time-to-live for DNS records. The default is 30, and the range is 10-600.
+   * TTL value, the time-to-live for DNS records, with a default of 30 and a range of 10-600.
    * 
    * @example
    * 300
@@ -62531,7 +63282,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
 export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration for cross-pool origin fallback.
+   * Configuration for failover across pools.
    */
   adaptiveRoutingShrink?: string;
   /**
@@ -62541,7 +63292,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   defaultPoolsShrink?: string;
   /**
    * @remarks
-   * Detailed description of the load balancer, which is useful for management and identification.
+   * Detailed description of the load balancer, for easier management and identification.
    * 
    * @example
    * 负载均衡器描述
@@ -62568,7 +63319,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
+   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API.
    * 
    * This parameter is required.
    * 
@@ -62588,7 +63339,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   randomSteeringShrink?: string;
   /**
    * @remarks
-   * Address pools corresponding to the primary region.
+   * Address pool corresponding to the primary region.
    * 
    * @example
    * {
@@ -62612,10 +63363,10 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * Session persistence, with values:
+   * Session persistence, with possible values:
    * - off: Not enabled.
    * - ip: Session persistence by IP.
-   * - cookie: Not enabled for session persistence.
+   * - cookie: Session persistence by cookie.
    * 
    * @example
    * ip
@@ -62641,7 +63392,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * Address pools corresponding to the secondary region. When multiple secondary regions share a set of address pools, you can use a comma-separated list of secondary regions as the key.
+   * Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the keys can be concatenated with commas.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -62649,7 +63400,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * TTL value, the time-to-live for DNS records. The default is 30, and the range is 10-600.
+   * TTL value, the time-to-live for DNS records, with a default of 30 and a range of 10-600.
    * 
    * @example
    * 300
@@ -62772,9 +63523,10 @@ export class UpdateLoadBalancerResponse extends $dara.Model {
 export class UpdateManagedTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * Add visitor geolocation header. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the header that indicates the geographical location of a client in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
    * 
    * @example
    * on
@@ -62782,9 +63534,10 @@ export class UpdateManagedTransformRequest extends $dara.Model {
   addClientGeolocationHeader?: string;
   /**
    * @remarks
-   * Add the "ali-real-client-ip" header containing the real client IP. Value range:
-   * - on: Enable.
-   * - off: Disable.
+   * Specifies whether to include the "ali-real-client-ip" header that indicates the client\\"s real IP address in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
    * 
    * @example
    * on
@@ -62792,7 +63545,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
   addRealClientIpHeader?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -62802,7 +63555,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration will take effect, defaulting to version 0.
+   * The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
    * 
    * @example
    * 0
@@ -62838,7 +63591,7 @@ export class UpdateManagedTransformRequest extends $dara.Model {
 export class UpdateManagedTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
@@ -62913,7 +63666,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Whether to enable GRPC, default is disabled. Value range:
+   * Whether to enable GRPC, default is disabled. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -62923,7 +63676,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   grpc?: string;
   /**
    * @remarks
-   * Whether to enable HTTP2 origin, default is disabled. Value range:
+   * Whether to enable HTTP2 origin, default is disabled. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -62933,7 +63686,9 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   http2Origin?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -62941,9 +63696,9 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Values:
-   * - on: Enable
-   * - off: Disable
+   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -62951,7 +63706,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -62959,7 +63714,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
    * 
    * This parameter is required.
    * 
@@ -62969,7 +63724,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Whether to enable smart routing service, default is disabled. Value range:
+   * Whether to enable the smart routing service, default is disabled. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -62979,7 +63734,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * Maximum upload file size, in MB, value range: 100～500.
+   * Maximum upload file size, in MB, with a range of 100 to 500.
    * 
    * @example
    * 100
@@ -62987,7 +63742,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Whether to enable Websocket, default is enabled. Value range:
+   * Whether to enable Websocket, default is enabled. Possible values:
    * - on: Enable
    * - off: Disable
    * 
@@ -63543,7 +64298,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   originHost?: string;
   /**
    * @remarks
-   * The port of the origin server when using HTTP protocol for origin requests.
+   * Port of the origin server when using HTTP protocol for origin pull.
    * 
    * @example
    * 8080
@@ -63551,19 +64306,28 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   originHttpPort?: string;
   /**
    * @remarks
-   * The port of the origin server when using HTTPS protocol for origin requests.
+   * Port of the origin server when using HTTPS protocol for origin pull.
    * 
    * @example
    * 4433
    */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * mTLS switch. Valid values:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originMtls?: string;
   /**
    * @remarks
-   * Protocol used for the origin request. Possible values:
-   * - http: Use HTTP protocol for origin requests.
-   * - https: Use HTTPS protocol for origin requests.
-   * - follow: Follow the client\\"s protocol for origin requests.
+   * Protocol used for the origin request. Valid values:
+   * - http: Use HTTP protocol for origin pull.
+   * - https: Use HTTPS protocol for origin pull.
+   * - follow: Follow the client\\"s protocol for origin pull.
    * 
    * @example
    * http
@@ -63571,16 +64335,25 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   originScheme?: string;
   /**
    * @remarks
-   * The SNI carried in the origin request.
+   * SNI carried in the origin request.
    * 
    * @example
    * origin.example.com
    */
   originSni?: string;
+  /**
+   * @remarks
+   * Origin certificate verification switch. Valid values:
+   * - on: Enable.
+   * - off: Disable.
+   * 
+   * @example
+   * on
+   */
   originVerify?: string;
   /**
    * @remarks
-   * Use range chunked transfer to download files from the origin. Possible values:
+   * Use range chunking for origin pull file download. Valid values:
    * - on: Enable.
    * - off: Disable.
    * - force: Force.
@@ -63591,7 +64364,9 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   range?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -63599,7 +64374,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Possible values:
+   * Rule switch. This parameter is not required when adding a global configuration. Valid values:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -63609,7 +64384,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -63617,7 +64392,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
    * 
    * This parameter is required.
    * 
@@ -64371,7 +65146,7 @@ export class UpdateRecordResponse extends $dara.Model {
 export class UpdateRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID. It can be obtained by calling the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) API.
+   * Configuration ID. It can be obtained by calling the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) interface.
    * 
    * This parameter is required.
    * 
@@ -64381,9 +65156,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Preserve query string. The value range is:
-   * - on: enabled.
-   * - off: disabled.
+   * Preserve query string. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -64391,7 +65166,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   reserveQueryString?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -64399,10 +65176,9 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule enable status, supports:
-   * 
-   * - **on**: indicates enabled.
-   * - **off**: indicates disabled.
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -64410,7 +65186,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -64418,7 +65194,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -64428,7 +65204,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The response status code used by the node when responding to the client with a redirect address. The value range is:
+   * The response status code used by the node to respond with the redirect address to the client. Value range:
    * 
    * - 301
    * - 302
@@ -64442,7 +65218,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * Target URL after redirection.
+   * The target URL after redirection.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -64450,9 +65226,10 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
   targetUrl?: string;
   /**
    * @remarks
-   * Redirect type. The value range is:
+   * Redirect type. Value range:
    * 
-   * - static: static mode.
+   * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -64573,7 +65350,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Query string after rewriting.
+   * The query string after rewriting.
    * 
    * @example
    * example=123
@@ -64582,8 +65359,8 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Query string rewrite type. Value range:
-   * 
    * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -64592,8 +65369,8 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   /**
    * @remarks
    * URI rewrite type. Value range:
-   * 
    * - static: Static mode.
+   * - dynamic: Dynamic mode.
    * 
    * @example
    * static
@@ -64604,7 +65381,9 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   rewriteUriType?: string;
   /**
    * @remarks
-   * Rule content.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -64612,8 +65391,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. Value range:
-   * 
+   * Rule switch. This parameter is not required when adding a global configuration. Value range:
    * - on: Enable.
    * - off: Disable.
    * 
@@ -64623,7 +65401,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name.
+   * Rule name. This parameter is not required when adding a global configuration.
    * 
    * @example
    * example=123
@@ -64641,7 +65419,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Target URI after rewriting.
+   * The target URI after rewriting.
    * 
    * @example
    * /image/example.jpg
@@ -65764,10 +66542,10 @@ export class UpdateSiteDeliveryTaskStatusResponse extends $dara.Model {
 export class UpdateSiteNameExclusiveRequest extends $dara.Model {
   /**
    * @remarks
-   * Feature switch. Possible values:
+   * Specifies whether to enable site hold. Valid values:
    * 
-   * - on: Enable.
-   * - off: Disable.
+   * *   on
+   * *   off
    * 
    * This parameter is required.
    * 
@@ -65777,7 +66555,7 @@ export class UpdateSiteNameExclusiveRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -65811,7 +66589,7 @@ export class UpdateSiteNameExclusiveRequest extends $dara.Model {
 export class UpdateSiteNameExclusiveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -65876,9 +66654,10 @@ export class UpdateSiteNameExclusiveResponse extends $dara.Model {
 export class UpdateSitePauseRequest extends $dara.Model {
   /**
    * @remarks
-   * Used to temporarily pause the proxy acceleration function of the entire site. When enabled, all DNS records will directly return their values to the client. Value range:
-   * - true: Pause site acceleration.
-   * - false: Normal site acceleration.
+   * Specifies whether to temporarily pause ESA on the website. If you set this parameter to true, all requests to the domains in your DNS records go directly to your origin server. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * This parameter is required.
    * 
@@ -65888,7 +66667,7 @@ export class UpdateSitePauseRequest extends $dara.Model {
   paused?: boolean;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -65922,7 +66701,7 @@ export class UpdateSitePauseRequest extends $dara.Model {
 export class UpdateSitePauseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6abd807e-ed2a-44de-ac54-ac38a62472e6
@@ -66094,11 +66873,12 @@ export class UpdateSiteVanityNSResponse extends $dara.Model {
 export class UpdateTieredCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * Multi-level cache architecture mode. Possible values:
-   * - edge: Edge cache layer.
-   * - edge_smart: Edge cache layer + intelligent cache layer.
-   * - edge_regional: Edge cache layer + regional cache layer.
-   * - edge_regional_smart: Edge cache layer + regional cache layer + intelligent cache layer.
+   * The tiered cache architecture mode. Valid values:
+   * 
+   * *   edge: edge tiered cache.
+   * *   edge_smart: edge tiered cache + smart tiered cache.
+   * *   edge_regional: edge tiered cache + regional tiered cache.
+   * *   edge_regional_smart: edge tiered cache + regional tiered cache + smart tiered cache.
    * 
    * This parameter is required.
    * 
@@ -66108,7 +66888,7 @@ export class UpdateTieredCacheRequest extends $dara.Model {
   cacheArchitectureMode?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -66142,7 +66922,7 @@ export class UpdateTieredCacheRequest extends $dara.Model {
 export class UpdateTieredCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -67304,7 +68084,9 @@ export class UpdateWaitingRoomEventResponse extends $dara.Model {
 export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule content, which is a policy or conditional expression.
+   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configuration. There are two usage scenarios:
+   * - Match all incoming requests: Set the value to true
+   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
    * 
    * This parameter is required.
    * 
@@ -67314,10 +68096,9 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
+   * Rule switch. This parameter is not required when adding global configuration. Value range:
+   * - on: Enable.
+   * - off: Disable.
    * 
    * This parameter is required.
    * 
@@ -67327,7 +68108,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name.
+   * Rule name. This parameter is not required when adding global configuration.
    * 
    * This parameter is required.
    * 
@@ -67337,7 +68118,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -67347,7 +68128,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the waiting room bypass rule that you want to update. You can call [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) to obtain the ID.
+   * The ID of the waiting room bypass rule to be updated, which can be obtained by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) interface.
    * 
    * This parameter is required.
    * 
@@ -67387,7 +68168,7 @@ export class UpdateWaitingRoomRuleRequest extends $dara.Model {
 export class UpdateWaitingRoomRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to trace a call.
+   * Request ID, used for tracking the progress of request processing.
    * 
    * @example
    * 9bfe9d95-7bf6-469d-a628-ed7bc9f25073
@@ -68023,7 +68804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a client certificate.
+   * Activates the client based on the certificate ID.
    * 
    * @param request - ActivateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68055,7 +68836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a client certificate.
+   * Activates the client based on the certificate ID.
    * 
    * @param request - ActivateClientCertificateRequest
    * @returns ActivateClientCertificateResponse
@@ -68113,7 +68894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply for Free Certificate
+   * Applies for a free SSL certificate.
    * 
    * @param request - ApplyCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68145,7 +68926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply for Free Certificate
+   * Applies for a free SSL certificate.
    * 
    * @param request - ApplyCertificateRequest
    * @returns ApplyCertificateResponse
@@ -70200,7 +70981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new load balancer
+   * Add a New Load Balancer
    * 
    * @remarks
    * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
@@ -70317,7 +71098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new load balancer
+   * Add a New Load Balancer
    * 
    * @remarks
    * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
@@ -71915,7 +72696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room bypass rule.
+   * Create Waiting Room Rule
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71967,7 +72748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room bypass rule.
+   * Create Waiting Room Rule
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @returns CreateWaitingRoomRuleResponse
@@ -71978,10 +72759,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable version management
+   * Disables version management for a website.
    * 
    * @remarks
-   * Can only be disabled when there is only version 0 and the default environment.
+   * You can disable version management only when the default environment and version 0 exist.
    * 
    * @param request - DeactivateVersionManagementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72017,10 +72798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disable version management
+   * Disables version management for a website.
    * 
    * @remarks
-   * Can only be disabled when there is only version 0 and the default environment.
+   * You can disable version management only when the default environment and version 0 exist.
    * 
    * @param request - DeactivateVersionManagementRequest
    * @returns DeactivateVersionManagementResponse
@@ -72211,7 +72992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the compression rule configuration for a website.
+   * Delete compression rule
    * 
    * @param request - DeleteCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72251,7 +73032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the compression rule configuration for a website.
+   * Delete compression rule
    * 
    * @param request - DeleteCompressionRuleRequest
    * @returns DeleteCompressionRuleResponse
@@ -72666,7 +73447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of image transformations for a website.
+   * Delete Site Image Transformation Configuration
    * 
    * @param request - DeleteImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72706,7 +73487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of image transformations for a website.
+   * Delete Site Image Transformation Configuration
    * 
    * @param request - DeleteImageTransformRequest
    * @returns DeleteImageTransformResponse
@@ -74425,10 +75206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Package Instance Status
+   * Queries the status of an instance that uses a plan.
    * 
    * @remarks
-   * You can only query the status of a package instance after purchasing and creating it.
+   * You can query the status of an instance after you purchase a plan for the instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74464,10 +75245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Package Instance Status
+   * Queries the status of an instance that uses a plan.
    * 
    * @remarks
-   * You can only query the status of a package instance after purchasing and creating it.
+   * You can query the status of an instance after you purchase a plan for the instance.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @returns DescribeRatePlanInstanceStatusResponse
@@ -74678,7 +75459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cache Retention Instance Specifications
+   * Queries the available specifications of cache reserve instances.
    * 
    * @param request - GetCacheReserveSpecificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74706,7 +75487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cache Retention Instance Specifications
+   * Queries the available specifications of cache reserve instances.
    * @returns GetCacheReserveSpecificationResponse
    */
   async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
@@ -75192,7 +75973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用日志采集配置
+   * Queries the log collection configuration of a containerized application.
    * 
    * @param request - GetEdgeContainerAppLogRiverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75224,7 +76005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用日志采集配置
+   * Queries the log collection configuration of a containerized application.
    * 
    * @param request - GetEdgeContainerAppLogRiverRequest
    * @returns GetEdgeContainerAppLogRiverResponse
@@ -75232,6 +76013,53 @@ export default class Client extends OpenApi {
   async getEdgeContainerAppLogRiver(request: GetEdgeContainerAppLogRiverRequest): Promise<GetEdgeContainerAppLogRiverResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEdgeContainerAppLogRiverWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器资源预留配置
+   * 
+   * @param request - GetEdgeContainerAppResourceReserveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppResourceReserveResponse
+   */
+  async getEdgeContainerAppResourceReserveWithOptions(request: GetEdgeContainerAppResourceReserveRequest, runtime: $dara.RuntimeOptions): Promise<GetEdgeContainerAppResourceReserveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEdgeContainerAppResourceReserve",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEdgeContainerAppResourceReserveResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppResourceReserveResponse({}));
+    } else {
+      return $dara.cast<GetEdgeContainerAppResourceReserveResponse>(await this.execute(params, req, runtime), new GetEdgeContainerAppResourceReserveResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取边缘容器资源预留配置
+   * 
+   * @param request - GetEdgeContainerAppResourceReserveRequest
+   * @returns GetEdgeContainerAppResourceReserveResponse
+   */
+  async getEdgeContainerAppResourceReserve(request: GetEdgeContainerAppResourceReserveRequest): Promise<GetEdgeContainerAppResourceReserveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEdgeContainerAppResourceReserveWithOptions(request, runtime);
   }
 
   /**
@@ -75505,7 +76333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * Query HTTP Request Header Rule Details
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75537,7 +76365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * Query HTTP Request Header Rule Details
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @returns GetHttpRequestHeaderModificationRuleResponse
@@ -75548,7 +76376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP response header modification rule for a website.
+   * Query HTTP Response Header Rules
    * 
    * @param request - GetHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75580,7 +76408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP response header modification rule for a website.
+   * Query HTTP Response Header Rules
    * 
    * @param request - GetHttpResponseHeaderModificationRuleRequest
    * @returns GetHttpResponseHeaderModificationRuleResponse
@@ -75677,7 +76505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site IPv6 Configuration
+   * Queries the IPv6 configuration of a website.
    * 
    * @param request - GetIPv6Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75709,7 +76537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site IPv6 Configuration
+   * Queries the IPv6 configuration of a website.
    * 
    * @param request - GetIPv6Request
    * @returns GetIPv6Response
@@ -75720,7 +76548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of image transformations for a website.
+   * Query Single Site Image Transformation Configuration
    * 
    * @param request - GetImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75752,7 +76580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of image transformations for a website.
+   * Query Single Site Image Transformation Configuration
    * 
    * @param request - GetImageTransformRequest
    * @returns GetImageTransformResponse
@@ -75936,7 +76764,7 @@ export default class Client extends OpenApi {
    * Query a Specific Load Balancer
    * 
    * @remarks
-   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence policy, routing policy, etc.
+   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
    * 
    * @param request - GetLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75971,7 +76799,7 @@ export default class Client extends OpenApi {
    * Query a Specific Load Balancer
    * 
    * @remarks
-   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence policy, routing policy, etc.
+   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
    * 
    * @param request - GetLoadBalancerRequest
    * @returns GetLoadBalancerResponse
@@ -75982,7 +76810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the configuration of managed transforms for your website.
+   * Query Managed Transform Configuration
    * 
    * @param request - GetManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76014,7 +76842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the configuration of managed transforms for your website.
+   * Query Managed Transform Configuration
    * 
    * @param request - GetManagedTransformRequest
    * @returns GetManagedTransformResponse
@@ -76154,7 +76982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single origin rule configuration
+   * Query a Single Origin Rule Configuration
    * 
    * @param request - GetOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76186,7 +77014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single origin rule configuration
+   * Query a Single Origin Rule Configuration
    * 
    * @param request - GetOriginRuleRequest
    * @returns GetOriginRuleResponse
@@ -76373,7 +77201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL redirect rule for a website.
+   * Query Redirect Rule Details
    * 
    * @param request - GetRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76405,7 +77233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL redirect rule for a website.
+   * Query Redirect Rule Details
    * 
    * @param request - GetRedirectRuleRequest
    * @returns GetRedirectRuleResponse
@@ -76416,7 +77244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL rewrite rule.
+   * Query details of the rewrite URL rule
    * 
    * @param request - GetRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76448,7 +77276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL rewrite rule.
+   * Query details of the rewrite URL rule
    * 
    * @param request - GetRewriteUrlRuleRequest
    * @returns GetRewriteUrlRuleResponse
@@ -76968,7 +77796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Name Exclusive Configuration
+   * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
    * 
    * @param request - GetSiteNameExclusiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77000,7 +77828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Name Exclusive Configuration
+   * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
    * 
    * @param request - GetSiteNameExclusiveRequest
    * @returns GetSiteNameExclusiveResponse
@@ -77011,7 +77839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Pause Configuration
+   * Queries the ESA proxy configuration of a website.
    * 
    * @param request - GetSitePauseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77043,7 +77871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Pause Configuration
+   * Queries the ESA proxy configuration of a website.
    * 
    * @param request - GetSitePauseRequest
    * @returns GetSitePauseResponse
@@ -77526,7 +78354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List certificates under a site
+   * Lists certificates of a website.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77558,7 +78386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List certificates under a site
+   * Lists certificates of a website.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -77698,7 +78526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries compression rules that are configured for a website.
+   * Query the list of compression rules
    * 
    * @param request - ListCompressionRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77730,7 +78558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries compression rules that are configured for a website.
+   * Query the list of compression rules
    * 
    * @param request - ListCompressionRulesRequest
    * @returns ListCompressionRulesResponse
@@ -78066,7 +78894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP response header modification rule for a website.
+   * List of HTTP Response Header Rules
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78098,7 +78926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP response header modification rule for a website.
+   * List of HTTP Response Header Rules
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @returns ListHttpResponseHeaderModificationRulesResponse
@@ -78195,7 +79023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of image conversion configurations for multiple websites.
+   * Query Multiple Site Image Transformation Configurations
    * 
    * @param request - ListImageTransformsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78227,7 +79055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of image conversion configurations for multiple websites.
+   * Query Multiple Site Image Transformation Configurations
    * 
    * @param request - ListImageTransformsRequest
    * @returns ListImageTransformsResponse
@@ -78534,7 +79362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Load Balancers
+   * Query the list of load balancers
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78566,7 +79394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Load Balancers
+   * Query the list of load balancers
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -78714,7 +79542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple origin rules configurations
+   * Query multiple origin rule configurations
    * 
    * @param request - ListOriginRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78746,7 +79574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple origin rules configurations
+   * Query multiple origin rule configurations
    * 
    * @param request - ListOriginRulesRequest
    * @returns ListOriginRulesResponse
@@ -78867,7 +79695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL redirect rule for a website.
+   * Query Redirect Rule List
    * 
    * @param request - ListRedirectRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78899,7 +79727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of a URL redirect rule for a website.
+   * Query Redirect Rule List
    * 
    * @param request - ListRedirectRulesRequest
    * @returns ListRedirectRulesResponse
@@ -78910,7 +79738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of rewrite URL configurations.
+   * List of Rewrite URL Rules
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78942,7 +79770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of rewrite URL configurations.
+   * List of Rewrite URL Rules
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @returns ListRewriteUrlRulesResponse
@@ -79708,10 +80536,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the waiting room bypass rules configured for a waiting room.
+   * Query Waiting Room Bypass Rules
    * 
    * @remarks
-   * You can call this operation to query the waiting room bypass rules that are associated with a website.
+   * This API allows users to query the list of waiting room bypass rules associated with a specific site.
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79743,10 +80571,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the waiting room bypass rules configured for a waiting room.
+   * Query Waiting Room Bypass Rules
    * 
    * @remarks
-   * You can call this operation to query the waiting room bypass rules that are associated with a website.
+   * This API allows users to query the list of waiting room bypass rules associated with a specific site.
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @returns ListWaitingRoomRulesResponse
@@ -80024,6 +80852,73 @@ export default class Client extends OpenApi {
   async publishRoutineCodeVersion(request: PublishRoutineCodeVersionRequest): Promise<PublishRoutineCodeVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.publishRoutineCodeVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * New Purchase of Cache Retention
+   * 
+   * @param request - PurchaseCacheReserveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurchaseCacheReserveResponse
+   */
+  async purchaseCacheReserveWithOptions(request: PurchaseCacheReserveRequest, runtime: $dara.RuntimeOptions): Promise<PurchaseCacheReserveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.crRegion)) {
+      query["CrRegion"] = request.crRegion;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.quotaGb)) {
+      query["QuotaGb"] = request.quotaGb;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PurchaseCacheReserve",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PurchaseCacheReserveResponse>(await this.callApi(params, req, runtime), new PurchaseCacheReserveResponse({}));
+    } else {
+      return $dara.cast<PurchaseCacheReserveResponse>(await this.execute(params, req, runtime), new PurchaseCacheReserveResponse({}));
+    }
+
+  }
+
+  /**
+   * New Purchase of Cache Retention
+   * 
+   * @param request - PurchaseCacheReserveRequest
+   * @returns PurchaseCacheReserveResponse
+   */
+  async purchaseCacheReserve(request: PurchaseCacheReserveRequest): Promise<PurchaseCacheReserveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.purchaseCacheReserveWithOptions(request, runtime);
   }
 
   /**
@@ -81075,6 +81970,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 缓存保持变配
+   * 
+   * @param request - UpdateCacheReserveSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCacheReserveSpecResponse
+   */
+  async updateCacheReserveSpecWithOptions(request: UpdateCacheReserveSpecRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCacheReserveSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.targetQuotaGb)) {
+      query["TargetQuotaGb"] = request.targetQuotaGb;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCacheReserveSpec",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateCacheReserveSpecResponse>(await this.callApi(params, req, runtime), new UpdateCacheReserveSpecResponse({}));
+    } else {
+      return $dara.cast<UpdateCacheReserveSpecResponse>(await this.execute(params, req, runtime), new UpdateCacheReserveSpecResponse({}));
+    }
+
+  }
+
+  /**
+   * 缓存保持变配
+   * 
+   * @param request - UpdateCacheReserveSpecRequest
+   * @returns UpdateCacheReserveSpecResponse
+   */
+  async updateCacheReserveSpec(request: UpdateCacheReserveSpecRequest): Promise<UpdateCacheReserveSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCacheReserveSpecWithOptions(request, runtime);
+  }
+
+  /**
    * Modify cache configuration
    * 
    * @param request - UpdateCacheRuleRequest
@@ -81218,7 +82172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Cache Tag Configuration
+   * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
    * 
    * @param request - UpdateCacheTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81266,7 +82220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Cache Tag Configuration
+   * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
    * 
    * @param request - UpdateCacheTagRequest
    * @returns UpdateCacheTagResponse
@@ -81470,7 +82424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Developer Mode Configuration
+   * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
    * 
    * @param request - UpdateDevelopmentModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81510,7 +82464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Developer Mode Configuration
+   * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
    * 
    * @param request - UpdateDevelopmentModeRequest
    * @returns UpdateDevelopmentModeResponse
@@ -81521,7 +82475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新边缘容器应用日志采集配置
+   * Updates the log collection configuration of a containerized application.
    * 
    * @param request - UpdateEdgeContainerAppLogRiverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81565,7 +82519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新边缘容器应用日志采集配置
+   * Updates the log collection configuration of a containerized application.
    * 
    * @param request - UpdateEdgeContainerAppLogRiverRequest
    * @returns UpdateEdgeContainerAppLogRiverResponse
@@ -81573,6 +82527,75 @@ export default class Client extends OpenApi {
   async updateEdgeContainerAppLogRiver(request: UpdateEdgeContainerAppLogRiverRequest): Promise<UpdateEdgeContainerAppLogRiverResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEdgeContainerAppLogRiverWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新边缘容器资源预留配置
+   * 
+   * @param tmpReq - UpdateEdgeContainerAppResourceReserveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEdgeContainerAppResourceReserveResponse
+   */
+  async updateEdgeContainerAppResourceReserveWithOptions(tmpReq: UpdateEdgeContainerAppResourceReserveRequest, runtime: $dara.RuntimeOptions): Promise<UpdateEdgeContainerAppResourceReserveResponse> {
+    tmpReq.validate();
+    let request = new UpdateEdgeContainerAppResourceReserveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.reserveSet)) {
+      request.reserveSetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reserveSet, "ReserveSet", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.durationTime)) {
+      query["DurationTime"] = request.durationTime;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.forever)) {
+      query["Forever"] = request.forever;
+    }
+
+    if (!$dara.isNull(request.reserveSetShrink)) {
+      query["ReserveSet"] = request.reserveSetShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEdgeContainerAppResourceReserve",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateEdgeContainerAppResourceReserveResponse>(await this.callApi(params, req, runtime), new UpdateEdgeContainerAppResourceReserveResponse({}));
+    } else {
+      return $dara.cast<UpdateEdgeContainerAppResourceReserveResponse>(await this.execute(params, req, runtime), new UpdateEdgeContainerAppResourceReserveResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新边缘容器资源预留配置
+   * 
+   * @param request - UpdateEdgeContainerAppResourceReserveRequest
+   * @returns UpdateEdgeContainerAppResourceReserveResponse
+   */
+  async updateEdgeContainerAppResourceReserve(request: UpdateEdgeContainerAppResourceReserveRequest): Promise<UpdateEdgeContainerAppResourceReserveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEdgeContainerAppResourceReserveWithOptions(request, runtime);
   }
 
   /**
@@ -81649,7 +82672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP Response Header Rules
+   * Modify HTTP response header rules
    * 
    * @param tmpReq - UpdateHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81711,7 +82734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP Response Header Rules
+   * Modify HTTP response header rules
    * 
    * @param request - UpdateHttpResponseHeaderModificationRuleRequest
    * @returns UpdateHttpResponseHeaderModificationRuleResponse
@@ -81928,7 +82951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site IPv6 Configuration
+   * Modifies the IPv6 configuration of a website.
    * 
    * @param request - UpdateIPv6Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81968,7 +82991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site IPv6 Configuration
+   * Modifies the IPv6 configuration of a website.
    * 
    * @param request - UpdateIPv6Request
    * @returns UpdateIPv6Response
@@ -82114,7 +83137,7 @@ export default class Client extends OpenApi {
    * Modify Load Balancer
    * 
    * @remarks
-   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence policies, and various advanced settings related to traffic routing. >Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
+   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
    * 
    * @param tmpReq - UpdateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82231,7 +83254,7 @@ export default class Client extends OpenApi {
    * Modify Load Balancer
    * 
    * @remarks
-   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence policies, and various advanced settings related to traffic routing. >Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
+   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
    * 
    * @param request - UpdateLoadBalancerRequest
    * @returns UpdateLoadBalancerResponse
@@ -82242,7 +83265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Managed Transformation Configuration
+   * Modifies the configuration of managed transforms for your website.
    * 
    * @param request - UpdateManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82290,7 +83313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Managed Transformation Configuration
+   * Modifies the configuration of managed transforms for your website.
    * 
    * @param request - UpdateManagedTransformRequest
    * @returns UpdateManagedTransformResponse
@@ -83448,7 +84471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Name Exclusive Configuration
+   * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83488,7 +84511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Name Exclusive Configuration
+   * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @returns UpdateSiteNameExclusiveResponse
@@ -83499,7 +84522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Pause Configuration
+   * Modifies the ESA proxy configuration of a website.
    * 
    * @param request - UpdateSitePauseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83539,7 +84562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Pause Configuration
+   * Modifies the ESA proxy configuration of a website.
    * 
    * @param request - UpdateSitePauseRequest
    * @returns UpdateSitePauseResponse
@@ -83601,7 +84624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Multi-level Cache Configuration for Site
+   * Modifies the tiered cache configuration of your website.
    * 
    * @param request - UpdateTieredCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83641,7 +84664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Multi-level Cache Configuration for Site
+   * Modifies the tiered cache configuration of your website.
    * 
    * @param request - UpdateTieredCacheRequest
    * @returns UpdateTieredCacheResponse
@@ -84010,10 +85033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a waiting room bypass rule for a website.
+   * Modify Waiting Room Rule
    * 
    * @remarks
-   * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
+   * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84065,10 +85088,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a waiting room bypass rule for a website.
+   * Modify Waiting Room Rule
    * 
    * @remarks
-   * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
+   * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @returns UpdateWaitingRoomRuleResponse
