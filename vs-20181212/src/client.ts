@@ -22944,6 +22944,7 @@ export class RecoverRenderingDataPackageRequest extends $dara.Model {
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
    */
   dataPackageId?: string;
+  loadMode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22955,6 +22956,7 @@ export class RecoverRenderingDataPackageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dataPackageId: 'DataPackageId',
+      loadMode: 'LoadMode',
       renderingInstanceId: 'RenderingInstanceId',
     };
   }
@@ -22962,6 +22964,7 @@ export class RecoverRenderingDataPackageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dataPackageId: 'string',
+      loadMode: 'string',
       renderingInstanceId: 'string',
     };
   }
@@ -35090,6 +35093,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.dataPackageId)) {
       query["DataPackageId"] = request.dataPackageId;
+    }
+
+    if (!$dara.isNull(request.loadMode)) {
+      query["LoadMode"] = request.loadMode;
     }
 
     if (!$dara.isNull(request.renderingInstanceId)) {
