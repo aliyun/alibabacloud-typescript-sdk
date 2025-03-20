@@ -17744,6 +17744,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * X86
    */
   architecture?: string;
+  autoUpgradeMinorVersion?: string;
   /**
    * @remarks
    * Maximum number of blktags in the file system.
@@ -18312,6 +18313,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       aiCreatingTime: 'AiCreatingTime',
       aiType: 'AiType',
       architecture: 'Architecture',
+      autoUpgradeMinorVersion: 'AutoUpgradeMinorVersion',
       blktagTotal: 'BlktagTotal',
       blktagUsed: 'BlktagUsed',
       burstingEnabled: 'BurstingEnabled',
@@ -18382,6 +18384,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       aiCreatingTime: 'string',
       aiType: 'string',
       architecture: 'string',
+      autoUpgradeMinorVersion: 'string',
       blktagTotal: 'number',
       blktagUsed: 'number',
       burstingEnabled: 'string',
