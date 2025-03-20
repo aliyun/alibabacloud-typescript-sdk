@@ -32323,6 +32323,7 @@ export class DescribeVodStorageDataResponse extends $dara.Model {
 }
 
 export class DescribeVodTieringStorageDataRequest extends $dara.Model {
+  appId?: string;
   /**
    * @remarks
    * The end time at which data is obtained. The end time must be later than the start time. The difference cannot exceed 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
@@ -32362,6 +32363,7 @@ export class DescribeVodTieringStorageDataRequest extends $dara.Model {
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       endTime: 'EndTime',
       ownerId: 'OwnerId',
       region: 'Region',
@@ -32372,6 +32374,7 @@ export class DescribeVodTieringStorageDataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       endTime: 'string',
       ownerId: 'number',
       region: 'string',
@@ -32465,6 +32468,7 @@ export class DescribeVodTieringStorageDataResponse extends $dara.Model {
 }
 
 export class DescribeVodTieringStorageRetrievalDataRequest extends $dara.Model {
+  appId?: string;
   /**
    * @remarks
    * The end of the time range to query. The end time must be later than the start time. The time range cannot exceed 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
@@ -32504,6 +32508,7 @@ export class DescribeVodTieringStorageRetrievalDataRequest extends $dara.Model {
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       endTime: 'EndTime',
       ownerId: 'OwnerId',
       region: 'Region',
@@ -32514,6 +32519,7 @@ export class DescribeVodTieringStorageRetrievalDataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       endTime: 'string',
       ownerId: 'number',
       region: 'string',
@@ -52654,6 +52660,10 @@ export default class Client extends OpenApi {
   async describeVodTieringStorageDataWithOptions(request: DescribeVodTieringStorageDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeVodTieringStorageDataResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -52725,6 +52735,10 @@ export default class Client extends OpenApi {
   async describeVodTieringStorageRetrievalDataWithOptions(request: DescribeVodTieringStorageRetrievalDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeVodTieringStorageRetrievalDataResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
