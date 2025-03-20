@@ -4434,6 +4434,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * swas.s2.c2m2s50b4t08
    */
   planId?: string;
+  planType?: string;
   /**
    * @remarks
    * The public IP address.
@@ -4511,6 +4512,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       instanceName: 'InstanceName',
       networkAttributes: 'NetworkAttributes',
       planId: 'PlanId',
+      planType: 'PlanType',
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -4539,6 +4541,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       instanceName: 'string',
       networkAttributes: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesNetworkAttributes },
       planId: 'string',
+      planType: 'string',
       publicIpAddress: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -4705,6 +4708,35 @@ export class ListKeyPairsResponseBodyKeyPairs extends $dara.Model {
   }
 }
 
+export class ListPlansResponseBodyPlansTags extends $dara.Model {
+  cnTitle?: string;
+  color?: string;
+  enTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cnTitle: 'CnTitle',
+      color: 'Color',
+      enTitle: 'EnTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cnTitle: 'string',
+      color: 'string',
+      enTitle: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPlansResponseBodyPlans extends $dara.Model {
   /**
    * @remarks
@@ -4795,6 +4827,7 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
    * ["Linux","Windows"]
    */
   supportPlatform?: string;
+  tags?: ListPlansResponseBodyPlansTags[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -4808,6 +4841,7 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
       planId: 'PlanId',
       planType: 'PlanType',
       supportPlatform: 'SupportPlatform',
+      tags: 'Tags',
     };
   }
 
@@ -4824,10 +4858,14 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
       planId: 'string',
       planType: 'string',
       supportPlatform: 'string',
+      tags: { 'type': 'array', 'itemType': ListPlansResponseBodyPlansTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -15268,6 +15306,7 @@ export class ListInstancesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  planType?: string;
   /**
    * @remarks
    * The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
@@ -15325,6 +15364,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      planType: 'PlanType',
       publicIpAddresses: 'PublicIpAddresses',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -15340,6 +15380,7 @@ export class ListInstancesRequest extends $dara.Model {
       instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      planType: 'string',
       publicIpAddresses: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -25003,6 +25044,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.planType)) {
+      query["PlanType"] = request.planType;
     }
 
     if (!$dara.isNull(request.publicIpAddresses)) {
