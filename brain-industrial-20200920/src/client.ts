@@ -6,12 +6,36 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
 export class ActivateLicenseResponseBodyDataActivateRecord extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-29 15:03:12
+   */
   activateTime?: string;
+  /**
+   * @example
+   * 2024-04-29 15:01:15
+   */
   buyTime?: string;
   duration?: string;
+  /**
+   * @example
+   * 2025-05-01 00:00:00
+   */
   expireTime?: string;
+  /**
+   * @example
+   * XXX
+   */
   licenseCode?: string;
+  /**
+   * @example
+   * XXX
+   */
   orderId?: string;
+  /**
+   * @example
+   * activated
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,21 +72,72 @@ export class ActivateLicenseResponseBodyDataActivateRecord extends $dara.Model {
 
 export class ActivateLicenseResponseBodyData extends $dara.Model {
   activateRecord?: ActivateLicenseResponseBodyDataActivateRecord[];
+  /**
+   * @example
+   * 2024-04-29 15:03:12
+   */
   activateTime?: string;
   allDuration?: string;
   applicableSpecs?: string;
+  /**
+   * @example
+   * 2024-04-29 15:00:15
+   */
   buyTime?: string;
+  /**
+   * @example
+   * 72
+   */
   cpuLimit?: number;
+  /**
+   * @example
+   * ""
+   */
   description?: string;
   duration?: string;
+  /**
+   * @example
+   * 2024-05-01 00:00:00
+   */
   effectTime?: string;
+  /**
+   * @example
+   * 2025-05-01 00:00:00
+   */
   expireTime?: string;
+  /**
+   * @example
+   * XXXX
+   */
   fingerprint?: string;
+  /**
+   * @remarks
+   * Id
+   * 
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @example
+   * c39128fcb74e482546a72de90cdsaba3
+   */
   instanceId?: string;
+  /**
+   * @example
+   * XXX
+   */
   licenseCode?: string;
   licenseSpecName?: string;
+  /**
+   * @example
+   * 256
+   */
   memoryLimit?: number;
+  /**
+   * @example
+   * activated
+   */
   status?: string;
   unActivateAllDuration?: string;
   static names(): { [key: string]: string } {
@@ -824,12 +899,36 @@ export class GetAivppAlgoJobResponseBodyData extends $dara.Model {
 }
 
 export class GetLicenseResponseBodyDataActivateRecord extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-29 15:03:12
+   */
   activateTime?: string;
+  /**
+   * @example
+   * 2024-04-29 15:01:15
+   */
   buyTime?: string;
   duration?: string;
+  /**
+   * @example
+   * 2025-05-01 00:00:00
+   */
   expireTime?: string;
+  /**
+   * @example
+   * XXXX
+   */
   licenseCode?: string;
+  /**
+   * @example
+   * 1040b91765d14ad1a40ff22589070342
+   */
   orderId?: string;
+  /**
+   * @example
+   * activated
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -869,6 +968,9 @@ export class GetLicenseResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 2024-04-29 15:03:12
    */
   activateTime?: string;
   adaptiveMachine?: string;
@@ -877,20 +979,57 @@ export class GetLicenseResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * 2024-04-29 15:01:15
    */
   buyTime?: string;
+  /**
+   * @example
+   * 72
+   */
   cpuLimit?: number;
+  /**
+   * @example
+   * ""
+   */
   description?: string;
   duration?: string;
+  /**
+   * @example
+   * 2024-05-01 00:00:00
+   */
   effectTime?: string;
+  /**
+   * @example
+   * 2025-05-01 00:00:00
+   */
   expireTime?: string;
   /**
    * @remarks
    * 代表创建时间的资源属性字段
+   * 
+   * @example
+   * XXX
    */
   fingerprint?: string;
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * c31238fcb74e482588a72de90cd7dba3
+   */
   instanceId?: string;
+  /**
+   * @example
+   * XXX
+   */
   licenseCode?: string;
   licenseSpecCode?: string;
   /**
@@ -899,8 +1038,16 @@ export class GetLicenseResponseBodyData extends $dara.Model {
    */
   licenseSpecName?: string;
   licenseSpecType?: string;
+  /**
+   * @example
+   * 256
+   */
   memoryLimit?: number;
   proposal?: string;
+  /**
+   * @example
+   * activated
+   */
   status?: string;
   unActivateAllDuration?: string;
   static names(): { [key: string]: string } {
@@ -1063,21 +1210,69 @@ export class ListAivppResourcesResponseBodyData extends $dara.Model {
 }
 
 export class ListLicensesResponseBodyLicenseList extends $dara.Model {
+  /**
+   * @example
+   * 2024-10-14 14:15:45
+   */
   activateTime?: string;
   adaptiveMachine?: number;
   allDuration?: string;
+  /**
+   * @example
+   * 2024-10-14 13:17:20
+   */
   buyTime?: string;
+  /**
+   * @example
+   * 72
+   */
   cpuLimit?: number;
+  /**
+   * @example
+   * ""
+   */
   description?: string;
   duration?: string;
+  /**
+   * @example
+   * 2024-10-14 14:15:45
+   */
   effectTime?: string;
+  /**
+   * @example
+   * 2025-10-14 14:15:45
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @example
+   * 451f14ee73604aesdfe4da606764ce09
+   */
   instanceId?: string;
+  /**
+   * @example
+   * aics_1000
+   */
   licenseSpecCode?: string;
   licenseSpecName?: string;
+  /**
+   * @example
+   * brainindustrial_aicsruntime_public_cn
+   */
   licenseSpecType?: string;
+  /**
+   * @example
+   * 256
+   */
   memoryLimit?: number;
+  /**
+   * @example
+   * activated
+   */
   status?: string;
   unActivateAllDuration?: string;
   static names(): { [key: string]: string } {
@@ -1135,11 +1330,35 @@ export class ListLicensesResponseBodyLicenseList extends $dara.Model {
 
 export class ListUserResourcesResponseBodyData extends $dara.Model {
   chargeType?: string;
+  /**
+   * @example
+   * brainindustrial_simupostpaid_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * 2024-12-21
+   */
   endDate?: string;
+  /**
+   * @example
+   * 12345ea3cff446e8837078c2baffbe83
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 20240902
+   */
   startDate?: string;
+  /**
+   * @example
+   * ""
+   */
   status?: string;
   statusMsg?: string;
   static names(): { [key: string]: string } {
@@ -1178,8 +1397,20 @@ export class ListUserResourcesResponseBodyData extends $dara.Model {
 }
 
 export class ActivateLicenseRequest extends $dara.Model {
+  /**
+   * @example
+   * XXX
+   */
   fingerprint?: string;
+  /**
+   * @remarks
+   * ID
+   */
   id?: string;
+  /**
+   * @example
+   * 12bea6b4489fsde7b903fe05934a0adx
+   */
   instanceId?: string;
   orderId?: string;
   static names(): { [key: string]: string } {
@@ -1210,12 +1441,39 @@ export class ActivateLicenseRequest extends $dara.Model {
 }
 
 export class ActivateLicenseResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ActivateLicenseResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 65308A66-8764-53EE-8D4A-201E86CA88C5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2147,7 +2405,18 @@ export class GetAivppAlgoJobResponse extends $dara.Model {
 }
 
 export class GetLicenseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * c31238fcb74e482588a72de90cd7dba3
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2173,12 +2442,36 @@ export class GetLicenseRequest extends $dara.Model {
 }
 
 export class GetLicenseResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetLicenseResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 68738E75-43C1-5AE5-9F3A-AFEF576D7B5F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2399,7 +2692,15 @@ export class ListAivppResourcesResponse extends $dara.Model {
 }
 
 export class ListLicensesRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 12
+   */
   pageSize?: number;
   queryStr?: string;
   static names(): { [key: string]: string } {
@@ -2428,17 +2729,61 @@ export class ListLicensesRequest extends $dara.Model {
 }
 
 export class ListLicensesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   licenseList?: ListLicensesResponseBodyLicenseList[];
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 12
+   */
   pageSize?: number;
+  /**
+   * @example
+   * FAC892CE-5A94-5616-91DC-629B09CC6792
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 42
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 4
+   */
   totalPage?: string;
+  /**
+   * @example
+   * 4
+   */
   totalPageCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2522,6 +2867,10 @@ export class ListLicensesResponse extends $dara.Model {
 }
 
 export class ListUserResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * BrainIndustrial
+   */
   commodityCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2546,11 +2895,34 @@ export class ListUserResourcesRequest extends $dara.Model {
 
 export class ListUserResourcesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListUserResourcesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 65308A66-8764-53EE-8D4A-201E86CA88C5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2605,6 +2977,140 @@ export class ListUserResourcesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenApiInvokeRequest extends $dara.Model {
+  /**
+   * @example
+   * 119397
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * {"a":{"value":1}}
+   */
+  param?: string;
+  /**
+   * @example
+   * 215168378e7b43789cabeef1d0db9320
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      param: 'Param',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      param: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenApiInvokeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * {"dd":{"keyName":"dd","type":"Int","value":2,"quality":192}}
+   */
+  data?: string;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 68738E75-43C1-5AE5-9F3A-AFEF576D7B5F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenApiInvokeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenApiInvokeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenApiInvokeResponseBody,
     };
   }
 
@@ -3347,6 +3853,63 @@ export default class Client extends OpenApi {
   async listUserResources(request: ListUserResourcesRequest): Promise<ListUserResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用aics openapi
+   * 
+   * @param request - OpenApiInvokeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenApiInvokeResponse
+   */
+  async openApiInvokeWithOptions(request: OpenApiInvokeRequest, runtime: $dara.RuntimeOptions): Promise<OpenApiInvokeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.param)) {
+      body["Param"] = request.param;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenApiInvoke",
+      version: "2020-09-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OpenApiInvokeResponse>(await this.callApi(params, req, runtime), new OpenApiInvokeResponse({}));
+    } else {
+      return $dara.cast<OpenApiInvokeResponse>(await this.execute(params, req, runtime), new OpenApiInvokeResponse({}));
+    }
+
+  }
+
+  /**
+   * 调用aics openapi
+   * 
+   * @param request - OpenApiInvokeRequest
+   * @returns OpenApiInvokeResponse
+   */
+  async openApiInvoke(request: OpenApiInvokeRequest): Promise<OpenApiInvokeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openApiInvokeWithOptions(request, runtime);
   }
 
   /**
