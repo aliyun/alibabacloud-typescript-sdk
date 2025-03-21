@@ -1,4452 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance to which the resource whose tags you want to query belongs.
-   * 
-   * > This parameter is required when you query the tags of a topic or a group.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The token that determines the start point of the next query.
-   * 
-   * @example
-   * caeba0****be03f84eb48b699f0a4883
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The list of resource IDs.
-   * 
-   * @example
-   * TopicA
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource whose tags you want to query. Valid values:
-   * 
-   * *   **INSTANCE**
-   * *   **TOPIC**
-   * *   **GROUP**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TOPIC
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tags that you want to query. A maximum of 20 tags can be included in the list.
-   */
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      nextToken: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The token that determines the start point of the next query.
-   * 
-   * @example
-   * caeba0****be03f84eb48b699f0a4883
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 301D2CBE-66F8-403D-AEC0-82582478****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Details of the resource and tags, including the resource ID, the resource type, tag keys, and tag values.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerAccumulateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to query the details of each topic to which the consumer group subscribes. Valid values:
-   * 
-   * *   **true**: The details of each topic are queried. You can obtain the details from the **DetailInTopicList** response parameter.
-   * *   **false**: The details of each topic are not queried. This is the default value. If you use this value, the value of the **DetailInTopicList** response parameter is empty.
-   * 
-   * @example
-   * true
-   */
-  detail?: boolean;
-  /**
-   * @remarks
-   * The ID of the consumer group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_consumer_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'boolean',
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerAccumulateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The message accumulation information about topics to which the specified consumer subscribes.
-   */
-  data?: OnsConsumerAccumulateResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * CE817BFF-B389-43CD-9419-95011AC9****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsConsumerAccumulateResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerAccumulateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsConsumerAccumulateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsConsumerAccumulateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerGetConnectionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group whose client connection status you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_consumer_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerGetConnectionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsConsumerGetConnectionResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * DE4140C7-F42D-473D-A5FF-B1E31692****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsConsumerGetConnectionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerGetConnectionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsConsumerGetConnectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsConsumerGetConnectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerResetOffsetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group whose dead-letter message you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_consumer_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The timestamp to which you want to reset the consumer offset. This parameter takes effect only when the **Type** parameter is set to **1**. Unit: milliseconds.
-   * 
-   * @example
-   * 1591153871000
-   */
-  resetTimestamp?: number;
-  /**
-   * @remarks
-   * The name of the topic for which you want to reset the consumer offset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq-topic
-   */
-  topic?: string;
-  /**
-   * @remarks
-   * The method that you want to use to clear accumulated messages. Valid values:
-   * 
-   * *   **0:** All accumulated messages are cleared. Messages that are not consumed are ignored. Consumers in the specified consumer group consume only messages that are published to the topic after the specified point in time.
-   * 
-   * If "reconsumeLater" is returned, the accumulated messages are not cleared because the system is retrying to resend the messages to consumers.
-   * 
-   * *   **1:** The messages that were published to the topic before the specified point in time are cleared. You must specify a point in time. Consumers in the specified consumer group consume only the messages that are published to the topic after the specified point in time.
-   * 
-   * You can specify a point in time from the earliest point in time when a message was published to the topic to the most recent point in time when a message was published to the topic. Points in time that are not within the allowed time range are invalid.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      resetTimestamp: 'ResetTimestamp',
-      topic: 'Topic',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-      resetTimestamp: 'number',
-      topic: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerResetOffsetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * D52C68F8-EC5D-4294-BFFF-1A6A25AF****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerResetOffsetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsConsumerResetOffsetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsConsumerResetOffsetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to query the details of the consumer group. Valid values:
-   * 
-   * *   **true**: The details of the consumer group are queried. You can obtain details from the **ConsumerConnectionInfoList** and **DetailInTopicList** response parameters.
-   * *   **false**: The details of the consumer group are not queried. The values of the **ConsumerConnectionInfoList** and **DetailInTopicList** response parameters are empty. This value is the default value of the Detail parameter.
-   * 
-   * @example
-   * true
-   */
-  detail?: boolean;
-  /**
-   * @remarks
-   * The ID of the consumer group whose details you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Specifies whether to query the information about thread stack traces. Valid values:
-   * 
-   * *   **true**: The information about thread stack traces is queried. You can obtain the information from the **Jstack** response parameter.
-   * 
-   * > If you want to obtain the information about thread stack traces, make sure that the **Detail** parameter in the request is set to **true**.
-   * 
-   * *   **false**: The information about thread stack traces is not queried. The value of the **Jstack** response parameter is empty. This value is the default value of the NeedJstack parameter.
-   * 
-   * @example
-   * true
-   */
-  needJstack?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      detail: 'Detail',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      needJstack: 'NeedJstack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detail: 'boolean',
-      groupId: 'string',
-      instanceId: 'string',
-      needJstack: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsConsumerStatusResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 10EDC518-10E7-4B34-92FB-171235FA****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsConsumerStatusResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsConsumerStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsConsumerStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerTimeSpanRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group whose reset time range you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The topic to which the consumer group subscribes.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerTimeSpanResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsConsumerTimeSpanResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsConsumerTimeSpanResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsConsumerTimeSpanResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsConsumerTimeSpanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsConsumerTimeSpanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageGetByIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group whose dead-letter message you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the message you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the dead-letter message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0BC16699165C03B925DB8A404E2D****
-   */
-  msgId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-      msgId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageGetByIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsDLQMessageGetByIdResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsDLQMessageGetByIdResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageGetByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsDLQMessageGetByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsDLQMessageGetByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessagePageQueryByGroupIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the BeginTime parameter that you specified in the request when you created the specified query task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570723200000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The number of the page to return. Pages start from page 1. Valid values: 1 to 50.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the EndTime parameter that you specified in the request when you created the specified query task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570809600000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the consumer group whose dead-letter messages you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the dead-letter messages you want to query belong.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The number of dead-letter messages to return on each page. Valid values: 5 to 50. Default value: 20. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the PageSize parameter that you specified in the request when you created the specified query task.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the query task. The first time you call this operation to query dead-letter messages that are sent to a specified consumer group within a specified time range, this parameter is not required. This parameter is required in subsequent queries for dead-letter messages on a specified page. You can obtain the task ID from the returned result of the first query.
-   * 
-   * @example
-   * 0BC1310300002A9F000021E4D7A48346
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      currentPage: 'CurrentPage',
-      endTime: 'EndTime',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      pageSize: 'PageSize',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      currentPage: 'number',
-      endTime: 'number',
-      groupId: 'string',
-      instanceId: 'string',
-      pageSize: 'number',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessagePageQueryByGroupIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about dead-letter messages that are queried.
-   */
-  msgFoundDo?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * B00CD3C8-D81E-4A41-85E2-38F19252****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      msgFoundDo: 'MsgFoundDo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      msgFoundDo: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessagePageQueryByGroupIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsDLQMessagePageQueryByGroupIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsDLQMessagePageQueryByGroupIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageResendByIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group in which you want to query dead-letter messages.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance in which the dead-letter message you want to query resides.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the dead-letter message that you want to send to a consumer group for consumption.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0BC16699343051CD9F1D798E7734****
-   */
-  msgId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-      msgId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageResendByIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned messages.
-   */
-  data?: OnsDLQMessageResendByIdResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * D94CC769-4DC3-4690-A868-9D0631B1****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsDLQMessageResendByIdResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsDLQMessageResendByIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsDLQMessageResendByIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsDLQMessageResendByIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupConsumerUpdateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group for which you want to configure read permissions.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_groupId
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group you want to configure belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Specifies whether to authorize the consumer group to read messages. Valid values:
-   * 
-   * *   **true**: The consumer group can read messages.
-   * *   **false**: The consumer group cannot read messages.
-   * 
-   * Default value: **true**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  readEnable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      readEnable: 'ReadEnable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-      readEnable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupConsumerUpdateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupConsumerUpdateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsGroupConsumerUpdateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsGroupConsumerUpdateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupCreateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group that you want to create. The group ID must meet the following rules:
-   * 
-   * *   The group ID must be 2 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_).
-   * *   If the ApsaraMQ for RocketMQ instance in which you want to create the consumer group uses a namespace, the group ID must be unique in the instance. The group ID cannot be the same as an existing group ID or a topic name in the instance. The group ID can be the same as a group ID or a topic name in another instance that uses a different namespace. For example, if Instance A and Instance B use different namespaces, a group ID in Instance A can be the same as a group ID or a topic name in Instance B.
-   * *   If the instance does not use a namespace, the group ID must be globally unique across instances and regions. The group ID cannot be the same as an existing group ID or topic name in ApsaraMQ for RocketMQ instances that belong to your Alibaba Cloud account.
-   * 
-   * > 
-   * 
-   * *   After the consumer group is created, the group ID cannot be changed.
-   * 
-   * *   To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_groupId
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The protocol over which clients in the consumer group communicate with the ApsaraMQ for RocketMQ broker. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different groups for TCP clients and HTTP clients. Valid values:
-   * 
-   * *   **tcp**: Clients in the consumer group consume messages over TCP. This is the default value.
-   * *   **http**: Clients in the consumer group consume messages over HTTP.
-   * 
-   * @example
-   * tcp
-   */
-  groupType?: string;
-  /**
-   * @remarks
-   * The ID of the instance in which you want to create the consumer group.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The description of the consumer group.
-   * 
-   * @example
-   * test
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      groupType: 'GroupType',
-      instanceId: 'InstanceId',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      groupType: 'string',
-      instanceId: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupCreateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupCreateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsGroupCreateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsGroupCreateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupDeleteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_groupId
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance to which the specified consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupDeleteResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupDeleteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsGroupDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsGroupDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required only when you query specific consumer groups by using the fuzzy search method. If this parameter is not configured, the system queries all consumer groups that can be accessed by the current account.
-   * 
-   * If you set this parameter to GID_ABC, the information about the consumer groups whose IDs contain GID_ABC is returned. For example, the information about the GID_test_GID_ABC_123 and GID_ABC_356 consumer groups is returned.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The protocol over which the queried consumer group publishes and subscribes to messages. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different consumer groups for TCP clients and HTTP clients. Valid values:
-   * 
-   * *   **tcp**: specifies that the consumer group publishes or subscribes to messages over TCP. This value is the default value.
-   * *   **http**: specifies that the consumer group publishes or subscribes to messages over HTTP.
-   * 
-   * @example
-   * tcp
-   */
-  groupType?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The list of tags that are attached to the consumer group. A maximum of 20 tags can be included in the list.
-   */
-  tag?: OnsGroupListRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      groupType: 'GroupType',
-      instanceId: 'InstanceId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      groupType: 'string',
-      instanceId: 'string',
-      tag: { 'type': 'array', 'itemType': OnsGroupListRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned list of subscriptions.
-   */
-  data?: OnsGroupListResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 16996623-AC4A-43AF-9248-FD9D2D75****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsGroupListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsGroupListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsGroupListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupSubDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer group that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group you want to query belongs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupSubDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsGroupSubDetailResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 3364E875-013B-442A-BC3C-C1A84DC6****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsGroupSubDetailResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsGroupSubDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsGroupSubDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsGroupSubDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceBaseInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_138015630679****_BAAy1Hac
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceBaseInfoResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the instance.
-   */
-  instanceBaseInfo?: OnsInstanceBaseInfoResponseBodyInstanceBaseInfo;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 6CC46974-65E8-4C20-AB07-D20D102E****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceBaseInfo: 'InstanceBaseInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceBaseInfo: OnsInstanceBaseInfoResponseBodyInstanceBaseInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceBaseInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsInstanceBaseInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsInstanceBaseInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceCreateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the instance. The name must meet the following rules:
-   * 
-   * *   The name of the instance must be unique in the region where the instance is deployed.
-   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Test instance
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * Description
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceName: 'InstanceName',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceName: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceCreateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The result returned.
-   */
-  data?: OnsInstanceCreateResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsInstanceCreateResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceCreateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsInstanceCreateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsInstanceCreateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceDeleteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceDeleteResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceDeleteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsInstanceDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsInstanceDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceInServiceListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether you want the resource information to be returned.
-   * 
-   * @example
-   * true
-   */
-  needResourceInfo?: boolean;
-  /**
-   * @remarks
-   * The tags that you want to attach to the instance. You can attach up to 20 tags to the instance.
-   */
-  tag?: OnsInstanceInServiceListRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      needResourceInfo: 'NeedResourceInfo',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      needResourceInfo: 'boolean',
-      tag: { 'type': 'array', 'itemType': OnsInstanceInServiceListRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceInServiceListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned information about the queried instances.
-   */
-  data?: OnsInstanceInServiceListResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 0598E46F-DB06-40E2-AD7B-C45923EE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsInstanceInServiceListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceInServiceListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsInstanceInServiceListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsInstanceInServiceListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceUpdateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance whose name or description you want to update.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The new name of the instance. The name must meet the following rules:
-   * 
-   * *   The name of the instance must be unique in the region where the instance is deployed.
-   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), underscores (_), and Chinese characters.
-   * *   If you do not configure this parameter, the instance name remains unchanged.
-   * 
-   * @example
-   * Updatedname
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The updated description of the instance. If you do not configure this parameter, the instance description remains unchanged.
-   * 
-   * @example
-   * Updateddescription
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      instanceName: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceUpdateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsInstanceUpdateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsInstanceUpdateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsInstanceUpdateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ Instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_184681981******_BXig0x6A
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1E0578FE110F18B4AAC235C0******
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The name of the topic in which the message you want to query is stored.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      msgId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsMessageDetailResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * EAE5BE23-37A1-4354-94D6-E44AE17E****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsMessageDetailResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessageDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessageDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByKeyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the messages that you want to query belong.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The key of the messages that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * messageKey1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The topic that contains the messages that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      key: 'Key',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      key: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByKeyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The list of returned results.
-   */
-  data?: OnsMessageGetByKeyResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsMessageGetByKeyResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessageGetByKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessageGetByKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByMsgIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the message you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1E0578FE110F18B4AAC235C05F2*****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The topic that contains the message you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      msgId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByMsgIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsMessageGetByMsgIdResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07E3902-B92E-44A6-B6C5-6AA111111****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsMessageGetByMsgIdResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageGetByMsgIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessageGetByMsgIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessageGetByMsgIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePageQueryByTopicRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the BeginTime parameter that you specified in the request when you created the specified query task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570723200000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The number of the page to return. Pages start from page 1. Valid values: 1 to 50.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the EndTime parameter that you specified in the request when you created the specified query task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570809600000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which the message you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Valid values: 5 to 50. Default value: 20. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the PageSize parameter that you specified in the request for creating the query task.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the query task. The first time you call this operation to query the information about messages in a specified topic within a specified time range, this parameter is not required. This parameter is required in subsequent queries for messages on a specified page. You can obtain the task ID from the returned result of the first query.
-   * 
-   * @example
-   * 0BC1310300002A9F000021E4D7A48346
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The name of the topic whose messages you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      currentPage: 'CurrentPage',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      pageSize: 'PageSize',
-      taskId: 'TaskId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      currentPage: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-      pageSize: 'number',
-      taskId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePageQueryByTopicResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the message that is queried.
-   */
-  msgFoundDo?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 5DC2A47E-2B31-4722-96C8-FA59C9*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      msgFoundDo: 'MsgFoundDo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      msgFoundDo: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePageQueryByTopicResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessagePageQueryByTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessagePageQueryByTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePushRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the consumer client. You can call the [OnsConsumerGetConnection](https://help.aliyun.com/document_detail/29598.html) operation to query client IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The ID of the consumer group. For information about what a consumer group is, see [Terms](https://help.aliyun.com/document_detail/29533.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test_group_id
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance to which the specified consumer group belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the message.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0BC1669963053CF68F733BB70396****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The topic to which the message is pushed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      groupId: 'string',
-      instanceId: 'string',
-      msgId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePushResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * B8EDC90D-F726-4B9E-8BEF-F0DD25EC****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessagePushResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessagePushResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessagePushResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageTraceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the message you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1E05791C117818B4AAC23B1BB0CE****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The topic to which the message belongs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-mq_topic
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      msgId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageTraceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the message that is queried.
-   */
-  data?: OnsMessageTraceResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * EAE5BE23-37A1-4354-94D6-E44AE17E****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsMessageTraceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsMessageTraceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsMessageTraceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsMessageTraceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsRegionListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: OnsRegionListResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 72D14A84-45E5-4E01-A6DB-F63C4721****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsRegionListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsRegionListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsRegionListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsRegionListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicCreateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance in which you want to create the topic.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The type of messages that you want to publish to the topic. Valid values:
-   * 
-   * *   **0**: normal messages
-   * *   **1**: partitionally ordered messages
-   * *   **2**: globally ordered messages
-   * *   **4**: transactional messages
-   * *   **5**: scheduled or delayed messages
-   * 
-   * For more information about message types, see [Message types](https://help.aliyun.com/document_detail/155952.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  messageType?: number;
-  /**
-   * @remarks
-   * The description of the topic that you want to create.
-   * 
-   * @example
-   * Test
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The name of the topic that you want to create. The name must meet the following rules:
-   * 
-   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
-   * *   The topic name cannot start with CID or GID because CID and GID are reserved prefixes for group IDs.
-   * *   If the ApsaraMQ for RocketMQ instance in which you want to create the topic uses a namespace, the topic name must be unique in the instance. The topic name cannot be the same as an existing topic name or a group ID in the instance. The topic name can be the same as a topic name or a group ID in another instance that uses a different namespace. For example, if Instance A and Instance B use different namespaces, a topic name in Instance A can be the same as a topic name or a group ID in Instance B.
-   * *   If the instance in which you want to create the topic does not use a namespace, the topic name must be globally unique across instances and regions. The topic name cannot be the same as an existing topic name or group ID in all ApsaraMQ for RocketMQ instances that belong to your Alibaba Cloud account.
-   * 
-   * > To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      messageType: 'MessageType',
-      remark: 'Remark',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      messageType: 'number',
-      remark: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicCreateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * B6949B58-223E-4B75-B4FE-7797C15E****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicCreateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicCreateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicCreateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicDeleteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the topic you want to delete belongs.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The name of the topic that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicDeleteResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 4189D4A6-231A-4028-8D89-F66A76C1****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicDeleteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance that contains the topics you want to query.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The list of tags that are attached to the topic. A maximum of 20 tags can be included in the list.
-   */
-  tag?: OnsTopicListRequestTag[];
-  /**
-   * @remarks
-   * The name of the topic that you want to query. This parameter is required if you want to query a specific topic. If you do not include this parameter in a request, all topics that you can access are queried.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  /**
-   * @remarks
-   * The user ID of the topic owner. Set this parameter to an Alibaba Cloud account ID.
-   * 
-   * @example
-   * 138015630679****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      tag: 'Tag',
-      topic: 'Topic',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      tag: { 'type': 'array', 'itemType': OnsTopicListRequestTag },
-      topic: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the topics.
-   */
-  data?: OnsTopicListResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 4A978869-7681-4529-B470-107E1379****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsTopicListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance that contains the topic you want to query.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The name of the topic that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data structure of the queried topic.
-   */
-  data?: OnsTopicStatusResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 427EE49D-D762-41FB-8F3D-9BAC96C3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsTopicStatusResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicSubDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance that contains the topic you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The name of the topic that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicSubDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsTopicSubDetailResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 87B6207F-2908-42B5-A134-84956DCA****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsTopicSubDetailResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicSubDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicSubDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicSubDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicUpdateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the topic belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The read/write mode that you want to configure for the topic. Valid values:
-   * 
-   * *   **6**: Both read and write operations are allowed.
-   * *   **4**: Write operations are forbidden.
-   * *   **2**: Read operations are forbidden.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 6
-   */
-  perm?: number;
-  /**
-   * @remarks
-   * The name of the topic that you want to manage.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      perm: 'Perm',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      perm: 'number',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicUpdateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 81979ADA-4A78-4F64-9DEC-5700446D****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTopicUpdateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTopicUpdateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTopicUpdateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceGetResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance to which the message you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the task that was created to query the trace of the message.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 272967562652883649157096685****
-   */
-  queryId?: string;
-  /**
-   * @remarks
-   * The topic to which the message belongs.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      queryId: 'QueryId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      queryId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceGetResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 84EE24D2-851F-40D6-B99E-4D6AB909****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The details of the message trace.
-   */
-  traceData?: OnsTraceGetResultResponseBodyTraceData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      traceData: 'TraceData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      traceData: OnsTraceGetResultResponseBodyTraceData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceGetResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTraceGetResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTraceGetResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570852800000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570968000000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance that contains the specified topic.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1E05791C117818B4AAC23B1BB0CE****
-   */
-  msgId?: string;
-  /**
-   * @remarks
-   * The topic that contains the message you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      msgId: 'MsgId',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-      msgId: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the query task. You can call the [OnsTraceGetResult](https://help.aliyun.com/document_detail/59832.html) operation to query the details of the message trace based on the task ID.
-   * 
-   * @example
-   * 272967562652883649157096685****
-   */
-  queryId?: string;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * B93332A3-160D-404F-880F-1F8736D1****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryId: 'QueryId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTraceQueryByMsgIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTraceQueryByMsgIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgKeyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The start of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570852800000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570968000000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance that contains the specified topic.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The key of the message that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ORDERID_100
-   */
-  msgKey?: string;
-  /**
-   * @remarks
-   * The topic that contains the message you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      msgKey: 'MsgKey',
-      topic: 'Topic',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-      msgKey: 'string',
-      topic: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgKeyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the query task. You can call the [OnsTraceGetResult](https://help.aliyun.com/document_detail/59832.html) operation to query the details of the message trace based on the task ID.
-   * 
-   * @example
-   * 272967562652883649157096685****
-   */
-  queryId?: string;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * F8654231-122A-4DBD-801F-38E35538****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryId: 'QueryId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTraceQueryByMsgKeyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTraceQueryByMsgKeyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTraceQueryByMsgKeyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendGroupOutputTpsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570852800000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The timestamp that indicates the end of the time range to query. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570868400000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the consumer group that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * GID_test
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the consumer group you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The sampling period. Unit: minutes. Valid values: 1, 5, and 10.
-   * 
-   * @example
-   * 10
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The name of the topic that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  /**
-   * @remarks
-   * The type of information that you want to query. Valid values:
-   * 
-   * *   **0**: the number of messages that are consumed during each sampling period.
-   * *   **1**: the TPS for message consumption during each sampling period.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      groupId: 'GroupId',
-      instanceId: 'InstanceId',
-      period: 'Period',
-      topic: 'Topic',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      groupId: 'string',
-      instanceId: 'string',
-      period: 'number',
-      topic: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendGroupOutputTpsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsTrendGroupOutputTpsResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * CE57AEDC-8FD2-43ED-8E3B-1F878077****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsTrendGroupOutputTpsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendGroupOutputTpsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTrendGroupOutputTpsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTrendGroupOutputTpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendTopicInputTpsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570852800000
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The timestamp that indicates the end of the time range to query. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1570868400000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which the topic you want to query belongs.
-   * 
-   * @example
-   * MQ_INST_111111111111_DOxxxxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The sampling period. Unit: minutes. Valid values: 1, 5, and 10.
-   * 
-   * @example
-   * 10
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The name of the topic that you want to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  topic?: string;
-  /**
-   * @remarks
-   * The type of information that you want to query. Valid values:
-   * 
-   * *   **0**: the number of messages that are published to the topic during each sampling period.
-   * *   **1**: the TPS for message publishing in the topic during each sampling period.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      period: 'Period',
-      topic: 'Topic',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      endTime: 'number',
-      instanceId: 'string',
-      period: 'number',
-      topic: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendTopicInputTpsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: OnsTrendTopicInputTpsResponseBodyData;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * E213AD8A-0730-4B3D-A35A-340DA47D****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: OnsTrendTopicInputTpsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OnsTrendTopicInputTpsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OnsTrendTopicInputTpsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OnsTrendTopicInputTpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenOnsServiceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 2068689****0272
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 8C5B4603-8977-4513-AB60-9C3E2F88****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenOnsServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenOnsServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenOnsServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance that contains the resource to which you want to attach tags.
-   * 
-   * > This parameter is required when you attach tags to a topic or a group.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BXSuW61e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The resource IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TopicA
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource to which you want to attach tags. Valid values:
-   * 
-   * *   **INSTANCE**
-   * *   **TOPIC**
-   * *   **GROUP**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TOPIC
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tags that you want to attach to the resource.
-   * 
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * 301D2CBE-66F8-403D-AEC0-82582478****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to remove all tags that are attached to the specified resource. This parameter takes effect only if the **TagKey** parameter is empty. Default value: **false**.
-   * 
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * This parameter is required when you detach tags from a topic or a group.
-   * 
-   * @example
-   * MQ_INST_188077086902****_BX4jvZZG
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The resource IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TopicA
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource from which you want to detach tags. Valid values:
-   * 
-   * *   **INSTANCE**
-   * *   **TOPIC**
-   * *   **GROUP**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TOPIC
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag keys of the resource.
-   * 
-   * @example
-   * CartService
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      instanceId: 'InstanceId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      instanceId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * 19780F2E-7841-4E0F-A5D9-C64A0530****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag that you want to detach from the resource.
@@ -4483,12 +42,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
    * The ID of the instance
@@ -4553,12 +116,16 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
+export class OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo extends $dara.Model {
   /**
    * @remarks
    * The maximum latency of message consumption in the topic.
@@ -4609,12 +176,16 @@ export class OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopic
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea.Model {
+export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $dara.Model {
   detailInTopicDo?: OnsConsumerAccumulateResponseBodyDataDetailInTopicListDetailInTopicDo[];
   static names(): { [key: string]: string } {
     return {
@@ -4628,12 +199,19 @@ export class OnsConsumerAccumulateResponseBodyDataDetailInTopicList extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.detailInTopicDo)) {
+      $dara.Model.validateArray(this.detailInTopicDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
+export class OnsConsumerAccumulateResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The transactions per second (TPS) for message consumption performed by consumers in the group.
@@ -4704,12 +282,19 @@ export class OnsConsumerAccumulateResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.detailInTopicList && typeof (this.detailInTopicList as any).validate === 'function') {
+      (this.detailInTopicList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo extends $tea.Model {
+export class OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo extends $dara.Model {
   /**
    * @remarks
    * The IP address and port number of the consumer client.
@@ -4760,12 +345,16 @@ export class OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $tea.Model {
+export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $dara.Model {
   connectionDo?: OnsConsumerGetConnectionResponseBodyDataConnectionListConnectionDo[];
   static names(): { [key: string]: string } {
     return {
@@ -4779,27 +368,44 @@ export class OnsConsumerGetConnectionResponseBodyDataConnectionList extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.connectionDo)) {
+      $dara.Model.validateArray(this.connectionDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
+export class OnsConsumerGetConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The client connection information of the consumer group.
    */
   connectionList?: OnsConsumerGetConnectionResponseBodyDataConnectionList;
+  messageModel?: string;
   static names(): { [key: string]: string } {
     return {
       connectionList: 'ConnectionList',
+      messageModel: 'MessageModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       connectionList: OnsConsumerGetConnectionResponseBodyDataConnectionList,
+      messageModel: 'string',
     };
+  }
+
+  validate() {
+    if(this.connectionList && typeof (this.connectionList as any).validate === 'function') {
+      (this.connectionList as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -4807,7 +413,7 @@ export class OnsConsumerGetConnectionResponseBodyData extends $tea.Model {
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo extends $dara.Model {
   /**
    * @remarks
    * The IP address and port number of the consumer instance.
@@ -4868,12 +474,16 @@ export class OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConnectionSet extends $dara.Model {
   connectionDo?: OnsConsumerStatusResponseBodyDataConnectionSetConnectionDo[];
   static names(): { [key: string]: string } {
     return {
@@ -4887,12 +497,19 @@ export class OnsConsumerStatusResponseBodyDataConnectionSet extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.connectionDo)) {
+      $dara.Model.validateArray(this.connectionDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDoTrackList extends $dara.Model {
   track?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4906,12 +523,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(Array.isArray(this.track)) {
+      $dara.Model.validateArray(this.track);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo extends $dara.Model {
   /**
    * @remarks
    * The name of the thread.
@@ -4939,12 +563,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(this.trackList && typeof (this.trackList as any).validate === 'function') {
+      (this.trackList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstack extends $dara.Model {
   threadTrackDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoJstackThreadTrackDo[];
   static names(): { [key: string]: string } {
     return {
@@ -4958,12 +589,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(Array.isArray(this.threadTrackDo)) {
+      $dara.Model.validateArray(this.threadTrackDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo extends $dara.Model {
   /**
    * @remarks
    * The number of messages that failed to be consumed each hour.
@@ -5024,12 +662,16 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataList extends $dara.Model {
   consumerRunningDataDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoRunningDataListConsumerRunningDataDo[];
   static names(): { [key: string]: string } {
     return {
@@ -5043,12 +685,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(Array.isArray(this.consumerRunningDataDo)) {
+      $dara.Model.validateArray(this.consumerRunningDataDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionDataTagsSet extends $dara.Model {
   tag?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5062,12 +711,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData extends $dara.Model {
   /**
    * @remarks
    * The expression that is used to specify the tags of messages in the subscribed topic.
@@ -5115,12 +771,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(this.tagsSet && typeof (this.tagsSet as any).validate === 'function') {
+      (this.tagsSet as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSet extends $dara.Model {
   subscriptionData?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDoSubscriptionSetSubscriptionData[];
   static names(): { [key: string]: string } {
     return {
@@ -5134,12 +797,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subscriptionData)) {
+      $dara.Model.validateArray(this.subscriptionData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer instance.
@@ -5273,12 +943,25 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumer
     };
   }
 
+  validate() {
+    if(this.jstack && typeof (this.jstack as any).validate === 'function') {
+      (this.jstack as any).validate();
+    }
+    if(this.runningDataList && typeof (this.runningDataList as any).validate === 'function') {
+      (this.runningDataList as any).validate();
+    }
+    if(this.subscriptionSet && typeof (this.subscriptionSet as any).validate === 'function') {
+      (this.subscriptionSet as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends $dara.Model {
   consumerConnectionInfoDo?: OnsConsumerStatusResponseBodyDataConsumerConnectionInfoListConsumerConnectionInfoDo[];
   static names(): { [key: string]: string } {
     return {
@@ -5292,12 +975,19 @@ export class OnsConsumerStatusResponseBodyDataConsumerConnectionInfoList extends
     };
   }
 
+  validate() {
+    if(Array.isArray(this.consumerConnectionInfoDo)) {
+      $dara.Model.validateArray(this.consumerConnectionInfoDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo extends $dara.Model {
   /**
    * @remarks
    * The latency of message consumption in the topic. Unit: milliseconds.
@@ -5350,12 +1040,16 @@ export class OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo e
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Model {
+export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $dara.Model {
   detailInTopicDo?: OnsConsumerStatusResponseBodyDataDetailInTopicListDetailInTopicDo[];
   static names(): { [key: string]: string } {
     return {
@@ -5369,12 +1063,19 @@ export class OnsConsumerStatusResponseBodyDataDetailInTopicList extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.detailInTopicDo)) {
+      $dara.Model.validateArray(this.detailInTopicDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerStatusResponseBodyData extends $tea.Model {
+export class OnsConsumerStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The information about online consumers in the consumer group.
@@ -5506,12 +1207,25 @@ export class OnsConsumerStatusResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.connectionSet && typeof (this.connectionSet as any).validate === 'function') {
+      (this.connectionSet as any).validate();
+    }
+    if(this.consumerConnectionInfoList && typeof (this.consumerConnectionInfoList as any).validate === 'function') {
+      (this.consumerConnectionInfoList as any).validate();
+    }
+    if(this.detailInTopicList && typeof (this.detailInTopicList as any).validate === 'function') {
+      (this.detailInTopicList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsConsumerTimeSpanResponseBodyData extends $tea.Model {
+export class OnsConsumerTimeSpanResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The most recent point in time when a message in the topic was consumed by the customer group.
@@ -5572,12 +1286,16 @@ export class OnsConsumerTimeSpanResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
+export class OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -5615,12 +1333,16 @@ export class OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model {
+export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $dara.Model {
   messageProperty?: OnsDLQMessageGetByIdResponseBodyDataPropertyListMessageProperty[];
   static names(): { [key: string]: string } {
     return {
@@ -5634,12 +1356,19 @@ export class OnsDLQMessageGetByIdResponseBodyDataPropertyList extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageProperty)) {
+      $dara.Model.validateArray(this.messageProperty);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
+export class OnsDLQMessageGetByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cyclic redundancy check (CRC) value of the message body.
@@ -5757,12 +1486,19 @@ export class OnsDLQMessageGetByIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.propertyList && typeof (this.propertyList as any).validate === 'function') {
+      (this.propertyList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -5800,12 +1536,16 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOn
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $dara.Model {
   messageProperty?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty[];
   static names(): { [key: string]: string } {
     return {
@@ -5819,12 +1559,19 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOn
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageProperty)) {
+      $dara.Model.validateArray(this.messageProperty);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $dara.Model {
   /**
    * @remarks
    * The cyclic redundancy check (CRC) value of the message body.
@@ -5942,12 +1689,19 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOn
     };
   }
 
+  validate() {
+    if(this.propertyList && typeof (this.propertyList as any).validate === 'function') {
+      (this.propertyList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList extends $dara.Model {
   onsRestMessageDo?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo[];
   static names(): { [key: string]: string } {
     return {
@@ -5961,12 +1715,19 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDoMsgFoundList e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.onsRestMessageDo)) {
+      $dara.Model.validateArray(this.onsRestMessageDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.Model {
+export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -6014,12 +1775,19 @@ export class OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo extends $tea.
     };
   }
 
+  validate() {
+    if(this.msgFoundList && typeof (this.msgFoundList as any).validate === 'function') {
+      (this.msgFoundList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsDLQMessageResendByIdResponseBodyData extends $tea.Model {
+export class OnsDLQMessageResendByIdResponseBodyData extends $dara.Model {
   msgId?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6033,12 +1801,19 @@ export class OnsDLQMessageResendByIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.msgId)) {
+      $dara.Model.validateArray(this.msgId);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupListRequestTag extends $tea.Model {
+export class OnsGroupListRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag that is attached to the consumer group. This parameter is not required. If you configure this parameter, you must configure the **Key** parameter.**** If you configure both the Key and Value parameters, the consumer groups are filtered based on the specified tag. If you do not configure these parameters, all consumer groups are queried.
@@ -6079,12 +1854,16 @@ export class OnsGroupListRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag extends $tea.Model {
+export class OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag that is attached to the consumer group.
@@ -6115,12 +1894,16 @@ export class OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupListResponseBodyDataSubscribeInfoDoTags extends $tea.Model {
+export class OnsGroupListResponseBodyDataSubscribeInfoDoTags extends $dara.Model {
   tag?: OnsGroupListResponseBodyDataSubscribeInfoDoTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6134,12 +1917,19 @@ export class OnsGroupListResponseBodyDataSubscribeInfoDoTags extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupListResponseBodyDataSubscribeInfoDo extends $tea.Model {
+export class OnsGroupListResponseBodyDataSubscribeInfoDo extends $dara.Model {
   /**
    * @remarks
    * The point in time when the consumer group was created.
@@ -6243,12 +2033,19 @@ export class OnsGroupListResponseBodyDataSubscribeInfoDo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupListResponseBodyData extends $tea.Model {
+export class OnsGroupListResponseBodyData extends $dara.Model {
   subscribeInfoDo?: OnsGroupListResponseBodyDataSubscribeInfoDo[];
   static names(): { [key: string]: string } {
     return {
@@ -6262,12 +2059,19 @@ export class OnsGroupListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subscribeInfoDo)) {
+      $dara.Model.validateArray(this.subscribeInfoDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $tea.Model {
+export class OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $dara.Model {
   /**
    * @remarks
    * The expression based on which consumers in the consumer group subscribe to the topic.
@@ -6298,12 +2102,16 @@ export class OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDa
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $dara.Model {
   subscriptionDataList?: OnsGroupSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList[];
   static names(): { [key: string]: string } {
     return {
@@ -6317,12 +2125,19 @@ export class OnsGroupSubDetailResponseBodyDataSubscriptionDataList extends $tea.
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subscriptionDataList)) {
+      $dara.Model.validateArray(this.subscriptionDataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
+export class OnsGroupSubDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer group that you want to query.
@@ -6375,12 +2190,19 @@ export class OnsGroupSubDetailResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.subscriptionDataList && typeof (this.subscriptionDataList as any).validate === 'function') {
+      (this.subscriptionDataList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints extends $tea.Model {
+export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints extends $dara.Model {
   /**
    * @remarks
    * The private HTTP endpoint of the instance.
@@ -6450,12 +2272,16 @@ export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfoEndpoints extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfo extends $tea.Model {
+export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfo extends $dara.Model {
   /**
    * @remarks
    * The time when the instance was created. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -6614,12 +2440,19 @@ export class OnsInstanceBaseInfoResponseBodyInstanceBaseInfo extends $tea.Model 
     };
   }
 
+  validate() {
+    if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
+      (this.endpoints as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceCreateResponseBodyData extends $tea.Model {
+export class OnsInstanceCreateResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the instance that you created.
@@ -6652,12 +2485,16 @@ export class OnsInstanceCreateResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceInServiceListRequestTag extends $tea.Model {
+export class OnsInstanceInServiceListRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key. This parameter is not required. If you configure this parameter, you must also configure **Value**.**** If you configure Key and Value in a request, this operation queries only the instances that use the specified tags. If you do not configure these parameters in a request, this operation queries all instances that you can access.
@@ -6694,12 +2531,16 @@ export class OnsInstanceInServiceListRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -6730,12 +2571,16 @@ export class OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyDataInstanceVOTags extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyDataInstanceVOTags extends $dara.Model {
   tag?: OnsInstanceInServiceListResponseBodyDataInstanceVOTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6749,12 +2594,19 @@ export class OnsInstanceInServiceListResponseBodyDataInstanceVOTags extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyDataInstanceVO extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyDataInstanceVO extends $dara.Model {
   /**
    * @remarks
    * The time when the instance was created. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -6877,12 +2729,19 @@ export class OnsInstanceInServiceListResponseBodyDataInstanceVO extends $tea.Mod
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
+export class OnsInstanceInServiceListResponseBodyData extends $dara.Model {
   instanceVO?: OnsInstanceInServiceListResponseBodyDataInstanceVO[];
   static names(): { [key: string]: string } {
     return {
@@ -6896,12 +2755,19 @@ export class OnsInstanceInServiceListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceVO)) {
+      $dara.Model.validateArray(this.instanceVO);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageDetailResponseBodyDataPropertyList extends $tea.Model {
+export class OnsMessageDetailResponseBodyDataPropertyList extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -6940,12 +2806,16 @@ export class OnsMessageDetailResponseBodyDataPropertyList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageDetailResponseBodyData extends $tea.Model {
+export class OnsMessageDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The string that is obtained after the message body is encrypted by using the Base 64 algorithm.
@@ -7083,12 +2953,19 @@ export class OnsMessageDetailResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.propertyList)) {
+      $dara.Model.validateArray(this.propertyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -7129,12 +3006,16 @@ export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessa
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList extends $dara.Model {
   messageProperty?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyListMessageProperty[];
   static names(): { [key: string]: string } {
     return {
@@ -7148,12 +3029,19 @@ export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDoPropertyList exte
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageProperty)) {
+      $dara.Model.validateArray(this.messageProperty);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo extends $dara.Model {
   /**
    * @remarks
    * The cyclic redundancy check (CRC) value of the message body.
@@ -7271,12 +3159,19 @@ export class OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo extends $tea.Mod
     };
   }
 
+  validate() {
+    if(this.propertyList && typeof (this.propertyList as any).validate === 'function') {
+      (this.propertyList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
+export class OnsMessageGetByKeyResponseBodyData extends $dara.Model {
   onsRestMessageDo?: OnsMessageGetByKeyResponseBodyDataOnsRestMessageDo[];
   static names(): { [key: string]: string } {
     return {
@@ -7290,12 +3185,19 @@ export class OnsMessageGetByKeyResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.onsRestMessageDo)) {
+      $dara.Model.validateArray(this.onsRestMessageDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty extends $tea.Model {
+export class OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -7333,12 +3235,16 @@ export class OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model {
+export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $dara.Model {
   messageProperty?: OnsMessageGetByMsgIdResponseBodyDataPropertyListMessageProperty[];
   static names(): { [key: string]: string } {
     return {
@@ -7352,12 +3258,19 @@ export class OnsMessageGetByMsgIdResponseBodyDataPropertyList extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageProperty)) {
+      $dara.Model.validateArray(this.messageProperty);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
+export class OnsMessageGetByMsgIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cyclic redundancy check (CRC) value of the message body.
@@ -7475,12 +3388,19 @@ export class OnsMessageGetByMsgIdResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.propertyList && typeof (this.propertyList as any).validate === 'function') {
+      (this.propertyList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty extends $dara.Model {
   /**
    * @remarks
    * The name of the attribute. Valid values:
@@ -7518,12 +3438,16 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRest
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyList extends $dara.Model {
   messageProperty?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDoPropertyListMessageProperty[];
   static names(): { [key: string]: string } {
     return {
@@ -7537,12 +3461,19 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRest
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageProperty)) {
+      $dara.Model.validateArray(this.messageProperty);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo extends $dara.Model {
   /**
    * @remarks
    * The cyclic redundancy check (CRC) value of the message body.
@@ -7660,12 +3591,19 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRest
     };
   }
 
+  validate() {
+    if(this.propertyList && typeof (this.propertyList as any).validate === 'function') {
+      (this.propertyList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extends $dara.Model {
   onsRestMessageDo?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundListOnsRestMessageDo[];
   static names(): { [key: string]: string } {
     return {
@@ -7679,12 +3617,19 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDoMsgFoundList extend
     };
   }
 
+  validate() {
+    if(Array.isArray(this.onsRestMessageDo)) {
+      $dara.Model.validateArray(this.onsRestMessageDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model {
+export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $dara.Model {
   /**
    * @remarks
    * The page number of the returned page.
@@ -7732,12 +3677,19 @@ export class OnsMessagePageQueryByTopicResponseBodyMsgFoundDo extends $tea.Model
     };
   }
 
+  validate() {
+    if(this.msgFoundList && typeof (this.msgFoundList as any).validate === 'function') {
+      (this.msgFoundList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageTraceResponseBodyDataMessageTrack extends $tea.Model {
+export class OnsMessageTraceResponseBodyDataMessageTrack extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer group that subscribes to the topic.
@@ -7784,12 +3736,16 @@ export class OnsMessageTraceResponseBodyDataMessageTrack extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsMessageTraceResponseBodyData extends $tea.Model {
+export class OnsMessageTraceResponseBodyData extends $dara.Model {
   messageTrack?: OnsMessageTraceResponseBodyDataMessageTrack[];
   static names(): { [key: string]: string } {
     return {
@@ -7803,12 +3759,19 @@ export class OnsMessageTraceResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageTrack)) {
+      $dara.Model.validateArray(this.messageTrack);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsRegionListResponseBodyDataRegionDo extends $tea.Model {
+export class OnsRegionListResponseBodyDataRegionDo extends $dara.Model {
   /**
    * @remarks
    * The channel name.
@@ -7879,12 +3842,16 @@ export class OnsRegionListResponseBodyDataRegionDo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsRegionListResponseBodyData extends $tea.Model {
+export class OnsRegionListResponseBodyData extends $dara.Model {
   regionDo?: OnsRegionListResponseBodyDataRegionDo[];
   static names(): { [key: string]: string } {
     return {
@@ -7898,12 +3865,19 @@ export class OnsRegionListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regionDo)) {
+      $dara.Model.validateArray(this.regionDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicListRequestTag extends $tea.Model {
+export class OnsTopicListRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag that is attached to the topics you want to query. This parameter is not required. If you configure this parameter, you must also configure the **Value** parameter.**** If you include the Key and Value parameters in a request, this operation queries only the topics that use the specified tag. If you do not include these parameters in a request, this operation queries all topics that you can access.
@@ -7944,12 +3918,16 @@ export class OnsTopicListRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicListResponseBodyDataPublishInfoDoTagsTag extends $tea.Model {
+export class OnsTopicListResponseBodyDataPublishInfoDoTagsTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -7980,12 +3958,16 @@ export class OnsTopicListResponseBodyDataPublishInfoDoTagsTag extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicListResponseBodyDataPublishInfoDoTags extends $tea.Model {
+export class OnsTopicListResponseBodyDataPublishInfoDoTags extends $dara.Model {
   tag?: OnsTopicListResponseBodyDataPublishInfoDoTagsTag[];
   static names(): { [key: string]: string } {
     return {
@@ -7999,12 +3981,19 @@ export class OnsTopicListResponseBodyDataPublishInfoDoTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicListResponseBodyDataPublishInfoDo extends $tea.Model {
+export class OnsTopicListResponseBodyDataPublishInfoDo extends $dara.Model {
   /**
    * @remarks
    * The time when the topic was created.
@@ -8139,12 +4128,19 @@ export class OnsTopicListResponseBodyDataPublishInfoDo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicListResponseBodyData extends $tea.Model {
+export class OnsTopicListResponseBodyData extends $dara.Model {
   publishInfoDo?: OnsTopicListResponseBodyDataPublishInfoDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8158,12 +4154,19 @@ export class OnsTopicListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.publishInfoDo)) {
+      $dara.Model.validateArray(this.publishInfoDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicStatusResponseBodyData extends $tea.Model {
+export class OnsTopicStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The point in time when the latest message is ready in the topic. If no message exists in the topic, the return value of this parameter is 0.
@@ -8212,12 +4215,16 @@ export class OnsTopicStatusResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $tea.Model {
+export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer group that subscribes to the topic.
@@ -8239,6 +4246,7 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDa
    * CLUSTERING
    */
   messageModel?: string;
+  online?: string;
   /**
    * @remarks
    * The expression based on which consumers in the consumer group subscribe to the topic.
@@ -8251,6 +4259,7 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDa
     return {
       groupId: 'GroupId',
       messageModel: 'MessageModel',
+      online: 'Online',
       subString: 'SubString',
     };
   }
@@ -8259,8 +4268,13 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDa
     return {
       groupId: 'string',
       messageModel: 'string',
+      online: 'string',
       subString: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -8268,7 +4282,7 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDa
   }
 }
 
-export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $tea.Model {
+export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $dara.Model {
   subscriptionDataList?: OnsTopicSubDetailResponseBodyDataSubscriptionDataListSubscriptionDataList[];
   static names(): { [key: string]: string } {
     return {
@@ -8282,12 +4296,19 @@ export class OnsTopicSubDetailResponseBodyDataSubscriptionDataList extends $tea.
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subscriptionDataList)) {
+      $dara.Model.validateArray(this.subscriptionDataList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
+export class OnsTopicSubDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The information about the online consumer groups that subscribe to the topic.
@@ -8315,12 +4336,19 @@ export class OnsTopicSubDetailResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.subscriptionDataList && typeof (this.subscriptionDataList as any).validate === 'function') {
+      (this.subscriptionDataList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo extends $dara.Model {
   /**
    * @remarks
    * The address of the consumer.
@@ -8397,12 +4425,16 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSub
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientList extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientList extends $dara.Model {
   subClientInfoDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDoClientListSubClientInfoDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8416,12 +4448,19 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSub
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subClientInfoDo)) {
+      $dara.Model.validateArray(this.subClientInfoDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo extends $dara.Model {
   /**
    * @remarks
    * The information about message consumption by consumers in the group.
@@ -8469,12 +4508,19 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSub
     };
   }
 
+  validate() {
+    if(this.clientList && typeof (this.clientList as any).validate === 'function') {
+      (this.clientList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList extends $dara.Model {
   subMapDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubListSubMapDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8488,12 +4534,19 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDoSubList ex
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subMapDo)) {
+      $dara.Model.validateArray(this.subMapDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo extends $dara.Model {
   /**
    * @remarks
    * The address of the producer that generated the message.
@@ -8607,12 +4660,19 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo extends $
     };
   }
 
+  validate() {
+    if(this.subList && typeof (this.subList as any).validate === 'function') {
+      (this.subList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $dara.Model {
   traceMapDo?: OnsTraceGetResultResponseBodyTraceDataTraceListTraceMapDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8626,12 +4686,19 @@ export class OnsTraceGetResultResponseBodyTraceDataTraceList extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.traceMapDo)) {
+      $dara.Model.validateArray(this.traceMapDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
+export class OnsTraceGetResultResponseBodyTraceData extends $dara.Model {
   /**
    * @remarks
    * The point in time when the task was created.
@@ -8743,12 +4810,19 @@ export class OnsTraceGetResultResponseBodyTraceData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.traceList && typeof (this.traceList as any).validate === 'function') {
+      (this.traceList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
+export class OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo extends $dara.Model {
   /**
    * @remarks
    * The X axis. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -8779,12 +4853,16 @@ export class OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
+export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $dara.Model {
   statsDataDo?: OnsTrendGroupOutputTpsResponseBodyDataRecordsStatsDataDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8798,12 +4876,19 @@ export class OnsTrendGroupOutputTpsResponseBodyDataRecords extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.statsDataDo)) {
+      $dara.Model.validateArray(this.statsDataDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
+export class OnsTrendGroupOutputTpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The data set returned based on sampling period.
@@ -8851,12 +4936,19 @@ export class OnsTrendGroupOutputTpsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.records && typeof (this.records as any).validate === 'function') {
+      (this.records as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo extends $tea.Model {
+export class OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo extends $dara.Model {
   /**
    * @remarks
    * The X axis. The value of this parameter is a UNIX timestamp in milliseconds.
@@ -8887,12 +4979,16 @@ export class OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
+export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $dara.Model {
   statsDataDo?: OnsTrendTopicInputTpsResponseBodyDataRecordsStatsDataDo[];
   static names(): { [key: string]: string } {
     return {
@@ -8906,12 +5002,19 @@ export class OnsTrendTopicInputTpsResponseBodyDataRecords extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.statsDataDo)) {
+      $dara.Model.validateArray(this.statsDataDo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OnsTrendTopicInputTpsResponseBodyData extends $tea.Model {
+export class OnsTrendTopicInputTpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The data set returned based on sampling period.
@@ -8959,12 +5062,19 @@ export class OnsTrendTopicInputTpsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.records && typeof (this.records as any).validate === 'function') {
+      (this.records as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key. If you configure this parameter, you must also configure the **Value** parameter.****
@@ -9003,6 +5113,5263 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance to which the resource whose tags you want to query belongs.
+   * 
+   * > This parameter is required when you query the tags of a topic or a group.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The token that determines the start point of the next query.
+   * 
+   * @example
+   * caeba0****be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The list of resource IDs.
+   * 
+   * @example
+   * TopicA
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource whose tags you want to query. Valid values:
+   * 
+   * *   **INSTANCE**
+   * *   **TOPIC**
+   * *   **GROUP**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TOPIC
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags that you want to query. A maximum of 20 tags can be included in the list.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nextToken: 'NextToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nextToken: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The token that determines the start point of the next query.
+   * 
+   * @example
+   * caeba0****be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 301D2CBE-66F8-403D-AEC0-82582478****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Details of the resource and tags, including the resource ID, the resource type, tag keys, and tag values.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerAccumulateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to query the details of each topic to which the consumer group subscribes. Valid values:
+   * 
+   * *   **true**: The details of each topic are queried. You can obtain the details from the **DetailInTopicList** response parameter.
+   * *   **false**: The details of each topic are not queried. This is the default value. If you use this value, the value of the **DetailInTopicList** response parameter is empty.
+   * 
+   * @example
+   * true
+   */
+  detail?: boolean;
+  /**
+   * @remarks
+   * The ID of the consumer group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_consumer_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'boolean',
+      groupId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerAccumulateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The message accumulation information about topics to which the specified consumer subscribes.
+   */
+  data?: OnsConsumerAccumulateResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * CE817BFF-B389-43CD-9419-95011AC9****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsConsumerAccumulateResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerAccumulateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsConsumerAccumulateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsConsumerAccumulateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerGetConnectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group whose client connection status you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_consumer_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerGetConnectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsConsumerGetConnectionResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * DE4140C7-F42D-473D-A5FF-B1E31692****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsConsumerGetConnectionResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerGetConnectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsConsumerGetConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsConsumerGetConnectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerResetOffsetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group whose dead-letter message you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_consumer_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The timestamp to which you want to reset the consumer offset. This parameter takes effect only when the **Type** parameter is set to **1**. Unit: milliseconds.
+   * 
+   * @example
+   * 1591153871000
+   */
+  resetTimestamp?: number;
+  /**
+   * @remarks
+   * The name of the topic for which you want to reset the consumer offset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq-topic
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * The method that you want to use to clear accumulated messages. Valid values:
+   * 
+   * *   **0:** All accumulated messages are cleared. Messages that are not consumed are ignored. Consumers in the specified consumer group consume only messages that are published to the topic after the specified point in time.
+   * 
+   * If "reconsumeLater" is returned, the accumulated messages are not cleared because the system is retrying to resend the messages to consumers.
+   * 
+   * *   **1:** The messages that were published to the topic before the specified point in time are cleared. You must specify a point in time. Consumers in the specified consumer group consume only the messages that are published to the topic after the specified point in time.
+   * 
+   * You can specify a point in time from the earliest point in time when a message was published to the topic to the most recent point in time when a message was published to the topic. Points in time that are not within the allowed time range are invalid.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      resetTimestamp: 'ResetTimestamp',
+      topic: 'Topic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+      resetTimestamp: 'number',
+      topic: 'string',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerResetOffsetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * D52C68F8-EC5D-4294-BFFF-1A6A25AF****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerResetOffsetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsConsumerResetOffsetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsConsumerResetOffsetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to query the details of the consumer group. Valid values:
+   * 
+   * *   **true**: The details of the consumer group are queried. You can obtain details from the **ConsumerConnectionInfoList** and **DetailInTopicList** response parameters.
+   * *   **false**: The details of the consumer group are not queried. The values of the **ConsumerConnectionInfoList** and **DetailInTopicList** response parameters are empty. This value is the default value of the Detail parameter.
+   * 
+   * @example
+   * true
+   */
+  detail?: boolean;
+  /**
+   * @remarks
+   * The ID of the consumer group whose details you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the information about thread stack traces. Valid values:
+   * 
+   * *   **true**: The information about thread stack traces is queried. You can obtain the information from the **Jstack** response parameter.
+   * 
+   * > If you want to obtain the information about thread stack traces, make sure that the **Detail** parameter in the request is set to **true**.
+   * 
+   * *   **false**: The information about thread stack traces is not queried. The value of the **Jstack** response parameter is empty. This value is the default value of the NeedJstack parameter.
+   * 
+   * @example
+   * true
+   */
+  needJstack?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      needJstack: 'NeedJstack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'boolean',
+      groupId: 'string',
+      instanceId: 'string',
+      needJstack: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsConsumerStatusResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 10EDC518-10E7-4B34-92FB-171235FA****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsConsumerStatusResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsConsumerStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsConsumerStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerTimeSpanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group whose reset time range you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The topic to which the consumer group subscribes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerTimeSpanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsConsumerTimeSpanResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsConsumerTimeSpanResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsConsumerTimeSpanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsConsumerTimeSpanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsConsumerTimeSpanResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageGetByIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group whose dead-letter message you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the message you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the dead-letter message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0BC16699165C03B925DB8A404E2D****
+   */
+  msgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+      msgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageGetByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsDLQMessageGetByIdResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsDLQMessageGetByIdResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageGetByIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsDLQMessageGetByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsDLQMessageGetByIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessagePageQueryByGroupIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the BeginTime parameter that you specified in the request when you created the specified query task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570723200000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Valid values: 1 to 50.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the EndTime parameter that you specified in the request when you created the specified query task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570809600000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the consumer group whose dead-letter messages you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the dead-letter messages you want to query belong.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The number of dead-letter messages to return on each page. Valid values: 5 to 50. Default value: 20. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the PageSize parameter that you specified in the request when you created the specified query task.
+   * 
+   * @example
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the query task. The first time you call this operation to query dead-letter messages that are sent to a specified consumer group within a specified time range, this parameter is not required. This parameter is required in subsequent queries for dead-letter messages on a specified page. You can obtain the task ID from the returned result of the first query.
+   * 
+   * @example
+   * 0BC1310300002A9F000021E4D7A48346
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      currentPage: 'number',
+      endTime: 'number',
+      groupId: 'string',
+      instanceId: 'string',
+      pageSize: 'number',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessagePageQueryByGroupIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about dead-letter messages that are queried.
+   */
+  msgFoundDo?: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * B00CD3C8-D81E-4A41-85E2-38F19252****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msgFoundDo: 'MsgFoundDo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msgFoundDo: OnsDLQMessagePageQueryByGroupIdResponseBodyMsgFoundDo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.msgFoundDo && typeof (this.msgFoundDo as any).validate === 'function') {
+      (this.msgFoundDo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessagePageQueryByGroupIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsDLQMessagePageQueryByGroupIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsDLQMessagePageQueryByGroupIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageResendByIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group in which you want to query dead-letter messages.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance in which the dead-letter message you want to query resides.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the dead-letter message that you want to send to a consumer group for consumption.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0BC16699343051CD9F1D798E7734****
+   */
+  msgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+      msgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageResendByIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned messages.
+   */
+  data?: OnsDLQMessageResendByIdResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * D94CC769-4DC3-4690-A868-9D0631B1****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsDLQMessageResendByIdResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsDLQMessageResendByIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsDLQMessageResendByIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsDLQMessageResendByIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupConsumerUpdateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group for which you want to configure read permissions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_groupId
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group you want to configure belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to authorize the consumer group to read messages. Valid values:
+   * 
+   * *   **true**: The consumer group can read messages.
+   * *   **false**: The consumer group cannot read messages.
+   * 
+   * Default value: **true**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  readEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      readEnable: 'ReadEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+      readEnable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupConsumerUpdateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupConsumerUpdateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsGroupConsumerUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsGroupConsumerUpdateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupCreateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group that you want to create. The group ID must meet the following rules:
+   * 
+   * *   The group ID must be 2 to 64 characters in length and can contain only letters, digits, hyphens (-), and underscores (_).
+   * *   If the ApsaraMQ for RocketMQ instance in which you want to create the consumer group uses a namespace, the group ID must be unique in the instance. The group ID cannot be the same as an existing group ID or a topic name in the instance. The group ID can be the same as a group ID or a topic name in another instance that uses a different namespace. For example, if Instance A and Instance B use different namespaces, a group ID in Instance A can be the same as a group ID or a topic name in Instance B.
+   * *   If the instance does not use a namespace, the group ID must be globally unique across instances and regions. The group ID cannot be the same as an existing group ID or topic name in ApsaraMQ for RocketMQ instances that belong to your Alibaba Cloud account.
+   * 
+   * > 
+   * 
+   * *   After the consumer group is created, the group ID cannot be changed.
+   * 
+   * *   To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_groupId
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The protocol over which clients in the consumer group communicate with the ApsaraMQ for RocketMQ broker. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different groups for TCP clients and HTTP clients. Valid values:
+   * 
+   * *   **tcp**: Clients in the consumer group consume messages over TCP. This is the default value.
+   * *   **http**: Clients in the consumer group consume messages over HTTP.
+   * 
+   * @example
+   * tcp
+   */
+  groupType?: string;
+  /**
+   * @remarks
+   * The ID of the instance in which you want to create the consumer group.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The description of the consumer group.
+   * 
+   * @example
+   * test
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupType: 'GroupType',
+      instanceId: 'InstanceId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      groupType: 'string',
+      instanceId: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupCreateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupCreateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsGroupCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsGroupCreateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupDeleteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_groupId
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance to which the specified consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupDeleteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupDeleteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsGroupDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsGroupDeleteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required only when you query specific consumer groups by using the fuzzy search method. If this parameter is not configured, the system queries all consumer groups that can be accessed by the current account.
+   * 
+   * If you set this parameter to GID_ABC, the information about the consumer groups whose IDs contain GID_ABC is returned. For example, the information about the GID_test_GID_ABC_123 and GID_ABC_356 consumer groups is returned.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The protocol over which the queried consumer group publishes and subscribes to messages. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different consumer groups for TCP clients and HTTP clients. Valid values:
+   * 
+   * *   **tcp**: specifies that the consumer group publishes or subscribes to messages over TCP. This value is the default value.
+   * *   **http**: specifies that the consumer group publishes or subscribes to messages over HTTP.
+   * 
+   * @example
+   * tcp
+   */
+  groupType?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The list of tags that are attached to the consumer group. A maximum of 20 tags can be included in the list.
+   */
+  tag?: OnsGroupListRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupType: 'GroupType',
+      instanceId: 'InstanceId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      groupType: 'string',
+      instanceId: 'string',
+      tag: { 'type': 'array', 'itemType': OnsGroupListRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned list of subscriptions.
+   */
+  data?: OnsGroupListResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 16996623-AC4A-43AF-9248-FD9D2D75****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsGroupListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsGroupListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsGroupListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupSubDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group you want to query belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupSubDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsGroupSubDetailResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 3364E875-013B-442A-BC3C-C1A84DC6****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsGroupSubDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsGroupSubDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsGroupSubDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsGroupSubDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceBaseInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_138015630679****_BAAy1Hac
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceBaseInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the instance.
+   */
+  instanceBaseInfo?: OnsInstanceBaseInfoResponseBodyInstanceBaseInfo;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 6CC46974-65E8-4C20-AB07-D20D102E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceBaseInfo: 'InstanceBaseInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceBaseInfo: OnsInstanceBaseInfoResponseBodyInstanceBaseInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.instanceBaseInfo && typeof (this.instanceBaseInfo as any).validate === 'function') {
+      (this.instanceBaseInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceBaseInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsInstanceBaseInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsInstanceBaseInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceCreateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the instance. The name must meet the following rules:
+   * 
+   * *   The name of the instance must be unique in the region where the instance is deployed.
+   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Test instance
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * Description
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'InstanceName',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceCreateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The result returned.
+   */
+  data?: OnsInstanceCreateResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsInstanceCreateResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceCreateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsInstanceCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsInstanceCreateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceDeleteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceDeleteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceDeleteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsInstanceDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsInstanceDeleteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceInServiceListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether you want the resource information to be returned.
+   * 
+   * @example
+   * true
+   */
+  needResourceInfo?: boolean;
+  /**
+   * @remarks
+   * The tags that you want to attach to the instance. You can attach up to 20 tags to the instance.
+   */
+  tag?: OnsInstanceInServiceListRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      needResourceInfo: 'NeedResourceInfo',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needResourceInfo: 'boolean',
+      tag: { 'type': 'array', 'itemType': OnsInstanceInServiceListRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceInServiceListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned information about the queried instances.
+   */
+  data?: OnsInstanceInServiceListResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 0598E46F-DB06-40E2-AD7B-C45923EE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsInstanceInServiceListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceInServiceListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsInstanceInServiceListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsInstanceInServiceListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceUpdateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance whose name or description you want to update.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The new name of the instance. The name must meet the following rules:
+   * 
+   * *   The name of the instance must be unique in the region where the instance is deployed.
+   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), underscores (_), and Chinese characters.
+   * *   If you do not configure this parameter, the instance name remains unchanged.
+   * 
+   * @example
+   * Updatedname
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The updated description of the instance. If you do not configure this parameter, the instance description remains unchanged.
+   * 
+   * @example
+   * Updateddescription
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceUpdateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsInstanceUpdateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsInstanceUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsInstanceUpdateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ Instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_184681981******_BXig0x6A
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1E0578FE110F18B4AAC235C0******
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The name of the topic in which the message you want to query is stored.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsMessageDetailResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * EAE5BE23-37A1-4354-94D6-E44AE17E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsMessageDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessageDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessageDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the messages that you want to query belong.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The key of the messages that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * messageKey1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The topic that contains the messages that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      key: 'Key',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      key: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned results.
+   */
+  data?: OnsMessageGetByKeyResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsMessageGetByKeyResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByKeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessageGetByKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessageGetByKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByMsgIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the message you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1E0578FE110F18B4AAC235C05F2*****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The topic that contains the message you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByMsgIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsMessageGetByMsgIdResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07E3902-B92E-44A6-B6C5-6AA111111****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsMessageGetByMsgIdResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageGetByMsgIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessageGetByMsgIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessageGetByMsgIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePageQueryByTopicRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the BeginTime parameter that you specified in the request when you created the specified query task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570723200000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Valid values: 1 to 50.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the EndTime parameter that you specified in the request when you created the specified query task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570809600000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the message you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 5 to 50. Default value: 20. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the PageSize parameter that you specified in the request for creating the query task.
+   * 
+   * @example
+   * 5
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the query task. The first time you call this operation to query the information about messages in a specified topic within a specified time range, this parameter is not required. This parameter is required in subsequent queries for messages on a specified page. You can obtain the task ID from the returned result of the first query.
+   * 
+   * @example
+   * 0BC1310300002A9F000021E4D7A48346
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The name of the topic whose messages you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      currentPage: 'CurrentPage',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      currentPage: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      pageSize: 'number',
+      taskId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePageQueryByTopicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the message that is queried.
+   */
+  msgFoundDo?: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 5DC2A47E-2B31-4722-96C8-FA59C9*****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      msgFoundDo: 'MsgFoundDo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msgFoundDo: OnsMessagePageQueryByTopicResponseBodyMsgFoundDo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.msgFoundDo && typeof (this.msgFoundDo as any).validate === 'function') {
+      (this.msgFoundDo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePageQueryByTopicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessagePageQueryByTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessagePageQueryByTopicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePushRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer client. You can call the [OnsConsumerGetConnection](https://help.aliyun.com/document_detail/29598.html) operation to query client IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The ID of the consumer group. For information about what a consumer group is, see [Terms](https://help.aliyun.com/document_detail/29533.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test_group_id
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance to which the specified consumer group belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the message.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0BC1669963053CF68F733BB70396****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The topic to which the message is pushed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      groupId: 'string',
+      instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePushResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * B8EDC90D-F726-4B9E-8BEF-F0DD25EC****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessagePushResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessagePushResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessagePushResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageTraceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the message you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1E05791C117818B4AAC23B1BB0CE****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The topic to which the message belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-mq_topic
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageTraceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the message that is queried.
+   */
+  data?: OnsMessageTraceResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * EAE5BE23-37A1-4354-94D6-E44AE17E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsMessageTraceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsMessageTraceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsMessageTraceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsMessageTraceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsRegionListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: OnsRegionListResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 72D14A84-45E5-4E01-A6DB-F63C4721****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsRegionListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsRegionListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsRegionListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsRegionListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicCreateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance in which you want to create the topic.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The type of messages that you want to publish to the topic. Valid values:
+   * 
+   * *   **0**: normal messages
+   * *   **1**: partitionally ordered messages
+   * *   **2**: globally ordered messages
+   * *   **4**: transactional messages
+   * *   **5**: scheduled or delayed messages
+   * 
+   * For more information about message types, see [Message types](https://help.aliyun.com/document_detail/155952.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  messageType?: number;
+  /**
+   * @remarks
+   * The description of the topic that you want to create.
+   * 
+   * @example
+   * Test
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The name of the topic that you want to create. The name must meet the following rules:
+   * 
+   * *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * *   The topic name cannot start with CID or GID because CID and GID are reserved prefixes for group IDs.
+   * *   If the ApsaraMQ for RocketMQ instance in which you want to create the topic uses a namespace, the topic name must be unique in the instance. The topic name cannot be the same as an existing topic name or a group ID in the instance. The topic name can be the same as a topic name or a group ID in another instance that uses a different namespace. For example, if Instance A and Instance B use different namespaces, a topic name in Instance A can be the same as a topic name or a group ID in Instance B.
+   * *   If the instance in which you want to create the topic does not use a namespace, the topic name must be globally unique across instances and regions. The topic name cannot be the same as an existing topic name or group ID in all ApsaraMQ for RocketMQ instances that belong to your Alibaba Cloud account.
+   * 
+   * > To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      messageType: 'MessageType',
+      remark: 'Remark',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      messageType: 'number',
+      remark: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicCreateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * B6949B58-223E-4B75-B4FE-7797C15E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicCreateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicCreateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicDeleteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the topic you want to delete belongs.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the topic that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicDeleteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 4189D4A6-231A-4028-8D89-F66A76C1****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicDeleteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicDeleteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicDeleteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance that contains the topics you want to query.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The list of tags that are attached to the topic. A maximum of 20 tags can be included in the list.
+   */
+  tag?: OnsTopicListRequestTag[];
+  /**
+   * @remarks
+   * The name of the topic that you want to query. This parameter is required if you want to query a specific topic. If you do not include this parameter in a request, all topics that you can access are queried.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * The user ID of the topic owner. Set this parameter to an Alibaba Cloud account ID.
+   * 
+   * @example
+   * 138015630679****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tag: 'Tag',
+      topic: 'Topic',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tag: { 'type': 'array', 'itemType': OnsTopicListRequestTag },
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the topics.
+   */
+  data?: OnsTopicListResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 4A978869-7681-4529-B470-107E1379****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsTopicListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance that contains the topic you want to query.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the topic that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data structure of the queried topic.
+   */
+  data?: OnsTopicStatusResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 427EE49D-D762-41FB-8F3D-9BAC96C3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsTopicStatusResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicSubDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance that contains the topic you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the topic that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicSubDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsTopicSubDetailResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 87B6207F-2908-42B5-A134-84956DCA****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsTopicSubDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicSubDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicSubDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicSubDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicUpdateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the topic belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The read/write mode that you want to configure for the topic. Valid values:
+   * 
+   * *   **6**: Both read and write operations are allowed.
+   * *   **4**: Write operations are forbidden.
+   * *   **2**: Read operations are forbidden.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6
+   */
+  perm?: number;
+  /**
+   * @remarks
+   * The name of the topic that you want to manage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      perm: 'Perm',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      perm: 'number',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicUpdateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 81979ADA-4A78-4F64-9DEC-5700446D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTopicUpdateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTopicUpdateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTopicUpdateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the instance to which the message you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the task that was created to query the trace of the message.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 272967562652883649157096685****
+   */
+  queryId?: string;
+  /**
+   * @remarks
+   * The topic to which the message belongs.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      queryId: 'QueryId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      queryId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 84EE24D2-851F-40D6-B99E-4D6AB909****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The details of the message trace.
+   */
+  traceData?: OnsTraceGetResultResponseBodyTraceData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      traceData: 'TraceData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      traceData: OnsTraceGetResultResponseBodyTraceData,
+    };
+  }
+
+  validate() {
+    if(this.traceData && typeof (this.traceData as any).validate === 'function') {
+      (this.traceData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceGetResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTraceGetResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTraceGetResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570852800000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570968000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance that contains the specified topic.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1E05791C117818B4AAC23B1BB0CE****
+   */
+  msgId?: string;
+  /**
+   * @remarks
+   * The topic that contains the message you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      msgId: 'MsgId',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      msgId: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the query task. You can call the [OnsTraceGetResult](https://help.aliyun.com/document_detail/59832.html) operation to query the details of the message trace based on the task ID.
+   * 
+   * @example
+   * 272967562652883649157096685****
+   */
+  queryId?: string;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * B93332A3-160D-404F-880F-1F8736D1****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTraceQueryByMsgIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTraceQueryByMsgIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The start of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570852800000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570968000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance that contains the specified topic.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The key of the message that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ORDERID_100
+   */
+  msgKey?: string;
+  /**
+   * @remarks
+   * The topic that contains the message you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      msgKey: 'MsgKey',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      msgKey: 'string',
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the query task. You can call the [OnsTraceGetResult](https://help.aliyun.com/document_detail/59832.html) operation to query the details of the message trace based on the task ID.
+   * 
+   * @example
+   * 272967562652883649157096685****
+   */
+  queryId?: string;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * F8654231-122A-4DBD-801F-38E35538****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryId: 'QueryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTraceQueryByMsgKeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTraceQueryByMsgKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTraceQueryByMsgKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendGroupOutputTpsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570852800000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The timestamp that indicates the end of the time range to query. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570868400000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the consumer group that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GID_test
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the consumer group you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The sampling period. Unit: minutes. Valid values: 1, 5, and 10.
+   * 
+   * @example
+   * 10
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The name of the topic that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * The type of information that you want to query. Valid values:
+   * 
+   * *   **0**: the number of messages that are consumed during each sampling period.
+   * *   **1**: the TPS for message consumption during each sampling period.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      groupId: 'GroupId',
+      instanceId: 'InstanceId',
+      period: 'Period',
+      topic: 'Topic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      groupId: 'string',
+      instanceId: 'string',
+      period: 'number',
+      topic: 'string',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendGroupOutputTpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsTrendGroupOutputTpsResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+   * 
+   * @example
+   * CE57AEDC-8FD2-43ED-8E3B-1F878077****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsTrendGroupOutputTpsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendGroupOutputTpsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTrendGroupOutputTpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTrendGroupOutputTpsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendTopicInputTpsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570852800000
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The timestamp that indicates the end of the time range to query. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1570868400000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the topic you want to query belongs.
+   * 
+   * @example
+   * MQ_INST_111111111111_DOxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The sampling period. Unit: minutes. Valid values: 1, 5, and 10.
+   * 
+   * @example
+   * 10
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The name of the topic that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * The type of information that you want to query. Valid values:
+   * 
+   * *   **0**: the number of messages that are published to the topic during each sampling period.
+   * *   **1**: the TPS for message publishing in the topic during each sampling period.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      period: 'Period',
+      topic: 'Topic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      instanceId: 'string',
+      period: 'number',
+      topic: 'string',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendTopicInputTpsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: OnsTrendTopicInputTpsResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+   * 
+   * @example
+   * E213AD8A-0730-4B3D-A35A-340DA47D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: OnsTrendTopicInputTpsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OnsTrendTopicInputTpsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OnsTrendTopicInputTpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OnsTrendTopicInputTpsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenOnsServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 2068689****0272
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 8C5B4603-8977-4513-AB60-9C3E2F88****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenOnsServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenOnsServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OpenOnsServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ApsaraMQ for RocketMQ instance that contains the resource to which you want to attach tags.
+   * 
+   * > This parameter is required when you attach tags to a topic or a group.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BXSuW61e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TopicA
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource to which you want to attach tags. Valid values:
+   * 
+   * *   **INSTANCE**
+   * *   **TOPIC**
+   * *   **GROUP**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TOPIC
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags that you want to attach to the resource.
+   * 
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+   * 
+   * @example
+   * 301D2CBE-66F8-403D-AEC0-82582478****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags that are attached to the specified resource. This parameter takes effect only if the **TagKey** parameter is empty. Default value: **false**.
+   * 
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required when you detach tags from a topic or a group.
+   * 
+   * @example
+   * MQ_INST_188077086902****_BX4jvZZG
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TopicA
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource from which you want to detach tags. Valid values:
+   * 
+   * *   **INSTANCE**
+   * *   **TOPIC**
+   * *   **GROUP**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TOPIC
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys of the resource.
+   * 
+   * @example
+   * CartService
+   */
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      instanceId: 'InstanceId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      instanceId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+   * 
+   * @example
+   * 19780F2E-7841-4E0F-A5D9-C64A0530****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -9011,7 +10378,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -9052,15 +10419,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -9076,33 +10443,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9113,7 +10480,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -9129,7 +10501,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -9144,25 +10516,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsConsumerAccumulateResponse
    */
-  async onsConsumerAccumulateWithOptions(request: OnsConsumerAccumulateRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerAccumulateResponse> {
-    Util.validateModel(request);
+  async onsConsumerAccumulateWithOptions(request: OnsConsumerAccumulateRequest, runtime: $dara.RuntimeOptions): Promise<OnsConsumerAccumulateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.detail)) {
+    if (!$dara.isNull(request.detail)) {
       query["Detail"] = request.detail;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsConsumerAccumulate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9173,7 +10545,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsConsumerAccumulateResponse>(await this.callApi(params, req, runtime), new OnsConsumerAccumulateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsConsumerAccumulateResponse>(await this.callApi(params, req, runtime), new OnsConsumerAccumulateResponse({}));
+    } else {
+      return $dara.cast<OnsConsumerAccumulateResponse>(await this.execute(params, req, runtime), new OnsConsumerAccumulateResponse({}));
+    }
+
   }
 
   /**
@@ -9187,7 +10564,7 @@ export default class Client extends OpenApi {
    * @returns OnsConsumerAccumulateResponse
    */
   async onsConsumerAccumulate(request: OnsConsumerAccumulateRequest): Promise<OnsConsumerAccumulateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsConsumerAccumulateWithOptions(request, runtime);
   }
 
@@ -9202,21 +10579,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsConsumerGetConnectionResponse
    */
-  async onsConsumerGetConnectionWithOptions(request: OnsConsumerGetConnectionRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerGetConnectionResponse> {
-    Util.validateModel(request);
+  async onsConsumerGetConnectionWithOptions(request: OnsConsumerGetConnectionRequest, runtime: $dara.RuntimeOptions): Promise<OnsConsumerGetConnectionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsConsumerGetConnection",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9227,7 +10604,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsConsumerGetConnectionResponse>(await this.callApi(params, req, runtime), new OnsConsumerGetConnectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsConsumerGetConnectionResponse>(await this.callApi(params, req, runtime), new OnsConsumerGetConnectionResponse({}));
+    } else {
+      return $dara.cast<OnsConsumerGetConnectionResponse>(await this.execute(params, req, runtime), new OnsConsumerGetConnectionResponse({}));
+    }
+
   }
 
   /**
@@ -9241,7 +10623,7 @@ export default class Client extends OpenApi {
    * @returns OnsConsumerGetConnectionResponse
    */
   async onsConsumerGetConnection(request: OnsConsumerGetConnectionRequest): Promise<OnsConsumerGetConnectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsConsumerGetConnectionWithOptions(request, runtime);
   }
 
@@ -9258,33 +10640,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsConsumerResetOffsetResponse
    */
-  async onsConsumerResetOffsetWithOptions(request: OnsConsumerResetOffsetRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerResetOffsetResponse> {
-    Util.validateModel(request);
+  async onsConsumerResetOffsetWithOptions(request: OnsConsumerResetOffsetRequest, runtime: $dara.RuntimeOptions): Promise<OnsConsumerResetOffsetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.resetTimestamp)) {
+    if (!$dara.isNull(request.resetTimestamp)) {
       query["ResetTimestamp"] = request.resetTimestamp;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsConsumerResetOffset",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9295,7 +10677,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsConsumerResetOffsetResponse>(await this.callApi(params, req, runtime), new OnsConsumerResetOffsetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsConsumerResetOffsetResponse>(await this.callApi(params, req, runtime), new OnsConsumerResetOffsetResponse({}));
+    } else {
+      return $dara.cast<OnsConsumerResetOffsetResponse>(await this.execute(params, req, runtime), new OnsConsumerResetOffsetResponse({}));
+    }
+
   }
 
   /**
@@ -9311,7 +10698,7 @@ export default class Client extends OpenApi {
    * @returns OnsConsumerResetOffsetResponse
    */
   async onsConsumerResetOffset(request: OnsConsumerResetOffsetRequest): Promise<OnsConsumerResetOffsetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsConsumerResetOffsetWithOptions(request, runtime);
   }
 
@@ -9327,29 +10714,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsConsumerStatusResponse
    */
-  async onsConsumerStatusWithOptions(request: OnsConsumerStatusRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerStatusResponse> {
-    Util.validateModel(request);
+  async onsConsumerStatusWithOptions(request: OnsConsumerStatusRequest, runtime: $dara.RuntimeOptions): Promise<OnsConsumerStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.detail)) {
+    if (!$dara.isNull(request.detail)) {
       query["Detail"] = request.detail;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.needJstack)) {
+    if (!$dara.isNull(request.needJstack)) {
       query["NeedJstack"] = request.needJstack;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsConsumerStatus",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9360,7 +10747,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsConsumerStatusResponse>(await this.callApi(params, req, runtime), new OnsConsumerStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsConsumerStatusResponse>(await this.callApi(params, req, runtime), new OnsConsumerStatusResponse({}));
+    } else {
+      return $dara.cast<OnsConsumerStatusResponse>(await this.execute(params, req, runtime), new OnsConsumerStatusResponse({}));
+    }
+
   }
 
   /**
@@ -9375,7 +10767,7 @@ export default class Client extends OpenApi {
    * @returns OnsConsumerStatusResponse
    */
   async onsConsumerStatus(request: OnsConsumerStatusRequest): Promise<OnsConsumerStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsConsumerStatusWithOptions(request, runtime);
   }
 
@@ -9390,25 +10782,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsConsumerTimeSpanResponse
    */
-  async onsConsumerTimeSpanWithOptions(request: OnsConsumerTimeSpanRequest, runtime: $Util.RuntimeOptions): Promise<OnsConsumerTimeSpanResponse> {
-    Util.validateModel(request);
+  async onsConsumerTimeSpanWithOptions(request: OnsConsumerTimeSpanRequest, runtime: $dara.RuntimeOptions): Promise<OnsConsumerTimeSpanResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsConsumerTimeSpan",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9419,7 +10811,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsConsumerTimeSpanResponse>(await this.callApi(params, req, runtime), new OnsConsumerTimeSpanResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsConsumerTimeSpanResponse>(await this.callApi(params, req, runtime), new OnsConsumerTimeSpanResponse({}));
+    } else {
+      return $dara.cast<OnsConsumerTimeSpanResponse>(await this.execute(params, req, runtime), new OnsConsumerTimeSpanResponse({}));
+    }
+
   }
 
   /**
@@ -9433,7 +10830,7 @@ export default class Client extends OpenApi {
    * @returns OnsConsumerTimeSpanResponse
    */
   async onsConsumerTimeSpan(request: OnsConsumerTimeSpanRequest): Promise<OnsConsumerTimeSpanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsConsumerTimeSpanWithOptions(request, runtime);
   }
 
@@ -9448,25 +10845,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsDLQMessageGetByIdResponse
    */
-  async onsDLQMessageGetByIdWithOptions(request: OnsDLQMessageGetByIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessageGetByIdResponse> {
-    Util.validateModel(request);
+  async onsDLQMessageGetByIdWithOptions(request: OnsDLQMessageGetByIdRequest, runtime: $dara.RuntimeOptions): Promise<OnsDLQMessageGetByIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsDLQMessageGetById",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9477,7 +10874,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsDLQMessageGetByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageGetByIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsDLQMessageGetByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageGetByIdResponse({}));
+    } else {
+      return $dara.cast<OnsDLQMessageGetByIdResponse>(await this.execute(params, req, runtime), new OnsDLQMessageGetByIdResponse({}));
+    }
+
   }
 
   /**
@@ -9491,7 +10893,7 @@ export default class Client extends OpenApi {
    * @returns OnsDLQMessageGetByIdResponse
    */
   async onsDLQMessageGetById(request: OnsDLQMessageGetByIdRequest): Promise<OnsDLQMessageGetByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsDLQMessageGetByIdWithOptions(request, runtime);
   }
 
@@ -9509,41 +10911,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsDLQMessagePageQueryByGroupIdResponse
    */
-  async onsDLQMessagePageQueryByGroupIdWithOptions(request: OnsDLQMessagePageQueryByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessagePageQueryByGroupIdResponse> {
-    Util.validateModel(request);
+  async onsDLQMessagePageQueryByGroupIdWithOptions(request: OnsDLQMessagePageQueryByGroupIdRequest, runtime: $dara.RuntimeOptions): Promise<OnsDLQMessagePageQueryByGroupIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsDLQMessagePageQueryByGroupId",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9554,7 +10956,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsDLQMessagePageQueryByGroupIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessagePageQueryByGroupIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsDLQMessagePageQueryByGroupIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessagePageQueryByGroupIdResponse({}));
+    } else {
+      return $dara.cast<OnsDLQMessagePageQueryByGroupIdResponse>(await this.execute(params, req, runtime), new OnsDLQMessagePageQueryByGroupIdResponse({}));
+    }
+
   }
 
   /**
@@ -9571,7 +10978,7 @@ export default class Client extends OpenApi {
    * @returns OnsDLQMessagePageQueryByGroupIdResponse
    */
   async onsDLQMessagePageQueryByGroupId(request: OnsDLQMessagePageQueryByGroupIdRequest): Promise<OnsDLQMessagePageQueryByGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsDLQMessagePageQueryByGroupIdWithOptions(request, runtime);
   }
 
@@ -9588,25 +10995,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsDLQMessageResendByIdResponse
    */
-  async onsDLQMessageResendByIdWithOptions(request: OnsDLQMessageResendByIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsDLQMessageResendByIdResponse> {
-    Util.validateModel(request);
+  async onsDLQMessageResendByIdWithOptions(request: OnsDLQMessageResendByIdRequest, runtime: $dara.RuntimeOptions): Promise<OnsDLQMessageResendByIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsDLQMessageResendById",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9617,7 +11024,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsDLQMessageResendByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageResendByIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsDLQMessageResendByIdResponse>(await this.callApi(params, req, runtime), new OnsDLQMessageResendByIdResponse({}));
+    } else {
+      return $dara.cast<OnsDLQMessageResendByIdResponse>(await this.execute(params, req, runtime), new OnsDLQMessageResendByIdResponse({}));
+    }
+
   }
 
   /**
@@ -9633,7 +11045,7 @@ export default class Client extends OpenApi {
    * @returns OnsDLQMessageResendByIdResponse
    */
   async onsDLQMessageResendById(request: OnsDLQMessageResendByIdRequest): Promise<OnsDLQMessageResendByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsDLQMessageResendByIdWithOptions(request, runtime);
   }
 
@@ -9648,25 +11060,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsGroupConsumerUpdateResponse
    */
-  async onsGroupConsumerUpdateWithOptions(request: OnsGroupConsumerUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupConsumerUpdateResponse> {
-    Util.validateModel(request);
+  async onsGroupConsumerUpdateWithOptions(request: OnsGroupConsumerUpdateRequest, runtime: $dara.RuntimeOptions): Promise<OnsGroupConsumerUpdateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.readEnable)) {
+    if (!$dara.isNull(request.readEnable)) {
       query["ReadEnable"] = request.readEnable;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsGroupConsumerUpdate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9677,7 +11089,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsGroupConsumerUpdateResponse>(await this.callApi(params, req, runtime), new OnsGroupConsumerUpdateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsGroupConsumerUpdateResponse>(await this.callApi(params, req, runtime), new OnsGroupConsumerUpdateResponse({}));
+    } else {
+      return $dara.cast<OnsGroupConsumerUpdateResponse>(await this.execute(params, req, runtime), new OnsGroupConsumerUpdateResponse({}));
+    }
+
   }
 
   /**
@@ -9691,7 +11108,7 @@ export default class Client extends OpenApi {
    * @returns OnsGroupConsumerUpdateResponse
    */
   async onsGroupConsumerUpdate(request: OnsGroupConsumerUpdateRequest): Promise<OnsGroupConsumerUpdateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsGroupConsumerUpdateWithOptions(request, runtime);
   }
 
@@ -9706,29 +11123,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsGroupCreateResponse
    */
-  async onsGroupCreateWithOptions(request: OnsGroupCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupCreateResponse> {
-    Util.validateModel(request);
+  async onsGroupCreateWithOptions(request: OnsGroupCreateRequest, runtime: $dara.RuntimeOptions): Promise<OnsGroupCreateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.groupType)) {
+    if (!$dara.isNull(request.groupType)) {
       query["GroupType"] = request.groupType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsGroupCreate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9739,7 +11156,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsGroupCreateResponse>(await this.callApi(params, req, runtime), new OnsGroupCreateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsGroupCreateResponse>(await this.callApi(params, req, runtime), new OnsGroupCreateResponse({}));
+    } else {
+      return $dara.cast<OnsGroupCreateResponse>(await this.execute(params, req, runtime), new OnsGroupCreateResponse({}));
+    }
+
   }
 
   /**
@@ -9753,7 +11175,7 @@ export default class Client extends OpenApi {
    * @returns OnsGroupCreateResponse
    */
   async onsGroupCreate(request: OnsGroupCreateRequest): Promise<OnsGroupCreateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsGroupCreateWithOptions(request, runtime);
   }
 
@@ -9770,21 +11192,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsGroupDeleteResponse
    */
-  async onsGroupDeleteWithOptions(request: OnsGroupDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupDeleteResponse> {
-    Util.validateModel(request);
+  async onsGroupDeleteWithOptions(request: OnsGroupDeleteRequest, runtime: $dara.RuntimeOptions): Promise<OnsGroupDeleteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsGroupDelete",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9795,7 +11217,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsGroupDeleteResponse>(await this.callApi(params, req, runtime), new OnsGroupDeleteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsGroupDeleteResponse>(await this.callApi(params, req, runtime), new OnsGroupDeleteResponse({}));
+    } else {
+      return $dara.cast<OnsGroupDeleteResponse>(await this.execute(params, req, runtime), new OnsGroupDeleteResponse({}));
+    }
+
   }
 
   /**
@@ -9811,7 +11238,7 @@ export default class Client extends OpenApi {
    * @returns OnsGroupDeleteResponse
    */
   async onsGroupDelete(request: OnsGroupDeleteRequest): Promise<OnsGroupDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsGroupDeleteWithOptions(request, runtime);
   }
 
@@ -9825,29 +11252,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsGroupListResponse
    */
-  async onsGroupListWithOptions(request: OnsGroupListRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupListResponse> {
-    Util.validateModel(request);
+  async onsGroupListWithOptions(request: OnsGroupListRequest, runtime: $dara.RuntimeOptions): Promise<OnsGroupListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.groupType)) {
+    if (!$dara.isNull(request.groupType)) {
       query["GroupType"] = request.groupType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsGroupList",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9858,7 +11285,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsGroupListResponse>(await this.callApi(params, req, runtime), new OnsGroupListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsGroupListResponse>(await this.callApi(params, req, runtime), new OnsGroupListResponse({}));
+    } else {
+      return $dara.cast<OnsGroupListResponse>(await this.execute(params, req, runtime), new OnsGroupListResponse({}));
+    }
+
   }
 
   /**
@@ -9871,7 +11303,7 @@ export default class Client extends OpenApi {
    * @returns OnsGroupListResponse
    */
   async onsGroupList(request: OnsGroupListRequest): Promise<OnsGroupListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsGroupListWithOptions(request, runtime);
   }
 
@@ -9885,21 +11317,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsGroupSubDetailResponse
    */
-  async onsGroupSubDetailWithOptions(request: OnsGroupSubDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsGroupSubDetailResponse> {
-    Util.validateModel(request);
+  async onsGroupSubDetailWithOptions(request: OnsGroupSubDetailRequest, runtime: $dara.RuntimeOptions): Promise<OnsGroupSubDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsGroupSubDetail",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9910,7 +11342,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsGroupSubDetailResponse>(await this.callApi(params, req, runtime), new OnsGroupSubDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsGroupSubDetailResponse>(await this.callApi(params, req, runtime), new OnsGroupSubDetailResponse({}));
+    } else {
+      return $dara.cast<OnsGroupSubDetailResponse>(await this.execute(params, req, runtime), new OnsGroupSubDetailResponse({}));
+    }
+
   }
 
   /**
@@ -9923,7 +11360,7 @@ export default class Client extends OpenApi {
    * @returns OnsGroupSubDetailResponse
    */
   async onsGroupSubDetail(request: OnsGroupSubDetailRequest): Promise<OnsGroupSubDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsGroupSubDetailWithOptions(request, runtime);
   }
 
@@ -9938,17 +11375,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsInstanceBaseInfoResponse
    */
-  async onsInstanceBaseInfoWithOptions(request: OnsInstanceBaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceBaseInfoResponse> {
-    Util.validateModel(request);
+  async onsInstanceBaseInfoWithOptions(request: OnsInstanceBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<OnsInstanceBaseInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsInstanceBaseInfo",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -9959,7 +11396,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsInstanceBaseInfoResponse>(await this.callApi(params, req, runtime), new OnsInstanceBaseInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsInstanceBaseInfoResponse>(await this.callApi(params, req, runtime), new OnsInstanceBaseInfoResponse({}));
+    } else {
+      return $dara.cast<OnsInstanceBaseInfoResponse>(await this.execute(params, req, runtime), new OnsInstanceBaseInfoResponse({}));
+    }
+
   }
 
   /**
@@ -9973,7 +11415,7 @@ export default class Client extends OpenApi {
    * @returns OnsInstanceBaseInfoResponse
    */
   async onsInstanceBaseInfo(request: OnsInstanceBaseInfoRequest): Promise<OnsInstanceBaseInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsInstanceBaseInfoWithOptions(request, runtime);
   }
 
@@ -9990,21 +11432,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsInstanceCreateResponse
    */
-  async onsInstanceCreateWithOptions(request: OnsInstanceCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceCreateResponse> {
-    Util.validateModel(request);
+  async onsInstanceCreateWithOptions(request: OnsInstanceCreateRequest, runtime: $dara.RuntimeOptions): Promise<OnsInstanceCreateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsInstanceCreate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10015,7 +11457,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsInstanceCreateResponse>(await this.callApi(params, req, runtime), new OnsInstanceCreateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsInstanceCreateResponse>(await this.callApi(params, req, runtime), new OnsInstanceCreateResponse({}));
+    } else {
+      return $dara.cast<OnsInstanceCreateResponse>(await this.execute(params, req, runtime), new OnsInstanceCreateResponse({}));
+    }
+
   }
 
   /**
@@ -10031,7 +11478,7 @@ export default class Client extends OpenApi {
    * @returns OnsInstanceCreateResponse
    */
   async onsInstanceCreate(request: OnsInstanceCreateRequest): Promise<OnsInstanceCreateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsInstanceCreateWithOptions(request, runtime);
   }
 
@@ -10047,17 +11494,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsInstanceDeleteResponse
    */
-  async onsInstanceDeleteWithOptions(request: OnsInstanceDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceDeleteResponse> {
-    Util.validateModel(request);
+  async onsInstanceDeleteWithOptions(request: OnsInstanceDeleteRequest, runtime: $dara.RuntimeOptions): Promise<OnsInstanceDeleteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsInstanceDelete",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10068,7 +11515,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsInstanceDeleteResponse>(await this.callApi(params, req, runtime), new OnsInstanceDeleteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsInstanceDeleteResponse>(await this.callApi(params, req, runtime), new OnsInstanceDeleteResponse({}));
+    } else {
+      return $dara.cast<OnsInstanceDeleteResponse>(await this.execute(params, req, runtime), new OnsInstanceDeleteResponse({}));
+    }
+
   }
 
   /**
@@ -10083,7 +11535,7 @@ export default class Client extends OpenApi {
    * @returns OnsInstanceDeleteResponse
    */
   async onsInstanceDelete(request: OnsInstanceDeleteRequest): Promise<OnsInstanceDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsInstanceDeleteWithOptions(request, runtime);
   }
 
@@ -10097,21 +11549,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsInstanceInServiceListResponse
    */
-  async onsInstanceInServiceListWithOptions(request: OnsInstanceInServiceListRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceInServiceListResponse> {
-    Util.validateModel(request);
+  async onsInstanceInServiceListWithOptions(request: OnsInstanceInServiceListRequest, runtime: $dara.RuntimeOptions): Promise<OnsInstanceInServiceListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.needResourceInfo)) {
+    if (!$dara.isNull(request.needResourceInfo)) {
       query["NeedResourceInfo"] = request.needResourceInfo;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsInstanceInServiceList",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10122,7 +11574,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsInstanceInServiceListResponse>(await this.callApi(params, req, runtime), new OnsInstanceInServiceListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsInstanceInServiceListResponse>(await this.callApi(params, req, runtime), new OnsInstanceInServiceListResponse({}));
+    } else {
+      return $dara.cast<OnsInstanceInServiceListResponse>(await this.execute(params, req, runtime), new OnsInstanceInServiceListResponse({}));
+    }
+
   }
 
   /**
@@ -10135,7 +11592,7 @@ export default class Client extends OpenApi {
    * @returns OnsInstanceInServiceListResponse
    */
   async onsInstanceInServiceList(request: OnsInstanceInServiceListRequest): Promise<OnsInstanceInServiceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsInstanceInServiceListWithOptions(request, runtime);
   }
 
@@ -10150,25 +11607,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsInstanceUpdateResponse
    */
-  async onsInstanceUpdateWithOptions(request: OnsInstanceUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsInstanceUpdateResponse> {
-    Util.validateModel(request);
+  async onsInstanceUpdateWithOptions(request: OnsInstanceUpdateRequest, runtime: $dara.RuntimeOptions): Promise<OnsInstanceUpdateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsInstanceUpdate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10179,7 +11636,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsInstanceUpdateResponse>(await this.callApi(params, req, runtime), new OnsInstanceUpdateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsInstanceUpdateResponse>(await this.callApi(params, req, runtime), new OnsInstanceUpdateResponse({}));
+    } else {
+      return $dara.cast<OnsInstanceUpdateResponse>(await this.execute(params, req, runtime), new OnsInstanceUpdateResponse({}));
+    }
+
   }
 
   /**
@@ -10193,7 +11655,7 @@ export default class Client extends OpenApi {
    * @returns OnsInstanceUpdateResponse
    */
   async onsInstanceUpdate(request: OnsInstanceUpdateRequest): Promise<OnsInstanceUpdateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsInstanceUpdateWithOptions(request, runtime);
   }
 
@@ -10207,13 +11669,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessageDetailResponse
    */
-  async onsMessageDetailWithOptions(request: OnsMessageDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async onsMessageDetailWithOptions(request: OnsMessageDetailRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessageDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessageDetail",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10224,7 +11686,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessageDetailResponse>(await this.callApi(params, req, runtime), new OnsMessageDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessageDetailResponse>(await this.callApi(params, req, runtime), new OnsMessageDetailResponse({}));
+    } else {
+      return $dara.cast<OnsMessageDetailResponse>(await this.execute(params, req, runtime), new OnsMessageDetailResponse({}));
+    }
+
   }
 
   /**
@@ -10237,7 +11704,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessageDetailResponse
    */
   async onsMessageDetail(request: OnsMessageDetailRequest): Promise<OnsMessageDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessageDetailWithOptions(request, runtime);
   }
 
@@ -10255,25 +11722,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessageGetByKeyResponse
    */
-  async onsMessageGetByKeyWithOptions(request: OnsMessageGetByKeyRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageGetByKeyResponse> {
-    Util.validateModel(request);
+  async onsMessageGetByKeyWithOptions(request: OnsMessageGetByKeyRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessageGetByKeyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.key)) {
+    if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessageGetByKey",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10284,7 +11751,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessageGetByKeyResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByKeyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessageGetByKeyResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByKeyResponse({}));
+    } else {
+      return $dara.cast<OnsMessageGetByKeyResponse>(await this.execute(params, req, runtime), new OnsMessageGetByKeyResponse({}));
+    }
+
   }
 
   /**
@@ -10301,7 +11773,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessageGetByKeyResponse
    */
   async onsMessageGetByKey(request: OnsMessageGetByKeyRequest): Promise<OnsMessageGetByKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessageGetByKeyWithOptions(request, runtime);
   }
 
@@ -10317,25 +11789,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessageGetByMsgIdResponse
    */
-  async onsMessageGetByMsgIdWithOptions(request: OnsMessageGetByMsgIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageGetByMsgIdResponse> {
-    Util.validateModel(request);
+  async onsMessageGetByMsgIdWithOptions(request: OnsMessageGetByMsgIdRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessageGetByMsgIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessageGetByMsgId",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10346,7 +11818,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessageGetByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByMsgIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessageGetByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsMessageGetByMsgIdResponse({}));
+    } else {
+      return $dara.cast<OnsMessageGetByMsgIdResponse>(await this.execute(params, req, runtime), new OnsMessageGetByMsgIdResponse({}));
+    }
+
   }
 
   /**
@@ -10361,7 +11838,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessageGetByMsgIdResponse
    */
   async onsMessageGetByMsgId(request: OnsMessageGetByMsgIdRequest): Promise<OnsMessageGetByMsgIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessageGetByMsgIdWithOptions(request, runtime);
   }
 
@@ -10379,41 +11856,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessagePageQueryByTopicResponse
    */
-  async onsMessagePageQueryByTopicWithOptions(request: OnsMessagePageQueryByTopicRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessagePageQueryByTopicResponse> {
-    Util.validateModel(request);
+  async onsMessagePageQueryByTopicWithOptions(request: OnsMessagePageQueryByTopicRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessagePageQueryByTopicResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessagePageQueryByTopic",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10424,7 +11901,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessagePageQueryByTopicResponse>(await this.callApi(params, req, runtime), new OnsMessagePageQueryByTopicResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessagePageQueryByTopicResponse>(await this.callApi(params, req, runtime), new OnsMessagePageQueryByTopicResponse({}));
+    } else {
+      return $dara.cast<OnsMessagePageQueryByTopicResponse>(await this.execute(params, req, runtime), new OnsMessagePageQueryByTopicResponse({}));
+    }
+
   }
 
   /**
@@ -10441,7 +11923,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessagePageQueryByTopicResponse
    */
   async onsMessagePageQueryByTopic(request: OnsMessagePageQueryByTopicRequest): Promise<OnsMessagePageQueryByTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessagePageQueryByTopicWithOptions(request, runtime);
   }
 
@@ -10456,33 +11938,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessagePushResponse
    */
-  async onsMessagePushWithOptions(request: OnsMessagePushRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessagePushResponse> {
-    Util.validateModel(request);
+  async onsMessagePushWithOptions(request: OnsMessagePushRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessagePushResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessagePush",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10493,7 +11975,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessagePushResponse>(await this.callApi(params, req, runtime), new OnsMessagePushResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessagePushResponse>(await this.callApi(params, req, runtime), new OnsMessagePushResponse({}));
+    } else {
+      return $dara.cast<OnsMessagePushResponse>(await this.execute(params, req, runtime), new OnsMessagePushResponse({}));
+    }
+
   }
 
   /**
@@ -10507,7 +11994,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessagePushResponse
    */
   async onsMessagePush(request: OnsMessagePushRequest): Promise<OnsMessagePushResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessagePushWithOptions(request, runtime);
   }
 
@@ -10523,25 +12010,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsMessageTraceResponse
    */
-  async onsMessageTraceWithOptions(request: OnsMessageTraceRequest, runtime: $Util.RuntimeOptions): Promise<OnsMessageTraceResponse> {
-    Util.validateModel(request);
+  async onsMessageTraceWithOptions(request: OnsMessageTraceRequest, runtime: $dara.RuntimeOptions): Promise<OnsMessageTraceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsMessageTrace",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10552,7 +12039,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsMessageTraceResponse>(await this.callApi(params, req, runtime), new OnsMessageTraceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsMessageTraceResponse>(await this.callApi(params, req, runtime), new OnsMessageTraceResponse({}));
+    } else {
+      return $dara.cast<OnsMessageTraceResponse>(await this.execute(params, req, runtime), new OnsMessageTraceResponse({}));
+    }
+
   }
 
   /**
@@ -10567,7 +12059,7 @@ export default class Client extends OpenApi {
    * @returns OnsMessageTraceResponse
    */
   async onsMessageTrace(request: OnsMessageTraceRequest): Promise<OnsMessageTraceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsMessageTraceWithOptions(request, runtime);
   }
 
@@ -10584,9 +12076,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsRegionListResponse
    */
-  async onsRegionListWithOptions(runtime: $Util.RuntimeOptions): Promise<OnsRegionListResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async onsRegionListWithOptions(runtime: $dara.RuntimeOptions): Promise<OnsRegionListResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "OnsRegionList",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10597,7 +12089,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsRegionListResponse>(await this.callApi(params, req, runtime), new OnsRegionListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsRegionListResponse>(await this.callApi(params, req, runtime), new OnsRegionListResponse({}));
+    } else {
+      return $dara.cast<OnsRegionListResponse>(await this.execute(params, req, runtime), new OnsRegionListResponse({}));
+    }
+
   }
 
   /**
@@ -10611,7 +12108,7 @@ export default class Client extends OpenApi {
    * @returns OnsRegionListResponse
    */
   async onsRegionList(): Promise<OnsRegionListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsRegionListWithOptions(runtime);
   }
 
@@ -10626,29 +12123,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTopicCreateResponse
    */
-  async onsTopicCreateWithOptions(request: OnsTopicCreateRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicCreateResponse> {
-    Util.validateModel(request);
+  async onsTopicCreateWithOptions(request: OnsTopicCreateRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicCreateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.messageType)) {
+    if (!$dara.isNull(request.messageType)) {
       query["MessageType"] = request.messageType;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicCreate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10659,7 +12156,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicCreateResponse>(await this.callApi(params, req, runtime), new OnsTopicCreateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicCreateResponse>(await this.callApi(params, req, runtime), new OnsTopicCreateResponse({}));
+    } else {
+      return $dara.cast<OnsTopicCreateResponse>(await this.execute(params, req, runtime), new OnsTopicCreateResponse({}));
+    }
+
   }
 
   /**
@@ -10673,7 +12175,7 @@ export default class Client extends OpenApi {
    * @returns OnsTopicCreateResponse
    */
   async onsTopicCreate(request: OnsTopicCreateRequest): Promise<OnsTopicCreateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicCreateWithOptions(request, runtime);
   }
 
@@ -10688,21 +12190,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTopicDeleteResponse
    */
-  async onsTopicDeleteWithOptions(request: OnsTopicDeleteRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicDeleteResponse> {
-    Util.validateModel(request);
+  async onsTopicDeleteWithOptions(request: OnsTopicDeleteRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicDeleteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicDelete",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10713,7 +12215,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicDeleteResponse>(await this.callApi(params, req, runtime), new OnsTopicDeleteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicDeleteResponse>(await this.callApi(params, req, runtime), new OnsTopicDeleteResponse({}));
+    } else {
+      return $dara.cast<OnsTopicDeleteResponse>(await this.execute(params, req, runtime), new OnsTopicDeleteResponse({}));
+    }
+
   }
 
   /**
@@ -10727,7 +12234,7 @@ export default class Client extends OpenApi {
    * @returns OnsTopicDeleteResponse
    */
   async onsTopicDelete(request: OnsTopicDeleteRequest): Promise<OnsTopicDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicDeleteWithOptions(request, runtime);
   }
 
@@ -10742,29 +12249,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTopicListResponse
    */
-  async onsTopicListWithOptions(request: OnsTopicListRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicListResponse> {
-    Util.validateModel(request);
+  async onsTopicListWithOptions(request: OnsTopicListRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicList",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10775,7 +12282,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicListResponse>(await this.callApi(params, req, runtime), new OnsTopicListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicListResponse>(await this.callApi(params, req, runtime), new OnsTopicListResponse({}));
+    } else {
+      return $dara.cast<OnsTopicListResponse>(await this.execute(params, req, runtime), new OnsTopicListResponse({}));
+    }
+
   }
 
   /**
@@ -10789,7 +12301,7 @@ export default class Client extends OpenApi {
    * @returns OnsTopicListResponse
    */
   async onsTopicList(request: OnsTopicListRequest): Promise<OnsTopicListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicListWithOptions(request, runtime);
   }
 
@@ -10804,21 +12316,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTopicStatusResponse
    */
-  async onsTopicStatusWithOptions(request: OnsTopicStatusRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicStatusResponse> {
-    Util.validateModel(request);
+  async onsTopicStatusWithOptions(request: OnsTopicStatusRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicStatus",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10829,7 +12341,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicStatusResponse>(await this.callApi(params, req, runtime), new OnsTopicStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicStatusResponse>(await this.callApi(params, req, runtime), new OnsTopicStatusResponse({}));
+    } else {
+      return $dara.cast<OnsTopicStatusResponse>(await this.execute(params, req, runtime), new OnsTopicStatusResponse({}));
+    }
+
   }
 
   /**
@@ -10843,7 +12360,7 @@ export default class Client extends OpenApi {
    * @returns OnsTopicStatusResponse
    */
   async onsTopicStatus(request: OnsTopicStatusRequest): Promise<OnsTopicStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicStatusWithOptions(request, runtime);
   }
 
@@ -10858,21 +12375,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTopicSubDetailResponse
    */
-  async onsTopicSubDetailWithOptions(request: OnsTopicSubDetailRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicSubDetailResponse> {
-    Util.validateModel(request);
+  async onsTopicSubDetailWithOptions(request: OnsTopicSubDetailRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicSubDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicSubDetail",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10883,7 +12400,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicSubDetailResponse>(await this.callApi(params, req, runtime), new OnsTopicSubDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicSubDetailResponse>(await this.callApi(params, req, runtime), new OnsTopicSubDetailResponse({}));
+    } else {
+      return $dara.cast<OnsTopicSubDetailResponse>(await this.execute(params, req, runtime), new OnsTopicSubDetailResponse({}));
+    }
+
   }
 
   /**
@@ -10897,7 +12419,7 @@ export default class Client extends OpenApi {
    * @returns OnsTopicSubDetailResponse
    */
   async onsTopicSubDetail(request: OnsTopicSubDetailRequest): Promise<OnsTopicSubDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicSubDetailWithOptions(request, runtime);
   }
 
@@ -10915,25 +12437,25 @@ export default class Client extends OpenApi {
    * @returns OnsTopicUpdateResponse
    */
   // Deprecated
-  async onsTopicUpdateWithOptions(request: OnsTopicUpdateRequest, runtime: $Util.RuntimeOptions): Promise<OnsTopicUpdateResponse> {
-    Util.validateModel(request);
+  async onsTopicUpdateWithOptions(request: OnsTopicUpdateRequest, runtime: $dara.RuntimeOptions): Promise<OnsTopicUpdateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.perm)) {
+    if (!$dara.isNull(request.perm)) {
       query["Perm"] = request.perm;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTopicUpdate",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -10944,7 +12466,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTopicUpdateResponse>(await this.callApi(params, req, runtime), new OnsTopicUpdateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTopicUpdateResponse>(await this.callApi(params, req, runtime), new OnsTopicUpdateResponse({}));
+    } else {
+      return $dara.cast<OnsTopicUpdateResponse>(await this.execute(params, req, runtime), new OnsTopicUpdateResponse({}));
+    }
+
   }
 
   /**
@@ -10961,7 +12488,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async onsTopicUpdate(request: OnsTopicUpdateRequest): Promise<OnsTopicUpdateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTopicUpdateWithOptions(request, runtime);
   }
 
@@ -10977,25 +12504,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTraceGetResultResponse
    */
-  async onsTraceGetResultWithOptions(request: OnsTraceGetResultRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceGetResultResponse> {
-    Util.validateModel(request);
+  async onsTraceGetResultWithOptions(request: OnsTraceGetResultRequest, runtime: $dara.RuntimeOptions): Promise<OnsTraceGetResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.queryId)) {
+    if (!$dara.isNull(request.queryId)) {
       query["QueryId"] = request.queryId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTraceGetResult",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11006,7 +12533,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTraceGetResultResponse>(await this.callApi(params, req, runtime), new OnsTraceGetResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTraceGetResultResponse>(await this.callApi(params, req, runtime), new OnsTraceGetResultResponse({}));
+    } else {
+      return $dara.cast<OnsTraceGetResultResponse>(await this.execute(params, req, runtime), new OnsTraceGetResultResponse({}));
+    }
+
   }
 
   /**
@@ -11021,7 +12553,7 @@ export default class Client extends OpenApi {
    * @returns OnsTraceGetResultResponse
    */
   async onsTraceGetResult(request: OnsTraceGetResultRequest): Promise<OnsTraceGetResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTraceGetResultWithOptions(request, runtime);
   }
 
@@ -11036,33 +12568,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTraceQueryByMsgIdResponse
    */
-  async onsTraceQueryByMsgIdWithOptions(request: OnsTraceQueryByMsgIdRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceQueryByMsgIdResponse> {
-    Util.validateModel(request);
+  async onsTraceQueryByMsgIdWithOptions(request: OnsTraceQueryByMsgIdRequest, runtime: $dara.RuntimeOptions): Promise<OnsTraceQueryByMsgIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgId)) {
+    if (!$dara.isNull(request.msgId)) {
       query["MsgId"] = request.msgId;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTraceQueryByMsgId",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11073,7 +12605,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTraceQueryByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTraceQueryByMsgIdResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgIdResponse({}));
+    } else {
+      return $dara.cast<OnsTraceQueryByMsgIdResponse>(await this.execute(params, req, runtime), new OnsTraceQueryByMsgIdResponse({}));
+    }
+
   }
 
   /**
@@ -11087,7 +12624,7 @@ export default class Client extends OpenApi {
    * @returns OnsTraceQueryByMsgIdResponse
    */
   async onsTraceQueryByMsgId(request: OnsTraceQueryByMsgIdRequest): Promise<OnsTraceQueryByMsgIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTraceQueryByMsgIdWithOptions(request, runtime);
   }
 
@@ -11102,33 +12639,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTraceQueryByMsgKeyResponse
    */
-  async onsTraceQueryByMsgKeyWithOptions(request: OnsTraceQueryByMsgKeyRequest, runtime: $Util.RuntimeOptions): Promise<OnsTraceQueryByMsgKeyResponse> {
-    Util.validateModel(request);
+  async onsTraceQueryByMsgKeyWithOptions(request: OnsTraceQueryByMsgKeyRequest, runtime: $dara.RuntimeOptions): Promise<OnsTraceQueryByMsgKeyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.msgKey)) {
+    if (!$dara.isNull(request.msgKey)) {
       query["MsgKey"] = request.msgKey;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTraceQueryByMsgKey",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11139,7 +12676,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTraceQueryByMsgKeyResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgKeyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTraceQueryByMsgKeyResponse>(await this.callApi(params, req, runtime), new OnsTraceQueryByMsgKeyResponse({}));
+    } else {
+      return $dara.cast<OnsTraceQueryByMsgKeyResponse>(await this.execute(params, req, runtime), new OnsTraceQueryByMsgKeyResponse({}));
+    }
+
   }
 
   /**
@@ -11153,7 +12695,7 @@ export default class Client extends OpenApi {
    * @returns OnsTraceQueryByMsgKeyResponse
    */
   async onsTraceQueryByMsgKey(request: OnsTraceQueryByMsgKeyRequest): Promise<OnsTraceQueryByMsgKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTraceQueryByMsgKeyWithOptions(request, runtime);
   }
 
@@ -11171,41 +12713,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTrendGroupOutputTpsResponse
    */
-  async onsTrendGroupOutputTpsWithOptions(request: OnsTrendGroupOutputTpsRequest, runtime: $Util.RuntimeOptions): Promise<OnsTrendGroupOutputTpsResponse> {
-    Util.validateModel(request);
+  async onsTrendGroupOutputTpsWithOptions(request: OnsTrendGroupOutputTpsRequest, runtime: $dara.RuntimeOptions): Promise<OnsTrendGroupOutputTpsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTrendGroupOutputTps",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11216,7 +12758,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTrendGroupOutputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendGroupOutputTpsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTrendGroupOutputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendGroupOutputTpsResponse({}));
+    } else {
+      return $dara.cast<OnsTrendGroupOutputTpsResponse>(await this.execute(params, req, runtime), new OnsTrendGroupOutputTpsResponse({}));
+    }
+
   }
 
   /**
@@ -11233,7 +12780,7 @@ export default class Client extends OpenApi {
    * @returns OnsTrendGroupOutputTpsResponse
    */
   async onsTrendGroupOutputTps(request: OnsTrendGroupOutputTpsRequest): Promise<OnsTrendGroupOutputTpsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTrendGroupOutputTpsWithOptions(request, runtime);
   }
 
@@ -11249,37 +12796,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OnsTrendTopicInputTpsResponse
    */
-  async onsTrendTopicInputTpsWithOptions(request: OnsTrendTopicInputTpsRequest, runtime: $Util.RuntimeOptions): Promise<OnsTrendTopicInputTpsResponse> {
-    Util.validateModel(request);
+  async onsTrendTopicInputTpsWithOptions(request: OnsTrendTopicInputTpsRequest, runtime: $dara.RuntimeOptions): Promise<OnsTrendTopicInputTpsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.topic)) {
+    if (!$dara.isNull(request.topic)) {
       query["Topic"] = request.topic;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OnsTrendTopicInputTps",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11290,7 +12837,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OnsTrendTopicInputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendTopicInputTpsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OnsTrendTopicInputTpsResponse>(await this.callApi(params, req, runtime), new OnsTrendTopicInputTpsResponse({}));
+    } else {
+      return $dara.cast<OnsTrendTopicInputTpsResponse>(await this.execute(params, req, runtime), new OnsTrendTopicInputTpsResponse({}));
+    }
+
   }
 
   /**
@@ -11305,7 +12857,7 @@ export default class Client extends OpenApi {
    * @returns OnsTrendTopicInputTpsResponse
    */
   async onsTrendTopicInputTps(request: OnsTrendTopicInputTpsRequest): Promise<OnsTrendTopicInputTpsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.onsTrendTopicInputTpsWithOptions(request, runtime);
   }
 
@@ -11321,9 +12873,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenOnsServiceResponse
    */
-  async openOnsServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<OpenOnsServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async openOnsServiceWithOptions(runtime: $dara.RuntimeOptions): Promise<OpenOnsServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "OpenOnsService",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11334,7 +12886,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OpenOnsServiceResponse>(await this.callApi(params, req, runtime), new OpenOnsServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OpenOnsServiceResponse>(await this.callApi(params, req, runtime), new OpenOnsServiceResponse({}));
+    } else {
+      return $dara.cast<OpenOnsServiceResponse>(await this.execute(params, req, runtime), new OpenOnsServiceResponse({}));
+    }
+
   }
 
   /**
@@ -11347,7 +12904,7 @@ export default class Client extends OpenApi {
    * @returns OpenOnsServiceResponse
    */
   async openOnsService(): Promise<OpenOnsServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.openOnsServiceWithOptions(runtime);
   }
 
@@ -11362,29 +12919,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11395,7 +12952,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -11409,7 +12971,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -11423,33 +12985,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2019-02-14",
       protocol: "HTTPS",
@@ -11460,7 +13022,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -11473,7 +13040,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
