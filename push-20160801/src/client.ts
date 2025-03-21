@@ -418,17 +418,18 @@ export class MassPushRequestPushTask extends $dara.Model {
   /**
    * @example
    * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+   * 
+   * @deprecated
    */
   androidXiaomiBigPictureUrl?: string;
   /**
    * @example
    * https://imag.example.com/image.png
+   * 
+   * @deprecated
    */
   androidXiaomiImageUrl?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * hello
    */
@@ -551,6 +552,13 @@ export class MassPushRequestPushTask extends $dara.Model {
    * active
    */
   iOSInterruptionLevel?: string;
+  iOSLiveActivityAttributes?: string;
+  iOSLiveActivityAttributesType?: string;
+  iOSLiveActivityContentState?: string;
+  iOSLiveActivityDismissalDate?: number;
+  iOSLiveActivityEvent?: string;
+  iOSLiveActivityId?: string;
+  iOSLiveActivityStaleDate?: number;
   /**
    * @example
    * ””
@@ -681,6 +689,13 @@ export class MassPushRequestPushTask extends $dara.Model {
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
       iOSExtParameters: 'iOSExtParameters',
       iOSInterruptionLevel: 'iOSInterruptionLevel',
+      iOSLiveActivityAttributes: 'iOSLiveActivityAttributes',
+      iOSLiveActivityAttributesType: 'iOSLiveActivityAttributesType',
+      iOSLiveActivityContentState: 'iOSLiveActivityContentState',
+      iOSLiveActivityDismissalDate: 'iOSLiveActivityDismissalDate',
+      iOSLiveActivityEvent: 'iOSLiveActivityEvent',
+      iOSLiveActivityId: 'iOSLiveActivityId',
+      iOSLiveActivityStaleDate: 'iOSLiveActivityStaleDate',
       iOSMusic: 'iOSMusic',
       iOSMutableContent: 'iOSMutableContent',
       iOSNotificationCategory: 'iOSNotificationCategory',
@@ -778,6 +793,13 @@ export class MassPushRequestPushTask extends $dara.Model {
       iOSBadgeAutoIncrement: 'boolean',
       iOSExtParameters: 'string',
       iOSInterruptionLevel: 'string',
+      iOSLiveActivityAttributes: 'string',
+      iOSLiveActivityAttributesType: 'string',
+      iOSLiveActivityContentState: 'string',
+      iOSLiveActivityDismissalDate: 'number',
+      iOSLiveActivityEvent: 'string',
+      iOSLiveActivityId: 'string',
+      iOSLiveActivityStaleDate: 'number',
       iOSMusic: 'string',
       iOSMutableContent: 'boolean',
       iOSNotificationCategory: 'string',
@@ -3031,11 +3053,15 @@ export class PushRequest extends $dara.Model {
   /**
    * @example
    * https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
+   * 
+   * @deprecated
    */
   androidXiaomiBigPictureUrl?: string;
   /**
    * @example
    * https://imag.example.com/image.png
+   * 
+   * @deprecated
    */
   androidXiaomiImageUrl?: string;
   /**
@@ -3047,9 +3073,6 @@ export class PushRequest extends $dara.Model {
    */
   appKey?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * hello
    */
@@ -3190,6 +3213,13 @@ export class PushRequest extends $dara.Model {
    * active
    */
   iOSInterruptionLevel?: string;
+  iOSLiveActivityAttributes?: string;
+  iOSLiveActivityAttributesType?: string;
+  iOSLiveActivityContentState?: string;
+  iOSLiveActivityDismissalDate?: number;
+  iOSLiveActivityEvent?: string;
+  iOSLiveActivityId?: string;
+  iOSLiveActivityStaleDate?: number;
   /**
    * @example
    * ""
@@ -3327,6 +3357,13 @@ export class PushRequest extends $dara.Model {
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
       iOSExtParameters: 'iOSExtParameters',
       iOSInterruptionLevel: 'iOSInterruptionLevel',
+      iOSLiveActivityAttributes: 'iOSLiveActivityAttributes',
+      iOSLiveActivityAttributesType: 'iOSLiveActivityAttributesType',
+      iOSLiveActivityContentState: 'iOSLiveActivityContentState',
+      iOSLiveActivityDismissalDate: 'iOSLiveActivityDismissalDate',
+      iOSLiveActivityEvent: 'iOSLiveActivityEvent',
+      iOSLiveActivityId: 'iOSLiveActivityId',
+      iOSLiveActivityStaleDate: 'iOSLiveActivityStaleDate',
       iOSMusic: 'iOSMusic',
       iOSMutableContent: 'iOSMutableContent',
       iOSNotificationCategory: 'iOSNotificationCategory',
@@ -3431,6 +3468,13 @@ export class PushRequest extends $dara.Model {
       iOSBadgeAutoIncrement: 'boolean',
       iOSExtParameters: 'string',
       iOSInterruptionLevel: 'string',
+      iOSLiveActivityAttributes: 'string',
+      iOSLiveActivityAttributesType: 'string',
+      iOSLiveActivityContentState: 'string',
+      iOSLiveActivityDismissalDate: 'number',
+      iOSLiveActivityEvent: 'string',
+      iOSLiveActivityId: 'string',
+      iOSLiveActivityStaleDate: 'number',
       iOSMusic: 'string',
       iOSMutableContent: 'boolean',
       iOSNotificationCategory: 'string',
@@ -6889,6 +6933,34 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.iOSInterruptionLevel)) {
       query["iOSInterruptionLevel"] = request.iOSInterruptionLevel;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityAttributes)) {
+      query["iOSLiveActivityAttributes"] = request.iOSLiveActivityAttributes;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityAttributesType)) {
+      query["iOSLiveActivityAttributesType"] = request.iOSLiveActivityAttributesType;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityContentState)) {
+      query["iOSLiveActivityContentState"] = request.iOSLiveActivityContentState;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityDismissalDate)) {
+      query["iOSLiveActivityDismissalDate"] = request.iOSLiveActivityDismissalDate;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityEvent)) {
+      query["iOSLiveActivityEvent"] = request.iOSLiveActivityEvent;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityId)) {
+      query["iOSLiveActivityId"] = request.iOSLiveActivityId;
+    }
+
+    if (!$dara.isNull(request.iOSLiveActivityStaleDate)) {
+      query["iOSLiveActivityStaleDate"] = request.iOSLiveActivityStaleDate;
     }
 
     if (!$dara.isNull(request.iOSMusic)) {
