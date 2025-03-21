@@ -1516,6 +1516,69 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   }
 }
 
+export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-wulanchabu-b
+   */
+  az?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i191887641687336652616
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mock-machine-type3
+   */
+  machineType?: string;
+  nodeGroupDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PAI-LINGJUN
+   */
+  nodeGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      az: 'Az',
+      imageId: 'ImageId',
+      machineType: 'MachineType',
+      nodeGroupDescription: 'NodeGroupDescription',
+      nodeGroupName: 'NodeGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      az: 'string',
+      imageId: 'string',
+      machineType: 'string',
+      nodeGroupDescription: 'string',
+      nodeGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
@@ -3756,6 +3819,8 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * sn_tOuUk
    */
   sn?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   /**
    * @remarks
    * Zone ID
@@ -3778,6 +3843,8 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeId: 'NodeId',
       operatingState: 'OperatingState',
       sn: 'Sn',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
   }
@@ -3796,6 +3863,8 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeId: 'string',
       operatingState: 'string',
       sn: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
       zoneId: 'string',
     };
   }
@@ -5730,7 +5799,7 @@ export class ApproveOperationResponse extends $dara.Model {
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Target Resource Group
+   * System-defined parameter. Value: **ChangeResourceGroup**.
    * 
    * This parameter is required.
    * 
@@ -5740,7 +5809,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Resource ID
+   * $.parameters[1].schema.example
    * 
    * This parameter is required.
    * 
@@ -5750,7 +5819,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * Region ID
+   * Resource Group Change
    * 
    * This parameter is required.
    * 
@@ -5758,6 +5827,13 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * cn-wulanchabu
    */
   resourceRegionId?: string;
+  /**
+   * @remarks
+   * $.parameters[3].schema.enumValueTitles
+   * 
+   * @example
+   * Node
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5789,7 +5865,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
 export class ChangeResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
@@ -6786,6 +6862,171 @@ export class CreateNetTestTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateNodeGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i118191731740041623425
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  nodeGroup?: CreateNodeGroupRequestNodeGroup;
+  nodeUnit?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodeGroup: 'NodeGroup',
+      nodeUnit: 'NodeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodeGroup: CreateNodeGroupRequestNodeGroup,
+      nodeUnit: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.nodeGroup && typeof (this.nodeGroup as any).validate === 'function') {
+      (this.nodeGroup as any).validate();
+    }
+    if(this.nodeUnit) {
+      $dara.Model.validateMap(this.nodeUnit);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNodeGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i118191731740041623425
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  nodeGroupShrink?: string;
+  nodeUnitShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodeGroupShrink: 'NodeGroup',
+      nodeUnitShrink: 'NodeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodeGroupShrink: 'string',
+      nodeUnitShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNodeGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ng-ec3c96ff0aa4c60d
+   */
+  nodeGroupId?: string;
+  /**
+   * @example
+   * emr-default
+   */
+  nodeGroupName?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeGroupId: 'NodeGroupId',
+      nodeGroupName: 'NodeGroupName',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeGroupId: 'string',
+      nodeGroupName: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNodeGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNodeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNodeGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSessionRequest extends $dara.Model {
   /**
    * @remarks
@@ -7022,6 +7263,105 @@ export class DeleteClusterResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNodeGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * i114444141733395242745
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * i121824791737080429819
+   */
+  nodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodeGroupId: 'NodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodeGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNodeGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNodeGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNodeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNodeGroupResponseBody,
     };
   }
 
@@ -7289,6 +7629,149 @@ export class DescribeClusterResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticResultRequest extends $dara.Model {
+  /**
+   * @example
+   * diag-i151942361720577788844
+   */
+  diagnosticId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticId: 'DiagnosticId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * i118913031696573280136
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * 2024-06-15T10:17:56
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * diag-i155363241720059671316
+   */
+  diagnosticId?: string;
+  diagnosticResults?: any[];
+  /**
+   * @example
+   * Fault
+   */
+  diagnosticState?: string;
+  /**
+   * @example
+   * CheckByAiJobLogs
+   */
+  diagnosticType?: string;
+  /**
+   * @example
+   * 2024-06-11T10:00:30
+   */
+  endTime?: string;
+  nodeIds?: string[];
+  /**
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      createdTime: 'CreatedTime',
+      diagnosticId: 'DiagnosticId',
+      diagnosticResults: 'DiagnosticResults',
+      diagnosticState: 'DiagnosticState',
+      diagnosticType: 'DiagnosticType',
+      endTime: 'EndTime',
+      nodeIds: 'NodeIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      createdTime: 'string',
+      diagnosticId: 'string',
+      diagnosticResults: { 'type': 'array', 'itemType': 'any' },
+      diagnosticState: 'string',
+      diagnosticType: 'string',
+      endTime: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diagnosticResults)) {
+      $dara.Model.validateArray(this.diagnosticResults);
+    }
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiagnosticResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiagnosticResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiagnosticResultResponseBody,
     };
   }
 
@@ -12287,6 +12770,105 @@ export class UntagResourcesResponse extends $dara.Model {
   }
 }
 
+export class UpdateNodeGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * test-update
+   */
+  newNodeGroupName?: string;
+  /**
+   * @example
+   * i120021051733814190732
+   */
+  nodeGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newNodeGroupName: 'NewNodeGroupName',
+      nodeGroupId: 'NodeGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newNodeGroupName: 'string',
+      nodeGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNodeGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNodeGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNodeGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNodeGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -12362,7 +12944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resource Group Change
+   * Target Resource Group
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12410,7 +12992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resource Group Change
+   * Target Resource Group
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -12753,6 +13335,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建集群下的节点分组
+   * 
+   * @param tmpReq - CreateNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNodeGroupResponse
+   */
+  async createNodeGroupWithOptions(tmpReq: CreateNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateNodeGroupResponse> {
+    tmpReq.validate();
+    let request = new CreateNodeGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeGroup)) {
+      request.nodeGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeGroup, "NodeGroup", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.nodeUnit)) {
+      request.nodeUnitShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeUnit, "NodeUnit", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupShrink)) {
+      body["NodeGroup"] = request.nodeGroupShrink;
+    }
+
+    if (!$dara.isNull(request.nodeUnitShrink)) {
+      body["NodeUnit"] = request.nodeUnitShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNodeGroup",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNodeGroupResponse>(await this.callApi(params, req, runtime), new CreateNodeGroupResponse({}));
+    } else {
+      return $dara.cast<CreateNodeGroupResponse>(await this.execute(params, req, runtime), new CreateNodeGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建集群下的节点分组
+   * 
+   * @param request - CreateNodeGroupRequest
+   * @returns CreateNodeGroupResponse
+   */
+  async createNodeGroup(request: CreateNodeGroupRequest): Promise<CreateNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNodeGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Create Web Terminal Session
    * 
    * @remarks
@@ -12861,6 +13508,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除节点分组
+   * 
+   * @param request - DeleteNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNodeGroupResponse
+   */
+  async deleteNodeGroupWithOptions(request: DeleteNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNodeGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNodeGroup",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNodeGroupResponse>(await this.callApi(params, req, runtime), new DeleteNodeGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteNodeGroupResponse>(await this.execute(params, req, runtime), new DeleteNodeGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除节点分组
+   * 
+   * @param request - DeleteNodeGroupRequest
+   * @returns DeleteNodeGroupResponse
+   */
+  async deleteNodeGroup(request: DeleteNodeGroupRequest): Promise<DeleteNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNodeGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Cluster Details
    * 
    * @param request - DescribeClusterRequest
@@ -12905,6 +13603,53 @@ export default class Client extends OpenApi {
   async describeCluster(request: DescribeClusterRequest): Promise<DescribeClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 诊断任务查询接口
+   * 
+   * @param request - DescribeDiagnosticResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiagnosticResultResponse
+   */
+  async describeDiagnosticResultWithOptions(request: DescribeDiagnosticResultRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiagnosticResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.diagnosticId)) {
+      body["DiagnosticId"] = request.diagnosticId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDiagnosticResult",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiagnosticResultResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosticResultResponse({}));
+    } else {
+      return $dara.cast<DescribeDiagnosticResultResponse>(await this.execute(params, req, runtime), new DescribeDiagnosticResultResponse({}));
+    }
+
+  }
+
+  /**
+   * 诊断任务查询接口
+   * 
+   * @param request - DescribeDiagnosticResultRequest
+   * @returns DescribeDiagnosticResultResponse
+   */
+  async describeDiagnosticResult(request: DescribeDiagnosticResultRequest): Promise<DescribeDiagnosticResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDiagnosticResultWithOptions(request, runtime);
   }
 
   /**
@@ -14603,6 +15348,57 @@ export default class Client extends OpenApi {
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新节点分组
+   * 
+   * @param request - UpdateNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNodeGroupResponse
+   */
+  async updateNodeGroupWithOptions(request: UpdateNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNodeGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.newNodeGroupName)) {
+      body["NewNodeGroupName"] = request.newNodeGroupName;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNodeGroup",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNodeGroupResponse>(await this.callApi(params, req, runtime), new UpdateNodeGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateNodeGroupResponse>(await this.execute(params, req, runtime), new UpdateNodeGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新节点分组
+   * 
+   * @param request - UpdateNodeGroupRequest
+   * @returns UpdateNodeGroupResponse
+   */
+  async updateNodeGroup(request: UpdateNodeGroupRequest): Promise<UpdateNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNodeGroupWithOptions(request, runtime);
   }
 
 }
