@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/vod20170321",
-  "version": "3.7.1",
+  "version": "3.8.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

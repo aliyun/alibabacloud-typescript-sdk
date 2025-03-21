@@ -8878,6 +8878,40 @@ export class GetCategoriesResponseBodySubCategories extends $dara.Model {
   }
 }
 
+export class GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList extends $dara.Model {
+  /**
+   * @example
+   * 2025-03-20
+   */
+  date?: string;
+  /**
+   * @example
+   * https://outin-e70266d4ed*******0163e1403e7.oss-cn-shanghai.aliyuncs.com/dataexport/play/cn_hangzhou_20250320_video_traffic.csv?*******
+   */
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDefaultAITemplateResponseBodyTemplateInfo extends $dara.Model {
   /**
    * @remarks
@@ -34630,6 +34664,126 @@ export class GetCategoriesResponse extends $dara.Model {
   }
 }
 
+export class GetDailyPlayRegionStatisRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2025-03-20
+   */
+  date?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  mediaRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      mediaRegion: 'MediaRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      mediaRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDailyPlayRegionStatisResponseBody extends $dara.Model {
+  dailyPlayRegionStatisList?: GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList[];
+  emptyDates?: string[];
+  failDates?: string[];
+  /**
+   * @example
+   * 67720502-CDDB-3F1C-8A91-12258*******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dailyPlayRegionStatisList: 'DailyPlayRegionStatisList',
+      emptyDates: 'EmptyDates',
+      failDates: 'FailDates',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dailyPlayRegionStatisList: { 'type': 'array', 'itemType': GetDailyPlayRegionStatisResponseBodyDailyPlayRegionStatisList },
+      emptyDates: { 'type': 'array', 'itemType': 'string' },
+      failDates: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dailyPlayRegionStatisList)) {
+      $dara.Model.validateArray(this.dailyPlayRegionStatisList);
+    }
+    if(Array.isArray(this.emptyDates)) {
+      $dara.Model.validateArray(this.emptyDates);
+    }
+    if(Array.isArray(this.failDates)) {
+      $dara.Model.validateArray(this.failDates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDailyPlayRegionStatisResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDailyPlayRegionStatisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDailyPlayRegionStatisResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDefaultAITemplateRequest extends $dara.Model {
   /**
    * @remarks
@@ -53700,6 +53854,57 @@ export default class Client extends OpenApi {
   async getCategories(request: GetCategoriesRequest): Promise<GetCategoriesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCategoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 支持区域化媒资ID级别播放数据查询
+   * 
+   * @param request - GetDailyPlayRegionStatisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDailyPlayRegionStatisResponse
+   */
+  async getDailyPlayRegionStatisWithOptions(request: GetDailyPlayRegionStatisRequest, runtime: $dara.RuntimeOptions): Promise<GetDailyPlayRegionStatisResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.date)) {
+      query["Date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.mediaRegion)) {
+      query["MediaRegion"] = request.mediaRegion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDailyPlayRegionStatis",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDailyPlayRegionStatisResponse>(await this.callApi(params, req, runtime), new GetDailyPlayRegionStatisResponse({}));
+    } else {
+      return $dara.cast<GetDailyPlayRegionStatisResponse>(await this.execute(params, req, runtime), new GetDailyPlayRegionStatisResponse({}));
+    }
+
+  }
+
+  /**
+   * 支持区域化媒资ID级别播放数据查询
+   * 
+   * @param request - GetDailyPlayRegionStatisRequest
+   * @returns GetDailyPlayRegionStatisResponse
+   */
+  async getDailyPlayRegionStatis(request: GetDailyPlayRegionStatisRequest): Promise<GetDailyPlayRegionStatisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDailyPlayRegionStatisWithOptions(request, runtime);
   }
 
   /**
