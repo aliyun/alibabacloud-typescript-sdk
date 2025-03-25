@@ -4794,6 +4794,7 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
    * 400
    */
   flow?: number;
+  ispType?: string;
   /**
    * @remarks
    * The memory size. Unit: GB.
@@ -4809,7 +4810,7 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
    * @example
    * 60
    */
-  originPrice?: number;
+  originPrice?: string;
   /**
    * @remarks
    * The ID of the plan.
@@ -4819,6 +4820,7 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
    */
   planId?: string;
   planType?: string;
+  publicIpNum?: string;
   /**
    * @remarks
    * The operating system types supported by the plan.
@@ -4836,10 +4838,12 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
       diskSize: 'DiskSize',
       diskType: 'DiskType',
       flow: 'Flow',
+      ispType: 'IspType',
       memory: 'Memory',
       originPrice: 'OriginPrice',
       planId: 'PlanId',
       planType: 'PlanType',
+      publicIpNum: 'PublicIpNum',
       supportPlatform: 'SupportPlatform',
       tags: 'Tags',
     };
@@ -4853,10 +4857,12 @@ export class ListPlansResponseBodyPlans extends $dara.Model {
       diskSize: 'number',
       diskType: 'string',
       flow: 'number',
+      ispType: 'string',
       memory: 'number',
-      originPrice: 'number',
+      originPrice: 'string',
       planId: 'string',
       planType: 'string',
+      publicIpNum: 'string',
       supportPlatform: 'string',
       tags: { 'type': 'array', 'itemType': ListPlansResponseBodyPlansTags },
     };
