@@ -1550,6 +1550,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       az: 'Az',
@@ -1557,6 +1558,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
+      userData: 'UserData',
     };
   }
 
@@ -1567,6 +1569,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
+      userData: 'string',
     };
   }
 
@@ -3665,6 +3668,32 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   }
 }
 
+export class ListClusterNodesRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @remarks
@@ -3725,7 +3754,34 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
   }
 }
 
+export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClusterNodesResponseBodyNodes extends $dara.Model {
+  commodityCode?: string;
   /**
    * @remarks
    * Creation time
@@ -3766,6 +3822,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * i190297201669099844192
    */
   imageId?: string;
+  imageName?: string;
   /**
    * @remarks
    * Machine type
@@ -3819,7 +3876,23 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * sn_tOuUk
    */
   sn?: string;
+  tags?: ListClusterNodesResponseBodyNodesTags[];
+  taskId?: string;
+  /**
+   * @remarks
+   * 专有网络交换机ID
+   * 
+   * @example
+   * vsw-bp1mxqhw8o20tgv3xk47h
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * 专有网络ID
+   * 
+   * @example
+   * vpc-0jltf9vinjz3if3lltdy7
+   */
   vpcId?: string;
   /**
    * @remarks
@@ -3831,11 +3904,13 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
       imageId: 'ImageId',
+      imageName: 'ImageName',
       machineType: 'MachineType',
       networks: 'Networks',
       nodeGroupId: 'NodeGroupId',
@@ -3843,6 +3918,8 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeId: 'NodeId',
       operatingState: 'OperatingState',
       sn: 'Sn',
+      tags: 'Tags',
+      taskId: 'TaskId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -3851,11 +3928,13 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commodityCode: 'string',
       createTime: 'string',
       expiredTime: 'string',
       hostname: 'string',
       hpnZone: 'string',
       imageId: 'string',
+      imageName: 'string',
       machineType: 'string',
       networks: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodesNetworks },
       nodeGroupId: 'string',
@@ -3863,6 +3942,8 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeId: 'string',
       operatingState: 'string',
       sn: 'string',
+      tags: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodesTags },
+      taskId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
@@ -3873,6 +3954,61 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
     if(Array.isArray(this.networks)) {
       $dara.Model.validateArray(this.networks);
     }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3978,6 +4114,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
    * rg-aek2ajbjoloa23q
    */
   resourceGroupId?: string;
+  tags?: ListClustersResponseBodyClustersTags[];
   /**
    * @remarks
    * Task ID
@@ -4016,6 +4153,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
       nodeGroupCount: 'NodeGroupCount',
       operatingState: 'OperatingState',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       taskId: 'TaskId',
       updateTime: 'UpdateTime',
       vpcId: 'VpcId',
@@ -4036,6 +4174,7 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
       nodeGroupCount: 'number',
       operatingState: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersTags },
       taskId: 'string',
       updateTime: 'string',
       vpcId: 'string',
@@ -4043,6 +4182,9 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -4171,7 +4313,64 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
   }
 }
 
+export class ListFreeNodesRequestTags extends $dara.Model {
+  key?: string;
+  /**
+   * @example
+   * 129
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFreeNodesResponseBodyNodesTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFreeNodesResponseBodyNodes extends $dara.Model {
+  commodityCode?: string;
   /**
    * @remarks
    * Creation time
@@ -4212,6 +4411,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * e01-cn-7pp2x193801
    */
   nodeId?: string;
+  operatingState?: string;
   /**
    * @remarks
    * Resource group ID
@@ -4228,6 +4428,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * sn_pozkHBgicd
    */
   sn?: string;
+  tags?: ListFreeNodesResponseBodyNodesTags[];
   /**
    * @remarks
    * Availability zone ID
@@ -4238,31 +4439,40 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       hpnZone: 'HpnZone',
       machineType: 'MachineType',
       nodeId: 'NodeId',
+      operatingState: 'OperatingState',
       resourceGroupId: 'ResourceGroupId',
       sn: 'Sn',
+      tags: 'Tags',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      commodityCode: 'string',
       createTime: 'string',
       expiredTime: 'string',
       hpnZone: 'string',
       machineType: 'string',
       nodeId: 'string',
+      operatingState: 'string',
       resourceGroupId: 'string',
       sn: 'string',
+      tags: { 'type': 'array', 'itemType': ListFreeNodesResponseBodyNodesTags },
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -8321,6 +8531,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
    * sag42ckf4jx
    */
   sn?: string;
+  userData?: string;
   /**
    * @remarks
    * Zone ID
@@ -8348,6 +8559,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       sn: 'Sn',
+      userData: 'UserData',
       zoneId: 'ZoneId',
     };
   }
@@ -8371,6 +8583,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       requestId: 'string',
       resourceGroupId: 'string',
       sn: 'string',
+      userData: 'string',
       zoneId: 'string',
     };
   }
@@ -9215,12 +9428,16 @@ export class ListClusterNodesRequest extends $dara.Model {
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
+  resourceGroupId?: string;
+  tags?: ListClusterNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       nodeGroupId: 'NodeGroupId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -9230,10 +9447,15 @@ export class ListClusterNodesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       nodeGroupId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListClusterNodesRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -9352,11 +9574,13 @@ export class ListClustersRequest extends $dara.Model {
    * rg-aek2bg6wyoox6jq
    */
   resourceGroupId?: string;
+  tags?: ListClustersRequestTags[];
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -9365,10 +9589,14 @@ export class ListClustersRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListClustersRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -9669,6 +9897,7 @@ export class ListFreeNodesRequest extends $dara.Model {
    * rg-acfmxno4vh5muoq
    */
   resourceGroupId?: string;
+  tags?: ListFreeNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       hpnZone: 'HpnZone',
@@ -9676,6 +9905,7 @@ export class ListFreeNodesRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -9686,10 +9916,14 @@ export class ListFreeNodesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListFreeNodesRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -12781,10 +13015,12 @@ export class UpdateNodeGroupRequest extends $dara.Model {
    * i120021051733814190732
    */
   nodeGroupId?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
       newNodeGroupName: 'NewNodeGroupName',
       nodeGroupId: 'NodeGroupId',
+      userData: 'UserData',
     };
   }
 
@@ -12792,6 +13028,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
     return {
       newNodeGroupName: 'string',
       nodeGroupId: 'string',
+      userData: 'string',
     };
   }
 
@@ -14093,6 +14330,11 @@ export default class Client extends OpenApi {
    */
   async listClusterNodesWithOptions(request: ListClusterNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListClusterNodesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
@@ -14110,7 +14352,12 @@ export default class Client extends OpenApi {
       body["NodeGroupId"] = request.nodeGroupId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -14152,6 +14399,11 @@ export default class Client extends OpenApi {
    */
   async listClustersWithOptions(request: ListClustersRequest, runtime: $dara.RuntimeOptions): Promise<ListClustersResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
@@ -14166,6 +14418,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -14272,6 +14525,11 @@ export default class Client extends OpenApi {
    */
   async listFreeNodesWithOptions(request: ListFreeNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListFreeNodesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.hpnZone)) {
       body["HpnZone"] = request.hpnZone;
@@ -14294,6 +14552,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -15366,6 +15625,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nodeGroupId)) {
       body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
