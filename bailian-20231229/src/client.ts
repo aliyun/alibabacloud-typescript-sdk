@@ -911,6 +911,7 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
    * The name of the document.
    */
   docName?: string;
+  gmtModified?: number;
   /**
    * @remarks
    * The error message.
@@ -937,6 +938,7 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
       code: 'Code',
       docId: 'DocId',
       docName: 'DocName',
+      gmtModified: 'GmtModified',
       message: 'Message',
       status: 'Status',
     };
@@ -947,6 +949,7 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $dara.Model {
       code: 'string',
       docId: 'string',
       docName: 'string',
+      gmtModified: 'number',
       message: 'string',
       status: 'string',
     };
@@ -1649,6 +1652,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
    * pdf
    */
   documentType?: string;
+  gmtModified?: number;
   /**
    * @remarks
    * The primary key ID of the document.
@@ -1705,6 +1709,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
     return {
       code: 'Code',
       documentType: 'DocumentType',
+      gmtModified: 'GmtModified',
       id: 'Id',
       message: 'Message',
       name: 'Name',
@@ -1718,6 +1723,7 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $dara.Model {
     return {
       code: 'string',
       documentType: 'string',
+      gmtModified: 'number',
       id: 'string',
       message: 'string',
       name: 'string',
@@ -2127,18 +2133,36 @@ export class ListMemoryNodesResponseBodyMemoryNodes extends $dara.Model {
 }
 
 export class ListPromptTemplatesResponseBodyPromptTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The template content
+   */
   content?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * d6935b7efbe34d11b13df9307151cf8c
    */
   promptTemplateId?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
    * @example
    * "System"
    */
   type?: string;
+  /**
+   * @remarks
+   * The variables of the template.
+   */
   variables?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5713,6 +5737,9 @@ export class DeleteMemoryNodeResponse extends $dara.Model {
 
 export class DeletePromptTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
    */
@@ -6239,24 +6266,44 @@ export class GetMemoryNodeResponse extends $dara.Model {
 }
 
 export class GetPromptTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The template content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 6e49109bfeb94a39bb268f4e483ccxxx
    */
   promptTemplateId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The variables of the template.
+   * 
    * @example
    * ["theme"]
    */
   variables?: string[];
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-us9hjmt32nysdxxx
    */
@@ -7514,17 +7561,30 @@ export class ListMemoryNodesResponse extends $dara.Model {
 
 export class ListPromptTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of returned entries.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The keyword that is used to search for templates.
+   */
   name?: string;
   /**
+   * @remarks
+   * The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+   * 
    * @example
    * dc270401186b433f975d7e1faaa34e0e
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The type of the template. Valid values: · System · Custom
+   * 
    * @example
    * System
    */
@@ -7558,27 +7618,46 @@ export class ListPromptTemplatesRequest extends $dara.Model {
 
 export class ListPromptTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of returned entries.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that determines the start position of the next query.
+   * 
    * @example
    * dc270401186b433f975d7e1faaa34e0e
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The templates.
+   */
   promptTemplates?: ListPromptTemplatesResponseBodyPromptTemplates[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9B6CBF-47E6-5D76-9C5D-B814DD5AB071
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * llm-us9hjmt32nysdxxx
    */
@@ -9221,7 +9300,15 @@ export class UpdateMemoryNodeResponse extends $dara.Model {
 }
 
 export class UpdatePromptTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The template content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9248,6 +9335,9 @@ export class UpdatePromptTemplateRequest extends $dara.Model {
 
 export class UpdatePromptTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
    */
@@ -9332,6 +9422,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加类目
+   * 
    * @param request - AddCategoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9367,10 +9459,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddCategoryResponse>(await this.callApi(params, req, runtime), new AddCategoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddCategoryResponse>(await this.callApi(params, req, runtime), new AddCategoryResponse({}));
+    } else {
+      return $dara.cast<AddCategoryResponse>(await this.execute(params, req, runtime), new AddCategoryResponse({}));
+    }
+
   }
 
   /**
+   * 添加类目
+   * 
    * @param request - AddCategoryRequest
    * @returns AddCategoryResponse
    */
@@ -9439,7 +9538,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddFileResponse>(await this.callApi(params, req, runtime), new AddFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddFileResponse>(await this.callApi(params, req, runtime), new AddFileResponse({}));
+    } else {
+      return $dara.cast<AddFileResponse>(await this.execute(params, req, runtime), new AddFileResponse({}));
+    }
+
   }
 
   /**
@@ -9509,7 +9613,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApplyFileUploadLeaseResponse>(await this.callApi(params, req, runtime), new ApplyFileUploadLeaseResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyFileUploadLeaseResponse>(await this.callApi(params, req, runtime), new ApplyFileUploadLeaseResponse({}));
+    } else {
+      return $dara.cast<ApplyFileUploadLeaseResponse>(await this.execute(params, req, runtime), new ApplyFileUploadLeaseResponse({}));
+    }
+
   }
 
   /**
@@ -9586,7 +9695,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAndPulishAgentResponse>(await this.callApi(params, req, runtime), new CreateAndPulishAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAndPulishAgentResponse>(await this.callApi(params, req, runtime), new CreateAndPulishAgentResponse({}));
+    } else {
+      return $dara.cast<CreateAndPulishAgentResponse>(await this.execute(params, req, runtime), new CreateAndPulishAgentResponse({}));
+    }
+
   }
 
   /**
@@ -9730,7 +9844,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreateIndexResponse>(await this.callApi(params, req, runtime), new CreateIndexResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateIndexResponse>(await this.callApi(params, req, runtime), new CreateIndexResponse({}));
+    } else {
+      return $dara.cast<CreateIndexResponse>(await this.execute(params, req, runtime), new CreateIndexResponse({}));
+    }
+
   }
 
   /**
@@ -9780,7 +9899,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreateMemoryResponse>(await this.callApi(params, req, runtime), new CreateMemoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMemoryResponse>(await this.callApi(params, req, runtime), new CreateMemoryResponse({}));
+    } else {
+      return $dara.cast<CreateMemoryResponse>(await this.execute(params, req, runtime), new CreateMemoryResponse({}));
+    }
+
   }
 
   /**
@@ -9825,7 +9949,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreateMemoryNodeResponse>(await this.callApi(params, req, runtime), new CreateMemoryNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMemoryNodeResponse>(await this.callApi(params, req, runtime), new CreateMemoryNodeResponse({}));
+    } else {
+      return $dara.cast<CreateMemoryNodeResponse>(await this.execute(params, req, runtime), new CreateMemoryNodeResponse({}));
+    }
+
   }
 
   /**
@@ -9841,7 +9970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prompt模板
+   * Creates a prompt template.
    * 
    * @param request - CreatePromptTemplateRequest
    * @param headers - map
@@ -9874,11 +10003,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreatePromptTemplateResponse>(await this.callApi(params, req, runtime), new CreatePromptTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePromptTemplateResponse>(await this.callApi(params, req, runtime), new CreatePromptTemplateResponse({}));
+    } else {
+      return $dara.cast<CreatePromptTemplateResponse>(await this.execute(params, req, runtime), new CreatePromptTemplateResponse({}));
+    }
+
   }
 
   /**
-   * 创建Prompt模板
+   * Creates a prompt template.
    * 
    * @param request - CreatePromptTemplateRequest
    * @returns CreatePromptTemplateResponse
@@ -9911,7 +10045,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
+    } else {
+      return $dara.cast<DeleteAgentResponse>(await this.execute(params, req, runtime), new DeleteAgentResponse({}));
+    }
+
   }
 
   /**
@@ -9925,6 +10064,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除类目
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCategoryResponse
@@ -9944,10 +10085,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
+    } else {
+      return $dara.cast<DeleteCategoryResponse>(await this.execute(params, req, runtime), new DeleteCategoryResponse({}));
+    }
+
   }
 
   /**
+   * 删除类目
    * @returns DeleteCategoryResponse
    */
   async deleteCategory(CategoryId: string, WorkspaceId: string): Promise<DeleteCategoryResponse> {
@@ -9978,7 +10125,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
+    } else {
+      return $dara.cast<DeleteFileResponse>(await this.execute(params, req, runtime), new DeleteFileResponse({}));
+    }
+
   }
 
   /**
@@ -10028,7 +10180,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteIndexResponse>(await this.callApi(params, req, runtime), new DeleteIndexResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIndexResponse>(await this.callApi(params, req, runtime), new DeleteIndexResponse({}));
+    } else {
+      return $dara.cast<DeleteIndexResponse>(await this.execute(params, req, runtime), new DeleteIndexResponse({}));
+    }
+
   }
 
   /**
@@ -10097,7 +10254,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteIndexDocumentResponse>(await this.callApi(params, req, runtime), new DeleteIndexDocumentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIndexDocumentResponse>(await this.callApi(params, req, runtime), new DeleteIndexDocumentResponse({}));
+    } else {
+      return $dara.cast<DeleteIndexDocumentResponse>(await this.execute(params, req, runtime), new DeleteIndexDocumentResponse({}));
+    }
+
   }
 
   /**
@@ -10141,7 +10303,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteMemoryResponse>(await this.callApi(params, req, runtime), new DeleteMemoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMemoryResponse>(await this.callApi(params, req, runtime), new DeleteMemoryResponse({}));
+    } else {
+      return $dara.cast<DeleteMemoryResponse>(await this.execute(params, req, runtime), new DeleteMemoryResponse({}));
+    }
+
   }
 
   /**
@@ -10176,7 +10343,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteMemoryNodeResponse>(await this.callApi(params, req, runtime), new DeleteMemoryNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMemoryNodeResponse>(await this.callApi(params, req, runtime), new DeleteMemoryNodeResponse({}));
+    } else {
+      return $dara.cast<DeleteMemoryNodeResponse>(await this.execute(params, req, runtime), new DeleteMemoryNodeResponse({}));
+    }
+
   }
 
   /**
@@ -10190,7 +10362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基于模板Id删除Prompt模板。
+   * Deletes a prompt template based on the template ID.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10211,11 +10383,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeletePromptTemplateResponse>(await this.callApi(params, req, runtime), new DeletePromptTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeletePromptTemplateResponse>(await this.callApi(params, req, runtime), new DeletePromptTemplateResponse({}));
+    } else {
+      return $dara.cast<DeletePromptTemplateResponse>(await this.execute(params, req, runtime), new DeletePromptTemplateResponse({}));
+    }
+
   }
 
   /**
-   * 基于模板Id删除Prompt模板。
+   * Deletes a prompt template based on the template ID.
    * @returns DeletePromptTemplateResponse
    */
   async deletePromptTemplate(workspaceId: string, promptTemplateId: string): Promise<DeletePromptTemplateResponse> {
@@ -10252,7 +10429,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DescribeFileResponse>(await this.callApi(params, req, runtime), new DescribeFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeFileResponse>(await this.callApi(params, req, runtime), new DescribeFileResponse({}));
+    } else {
+      return $dara.cast<DescribeFileResponse>(await this.execute(params, req, runtime), new DescribeFileResponse({}));
+    }
+
   }
 
   /**
@@ -10318,7 +10500,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetIndexJobStatusResponse>(await this.callApi(params, req, runtime), new GetIndexJobStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIndexJobStatusResponse>(await this.callApi(params, req, runtime), new GetIndexJobStatusResponse({}));
+    } else {
+      return $dara.cast<GetIndexJobStatusResponse>(await this.execute(params, req, runtime), new GetIndexJobStatusResponse({}));
+    }
+
   }
 
   /**
@@ -10360,7 +10547,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetMemoryResponse>(await this.callApi(params, req, runtime), new GetMemoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMemoryResponse>(await this.callApi(params, req, runtime), new GetMemoryResponse({}));
+    } else {
+      return $dara.cast<GetMemoryResponse>(await this.execute(params, req, runtime), new GetMemoryResponse({}));
+    }
+
   }
 
   /**
@@ -10395,7 +10587,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetMemoryNodeResponse>(await this.callApi(params, req, runtime), new GetMemoryNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMemoryNodeResponse>(await this.callApi(params, req, runtime), new GetMemoryNodeResponse({}));
+    } else {
+      return $dara.cast<GetMemoryNodeResponse>(await this.execute(params, req, runtime), new GetMemoryNodeResponse({}));
+    }
+
   }
 
   /**
@@ -10409,7 +10606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基于模板Id获取Prompt模板。
+   * Obtains a prompt template based on the template ID.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10430,11 +10627,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetPromptTemplateResponse>(await this.callApi(params, req, runtime), new GetPromptTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPromptTemplateResponse>(await this.callApi(params, req, runtime), new GetPromptTemplateResponse({}));
+    } else {
+      return $dara.cast<GetPromptTemplateResponse>(await this.execute(params, req, runtime), new GetPromptTemplateResponse({}));
+    }
+
   }
 
   /**
-   * 基于模板Id获取Prompt模板。
+   * Obtains a prompt template based on the template ID.
    * @returns GetPromptTemplateResponse
    */
   async getPromptTemplate(workspaceId: string, promptTemplateId: string): Promise<GetPromptTemplateResponse> {
@@ -10465,7 +10667,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetPublishedAgentResponse>(await this.callApi(params, req, runtime), new GetPublishedAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPublishedAgentResponse>(await this.callApi(params, req, runtime), new GetPublishedAgentResponse({}));
+    } else {
+      return $dara.cast<GetPublishedAgentResponse>(await this.execute(params, req, runtime), new GetPublishedAgentResponse({}));
+    }
+
   }
 
   /**
@@ -10520,7 +10727,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListCategoryResponse>(await this.callApi(params, req, runtime), new ListCategoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCategoryResponse>(await this.callApi(params, req, runtime), new ListCategoryResponse({}));
+    } else {
+      return $dara.cast<ListCategoryResponse>(await this.execute(params, req, runtime), new ListCategoryResponse({}));
+    }
+
   }
 
   /**
@@ -10589,7 +10801,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListChunksResponse>(await this.callApi(params, req, runtime), new ListChunksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListChunksResponse>(await this.callApi(params, req, runtime), new ListChunksResponse({}));
+    } else {
+      return $dara.cast<ListChunksResponse>(await this.execute(params, req, runtime), new ListChunksResponse({}));
+    }
+
   }
 
   /**
@@ -10650,7 +10867,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListFileResponse>(await this.callApi(params, req, runtime), new ListFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFileResponse>(await this.callApi(params, req, runtime), new ListFileResponse({}));
+    } else {
+      return $dara.cast<ListFileResponse>(await this.execute(params, req, runtime), new ListFileResponse({}));
+    }
+
   }
 
   /**
@@ -10715,7 +10937,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListIndexDocumentsResponse>(await this.callApi(params, req, runtime), new ListIndexDocumentsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListIndexDocumentsResponse>(await this.callApi(params, req, runtime), new ListIndexDocumentsResponse({}));
+    } else {
+      return $dara.cast<ListIndexDocumentsResponse>(await this.execute(params, req, runtime), new ListIndexDocumentsResponse({}));
+    }
+
   }
 
   /**
@@ -10775,7 +11002,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListIndicesResponse>(await this.callApi(params, req, runtime), new ListIndicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListIndicesResponse>(await this.callApi(params, req, runtime), new ListIndicesResponse({}));
+    } else {
+      return $dara.cast<ListIndicesResponse>(await this.execute(params, req, runtime), new ListIndicesResponse({}));
+    }
+
   }
 
   /**
@@ -10827,7 +11059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListMemoriesResponse>(await this.callApi(params, req, runtime), new ListMemoriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMemoriesResponse>(await this.callApi(params, req, runtime), new ListMemoriesResponse({}));
+    } else {
+      return $dara.cast<ListMemoriesResponse>(await this.execute(params, req, runtime), new ListMemoriesResponse({}));
+    }
+
   }
 
   /**
@@ -10876,7 +11113,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListMemoryNodesResponse>(await this.callApi(params, req, runtime), new ListMemoryNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMemoryNodesResponse>(await this.callApi(params, req, runtime), new ListMemoryNodesResponse({}));
+    } else {
+      return $dara.cast<ListMemoryNodesResponse>(await this.execute(params, req, runtime), new ListMemoryNodesResponse({}));
+    }
+
   }
 
   /**
@@ -10892,7 +11134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prompt模板列表。
+   * Obtains a list of prompt templates.
    * 
    * @param request - ListPromptTemplatesRequest
    * @param headers - map
@@ -10933,11 +11175,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListPromptTemplatesResponse>(await this.callApi(params, req, runtime), new ListPromptTemplatesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPromptTemplatesResponse>(await this.callApi(params, req, runtime), new ListPromptTemplatesResponse({}));
+    } else {
+      return $dara.cast<ListPromptTemplatesResponse>(await this.execute(params, req, runtime), new ListPromptTemplatesResponse({}));
+    }
+
   }
 
   /**
-   * 获取Prompt模板列表。
+   * Obtains a list of prompt templates.
    * 
    * @param request - ListPromptTemplatesRequest
    * @returns ListPromptTemplatesResponse
@@ -10982,7 +11229,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListPublishedAgentResponse>(await this.callApi(params, req, runtime), new ListPublishedAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPublishedAgentResponse>(await this.callApi(params, req, runtime), new ListPublishedAgentResponse({}));
+    } else {
+      return $dara.cast<ListPublishedAgentResponse>(await this.execute(params, req, runtime), new ListPublishedAgentResponse({}));
+    }
+
   }
 
   /**
@@ -11098,7 +11350,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<RetrieveResponse>(await this.callApi(params, req, runtime), new RetrieveResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RetrieveResponse>(await this.callApi(params, req, runtime), new RetrieveResponse({}));
+    } else {
+      return $dara.cast<RetrieveResponse>(await this.execute(params, req, runtime), new RetrieveResponse({}));
+    }
+
   }
 
   /**
@@ -11176,7 +11433,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<SubmitIndexAddDocumentsJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexAddDocumentsJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitIndexAddDocumentsJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexAddDocumentsJobResponse({}));
+    } else {
+      return $dara.cast<SubmitIndexAddDocumentsJobResponse>(await this.execute(params, req, runtime), new SubmitIndexAddDocumentsJobResponse({}));
+    }
+
   }
 
   /**
@@ -11233,7 +11495,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<SubmitIndexJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitIndexJobResponse>(await this.callApi(params, req, runtime), new SubmitIndexJobResponse({}));
+    } else {
+      return $dara.cast<SubmitIndexJobResponse>(await this.execute(params, req, runtime), new SubmitIndexJobResponse({}));
+    }
+
   }
 
   /**
@@ -11310,7 +11577,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAndPublishAgentResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAndPublishAgentResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentResponse({}));
+    } else {
+      return $dara.cast<UpdateAndPublishAgentResponse>(await this.execute(params, req, runtime), new UpdateAndPublishAgentResponse({}));
+    }
+
   }
 
   /**
@@ -11381,7 +11653,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAndPublishAgentSelectiveResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentSelectiveResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAndPublishAgentSelectiveResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentSelectiveResponse({}));
+    } else {
+      return $dara.cast<UpdateAndPublishAgentSelectiveResponse>(await this.execute(params, req, runtime), new UpdateAndPublishAgentSelectiveResponse({}));
+    }
+
   }
 
   /**
@@ -11432,7 +11709,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateFileTagResponse>(await this.callApi(params, req, runtime), new UpdateFileTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFileTagResponse>(await this.callApi(params, req, runtime), new UpdateFileTagResponse({}));
+    } else {
+      return $dara.cast<UpdateFileTagResponse>(await this.execute(params, req, runtime), new UpdateFileTagResponse({}));
+    }
+
   }
 
   /**
@@ -11477,7 +11759,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdateMemoryResponse>(await this.callApi(params, req, runtime), new UpdateMemoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMemoryResponse>(await this.callApi(params, req, runtime), new UpdateMemoryResponse({}));
+    } else {
+      return $dara.cast<UpdateMemoryResponse>(await this.execute(params, req, runtime), new UpdateMemoryResponse({}));
+    }
+
   }
 
   /**
@@ -11522,7 +11809,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdateMemoryNodeResponse>(await this.callApi(params, req, runtime), new UpdateMemoryNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMemoryNodeResponse>(await this.callApi(params, req, runtime), new UpdateMemoryNodeResponse({}));
+    } else {
+      return $dara.cast<UpdateMemoryNodeResponse>(await this.execute(params, req, runtime), new UpdateMemoryNodeResponse({}));
+    }
+
   }
 
   /**
@@ -11538,7 +11830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基于模板Id增量更新Prompt模板。
+   * Updates a prompt template based on the template ID.
    * 
    * @param request - UpdatePromptTemplateRequest
    * @param headers - map
@@ -11571,11 +11863,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdatePromptTemplateResponse>(await this.callApi(params, req, runtime), new UpdatePromptTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdatePromptTemplateResponse>(await this.callApi(params, req, runtime), new UpdatePromptTemplateResponse({}));
+    } else {
+      return $dara.cast<UpdatePromptTemplateResponse>(await this.execute(params, req, runtime), new UpdatePromptTemplateResponse({}));
+    }
+
   }
 
   /**
-   * 基于模板Id增量更新Prompt模板。
+   * Updates a prompt template based on the template ID.
    * 
    * @param request - UpdatePromptTemplateRequest
    * @returns UpdatePromptTemplateResponse
