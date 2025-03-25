@@ -2460,6 +2460,32 @@ export class CloneNacosConfigResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreateApplicationRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -3317,6 +3343,32 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
       updateTime: 'number',
       userId: 'string',
       version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5769,6 +5821,32 @@ export class GetApplicationInstanceListResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetApplicationListRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationListResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
@@ -5842,6 +5920,7 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
    * 0
    */
   status?: number;
+  tags?: { [key: string]: any };
   /**
    * @remarks
    * The user ID.
@@ -5861,6 +5940,7 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
       regionId: 'RegionId',
       source: 'Source',
       status: 'Status',
+      tags: 'Tags',
       userId: 'UserId',
     };
   }
@@ -5876,11 +5956,15 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
       regionId: 'string',
       source: 'string',
       status: 'number',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       userId: 'string',
     };
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 
@@ -21632,6 +21716,32 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model
   }
 }
 
+export class ListNamespacesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNamespacesResponseBodyDataResult extends $dara.Model {
   /**
    * @example
@@ -21659,6 +21769,7 @@ export class ListNamespacesResponseBodyDataResult extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  tags?: { [key: string]: any };
   /**
    * @example
    * 2024-09-02T09:49:48.000+0000
@@ -21682,6 +21793,7 @@ export class ListNamespacesResponseBodyDataResult extends $dara.Model {
       instanceCount: 'InstanceCount',
       namespace: 'Namespace',
       region: 'Region',
+      tags: 'Tags',
       updateTime: 'UpdateTime',
       userId: 'UserId',
       version: 'Version',
@@ -21696,6 +21808,7 @@ export class ListNamespacesResponseBodyDataResult extends $dara.Model {
       instanceCount: 'number',
       namespace: 'string',
       region: 'string',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       updateTime: 'number',
       userId: 'string',
       version: 'number',
@@ -21703,6 +21816,9 @@ export class ListNamespacesResponseBodyDataResult extends $dara.Model {
   }
 
   validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
     super.validate();
   }
 
@@ -35858,6 +35974,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * true
    */
   switchEnable?: string;
+  tags?: CreateApplicationRequestTags[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -35868,6 +35985,7 @@ export class CreateApplicationRequest extends $dara.Model {
       sentinelEnable: 'SentinelEnable',
       source: 'Source',
       switchEnable: 'SwitchEnable',
+      tags: 'Tags',
     };
   }
 
@@ -35881,6 +35999,120 @@ export class CreateApplicationRequest extends $dara.Model {
       sentinelEnable: 'string',
       source: 'string',
       switchEnable: 'string',
+      tags: { 'type': 'array', 'itemType': CreateApplicationRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * spring-cloud-a
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * The programming language of the application.
+   * 
+   * @example
+   * JAVA
+   */
+  language?: string;
+  /**
+   * @remarks
+   * MSE命名空间名字。
+   * 
+   * @example
+   * prod
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * The region to which the application belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * Specifies whether to start the switch.
+   * 
+   * @example
+   * true
+   */
+  sentinelEnable?: string;
+  /**
+   * @remarks
+   * The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+   * 
+   * @example
+   * ACK
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The name of the Microservices Engine (MSE) namespace.
+   * 
+   * @example
+   * true
+   */
+  switchEnable?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appName: 'AppName',
+      language: 'Language',
+      namespace: 'Namespace',
+      region: 'Region',
+      sentinelEnable: 'SentinelEnable',
+      source: 'Source',
+      switchEnable: 'SwitchEnable',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appName: 'string',
+      language: 'string',
+      namespace: 'string',
+      region: 'string',
+      sentinelEnable: 'string',
+      source: 'string',
+      switchEnable: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -39153,11 +39385,13 @@ export class CreateNamespaceRequest extends $dara.Model {
    * myNamespace
    */
   name?: string;
+  tag?: CreateNamespaceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
       describe: 'Describe',
       name: 'Name',
+      tag: 'Tag',
     };
   }
 
@@ -39166,6 +39400,50 @@ export class CreateNamespaceRequest extends $dara.Model {
       acceptLanguage: 'string',
       describe: 'string',
       name: 'string',
+      tag: { 'type': 'array', 'itemType': CreateNamespaceRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  describe?: string;
+  /**
+   * @example
+   * myNamespace
+   */
+  name?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      describe: 'Describe',
+      name: 'Name',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      describe: 'string',
+      name: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -47649,6 +47927,7 @@ export class GetApplicationListRequest extends $dara.Model {
    * true
    */
   switchEnable?: boolean;
+  tags?: GetApplicationListRequestTags[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -47662,6 +47941,7 @@ export class GetApplicationListRequest extends $dara.Model {
       sentinelEnable: 'SentinelEnable',
       source: 'Source',
       switchEnable: 'SwitchEnable',
+      tags: 'Tags',
     };
   }
 
@@ -47678,6 +47958,152 @@ export class GetApplicationListRequest extends $dara.Model {
       sentinelEnable: 'boolean',
       source: 'string',
       switchEnable: 'boolean',
+      tags: { 'type': 'array', 'itemType': GetApplicationListRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationListShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * The ID of an application.
+   * 
+   * @example
+   * hkhon1po62@c3df23522b*****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The name of an application.
+   * 
+   * @example
+   * rest-container
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * The programming language of the application, such as Java and Go.
+   * 
+   * @example
+   * Java
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The microservice namespace to which the application belongs.
+   * 
+   * @example
+   * default
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Sentinel-compatible mode.
+   * 
+   * @example
+   * true
+   */
+  sentinelEnable?: boolean;
+  /**
+   * @remarks
+   * The source of the application. The value is fixed as edasmsc.
+   * 
+   * @example
+   * edasmsc
+   */
+  source?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable switching.
+   * 
+   * @example
+   * true
+   */
+  switchEnable?: boolean;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      appId: 'AppId',
+      appName: 'AppName',
+      language: 'Language',
+      namespace: 'Namespace',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      sentinelEnable: 'SentinelEnable',
+      source: 'Source',
+      switchEnable: 'SwitchEnable',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      appId: 'string',
+      appName: 'string',
+      language: 'string',
+      namespace: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      sentinelEnable: 'boolean',
+      source: 'string',
+      switchEnable: 'boolean',
+      tagsShrink: 'string',
     };
   }
 
@@ -62698,6 +63124,7 @@ export class ListNamespacesRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  tag?: ListNamespacesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
@@ -62705,6 +63132,7 @@ export class ListNamespacesRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       region: 'Region',
+      tag: 'Tag',
     };
   }
 
@@ -62715,6 +63143,71 @@ export class ListNamespacesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       region: 'string',
+      tag: { 'type': 'array', 'itemType': ListNamespacesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * myNamespace
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -84041,12 +84534,18 @@ export default class Client extends OpenApi {
   /**
    * Creates an application.
    * 
-   * @param request - CreateApplicationRequest
+   * @param tmpReq - CreateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateApplicationResponse
    */
-  async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<CreateApplicationResponse> {
-    request.validate();
+  async createApplicationWithOptions(tmpReq: CreateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<CreateApplicationResponse> {
+    tmpReq.validate();
+    let request = new CreateApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -84078,6 +84577,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.switchEnable)) {
       query["SwitchEnable"] = request.switchEnable;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -85254,12 +85757,18 @@ export default class Client extends OpenApi {
   /**
    * CreateNamespace
    * 
-   * @param request - CreateNamespaceRequest
+   * @param tmpReq - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNamespaceResponse
    */
-  async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<CreateNamespaceResponse> {
-    request.validate();
+  async createNamespaceWithOptions(tmpReq: CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<CreateNamespaceResponse> {
+    tmpReq.validate();
+    let request = new CreateNamespaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -85271,6 +85780,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -87954,12 +88467,18 @@ export default class Client extends OpenApi {
   /**
    * Obtains the list of applications.
    * 
-   * @param request - GetApplicationListRequest
+   * @param tmpReq - GetApplicationListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetApplicationListResponse
    */
-  async getApplicationListWithOptions(request: GetApplicationListRequest, runtime: $dara.RuntimeOptions): Promise<GetApplicationListResponse> {
-    request.validate();
+  async getApplicationListWithOptions(tmpReq: GetApplicationListRequest, runtime: $dara.RuntimeOptions): Promise<GetApplicationListResponse> {
+    tmpReq.validate();
+    let request = new GetApplicationListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -88003,6 +88522,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.switchEnable)) {
       query["SwitchEnable"] = request.switchEnable;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -92666,12 +93189,18 @@ export default class Client extends OpenApi {
   /**
    * 展示命名空间列表
    * 
-   * @param request - ListNamespacesRequest
+   * @param tmpReq - ListNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNamespacesResponse
    */
-  async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<ListNamespacesResponse> {
-    request.validate();
+  async listNamespacesWithOptions(tmpReq: ListNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<ListNamespacesResponse> {
+    tmpReq.validate();
+    let request = new ListNamespacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -92691,6 +93220,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
