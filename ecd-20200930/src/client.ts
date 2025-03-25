@@ -4939,6 +4939,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * The tags attached to the cloud computer pool.
    */
   tags?: DescribeDesktopGroupsResponseBodyDesktopGroupsTags[];
+  userOuPath?: string;
   /**
    * @remarks
    * The version number of the cloud computer pool.
@@ -5010,6 +5011,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskSize: 'SystemDiskSize',
       tags: 'Tags',
+      userOuPath: 'UserOuPath',
       version: 'Version',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
@@ -5063,6 +5065,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       systemDiskCategory: 'string',
       systemDiskSize: 'number',
       tags: { 'type': 'array', 'itemType': DescribeDesktopGroupsResponseBodyDesktopGroupsTags },
+      userOuPath: 'string',
       version: 'number',
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
@@ -14630,7 +14633,7 @@ export class DescribeUserConnectTimeResponseBodyData extends $dara.Model {
 export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends $dara.Model {
   /**
    * @remarks
-   * The duration for which the end user is connected to the cloud computer. Unit: seconds.
+   * The connection duration. Unit: milliseconds.
    * 
    * @example
    * 3405035000
@@ -15602,7 +15605,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
 export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`. You cannot specify an empty string as a tag key.
+   * The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -15610,7 +15613,7 @@ export class ExportDesktopGroupInfoRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -20367,7 +20370,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the desktop group that you want to assign to more regular users.
+   * The ID of the cloud computer share.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -20375,14 +20378,12 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the desktop groups.
+   * The IDs of the cloud computer shares.
    */
   desktopGroupIds?: string[];
   /**
    * @remarks
    * The regular users to whom you want to assign the desktop group.
-   * 
-   * This parameter is required.
    */
   endUserIds?: string[];
   /**
@@ -20395,6 +20396,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  userOuPath?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -20402,6 +20404,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: 'DesktopGroupIds',
       endUserIds: 'EndUserIds',
       regionId: 'RegionId',
+      userOuPath: 'UserOuPath',
     };
   }
 
@@ -20412,6 +20415,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      userOuPath: 'string',
     };
   }
 
@@ -26523,6 +26527,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * ccg-0caoeogrk9m5****
    */
   timerGroupId?: string;
+  userOuPath?: string;
   /**
    * @remarks
    * Specifies whether to enable disk encryption.
@@ -26604,6 +26609,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       systemDiskSize: 'SystemDiskSize',
       tag: 'Tag',
       timerGroupId: 'TimerGroupId',
+      userOuPath: 'UserOuPath',
       volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
       volumeEncryptionKey: 'VolumeEncryptionKey',
       vpcId: 'VpcId',
@@ -26665,6 +26671,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
       systemDiskSize: 'number',
       tag: { 'type': 'array', 'itemType': CreateDesktopGroupRequestTag },
       timerGroupId: 'string',
+      userOuPath: 'string',
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
       vpcId: 'string',
@@ -42731,7 +42738,7 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
 export class DescribeUserConnectionRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about connection records of the end user.
+   * The connection records.
    */
   connectionRecords?: DescribeUserConnectionRecordsResponseBodyConnectionRecords[];
   /**
@@ -42974,7 +42981,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   connectState?: number;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -43124,7 +43131,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of authorized users that is connected to cloud computers in the cloud computer pool.
+   * The total number of authorized users that are connected to cloud computers of the cloud computer share.
    * 
    * @example
    * 0
@@ -43138,9 +43145,10 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  userOuPath?: string;
   /**
    * @remarks
-   * The total number of authorized users of the cloud computer pool.
+   * The total number of authorized users of the cloud computer share.
    * 
    * @example
    * 1
@@ -43152,6 +43160,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
       nextToken: 'NextToken',
       onlineUsersCount: 'OnlineUsersCount',
       requestId: 'RequestId',
+      userOuPath: 'UserOuPath',
       usersCount: 'UsersCount',
     };
   }
@@ -43162,6 +43171,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
       nextToken: 'string',
       onlineUsersCount: 'number',
       requestId: 'string',
+      userOuPath: 'string',
       usersCount: 'number',
     };
   }
@@ -44550,7 +44560,7 @@ export class ExportClientEventsResponseBody extends $dara.Model {
    * The download address from which you can export desktop groups.
    * 
    * @example
-   * https://cn-shanghai-servicemanager.oss-cn-shanghai.aliyuncs.com/A0_CLIENT_EVENT/EDS_Events%20List_20220519234611_w5HuD83KGs.csv?Expires=1652975773&OSSAccessKeyId=LTYL****8tso&Signature=4erMG*********k%3D
+   * https://cn-shanghai-servicemanager.oss-cn-shanghai.aliyuncs.com/A0_CLIENT_EVENT/EDS_Events%20List_20220519234611_w5HuD83KGs.csv?Expires=1652975773&OSSAccessKeyId=****&Signature=4erMG*********k%3D
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -44614,12 +44624,11 @@ export class ExportClientEventsResponse extends $dara.Model {
 export class ExportDesktopGroupInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the cloud computer pool.
+   * The billing method of the cloud computer share.
    * 
    * Valid values:
    * 
    * *   PostPaid: pay-as-you-go.
-   * 
    * *   PrePaid: subscription.
    * 
    * @example
@@ -44628,12 +44637,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The IDs of the cloud computer pools.
+   * The IDs of the cloud computer shares.
    */
   desktopGroupId?: string[];
   /**
    * @remarks
-   * The name of the cloud computer pool.
+   * The name of the cloud computer share.
    * 
    * @example
    * test
@@ -44641,12 +44650,12 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The authorized user IDs of cloud computer pools.
+   * The IDs of the users to be authorized.
    */
   endUserId?: string[];
   /**
    * @remarks
-   * The time when the subscription cloud computer pool expires.
+   * The expiration date of the subscription cloud computer share.
    * 
    * @example
    * 2022-12-31T15:59Z
@@ -44682,7 +44691,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network to which the cloud computer pool belongs.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -44690,7 +44699,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the policy that is associated with the cloud computer pool.
+   * The ID of the security policy.
    * 
    * @example
    * pg-53iyi2aar0nd6****
@@ -44708,7 +44717,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tags attached to the cloud computer pool. You can specify 1 to 20 tags.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: ExportDesktopGroupInfoRequestTag[];
   static names(): { [key: string]: string } {
@@ -44774,18 +44783,18 @@ export class ExportDesktopGroupInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The URL from which you can download the exported cloud computer pools. The details of the cloud computer pools include:
+   * The download URL of the XLSX file that contains cloud computer shares. The XLSX file provides the following information:
    * 
-   * *   IDs and names of the cloud computer pools
-   * *   IDs and names of the office networks
-   * *   Cloud computer pool templates
-   * *   Number of CPU cores and memory size
-   * *   System disks and data disks
-   * *   Names of security policies
-   * *   Number of current authorized users
-   * *   Billing methods
-   * *   The time when the cloud computer pools were created
-   * *   The time when the cloud computer pools expire
+   * *   Cloud computer share ID/name
+   * *   Office network ID/name
+   * *   Cloud computer share template
+   * *   vCPUs/Memory size
+   * *   System disk/Data disk
+   * *   Security policy name
+   * *   Number of authorized users
+   * *   Billing method
+   * *   Creation time
+   * *   Expiration time
    * 
    * @example
    * https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktopGroups_202203********_xBjqdCT***.xlsx?*********
@@ -55151,7 +55160,7 @@ export class ModifyUserEntitlementResponse extends $dara.Model {
 export class ModifyUserToDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool whose end users you want to change.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -56061,7 +56070,7 @@ export class RemoveFilePermissionResponse extends $dara.Model {
 export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool for which you want to remove the authorized users.
+   * The ID of the cloud computer share.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -56069,14 +56078,12 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of cloud computer pools.
+   * The IDs of the cloud computer shares.
    */
   desktopGroupIds?: string[];
   /**
    * @remarks
    * The IDs of the authorized users that you want to remove.
-   * 
-   * This parameter is required.
    */
   endUserIds?: string[];
   /**
@@ -56089,12 +56096,14 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  userOuPath?: string;
   static names(): { [key: string]: string } {
     return {
       desktopGroupId: 'DesktopGroupId',
       desktopGroupIds: 'DesktopGroupIds',
       endUserIds: 'EndUserIds',
       regionId: 'RegionId',
+      userOuPath: 'UserOuPath',
     };
   }
 
@@ -56104,6 +56113,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       endUserIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      userOuPath: 'string',
     };
   }
 
@@ -56306,7 +56316,7 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the shared group.
    * 
    * This parameter is required.
    * 
@@ -56955,7 +56965,10 @@ export class RenewNetworkPackagesResponse extends $dara.Model {
 export class ResetDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud computers in the specified pool.
+   * The ID of the cloud computer share.
+   * 
+   * *   If you specify `DesktopId`, ignore `DesktopGroupId`.
+   * *   If you leave `DesktopId` empty, the system obtains the IDs of all cloud computers within the share specified by `DesktopGroupId`.``
    * 
    * @example
    * dg-07if7qsxoxkb6****
@@ -56963,7 +56976,7 @@ export class ResetDesktopsRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the cloud computer pools.
+   * The IDs of the cloud computer shares.
    */
   desktopGroupIds?: string[];
   /**
@@ -56981,9 +56994,14 @@ export class ResetDesktopsRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing method of the cloud computer share.
    * 
-   * > This parameter is available only when you reset cloud computer pools. If you leave this parameter empty, all cloud computers in the specified cloud computer pool are reset, regardless of how the cloud computers are billed.
+   * >  This parameter takes effect when you reset a cloud computer share. If you leave this parameter empty, all cloud computers in that share are reset.
+   * 
+   * Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
    * 
    * @example
    * PrePaid
@@ -57940,7 +57958,7 @@ export class SetDesktopGroupTimerRequest extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -58097,7 +58115,7 @@ export class SetDesktopGroupTimerResponse extends $dara.Model {
 export class SetDesktopGroupTimerStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -60968,7 +60986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorized end users of a desktop group.
+   * Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
    * 
    * @param request - AddUserToDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60997,6 +61015,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.userOuPath)) {
+      query["UserOuPath"] = request.userOuPath;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -61020,7 +61042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorized end users of a desktop group.
+   * Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
    * 
    * @param request - AddUserToDesktopGroupRequest
    * @returns AddUserToDesktopGroupResponse
@@ -63400,6 +63422,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timerGroupId)) {
       query["TimerGroupId"] = request.timerGroupId;
+    }
+
+    if (!$dara.isNull(request.userOuPath)) {
+      query["UserOuPath"] = request.userOuPath;
     }
 
     if (!$dara.isNull(request.volumeEncryptionEnabled)) {
@@ -69532,7 +69558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+   * Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
    * 
    * @param request - DescribeUsersInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69604,7 +69630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+   * Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
    * 
    * @param request - DescribeUsersInGroupRequest
    * @returns DescribeUsersInGroupResponse
@@ -70213,7 +70239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+   * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70293,7 +70319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+   * Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
    * 
    * @param request - ExportDesktopGroupInfoRequest
    * @returns ExportDesktopGroupInfoResponse
@@ -74364,7 +74390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the end users of a cloud computer pool into new end users.
+   * Replaces the existing authorized users of a cloud computer share with different users
    * 
    * @param request - ModifyUserToDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74412,7 +74438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the end users of a cloud computer pool into new end users.
+   * Replaces the existing authorized users of a cloud computer share with different users
    * 
    * @param request - ModifyUserToDesktopGroupRequest
    * @returns ModifyUserToDesktopGroupResponse
@@ -74707,7 +74733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+   * Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
    * 
    * @param request - RemoveUserFromDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74730,6 +74756,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userOuPath)) {
+      query["UserOuPath"] = request.userOuPath;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -74755,7 +74785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+   * Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
    * 
    * @param request - RemoveUserFromDesktopGroupRequest
    * @returns RemoveUserFromDesktopGroupResponse
@@ -74825,7 +74855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renew a subscription cloud computer pool.
+   * Renews a shared cloud computer.
    * 
    * @param request - RenewDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74881,7 +74911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renew a subscription cloud computer pool.
+   * Renews a shared cloud computer.
    * 
    * @param request - RenewDesktopGroupRequest
    * @returns RenewDesktopGroupResponse
@@ -75093,10 +75123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets cloud computers.
+   * Resets cloud computers of a cloud computer share.
    * 
    * @remarks
-   * > You can call this operation to reset only cloud computers in a cloud computer pool.
+   * >  You can call this operation to reset only cloud computers from a cloud computer share.
    * 
    * @param request - ResetDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75160,10 +75190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets cloud computers.
+   * Resets cloud computers of a cloud computer share.
    * 
    * @remarks
-   * > You can call this operation to reset only cloud computers in a cloud computer pool.
+   * >  You can call this operation to reset only cloud computers from a cloud computer share.
    * 
    * @param request - ResetDesktopsRequest
    * @returns ResetDesktopsResponse
@@ -75550,7 +75580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+   * Configures a scheduled start, stop, restart, or reset task for a cloud computer share.
    * 
    * @param request - SetDesktopGroupTimerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75606,7 +75636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+   * Configures a scheduled start, stop, restart, or reset task for a cloud computer share.
    * 
    * @param request - SetDesktopGroupTimerRequest
    * @returns SetDesktopGroupTimerResponse
@@ -75617,7 +75647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+   * Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
    * 
    * @param request - SetDesktopGroupTimerStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75665,7 +75695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+   * Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
    * 
    * @param request - SetDesktopGroupTimerStatusRequest
    * @returns SetDesktopGroupTimerStatusResponse
