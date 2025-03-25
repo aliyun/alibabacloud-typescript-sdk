@@ -401,8 +401,9 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
    * @remarks
    * The type of the account. Valid values:
    * 
-   * *   **Normal**: a standard account
-   * *   **Super**: a privileged account
+   * *   **Normal**: standard account.
+   * *   **Super**: privileged account.
+   * *   **ReadOnly**: global read-only account.
    * 
    * @example
    * Normal
@@ -1955,6 +1956,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
    * Primary
    */
   subCluster?: string;
+  subGroupDescription?: string;
   /**
    * @remarks
    * Availability zone ID.
@@ -1989,6 +1991,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
       serverWeight: 'ServerWeight',
       serverlessType: 'ServerlessType',
       subCluster: 'SubCluster',
+      subGroupDescription: 'SubGroupDescription',
       zoneId: 'ZoneId',
     };
   }
@@ -2019,6 +2022,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
       serverWeight: 'string',
       serverlessType: 'string',
       subCluster: 'string',
+      subGroupDescription: 'string',
       zoneId: 'string',
     };
   }
@@ -6268,6 +6272,166 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGr
       globalIgName: 'string',
       globalSecurityGroupId: 'string',
       regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  actionInfo?: string;
+  /**
+   * @example
+   * User
+   */
+  callerSource?: string;
+  /**
+   * @example
+   * 1816563541899***
+   */
+  callerUid?: string;
+  /**
+   * @example
+   * finish_task
+   */
+  currentStepName?: string;
+  /**
+   * @example
+   * polardb_mysql
+   */
+  dbType?: string;
+  /**
+   * @example
+   * 2025-03-03T07:30:57Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * pc-2zed3m89cw***
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * pc-2zed3m89cw***
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * Instance
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * polardb
+   */
+  product?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  progress?: number;
+  /**
+   * @example
+   * ""
+   */
+  reasonCode?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 0
+   */
+  remainTime?: number;
+  /**
+   * @example
+   * 2025-03-03T07:25:16Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Succeed
+   */
+  status?: string;
+  /**
+   * @example
+   * {\\"steps\\":[{\\"step_name\\":\\"init_task\\"},{\\"step_name\\":\\"exec_task\\"},{\\"step_name\\":\\"finish_task\\"}]}
+   */
+  taskDetail?: string;
+  /**
+   * @example
+   * t-0mqt8qhnw04ipz0***
+   */
+  taskId?: string;
+  /**
+   * @example
+   * ChangeVariable
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1816563541899***
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionInfo: 'ActionInfo',
+      callerSource: 'CallerSource',
+      callerUid: 'CallerUid',
+      currentStepName: 'CurrentStepName',
+      dbType: 'DbType',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      product: 'Product',
+      progress: 'Progress',
+      reasonCode: 'ReasonCode',
+      regionId: 'RegionId',
+      remainTime: 'RemainTime',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskDetail: 'TaskDetail',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionInfo: 'string',
+      callerSource: 'string',
+      callerUid: 'string',
+      currentStepName: 'string',
+      dbType: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      product: 'string',
+      progress: 'number',
+      reasonCode: 'string',
+      regionId: 'string',
+      remainTime: 'number',
+      startTime: 'string',
+      status: 'string',
+      taskDetail: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      uid: 'string',
     };
   }
 
@@ -11351,8 +11515,8 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic association of newly added nodes with the cluster endpoint. Valid values:
    * 
-   * *   **Enable**: enables automatic association of newly added nodes with the cluster endpoint.
-   * *   **Disable** (default): disables automatic association of newly added nodes with the cluster endpoint.
+   * *   **Enable**
+   * *   **Disable** (default)
    * 
    * @example
    * Disable
@@ -11486,11 +11650,6 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
    * 
    * *   **ON**
    * *   **OFF**
-   * 
-   * Enumerated values:
-   * 
-   * *   on
-   * *   off
    * 
    * @example
    * on
@@ -14878,6 +15037,15 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
    * pc-*****************
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * Deletes data masking or encryption rules. Valid values:
+   * 
+   * v1: deletes data masking rules. v2: deletes data encryption rules.
+   * 
+   * @example
+   * v1
+   */
   interfaceVersion?: string;
   /**
    * @remarks
@@ -20903,7 +21071,7 @@ export class DescribeDBClustersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0. Default value: **1**.
+   * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 10
@@ -23621,6 +23789,224 @@ export class DescribeGlobalSecurityIPGroupRelationResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeGlobalSecurityIPGroupRelationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  fromExecTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2025-01-02T11:31:03Z
+   */
+  fromStartTime?: string;
+  /**
+   * @example
+   * pc-2zed3m89cw***
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * Instance
+   */
+  instanceType?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-************
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: number;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * t-0mqi38ho0cgjv***
+   */
+  taskId?: string;
+  /**
+   * @example
+   * ChangeVariable
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 0
+   */
+  toExecTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2025-01-03T11:31:03Z
+   */
+  toStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromExecTime: 'FromExecTime',
+      fromStartTime: 'FromStartTime',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      toExecTime: 'ToExecTime',
+      toStartTime: 'ToStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromExecTime: 'number',
+      fromStartTime: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'number',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      toExecTime: 'number',
+      toStartTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponseBody extends $dara.Model {
+  items?: DescribeHistoryTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * F90D7C14-2D1C-5B88-9CD1-23AB2CF89***
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeHistoryTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHistoryTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHistoryTasksResponseBody,
     };
   }
 
@@ -29546,7 +29932,11 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * @remarks
    * The fault injection method. Valid values:
    * 
-   * *   CrashSQLInjection: `Crash SQL`-based fault injection.
+   * *   0: `Crash SQL`-based fault injection.
+   * 
+   * Valid values:
+   * 
+   * *   CrashSQLInjection: CrashSQLInjection.
    * 
    * @example
    * 0
@@ -30159,21 +30549,42 @@ export class ModifyDBClusterAndNodesParametersResponse extends $dara.Model {
 
 export class ModifyDBClusterArchRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * pc-****************
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the hot standby storage cluster feature. Valid values:
+   * 
+   * *   **on**: enables hot standby storage cluster.
+   * *   **equal**: Enable a peer-to-peer cluster.
+   * 
    * @example
    * on
    */
   hotStandbyCluster?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query information about regions.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone of the hot standby storage cluster. Valid values:
+   * 
+   * *   **auto** (default): The zone is automatically selected.
+   * 
+   * >  You can use the default value when HotStandbyCluster is set to on. If HotStandbyCluster is set to equal, specify the zone of the hot standby storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/98041.html) operation to query information about zones.
+   * 
    * @example
    * cn-beijing-i
    */
@@ -30207,16 +30618,25 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
 
 export class ModifyDBClusterArchResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * pc-**************
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 2148126708*****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A2EE5B4-CC9F-46E1-A747-E43BC9******
    */
@@ -34790,19 +35210,22 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
   interfaceVersion?: string;
   /**
    * @remarks
-   * The parameter that is used to specify the masking rule that you want to modify and the value in the JSON format. All parameter values are of the string type. Example: `{"auto": {"databases": ["db1"], "tables": ["tb1"], "columns": ["c1,c2"] }, "description": "This rule will be applied to the columns c1 and c2 in table t1", "enabled": true, "applies_to": ["user"]}`. Parameters in the function:
+   * The parameter that is used to specify the masking rule that you want to modify and the value in the JSON format. All parameter values are of the string type. Example: `{"auto": {"databases": ["db1"], "tables": ["tb1"], "columns": ["c1,c2"] }, "description": "This rule will be applied to the columns c1 and c2 in table t1", "enabled": true, "applies_to": ["user"]}`. Where,
    * 
    * *   `"auto"`: specifies that the dynamic masking algorithm is supported. This parameter is required.
    * *   `"databases"`: Optional. The names of databases to which the masking rule is applied. Separate the names with commas (,). If you leave this parameter empty, the masking rule applies to all databases in the cluster.
    * *   `"tables"`: Optional. The names of tables to which the masking rule is applied. Separate the names with commas (,). If you leave this parameter empty, the rule applies to all tables in the cluster.
    * *   `"columns"`: Required. The names of fields to which the masking rule is applied. Separate the names with commas (,).
-   * *   `"description"`: Optional. The description of the masking rule. The description can be up to 64 characters in length.
-   * *   `"enabled"`: Required. Specifies whether to enable the masking rule. Valid values: **true** and **false**.
+   * *   `"description"`: Optional. The description of the masking rule. The description is up to 64 characters in length.
+   * *   `"enabled"`: Required. Specifies whether to enable the masking rule. Valid values: **true** (enable) and **false** (disable).
    * *   `"applies_to"`: The names of database accounts to which the masking rule is applied. Separate the names with commas (,).
    * *   `"exempted"`: The names of database accounts to which the masking rule is not applied. Separate the names with commas (,).
    * 
-   * >- If you specify `RuleName`, `RuleConfig` parameter is required. 
-   * >- You need to select either `"applies_to"` or `"exempted"`.
+   * > 
+   * 
+   * *   If you specify `RuleName`, `RuleConfig` parameter is required.
+   * 
+   * *   You need to select either `"applies_to"` or `"exempted"`.
    * 
    * @example
    * {"auto": {"databases": ["db1"], "tables": ["tb1"], "columns": ["c1,c2"] }, "description": "This rule will be applied to the columns c1 and c2 in table t1", "enabled": true, "applies_to": ["user"]}
@@ -34812,8 +35235,11 @@ export class ModifyMaskingRulesRequest extends $dara.Model {
    * @remarks
    * The name of the data masking rule. You can specify only one rule name at a time.
    * 
-   * >- You can call the [DescribeMaskingRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all masking rules for a specified cluster, such as the names of the masking rules.
-   * >- If the rule name does not exist in the cluster, the system automatically creates a masking rule based on the name and the value of `RuleConfig`.
+   * > 
+   * 
+   * *   You can call the [DescribeMaskingRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all masking rules for a specified cluster, such as the names of the masking rules.
+   * 
+   * *   If the rule name does not exist in the cluster, the system automatically creates a masking rule based on the name and the value of `RuleConfig`.
    * 
    * @example
    * testrule
@@ -43567,6 +43993,117 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 任务中心任务列表
+   * 
+   * @param request - DescribeHistoryTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryTasksResponse
+   */
+  async describeHistoryTasksWithOptions(request: DescribeHistoryTasksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeHistoryTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromExecTime)) {
+      query["FromExecTime"] = request.fromExecTime;
+    }
+
+    if (!$dara.isNull(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.toExecTime)) {
+      query["ToExecTime"] = request.toExecTime;
+    }
+
+    if (!$dara.isNull(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHistoryTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeHistoryTasksResponse>(await this.callApi(params, req, runtime), new DescribeHistoryTasksResponse({}));
+    } else {
+      return $dara.cast<DescribeHistoryTasksResponse>(await this.execute(params, req, runtime), new DescribeHistoryTasksResponse({}));
+    }
+
+  }
+
+  /**
+   * 任务中心任务列表
+   * 
+   * @param request - DescribeHistoryTasksRequest
+   * @returns DescribeHistoryTasksResponse
+   */
+  async describeHistoryTasks(request: DescribeHistoryTasksRequest): Promise<DescribeHistoryTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHistoryTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information of a license order.
    * 
    * @param request - DescribeLicenseOrderDetailsRequest
@@ -46323,7 +46860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变更standby模式
+   * Changes the high availability mode of the cluster.
    * 
    * @param request - ModifyDBClusterArchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46371,7 +46908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 变更standby模式
+   * Changes the high availability mode of the cluster.
    * 
    * @param request - ModifyDBClusterArchRequest
    * @returns ModifyDBClusterArchResponse
