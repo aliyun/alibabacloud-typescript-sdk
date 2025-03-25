@@ -44068,13 +44068,6 @@ export class QueryContentRequest extends $dara.Model {
    * document
    */
   collection?: string;
-  /**
-   * @remarks
-   * Text content for retrieval.
-   * 
-   * @example
-   * What is ADBPG?
-   */
   content?: string;
   /**
    * @remarks
@@ -44341,13 +44334,6 @@ export class QueryContentAdvanceRequest extends $dara.Model {
    * document
    */
   collection?: string;
-  /**
-   * @remarks
-   * Text content for retrieval.
-   * 
-   * @example
-   * What is ADBPG?
-   */
   content?: string;
   /**
    * @remarks
@@ -44614,13 +44600,6 @@ export class QueryContentShrinkRequest extends $dara.Model {
    * document
    */
   collection?: string;
-  /**
-   * @remarks
-   * Text content for retrieval.
-   * 
-   * @example
-   * What is ADBPG?
-   */
   content?: string;
   /**
    * @remarks
@@ -62741,10 +62720,6 @@ export default class Client extends OpenApi {
       query["Collection"] = request.collection;
     }
 
-    if (!$dara.isNull(request.content)) {
-      query["Content"] = request.content;
-    }
-
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -62817,8 +62792,14 @@ export default class Client extends OpenApi {
       query["UseFullTextRetrieval"] = request.useFullTextRetrieval;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "QueryContent",
