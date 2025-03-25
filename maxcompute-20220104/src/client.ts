@@ -1223,6 +1223,407 @@ export class GetComputeQuotaScheduleResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetJobInfoResponseBodyDataJobSubStatusList extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the sub-status.
+   * 
+   * @example
+   * 1010
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The description of the sub-status.
+   * 
+   * @example
+   * Waiting for scheduling
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The start time of the sub-status.
+   * 
+   * @example
+   * 2025-03-05 00:04:15.717364 +0800
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      description: 'description',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      description: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobInfoResponseBodyDataSceneResults extends $dara.Model {
+  /**
+   * @remarks
+   * The intelligent diagnostics result description.
+   * 
+   * @example
+   * This job uses annual and monthly computing resources. It may be that the job is waiting for resources due to the large amount of overall job running data, many resources requested, and low job priority. Please go to Resource Consumption to view the specific situation. You can also go to Cost Optimization to see if you need to adjust resource configuration.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Information about the nodes where data skew or data expansion is detected. This parameter is returned only when the diagnostics scenario is data skew or data expansion.
+   */
+  params?: { [key: string]: string };
+  /**
+   * @remarks
+   * The intelligent diagnostics result scenario.
+   * 
+   * @example
+   * LackResource
+   */
+  scene?: string;
+  /**
+   * @remarks
+   * The intelligent diagnostics result tag.
+   * 
+   * @example
+   * SubscriptionLackResource
+   */
+  sceneTag?: string;
+  /**
+   * @remarks
+   * The intelligent diagnostics result summary.
+   * 
+   * @example
+   * Insufficient computing resources available for the job. Click to view details.
+   */
+  summary?: string;
+  /**
+   * @remarks
+   * The intelligent diagnostics result type.
+   * 
+   * @example
+   * warning
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      params: 'params',
+      scene: 'scene',
+      sceneTag: 'sceneTag',
+      summary: 'summary',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      scene: 'string',
+      sceneTag: 'string',
+      summary: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.params) {
+      $dara.Model.validateMap(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * CPU usage of the job at the snapshot time. Unit: Core.
+   * 
+   * @example
+   * 10
+   */
+  cuUsage?: number;
+  /**
+   * @remarks
+   * The time when the job was finished.
+   * 
+   * @example
+   * 1672112913
+   */
+  endAtTime?: number;
+  /**
+   * @remarks
+   * The ID of the upstream node.
+   * 
+   * @example
+   * node_4
+   */
+  extNodeId?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * duty_2
+   */
+  extNodeOnDuty?: string;
+  /**
+   * @remarks
+   * The upstream platform.
+   * 
+   * @example
+   * platform_3
+   */
+  extPlantFrom?: string;
+  /**
+   * @remarks
+   * The amount of scanned data for the job. Unit: byte.
+   * 
+   * @example
+   * 1234
+   */
+  inputBytes?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * 20230410****60gg
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The account that commits the job.
+   * 
+   * @example
+   * ALIYUN$7632***@aliyun.com
+   */
+  jobOwner?: string;
+  /**
+   * @remarks
+   * The list of sub-status of the job.
+   */
+  jobSubStatusList?: GetJobInfoResponseBodyDataJobSubStatusList[];
+  /**
+   * @remarks
+   * The type of the job.
+   * 
+   * @example
+   * SQL
+   */
+  jobType?: string;
+  /**
+   * @remarks
+   * Memory usage of the job at the snapshot time. Unit: MB.
+   * 
+   * @example
+   * 40
+   */
+  memoryUsage?: number;
+  /**
+   * @remarks
+   * The priority of the job.
+   * 
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The name of the project.
+   * 
+   * @example
+   * dp_cdm_prod
+   */
+  project?: string;
+  /**
+   * @remarks
+   * The nickname of the computing Quota used by the job.
+   * 
+   * @example
+   * os_bigdata
+   */
+  quotaNickname?: string;
+  /**
+   * @remarks
+   * The type of the quota.
+   * 
+   * @example
+   * subscription
+   */
+  quotaType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The start time of the job.
+   * > The time when the job received the first batch of computing resources.
+   * 
+   * @example
+   * 1672112113
+   */
+  runningAtTime?: number;
+  /**
+   * @remarks
+   * The running duration, which is the duration from the runningAtTime to the snapshotTime of the job. Unit: seconds (s).
+   * 
+   * @example
+   * 800
+   */
+  runningTime?: number;
+  /**
+   * @remarks
+   * The intelligent diagnostics results.
+   */
+  sceneResults?: GetJobInfoResponseBodyDataSceneResults[];
+  /**
+   * @remarks
+   * The signature of the SQL job.
+   * 
+   * @example
+   * 20c1efb4a7caca1865f4aa784bb500efae74af04
+   */
+  signature?: string;
+  /**
+   * @remarks
+   * The status of the job.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The time when the job was committed.
+   * 
+   * @example
+   * 1672112013
+   */
+  submittedAtTime?: number;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 4784****5249
+   */
+  tenantId?: string;
+  /**
+   * @remarks
+   * The interval from the time when the job was submitted to the snapshotTime .Unit: seconds (s).
+   * 
+   * @example
+   * 900
+   */
+  totalTime?: number;
+  /**
+   * @remarks
+   * The duration from the time the job is submitted to the time the job starts to run. Unit: seconds (s).
+   * 
+   * @example
+   * 100
+   */
+  waitingTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cuUsage: 'cuUsage',
+      endAtTime: 'endAtTime',
+      extNodeId: 'extNodeId',
+      extNodeOnDuty: 'extNodeOnDuty',
+      extPlantFrom: 'extPlantFrom',
+      inputBytes: 'inputBytes',
+      instanceId: 'instanceId',
+      jobOwner: 'jobOwner',
+      jobSubStatusList: 'jobSubStatusList',
+      jobType: 'jobType',
+      memoryUsage: 'memoryUsage',
+      priority: 'priority',
+      project: 'project',
+      quotaNickname: 'quotaNickname',
+      quotaType: 'quotaType',
+      region: 'region',
+      runningAtTime: 'runningAtTime',
+      runningTime: 'runningTime',
+      sceneResults: 'sceneResults',
+      signature: 'signature',
+      status: 'status',
+      submittedAtTime: 'submittedAtTime',
+      tenantId: 'tenantId',
+      totalTime: 'totalTime',
+      waitingTime: 'waitingTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cuUsage: 'number',
+      endAtTime: 'number',
+      extNodeId: 'string',
+      extNodeOnDuty: 'string',
+      extPlantFrom: 'string',
+      inputBytes: 'number',
+      instanceId: 'string',
+      jobOwner: 'string',
+      jobSubStatusList: { 'type': 'array', 'itemType': GetJobInfoResponseBodyDataJobSubStatusList },
+      jobType: 'string',
+      memoryUsage: 'number',
+      priority: 'number',
+      project: 'string',
+      quotaNickname: 'string',
+      quotaType: 'string',
+      region: 'string',
+      runningAtTime: 'number',
+      runningTime: 'number',
+      sceneResults: { 'type': 'array', 'itemType': GetJobInfoResponseBodyDataSceneResults },
+      signature: 'string',
+      status: 'string',
+      submittedAtTime: 'number',
+      tenantId: 'string',
+      totalTime: 'number',
+      waitingTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.jobSubStatusList)) {
+      $dara.Model.validateArray(this.jobSubStatusList);
+    }
+    if(Array.isArray(this.sceneResults)) {
+      $dara.Model.validateArray(this.sceneResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResourceUsageResponseBodyDataJobResourceUsageList extends $dara.Model {
   /**
    * @remarks
@@ -3531,6 +3932,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
    * false
    */
   allowFullScan?: boolean;
+  autoMvQuotaGb?: number;
   /**
    * @remarks
    * The Tunnel parent resource group that is bound to the project. You do not need to pay attention to this group.
@@ -3539,6 +3941,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
    * No value
    */
   elderTunnelQuota?: string;
+  enableAutoMv?: boolean;
   /**
    * @remarks
    * Indicates whether the DECIMAL type of the MaxCompute V2.0 data type edition is enabled.
@@ -3547,6 +3950,7 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
    * true
    */
   enableDecimal2?: boolean;
+  enableDr?: boolean;
   /**
    * @remarks
    * Indicates whether external table caching is forcefully enabled.
@@ -3659,8 +4063,11 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allowFullScan: 'allowFullScan',
+      autoMvQuotaGb: 'autoMvQuotaGb',
       elderTunnelQuota: 'elderTunnelQuota',
+      enableAutoMv: 'enableAutoMv',
       enableDecimal2: 'enableDecimal2',
+      enableDr: 'enableDr',
       enableFdcCacheForce: 'enableFdcCacheForce',
       enableTieredStorage: 'enableTieredStorage',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
@@ -3681,8 +4088,11 @@ export class GetProjectResponseBodyDataProperties extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allowFullScan: 'boolean',
+      autoMvQuotaGb: 'number',
       elderTunnelQuota: 'string',
+      enableAutoMv: 'boolean',
       enableDecimal2: 'boolean',
+      enableDr: 'boolean',
       enableFdcCacheForce: 'boolean',
       enableTieredStorage: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
@@ -8462,6 +8872,14 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   extPlantFrom?: string;
   /**
    * @remarks
+   * The amount of scanned data for the job. Unit: byte.
+   * 
+   * @example
+   * 1234
+   */
+  inputBytes?: number;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * @example
@@ -8634,6 +9052,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       extNodeId: 'extNodeId',
       extNodeOnDuty: 'extNodeOnDuty',
       extPlantFrom: 'extPlantFrom',
+      inputBytes: 'inputBytes',
       instanceId: 'instanceId',
       jobOwner: 'jobOwner',
       jobType: 'jobType',
@@ -8667,6 +9086,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       extNodeId: 'string',
       extNodeOnDuty: 'string',
       extPlantFrom: 'string',
+      inputBytes: 'number',
       instanceId: 'string',
       jobOwner: 'string',
       jobType: 'string',
@@ -8864,6 +9284,13 @@ export class ListJobMetricResponseBodyData extends $dara.Model {
 }
 
 export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU request amount of the job at the snapshot time point. Unit: Core.
+   * 
+   * @example
+   * 200
+   */
   cpuRequest?: number;
   /**
    * @remarks
@@ -8873,6 +9300,13 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
    * 100
    */
   cpuUsage?: number;
+  /**
+   * @remarks
+   * The CPU satisfaction ratio of the job at the snapshot time point (cpuUsage/cpuRequest).
+   * 
+   * @example
+   * 0.5
+   */
   cpuUsageToRequestRatio?: number;
   /**
    * @remarks
@@ -8938,6 +9372,13 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
    * -1
    */
   maxMemoryPct?: number;
+  /**
+   * @remarks
+   * The Memory request amount of the job at the snapshot time point. Unit: MB.
+   * 
+   * @example
+   * 409600
+   */
   memoryRequest?: number;
   /**
    * @remarks
@@ -8947,6 +9388,13 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
    * 409600
    */
   memoryUsage?: number;
+  /**
+   * @remarks
+   * The Memory satisfaction ratio of the job at the snapshot time point (memoryUsage/memoryRequest).
+   * 
+   * @example
+   * 1
+   */
   memoryUsageToRequestRatio?: number;
   /**
    * @remarks
@@ -9161,7 +9609,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
 export class ListJobSnapshotInfosResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of jobs snapshot information
+   * The job snapshots.
    */
   jobInfoList?: ListJobSnapshotInfosResponseBodyDataJobInfoList[];
   /**
@@ -17375,6 +17823,7 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
    * true
    */
   enableDecimal2?: boolean;
+  enableDr?: boolean;
   /**
    * @remarks
    * Indicates whether the routing of the Tunnel resource group is enabled.
@@ -17450,6 +17899,7 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
     return {
       allowFullScan: 'allowFullScan',
       enableDecimal2: 'enableDecimal2',
+      enableDr: 'enableDr',
       enableTunnelQuotaRoute: 'enableTunnelQuotaRoute',
       encryption: 'encryption',
       retentionDays: 'retentionDays',
@@ -17465,6 +17915,7 @@ export class UpdateProjectBasicMetaRequestProperties extends $dara.Model {
     return {
       allowFullScan: 'boolean',
       enableDecimal2: 'boolean',
+      enableDr: 'boolean',
       enableTunnelQuotaRoute: 'boolean',
       encryption: UpdateProjectBasicMetaRequestPropertiesEncryption,
       retentionDays: 'number',
@@ -19396,6 +19847,117 @@ export class GetComputeQuotaScheduleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetComputeQuotaScheduleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: GetJobInfoResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * OBJECT_NOT_EXIST
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * This object does not exist.
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * *   1xx: informational response. The request is received and is being processed.
+   * *   2xx: success. The request is successfully received, understood, and accepted by the server.
+   * *   3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * *   4xx: client error. The request contains invalid request parameters and syntaxes, or specific request conditions cannot be met.
+   * *   5xx: server error. The server cannot meet requirements due to other reasons.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0be3e0bb16654558425251398e27a9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetJobInfoResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobInfoResponseBody,
     };
   }
 
@@ -22882,27 +23444,88 @@ export class ListJobInfosRequest extends $dara.Model {
    * true
    */
   ascOrder?: boolean;
+  /**
+   * @remarks
+   * The ancestor node IDs.
+   */
   extNodeIdList?: string[];
   /**
    * @remarks
+   * The start timestamp.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1672112000
    */
   from?: number;
+  /**
+   * @remarks
+   * The job instance IDs.
+   */
   instanceIdList?: string[];
+  /**
+   * @remarks
+   * The job owners.
+   */
   jobOwnerList?: string[];
+  /**
+   * @remarks
+   * The job priorities.
+   */
   priorityList?: number[];
+  /**
+   * @remarks
+   * The project names.
+   */
   projectList?: string[];
+  /**
+   * @remarks
+   * The quota nickname.
+   * 
+   * @example
+   * quota_nickname
+   */
   quotaNickname?: string;
+  /**
+   * @remarks
+   * The intelligent diagnostics tags.
+   */
   sceneTagList?: string[];
+  /**
+   * @remarks
+   * The job signatures.
+   */
   signatureList?: string[];
+  /**
+   * @remarks
+   * The sorting columns.
+   */
   sortByList?: string[];
+  /**
+   * @remarks
+   * The orders for the sorting columns.
+   */
   sortOrderList?: string[];
+  /**
+   * @remarks
+   * The job states.
+   */
   statusList?: string[];
   /**
    * @remarks
+   * The end timestamp.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1672112130
    */
   to?: number;
+  /**
+   * @remarks
+   * The job types.
+   */
   typeList?: string[];
   /**
    * @remarks
@@ -23344,7 +23967,7 @@ export class ListJobMetricResponse extends $dara.Model {
 export class ListJobSnapshotInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort query results in ascending or descending order.
+   * Specifies whether to sort data in ascending order.
    * 
    * @example
    * true
@@ -23429,7 +24052,7 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   typeList?: string[];
   /**
    * @remarks
-   * The column based on which you want to sort query results.
+   * The sorting column.
    * 
    * @example
    * cpuUsage
@@ -23557,7 +24180,7 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
 export class ListJobSnapshotInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListJobSnapshotInfosResponseBodyData;
   /**
@@ -29656,6 +30279,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getComputeQuotaScheduleWithOptions(nickname, request, headers, runtime);
+  }
+
+  /**
+   * Get basic information about a single job.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobInfoResponse
+   */
+  async getJobInfoWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetJobInfoResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobInfo",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(instanceId)}/info`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobInfoResponse>(await this.callApi(params, req, runtime), new GetJobInfoResponse({}));
+    } else {
+      return $dara.cast<GetJobInfoResponse>(await this.execute(params, req, runtime), new GetJobInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * Get basic information about a single job.
+   * @returns GetJobInfoResponse
+   */
+  async getJobInfo(instanceId: string): Promise<GetJobInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getJobInfoWithOptions(instanceId, headers, runtime);
   }
 
   /**
