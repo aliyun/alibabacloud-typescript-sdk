@@ -2836,6 +2836,14 @@ export class GetLniPrivateIpAddressResponseBodyContent extends $dara.Model {
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The subnet instance ID.
+   * 
+   * @example
+   * subnet-aj93mko8
+   */
+  subnetId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -2847,6 +2855,7 @@ export class GetLniPrivateIpAddressResponseBodyContent extends $dara.Model {
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
       status: 'Status',
+      subnetId: 'SubnetId',
     };
   }
 
@@ -2861,6 +2870,7 @@ export class GetLniPrivateIpAddressResponseBodyContent extends $dara.Model {
       privateIpAddress: 'string',
       regionId: 'string',
       status: 'string',
+      subnetId: 'string',
     };
   }
 
@@ -4382,6 +4392,14 @@ export class GetVccResponseBodyContent extends $dara.Model {
   attachErStatus?: boolean;
   /**
    * @remarks
+   * bandwidth
+   * 
+   * @example
+   * 20
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
    * The bandwidth of the port.
    * 
    * @example
@@ -4675,6 +4693,7 @@ export class GetVccResponseBodyContent extends $dara.Model {
       accessPointId: 'AccessPointId',
       aliyunRouterInfo: 'AliyunRouterInfo',
       attachErStatus: 'AttachErStatus',
+      bandwidth: 'Bandwidth',
       bandwidthStr: 'BandwidthStr',
       bgpAsn: 'BgpAsn',
       bgpCidr: 'BgpCidr',
@@ -4717,6 +4736,7 @@ export class GetVccResponseBodyContent extends $dara.Model {
       accessPointId: 'string',
       aliyunRouterInfo: { 'type': 'array', 'itemType': GetVccResponseBodyContentAliyunRouterInfo },
       attachErStatus: 'boolean',
+      bandwidth: 'number',
       bandwidthStr: 'string',
       bgpAsn: 'string',
       bgpCidr: 'string',
@@ -10718,6 +10738,16 @@ export class AssignLeniPrivateIpAddressRequest extends $dara.Model {
 export class AssignLeniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -10747,6 +10777,7 @@ export class AssignLeniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -10756,6 +10787,7 @@ export class AssignLeniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: AssignLeniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -10921,6 +10953,14 @@ export class AssignPrivateIpAddressRequest extends $dara.Model {
 export class AssignPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -10950,6 +10990,7 @@ export class AssignPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -10959,6 +11000,7 @@ export class AssignPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: AssignPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -11072,6 +11114,14 @@ export class AssociateVpdCidrBlockRequest extends $dara.Model {
 export class AssociateVpdCidrBlockResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -11101,6 +11151,7 @@ export class AssociateVpdCidrBlockResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -11110,6 +11161,7 @@ export class AssociateVpdCidrBlockResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: AssociateVpdCidrBlockResponseBodyContent,
       message: 'string',
@@ -11223,6 +11275,14 @@ export class AttachElasticNetworkInterfaceRequest extends $dara.Model {
 export class AttachElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -11255,6 +11315,7 @@ export class AttachElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -11264,6 +11325,7 @@ export class AttachElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -11434,6 +11496,14 @@ export class CreateElasticNetworkInterfaceRequest extends $dara.Model {
 export class CreateElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -11463,6 +11533,7 @@ export class CreateElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -11472,6 +11543,7 @@ export class CreateElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateElasticNetworkInterfaceResponseBodyContent,
       message: 'string',
@@ -11605,6 +11677,14 @@ export class CreateErRequest extends $dara.Model {
 export class CreateErResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed information about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -11634,6 +11714,7 @@ export class CreateErResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -11643,6 +11724,7 @@ export class CreateErResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateErResponseBodyContent,
       message: 'string',
@@ -11812,6 +11894,14 @@ export class CreateErAttachmentRequest extends $dara.Model {
 export class CreateErAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed information about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -11841,6 +11931,7 @@ export class CreateErAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -11850,6 +11941,7 @@ export class CreateErAttachmentResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateErAttachmentResponseBodyContent,
       message: 'string',
@@ -12076,6 +12168,14 @@ export class CreateErRouteMapRequest extends $dara.Model {
 export class CreateErRouteMapResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) authentication failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -12105,6 +12205,7 @@ export class CreateErRouteMapResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -12114,6 +12215,7 @@ export class CreateErRouteMapResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateErRouteMapResponseBodyContent,
       message: 'string',
@@ -12280,6 +12382,14 @@ export class CreateSubnetRequest extends $dara.Model {
 export class CreateSubnetResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed information about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -12309,6 +12419,7 @@ export class CreateSubnetResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -12318,6 +12429,7 @@ export class CreateSubnetResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateSubnetResponseBodyContent,
       message: 'string',
@@ -12581,6 +12693,14 @@ export class CreateVccRequest extends $dara.Model {
 export class CreateVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed information about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -12610,6 +12730,7 @@ export class CreateVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -12619,6 +12740,7 @@ export class CreateVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateVccResponseBodyContent,
       message: 'string',
@@ -12744,6 +12866,14 @@ export class CreateVccGrantRuleRequest extends $dara.Model {
 export class CreateVccGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -12776,6 +12906,7 @@ export class CreateVccGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -12785,6 +12916,7 @@ export class CreateVccGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateVccGrantRuleResponseBodyContent,
       message: 'string',
@@ -12892,6 +13024,14 @@ export class CreateVccRouteEntryRequest extends $dara.Model {
 export class CreateVccRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed information about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -12921,6 +13061,7 @@ export class CreateVccRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -12930,6 +13071,7 @@ export class CreateVccRouteEntryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateVccRouteEntryResponseBodyContent,
       message: 'string',
@@ -13078,6 +13220,14 @@ export class CreateVpdRequest extends $dara.Model {
 export class CreateVpdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13107,6 +13257,7 @@ export class CreateVpdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13116,6 +13267,7 @@ export class CreateVpdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateVpdResponseBodyContent,
       message: 'string',
@@ -13241,6 +13393,14 @@ export class CreateVpdGrantRuleRequest extends $dara.Model {
 export class CreateVpdGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13273,6 +13433,7 @@ export class CreateVpdGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13282,6 +13443,7 @@ export class CreateVpdGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: CreateVpdGrantRuleResponseBodyContent,
       message: 'string',
@@ -13393,6 +13555,14 @@ export class DeleteElasticNetworkInterfaceRequest extends $dara.Model {
 export class DeleteElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13422,6 +13592,7 @@ export class DeleteElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13431,6 +13602,7 @@ export class DeleteElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: DeleteElasticNetworkInterfaceResponseBodyContent,
       message: 'string',
@@ -13532,6 +13704,14 @@ export class DeleteErRequest extends $dara.Model {
 export class DeleteErResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13564,6 +13744,7 @@ export class DeleteErResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13573,6 +13754,7 @@ export class DeleteErResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -13683,6 +13865,14 @@ export class DeleteErAttachmentRequest extends $dara.Model {
 export class DeleteErAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
+   * 访问被拒绝的详细原因。
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13736,6 +13926,7 @@ export class DeleteErAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13745,6 +13936,7 @@ export class DeleteErAttachmentResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -13855,6 +14047,14 @@ export class DeleteErRouteMapRequest extends $dara.Model {
 export class DeleteErRouteMapResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -13887,6 +14087,7 @@ export class DeleteErRouteMapResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -13896,6 +14097,7 @@ export class DeleteErRouteMapResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14018,6 +14220,14 @@ export class DeleteSubnetRequest extends $dara.Model {
 export class DeleteSubnetResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14054,6 +14264,7 @@ export class DeleteSubnetResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14063,6 +14274,7 @@ export class DeleteSubnetResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14181,6 +14393,16 @@ export class DeleteVccGrantRuleRequest extends $dara.Model {
 export class DeleteVccGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14213,6 +14435,7 @@ export class DeleteVccGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14222,6 +14445,7 @@ export class DeleteVccGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14336,6 +14560,14 @@ export class DeleteVccRouteEntryRequest extends $dara.Model {
 export class DeleteVccRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14368,6 +14600,7 @@ export class DeleteVccRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14377,6 +14610,7 @@ export class DeleteVccRouteEntryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14475,6 +14709,14 @@ export class DeleteVpdRequest extends $dara.Model {
 export class DeleteVpdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14521,6 +14763,7 @@ export class DeleteVpdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14530,6 +14773,7 @@ export class DeleteVpdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14658,6 +14902,14 @@ export class DeleteVpdGrantRuleRequest extends $dara.Model {
 export class DeleteVpdGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14690,6 +14942,7 @@ export class DeleteVpdGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14699,6 +14952,7 @@ export class DeleteVpdGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -14783,6 +15037,14 @@ export class DescribeSlrRequest extends $dara.Model {
 export class DescribeSlrResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The information about the request denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14812,6 +15074,7 @@ export class DescribeSlrResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -14821,6 +15084,7 @@ export class DescribeSlrResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: DescribeSlrResponseBodyContent,
       message: 'string',
@@ -14934,6 +15198,14 @@ export class DetachElasticNetworkInterfaceRequest extends $dara.Model {
 export class DetachElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The detailed reason why the access was denied.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -14958,6 +15230,7 @@ export class DetachElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
@@ -14966,6 +15239,7 @@ export class DetachElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       message: 'string',
       requestId: 'string',
@@ -15063,6 +15337,14 @@ export class GetDestinationCidrBlockRequest extends $dara.Model {
 export class GetDestinationCidrBlockResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code
    * 
    * @example
@@ -15092,6 +15374,7 @@ export class GetDestinationCidrBlockResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15101,6 +15384,7 @@ export class GetDestinationCidrBlockResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetDestinationCidrBlockResponseBodyContent,
       message: 'string',
@@ -15202,6 +15486,14 @@ export class GetElasticNetworkInterfaceRequest extends $dara.Model {
 export class GetElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15231,6 +15523,7 @@ export class GetElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15240,6 +15533,7 @@ export class GetElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetElasticNetworkInterfaceResponseBodyContent,
       message: 'string',
@@ -15341,6 +15635,14 @@ export class GetErRequest extends $dara.Model {
 export class GetErResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15370,6 +15672,7 @@ export class GetErResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15379,6 +15682,7 @@ export class GetErResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetErResponseBodyContent,
       message: 'string',
@@ -15492,6 +15796,14 @@ export class GetErAttachmentRequest extends $dara.Model {
 export class GetErAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15521,6 +15833,7 @@ export class GetErAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15530,6 +15843,7 @@ export class GetErAttachmentResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetErAttachmentResponseBodyContent,
       message: 'string',
@@ -15643,6 +15957,14 @@ export class GetErRouteEntryRequest extends $dara.Model {
 export class GetErRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15672,6 +15994,7 @@ export class GetErRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15681,6 +16004,7 @@ export class GetErRouteEntryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetErRouteEntryResponseBodyContent,
       message: 'string',
@@ -15792,6 +16116,14 @@ export class GetErRouteMapRequest extends $dara.Model {
 export class GetErRouteMapResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15821,6 +16153,7 @@ export class GetErRouteMapResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -15830,6 +16163,7 @@ export class GetErRouteMapResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetErRouteMapResponseBodyContent,
       message: 'string',
@@ -15969,6 +16303,14 @@ export class GetFabricTopologyRequest extends $dara.Model {
 export class GetFabricTopologyResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -15998,6 +16340,7 @@ export class GetFabricTopologyResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16007,6 +16350,7 @@ export class GetFabricTopologyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetFabricTopologyResponseBodyContent,
       message: 'string',
@@ -16120,6 +16464,14 @@ export class GetLeniPrivateIpAddressRequest extends $dara.Model {
 export class GetLeniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16149,6 +16501,7 @@ export class GetLeniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16158,6 +16511,7 @@ export class GetLeniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetLeniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -16271,6 +16625,14 @@ export class GetLniPrivateIpAddressRequest extends $dara.Model {
 export class GetLniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16300,6 +16662,7 @@ export class GetLniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16309,6 +16672,7 @@ export class GetLniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetLniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -16422,6 +16786,14 @@ export class GetNetworkInterfaceRequest extends $dara.Model {
 export class GetNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16451,6 +16823,7 @@ export class GetNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16460,6 +16833,7 @@ export class GetNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetNetworkInterfaceResponseBodyContent,
       message: 'string',
@@ -16561,6 +16935,14 @@ export class GetNodeInfoForPodRequest extends $dara.Model {
 export class GetNodeInfoForPodResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the failed permission verification.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16590,6 +16972,7 @@ export class GetNodeInfoForPodResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16599,6 +16982,7 @@ export class GetNodeInfoForPodResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetNodeInfoForPodResponseBodyContent,
       message: 'string',
@@ -16708,6 +17092,14 @@ export class GetSubnetRequest extends $dara.Model {
 export class GetSubnetResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16737,6 +17129,7 @@ export class GetSubnetResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16746,6 +17139,7 @@ export class GetSubnetResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetSubnetResponseBodyContent,
       message: 'string',
@@ -16885,6 +17279,14 @@ export class GetVccRequest extends $dara.Model {
 export class GetVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -16914,6 +17316,7 @@ export class GetVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -16923,6 +17326,7 @@ export class GetVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVccResponseBodyContent,
       message: 'string',
@@ -17054,6 +17458,14 @@ export class GetVccGrantRuleRequest extends $dara.Model {
 export class GetVccGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17083,6 +17495,7 @@ export class GetVccGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17092,6 +17505,7 @@ export class GetVccGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVccGrantRuleResponseBodyContent,
       message: 'string',
@@ -17205,6 +17619,14 @@ export class GetVccRouteEntryRequest extends $dara.Model {
 export class GetVccRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17234,6 +17656,7 @@ export class GetVccRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17243,6 +17666,7 @@ export class GetVccRouteEntryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVccRouteEntryResponseBodyContent,
       message: 'string',
@@ -17344,6 +17768,14 @@ export class GetVpdRequest extends $dara.Model {
 export class GetVpdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17373,6 +17805,7 @@ export class GetVpdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17382,6 +17815,7 @@ export class GetVpdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVpdResponseBodyContent,
       message: 'string',
@@ -17513,6 +17947,14 @@ export class GetVpdGrantRuleRequest extends $dara.Model {
 export class GetVpdGrantRuleResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17542,6 +17984,7 @@ export class GetVpdGrantRuleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17551,6 +17994,7 @@ export class GetVpdGrantRuleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVpdGrantRuleResponseBodyContent,
       message: 'string',
@@ -17664,6 +18108,14 @@ export class GetVpdRouteEntryRequest extends $dara.Model {
 export class GetVpdRouteEntryResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17693,6 +18145,7 @@ export class GetVpdRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17702,6 +18155,7 @@ export class GetVpdRouteEntryResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: GetVpdRouteEntryResponseBodyContent,
       message: 'string',
@@ -17791,6 +18245,14 @@ export class InitializeVccRequest extends $dara.Model {
 export class InitializeVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -17820,6 +18282,7 @@ export class InitializeVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -17829,6 +18292,7 @@ export class InitializeVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: InitializeVccResponseBodyContent,
       message: 'string',
@@ -18046,6 +18510,14 @@ export class ListElasticNetworkInterfacesRequest extends $dara.Model {
 export class ListElasticNetworkInterfacesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -18075,6 +18547,7 @@ export class ListElasticNetworkInterfacesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -18084,6 +18557,7 @@ export class ListElasticNetworkInterfacesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListElasticNetworkInterfacesResponseBodyContent,
       message: 'string',
@@ -18313,6 +18787,14 @@ export class ListErAttachmentsRequest extends $dara.Model {
 export class ListErAttachmentsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -18342,6 +18824,7 @@ export class ListErAttachmentsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -18351,6 +18834,7 @@ export class ListErAttachmentsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListErAttachmentsResponseBodyContent,
       message: 'string',
@@ -18562,6 +19046,14 @@ export class ListErRouteEntriesRequest extends $dara.Model {
 export class ListErRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -18591,6 +19083,7 @@ export class ListErRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -18600,6 +19093,7 @@ export class ListErRouteEntriesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListErRouteEntriesResponseBodyContent,
       message: 'string',
@@ -18850,6 +19344,14 @@ export class ListErRouteMapsRequest extends $dara.Model {
 export class ListErRouteMapsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -18879,6 +19381,7 @@ export class ListErRouteMapsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -18888,6 +19391,7 @@ export class ListErRouteMapsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListErRouteMapsResponseBodyContent,
       message: 'string',
@@ -19073,6 +19577,14 @@ export class ListErsRequest extends $dara.Model {
 export class ListErsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -19102,6 +19614,7 @@ export class ListErsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -19111,6 +19624,7 @@ export class ListErsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListErsResponseBodyContent,
       message: 'string',
@@ -19241,6 +19755,14 @@ export class ListInstancesByNcdRequest extends $dara.Model {
 export class ListInstancesByNcdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -19270,6 +19792,7 @@ export class ListInstancesByNcdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -19279,6 +19802,7 @@ export class ListInstancesByNcdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListInstancesByNcdResponseBodyContent,
       message: 'string',
@@ -19428,6 +19952,14 @@ export class ListLeniPrivateIpAddressesRequest extends $dara.Model {
 export class ListLeniPrivateIpAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -19457,6 +19989,7 @@ export class ListLeniPrivateIpAddressesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -19466,6 +19999,7 @@ export class ListLeniPrivateIpAddressesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListLeniPrivateIpAddressesResponseBodyContent,
       message: 'string',
@@ -19625,6 +20159,14 @@ export class ListLniPrivateIpAddressRequest extends $dara.Model {
 export class ListLniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -19654,6 +20196,7 @@ export class ListLniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -19663,6 +20206,7 @@ export class ListLniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListLniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -19832,6 +20376,14 @@ export class ListNetworkInterfacesRequest extends $dara.Model {
 export class ListNetworkInterfacesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -19861,6 +20413,7 @@ export class ListNetworkInterfacesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -19870,6 +20423,7 @@ export class ListNetworkInterfacesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListNetworkInterfacesResponseBodyContent,
       message: 'string',
@@ -19989,6 +20543,14 @@ export class ListNodeInfosForPodRequest extends $dara.Model {
 export class ListNodeInfosForPodResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The information about the request denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -20018,6 +20580,7 @@ export class ListNodeInfosForPodResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -20027,6 +20590,7 @@ export class ListNodeInfosForPodResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: { 'type': 'array', 'itemType': ListNodeInfosForPodResponseBodyContent },
       message: 'string',
@@ -20242,6 +20806,14 @@ export class ListSubnetsRequest extends $dara.Model {
 export class ListSubnetsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -20271,6 +20843,7 @@ export class ListSubnetsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -20280,6 +20853,7 @@ export class ListSubnetsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListSubnetsResponseBodyContent,
       message: 'string',
@@ -20431,6 +21005,14 @@ export class ListVccFlowInfosRequest extends $dara.Model {
 export class ListVccFlowInfosResponseBody extends $dara.Model {
   /**
    * @remarks
+   * 访问被拒绝的详细原因。
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -20460,6 +21042,7 @@ export class ListVccFlowInfosResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -20469,6 +21052,7 @@ export class ListVccFlowInfosResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVccFlowInfosResponseBodyContent,
       message: 'string',
@@ -20661,6 +21245,14 @@ export class ListVccGrantRulesRequest extends $dara.Model {
 export class ListVccGrantRulesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -20690,6 +21282,7 @@ export class ListVccGrantRulesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -20699,6 +21292,7 @@ export class ListVccGrantRulesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVccGrantRulesResponseBodyContent,
       message: 'string',
@@ -20910,6 +21504,14 @@ export class ListVccRouteEntriesRequest extends $dara.Model {
 export class ListVccRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -20939,6 +21541,7 @@ export class ListVccRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -20948,6 +21551,7 @@ export class ListVccRouteEntriesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVccRouteEntriesResponseBodyContent,
       message: 'string',
@@ -21176,6 +21780,14 @@ export class ListVccsRequest extends $dara.Model {
 export class ListVccsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -21205,6 +21817,7 @@ export class ListVccsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -21214,6 +21827,7 @@ export class ListVccsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVccsResponseBodyContent,
       message: 'string',
@@ -21403,6 +22017,14 @@ export class ListVpdGrantRulesRequest extends $dara.Model {
 export class ListVpdGrantRulesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The HTTP status code.
    * 
    * @example
@@ -21432,6 +22054,7 @@ export class ListVpdGrantRulesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -21441,6 +22064,7 @@ export class ListVpdGrantRulesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVpdGrantRulesResponseBodyContent,
       message: 'string',
@@ -21655,6 +22279,14 @@ export class ListVpdRouteEntriesRequest extends $dara.Model {
 export class ListVpdRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -21684,6 +22316,7 @@ export class ListVpdRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -21693,6 +22326,7 @@ export class ListVpdRouteEntriesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVpdRouteEntriesResponseBodyContent,
       message: 'string',
@@ -21920,6 +22554,14 @@ export class ListVpdsRequest extends $dara.Model {
 export class ListVpdsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -21949,6 +22591,7 @@ export class ListVpdsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -21958,6 +22601,7 @@ export class ListVpdsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: ListVpdsResponseBodyContent,
       message: 'string',
@@ -22088,6 +22732,14 @@ export class QueryInstanceNcdRequest extends $dara.Model {
 export class QueryInstanceNcdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -22117,6 +22769,7 @@ export class QueryInstanceNcdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22126,6 +22779,7 @@ export class QueryInstanceNcdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: QueryInstanceNcdResponseBodyContent,
       message: 'string',
@@ -22223,6 +22877,16 @@ export class RefundVccRequest extends $dara.Model {
 export class RefundVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code
    * 
    * @example
@@ -22255,6 +22919,7 @@ export class RefundVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22264,6 +22929,7 @@ export class RefundVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -22358,6 +23024,14 @@ export class RetryVccRequest extends $dara.Model {
 export class RetryVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -22390,6 +23064,7 @@ export class RetryVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22399,6 +23074,7 @@ export class RetryVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: 'any',
       message: 'string',
@@ -22541,6 +23217,14 @@ export class UnAssignPrivateIpAddressRequest extends $dara.Model {
 export class UnAssignPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -22570,6 +23254,7 @@ export class UnAssignPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22579,6 +23264,7 @@ export class UnAssignPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UnAssignPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -22692,6 +23378,14 @@ export class UnAssociateVpdCidrBlockRequest extends $dara.Model {
 export class UnAssociateVpdCidrBlockResponseBody extends $dara.Model {
   /**
    * @remarks
+   * 访问被拒绝详细信息。
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -22721,6 +23415,7 @@ export class UnAssociateVpdCidrBlockResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22730,6 +23425,7 @@ export class UnAssociateVpdCidrBlockResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UnAssociateVpdCidrBlockResponseBodyContent,
       message: 'string',
@@ -22853,6 +23549,14 @@ export class UnassignLeniPrivateIpAddressRequest extends $dara.Model {
 export class UnassignLeniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -22885,6 +23589,7 @@ export class UnassignLeniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -22894,6 +23599,7 @@ export class UnassignLeniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UnassignLeniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -23025,6 +23731,14 @@ export class UpdateElasticNetworkInterfaceRequest extends $dara.Model {
 export class UpdateElasticNetworkInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23054,6 +23768,7 @@ export class UpdateElasticNetworkInterfaceResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23063,6 +23778,7 @@ export class UpdateElasticNetworkInterfaceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UpdateElasticNetworkInterfaceResponseBodyContent,
       message: 'string',
@@ -23184,6 +23900,14 @@ export class UpdateErRequest extends $dara.Model {
 export class UpdateErResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23216,6 +23940,7 @@ export class UpdateErResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23225,6 +23950,7 @@ export class UpdateErResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
@@ -23348,6 +24074,14 @@ export class UpdateErAttachmentRequest extends $dara.Model {
 export class UpdateErAttachmentResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23380,6 +24114,7 @@ export class UpdateErAttachmentResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23389,6 +24124,7 @@ export class UpdateErAttachmentResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
@@ -23512,6 +24248,14 @@ export class UpdateErRouteMapRequest extends $dara.Model {
 export class UpdateErRouteMapResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23544,6 +24288,7 @@ export class UpdateErRouteMapResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23553,6 +24298,7 @@ export class UpdateErRouteMapResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
@@ -23678,6 +24424,14 @@ export class UpdateLeniPrivateIpAddressRequest extends $dara.Model {
 export class UpdateLeniPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23707,6 +24461,7 @@ export class UpdateLeniPrivateIpAddressResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23716,6 +24471,7 @@ export class UpdateLeniPrivateIpAddressResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UpdateLeniPrivateIpAddressResponseBodyContent,
       message: 'string',
@@ -23851,6 +24607,14 @@ export class UpdateSubnetRequest extends $dara.Model {
 export class UpdateSubnetResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -23880,6 +24644,7 @@ export class UpdateSubnetResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -23889,6 +24654,7 @@ export class UpdateSubnetResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UpdateSubnetResponseBodyContent,
       message: 'string',
@@ -24018,6 +24784,14 @@ export class UpdateVccRequest extends $dara.Model {
 export class UpdateVccResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -24047,6 +24821,7 @@ export class UpdateVccResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -24056,6 +24831,7 @@ export class UpdateVccResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UpdateVccResponseBodyContent,
       message: 'string',
@@ -24167,6 +24943,14 @@ export class UpdateVpdRequest extends $dara.Model {
 export class UpdateVpdResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
    * The response status code.
    * 
    * @example
@@ -24196,6 +24980,7 @@ export class UpdateVpdResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       content: 'Content',
       message: 'Message',
@@ -24205,6 +24990,7 @@ export class UpdateVpdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'number',
       content: UpdateVpdResponseBodyContent,
       message: 'string',
@@ -24331,7 +25117,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AssignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AssignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<AssignLeniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new AssignLeniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -24411,7 +25202,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new AssignPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<AssignPrivateIpAddressResponse>(await this.execute(params, req, runtime), new AssignPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -24473,7 +25269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
+    } else {
+      return $dara.cast<AssociateVpdCidrBlockResponse>(await this.execute(params, req, runtime), new AssociateVpdCidrBlockResponse({}));
+    }
+
   }
 
   /**
@@ -24533,7 +25334,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<AttachElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new AttachElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -24610,7 +25416,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<CreateElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new CreateElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -24675,7 +25486,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateErResponse>(await this.callApi(params, req, runtime), new CreateErResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateErResponse>(await this.callApi(params, req, runtime), new CreateErResponse({}));
+    } else {
+      return $dara.cast<CreateErResponse>(await this.execute(params, req, runtime), new CreateErResponse({}));
+    }
+
   }
 
   /**
@@ -24756,7 +25572,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateErAttachmentResponse>(await this.callApi(params, req, runtime), new CreateErAttachmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateErAttachmentResponse>(await this.callApi(params, req, runtime), new CreateErAttachmentResponse({}));
+    } else {
+      return $dara.cast<CreateErAttachmentResponse>(await this.execute(params, req, runtime), new CreateErAttachmentResponse({}));
+    }
+
   }
 
   /**
@@ -24858,7 +25679,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateErRouteMapResponse>(await this.callApi(params, req, runtime), new CreateErRouteMapResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateErRouteMapResponse>(await this.callApi(params, req, runtime), new CreateErRouteMapResponse({}));
+    } else {
+      return $dara.cast<CreateErRouteMapResponse>(await this.execute(params, req, runtime), new CreateErRouteMapResponse({}));
+    }
+
   }
 
   /**
@@ -24942,7 +25768,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateSubnetResponse>(await this.callApi(params, req, runtime), new CreateSubnetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSubnetResponse>(await this.callApi(params, req, runtime), new CreateSubnetResponse({}));
+    } else {
+      return $dara.cast<CreateSubnetResponse>(await this.execute(params, req, runtime), new CreateSubnetResponse({}));
+    }
+
   }
 
   /**
@@ -25066,7 +25897,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVccResponse>(await this.callApi(params, req, runtime), new CreateVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVccResponse>(await this.callApi(params, req, runtime), new CreateVccResponse({}));
+    } else {
+      return $dara.cast<CreateVccResponse>(await this.execute(params, req, runtime), new CreateVccResponse({}));
+    }
+
   }
 
   /**
@@ -25133,7 +25969,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVccGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVccGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVccGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVccGrantRuleResponse({}));
+    } else {
+      return $dara.cast<CreateVccGrantRuleResponse>(await this.execute(params, req, runtime), new CreateVccGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -25195,7 +26036,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVccRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVccRouteEntryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVccRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVccRouteEntryResponse({}));
+    } else {
+      return $dara.cast<CreateVccRouteEntryResponse>(await this.execute(params, req, runtime), new CreateVccRouteEntryResponse({}));
+    }
+
   }
 
   /**
@@ -25273,7 +26119,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVpdResponse>(await this.callApi(params, req, runtime), new CreateVpdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVpdResponse>(await this.callApi(params, req, runtime), new CreateVpdResponse({}));
+    } else {
+      return $dara.cast<CreateVpdResponse>(await this.execute(params, req, runtime), new CreateVpdResponse({}));
+    }
+
   }
 
   /**
@@ -25341,7 +26192,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVpdGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new CreateVpdGrantRuleResponse({}));
+    } else {
+      return $dara.cast<CreateVpdGrantRuleResponse>(await this.execute(params, req, runtime), new CreateVpdGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -25396,7 +26252,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<DeleteElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new DeleteElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -25450,7 +26311,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteErResponse>(await this.callApi(params, req, runtime), new DeleteErResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteErResponse>(await this.callApi(params, req, runtime), new DeleteErResponse({}));
+    } else {
+      return $dara.cast<DeleteErResponse>(await this.execute(params, req, runtime), new DeleteErResponse({}));
+    }
+
   }
 
   /**
@@ -25516,7 +26382,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteErAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteErAttachmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteErAttachmentResponse>(await this.callApi(params, req, runtime), new DeleteErAttachmentResponse({}));
+    } else {
+      return $dara.cast<DeleteErAttachmentResponse>(await this.execute(params, req, runtime), new DeleteErAttachmentResponse({}));
+    }
+
   }
 
   /**
@@ -25581,7 +26452,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteErRouteMapResponse>(await this.callApi(params, req, runtime), new DeleteErRouteMapResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteErRouteMapResponse>(await this.callApi(params, req, runtime), new DeleteErRouteMapResponse({}));
+    } else {
+      return $dara.cast<DeleteErRouteMapResponse>(await this.execute(params, req, runtime), new DeleteErRouteMapResponse({}));
+    }
+
   }
 
   /**
@@ -25649,7 +26525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteSubnetResponse>(await this.callApi(params, req, runtime), new DeleteSubnetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSubnetResponse>(await this.callApi(params, req, runtime), new DeleteSubnetResponse({}));
+    } else {
+      return $dara.cast<DeleteSubnetResponse>(await this.execute(params, req, runtime), new DeleteSubnetResponse({}));
+    }
+
   }
 
   /**
@@ -25710,7 +26591,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVccGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVccGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVccGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVccGrantRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteVccGrantRuleResponse>(await this.execute(params, req, runtime), new DeleteVccGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -25771,7 +26657,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVccRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVccRouteEntryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVccRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVccRouteEntryResponse({}));
+    } else {
+      return $dara.cast<DeleteVccRouteEntryResponse>(await this.execute(params, req, runtime), new DeleteVccRouteEntryResponse({}));
+    }
+
   }
 
   /**
@@ -25832,7 +26723,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVpdResponse>(await this.callApi(params, req, runtime), new DeleteVpdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVpdResponse>(await this.callApi(params, req, runtime), new DeleteVpdResponse({}));
+    } else {
+      return $dara.cast<DeleteVpdResponse>(await this.execute(params, req, runtime), new DeleteVpdResponse({}));
+    }
+
   }
 
   /**
@@ -25898,7 +26794,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteVpdGrantRuleResponse>(await this.execute(params, req, runtime), new DeleteVpdGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -25944,7 +26845,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeSlrResponse>(await this.callApi(params, req, runtime), new DescribeSlrResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSlrResponse>(await this.callApi(params, req, runtime), new DescribeSlrResponse({}));
+    } else {
+      return $dara.cast<DescribeSlrResponse>(await this.execute(params, req, runtime), new DescribeSlrResponse({}));
+    }
+
   }
 
   /**
@@ -26001,7 +26907,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<DetachElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new DetachElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -26050,7 +26961,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDestinationCidrBlockResponse>(await this.callApi(params, req, runtime), new GetDestinationCidrBlockResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDestinationCidrBlockResponse>(await this.callApi(params, req, runtime), new GetDestinationCidrBlockResponse({}));
+    } else {
+      return $dara.cast<GetDestinationCidrBlockResponse>(await this.execute(params, req, runtime), new GetDestinationCidrBlockResponse({}));
+    }
+
   }
 
   /**
@@ -26096,7 +27012,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<GetElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new GetElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -26142,7 +27063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetErResponse>(await this.callApi(params, req, runtime), new GetErResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErResponse>(await this.callApi(params, req, runtime), new GetErResponse({}));
+    } else {
+      return $dara.cast<GetErResponse>(await this.execute(params, req, runtime), new GetErResponse({}));
+    }
+
   }
 
   /**
@@ -26192,7 +27118,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetErAttachmentResponse>(await this.callApi(params, req, runtime), new GetErAttachmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErAttachmentResponse>(await this.callApi(params, req, runtime), new GetErAttachmentResponse({}));
+    } else {
+      return $dara.cast<GetErAttachmentResponse>(await this.execute(params, req, runtime), new GetErAttachmentResponse({}));
+    }
+
   }
 
   /**
@@ -26242,7 +27173,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetErRouteEntryResponse>(await this.callApi(params, req, runtime), new GetErRouteEntryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErRouteEntryResponse>(await this.callApi(params, req, runtime), new GetErRouteEntryResponse({}));
+    } else {
+      return $dara.cast<GetErRouteEntryResponse>(await this.execute(params, req, runtime), new GetErRouteEntryResponse({}));
+    }
+
   }
 
   /**
@@ -26292,7 +27228,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetErRouteMapResponse>(await this.callApi(params, req, runtime), new GetErRouteMapResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErRouteMapResponse>(await this.callApi(params, req, runtime), new GetErRouteMapResponse({}));
+    } else {
+      return $dara.cast<GetErRouteMapResponse>(await this.execute(params, req, runtime), new GetErRouteMapResponse({}));
+    }
+
   }
 
   /**
@@ -26354,7 +27295,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFabricTopologyResponse>(await this.callApi(params, req, runtime), new GetFabricTopologyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetFabricTopologyResponse>(await this.callApi(params, req, runtime), new GetFabricTopologyResponse({}));
+    } else {
+      return $dara.cast<GetFabricTopologyResponse>(await this.execute(params, req, runtime), new GetFabricTopologyResponse({}));
+    }
+
   }
 
   /**
@@ -26404,7 +27350,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<GetLeniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new GetLeniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -26454,7 +27405,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<GetLniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new GetLniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -26504,7 +27460,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new GetNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<GetNetworkInterfaceResponse>(await this.execute(params, req, runtime), new GetNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -26550,7 +27511,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNodeInfoForPodResponse>(await this.callApi(params, req, runtime), new GetNodeInfoForPodResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNodeInfoForPodResponse>(await this.callApi(params, req, runtime), new GetNodeInfoForPodResponse({}));
+    } else {
+      return $dara.cast<GetNodeInfoForPodResponse>(await this.execute(params, req, runtime), new GetNodeInfoForPodResponse({}));
+    }
+
   }
 
   /**
@@ -26600,7 +27566,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSubnetResponse>(await this.callApi(params, req, runtime), new GetSubnetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSubnetResponse>(await this.callApi(params, req, runtime), new GetSubnetResponse({}));
+    } else {
+      return $dara.cast<GetSubnetResponse>(await this.execute(params, req, runtime), new GetSubnetResponse({}));
+    }
+
   }
 
   /**
@@ -26662,7 +27633,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVccResponse>(await this.callApi(params, req, runtime), new GetVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVccResponse>(await this.callApi(params, req, runtime), new GetVccResponse({}));
+    } else {
+      return $dara.cast<GetVccResponse>(await this.execute(params, req, runtime), new GetVccResponse({}));
+    }
+
   }
 
   /**
@@ -26720,7 +27696,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVccGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVccGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVccGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVccGrantRuleResponse({}));
+    } else {
+      return $dara.cast<GetVccGrantRuleResponse>(await this.execute(params, req, runtime), new GetVccGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -26770,7 +27751,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVccRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVccRouteEntryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVccRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVccRouteEntryResponse({}));
+    } else {
+      return $dara.cast<GetVccRouteEntryResponse>(await this.execute(params, req, runtime), new GetVccRouteEntryResponse({}));
+    }
+
   }
 
   /**
@@ -26816,7 +27802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVpdResponse>(await this.callApi(params, req, runtime), new GetVpdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVpdResponse>(await this.callApi(params, req, runtime), new GetVpdResponse({}));
+    } else {
+      return $dara.cast<GetVpdResponse>(await this.execute(params, req, runtime), new GetVpdResponse({}));
+    }
+
   }
 
   /**
@@ -26874,7 +27865,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVpdGrantRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVpdGrantRuleResponse>(await this.callApi(params, req, runtime), new GetVpdGrantRuleResponse({}));
+    } else {
+      return $dara.cast<GetVpdGrantRuleResponse>(await this.execute(params, req, runtime), new GetVpdGrantRuleResponse({}));
+    }
+
   }
 
   /**
@@ -26924,7 +27920,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVpdRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVpdRouteEntryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVpdRouteEntryResponse>(await this.callApi(params, req, runtime), new GetVpdRouteEntryResponse({}));
+    } else {
+      return $dara.cast<GetVpdRouteEntryResponse>(await this.execute(params, req, runtime), new GetVpdRouteEntryResponse({}));
+    }
+
   }
 
   /**
@@ -26966,7 +27967,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<InitializeVccResponse>(await this.callApi(params, req, runtime), new InitializeVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InitializeVccResponse>(await this.callApi(params, req, runtime), new InitializeVccResponse({}));
+    } else {
+      return $dara.cast<InitializeVccResponse>(await this.execute(params, req, runtime), new InitializeVccResponse({}));
+    }
+
   }
 
   /**
@@ -27052,7 +28058,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListElasticNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListElasticNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
+    } else {
+      return $dara.cast<ListElasticNetworkInterfacesResponse>(await this.execute(params, req, runtime), new ListElasticNetworkInterfacesResponse({}));
+    }
+
   }
 
   /**
@@ -27142,7 +28153,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListErAttachmentsResponse>(await this.callApi(params, req, runtime), new ListErAttachmentsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListErAttachmentsResponse>(await this.callApi(params, req, runtime), new ListErAttachmentsResponse({}));
+    } else {
+      return $dara.cast<ListErAttachmentsResponse>(await this.execute(params, req, runtime), new ListErAttachmentsResponse({}));
+    }
+
   }
 
   /**
@@ -27232,7 +28248,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListErRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListErRouteEntriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListErRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListErRouteEntriesResponse({}));
+    } else {
+      return $dara.cast<ListErRouteEntriesResponse>(await this.execute(params, req, runtime), new ListErRouteEntriesResponse({}));
+    }
+
   }
 
   /**
@@ -27334,7 +28355,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListErRouteMapsResponse>(await this.callApi(params, req, runtime), new ListErRouteMapsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListErRouteMapsResponse>(await this.callApi(params, req, runtime), new ListErRouteMapsResponse({}));
+    } else {
+      return $dara.cast<ListErRouteMapsResponse>(await this.execute(params, req, runtime), new ListErRouteMapsResponse({}));
+    }
+
   }
 
   /**
@@ -27412,7 +28438,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListErsResponse>(await this.callApi(params, req, runtime), new ListErsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListErsResponse>(await this.callApi(params, req, runtime), new ListErsResponse({}));
+    } else {
+      return $dara.cast<ListErsResponse>(await this.execute(params, req, runtime), new ListErsResponse({}));
+    }
+
   }
 
   /**
@@ -27466,7 +28497,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListInstancesByNcdResponse>(await this.callApi(params, req, runtime), new ListInstancesByNcdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesByNcdResponse>(await this.callApi(params, req, runtime), new ListInstancesByNcdResponse({}));
+    } else {
+      return $dara.cast<ListInstancesByNcdResponse>(await this.execute(params, req, runtime), new ListInstancesByNcdResponse({}));
+    }
+
   }
 
   /**
@@ -27532,7 +28568,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListLeniPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLeniPrivateIpAddressesResponse>(await this.callApi(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
+    } else {
+      return $dara.cast<ListLeniPrivateIpAddressesResponse>(await this.execute(params, req, runtime), new ListLeniPrivateIpAddressesResponse({}));
+    }
+
   }
 
   /**
@@ -27602,7 +28643,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<ListLniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new ListLniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -27676,7 +28722,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListNetworkInterfacesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new ListNetworkInterfacesResponse({}));
+    } else {
+      return $dara.cast<ListNetworkInterfacesResponse>(await this.execute(params, req, runtime), new ListNetworkInterfacesResponse({}));
+    }
+
   }
 
   /**
@@ -27730,7 +28781,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNodeInfosForPodResponse>(await this.callApi(params, req, runtime), new ListNodeInfosForPodResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodeInfosForPodResponse>(await this.callApi(params, req, runtime), new ListNodeInfosForPodResponse({}));
+    } else {
+      return $dara.cast<ListNodeInfosForPodResponse>(await this.execute(params, req, runtime), new ListNodeInfosForPodResponse({}));
+    }
+
   }
 
   /**
@@ -27816,7 +28872,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSubnetsResponse>(await this.callApi(params, req, runtime), new ListSubnetsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSubnetsResponse>(await this.callApi(params, req, runtime), new ListSubnetsResponse({}));
+    } else {
+      return $dara.cast<ListSubnetsResponse>(await this.execute(params, req, runtime), new ListSubnetsResponse({}));
+    }
+
   }
 
   /**
@@ -27878,7 +28939,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVccFlowInfosResponse>(await this.callApi(params, req, runtime), new ListVccFlowInfosResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVccFlowInfosResponse>(await this.callApi(params, req, runtime), new ListVccFlowInfosResponse({}));
+    } else {
+      return $dara.cast<ListVccFlowInfosResponse>(await this.execute(params, req, runtime), new ListVccFlowInfosResponse({}));
+    }
+
   }
 
   /**
@@ -27960,7 +29026,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVccGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVccGrantRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVccGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVccGrantRulesResponse({}));
+    } else {
+      return $dara.cast<ListVccGrantRulesResponse>(await this.execute(params, req, runtime), new ListVccGrantRulesResponse({}));
+    }
+
   }
 
   /**
@@ -28050,7 +29121,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVccRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVccRouteEntriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVccRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVccRouteEntriesResponse({}));
+    } else {
+      return $dara.cast<ListVccRouteEntriesResponse>(await this.execute(params, req, runtime), new ListVccRouteEntriesResponse({}));
+    }
+
   }
 
   /**
@@ -28144,7 +29220,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVccsResponse>(await this.callApi(params, req, runtime), new ListVccsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVccsResponse>(await this.callApi(params, req, runtime), new ListVccsResponse({}));
+    } else {
+      return $dara.cast<ListVccsResponse>(await this.execute(params, req, runtime), new ListVccsResponse({}));
+    }
+
   }
 
   /**
@@ -28226,7 +29307,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVpdGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVpdGrantRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVpdGrantRulesResponse>(await this.callApi(params, req, runtime), new ListVpdGrantRulesResponse({}));
+    } else {
+      return $dara.cast<ListVpdGrantRulesResponse>(await this.execute(params, req, runtime), new ListVpdGrantRulesResponse({}));
+    }
+
   }
 
   /**
@@ -28316,7 +29402,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVpdRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpdRouteEntriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVpdRouteEntriesResponse>(await this.callApi(params, req, runtime), new ListVpdRouteEntriesResponse({}));
+    } else {
+      return $dara.cast<ListVpdRouteEntriesResponse>(await this.execute(params, req, runtime), new ListVpdRouteEntriesResponse({}));
+    }
+
   }
 
   /**
@@ -28406,7 +29497,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVpdsResponse>(await this.callApi(params, req, runtime), new ListVpdsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVpdsResponse>(await this.callApi(params, req, runtime), new ListVpdsResponse({}));
+    } else {
+      return $dara.cast<ListVpdsResponse>(await this.execute(params, req, runtime), new ListVpdsResponse({}));
+    }
+
   }
 
   /**
@@ -28460,7 +29556,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryInstanceNcdResponse>(await this.callApi(params, req, runtime), new QueryInstanceNcdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryInstanceNcdResponse>(await this.callApi(params, req, runtime), new QueryInstanceNcdResponse({}));
+    } else {
+      return $dara.cast<QueryInstanceNcdResponse>(await this.execute(params, req, runtime), new QueryInstanceNcdResponse({}));
+    }
+
   }
 
   /**
@@ -28509,7 +29610,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RefundVccResponse>(await this.callApi(params, req, runtime), new RefundVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RefundVccResponse>(await this.callApi(params, req, runtime), new RefundVccResponse({}));
+    } else {
+      return $dara.cast<RefundVccResponse>(await this.execute(params, req, runtime), new RefundVccResponse({}));
+    }
+
   }
 
   /**
@@ -28561,7 +29667,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RetryVccResponse>(await this.callApi(params, req, runtime), new RetryVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RetryVccResponse>(await this.callApi(params, req, runtime), new RetryVccResponse({}));
+    } else {
+      return $dara.cast<RetryVccResponse>(await this.execute(params, req, runtime), new RetryVccResponse({}));
+    }
+
   }
 
   /**
@@ -28626,7 +29737,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnAssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnAssignPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<UnAssignPrivateIpAddressResponse>(await this.execute(params, req, runtime), new UnAssignPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -28680,7 +29796,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnAssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnAssociateVpdCidrBlockResponse>(await this.callApi(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
+    } else {
+      return $dara.cast<UnAssociateVpdCidrBlockResponse>(await this.execute(params, req, runtime), new UnAssociateVpdCidrBlockResponse({}));
+    }
+
   }
 
   /**
@@ -28738,7 +29859,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnassignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnassignLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<UnassignLeniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new UnassignLeniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -28796,7 +29922,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateElasticNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
+    } else {
+      return $dara.cast<UpdateElasticNetworkInterfaceResponse>(await this.execute(params, req, runtime), new UpdateElasticNetworkInterfaceResponse({}));
+    }
+
   }
 
   /**
@@ -28850,7 +29981,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateErResponse>(await this.callApi(params, req, runtime), new UpdateErResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateErResponse>(await this.callApi(params, req, runtime), new UpdateErResponse({}));
+    } else {
+      return $dara.cast<UpdateErResponse>(await this.execute(params, req, runtime), new UpdateErResponse({}));
+    }
+
   }
 
   /**
@@ -28904,7 +30040,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateErAttachmentResponse>(await this.callApi(params, req, runtime), new UpdateErAttachmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateErAttachmentResponse>(await this.callApi(params, req, runtime), new UpdateErAttachmentResponse({}));
+    } else {
+      return $dara.cast<UpdateErAttachmentResponse>(await this.execute(params, req, runtime), new UpdateErAttachmentResponse({}));
+    }
+
   }
 
   /**
@@ -28958,7 +30099,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateErRouteMapResponse>(await this.callApi(params, req, runtime), new UpdateErRouteMapResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateErRouteMapResponse>(await this.callApi(params, req, runtime), new UpdateErRouteMapResponse({}));
+    } else {
+      return $dara.cast<UpdateErRouteMapResponse>(await this.execute(params, req, runtime), new UpdateErRouteMapResponse({}));
+    }
+
   }
 
   /**
@@ -29012,7 +30158,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateLeniPrivateIpAddressResponse>(await this.callApi(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
+    } else {
+      return $dara.cast<UpdateLeniPrivateIpAddressResponse>(await this.execute(params, req, runtime), new UpdateLeniPrivateIpAddressResponse({}));
+    }
+
   }
 
   /**
@@ -29070,7 +30221,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateSubnetResponse>(await this.callApi(params, req, runtime), new UpdateSubnetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSubnetResponse>(await this.callApi(params, req, runtime), new UpdateSubnetResponse({}));
+    } else {
+      return $dara.cast<UpdateSubnetResponse>(await this.execute(params, req, runtime), new UpdateSubnetResponse({}));
+    }
+
   }
 
   /**
@@ -29128,7 +30284,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateVccResponse>(await this.callApi(params, req, runtime), new UpdateVccResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateVccResponse>(await this.callApi(params, req, runtime), new UpdateVccResponse({}));
+    } else {
+      return $dara.cast<UpdateVccResponse>(await this.execute(params, req, runtime), new UpdateVccResponse({}));
+    }
+
   }
 
   /**
@@ -29178,7 +30339,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateVpdResponse>(await this.callApi(params, req, runtime), new UpdateVpdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateVpdResponse>(await this.callApi(params, req, runtime), new UpdateVpdResponse({}));
+    } else {
+      return $dara.cast<UpdateVpdResponse>(await this.execute(params, req, runtime), new UpdateVpdResponse({}));
+    }
+
   }
 
   /**
