@@ -3171,6 +3171,35 @@ export class CreateScalingConfigurationRequestNetworkInterfaces extends $dara.Mo
   }
 }
 
+export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'PrivatePoolIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationRequestSecurityOptions extends $dara.Model {
   /**
    * @remarks
@@ -4176,6 +4205,35 @@ export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $d
   }
 }
 
+export class CreateScalingConfigurationShrinkRequestResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'PrivatePoolIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationShrinkRequestSecurityOptions extends $dara.Model {
   /**
    * @remarks
@@ -4336,6 +4394,14 @@ export class CreateScalingGroupRequestCapacityOptions extends $dara.Model {
    */
   onDemandPercentageAboveBaseCapacity?: number;
   /**
+   * @remarks
+   * The cost comparison method. Valid values:
+   * 
+   * *   PricePerUnit: compares costs based on unit price divided by instance capacities (weights). The capacity of an instance in a scaling group is determined by the weight of the instance type used. If no weight is set, the capacity defaults to 1.
+   * *   PricePerVCpu: compares costs based on unit price divided by the number of vCPUs.
+   * 
+   * Default value: PricePerUnit.
+   * 
    * @example
    * PricePerUnit
    */
@@ -12256,6 +12322,35 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
   }
 }
 
+export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'PrivatePoolIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions extends $dara.Model {
   /**
    * @remarks
@@ -12749,6 +12844,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * rg-aekzn2ou7xo****
    */
   resourceGroupId?: string;
+  resourcePoolOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions;
   /**
    * @remarks
    * The ID of the scaling configuration.
@@ -13052,6 +13148,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       privatePoolOptions_matchCriteria: 'PrivatePoolOptions.MatchCriteria',
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
+      resourcePoolOptions: 'ResourcePoolOptions',
       scalingConfigurationId: 'ScalingConfigurationId',
       scalingConfigurationName: 'ScalingConfigurationName',
       scalingGroupId: 'ScalingGroupId',
@@ -13129,6 +13226,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
       privatePoolOptions_matchCriteria: 'string',
       ramRoleName: 'string',
       resourceGroupId: 'string',
+      resourcePoolOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions,
       scalingConfigurationId: 'string',
       scalingConfigurationName: 'string',
       scalingGroupId: 'string',
@@ -13178,6 +13276,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
     }
     if(Array.isArray(this.networkInterfaces)) {
       $dara.Model.validateArray(this.networkInterfaces);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(this.schedulerOptions && typeof (this.schedulerOptions as any).validate === 'function') {
       (this.schedulerOptions as any).validate();
@@ -14407,10 +14508,13 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The price comparison mode. Valid values:
+   * Indicates how prices are compared. Valid values:
    * 
-   * *   PricePerUnit: compares prices based on capacity. The capacity of instances in a scaling group is determined by the weights of the instance types used. If no weight is specified, the default weight is 1.
-   * *   PricePerVCpu: compares prices based on the price per vCPU.
+   * *   PricePerUnit: Prices are compared based on the price per instance capacity.
+   * 
+   *     Capacity is determined by the weights assigned to instance types in the scaling group. If no weight is specified, a default weight of 1 is used, meaning each instance is assigned a capacity of 1.
+   * 
+   * *   PricePerVCpu: Prices are compared based on the price per vCPU.
    * 
    * @example
    * PricePerUnit
@@ -16203,7 +16307,7 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
   estimatedInstanceWarmup?: number;
   /**
    * @remarks
-   * The Hybrid Cloud Monitoring metrics.
+   * The Hybrid Cloud Monitoring metrics. For more information, see [Create a custom target tracking scaling rule](https://help.aliyun.com/document_detail/2852162.html).
    */
   hybridMetrics?: DescribeScalingRulesResponseBodyScalingRulesHybridMetrics[];
   /**
@@ -19938,6 +20042,35 @@ export class ModifyScalingConfigurationRequestNetworkInterfaces extends $dara.Mo
   }
 }
 
+export class ModifyScalingConfigurationRequestResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'PrivatePoolIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyScalingConfigurationRequestSecurityOptions extends $dara.Model {
   /**
    * @remarks
@@ -20952,6 +21085,35 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $d
   validate() {
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyScalingConfigurationShrinkRequestResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'PrivatePoolIds',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
     }
     super.validate();
   }
@@ -25373,6 +25535,7 @@ export class CreateScalingConfigurationRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  resourcePoolOptions?: CreateScalingConfigurationRequestResourcePoolOptions;
   /**
    * @remarks
    * The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
@@ -25574,6 +25737,7 @@ export class CreateScalingConfigurationRequest extends $dara.Model {
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourcePoolOptions: 'ResourcePoolOptions',
       scalingConfigurationName: 'ScalingConfigurationName',
       scalingGroupId: 'ScalingGroupId',
       schedulerOptions: 'SchedulerOptions',
@@ -25639,6 +25803,7 @@ export class CreateScalingConfigurationRequest extends $dara.Model {
       ramRoleName: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      resourcePoolOptions: CreateScalingConfigurationRequestResourcePoolOptions,
       scalingConfigurationName: 'string',
       scalingGroupId: 'string',
       schedulerOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -25687,6 +25852,9 @@ export class CreateScalingConfigurationRequest extends $dara.Model {
     }
     if(Array.isArray(this.networkInterfaces)) {
       $dara.Model.validateArray(this.networkInterfaces);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(this.schedulerOptions) {
       $dara.Model.validateMap(this.schedulerOptions);
@@ -26058,6 +26226,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  resourcePoolOptions?: CreateScalingConfigurationShrinkRequestResourcePoolOptions;
   /**
    * @remarks
    * The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
@@ -26259,6 +26428,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourcePoolOptions: 'ResourcePoolOptions',
       scalingConfigurationName: 'ScalingConfigurationName',
       scalingGroupId: 'ScalingGroupId',
       schedulerOptionsShrink: 'SchedulerOptions',
@@ -26324,6 +26494,7 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
       ramRoleName: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      resourcePoolOptions: CreateScalingConfigurationShrinkRequestResourcePoolOptions,
       scalingConfigurationName: 'string',
       scalingGroupId: 'string',
       schedulerOptionsShrink: 'string',
@@ -26372,6 +26543,9 @@ export class CreateScalingConfigurationShrinkRequest extends $dara.Model {
     }
     if(Array.isArray(this.networkInterfaces)) {
       $dara.Model.validateArray(this.networkInterfaces);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
@@ -27221,7 +27395,7 @@ export class CreateScalingRuleRequest extends $dara.Model {
   estimatedInstanceWarmup?: number;
   /**
    * @remarks
-   * The Hybrid Cloud Monitoring metrics.
+   * The Hybrid Cloud Monitoring metrics. For more information, see [Create a custom target tracking scaling rule](https://help.aliyun.com/document_detail/2852162.html).
    */
   hybridMetrics?: CreateScalingRuleRequestHybridMetrics[];
   /**
@@ -28988,7 +29162,7 @@ export class DescribeAlarmsRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The type of the metric. Valid values:
+   * The metric type. Valid values:
    * 
    * *   system: system metrics of CloudMonitor
    * *   custom: custom metrics that are reported to CloudMonitor.
@@ -32641,7 +32815,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
    * @remarks
    * The page number. Minimum value: 1.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -38202,6 +38376,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  resourcePoolOptions?: ModifyScalingConfigurationRequestResourcePoolOptions;
   /**
    * @remarks
    * The ID of the scaling configuration that you want to modify.
@@ -38387,6 +38562,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourcePoolOptions: 'ResourcePoolOptions',
       scalingConfigurationId: 'ScalingConfigurationId',
       scalingConfigurationName: 'ScalingConfigurationName',
       schedulerOptions: 'SchedulerOptions',
@@ -38450,6 +38626,7 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
       ramRoleName: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      resourcePoolOptions: ModifyScalingConfigurationRequestResourcePoolOptions,
       scalingConfigurationId: 'string',
       scalingConfigurationName: 'string',
       schedulerOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -38497,6 +38674,9 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
     }
     if(Array.isArray(this.networkInterfaces)) {
       $dara.Model.validateArray(this.networkInterfaces);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(this.schedulerOptions) {
       $dara.Model.validateMap(this.schedulerOptions);
@@ -38865,6 +39045,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  resourcePoolOptions?: ModifyScalingConfigurationShrinkRequestResourcePoolOptions;
   /**
    * @remarks
    * The ID of the scaling configuration that you want to modify.
@@ -39050,6 +39231,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourcePoolOptions: 'ResourcePoolOptions',
       scalingConfigurationId: 'ScalingConfigurationId',
       scalingConfigurationName: 'ScalingConfigurationName',
       schedulerOptionsShrink: 'SchedulerOptions',
@@ -39113,6 +39295,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
       ramRoleName: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      resourcePoolOptions: ModifyScalingConfigurationShrinkRequestResourcePoolOptions,
       scalingConfigurationId: 'string',
       scalingConfigurationName: 'string',
       schedulerOptionsShrink: 'string',
@@ -39160,6 +39343,9 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
     }
     if(Array.isArray(this.networkInterfaces)) {
       $dara.Model.validateArray(this.networkInterfaces);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
@@ -39801,7 +39987,7 @@ export class ModifyScalingRuleRequest extends $dara.Model {
   estimatedInstanceWarmup?: number;
   /**
    * @remarks
-   * The Hybrid Cloud Monitoring metrics.
+   * The Hybrid Cloud Monitoring metrics. For more information, see [Create a custom target tracking scaling rule](https://help.aliyun.com/document_detail/2852162.html).
    */
   hybridMetrics?: ModifyScalingRuleRequestHybridMetrics[];
   /**
@@ -44834,6 +45020,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
+    if (!$dara.isNull(request.resourcePoolOptions)) {
+      query["ResourcePoolOptions"] = request.resourcePoolOptions;
+    }
+
     if (!$dara.isNull(request.scalingConfigurationName)) {
       query["ScalingConfigurationName"] = request.scalingConfigurationName;
     }
@@ -49299,8 +49489,8 @@ export default class Client extends OpenApi {
    * Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
    * 
    * @remarks
-   *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
-   * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
+   *   To rename a scaling configuration in a scaling group, ensure the new name is unique within that group.
+   * *   You can call the [DescribeEciScalingConfigurations](https://help.aliyun.com/document_detail/459374.html) operation to check the modification result.
    * 
    * @param request - ModifyEciScalingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49539,8 +49729,8 @@ export default class Client extends OpenApi {
    * Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
    * 
    * @remarks
-   *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
-   * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
+   *   To rename a scaling configuration in a scaling group, ensure the new name is unique within that group.
+   * *   You can call the [DescribeEciScalingConfigurations](https://help.aliyun.com/document_detail/459374.html) operation to check the modification result.
    * 
    * @param request - ModifyEciScalingConfigurationRequest
    * @returns ModifyEciScalingConfigurationResponse
@@ -49965,6 +50155,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourcePoolOptions)) {
+      query["ResourcePoolOptions"] = request.resourcePoolOptions;
     }
 
     if (!$dara.isNull(request.scalingConfigurationId)) {
