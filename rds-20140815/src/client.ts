@@ -135,7 +135,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
   ipProtocol?: string;
   policy?: string;
   portRange?: string;
-  priority?: string;
+  priority?: number;
   sourceCidrIp?: string;
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
@@ -156,7 +156,7 @@ export class AuthorizeRCSecurityGroupPermissionRequestSecurityGroupPermissions e
       ipProtocol: 'string',
       policy: 'string',
       portRange: 'string',
-      priority: 'string',
+      priority: 'number',
       sourceCidrIp: 'string',
       sourcePortRange: 'string',
     };
@@ -18360,6 +18360,35 @@ export class DescribeRCDisksResponseBodyDisks extends $dara.Model {
   }
 }
 
+export class DescribeRCImageListResponseBodyImagesDiskDeviceMappings extends $dara.Model {
+  device?: string;
+  size?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      device: 'Device',
+      size: 'Size',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      device: 'string',
+      size: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   /**
    * @remarks
@@ -18388,6 +18417,7 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * test
    */
   description?: string;
+  diskDeviceMappings?: DescribeRCImageListResponseBodyImagesDiskDeviceMappings[];
   /**
    * @remarks
    * The image ID.
@@ -18486,6 +18516,7 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
       architecture: 'Architecture',
       creationTime: 'CreationTime',
       description: 'Description',
+      diskDeviceMappings: 'DiskDeviceMappings',
       imageId: 'ImageId',
       imageName: 'ImageName',
       imageVersion: 'ImageVersion',
@@ -18506,6 +18537,7 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
       architecture: 'string',
       creationTime: 'string',
       description: 'string',
+      diskDeviceMappings: { 'type': 'array', 'itemType': DescribeRCImageListResponseBodyImagesDiskDeviceMappings },
       imageId: 'string',
       imageName: 'string',
       imageVersion: 'string',
@@ -18522,6 +18554,9 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.diskDeviceMappings)) {
+      $dara.Model.validateArray(this.diskDeviceMappings);
+    }
     super.validate();
   }
 
@@ -19179,6 +19214,9 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * rm-2ze704f*****
    */
   instanceId?: string;
+  instanceType?: string;
+  instanceTypeFamily?: string;
+  publicIp?: string;
   /**
    * @remarks
    * The region ID.
@@ -19187,6 +19225,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  securityGroupId?: string;
   spotStrategy?: string;
   /**
    * @remarks
@@ -19226,7 +19265,11 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       hostName: 'HostName',
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      publicIp: 'PublicIp',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
       status: 'Status',
       tagResources: 'TagResources',
@@ -19247,7 +19290,11 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       hostName: 'string',
       instanceChargeType: 'string',
       instanceId: 'string',
+      instanceType: 'string',
+      instanceTypeFamily: 'string',
+      publicIp: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       spotStrategy: 'string',
       status: 'string',
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
@@ -19777,7 +19824,53 @@ export class DescribeRCNodePoolResponseBodyNodePoolList extends $dara.Model {
   }
 }
 
+export class DescribeRCSecurityGroupListResponseBodyRCSecurityGroups extends $dara.Model {
+  availableInstanceAmount?: number;
+  creationTime?: string;
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceCount?: number;
+  securityGroupId?: string;
+  securityGroupType?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableInstanceAmount: 'AvailableInstanceAmount',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      instanceCount: 'InstanceCount',
+      securityGroupId: 'SecurityGroupId',
+      securityGroupType: 'SecurityGroupType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableInstanceAmount: 'number',
+      creationTime: 'string',
+      description: 'string',
+      instanceCount: 'number',
+      securityGroupId: 'string',
+      securityGroupType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissions extends $dara.Model {
+  createTime?: string;
   destCidrIp?: string;
   direction?: string;
   ipProtocol?: string;
@@ -19789,6 +19882,7 @@ export class DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissio
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       destCidrIp: 'DestCidrIp',
       direction: 'Direction',
       ipProtocol: 'IpProtocol',
@@ -19803,6 +19897,7 @@ export class DescribeRCSecurityGroupPermissionResponseBodySecurityGroupPermissio
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       destCidrIp: 'string',
       direction: 'string',
       ipProtocol: 'string',
@@ -24361,6 +24456,46 @@ export class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
   }
 }
 
+export class MigrateDBNodesRequestDBNode extends $dara.Model {
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * rn-6256r4a87xvv7****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The ID of the zone in which the node resides.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'nodeId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceEndpointRequestNodeItems extends $dara.Model {
   /**
    * @remarks
@@ -24758,6 +24893,13 @@ export class ModifyDBProxyInstanceRequestMigrateAZ extends $dara.Model {
    * vsw-sw0qq49d1m****
    */
   destVSwitchId?: string;
+  /**
+   * @remarks
+   * The target vpc id corresponding to the proxy instance migration.
+   * 
+   * @example
+   * vpc-2vcicu73rdylp****
+   */
   destVpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24958,7 +25100,7 @@ export class ModifyPGHbaConfigRequestHbaItem extends $dara.Model {
   }
 }
 
-export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance extends $dara.Model {
+export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.Model {
   currency?: string;
   fee?: string;
   instanceId?: string;
@@ -24979,32 +25121,6 @@ export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance e
   }
 
   validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.Model {
-  feeOfInstance?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance[];
-  static names(): { [key: string]: string } {
-    return {
-      feeOfInstance: 'FeeOfInstance',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      feeOfInstance: { 'type': 'array', 'itemType': ModifyRCInstanceChargeTypeResponseBodyFeeOfInstancesFeeOfInstance },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.feeOfInstance)) {
-      $dara.Model.validateArray(this.feeOfInstance);
-    }
     super.validate();
   }
 
@@ -25509,6 +25625,7 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
    * null
    */
   deleteWithInstance?: boolean;
+  device?: string;
   /**
    * @remarks
    * Specifies whether to encrypt the cloud disk. Valid values:
@@ -25536,13 +25653,16 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
    * 10
    */
   size?: number;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       deleteWithInstance: 'DeleteWithInstance',
+      device: 'Device',
       encrypted: 'Encrypted',
       performanceLevel: 'PerformanceLevel',
       size: 'Size',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -25550,9 +25670,11 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
     return {
       category: 'string',
       deleteWithInstance: 'boolean',
+      device: 'string',
       encrypted: 'string',
       performanceLevel: 'string',
       size: 'number',
+      snapshotId: 'string',
     };
   }
 
@@ -26632,8 +26754,6 @@ export class AttachRCDiskRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID
-   * 
-   * This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -34510,6 +34630,14 @@ export class CreateDdrInstanceRequest extends $dara.Model {
   backupSetId?: string;
   /**
    * @remarks
+   * The region where the backup set is located.
+   * 
+   * @example
+   * cn-beijing
+   */
+  backupSetRegion?: string;
+  /**
+   * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
@@ -34816,6 +34944,7 @@ export class CreateDdrInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupSetId: 'BackupSetId',
+      backupSetRegion: 'BackupSetRegion',
       clientToken: 'ClientToken',
       connectionMode: 'ConnectionMode',
       DBInstanceClass: 'DBInstanceClass',
@@ -34853,6 +34982,7 @@ export class CreateDdrInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupSetId: 'string',
+      backupSetRegion: 'string',
       clientToken: 'string',
       connectionMode: 'string',
       DBInstanceClass: 'string',
@@ -37085,8 +37215,6 @@ export class CreateRCDiskRequest extends $dara.Model {
    * *   **elastic_ephemeral_disk_standard**: standard elastic ephemeral disk
    * *   **elastic_ephemeral_disk_premium**: premium elastic ephemeral disk
    * 
-   * This parameter is required.
-   * 
    * @example
    * cloud_ssd
    */
@@ -37109,6 +37237,7 @@ export class CreateRCDiskRequest extends $dara.Model {
    * Postpaid
    */
   instanceChargeType?: string;
+  instanceId?: string;
   /**
    * @remarks
    * The performance level (PL) of the disk if the disk is an ESSD. Valid values:
@@ -37202,8 +37331,6 @@ export class CreateRCDiskRequest extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cn-hangzhou-a
    */
@@ -37216,6 +37343,7 @@ export class CreateRCDiskRequest extends $dara.Model {
       diskCategory: 'DiskCategory',
       diskName: 'DiskName',
       instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
       performanceLevel: 'PerformanceLevel',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -37234,6 +37362,7 @@ export class CreateRCDiskRequest extends $dara.Model {
       diskCategory: 'string',
       diskName: 'string',
       instanceChargeType: 'string',
+      instanceId: 'string',
       performanceLevel: 'string',
       period: 'number',
       periodUnit: 'string',
@@ -39046,6 +39175,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
    * 5432
    */
   sourcePort?: number;
+  targetAddress?: string;
   /**
    * @remarks
    * The task ID of the successful dry run.
@@ -39073,6 +39203,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
       sourceInstanceName: 'SourceInstanceName',
       sourceInstanceRegionId: 'SourceInstanceRegionId',
       sourcePort: 'SourcePort',
+      targetAddress: 'TargetAddress',
       taskId: 'TaskId',
       taskName: 'TaskName',
     };
@@ -39089,6 +39220,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
       sourceInstanceName: 'string',
       sourceInstanceRegionId: 'string',
       sourcePort: 'number',
+      targetAddress: 'string',
       taskId: 'number',
       taskName: 'string',
     };
@@ -52284,7 +52416,7 @@ export class DescribeDBInstanceReplicationRequest extends $dara.Model {
 export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable the native replication mode. Valid values:
+   * Indicates whether the native replication mods is enabled. Valid values:
    * 
    * *   **ON**
    * *   **OFF**
@@ -52320,6 +52452,11 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The current replication status. Valid values:
+   * 
+   * *   **Running**
+   * *   **Connecting**
+   * *   **Stopped**
+   * *   **Error**
    * 
    * @example
    * Running
@@ -55191,6 +55328,13 @@ export class DescribeDBProxyEndpointRequest extends $dara.Model {
 }
 
 export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The consistency read timeout period. Unit: milliseconds. Default value: **10** Unit: milliseconds. Valid values: **0 to 60000**
+   * 
+   * @example
+   * 10
+   */
   causalConsistReadTimeout?: string;
   /**
    * @remarks
@@ -55251,6 +55395,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session-level connection pooling feature is enabled. The value 2 indicates that the transaction-level connection pooling feature is enabled.
    * *   **ReadWriteSpliting**: the status of the read/write splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
    * *   **AZProximityAccess**: the status of the nearest access feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
+   * *   **CausalConsistRead**: the read consistency settings. Valid values: **0**, **1**, and **2**. The value 0 indicates eventual consistency. The value 1 indicates session consistency. The value 2 indicates global consistency.
    * *   **PinPreparedStmt**: an internal parameter that is available only for ApsaraDB RDS for PostgrSQL instances.
    * 
    * >  If the instance runs PostgreSQL, you can change only the value of the **ReadWriteSpliting** field. The **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** fields are set to their default values 1.
@@ -55283,6 +55428,13 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * ReadWrite
    */
   dbProxyEndpointReadWriteMode?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID of the proxy.
+   * 
+   * @example
+   * vpc-****
+   */
   dbProxyEndpointVpcId?: string;
   /**
    * @remarks
@@ -57492,6 +57644,8 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
    * @remarks
    * The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, this time is automatically converted to a time that is exactly 30 days earlier than the current time.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 2022-01-02T11:31:03Z
    */
@@ -57556,6 +57710,8 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 2023-01-12T07:06:19Z
@@ -64591,6 +64747,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 4
    */
   cpu?: number;
+  createMode?: number;
   /**
    * @remarks
    * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
@@ -64900,6 +65057,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       cpu: 'Cpu',
+      createMode: 'CreateMode',
       creationTime: 'CreationTime',
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
@@ -64949,6 +65107,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
     return {
       clusterId: 'string',
       cpu: 'number',
+      createMode: 'number',
       creationTime: 'string',
       creditSpecification: 'string',
       dataDisks: DescribeRCInstanceAttributeResponseBodyDataDisks,
@@ -65199,6 +65358,7 @@ export class DescribeRCInstanceVncUrlResponse extends $dara.Model {
 }
 
 export class DescribeRCInstancesRequest extends $dara.Model {
+  hostIp?: string;
   /**
    * @remarks
    * The instance ID.
@@ -65207,6 +65367,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * rm-2ze704f*****
    */
   instanceId?: string;
+  instanceIds?: string;
   /**
    * @remarks
    * The page number.
@@ -65231,6 +65392,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  publicIp?: string;
   /**
    * @remarks
    * The region ID.
@@ -65250,9 +65412,12 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      hostIp: 'HostIp',
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      publicIp: 'PublicIp',
       regionId: 'RegionId',
       tag: 'Tag',
       vpcId: 'VpcId',
@@ -65261,9 +65426,12 @@ export class DescribeRCInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hostIp: 'string',
       instanceId: 'string',
+      instanceIds: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      publicIp: 'string',
       regionId: 'string',
       tag: 'string',
       vpcId: 'string',
@@ -65385,6 +65553,7 @@ export class DescribeRCInstancesResponse extends $dara.Model {
 }
 
 export class DescribeRCMetricListRequest extends $dara.Model {
+  dimensions?: string;
   /**
    * @remarks
    * The end of the time range to query. The end time must be later than the start time. Example: `2024-08-06 10:15:00`.
@@ -65471,6 +65640,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      dimensions: 'Dimensions',
       endTime: 'EndTime',
       express: 'Express',
       instanceId: 'InstanceId',
@@ -65485,6 +65655,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dimensions: 'string',
       endTime: 'string',
       express: 'string',
       instanceId: 'string',
@@ -65743,6 +65914,103 @@ export class DescribeRCNodePoolResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCNodePoolResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSecurityGroupListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  securityGroupId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      securityGroupId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSecurityGroupListResponseBody extends $dara.Model {
+  RCSecurityGroups?: DescribeRCSecurityGroupListResponseBodyRCSecurityGroups[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      RCSecurityGroups: 'RCSecurityGroups',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RCSecurityGroups: { 'type': 'array', 'itemType': DescribeRCSecurityGroupListResponseBodyRCSecurityGroups },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.RCSecurityGroups)) {
+      $dara.Model.validateArray(this.RCSecurityGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSecurityGroupListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCSecurityGroupListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCSecurityGroupListResponseBody,
     };
   }
 
@@ -73553,6 +73821,287 @@ export class MigrateDBInstanceResponse extends $dara.Model {
   }
 }
 
+export class MigrateDBNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the IDs of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rm-t4n3a****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The details of the nodes.
+   */
+  DBNode?: MigrateDBNodesRequestDBNode[];
+  /**
+   * @remarks
+   * The time when you want the system to start the migration. Valid value:
+   * 
+   * *   **Immediately**: The system immediately starts the migration. This is the default value.
+   * *   **MaintainTime**: The system starts the migration during the specified maintenance window.
+   * *   **Specified**: The system starts the migration at the specified point in time.
+   * 
+   * @example
+   * MaintainTime
+   */
+  effectiveTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies the time when the modification is performed. We recommend that you apply the specification during off-peak hours. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-05-06T09:24:00Z
+   */
+  switchTime?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNode: 'DBNode',
+      effectiveTime: 'EffectiveTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      switchTime: 'SwitchTime',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNode: { 'type': 'array', 'itemType': MigrateDBNodesRequestDBNode },
+      effectiveTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      switchTime: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBNode)) {
+      $dara.Model.validateArray(this.DBNode);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBNodesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the IDs of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rm-t4n3a****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The details of the nodes.
+   */
+  DBNodeShrink?: string;
+  /**
+   * @remarks
+   * The time when you want the system to start the migration. Valid value:
+   * 
+   * *   **Immediately**: The system immediately starts the migration. This is the default value.
+   * *   **MaintainTime**: The system starts the migration during the specified maintenance window.
+   * *   **Specified**: The system starts the migration at the specified point in time.
+   * 
+   * @example
+   * MaintainTime
+   */
+  effectiveTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies the time when the modification is performed. We recommend that you apply the specification during off-peak hours. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-05-06T09:24:00Z
+   */
+  switchTime?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      DBNodeShrink: 'DBNode',
+      effectiveTime: 'EffectiveTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      switchTime: 'SwitchTime',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      DBNodeShrink: 'string',
+      effectiveTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      switchTime: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf64oq9381l03w1qp
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MigrateDBNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MigrateDBNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MigrateDBNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MigrateSecurityIPModeRequest extends $dara.Model {
   /**
    * @remarks
@@ -73740,6 +74289,28 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
+   * The storage type of the instance. Valid values:
+   * 
+   * *   **local_ssd**: local SSD. This is the recommended storage type.
+   * *   **general_essd**: general Enterprise SSD (ESSD). This is the recommended storage type.
+   * *   **cloud_essd**: PL1 ESSD
+   * *   **cloud_essd2**: PL2 ESSD
+   * *   **cloud_essd3**: PL3 ESSD
+   * *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
+   * 
+   * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
+   * 
+   * *   If the instance type specifies the local SSD storage type, the default value of this parameter is **local_ssd**.
+   * *   If the instance type specifies the standard SSD or ESSD storage type, the default value of this parameter is **cloud_essd**.
+   * 
+   * >  Serverless instances support only PL1 ESSDs and general ESSDs.
+   * 
+   * @example
+   * local_ssd
+   */
+  DBInstanceStorageType?: string;
+  /**
+   * @remarks
    * The time when you want the change to take effect. Valid values:
    * 
    * *   **Immediately** (default): The change immediately takes effect.
@@ -73845,6 +74416,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
+      DBInstanceStorageType: 'DBInstanceStorageType',
       effectiveTime: 'EffectiveTime',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
       isModifySpec: 'IsModifySpec',
@@ -73867,6 +74439,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
+      DBInstanceStorageType: 'string',
       effectiveTime: 'string',
       ioAccelerationEnabled: 'string',
       isModifySpec: 'string',
@@ -80945,6 +81518,13 @@ export class ModifyDBProxyResponse extends $dara.Model {
 }
 
 export class ModifyDBProxyEndpointRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Consistency read timeout, in milliseconds.
+   * 
+   * @example
+   * 10
+   */
   causalConsistReadTimeout?: string;
   /**
    * @remarks
@@ -81140,6 +81720,9 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
    * @example
    * vpc-2zeusejj******
    */
@@ -84412,6 +84995,10 @@ export class ModifyRCInstanceAttributeResponse extends $dara.Model {
 
 export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
+  autoRenew?: string;
+  autoUseCoupon?: boolean;
+  businessInfo?: string;
+  clientToken?: string;
   dryRun?: boolean;
   includeDataDisks?: boolean;
   instanceChargeType?: string;
@@ -84419,31 +85006,61 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
    * @remarks
    * This parameter is required.
    */
+  instanceId?: string;
   instanceIds?: string;
   /**
    * @remarks
    * This parameter is required.
    */
+  payType?: string;
+  period?: string;
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * true
+   */
   regionId?: string;
+  usedTime?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
+      businessInfo: 'BusinessInfo',
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       includeDataDisks: 'IncludeDataDisks',
       instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
       instanceIds: 'InstanceIds',
+      payType: 'PayType',
+      period: 'Period',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
+      usedTime: 'UsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'string',
+      autoUseCoupon: 'boolean',
+      businessInfo: 'string',
+      clientToken: 'string',
       dryRun: 'boolean',
       includeDataDisks: 'boolean',
       instanceChargeType: 'string',
+      instanceId: 'string',
       instanceIds: 'string',
+      payType: 'string',
+      period: 'string',
+      promotionCode: 'string',
       regionId: 'string',
+      usedTime: 'number',
     };
   }
 
@@ -84457,12 +85074,18 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
 }
 
 export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
-  feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances;
+  chargeType?: string;
+  expiredTime?: string[];
+  feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances[];
+  instanceIds?: string[];
   orderId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
+      expiredTime: 'ExpiredTime',
       feeOfInstances: 'FeeOfInstances',
+      instanceIds: 'InstanceIds',
       orderId: 'OrderId',
       requestId: 'RequestId',
     };
@@ -84470,15 +85093,24 @@ export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      feeOfInstances: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances,
+      chargeType: 'string',
+      expiredTime: { 'type': 'array', 'itemType': 'string' },
+      feeOfInstances: { 'type': 'array', 'itemType': ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       orderId: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.feeOfInstances && typeof (this.feeOfInstances as any).validate === 'function') {
-      (this.feeOfInstances as any).validate();
+    if(Array.isArray(this.expiredTime)) {
+      $dara.Model.validateArray(this.expiredTime);
+    }
+    if(Array.isArray(this.feeOfInstances)) {
+      $dara.Model.validateArray(this.feeOfInstances);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     super.validate();
   }
@@ -84769,9 +85401,41 @@ export class ModifyRCInstanceKeyPairResponse extends $dara.Model {
 }
 
 export class ModifyRCInstanceNetworkSpecRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the RDS Custom instance.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum outbound public bandwidth. Unit: Mbit/s.
+   * 
+   * Valid values: 0 to 1024. Default value: 0.
+   * 
+   * @example
+   * 5
+   */
   internetMaxBandwidthOut?: string;
+  /**
+   * @remarks
+   * The billing method of the bandwidth. Only the **pay-by-traffic** billing method is supported.
+   * 
+   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be limited.
+   * 
+   * @example
+   * PayByTraffic
+   */
   networkChargeType?: string;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84801,6 +85465,13 @@ export class ModifyRCInstanceNetworkSpecRequest extends $dara.Model {
 }
 
 export class ModifyRCInstanceNetworkSpecResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8F347CA3-D6AB-5045-9026-24578801F781
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87437,6 +88108,131 @@ export class RebootRCInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebootRCInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstancesRequest extends $dara.Model {
+  batchOptimization?: string;
+  forceReboot?: boolean;
+  instanceIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      forceReboot: 'ForceReboot',
+      instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      forceReboot: 'boolean',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstancesShrinkRequest extends $dara.Model {
+  batchOptimization?: string;
+  forceReboot?: boolean;
+  instanceIdsShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      forceReboot: 'ForceReboot',
+      instanceIdsShrink: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      forceReboot: 'boolean',
+      instanceIdsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstancesResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootRCInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootRCInstancesResponseBody,
     };
   }
 
@@ -90705,8 +91501,6 @@ export class RunRCInstancesRequest extends $dara.Model {
    * 
    * Valid values: **1** to **10**. Default value: **1**.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -90910,6 +91704,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   systemDisk?: RunRCInstancesRequestSystemDisk;
   tag?: RunRCInstancesRequestTag[];
   userData?: string;
+  userDataInBase64?: boolean;
   /**
    * @remarks
    * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
@@ -90966,6 +91761,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       systemDisk: 'SystemDisk',
       tag: 'Tag',
       userData: 'UserData',
+      userDataInBase64: 'UserDataInBase64',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -91005,6 +91801,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       systemDisk: RunRCInstancesRequestSystemDisk,
       tag: { 'type': 'array', 'itemType': RunRCInstancesRequestTag },
       userData: 'string',
+      userDataInBase64: 'boolean',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -91037,8 +91834,6 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
    * 
    * Valid values: **1** to **10**. Default value: **1**.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1
@@ -91243,6 +92038,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
   systemDiskShrink?: string;
   tag?: RunRCInstancesShrinkRequestTag[];
   userData?: string;
+  userDataInBase64?: boolean;
   /**
    * @remarks
    * The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
@@ -91299,6 +92095,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       systemDiskShrink: 'SystemDisk',
       tag: 'Tag',
       userData: 'UserData',
+      userDataInBase64: 'UserDataInBase64',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
     };
@@ -91338,6 +92135,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       systemDiskShrink: 'string',
       tag: { 'type': 'array', 'itemType': RunRCInstancesShrinkRequestTag },
       userData: 'string',
+      userDataInBase64: 'boolean',
       vSwitchId: 'string',
       zoneId: 'string',
     };
@@ -91819,6 +92617,125 @@ export class StartRCInstanceResponse extends $dara.Model {
   }
 }
 
+export class StartRCInstancesRequest extends $dara.Model {
+  batchOptimization?: string;
+  instanceIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRCInstancesShrinkRequest extends $dara.Model {
+  batchOptimization?: string;
+  instanceIdsShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      instanceIdsShrink: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      instanceIdsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRCInstancesResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRCInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartRCInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -92039,6 +92956,131 @@ export class StopRCInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopRCInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstancesRequest extends $dara.Model {
+  batchOptimization?: string;
+  forceStop?: boolean;
+  instanceIds?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      forceStop: 'ForceStop',
+      instanceIds: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      forceStop: 'boolean',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstancesShrinkRequest extends $dara.Model {
+  batchOptimization?: string;
+  forceStop?: boolean;
+  instanceIdsShrink?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchOptimization: 'BatchOptimization',
+      forceStop: 'ForceStop',
+      instanceIdsShrink: 'InstanceIds',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchOptimization: 'string',
+      forceStop: 'boolean',
+      instanceIdsShrink: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstancesResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRCInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopRCInstancesResponseBody,
     };
   }
 
@@ -92506,6 +93548,142 @@ export class SwitchDBInstanceVpcResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SwitchDBInstanceVpcResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchReplicationLinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-2zecuz9tolf******
+   */
+  DBInstanceId?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-t4neh0q12v1******
+   */
+  targetInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  targetInstanceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      ownerId: 'OwnerId',
+      targetInstanceName: 'TargetInstanceName',
+      targetInstanceRegionId: 'TargetInstanceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      ownerId: 'number',
+      targetInstanceName: 'string',
+      targetInstanceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchReplicationLinkResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 135****
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * 2F2DD69B-90AF-1E72-923C-87575658A9D9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 159****
+   */
+  taskId?: number;
+  /**
+   * @example
+   * zbtest
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      taskId: 'number',
+      taskName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchReplicationLinkResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchReplicationLinkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchReplicationLinkResponseBody,
     };
   }
 
@@ -98594,6 +99772,10 @@ export default class Client extends OpenApi {
       query["BackupSetId"] = request.backupSetId;
     }
 
+    if (!$dara.isNull(request.backupSetRegion)) {
+      query["BackupSetRegion"] = request.backupSetRegion;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -99686,6 +100868,10 @@ export default class Client extends OpenApi {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.performanceLevel)) {
       query["PerformanceLevel"] = request.performanceLevel;
     }
@@ -100294,6 +101480,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourcePort)) {
       query["SourcePort"] = request.sourcePort;
+    }
+
+    if (!$dara.isNull(request.targetAddress)) {
+      query["TargetAddress"] = request.targetAddress;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -106475,6 +107665,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the status and configurations of a native replication instance.
    * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [ApsaraDB RDS for MySQL native replication instances](https://help.aliyun.com/document_detail/2856487.html)
+   * 
    * @param request - DescribeDBInstanceReplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceReplicationResponse
@@ -106506,6 +107703,13 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the status and configurations of a native replication instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engines
+   * MySQL
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [ApsaraDB RDS for MySQL native replication instances](https://help.aliyun.com/document_detail/2856487.html)
    * 
    * @param request - DescribeDBInstanceReplicationRequest
    * @returns DescribeDBInstanceReplicationResponse
@@ -111636,8 +112840,16 @@ export default class Client extends OpenApi {
   async describeRCInstancesWithOptions(request: DescribeRCInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.hostIp)) {
+      query["HostIp"] = request.hostIp;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -111646,6 +112858,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.publicIp)) {
+      query["PublicIp"] = request.publicIp;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -111777,6 +112993,61 @@ export default class Client extends OpenApi {
   async describeRCNodePool(request: DescribeRCNodePoolRequest): Promise<DescribeRCNodePoolResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRCNodePoolWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RC安全组
+   * 
+   * @param request - DescribeRCSecurityGroupListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCSecurityGroupListResponse
+   */
+  async describeRCSecurityGroupListWithOptions(request: DescribeRCSecurityGroupListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCSecurityGroupListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCSecurityGroupList",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRCSecurityGroupListResponse>(await this.callApi(params, req, runtime), new DescribeRCSecurityGroupListResponse({}));
+    } else {
+      return $dara.cast<DescribeRCSecurityGroupListResponse>(await this.execute(params, req, runtime), new DescribeRCSecurityGroupListResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询RC安全组
+   * 
+   * @param request - DescribeRCSecurityGroupListRequest
+   * @returns DescribeRCSecurityGroupListResponse
+   */
+  async describeRCSecurityGroupList(request: DescribeRCSecurityGroupListRequest): Promise<DescribeRCSecurityGroupListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCSecurityGroupListWithOptions(request, runtime);
   }
 
   /**
@@ -115496,6 +116767,95 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the zone of a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * 
+   * @param tmpReq - MigrateDBNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateDBNodesResponse
+   */
+  async migrateDBNodesWithOptions(tmpReq: MigrateDBNodesRequest, runtime: $dara.RuntimeOptions): Promise<MigrateDBNodesResponse> {
+    tmpReq.validate();
+    let request = new MigrateDBNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.DBNode)) {
+      request.DBNodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBNode, "DBNode", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBNodeShrink)) {
+      query["DBNode"] = request.DBNodeShrink;
+    }
+
+    if (!$dara.isNull(request.effectiveTime)) {
+      query["EffectiveTime"] = request.effectiveTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MigrateDBNodes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MigrateDBNodesResponse>(await this.callApi(params, req, runtime), new MigrateDBNodesResponse({}));
+    } else {
+      return $dara.cast<MigrateDBNodesResponse>(await this.execute(params, req, runtime), new MigrateDBNodesResponse({}));
+    }
+
+  }
+
+  /**
+   * Changes the zone of a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+   * 
+   * @param request - MigrateDBNodesRequest
+   * @returns MigrateDBNodesResponse
+   */
+  async migrateDBNodes(request: MigrateDBNodesRequest): Promise<MigrateDBNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.migrateDBNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the whitelist mode of an instance from the standard whitelist mode to the enhanced whitelist mode.
    * 
    * @remarks
@@ -115607,6 +116967,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceStorage)) {
       query["DBInstanceStorage"] = request.DBInstanceStorage;
+    }
+
+    if (!$dara.isNull(request.DBInstanceStorageType)) {
+      query["DBInstanceStorageType"] = request.DBInstanceStorageType;
     }
 
     if (!$dara.isNull(request.effectiveTime)) {
@@ -120732,6 +122096,22 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!$dara.isNull(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -120744,12 +122124,32 @@ export default class Client extends OpenApi {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
 
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -120900,7 +122300,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RDS Custom实例的公网配置
+   * Modifies the public bandwidth of an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * Custom for SQL Server
    * 
    * @param request - ModifyRCInstanceNetworkSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -120948,7 +122352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RDS Custom实例的公网配置
+   * Modifies the public bandwidth of an RDS Custom for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * Custom for SQL Server
    * 
    * @param request - ModifyRCInstanceNetworkSpecRequest
    * @returns ModifyRCInstanceNetworkSpecResponse
@@ -122261,6 +123669,71 @@ export default class Client extends OpenApi {
   async rebootRCInstance(request: RebootRCInstanceRequest): Promise<RebootRCInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量重启RC实例
+   * 
+   * @param tmpReq - RebootRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootRCInstancesResponse
+   */
+  async rebootRCInstancesWithOptions(tmpReq: RebootRCInstancesRequest, runtime: $dara.RuntimeOptions): Promise<RebootRCInstancesResponse> {
+    tmpReq.validate();
+    let request = new RebootRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.batchOptimization)) {
+      query["BatchOptimization"] = request.batchOptimization;
+    }
+
+    if (!$dara.isNull(request.forceReboot)) {
+      query["ForceReboot"] = request.forceReboot;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RebootRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RebootRCInstancesResponse>(await this.callApi(params, req, runtime), new RebootRCInstancesResponse({}));
+    } else {
+      return $dara.cast<RebootRCInstancesResponse>(await this.execute(params, req, runtime), new RebootRCInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量重启RC实例
+   * 
+   * @param request - RebootRCInstancesRequest
+   * @returns RebootRCInstancesResponse
+   */
+  async rebootRCInstances(request: RebootRCInstancesRequest): Promise<RebootRCInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rebootRCInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -124242,6 +125715,10 @@ export default class Client extends OpenApi {
       query["UserData"] = request.userData;
     }
 
+    if (!$dara.isNull(request.userDataInBase64)) {
+      query["UserDataInBase64"] = request.userDataInBase64;
+    }
+
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -124469,6 +125946,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量启动RC实例
+   * 
+   * @param tmpReq - StartRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRCInstancesResponse
+   */
+  async startRCInstancesWithOptions(tmpReq: StartRCInstancesRequest, runtime: $dara.RuntimeOptions): Promise<StartRCInstancesResponse> {
+    tmpReq.validate();
+    let request = new StartRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.batchOptimization)) {
+      query["BatchOptimization"] = request.batchOptimization;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartRCInstancesResponse>(await this.callApi(params, req, runtime), new StartRCInstancesResponse({}));
+    } else {
+      return $dara.cast<StartRCInstancesResponse>(await this.execute(params, req, runtime), new StartRCInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量启动RC实例
+   * 
+   * @param request - StartRCInstancesRequest
+   * @returns StartRCInstancesResponse
+   */
+  async startRCInstances(request: StartRCInstancesRequest): Promise<StartRCInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Suspends an ApsaraDB RDS instance.
    * 
    * @remarks
@@ -124602,6 +126140,71 @@ export default class Client extends OpenApi {
   async stopRCInstance(request: StopRCInstanceRequest): Promise<StopRCInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopRCInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量停止RC实例
+   * 
+   * @param tmpReq - StopRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRCInstancesResponse
+   */
+  async stopRCInstancesWithOptions(tmpReq: StopRCInstancesRequest, runtime: $dara.RuntimeOptions): Promise<StopRCInstancesResponse> {
+    tmpReq.validate();
+    let request = new StopRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.batchOptimization)) {
+      query["BatchOptimization"] = request.batchOptimization;
+    }
+
+    if (!$dara.isNull(request.forceStop)) {
+      query["ForceStop"] = request.forceStop;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopRCInstancesResponse>(await this.callApi(params, req, runtime), new StopRCInstancesResponse({}));
+    } else {
+      return $dara.cast<StopRCInstancesResponse>(await this.execute(params, req, runtime), new StopRCInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量停止RC实例
+   * 
+   * @param request - StopRCInstancesRequest
+   * @returns StopRCInstancesResponse
+   */
+  async stopRCInstances(request: StopRCInstancesRequest): Promise<StopRCInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopRCInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -124891,6 +126494,65 @@ export default class Client extends OpenApi {
   async switchDBInstanceVpc(request: SwitchDBInstanceVpcRequest): Promise<SwitchDBInstanceVpcResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.switchDBInstanceVpcWithOptions(request, runtime);
+  }
+
+  /**
+   * 切换到灾备实例
+   * 
+   * @param request - SwitchReplicationLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchReplicationLinkResponse
+   */
+  async switchReplicationLinkWithOptions(request: SwitchReplicationLinkRequest, runtime: $dara.RuntimeOptions): Promise<SwitchReplicationLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.targetInstanceName)) {
+      query["TargetInstanceName"] = request.targetInstanceName;
+    }
+
+    if (!$dara.isNull(request.targetInstanceRegionId)) {
+      query["TargetInstanceRegionId"] = request.targetInstanceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchReplicationLink",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SwitchReplicationLinkResponse>(await this.callApi(params, req, runtime), new SwitchReplicationLinkResponse({}));
+    } else {
+      return $dara.cast<SwitchReplicationLinkResponse>(await this.execute(params, req, runtime), new SwitchReplicationLinkResponse({}));
+    }
+
+  }
+
+  /**
+   * 切换到灾备实例
+   * 
+   * @param request - SwitchReplicationLinkRequest
+   * @returns SwitchReplicationLinkResponse
+   */
+  async switchReplicationLink(request: SwitchReplicationLinkRequest): Promise<SwitchReplicationLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.switchReplicationLinkWithOptions(request, runtime);
   }
 
   /**
