@@ -1859,10 +1859,6 @@ export class CreateVocabRequest extends $dara.Model {
    * nls
    */
   audioModelCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   description?: string;
   /**
    * @remarks
