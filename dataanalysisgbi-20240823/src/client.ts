@@ -5,6 +5,29 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class RunDataAnalysisResponseBodyDataChat extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunDataAnalysisResponseBodyDataSqlData extends $dara.Model {
   column?: string[];
   data?: { [key: string]: any }[];
@@ -113,6 +136,7 @@ export class RunDataAnalysisResponseBodyDataVisualization extends $dara.Model {
 
 export class RunDataAnalysisResponseBodyData extends $dara.Model {
   attempts?: any[];
+  chat?: RunDataAnalysisResponseBodyDataChat;
   /**
    * @example
    * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
@@ -152,6 +176,7 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attempts: 'attempts',
+      chat: 'chat',
       errorMessage: 'errorMessage',
       event: 'event',
       evidence: 'evidence',
@@ -170,6 +195,7 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attempts: { 'type': 'array', 'itemType': 'any' },
+      chat: RunDataAnalysisResponseBodyDataChat,
       errorMessage: 'string',
       event: 'string',
       evidence: 'string',
@@ -188,6 +214,9 @@ export class RunDataAnalysisResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.attempts)) {
       $dara.Model.validateArray(this.attempts);
+    }
+    if(this.chat && typeof (this.chat as any).validate === 'function') {
+      (this.chat as any).validate();
     }
     if(Array.isArray(this.selector)) {
       $dara.Model.validateArray(this.selector);
@@ -363,7 +392,31 @@ export class RunDataResultAnalysisResponseBodyData extends $dara.Model {
   }
 }
 
+export class RunSqlGenerationResponseBodyDataChat extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunSqlGenerationResponseBodyData extends $dara.Model {
+  chat?: RunSqlGenerationResponseBodyDataChat;
   /**
    * @example
    * Access was denied, message: No such namespace namespaces/tech-scp-chain7.
@@ -399,6 +452,7 @@ export class RunSqlGenerationResponseBodyData extends $dara.Model {
   sqlError?: string;
   static names(): { [key: string]: string } {
     return {
+      chat: 'chat',
       errorMessage: 'errorMessage',
       event: 'event',
       evidence: 'evidence',
@@ -413,6 +467,7 @@ export class RunSqlGenerationResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chat: RunSqlGenerationResponseBodyDataChat,
       errorMessage: 'string',
       event: 'string',
       evidence: 'string',
@@ -426,6 +481,9 @@ export class RunSqlGenerationResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.chat && typeof (this.chat as any).validate === 'function') {
+      (this.chat as any).validate();
+    }
     if(Array.isArray(this.selector)) {
       $dara.Model.validateArray(this.selector);
     }
