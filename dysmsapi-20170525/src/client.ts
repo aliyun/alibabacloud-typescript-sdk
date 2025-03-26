@@ -1,13 +1,2368 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddExtCodeSignRequest extends $tea.Model {
+export class AddShortUrlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the short URL expires.
+   * 
+   * > The value of **ExpireDate** is on the hour.
+   * 
+   * @example
+   * 2021-09-19 00:00:00
+   */
+  expireDate?: string;
+  /**
+   * @remarks
+   * The short URL.
+   * 
+   * @example
+   * http://****.cn/6y8uy7
+   */
+  shortUrl?: string;
+  /**
+   * @remarks
+   * The source URL.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
+  sourceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireDate: 'ExpireDate',
+      shortUrl: 'ShortUrl',
+      sourceUrl: 'SourceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireDate: 'string',
+      shortUrl: 'string',
+      sourceUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmsSignRequestSignFileList extends $dara.Model {
+  /**
+   * @remarks
+   * The Base64-encoded string of the qualification document. An image cannot exceed 2 MB in size. In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uL****
+   */
+  fileContents?: string;
+  /**
+   * @remarks
+   * The format of the qualification document. You can upload multiple images. Images in JPG, PNG, GIF, or JPEG format are supported.
+   * 
+   * In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * > If you apply for a signature for other users or if the signature source is the name of an enterprise or public institution, you must upload a certificate and a letter of authorization. For more information, see [Certificate](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jpg
+   */
+  fileSuffix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileContents: 'FileContents',
+      fileSuffix: 'FileSuffix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileContents: 'string',
+      fileSuffix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $dara.Model {
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1390000****
+   */
+  mobile?: string;
+  /**
+   * @remarks
+   * Indicates whether the mobile phone number supports card messages.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  support?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'mobile',
+      support: 'support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      support: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMobilesCardSupportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned results.
+   */
+  queryResult?: CheckMobilesCardSupportResponseBodyDataQueryResult[];
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'queryResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: { 'type': 'array', 'itemType': CheckMobilesCardSupportResponseBodyDataQueryResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.queryResult)) {
+      $dara.Model.validateArray(this.queryResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview).
+   * 
+   * > Make sure that the message template has been approved.
+   * 
+   * @example
+   * CARD_SMS_60000****
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmartShortUrlResponseBodyModel extends $dara.Model {
+  /**
+   * @example
+   * 示例值
+   */
+  domain?: string;
+  /**
+   * @example
+   * 11
+   */
+  expiration?: number;
+  /**
+   * @example
+   * 示例值
+   */
+  phoneNumber?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  shortName?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  shortUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      expiration: 'Expiration',
+      phoneNumber: 'PhoneNumber',
+      shortName: 'ShortName',
+      shortUrl: 'ShortUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      expiration: 'number',
+      phoneNumber: 'string',
+      shortName: 'string',
+      shortUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $dara.Model {
+  /**
+   * @remarks
+   * Error code for sending
+   * 
+   * @example
+   * Success
+   */
+  errCode?: string;
+  /**
+   * @remarks
+   * Customer-transmitted outId
+   * 
+   * @example
+   * 12345678
+   */
+  outId?: string;
+  /**
+   * @remarks
+   * Phone number that received the SMS
+   * 
+   * @example
+   * 156****9080
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * Receive date
+   * 
+   * @example
+   * 2024-09-27 11:26:35
+   */
+  receiveDate?: string;
+  /**
+   * @remarks
+   * Receive SMS type
+   * 
+   * @example
+   * CARD_SMS
+   */
+  receiveType?: string;
+  /**
+   * @remarks
+   * Render date
+   * 
+   * @example
+   * 2024-09-27 12:13:39
+   */
+  renderDate?: string;
+  /**
+   * @remarks
+   * Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
+   * 
+   * @example
+   * 1
+   */
+  renderStatus?: number;
+  /**
+   * @remarks
+   * Time when the SMS was sent
+   * 
+   * @example
+   * 2024-09-27 11:26:32
+   */
+  sendDate?: string;
+  /**
+   * @remarks
+   * Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
+   * 
+   * @example
+   * 3
+   */
+  sendStatus?: number;
+  /**
+   * @remarks
+   * SMS content. Only applicable for text messages.
+   * 
+   * @example
+   * 您收到一条短信消息
+   */
+  smsContent?: string;
+  /**
+   * @remarks
+   * Template code
+   * 
+   * @example
+   * CARD_SMS_6***
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errCode: 'ErrCode',
+      outId: 'OutId',
+      phoneNumber: 'PhoneNumber',
+      receiveDate: 'ReceiveDate',
+      receiveType: 'ReceiveType',
+      renderDate: 'RenderDate',
+      renderStatus: 'RenderStatus',
+      sendDate: 'SendDate',
+      sendStatus: 'SendStatus',
+      smsContent: 'SmsContent',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errCode: 'string',
+      outId: 'string',
+      phoneNumber: 'string',
+      receiveDate: 'string',
+      receiveType: 'string',
+      renderDate: 'string',
+      renderStatus: 'number',
+      sendDate: 'string',
+      sendStatus: 'number',
+      smsContent: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $dara.Model {
+  /**
+   * @remarks
+   * Current page number
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * List of card SMS sending records
+   */
+  records?: GetCardSmsDetailsResponseBodyCardSendDetailDTORecords[];
+  /**
+   * @remarks
+   * Total count
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      records: 'Records',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': GetCardSmsDetailsResponseBodyCardSendDetailDTORecords },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCardSmsLinkResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The mobile phone numbers that support card messages.
+   * 
+   * @example
+   * [\\"1390000****\\",\\"1370000****\\"]
+   */
+  cardPhoneNumbers?: string;
+  /**
+   * @remarks
+   * The signatures must correspond to the mobile numbers and short URLs in sequence.
+   * 
+   * @example
+   * ["aliyun","aliyun2"]
+   */
+  cardSignNames?: string;
+  /**
+   * @remarks
+   * The short URLs.
+   * 
+   * @example
+   * [\\"mw2m.cn/LAaGGa\\",\\"mw2m.cn/LAAaes\\"]
+   */
+  cardSmsLinks?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
+  cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone numbers that do not support card messages.
+   * 
+   * @example
+   * 1390000****
+   */
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardPhoneNumbers: 'CardPhoneNumbers',
+      cardSignNames: 'CardSignNames',
+      cardSmsLinks: 'CardSmsLinks',
+      cardTmpState: 'CardTmpState',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardPhoneNumbers: 'string',
+      cardSignNames: 'string',
+      cardSmsLinks: 'string',
+      cardTmpState: 'number',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The download URL of the resource.
+   * 
+   * @example
+   * http://test-example.com/download.jpg
+   */
+  resUrlDownload?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * SMS_14571****
+   */
+  resourceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resUrlDownload: 'ResUrlDownload',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resUrlDownload: 'string',
+      resourceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * LTAIxetqt1Dg****
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 599333677478****
+   */
+  aliUid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * alicom-cardsms-resources
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * The timeout period.
+   * 
+   * @example
+   * 1634209418
+   */
+  expireTime?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
+   */
+  host?: string;
+  /**
+   * @remarks
+   * The signature policy.
+   * 
+   * @example
+   * eyJxxx0=
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * The signature.
+   * 
+   * @example
+   * Aliyun
+   */
+  signature?: string;
+  /**
+   * @remarks
+   * The path of the policy.
+   * 
+   * @example
+   * 1631792777
+   */
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      aliUid: 'AliUid',
+      bucket: 'Bucket',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      aliUid: 'string',
+      bucket: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForUploadFileResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * AccessKey ID used for signing.
+   * 
+   * @example
+   * LTAIxetqt1Dg****
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * Expiration time.
+   * 
+   * @example
+   * 1719297445
+   */
+  expireTime?: string;
+  /**
+   * @remarks
+   * Host address.
+   * 
+   * @example
+   * https://alicom-fc-media.oss-cn-zhangjiakou.aliyuncs.com
+   */
+  host?: string;
+  /**
+   * @remarks
+   * Signature policy.
+   * 
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyN***Ni0yNVQwNjozNzoyNS45NzBaI**iY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJzdGFydHMtd2l0***sIiRrZXkiLCIiXV19
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * Signature information calculated based on **AccessKey Secret** and **Policy**. When calling the OSS API, OSS verifies this signature information to confirm the legitimacy of the Post request.
+   * 
+   * @example
+   * BXnwCWPrhVb*****aoZHZfli5KE=
+   */
+  signature?: string;
+  /**
+   * @remarks
+   * Policy path.
+   * 
+   * @example
+   * 123456
+   */
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsSignResponseBodyAuditInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Audit date and time.
+   * 
+   * @example
+   * 2024-06-03 12:02:34
+   */
+  auditDate?: string;
+  /**
+   * @remarks
+   * Reasons for not passing the review.
+   * 
+   * @example
+   * reason for rejection.
+   */
+  rejectInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditDate: 'AuditDate',
+      rejectInfo: 'RejectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditDate: 'string',
+      rejectInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyAuditInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Audit date and time.
+   * 
+   * @example
+   * 2024-06-03 11:20:34
+   */
+  auditDate?: string;
+  /**
+   * @remarks
+   * Reasons for failed audit.
+   * 
+   * @example
+   * 模板内容中包含错别字。
+   */
+  rejectInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditDate: 'AuditDate',
+      rejectInfo: 'RejectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditDate: 'string',
+      rejectInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyFileUrlList extends $dara.Model {
+  fileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fileUrl)) {
+      $dara.Model.validateArray(this.fileUrl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $dara.Model {
+  moreDataFileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moreDataFileUrl: 'MoreDataFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moreDataFileUrl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.moreDataFileUrl)) {
+      $dara.Model.validateArray(this.moreDataFileUrl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_23423****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * @example
+   * ALIYUN::DYSMS::TEMPLATE
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * TestValue
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySmsSignRequestSignFileList extends $dara.Model {
+  /**
+   * @remarks
+   * The base64-encoded string of the signed files. The size of the image cannot exceed 2 MB.
+   * 
+   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uLiwAA
+   */
+  fileContents?: string;
+  /**
+   * @remarks
+   * The format of the documents. You can upload multiple images. JPG, PNG, GIF, and JPEG are supported.
+   * 
+   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
+   * 
+   * > If the signature is used for other purposes or the signature source is an enterprise or public institution, you must upload some documents and an authorization letter. For more information, see [Documents](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jpg
+   */
+  fileSuffix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileContents: 'FileContents',
+      fileSuffix: 'FileSuffix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileContents: 'string',
+      fileSuffix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The array of objects.
+   */
+  templates?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      templates: 'Templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templates: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.templates)) {
+      $dara.Model.validateArray(this.templates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the data returned.
+   */
+  model?: { [key: string]: any }[];
+  static names(): { [key: string]: string } {
+    return {
+      model: 'model',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.model)) {
+      $dara.Model.validateArray(this.model);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExtCodeSignResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * 是否可回收
+   * 
+   * @example
+   * 1
+   */
+  active?: number;
+  /**
+   * @remarks
+   * 扩展码A3
+   * 
+   * @example
+   * 01
+   */
+  extCode?: string;
+  /**
+   * @remarks
+   * 近1个月发送成功条数（只读）
+   * 
+   * @example
+   * 69
+   */
+  sendCount?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signName?: string;
+  /**
+   * @remarks
+   * 来源
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      active: 'Active',
+      extCode: 'ExtCode',
+      sendCount: 'SendCount',
+      signName: 'SignName',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      active: 'number',
+      extCode: 'string',
+      sendCount: 'number',
+      signName: 'string',
+      source: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryExtCodeSignResponseBodyData extends $dara.Model {
+  list?: QueryExtCodeSignResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryExtCodeSignResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportResponseBodyDataQueryResult extends $dara.Model {
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1380000****
+   */
+  mobile?: string;
+  /**
+   * @remarks
+   * Indicates whether the mobile phone number supports card messages. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  support?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      support: 'Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      support: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMobilesCardSupportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of returned results.
+   */
+  queryResult?: QueryMobilesCardSupportResponseBodyDataQueryResult[];
+  static names(): { [key: string]: string } {
+    return {
+      queryResult: 'QueryResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryResult: { 'type': 'array', 'itemType': QueryMobilesCardSupportResponseBodyDataQueryResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.queryResult)) {
+      $dara.Model.validateArray(this.queryResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponseBodyModelList extends $dara.Model {
+  /**
+   * @example
+   * 87
+   */
+  clickState?: number;
+  /**
+   * @example
+   * 51
+   */
+  clickTime?: number;
+  /**
+   * @example
+   * 64
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  phoneNumber?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  shortName?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  shortUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clickState: 'ClickState',
+      clickTime: 'ClickTime',
+      createTime: 'CreateTime',
+      phoneNumber: 'PhoneNumber',
+      shortName: 'ShortName',
+      shortUrl: 'ShortUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clickState: 'number',
+      clickTime: 'number',
+      createTime: 'number',
+      phoneNumber: 'string',
+      shortName: 'string',
+      shortUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPageSmartShortUrlLogResponseBodyModel extends $dara.Model {
+  list?: QueryPageSmartShortUrlLogResponseBodyModelList[];
+  /**
+   * @example
+   * 74
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 15
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 66
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 86
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QueryPageSmartShortUrlLogResponseBodyModelList },
+      pageNo: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the message.
+   * 
+   * @example
+   * 【Aliyun】This is a test message.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The status code returned by the carrier.
+   * 
+   * *   If the message is delivered, "DELIVERED" is returned.
+   * *   For information about the error codes that may be returned if the message is not delivered, see [error codes](https://help.aliyun.com/document_detail/101347.html).
+   * 
+   * @example
+   * DELIVERED
+   */
+  errCode?: string;
+  /**
+   * @remarks
+   * The extended field.
+   * 
+   * @example
+   * 123
+   */
+  outId?: string;
+  /**
+   * @remarks
+   * The mobile numbers of the recipients.
+   * 
+   * @example
+   * 1390000****
+   */
+  phoneNum?: string;
+  /**
+   * @remarks
+   * The date and time when the message was received.
+   * 
+   * @example
+   * 2019-01-08 16:44:13
+   */
+  receiveDate?: string;
+  /**
+   * @remarks
+   * The date and time when the message was sent.
+   * 
+   * @example
+   * 2019-01-08 16:44:10
+   */
+  sendDate?: string;
+  /**
+   * @remarks
+   * The delivery status of the message. Valid values:
+   * 
+   * *   **1**: The message has not received a delivery receipt yet.
+   * *   **2**: The message failed to be delivered.
+   * *   **3**: The message was delivered.
+   * 
+   * @example
+   * 3
+   */
+  sendStatus?: number;
+  /**
+   * @remarks
+   * The ID of the message template.
+   * 
+   * @example
+   * SMS_12231****
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      errCode: 'ErrCode',
+      outId: 'OutId',
+      phoneNum: 'PhoneNum',
+      receiveDate: 'ReceiveDate',
+      sendDate: 'SendDate',
+      sendStatus: 'SendStatus',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      errCode: 'string',
+      outId: 'string',
+      phoneNum: 'string',
+      receiveDate: 'string',
+      sendDate: 'string',
+      sendStatus: 'number',
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $dara.Model {
+  smsSendDetailDTO?: QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      smsSendDetailDTO: 'SmsSendDetailDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      smsSendDetailDTO: { 'type': 'array', 'itemType': QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.smsSendDetailDTO)) {
+      $dara.Model.validateArray(this.smsSendDetailDTO);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendStatisticsResponseBodyDataTargetList extends $dara.Model {
+  /**
+   * @remarks
+   * The number of messages without a delivery receipt.
+   * 
+   * @example
+   * 1
+   */
+  noRespondedCount?: number;
+  /**
+   * @remarks
+   * The number of messages with a delivery receipt that indicates a failure.
+   * 
+   * @example
+   * 2
+   */
+  respondedFailCount?: number;
+  /**
+   * @remarks
+   * The number of messages with a delivery receipt that indicates a success.
+   * 
+   * @example
+   * 17
+   */
+  respondedSuccessCount?: number;
+  /**
+   * @remarks
+   * The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
+   * 
+   * @example
+   * 20201010
+   */
+  sendDate?: string;
+  /**
+   * @remarks
+   * The number of delivered messages.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      noRespondedCount: 'NoRespondedCount',
+      respondedFailCount: 'RespondedFailCount',
+      respondedSuccessCount: 'RespondedSuccessCount',
+      sendDate: 'SendDate',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      noRespondedCount: 'number',
+      respondedFailCount: 'number',
+      respondedSuccessCount: 'number',
+      sendDate: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendStatisticsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the data returned.
+   */
+  targetList?: QuerySendStatisticsResponseBodyDataTargetList[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      targetList: 'TargetList',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetList: { 'type': 'array', 'itemType': QuerySendStatisticsResponseBodyDataTargetList },
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.targetList)) {
+      $dara.Model.validateArray(this.targetList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShortUrlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the short URL was created.
+   * 
+   * @example
+   * 2019-01-08 16:44:13
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * The time when the short URL expires.
+   * 
+   * @example
+   * 2019-01-22 11:21:11
+   */
+  expireDate?: string;
+  /**
+   * @remarks
+   * The PV.
+   * 
+   * @example
+   * 300
+   */
+  pageViewCount?: string;
+  /**
+   * @remarks
+   * The short URL.
+   * 
+   * @example
+   * http://****.cn/6y8uy7
+   */
+  shortUrl?: string;
+  /**
+   * @remarks
+   * The service name of the short URL.
+   * 
+   * @example
+   * The Alibaba Cloud Short Link service.
+   */
+  shortUrlName?: string;
+  /**
+   * @remarks
+   * The status of the short URL. Valid values:
+   * 
+   * *   **expired**
+   * *   **effective**
+   * *   **audit**
+   * *   **reject**
+   * 
+   * @example
+   * expired
+   */
+  shortUrlStatus?: string;
+  /**
+   * @remarks
+   * The source address.
+   * 
+   * @example
+   * https://www.****.com/product/sms
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The UV.
+   * 
+   * @example
+   * 23
+   */
+  uniqueVisitorCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      expireDate: 'ExpireDate',
+      pageViewCount: 'PageViewCount',
+      shortUrl: 'ShortUrl',
+      shortUrlName: 'ShortUrlName',
+      shortUrlStatus: 'ShortUrlStatus',
+      sourceUrl: 'SourceUrl',
+      uniqueVisitorCount: 'UniqueVisitorCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      expireDate: 'string',
+      pageViewCount: 'string',
+      shortUrl: 'string',
+      shortUrlName: 'string',
+      shortUrlStatus: 'string',
+      sourceUrl: 'string',
+      uniqueVisitorCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsSignListResponseBodySmsSignListReason extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the signature was rejected. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-01-08 19:02:13
+   */
+  rejectDate?: string;
+  /**
+   * @remarks
+   * The reason why the signature was rejected.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
+  rejectInfo?: string;
+  /**
+   * @remarks
+   * The remarks about the rejection.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
+  rejectSubInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rejectDate: 'RejectDate',
+      rejectInfo: 'RejectInfo',
+      rejectSubInfo: 'RejectSubInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rejectDate: 'string',
+      rejectInfo: 'string',
+      rejectSubInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
+  /**
+   * @remarks
+   * The approval status of the signature. Valid values:
+   * 
+   * *   **AUDIT_STATE_INIT**: The signature is pending approval.
+   * *   **AUDIT_STATE_PASS**: The signature is approved.
+   * *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
+   * *   **AUDIT_STATE_CANCEL**: The approval is canceled.
+   * 
+   * @example
+   * AUDIT_STATE_NOT_PASS
+   */
+  auditStatus?: string;
+  /**
+   * @remarks
+   * The type of the signature scenario. The return value ends with "type". Valid values:
+   * 
+   * *   Verification code type
+   * *   General-purpose type
+   * 
+   * @example
+   * Verification code type
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-01-08 16:44:13
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * The ticket ID.
+   * 
+   * @example
+   * 236****5
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The approval remarks.
+   * 
+   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
+   */
+  reason?: QuerySmsSignListResponseBodySmsSignListReason;
+  /**
+   * @remarks
+   * The name of the signature.
+   * 
+   * @example
+   * Aliyun
+   */
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      businessType: 'BusinessType',
+      createDate: 'CreateDate',
+      orderId: 'OrderId',
+      reason: 'Reason',
+      signName: 'SignName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      businessType: 'string',
+      createDate: 'string',
+      orderId: 'string',
+      reason: QuerySmsSignListResponseBodySmsSignListReason,
+      signName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.reason && typeof (this.reason as any).validate === 'function') {
+      (this.reason as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsTemplateListResponseBodySmsTemplateListReason extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the message template was rejected. Format: yyyy-MM-dd HH:mm:ss.
+   * 
+   * @example
+   * 2020-06-04 16:01:17
+   */
+  rejectDate?: string;
+  /**
+   * @remarks
+   * The reason why the message template was rejected.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
+  rejectInfo?: string;
+  /**
+   * @remarks
+   * The remarks about the rejection.
+   * 
+   * @example
+   * The document cannot verify the authenticity of the information. Please upload it again.
+   */
+  rejectSubInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rejectDate: 'RejectDate',
+      rejectInfo: 'RejectInfo',
+      rejectSubInfo: 'RejectSubInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rejectDate: 'string',
+      rejectInfo: 'string',
+      rejectSubInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsTemplateListResponseBodySmsTemplateList extends $dara.Model {
+  /**
+   * @remarks
+   * The approval status of the message template. Valid values:
+   * 
+   * *   **AUDIT_STATE_INIT**: The message template is pending approval.
+   * *   **AUDIT_STATE_PASS**: The message template is approved.
+   * *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
+   * *   **AUDIT_STATE_CANCEL** or **AUDIT_SATE_CANCEL**: The approval is canceled.
+   * 
+   * @example
+   * AUDIT_STATE_PASS
+   */
+  auditStatus?: string;
+  /**
+   * @remarks
+   * The time when the message template was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * 
+   * @example
+   * 2020-06-04 11:42:17
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * The ticket ID.
+   * 
+   * @example
+   * 2361****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The type of the message template. We recommend that you specify this parameter. Valid values:
+   * 
+   * *   **0**: verification code
+   * *   **1**: notification message
+   * *   **2**: promotional message
+   * *   **3**: message sent to countries or regions outside the Chinese mainland
+   * *   **7**: digital message
+   * 
+   * > The template type is the same as the value of the TemplateType parameter in the AddSmsTemplate and ModifySmsTemplate operations.
+   * 
+   * @example
+   * 0
+   */
+  outerTemplateType?: number;
+  /**
+   * @remarks
+   * The approval remarks.
+   * 
+   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
+   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
+   */
+  reason?: QuerySmsTemplateListResponseBodySmsTemplateListReason;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
+   * 
+   * @example
+   * SMS_1525***
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The content of the message template.
+   * 
+   * @example
+   * 123456789
+   */
+  templateContent?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * aliyun verification code
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The type of the message template. Valid values:
+   * 
+   * *   **0**: notification message
+   * *   **1**: promotional message
+   * *   **2**: verification code
+   * *   **6**: message sent to countries or regions outside the Chinese mainland
+   * *   **7**: digital message
+   * 
+   * @example
+   * 7
+   */
+  templateType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      createDate: 'CreateDate',
+      orderId: 'OrderId',
+      outerTemplateType: 'OuterTemplateType',
+      reason: 'Reason',
+      templateCode: 'TemplateCode',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      createDate: 'string',
+      orderId: 'string',
+      outerTemplateType: 'number',
+      reason: QuerySmsTemplateListResponseBodySmsTemplateListReason,
+      templateCode: 'string',
+      templateContent: 'string',
+      templateName: 'string',
+      templateType: 'number',
+    };
+  }
+
+  validate() {
+    if(this.reason && typeof (this.reason as any).validate === 'function') {
+      (this.reason as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendBatchCardSmsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the card message.
+   * 
+   * @example
+   * 123
+   */
+  bizCardId?: string;
+  /**
+   * @remarks
+   * The ID of the digital message.
+   * 
+   * @example
+   * 3214
+   */
+  bizDigitalId?: string;
+  /**
+   * @remarks
+   * The ID of the text message.
+   * 
+   * @example
+   * 3256
+   */
+  bizSmsId?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
+  cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone number from which the card message is sent.
+   * 
+   * @example
+   * 1390000****
+   */
+  mediaMobiles?: string;
+  /**
+   * @remarks
+   * The mobile phone number whose card message is rolled back.
+   * 
+   * @example
+   * 1390000****
+   */
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitalId: 'BizDigitalId',
+      bizSmsId: 'BizSmsId',
+      cardTmpState: 'CardTmpState',
+      mediaMobiles: 'MediaMobiles',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitalId: 'string',
+      bizSmsId: 'string',
+      cardTmpState: 'number',
+      mediaMobiles: 'string',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsRequestCardObjects extends $dara.Model {
+  /**
+   * @remarks
+   * The URL to which the message is redirected if the message fails to be rendered.
+   * 
+   * @example
+   * https://alibaba.com
+   */
+  customUrl?: string;
+  /**
+   * @remarks
+   * The variables. Special characters, such as $ and {}, do not need to be entered.
+   * 
+   * @example
+   * {\\"param3\\":\\"three\\",\\"param1\\":\\"one\\",\\"param2\\":\\"two\\"}
+   */
+  dyncParams?: string;
+  /**
+   * @remarks
+   * The mobile phone number.
+   * 
+   * @example
+   * 1390000****
+   */
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customUrl: 'customUrl',
+      dyncParams: 'dyncParams',
+      mobile: 'mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customUrl: 'string',
+      dyncParams: 'string',
+      mobile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the card message.
+   * 
+   * @example
+   * 123
+   */
+  bizCardId?: string;
+  /**
+   * @remarks
+   * The ID of the digital message.
+   * 
+   * @example
+   * 232
+   */
+  bizDigitalId?: string;
+  /**
+   * @remarks
+   * The ID of the text message.
+   * 
+   * @example
+   * 524
+   */
+  bizSmsId?: string;
+  /**
+   * @remarks
+   * The review status of the card message template.
+   * 
+   * *   **0**: pending approval
+   * *   **1**: approved
+   * *   **2**: rejected
+   * 
+   * > Unapproved card messages are rolled back.
+   * 
+   * @example
+   * 0
+   */
+  cardTmpState?: number;
+  /**
+   * @remarks
+   * The mobile phone number from which the card message is sent.
+   * 
+   * @example
+   * 1390000****
+   */
+  mediaMobiles?: string;
+  /**
+   * @remarks
+   * The mobile phone number whose card message is rolled back.
+   * 
+   * @example
+   * 1390000****
+   */
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitalId: 'BizDigitalId',
+      bizSmsId: 'BizSmsId',
+      cardTmpState: 'CardTmpState',
+      mediaMobiles: 'MediaMobiles',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitalId: 'string',
+      bizSmsId: 'string',
+      cardTmpState: 'number',
+      mediaMobiles: 'string',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The array of tag keys. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The array of tag values. Valid values of N: 1 to 20.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddExtCodeSignRequest extends $dara.Model {
   /**
    * @remarks
    * 扩展码A3
@@ -51,12 +2406,16 @@ export class AddExtCodeSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddExtCodeSignResponseBody extends $tea.Model {
+export class AddExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
@@ -105,12 +2464,16 @@ export class AddExtCodeSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddExtCodeSignResponse extends $tea.Model {
+export class AddExtCodeSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddExtCodeSignResponseBody;
@@ -130,12 +2493,22 @@ export class AddExtCodeSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddShortUrlRequest extends $tea.Model {
+export class AddShortUrlRequest extends $dara.Model {
   /**
    * @remarks
    * The validity period of the short URL. Unit: days. The maximum validity period is 90 days.
@@ -191,12 +2564,16 @@ export class AddShortUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddShortUrlResponseBody extends $tea.Model {
+export class AddShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -247,12 +2624,19 @@ export class AddShortUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddShortUrlResponse extends $tea.Model {
+export class AddShortUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddShortUrlResponseBody;
@@ -272,12 +2656,22 @@ export class AddShortUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsSignRequest extends $tea.Model {
+export class AddSmsSignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -368,12 +2762,19 @@ export class AddSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.signFileList)) {
+      $dara.Model.validateArray(this.signFileList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsSignResponseBody extends $tea.Model {
+export class AddSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -427,12 +2828,16 @@ export class AddSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsSignResponse extends $tea.Model {
+export class AddSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddSmsSignResponseBody;
@@ -452,12 +2857,22 @@ export class AddSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsTemplateRequest extends $tea.Model {
+export class AddSmsTemplateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -532,12 +2947,16 @@ export class AddSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsTemplateResponseBody extends $tea.Model {
+export class AddSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -591,12 +3010,16 @@ export class AddSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSmsTemplateResponse extends $tea.Model {
+export class AddSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddSmsTemplateResponseBody;
@@ -616,12 +3039,22 @@ export class AddSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckMobilesCardSupportRequest extends $tea.Model {
+export class CheckMobilesCardSupportRequest extends $dara.Model {
   /**
    * @remarks
    * The list of mobile phone numbers that receive messages.
@@ -655,12 +3088,19 @@ export class CheckMobilesCardSupportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.mobiles)) {
+      $dara.Model.validateArray(this.mobiles);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckMobilesCardSupportResponseBody extends $tea.Model {
+export class CheckMobilesCardSupportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -714,12 +3154,19 @@ export class CheckMobilesCardSupportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckMobilesCardSupportResponse extends $tea.Model {
+export class CheckMobilesCardSupportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CheckMobilesCardSupportResponseBody;
@@ -739,12 +3186,22 @@ export class CheckMobilesCardSupportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConversionDataIntlRequest extends $tea.Model {
+export class ConversionDataIntlRequest extends $dara.Model {
   /**
    * @remarks
    * The conversion rate.
@@ -790,12 +3247,16 @@ export class ConversionDataIntlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConversionDataIntlResponseBody extends $tea.Model {
+export class ConversionDataIntlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
@@ -836,12 +3297,16 @@ export class ConversionDataIntlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConversionDataIntlResponse extends $tea.Model {
+export class ConversionDataIntlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ConversionDataIntlResponseBody;
@@ -861,12 +3326,22 @@ export class ConversionDataIntlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCardSmsTemplateRequest extends $tea.Model {
+export class CreateCardSmsTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The mobile phone manufacturer. Valid values:
@@ -987,12 +3462,19 @@ export class CreateCardSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.template) {
+      $dara.Model.validateMap(this.template);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
+export class CreateCardSmsTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The mobile phone manufacturer. Valid values:
@@ -1113,12 +3595,16 @@ export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCardSmsTemplateResponseBody extends $tea.Model {
+export class CreateCardSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -1172,12 +3658,19 @@ export class CreateCardSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCardSmsTemplateResponse extends $tea.Model {
+export class CreateCardSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateCardSmsTemplateResponseBody;
@@ -1197,12 +3690,22 @@ export class CreateCardSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmartShortUrlRequest extends $tea.Model {
+export class CreateSmartShortUrlRequest extends $dara.Model {
   /**
    * @example
    * 示例值示例值
@@ -1249,12 +3752,16 @@ export class CreateSmartShortUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmartShortUrlResponseBody extends $tea.Model {
+export class CreateSmartShortUrlResponseBody extends $dara.Model {
   /**
    * @example
    * 示例值示例值示例值
@@ -1289,12 +3796,19 @@ export class CreateSmartShortUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.model)) {
+      $dara.Model.validateArray(this.model);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmartShortUrlResponse extends $tea.Model {
+export class CreateSmartShortUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSmartShortUrlResponseBody;
@@ -1314,12 +3828,22 @@ export class CreateSmartShortUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignRequest extends $tea.Model {
+export class CreateSmsSignRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -1461,12 +3985,19 @@ export class CreateSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.moreData)) {
+      $dara.Model.validateArray(this.moreData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignShrinkRequest extends $tea.Model {
+export class CreateSmsSignShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -1608,12 +4139,16 @@ export class CreateSmsSignShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignResponseBody extends $tea.Model {
+export class CreateSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request status code.
@@ -1679,12 +4214,16 @@ export class CreateSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignResponse extends $tea.Model {
+export class CreateSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSmsSignResponseBody;
@@ -1704,12 +4243,22 @@ export class CreateSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsTemplateRequest extends $tea.Model {
+export class CreateSmsTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * If there is an applicable scenario, you can fill it in.
@@ -1842,12 +4391,19 @@ export class CreateSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.moreData)) {
+      $dara.Model.validateArray(this.moreData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsTemplateShrinkRequest extends $tea.Model {
+export class CreateSmsTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * If there is an applicable scenario, you can fill it in.
@@ -1980,12 +4536,16 @@ export class CreateSmsTemplateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsTemplateResponseBody extends $tea.Model {
+export class CreateSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request status code.
@@ -2063,12 +4623,16 @@ export class CreateSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsTemplateResponse extends $tea.Model {
+export class CreateSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSmsTemplateResponseBody;
@@ -2088,12 +4652,22 @@ export class CreateSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteExtCodeSignRequest extends $tea.Model {
+export class DeleteExtCodeSignRequest extends $dara.Model {
   /**
    * @remarks
    * 扩展码A3
@@ -2137,12 +4711,16 @@ export class DeleteExtCodeSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteExtCodeSignResponseBody extends $tea.Model {
+export class DeleteExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
@@ -2191,12 +4769,16 @@ export class DeleteExtCodeSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteExtCodeSignResponse extends $tea.Model {
+export class DeleteExtCodeSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteExtCodeSignResponseBody;
@@ -2216,12 +4798,22 @@ export class DeleteExtCodeSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteShortUrlRequest extends $tea.Model {
+export class DeleteShortUrlRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2253,12 +4845,16 @@ export class DeleteShortUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteShortUrlResponseBody extends $tea.Model {
+export class DeleteShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2302,12 +4898,16 @@ export class DeleteShortUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteShortUrlResponse extends $tea.Model {
+export class DeleteShortUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteShortUrlResponseBody;
@@ -2327,12 +4927,22 @@ export class DeleteShortUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsSignRequest extends $tea.Model {
+export class DeleteSmsSignRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2366,12 +4976,16 @@ export class DeleteSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsSignResponseBody extends $tea.Model {
+export class DeleteSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2425,12 +5039,16 @@ export class DeleteSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsSignResponse extends $tea.Model {
+export class DeleteSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSmsSignResponseBody;
@@ -2450,12 +5068,22 @@ export class DeleteSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsTemplateRequest extends $tea.Model {
+export class DeleteSmsTemplateRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2489,12 +5117,16 @@ export class DeleteSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsTemplateResponseBody extends $tea.Model {
+export class DeleteSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2548,12 +5180,16 @@ export class DeleteSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSmsTemplateResponse extends $tea.Model {
+export class DeleteSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSmsTemplateResponseBody;
@@ -2573,12 +5209,22 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsDetailsRequest extends $tea.Model {
+export class GetCardSmsDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * Card SMS sending ID, which is the BizCardId field in the response when calling SendCardSms or SendBatchCardSms.
@@ -2676,12 +5322,16 @@ export class GetCardSmsDetailsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsDetailsResponseBody extends $tea.Model {
+export class GetCardSmsDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied detail; this field is returned only if the RAM check fails.
@@ -2742,12 +5392,19 @@ export class GetCardSmsDetailsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.cardSendDetailDTO && typeof (this.cardSendDetailDTO as any).validate === 'function') {
+      (this.cardSendDetailDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsDetailsResponse extends $tea.Model {
+export class GetCardSmsDetailsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCardSmsDetailsResponseBody;
@@ -2767,12 +5424,22 @@ export class GetCardSmsDetailsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsLinkRequest extends $tea.Model {
+export class GetCardSmsLinkRequest extends $dara.Model {
   /**
    * @remarks
    * The code type of the URLs.
@@ -2907,12 +5574,16 @@ export class GetCardSmsLinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsLinkResponseBody extends $tea.Model {
+export class GetCardSmsLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -2966,12 +5637,19 @@ export class GetCardSmsLinkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCardSmsLinkResponse extends $tea.Model {
+export class GetCardSmsLinkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCardSmsLinkResponseBody;
@@ -2991,12 +5669,22 @@ export class GetCardSmsLinkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMediaResourceIdRequest extends $tea.Model {
+export class GetMediaResourceIdRequest extends $dara.Model {
   /**
    * @remarks
    * The extended fields.
@@ -3082,12 +5770,16 @@ export class GetMediaResourceIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMediaResourceIdResponseBody extends $tea.Model {
+export class GetMediaResourceIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -3141,12 +5833,19 @@ export class GetMediaResourceIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMediaResourceIdResponse extends $tea.Model {
+export class GetMediaResourceIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetMediaResourceIdResponseBody;
@@ -3166,12 +5865,22 @@ export class GetMediaResourceIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
+export class GetOSSInfoForCardTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -3225,12 +5934,19 @@ export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
+export class GetOSSInfoForCardTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetOSSInfoForCardTemplateResponseBody;
@@ -3250,12 +5966,22 @@ export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOSSInfoForUploadFileRequest extends $tea.Model {
+export class GetOSSInfoForUploadFileRequest extends $dara.Model {
   /**
    * @remarks
    * Business type, default value is **fcMediaSms**.
@@ -3287,12 +6013,16 @@ export class GetOSSInfoForUploadFileRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOSSInfoForUploadFileResponseBody extends $tea.Model {
+export class GetOSSInfoForUploadFileResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request status code.
@@ -3356,12 +6086,19 @@ export class GetOSSInfoForUploadFileResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOSSInfoForUploadFileResponse extends $tea.Model {
+export class GetOSSInfoForUploadFileResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetOSSInfoForUploadFileResponseBody;
@@ -3381,12 +6118,22 @@ export class GetOSSInfoForUploadFileResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSmsSignRequest extends $tea.Model {
+export class GetSmsSignRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3421,12 +6168,16 @@ export class GetSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSmsSignResponseBody extends $tea.Model {
+export class GetSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * Content of application scenarios.
@@ -3613,12 +6364,22 @@ export class GetSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.auditInfo && typeof (this.auditInfo as any).validate === 'function') {
+      (this.auditInfo as any).validate();
+    }
+    if(Array.isArray(this.fileUrlList)) {
+      $dara.Model.validateArray(this.fileUrlList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSmsSignResponse extends $tea.Model {
+export class GetSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSmsSignResponseBody;
@@ -3638,12 +6399,22 @@ export class GetSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSmsTemplateRequest extends $tea.Model {
+export class GetSmsTemplateRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3678,12 +6449,16 @@ export class GetSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSmsTemplateResponseBody extends $tea.Model {
+export class GetSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Application scenario content.
@@ -3853,6 +6628,7 @@ export class GetSmsTemplateResponseBody extends $tea.Model {
    * {"code":"characterWithNumber"}
    */
   variableAttribute?: string;
+  vendorAuditStatus?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       applyScene: 'ApplyScene',
@@ -3874,6 +6650,7 @@ export class GetSmsTemplateResponseBody extends $tea.Model {
       templateTag: 'TemplateTag',
       templateType: 'TemplateType',
       variableAttribute: 'VariableAttribute',
+      vendorAuditStatus: 'VendorAuditStatus',
     };
   }
 
@@ -3898,7 +6675,24 @@ export class GetSmsTemplateResponseBody extends $tea.Model {
       templateTag: 'number',
       templateType: 'string',
       variableAttribute: 'string',
+      vendorAuditStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
+  }
+
+  validate() {
+    if(this.auditInfo && typeof (this.auditInfo as any).validate === 'function') {
+      (this.auditInfo as any).validate();
+    }
+    if(this.fileUrlList && typeof (this.fileUrlList as any).validate === 'function') {
+      (this.fileUrlList as any).validate();
+    }
+    if(this.moreDataFileUrlList && typeof (this.moreDataFileUrlList as any).validate === 'function') {
+      (this.moreDataFileUrlList as any).validate();
+    }
+    if(this.vendorAuditStatus) {
+      $dara.Model.validateMap(this.vendorAuditStatus);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -3906,7 +6700,7 @@ export class GetSmsTemplateResponseBody extends $tea.Model {
   }
 }
 
-export class GetSmsTemplateResponse extends $tea.Model {
+export class GetSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSmsTemplateResponseBody;
@@ -3926,12 +6720,22 @@ export class GetSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The token used to query the next page.
@@ -4022,12 +6826,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4078,12 +6892,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tagResources && typeof (this.tagResources as any).validate === 'function') {
+      (this.tagResources as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -4103,12 +6924,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsSignRequest extends $tea.Model {
+export class ModifySmsSignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -4195,12 +7026,19 @@ export class ModifySmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.signFileList)) {
+      $dara.Model.validateArray(this.signFileList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsSignResponseBody extends $tea.Model {
+export class ModifySmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4254,12 +7092,16 @@ export class ModifySmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsSignResponse extends $tea.Model {
+export class ModifySmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifySmsSignResponseBody;
@@ -4279,12 +7121,22 @@ export class ModifySmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsTemplateRequest extends $tea.Model {
+export class ModifySmsTemplateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -4373,12 +7225,16 @@ export class ModifySmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsTemplateResponseBody extends $tea.Model {
+export class ModifySmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4432,12 +7288,16 @@ export class ModifySmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifySmsTemplateResponse extends $tea.Model {
+export class ModifySmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifySmsTemplateResponseBody;
@@ -4457,12 +7317,22 @@ export class ModifySmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateRequest extends $tea.Model {
+export class QueryCardSmsTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The code of the message template.
@@ -4489,12 +7359,16 @@ export class QueryCardSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateResponseBody extends $tea.Model {
+export class QueryCardSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -4548,12 +7422,19 @@ export class QueryCardSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateResponse extends $tea.Model {
+export class QueryCardSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryCardSmsTemplateResponseBody;
@@ -4573,12 +7454,22 @@ export class QueryCardSmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateReportRequest extends $tea.Model {
+export class QueryCardSmsTemplateReportRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
@@ -4618,12 +7509,19 @@ export class QueryCardSmsTemplateReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.templateCodes)) {
+      $dara.Model.validateArray(this.templateCodes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
+export class QueryCardSmsTemplateReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -4677,12 +7575,19 @@ export class QueryCardSmsTemplateReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCardSmsTemplateReportResponse extends $tea.Model {
+export class QueryCardSmsTemplateReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryCardSmsTemplateReportResponseBody;
@@ -4702,12 +7607,22 @@ export class QueryCardSmsTemplateReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryExtCodeSignRequest extends $tea.Model {
+export class QueryExtCodeSignRequest extends $dara.Model {
   /**
    * @remarks
    * 扩展码A3
@@ -4761,12 +7676,16 @@ export class QueryExtCodeSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryExtCodeSignResponseBody extends $tea.Model {
+export class QueryExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
@@ -4811,12 +7730,19 @@ export class QueryExtCodeSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryExtCodeSignResponse extends $tea.Model {
+export class QueryExtCodeSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryExtCodeSignResponseBody;
@@ -4836,12 +7762,22 @@ export class QueryExtCodeSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMobilesCardSupportRequest extends $tea.Model {
+export class QueryMobilesCardSupportRequest extends $dara.Model {
   /**
    * @remarks
    * The list of mobile phone numbers.
@@ -4875,12 +7811,19 @@ export class QueryMobilesCardSupportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.mobiles)) {
+      $dara.Model.validateArray(this.mobiles);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMobilesCardSupportShrinkRequest extends $tea.Model {
+export class QueryMobilesCardSupportShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of mobile phone numbers.
@@ -4914,12 +7857,16 @@ export class QueryMobilesCardSupportShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMobilesCardSupportResponseBody extends $tea.Model {
+export class QueryMobilesCardSupportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -4973,12 +7920,19 @@ export class QueryMobilesCardSupportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryMobilesCardSupportResponse extends $tea.Model {
+export class QueryMobilesCardSupportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryMobilesCardSupportResponseBody;
@@ -4998,12 +7952,22 @@ export class QueryMobilesCardSupportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
+export class QueryPageSmartShortUrlLogRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5077,12 +8041,16 @@ export class QueryPageSmartShortUrlLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPageSmartShortUrlLogResponseBody extends $tea.Model {
+export class QueryPageSmartShortUrlLogResponseBody extends $dara.Model {
   /**
    * @example
    * 示例值示例值
@@ -5124,12 +8092,19 @@ export class QueryPageSmartShortUrlLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPageSmartShortUrlLogResponse extends $tea.Model {
+export class QueryPageSmartShortUrlLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryPageSmartShortUrlLogResponseBody;
@@ -5149,12 +8124,22 @@ export class QueryPageSmartShortUrlLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendDetailsRequest extends $tea.Model {
+export class QuerySendDetailsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the delivery receipt. The delivery receipt ID is the value of the BizId parameter that is returned when you call the SendSms or SendBatchSms operation.
@@ -5239,12 +8224,16 @@ export class QuerySendDetailsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendDetailsResponseBody extends $tea.Model {
+export class QuerySendDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5305,12 +8294,19 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.smsSendDetailDTOs && typeof (this.smsSendDetailDTOs as any).validate === 'function') {
+      (this.smsSendDetailDTOs as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendDetailsResponse extends $tea.Model {
+export class QuerySendDetailsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySendDetailsResponseBody;
@@ -5330,12 +8326,22 @@ export class QuerySendDetailsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendStatisticsRequest extends $tea.Model {
+export class QuerySendStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. Format: yyyyMMdd. Example: 20181225.
@@ -5444,12 +8450,16 @@ export class QuerySendStatisticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendStatisticsResponseBody extends $tea.Model {
+export class QuerySendStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5500,12 +8510,19 @@ export class QuerySendStatisticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySendStatisticsResponse extends $tea.Model {
+export class QuerySendStatisticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySendStatisticsResponseBody;
@@ -5525,12 +8542,22 @@ export class QuerySendStatisticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryShortUrlRequest extends $tea.Model {
+export class QueryShortUrlRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5562,12 +8589,16 @@ export class QueryShortUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryShortUrlResponseBody extends $tea.Model {
+export class QueryShortUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5618,12 +8649,19 @@ export class QueryShortUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryShortUrlResponse extends $tea.Model {
+export class QueryShortUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryShortUrlResponseBody;
@@ -5643,12 +8681,22 @@ export class QueryShortUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignRequest extends $tea.Model {
+export class QuerySmsSignRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5680,12 +8728,16 @@ export class QuerySmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignResponseBody extends $tea.Model {
+export class QuerySmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5777,12 +8829,16 @@ export class QuerySmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignResponse extends $tea.Model {
+export class QuerySmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySmsSignResponseBody;
@@ -5802,12 +8858,22 @@ export class QuerySmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignListRequest extends $tea.Model {
+export class QuerySmsSignListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -5847,12 +8913,16 @@ export class QuerySmsSignListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignListResponseBody extends $tea.Model {
+export class QuerySmsSignListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -5933,12 +9003,19 @@ export class QuerySmsSignListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.smsSignList)) {
+      $dara.Model.validateArray(this.smsSignList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsSignListResponse extends $tea.Model {
+export class QuerySmsSignListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySmsSignListResponseBody;
@@ -5958,12 +9035,22 @@ export class QuerySmsSignListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateRequest extends $tea.Model {
+export class QuerySmsTemplateRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5997,12 +9084,16 @@ export class QuerySmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateResponseBody extends $tea.Model {
+export class QuerySmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -6129,12 +9220,16 @@ export class QuerySmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateResponse extends $tea.Model {
+export class QuerySmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySmsTemplateResponseBody;
@@ -6154,12 +9249,22 @@ export class QuerySmsTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateListRequest extends $tea.Model {
+export class QuerySmsTemplateListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -6199,12 +9304,16 @@ export class QuerySmsTemplateListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateListResponseBody extends $tea.Model {
+export class QuerySmsTemplateListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -6285,12 +9394,19 @@ export class QuerySmsTemplateListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.smsTemplateList)) {
+      $dara.Model.validateArray(this.smsTemplateList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySmsTemplateListResponse extends $tea.Model {
+export class QuerySmsTemplateListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySmsTemplateListResponseBody;
@@ -6310,12 +9426,22 @@ export class QuerySmsTemplateListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchCardSmsRequest extends $tea.Model {
+export class SendBatchCardSmsRequest extends $dara.Model {
   /**
    * @remarks
    * The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
@@ -6482,12 +9608,16 @@ export class SendBatchCardSmsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchCardSmsResponseBody extends $tea.Model {
+export class SendBatchCardSmsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -6541,12 +9671,19 @@ export class SendBatchCardSmsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchCardSmsResponse extends $tea.Model {
+export class SendBatchCardSmsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendBatchCardSmsResponseBody;
@@ -6566,12 +9703,22 @@ export class SendBatchCardSmsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchSmsRequest extends $tea.Model {
+export class SendBatchSmsRequest extends $dara.Model {
   /**
    * @remarks
    * The extension field of the external record. The value is a string that contains no more than 256 characters.
@@ -6676,12 +9823,16 @@ export class SendBatchSmsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchSmsResponseBody extends $tea.Model {
+export class SendBatchSmsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the delivery receipt. You can use one of the following methods to query the delivery status of a message based on the ID.
@@ -6738,12 +9889,16 @@ export class SendBatchSmsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendBatchSmsResponse extends $tea.Model {
+export class SendBatchSmsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendBatchSmsResponseBody;
@@ -6763,12 +9918,22 @@ export class SendBatchSmsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCardSmsRequest extends $tea.Model {
+export class SendCardSmsRequest extends $dara.Model {
   /**
    * @remarks
    * The objects of the message template.
@@ -6930,12 +10095,19 @@ export class SendCardSmsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.cardObjects)) {
+      $dara.Model.validateArray(this.cardObjects);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCardSmsResponseBody extends $tea.Model {
+export class SendCardSmsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -6989,12 +10161,19 @@ export class SendCardSmsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCardSmsResponse extends $tea.Model {
+export class SendCardSmsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendCardSmsResponseBody;
@@ -7014,12 +10193,22 @@ export class SendCardSmsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendSmsRequest extends $tea.Model {
+export class SendSmsRequest extends $dara.Model {
   /**
    * @remarks
    * The extension field.
@@ -7130,12 +10319,16 @@ export class SendSmsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendSmsResponseBody extends $tea.Model {
+export class SendSmsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the delivery receipt.
@@ -7191,12 +10384,16 @@ export class SendSmsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendSmsResponse extends $tea.Model {
+export class SendSmsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendSmsResponseBody;
@@ -7216,12 +10413,22 @@ export class SendSmsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SmsConversionIntlRequest extends $tea.Model {
+export class SmsConversionIntlRequest extends $dara.Model {
   /**
    * @remarks
    * The time when the OTP message was delivered. The value is a UNIX timestamp. Unit: milliseconds.
@@ -7278,12 +10485,16 @@ export class SmsConversionIntlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SmsConversionIntlResponseBody extends $tea.Model {
+export class SmsConversionIntlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/101346.html?spm=a2c4g.101345.0.0.74326ff2J5EZyt).
@@ -7324,12 +10535,16 @@ export class SmsConversionIntlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SmsConversionIntlResponse extends $tea.Model {
+export class SmsConversionIntlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SmsConversionIntlResponseBody;
@@ -7349,12 +10564,22 @@ export class SmsConversionIntlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -7427,12 +10652,22 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -7479,12 +10714,16 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -7504,12 +10743,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to delete all tags from the message template. Valid values:
@@ -7596,12 +10845,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code.
@@ -7648,12 +10907,16 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -7673,12 +10936,22 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateExtCodeSignRequest extends $tea.Model {
+export class UpdateExtCodeSignRequest extends $dara.Model {
   /**
    * @remarks
    * 要修改的扩展码A3
@@ -7734,12 +11007,16 @@ export class UpdateExtCodeSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateExtCodeSignResponseBody extends $tea.Model {
+export class UpdateExtCodeSignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
@@ -7788,12 +11065,16 @@ export class UpdateExtCodeSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateExtCodeSignResponse extends $tea.Model {
+export class UpdateExtCodeSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateExtCodeSignResponseBody;
@@ -7813,12 +11094,22 @@ export class UpdateExtCodeSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsSignRequest extends $tea.Model {
+export class UpdateSmsSignRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -7944,12 +11235,19 @@ export class UpdateSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.moreData)) {
+      $dara.Model.validateArray(this.moreData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsSignShrinkRequest extends $tea.Model {
+export class UpdateSmsSignShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -8075,12 +11373,16 @@ export class UpdateSmsSignShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsSignResponseBody extends $tea.Model {
+export class UpdateSmsSignResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request status code.
@@ -8146,12 +11448,16 @@ export class UpdateSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsSignResponse extends $tea.Model {
+export class UpdateSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSmsSignResponseBody;
@@ -8171,12 +11477,22 @@ export class UpdateSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsTemplateRequest extends $tea.Model {
+export class UpdateSmsTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -8319,12 +11635,19 @@ export class UpdateSmsTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.moreData)) {
+      $dara.Model.validateArray(this.moreData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsTemplateShrinkRequest extends $tea.Model {
+export class UpdateSmsTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -8467,12 +11790,16 @@ export class UpdateSmsTemplateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsTemplateResponseBody extends $tea.Model {
+export class UpdateSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Request status code.
@@ -8548,12 +11875,16 @@ export class UpdateSmsTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSmsTemplateResponse extends $tea.Model {
+export class UpdateSmsTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSmsTemplateResponseBody;
@@ -8573,2155 +11904,14 @@ export class UpdateSmsTemplateResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddShortUrlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the short URL expires.
-   * 
-   * > The value of **ExpireDate** is on the hour.
-   * 
-   * @example
-   * 2021-09-19 00:00:00
-   */
-  expireDate?: string;
-  /**
-   * @remarks
-   * The short URL.
-   * 
-   * @example
-   * http://****.cn/6y8uy7
-   */
-  shortUrl?: string;
-  /**
-   * @remarks
-   * The source URL.
-   * 
-   * @example
-   * https://www.****.com/product/sms
-   */
-  sourceUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expireDate: 'ExpireDate',
-      shortUrl: 'ShortUrl',
-      sourceUrl: 'SourceUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expireDate: 'string',
-      shortUrl: 'string',
-      sourceUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddSmsSignRequestSignFileList extends $tea.Model {
-  /**
-   * @remarks
-   * The Base64-encoded string of the qualification document. An image cannot exceed 2 MB in size. In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uL****
-   */
-  fileContents?: string;
-  /**
-   * @remarks
-   * The format of the qualification document. You can upload multiple images. Images in JPG, PNG, GIF, or JPEG format are supported.
-   * 
-   * In some scenarios, you must upload supporting documents to apply for signatures. For more information, see [SMS signature specifications](https://help.aliyun.com/document_detail/108076.html).
-   * 
-   * > If you apply for a signature for other users or if the signature source is the name of an enterprise or public institution, you must upload a certificate and a letter of authorization. For more information, see [Certificate](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * jpg
-   */
-  fileSuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileContents: 'FileContents',
-      fileSuffix: 'FileSuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileContents: 'string',
-      fileSuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
-  /**
-   * @remarks
-   * The mobile phone number.
-   * 
-   * @example
-   * 1390000****
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * Indicates whether the mobile phone number supports card messages.
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  support?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mobile: 'mobile',
-      support: 'support',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobile: 'string',
-      support: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMobilesCardSupportResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The list of returned results.
-   */
-  queryResult?: CheckMobilesCardSupportResponseBodyDataQueryResult[];
-  static names(): { [key: string]: string } {
-    return {
-      queryResult: 'queryResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryResult: { 'type': 'array', 'itemType': CheckMobilesCardSupportResponseBodyDataQueryResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the [Alibaba Cloud SMS console](https://dysms.console.aliyun.com/dysms.htm?spm=5176.12818093.categories-n-products.ddysms.3b2816d0xml2NA#/overview).
-   * 
-   * > Make sure that the message template has been approved.
-   * 
-   * @example
-   * CARD_SMS_60000****
-   */
-  templateCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCode: 'TemplateCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmartShortUrlResponseBodyModel extends $tea.Model {
-  /**
-   * @example
-   * 示例值
-   */
-  domain?: string;
-  /**
-   * @example
-   * 11
-   */
-  expiration?: number;
-  /**
-   * @example
-   * 示例值
-   */
-  phoneNumber?: string;
-  /**
-   * @example
-   * 示例值
-   */
-  shortName?: string;
-  /**
-   * @example
-   * 示例值示例值
-   */
-  shortUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      expiration: 'Expiration',
-      phoneNumber: 'PhoneNumber',
-      shortName: 'ShortName',
-      shortUrl: 'ShortUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      expiration: 'number',
-      phoneNumber: 'string',
-      shortName: 'string',
-      shortUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCardSmsDetailsResponseBodyCardSendDetailDTORecords extends $tea.Model {
-  /**
-   * @remarks
-   * Error code for sending
-   * 
-   * @example
-   * Success
-   */
-  errCode?: string;
-  /**
-   * @remarks
-   * Customer-transmitted outId
-   * 
-   * @example
-   * 12345678
-   */
-  outId?: string;
-  /**
-   * @remarks
-   * Phone number that received the SMS
-   * 
-   * @example
-   * 156****9080
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * Receive date
-   * 
-   * @example
-   * 2024-09-27 11:26:35
-   */
-  receiveDate?: string;
-  /**
-   * @remarks
-   * Receive SMS type
-   * 
-   * @example
-   * CARD_SMS
-   */
-  receiveType?: string;
-  /**
-   * @remarks
-   * Render date
-   * 
-   * @example
-   * 2024-09-27 12:13:39
-   */
-  renderDate?: string;
-  /**
-   * @remarks
-   * Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
-   * 
-   * @example
-   * 1
-   */
-  renderStatus?: number;
-  /**
-   * @remarks
-   * Time when the SMS was sent
-   * 
-   * @example
-   * 2024-09-27 11:26:32
-   */
-  sendDate?: string;
-  /**
-   * @remarks
-   * Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
-   * 
-   * @example
-   * 3
-   */
-  sendStatus?: number;
-  /**
-   * @remarks
-   * SMS content. Only applicable for text messages.
-   * 
-   * @example
-   * 您收到一条短信消息
-   */
-  smsContent?: string;
-  /**
-   * @remarks
-   * Template code
-   * 
-   * @example
-   * CARD_SMS_6***
-   */
-  templateCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errCode: 'ErrCode',
-      outId: 'OutId',
-      phoneNumber: 'PhoneNumber',
-      receiveDate: 'ReceiveDate',
-      receiveType: 'ReceiveType',
-      renderDate: 'RenderDate',
-      renderStatus: 'RenderStatus',
-      sendDate: 'SendDate',
-      sendStatus: 'SendStatus',
-      smsContent: 'SmsContent',
-      templateCode: 'TemplateCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errCode: 'string',
-      outId: 'string',
-      phoneNumber: 'string',
-      receiveDate: 'string',
-      receiveType: 'string',
-      renderDate: 'string',
-      renderStatus: 'number',
-      sendDate: 'string',
-      sendStatus: 'number',
-      smsContent: 'string',
-      templateCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCardSmsDetailsResponseBodyCardSendDetailDTO extends $tea.Model {
-  /**
-   * @remarks
-   * Current page number
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Page size
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * List of card SMS sending records
-   */
-  records?: GetCardSmsDetailsResponseBodyCardSendDetailDTORecords[];
-  /**
-   * @remarks
-   * Total count
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      records: 'Records',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      records: { 'type': 'array', 'itemType': GetCardSmsDetailsResponseBodyCardSendDetailDTORecords },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCardSmsLinkResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The mobile phone numbers that support card messages.
-   * 
-   * @example
-   * [\\"1390000****\\",\\"1370000****\\"]
-   */
-  cardPhoneNumbers?: string;
-  /**
-   * @remarks
-   * The signatures must correspond to the mobile numbers and short URLs in sequence.
-   * 
-   * @example
-   * ["aliyun","aliyun2"]
-   */
-  cardSignNames?: string;
-  /**
-   * @remarks
-   * The short URLs.
-   * 
-   * @example
-   * [\\"mw2m.cn/LAaGGa\\",\\"mw2m.cn/LAAaes\\"]
-   */
-  cardSmsLinks?: string;
-  /**
-   * @remarks
-   * The review status of the card message template.
-   * 
-   * *   **0**: pending approval
-   * *   **1**: approved
-   * *   **2**: rejected
-   * 
-   * > Unapproved card messages are rolled back.
-   * 
-   * @example
-   * 0
-   */
-  cardTmpState?: number;
-  /**
-   * @remarks
-   * The mobile phone numbers that do not support card messages.
-   * 
-   * @example
-   * 1390000****
-   */
-  notMediaMobiles?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cardPhoneNumbers: 'CardPhoneNumbers',
-      cardSignNames: 'CardSignNames',
-      cardSmsLinks: 'CardSmsLinks',
-      cardTmpState: 'CardTmpState',
-      notMediaMobiles: 'NotMediaMobiles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cardPhoneNumbers: 'string',
-      cardSignNames: 'string',
-      cardSmsLinks: 'string',
-      cardTmpState: 'number',
-      notMediaMobiles: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMediaResourceIdResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The download URL of the resource.
-   * 
-   * @example
-   * http://test-example.com/download.jpg
-   */
-  resUrlDownload?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * SMS_14571****
-   */
-  resourceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      resUrlDownload: 'ResUrlDownload',
-      resourceId: 'ResourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resUrlDownload: 'string',
-      resourceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * LTAIxetqt1Dg****
-   */
-  accessKeyId?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 599333677478****
-   */
-  aliUid?: string;
-  /**
-   * @remarks
-   * The name of the OSS bucket.
-   * 
-   * @example
-   * alicom-cardsms-resources
-   */
-  bucket?: string;
-  /**
-   * @remarks
-   * The timeout period.
-   * 
-   * @example
-   * 1634209418
-   */
-  expireTime?: string;
-  /**
-   * @remarks
-   * The hostname.
-   * 
-   * @example
-   * https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
-   */
-  host?: string;
-  /**
-   * @remarks
-   * The signature policy.
-   * 
-   * @example
-   * eyJxxx0=
-   */
-  policy?: string;
-  /**
-   * @remarks
-   * The signature.
-   * 
-   * @example
-   * Aliyun
-   */
-  signature?: string;
-  /**
-   * @remarks
-   * The path of the policy.
-   * 
-   * @example
-   * 1631792777
-   */
-  startPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      aliUid: 'AliUid',
-      bucket: 'Bucket',
-      expireTime: 'ExpireTime',
-      host: 'Host',
-      policy: 'Policy',
-      signature: 'Signature',
-      startPath: 'StartPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      aliUid: 'string',
-      bucket: 'string',
-      expireTime: 'string',
-      host: 'string',
-      policy: 'string',
-      signature: 'string',
-      startPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOSSInfoForUploadFileResponseBodyModel extends $tea.Model {
-  /**
-   * @remarks
-   * AccessKey ID used for signing.
-   * 
-   * @example
-   * LTAIxetqt1Dg****
-   */
-  accessKeyId?: string;
-  /**
-   * @remarks
-   * Expiration time.
-   * 
-   * @example
-   * 1719297445
-   */
-  expireTime?: string;
-  /**
-   * @remarks
-   * Host address.
-   * 
-   * @example
-   * https://alicom-fc-media.oss-cn-zhangjiakou.aliyuncs.com
-   */
-  host?: string;
-  /**
-   * @remarks
-   * Signature policy.
-   * 
-   * @example
-   * eyJleHBpcmF0aW9uIjoiMjAyN***Ni0yNVQwNjozNzoyNS45NzBaI**iY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0sWyJzdGFydHMtd2l0***sIiRrZXkiLCIiXV19
-   */
-  policy?: string;
-  /**
-   * @remarks
-   * Signature information calculated based on **AccessKey Secret** and **Policy**. When calling the OSS API, OSS verifies this signature information to confirm the legitimacy of the Post request.
-   * 
-   * @example
-   * BXnwCWPrhVb*****aoZHZfli5KE=
-   */
-  signature?: string;
-  /**
-   * @remarks
-   * Policy path.
-   * 
-   * @example
-   * 123456
-   */
-  startPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      expireTime: 'ExpireTime',
-      host: 'Host',
-      policy: 'Policy',
-      signature: 'Signature',
-      startPath: 'StartPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      expireTime: 'string',
-      host: 'string',
-      policy: 'string',
-      signature: 'string',
-      startPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmsSignResponseBodyAuditInfo extends $tea.Model {
-  /**
-   * @remarks
-   * Audit date and time.
-   * 
-   * @example
-   * 2024-06-03 12:02:34
-   */
-  auditDate?: string;
-  /**
-   * @remarks
-   * Reasons for not passing the review.
-   * 
-   * @example
-   * reason for rejection.
-   */
-  rejectInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditDate: 'AuditDate',
-      rejectInfo: 'RejectInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditDate: 'string',
-      rejectInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmsTemplateResponseBodyAuditInfo extends $tea.Model {
-  /**
-   * @remarks
-   * Audit date and time.
-   * 
-   * @example
-   * 2024-06-03 11:20:34
-   */
-  auditDate?: string;
-  /**
-   * @remarks
-   * Reasons for failed audit.
-   * 
-   * @example
-   * 模板内容中包含错别字。
-   */
-  rejectInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditDate: 'AuditDate',
-      rejectInfo: 'RejectInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditDate: 'string',
-      rejectInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmsTemplateResponseBodyFileUrlList extends $tea.Model {
-  fileUrl?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      fileUrl: 'FileUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileUrl: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $tea.Model {
-  moreDataFileUrl?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      moreDataFileUrl: 'MoreDataFileUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      moreDataFileUrl: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * TestKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * TestValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * SMS_23423****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource.
-   * 
-   * @example
-   * ALIYUN::DYSMS::TEMPLATE
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
-  static names(): { [key: string]: string } {
-    return {
-      tagResource: 'TagResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySmsSignRequestSignFileList extends $tea.Model {
-  /**
-   * @remarks
-   * The base64-encoded string of the signed files. The size of the image cannot exceed 2 MB.
-   * 
-   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uLiwAA
-   */
-  fileContents?: string;
-  /**
-   * @remarks
-   * The format of the documents. You can upload multiple images. JPG, PNG, GIF, and JPEG are supported.
-   * 
-   * In some scenarios, documents are required to prove your identity. For more information, see [Signature specifications](https://help.aliyun.com/document_detail/108076.html).
-   * 
-   * > If the signature is used for other purposes or the signature source is an enterprise or public institution, you must upload some documents and an authorization letter. For more information, see [Documents](https://help.aliyun.com/document_detail/108076.html) and [Letter of authorization](https://help.aliyun.com/document_detail/56741.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * jpg
-   */
-  fileSuffix?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileContents: 'FileContents',
-      fileSuffix: 'FileSuffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileContents: 'string',
-      fileSuffix: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The array of objects.
-   */
-  templates?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      templates: 'Templates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templates: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCardSmsTemplateReportResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the data returned.
-   */
-  model?: { [key: string]: any }[];
-  static names(): { [key: string]: string } {
-    return {
-      model: 'model',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      model: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryExtCodeSignResponseBodyDataList extends $tea.Model {
-  /**
-   * @remarks
-   * 是否可回收
-   * 
-   * @example
-   * 1
-   */
-  active?: number;
-  /**
-   * @remarks
-   * 扩展码A3
-   * 
-   * @example
-   * 01
-   */
-  extCode?: string;
-  /**
-   * @remarks
-   * 近1个月发送成功条数（只读）
-   * 
-   * @example
-   * 69
-   */
-  sendCount?: number;
-  /**
-   * @remarks
-   * 签名
-   * 
-   * @example
-   * 示例值示例值
-   */
-  signName?: string;
-  /**
-   * @remarks
-   * 来源
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      active: 'Active',
-      extCode: 'ExtCode',
-      sendCount: 'SendCount',
-      signName: 'SignName',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      active: 'number',
-      extCode: 'string',
-      sendCount: 'number',
-      signName: 'string',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryExtCodeSignResponseBodyData extends $tea.Model {
-  list?: QueryExtCodeSignResponseBodyDataList[];
-  /**
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 5
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': QueryExtCodeSignResponseBodyDataList },
-      pageNo: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMobilesCardSupportResponseBodyDataQueryResult extends $tea.Model {
-  /**
-   * @remarks
-   * The mobile phone number.
-   * 
-   * @example
-   * 1380000****
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * Indicates whether the mobile phone number supports card messages. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  support?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      mobile: 'Mobile',
-      support: 'Support',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobile: 'string',
-      support: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMobilesCardSupportResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The list of returned results.
-   */
-  queryResult?: QueryMobilesCardSupportResponseBodyDataQueryResult[];
-  static names(): { [key: string]: string } {
-    return {
-      queryResult: 'QueryResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryResult: { 'type': 'array', 'itemType': QueryMobilesCardSupportResponseBodyDataQueryResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPageSmartShortUrlLogResponseBodyModelList extends $tea.Model {
-  /**
-   * @example
-   * 87
-   */
-  clickState?: number;
-  /**
-   * @example
-   * 51
-   */
-  clickTime?: number;
-  /**
-   * @example
-   * 64
-   */
-  createTime?: number;
-  /**
-   * @example
-   * 示例值示例值
-   */
-  phoneNumber?: string;
-  /**
-   * @example
-   * 示例值示例值示例值
-   */
-  shortName?: string;
-  /**
-   * @example
-   * 示例值示例值示例值
-   */
-  shortUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clickState: 'ClickState',
-      clickTime: 'ClickTime',
-      createTime: 'CreateTime',
-      phoneNumber: 'PhoneNumber',
-      shortName: 'ShortName',
-      shortUrl: 'ShortUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clickState: 'number',
-      clickTime: 'number',
-      createTime: 'number',
-      phoneNumber: 'string',
-      shortName: 'string',
-      shortUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPageSmartShortUrlLogResponseBodyModel extends $tea.Model {
-  list?: QueryPageSmartShortUrlLogResponseBodyModelList[];
-  /**
-   * @example
-   * 74
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 15
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 66
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 86
-   */
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': QueryPageSmartShortUrlLogResponseBodyModelList },
-      pageNo: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the message.
-   * 
-   * @example
-   * 【Aliyun】This is a test message.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The status code returned by the carrier.
-   * 
-   * *   If the message is delivered, "DELIVERED" is returned.
-   * *   For information about the error codes that may be returned if the message is not delivered, see [error codes](https://help.aliyun.com/document_detail/101347.html).
-   * 
-   * @example
-   * DELIVERED
-   */
-  errCode?: string;
-  /**
-   * @remarks
-   * The extended field.
-   * 
-   * @example
-   * 123
-   */
-  outId?: string;
-  /**
-   * @remarks
-   * The mobile numbers of the recipients.
-   * 
-   * @example
-   * 1390000****
-   */
-  phoneNum?: string;
-  /**
-   * @remarks
-   * The date and time when the message was received.
-   * 
-   * @example
-   * 2019-01-08 16:44:13
-   */
-  receiveDate?: string;
-  /**
-   * @remarks
-   * The date and time when the message was sent.
-   * 
-   * @example
-   * 2019-01-08 16:44:10
-   */
-  sendDate?: string;
-  /**
-   * @remarks
-   * The delivery status of the message. Valid values:
-   * 
-   * *   **1**: The message has not received a delivery receipt yet.
-   * *   **2**: The message failed to be delivered.
-   * *   **3**: The message was delivered.
-   * 
-   * @example
-   * 3
-   */
-  sendStatus?: number;
-  /**
-   * @remarks
-   * The ID of the message template.
-   * 
-   * @example
-   * SMS_12231****
-   */
-  templateCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      errCode: 'ErrCode',
-      outId: 'OutId',
-      phoneNum: 'PhoneNum',
-      receiveDate: 'ReceiveDate',
-      sendDate: 'SendDate',
-      sendStatus: 'SendStatus',
-      templateCode: 'TemplateCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errCode: 'string',
-      outId: 'string',
-      phoneNum: 'string',
-      receiveDate: 'string',
-      sendDate: 'string',
-      sendStatus: 'number',
-      templateCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
-  smsSendDetailDTO?: QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO[];
-  static names(): { [key: string]: string } {
-    return {
-      smsSendDetailDTO: 'SmsSendDetailDTO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      smsSendDetailDTO: { 'type': 'array', 'itemType': QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySendStatisticsResponseBodyDataTargetList extends $tea.Model {
-  /**
-   * @remarks
-   * The number of messages without a delivery receipt.
-   * 
-   * @example
-   * 1
-   */
-  noRespondedCount?: number;
-  /**
-   * @remarks
-   * The number of messages with a delivery receipt that indicates a failure.
-   * 
-   * @example
-   * 2
-   */
-  respondedFailCount?: number;
-  /**
-   * @remarks
-   * The number of messages with a delivery receipt that indicates a success.
-   * 
-   * @example
-   * 17
-   */
-  respondedSuccessCount?: number;
-  /**
-   * @remarks
-   * The date when the message is sent. Format: yyyyMMdd. Example: 20181225.
-   * 
-   * @example
-   * 20201010
-   */
-  sendDate?: string;
-  /**
-   * @remarks
-   * The number of delivered messages.
-   * 
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      noRespondedCount: 'NoRespondedCount',
-      respondedFailCount: 'RespondedFailCount',
-      respondedSuccessCount: 'RespondedSuccessCount',
-      sendDate: 'SendDate',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      noRespondedCount: 'number',
-      respondedFailCount: 'number',
-      respondedSuccessCount: 'number',
-      sendDate: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySendStatisticsResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the data returned.
-   */
-  targetList?: QuerySendStatisticsResponseBodyDataTargetList[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      targetList: 'TargetList',
-      totalSize: 'TotalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetList: { 'type': 'array', 'itemType': QuerySendStatisticsResponseBodyDataTargetList },
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryShortUrlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the short URL was created.
-   * 
-   * @example
-   * 2019-01-08 16:44:13
-   */
-  createDate?: string;
-  /**
-   * @remarks
-   * The time when the short URL expires.
-   * 
-   * @example
-   * 2019-01-22 11:21:11
-   */
-  expireDate?: string;
-  /**
-   * @remarks
-   * The PV.
-   * 
-   * @example
-   * 300
-   */
-  pageViewCount?: string;
-  /**
-   * @remarks
-   * The short URL.
-   * 
-   * @example
-   * http://****.cn/6y8uy7
-   */
-  shortUrl?: string;
-  /**
-   * @remarks
-   * The service name of the short URL.
-   * 
-   * @example
-   * The Alibaba Cloud Short Link service.
-   */
-  shortUrlName?: string;
-  /**
-   * @remarks
-   * The status of the short URL. Valid values:
-   * 
-   * *   **expired**
-   * *   **effective**
-   * *   **audit**
-   * *   **reject**
-   * 
-   * @example
-   * expired
-   */
-  shortUrlStatus?: string;
-  /**
-   * @remarks
-   * The source address.
-   * 
-   * @example
-   * https://www.****.com/product/sms
-   */
-  sourceUrl?: string;
-  /**
-   * @remarks
-   * The UV.
-   * 
-   * @example
-   * 23
-   */
-  uniqueVisitorCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createDate: 'CreateDate',
-      expireDate: 'ExpireDate',
-      pageViewCount: 'PageViewCount',
-      shortUrl: 'ShortUrl',
-      shortUrlName: 'ShortUrlName',
-      shortUrlStatus: 'ShortUrlStatus',
-      sourceUrl: 'SourceUrl',
-      uniqueVisitorCount: 'UniqueVisitorCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createDate: 'string',
-      expireDate: 'string',
-      pageViewCount: 'string',
-      shortUrl: 'string',
-      shortUrlName: 'string',
-      shortUrlStatus: 'string',
-      sourceUrl: 'string',
-      uniqueVisitorCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySmsSignListResponseBodySmsSignListReason extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the signature was rejected. Format: yyyy-MM-dd HH:mm:ss.
-   * 
-   * @example
-   * 2020-01-08 19:02:13
-   */
-  rejectDate?: string;
-  /**
-   * @remarks
-   * The reason why the signature was rejected.
-   * 
-   * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
-   */
-  rejectInfo?: string;
-  /**
-   * @remarks
-   * The remarks about the rejection.
-   * 
-   * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
-   */
-  rejectSubInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rejectDate: 'RejectDate',
-      rejectInfo: 'RejectInfo',
-      rejectSubInfo: 'RejectSubInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rejectDate: 'string',
-      rejectInfo: 'string',
-      rejectSubInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySmsSignListResponseBodySmsSignList extends $tea.Model {
-  /**
-   * @remarks
-   * The approval status of the signature. Valid values:
-   * 
-   * *   **AUDIT_STATE_INIT**: The signature is pending approval.
-   * *   **AUDIT_STATE_PASS**: The signature is approved.
-   * *   **AUDIT_STATE_NOT_PASS**: The signature is rejected. You can view the reason in the Reason response parameter.
-   * *   **AUDIT_STATE_CANCEL**: The approval is canceled.
-   * 
-   * @example
-   * AUDIT_STATE_NOT_PASS
-   */
-  auditStatus?: string;
-  /**
-   * @remarks
-   * The type of the signature scenario. The return value ends with "type". Valid values:
-   * 
-   * *   Verification code type
-   * *   General-purpose type
-   * 
-   * @example
-   * Verification code type
-   */
-  businessType?: string;
-  /**
-   * @remarks
-   * The time when the signature was created. Format: yyyy-MM-dd HH:mm:ss.
-   * 
-   * @example
-   * 2020-01-08 16:44:13
-   */
-  createDate?: string;
-  /**
-   * @remarks
-   * The ticket ID.
-   * 
-   * @example
-   * 236****5
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The approval remarks.
-   * 
-   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the signature is rejected is returned.
-   */
-  reason?: QuerySmsSignListResponseBodySmsSignListReason;
-  /**
-   * @remarks
-   * The name of the signature.
-   * 
-   * @example
-   * Aliyun
-   */
-  signName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      businessType: 'BusinessType',
-      createDate: 'CreateDate',
-      orderId: 'OrderId',
-      reason: 'Reason',
-      signName: 'SignName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      businessType: 'string',
-      createDate: 'string',
-      orderId: 'string',
-      reason: QuerySmsSignListResponseBodySmsSignListReason,
-      signName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySmsTemplateListResponseBodySmsTemplateListReason extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the message template was rejected. Format: yyyy-MM-dd HH:mm:ss.
-   * 
-   * @example
-   * 2020-06-04 16:01:17
-   */
-  rejectDate?: string;
-  /**
-   * @remarks
-   * The reason why the message template was rejected.
-   * 
-   * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
-   */
-  rejectInfo?: string;
-  /**
-   * @remarks
-   * The remarks about the rejection.
-   * 
-   * @example
-   * The document cannot verify the authenticity of the information. Please upload it again.
-   */
-  rejectSubInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rejectDate: 'RejectDate',
-      rejectInfo: 'RejectInfo',
-      rejectSubInfo: 'RejectSubInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rejectDate: 'string',
-      rejectInfo: 'string',
-      rejectSubInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySmsTemplateListResponseBodySmsTemplateList extends $tea.Model {
-  /**
-   * @remarks
-   * The approval status of the message template. Valid values:
-   * 
-   * *   **AUDIT_STATE_INIT**: The message template is pending approval.
-   * *   **AUDIT_STATE_PASS**: The message template is approved.
-   * *   **AUDIT_STATE_NOT_PASS**: The message template is rejected. You can view the reason in the Reason response parameter.
-   * *   **AUDIT_STATE_CANCEL** or **AUDIT_SATE_CANCEL**: The approval is canceled.
-   * 
-   * @example
-   * AUDIT_STATE_PASS
-   */
-  auditStatus?: string;
-  /**
-   * @remarks
-   * The time when the message template was created. The time is in the yyyy-MM-dd HH:mm:ss format.
-   * 
-   * @example
-   * 2020-06-04 11:42:17
-   */
-  createDate?: string;
-  /**
-   * @remarks
-   * The ticket ID.
-   * 
-   * @example
-   * 2361****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The type of the message template. We recommend that you specify this parameter. Valid values:
-   * 
-   * *   **0**: verification code
-   * *   **1**: notification message
-   * *   **2**: promotional message
-   * *   **3**: message sent to countries or regions outside the Chinese mainland
-   * *   **7**: digital message
-   * 
-   * > The template type is the same as the value of the TemplateType parameter in the AddSmsTemplate and ModifySmsTemplate operations.
-   * 
-   * @example
-   * 0
-   */
-  outerTemplateType?: number;
-  /**
-   * @remarks
-   * The approval remarks.
-   * 
-   * *   If the value of AuditStatus is **AUDIT_STATE_PASS** or **AUDIT_STATE_INIT**, the value of Reason is No Approval Remarks.
-   * *   If the value of AuditStatus is **AUDIT_STATE_NOT_PASS**, the reason why the message template is rejected is returned.
-   */
-  reason?: QuerySmsTemplateListResponseBodySmsTemplateListReason;
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * You can log on to the [Short Message Service (SMS) console](https://dysms.console.aliyun.com/dysms.htm), click **Go China** or **Go Globe** in the left-side navigation pane, and then view the template code on the **Templates** tab. You can also call the [AddSmsTemplate](https://help.aliyun.com/document_detail/121208.html) operation to obtain the template code.
-   * 
-   * @example
-   * SMS_1525***
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The content of the message template.
-   * 
-   * @example
-   * 123456789
-   */
-  templateContent?: string;
-  /**
-   * @remarks
-   * The name of the message template.
-   * 
-   * @example
-   * aliyun verification code
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The type of the message template. Valid values:
-   * 
-   * *   **0**: notification message
-   * *   **1**: promotional message
-   * *   **2**: verification code
-   * *   **6**: message sent to countries or regions outside the Chinese mainland
-   * *   **7**: digital message
-   * 
-   * @example
-   * 7
-   */
-  templateType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      createDate: 'CreateDate',
-      orderId: 'OrderId',
-      outerTemplateType: 'OuterTemplateType',
-      reason: 'Reason',
-      templateCode: 'TemplateCode',
-      templateContent: 'TemplateContent',
-      templateName: 'TemplateName',
-      templateType: 'TemplateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      createDate: 'string',
-      orderId: 'string',
-      outerTemplateType: 'number',
-      reason: QuerySmsTemplateListResponseBodySmsTemplateListReason,
-      templateCode: 'string',
-      templateContent: 'string',
-      templateName: 'string',
-      templateType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendBatchCardSmsResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the card message.
-   * 
-   * @example
-   * 123
-   */
-  bizCardId?: string;
-  /**
-   * @remarks
-   * The ID of the digital message.
-   * 
-   * @example
-   * 3214
-   */
-  bizDigitalId?: string;
-  /**
-   * @remarks
-   * The ID of the text message.
-   * 
-   * @example
-   * 3256
-   */
-  bizSmsId?: string;
-  /**
-   * @remarks
-   * The review status of the card message template.
-   * 
-   * *   **0**: pending approval
-   * *   **1**: approved
-   * *   **2**: rejected
-   * 
-   * > Unapproved card messages are rolled back.
-   * 
-   * @example
-   * 0
-   */
-  cardTmpState?: number;
-  /**
-   * @remarks
-   * The mobile phone number from which the card message is sent.
-   * 
-   * @example
-   * 1390000****
-   */
-  mediaMobiles?: string;
-  /**
-   * @remarks
-   * The mobile phone number whose card message is rolled back.
-   * 
-   * @example
-   * 1390000****
-   */
-  notMediaMobiles?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizCardId: 'BizCardId',
-      bizDigitalId: 'BizDigitalId',
-      bizSmsId: 'BizSmsId',
-      cardTmpState: 'CardTmpState',
-      mediaMobiles: 'MediaMobiles',
-      notMediaMobiles: 'NotMediaMobiles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizCardId: 'string',
-      bizDigitalId: 'string',
-      bizSmsId: 'string',
-      cardTmpState: 'number',
-      mediaMobiles: 'string',
-      notMediaMobiles: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCardSmsRequestCardObjects extends $tea.Model {
-  /**
-   * @remarks
-   * The URL to which the message is redirected if the message fails to be rendered.
-   * 
-   * @example
-   * https://alibaba.com
-   */
-  customUrl?: string;
-  /**
-   * @remarks
-   * The variables. Special characters, such as $ and {}, do not need to be entered.
-   * 
-   * @example
-   * {\\"param3\\":\\"three\\",\\"param1\\":\\"one\\",\\"param2\\":\\"two\\"}
-   */
-  dyncParams?: string;
-  /**
-   * @remarks
-   * The mobile phone number.
-   * 
-   * @example
-   * 1390000****
-   */
-  mobile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customUrl: 'customUrl',
-      dyncParams: 'dyncParams',
-      mobile: 'mobile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customUrl: 'string',
-      dyncParams: 'string',
-      mobile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendCardSmsResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the card message.
-   * 
-   * @example
-   * 123
-   */
-  bizCardId?: string;
-  /**
-   * @remarks
-   * The ID of the digital message.
-   * 
-   * @example
-   * 232
-   */
-  bizDigitalId?: string;
-  /**
-   * @remarks
-   * The ID of the text message.
-   * 
-   * @example
-   * 524
-   */
-  bizSmsId?: string;
-  /**
-   * @remarks
-   * The review status of the card message template.
-   * 
-   * *   **0**: pending approval
-   * *   **1**: approved
-   * *   **2**: rejected
-   * 
-   * > Unapproved card messages are rolled back.
-   * 
-   * @example
-   * 0
-   */
-  cardTmpState?: number;
-  /**
-   * @remarks
-   * The mobile phone number from which the card message is sent.
-   * 
-   * @example
-   * 1390000****
-   */
-  mediaMobiles?: string;
-  /**
-   * @remarks
-   * The mobile phone number whose card message is rolled back.
-   * 
-   * @example
-   * 1390000****
-   */
-  notMediaMobiles?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizCardId: 'BizCardId',
-      bizDigitalId: 'BizDigitalId',
-      bizSmsId: 'BizSmsId',
-      cardTmpState: 'CardTmpState',
-      mediaMobiles: 'MediaMobiles',
-      notMediaMobiles: 'NotMediaMobiles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizCardId: 'string',
-      bizDigitalId: 'string',
-      bizSmsId: 'string',
-      cardTmpState: 'number',
-      mediaMobiles: 'string',
-      notMediaMobiles: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The array of tag keys. Valid values of N: 1 to 20.
-   * 
-   * @example
-   * TestKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The array of tag values. Valid values of N: 1 to 20.
-   * 
-   * @example
-   * TestValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10732,7 +11922,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this._endpointMap = {
@@ -10749,15 +11939,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -10767,33 +11957,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddExtCodeSignResponse
    */
-  async addExtCodeSignWithOptions(request: AddExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<AddExtCodeSignResponse> {
-    Util.validateModel(request);
+  async addExtCodeSignWithOptions(request: AddExtCodeSignRequest, runtime: $dara.RuntimeOptions): Promise<AddExtCodeSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.extCode)) {
+    if (!$dara.isNull(request.extCode)) {
       query["ExtCode"] = request.extCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddExtCodeSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10804,7 +11994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddExtCodeSignResponse>(await this.callApi(params, req, runtime), new AddExtCodeSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddExtCodeSignResponse>(await this.callApi(params, req, runtime), new AddExtCodeSignResponse({}));
+    } else {
+      return $dara.cast<AddExtCodeSignResponse>(await this.execute(params, req, runtime), new AddExtCodeSignResponse({}));
+    }
+
   }
 
   /**
@@ -10814,7 +12009,7 @@ export default class Client extends OpenApi {
    * @returns AddExtCodeSignResponse
    */
   async addExtCodeSign(request: AddExtCodeSignRequest): Promise<AddExtCodeSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addExtCodeSignWithOptions(request, runtime);
   }
 
@@ -10830,39 +12025,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddShortUrlResponse
    */
-  async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<AddShortUrlResponse> {
-    Util.validateModel(request);
+  async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $dara.RuntimeOptions): Promise<AddShortUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.effectiveDays)) {
+    if (!$dara.isNull(request.effectiveDays)) {
       body["EffectiveDays"] = request.effectiveDays;
     }
 
-    if (!Util.isUnset(request.shortUrlName)) {
+    if (!$dara.isNull(request.shortUrlName)) {
       body["ShortUrlName"] = request.shortUrlName;
     }
 
-    if (!Util.isUnset(request.sourceUrl)) {
+    if (!$dara.isNull(request.sourceUrl)) {
       body["SourceUrl"] = request.sourceUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddShortUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10873,7 +12068,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddShortUrlResponse>(await this.callApi(params, req, runtime), new AddShortUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddShortUrlResponse>(await this.callApi(params, req, runtime), new AddShortUrlResponse({}));
+    } else {
+      return $dara.cast<AddShortUrlResponse>(await this.execute(params, req, runtime), new AddShortUrlResponse({}));
+    }
+
   }
 
   /**
@@ -10888,7 +12088,7 @@ export default class Client extends OpenApi {
    * @returns AddShortUrlResponse
    */
   async addShortUrl(request: AddShortUrlRequest): Promise<AddShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addShortUrlWithOptions(request, runtime);
   }
 
@@ -10911,47 +12111,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSmsSignResponse
    */
-  async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
-    Util.validateModel(request);
+  async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<AddSmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.signSource)) {
+    if (!$dara.isNull(request.signSource)) {
       query["SignSource"] = request.signSource;
     }
 
-    if (!Util.isUnset(request.signType)) {
+    if (!$dara.isNull(request.signType)) {
       query["SignType"] = request.signType;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.signFileList)) {
+    if (!$dara.isNull(request.signFileList)) {
       body["SignFileList"] = request.signFileList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10962,7 +12162,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddSmsSignResponse>(await this.callApi(params, req, runtime), new AddSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSmsSignResponse>(await this.callApi(params, req, runtime), new AddSmsSignResponse({}));
+    } else {
+      return $dara.cast<AddSmsSignResponse>(await this.execute(params, req, runtime), new AddSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -10984,7 +12189,7 @@ export default class Client extends OpenApi {
    * @returns AddSmsSignResponse
    */
   async addSmsSign(request: AddSmsSignRequest): Promise<AddSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addSmsSignWithOptions(request, runtime);
   }
 
@@ -11003,45 +12208,48 @@ export default class Client extends OpenApi {
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI AddSmsTemplate is deprecated, please use Dysmsapi::2017-05-25::CreateSmsTemplate instead.
+   * 
    * @param request - AddSmsTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSmsTemplateResponse
    */
-  async addSmsTemplateWithOptions(request: AddSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsTemplateResponse> {
-    Util.validateModel(request);
+  // Deprecated
+  async addSmsTemplateWithOptions(request: AddSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<AddSmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateContent)) {
+    if (!$dara.isNull(request.templateContent)) {
       query["TemplateContent"] = request.templateContent;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11052,7 +12260,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddSmsTemplateResponse>(await this.callApi(params, req, runtime), new AddSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSmsTemplateResponse>(await this.callApi(params, req, runtime), new AddSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<AddSmsTemplateResponse>(await this.execute(params, req, runtime), new AddSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -11070,11 +12283,14 @@ export default class Client extends OpenApi {
    * ### QPS limits
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI AddSmsTemplate is deprecated, please use Dysmsapi::2017-05-25::CreateSmsTemplate instead.
+   * 
    * @param request - AddSmsTemplateRequest
    * @returns AddSmsTemplateResponse
    */
+  // Deprecated
   async addSmsTemplate(request: AddSmsTemplateRequest): Promise<AddSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addSmsTemplateWithOptions(request, runtime);
   }
 
@@ -11089,21 +12305,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckMobilesCardSupportResponse
    */
-  async checkMobilesCardSupportWithOptions(request: CheckMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<CheckMobilesCardSupportResponse> {
-    Util.validateModel(request);
+  async checkMobilesCardSupportWithOptions(request: CheckMobilesCardSupportRequest, runtime: $dara.RuntimeOptions): Promise<CheckMobilesCardSupportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.mobiles)) {
+    if (!$dara.isNull(request.mobiles)) {
       query["Mobiles"] = request.mobiles;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckMobilesCardSupport",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11114,7 +12330,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new CheckMobilesCardSupportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new CheckMobilesCardSupportResponse({}));
+    } else {
+      return $dara.cast<CheckMobilesCardSupportResponse>(await this.execute(params, req, runtime), new CheckMobilesCardSupportResponse({}));
+    }
+
   }
 
   /**
@@ -11128,7 +12349,7 @@ export default class Client extends OpenApi {
    * @returns CheckMobilesCardSupportResponse
    */
   async checkMobilesCardSupport(request: CheckMobilesCardSupportRequest): Promise<CheckMobilesCardSupportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkMobilesCardSupportWithOptions(request, runtime);
   }
 
@@ -11139,33 +12360,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConversionDataIntlResponse
    */
-  async conversionDataIntlWithOptions(request: ConversionDataIntlRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataIntlResponse> {
-    Util.validateModel(request);
+  async conversionDataIntlWithOptions(request: ConversionDataIntlRequest, runtime: $dara.RuntimeOptions): Promise<ConversionDataIntlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.conversionRate)) {
+    if (!$dara.isNull(request.conversionRate)) {
       query["ConversionRate"] = request.conversionRate;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reportTime)) {
+    if (!$dara.isNull(request.reportTime)) {
       query["ReportTime"] = request.reportTime;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConversionDataIntl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11176,7 +12397,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConversionDataIntlResponse>(await this.callApi(params, req, runtime), new ConversionDataIntlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ConversionDataIntlResponse>(await this.callApi(params, req, runtime), new ConversionDataIntlResponse({}));
+    } else {
+      return $dara.cast<ConversionDataIntlResponse>(await this.execute(params, req, runtime), new ConversionDataIntlResponse({}));
+    }
+
   }
 
   /**
@@ -11186,7 +12412,7 @@ export default class Client extends OpenApi {
    * @returns ConversionDataIntlResponse
    */
   async conversionDataIntl(request: ConversionDataIntlRequest): Promise<ConversionDataIntlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.conversionDataIntlWithOptions(request, runtime);
   }
 
@@ -11204,35 +12430,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCardSmsTemplateResponse
    */
-  async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
+    tmpReq.validate();
     let request = new CreateCardSmsTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.template)) {
+    if (!$dara.isNull(tmpReq.template)) {
       request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.factorys)) {
+    if (!$dara.isNull(request.factorys)) {
       query["Factorys"] = request.factorys;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       query["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.templateShrink)) {
+    if (!$dara.isNull(request.templateShrink)) {
       query["Template"] = request.templateShrink;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateCardSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11243,7 +12469,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateCardSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateCardSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<CreateCardSmsTemplateResponse>(await this.execute(params, req, runtime), new CreateCardSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -11260,7 +12491,7 @@ export default class Client extends OpenApi {
    * @returns CreateCardSmsTemplateResponse
    */
   async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createCardSmsTemplateWithOptions(request, runtime);
   }
 
@@ -11271,37 +12502,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSmartShortUrlResponse
    */
-  async createSmartShortUrlWithOptions(request: CreateSmartShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmartShortUrlResponse> {
-    Util.validateModel(request);
+  async createSmartShortUrlWithOptions(request: CreateSmartShortUrlRequest, runtime: $dara.RuntimeOptions): Promise<CreateSmartShortUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumbers)) {
+    if (!$dara.isNull(request.phoneNumbers)) {
       query["PhoneNumbers"] = request.phoneNumbers;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sourceUrl)) {
+    if (!$dara.isNull(request.sourceUrl)) {
       query["SourceUrl"] = request.sourceUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSmartShortUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11312,7 +12543,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSmartShortUrlResponse>(await this.callApi(params, req, runtime), new CreateSmartShortUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSmartShortUrlResponse>(await this.callApi(params, req, runtime), new CreateSmartShortUrlResponse({}));
+    } else {
+      return $dara.cast<CreateSmartShortUrlResponse>(await this.execute(params, req, runtime), new CreateSmartShortUrlResponse({}));
+    }
+
   }
 
   /**
@@ -11322,7 +12558,7 @@ export default class Client extends OpenApi {
    * @returns CreateSmartShortUrlResponse
    */
   async createSmartShortUrl(request: CreateSmartShortUrlRequest): Promise<CreateSmartShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmartShortUrlWithOptions(request, runtime);
   }
 
@@ -11339,63 +12575,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSmsSignResponse
    */
-  async createSmsSignWithOptions(tmpReq: CreateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsSignResponse> {
-    Util.validateModel(tmpReq);
+  async createSmsSignWithOptions(tmpReq: CreateSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<CreateSmsSignResponse> {
+    tmpReq.validate();
     let request = new CreateSmsSignShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.moreData)) {
+    if (!$dara.isNull(tmpReq.moreData)) {
       request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.applySceneContent)) {
+    if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
 
-    if (!Util.isUnset(request.moreDataShrink)) {
+    if (!$dara.isNull(request.moreDataShrink)) {
       query["MoreData"] = request.moreDataShrink;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.qualificationId)) {
+    if (!$dara.isNull(request.qualificationId)) {
       query["QualificationId"] = request.qualificationId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.signSource)) {
+    if (!$dara.isNull(request.signSource)) {
       query["SignSource"] = request.signSource;
     }
 
-    if (!Util.isUnset(request.signType)) {
+    if (!$dara.isNull(request.signType)) {
       query["SignType"] = request.signType;
     }
 
-    if (!Util.isUnset(request.thirdParty)) {
+    if (!$dara.isNull(request.thirdParty)) {
       query["ThirdParty"] = request.thirdParty;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11406,7 +12642,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSmsSignResponse>(await this.callApi(params, req, runtime), new CreateSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSmsSignResponse>(await this.callApi(params, req, runtime), new CreateSmsSignResponse({}));
+    } else {
+      return $dara.cast<CreateSmsSignResponse>(await this.execute(params, req, runtime), new CreateSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -11422,7 +12663,7 @@ export default class Client extends OpenApi {
    * @returns CreateSmsSignResponse
    */
   async createSmsSign(request: CreateSmsSignRequest): Promise<CreateSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmsSignWithOptions(request, runtime);
   }
 
@@ -11441,67 +12682,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSmsTemplateResponse
    */
-  async createSmsTemplateWithOptions(tmpReq: CreateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async createSmsTemplateWithOptions(tmpReq: CreateSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<CreateSmsTemplateResponse> {
+    tmpReq.validate();
     let request = new CreateSmsTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.moreData)) {
+    if (!$dara.isNull(tmpReq.moreData)) {
       request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.applySceneContent)) {
+    if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
 
-    if (!Util.isUnset(request.intlType)) {
+    if (!$dara.isNull(request.intlType)) {
       query["IntlType"] = request.intlType;
     }
 
-    if (!Util.isUnset(request.moreDataShrink)) {
+    if (!$dara.isNull(request.moreDataShrink)) {
       query["MoreData"] = request.moreDataShrink;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.relatedSignName)) {
+    if (!$dara.isNull(request.relatedSignName)) {
       query["RelatedSignName"] = request.relatedSignName;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateContent)) {
+    if (!$dara.isNull(request.templateContent)) {
       query["TemplateContent"] = request.templateContent;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateRule)) {
+    if (!$dara.isNull(request.templateRule)) {
       query["TemplateRule"] = request.templateRule;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11512,7 +12753,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<CreateSmsTemplateResponse>(await this.execute(params, req, runtime), new CreateSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -11530,7 +12776,7 @@ export default class Client extends OpenApi {
    * @returns CreateSmsTemplateResponse
    */
   async createSmsTemplate(request: CreateSmsTemplateRequest): Promise<CreateSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmsTemplateWithOptions(request, runtime);
   }
 
@@ -11541,33 +12787,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteExtCodeSignResponse
    */
-  async deleteExtCodeSignWithOptions(request: DeleteExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExtCodeSignResponse> {
-    Util.validateModel(request);
+  async deleteExtCodeSignWithOptions(request: DeleteExtCodeSignRequest, runtime: $dara.RuntimeOptions): Promise<DeleteExtCodeSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.extCode)) {
+    if (!$dara.isNull(request.extCode)) {
       query["ExtCode"] = request.extCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteExtCodeSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11578,7 +12824,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteExtCodeSignResponse>(await this.callApi(params, req, runtime), new DeleteExtCodeSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteExtCodeSignResponse>(await this.callApi(params, req, runtime), new DeleteExtCodeSignResponse({}));
+    } else {
+      return $dara.cast<DeleteExtCodeSignResponse>(await this.execute(params, req, runtime), new DeleteExtCodeSignResponse({}));
+    }
+
   }
 
   /**
@@ -11588,7 +12839,7 @@ export default class Client extends OpenApi {
    * @returns DeleteExtCodeSignResponse
    */
   async deleteExtCodeSign(request: DeleteExtCodeSignRequest): Promise<DeleteExtCodeSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteExtCodeSignWithOptions(request, runtime);
   }
 
@@ -11603,31 +12854,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteShortUrlResponse
    */
-  async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
-    Util.validateModel(request);
+  async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $dara.RuntimeOptions): Promise<DeleteShortUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.sourceUrl)) {
+    if (!$dara.isNull(request.sourceUrl)) {
       body["SourceUrl"] = request.sourceUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteShortUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11638,7 +12889,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteShortUrlResponse>(await this.callApi(params, req, runtime), new DeleteShortUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteShortUrlResponse>(await this.callApi(params, req, runtime), new DeleteShortUrlResponse({}));
+    } else {
+      return $dara.cast<DeleteShortUrlResponse>(await this.execute(params, req, runtime), new DeleteShortUrlResponse({}));
+    }
+
   }
 
   /**
@@ -11652,7 +12908,7 @@ export default class Client extends OpenApi {
    * @returns DeleteShortUrlResponse
    */
   async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteShortUrlWithOptions(request, runtime);
   }
 
@@ -11669,29 +12925,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSmsSignResponse
    */
-  async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
-    Util.validateModel(request);
+  async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11702,7 +12958,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSmsSignResponse>(await this.callApi(params, req, runtime), new DeleteSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSmsSignResponse>(await this.callApi(params, req, runtime), new DeleteSmsSignResponse({}));
+    } else {
+      return $dara.cast<DeleteSmsSignResponse>(await this.execute(params, req, runtime), new DeleteSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -11718,7 +12979,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSmsSignResponse
    */
   async deleteSmsSign(request: DeleteSmsSignRequest): Promise<DeleteSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSmsSignWithOptions(request, runtime);
   }
 
@@ -11736,29 +12997,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSmsTemplateResponse
    */
-  async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
-    Util.validateModel(request);
+  async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11769,7 +13030,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSmsTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSmsTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<DeleteSmsTemplateResponse>(await this.execute(params, req, runtime), new DeleteSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -11786,7 +13052,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSmsTemplateResponse
    */
   async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSmsTemplateWithOptions(request, runtime);
   }
 
@@ -11797,53 +13063,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCardSmsDetailsResponse
    */
-  async getCardSmsDetailsWithOptions(request: GetCardSmsDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsDetailsResponse> {
-    Util.validateModel(request);
+  async getCardSmsDetailsWithOptions(request: GetCardSmsDetailsRequest, runtime: $dara.RuntimeOptions): Promise<GetCardSmsDetailsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizCardId)) {
+    if (!$dara.isNull(request.bizCardId)) {
       query["BizCardId"] = request.bizCardId;
     }
 
-    if (!Util.isUnset(request.bizDigitId)) {
+    if (!$dara.isNull(request.bizDigitId)) {
       query["BizDigitId"] = request.bizDigitId;
     }
 
-    if (!Util.isUnset(request.bizSmsId)) {
+    if (!$dara.isNull(request.bizSmsId)) {
       query["BizSmsId"] = request.bizSmsId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sendDate)) {
+    if (!$dara.isNull(request.sendDate)) {
       query["SendDate"] = request.sendDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCardSmsDetails",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11854,7 +13120,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCardSmsDetailsResponse>(await this.callApi(params, req, runtime), new GetCardSmsDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCardSmsDetailsResponse>(await this.callApi(params, req, runtime), new GetCardSmsDetailsResponse({}));
+    } else {
+      return $dara.cast<GetCardSmsDetailsResponse>(await this.execute(params, req, runtime), new GetCardSmsDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -11864,7 +13135,7 @@ export default class Client extends OpenApi {
    * @returns GetCardSmsDetailsResponse
    */
   async getCardSmsDetails(request: GetCardSmsDetailsRequest): Promise<GetCardSmsDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCardSmsDetailsWithOptions(request, runtime);
   }
 
@@ -11879,49 +13150,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCardSmsLinkResponse
    */
-  async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $Util.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
-    Util.validateModel(request);
+  async getCardSmsLinkWithOptions(request: GetCardSmsLinkRequest, runtime: $dara.RuntimeOptions): Promise<GetCardSmsLinkResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cardCodeType)) {
+    if (!$dara.isNull(request.cardCodeType)) {
       query["CardCodeType"] = request.cardCodeType;
     }
 
-    if (!Util.isUnset(request.cardLinkType)) {
+    if (!$dara.isNull(request.cardLinkType)) {
       query["CardLinkType"] = request.cardLinkType;
     }
 
-    if (!Util.isUnset(request.cardTemplateCode)) {
+    if (!$dara.isNull(request.cardTemplateCode)) {
       query["CardTemplateCode"] = request.cardTemplateCode;
     }
 
-    if (!Util.isUnset(request.cardTemplateParamJson)) {
+    if (!$dara.isNull(request.cardTemplateParamJson)) {
       query["CardTemplateParamJson"] = request.cardTemplateParamJson;
     }
 
-    if (!Util.isUnset(request.customShortCodeJson)) {
+    if (!$dara.isNull(request.customShortCodeJson)) {
       query["CustomShortCodeJson"] = request.customShortCodeJson;
     }
 
-    if (!Util.isUnset(request.domain)) {
+    if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.phoneNumberJson)) {
+    if (!$dara.isNull(request.phoneNumberJson)) {
       query["PhoneNumberJson"] = request.phoneNumberJson;
     }
 
-    if (!Util.isUnset(request.signNameJson)) {
+    if (!$dara.isNull(request.signNameJson)) {
       query["SignNameJson"] = request.signNameJson;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCardSmsLink",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11932,7 +13203,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCardSmsLinkResponse>(await this.callApi(params, req, runtime), new GetCardSmsLinkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCardSmsLinkResponse>(await this.callApi(params, req, runtime), new GetCardSmsLinkResponse({}));
+    } else {
+      return $dara.cast<GetCardSmsLinkResponse>(await this.execute(params, req, runtime), new GetCardSmsLinkResponse({}));
+    }
+
   }
 
   /**
@@ -11946,7 +13222,7 @@ export default class Client extends OpenApi {
    * @returns GetCardSmsLinkResponse
    */
   async getCardSmsLink(request: GetCardSmsLinkRequest): Promise<GetCardSmsLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCardSmsLinkWithOptions(request, runtime);
   }
 
@@ -11961,33 +13237,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMediaResourceIdResponse
    */
-  async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
-    Util.validateModel(request);
+  async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.extendInfo)) {
+    if (!$dara.isNull(request.extendInfo)) {
       query["ExtendInfo"] = request.extendInfo;
     }
 
-    if (!Util.isUnset(request.fileSize)) {
+    if (!$dara.isNull(request.fileSize)) {
       query["FileSize"] = request.fileSize;
     }
 
-    if (!Util.isUnset(request.memo)) {
+    if (!$dara.isNull(request.memo)) {
       query["Memo"] = request.memo;
     }
 
-    if (!Util.isUnset(request.ossKey)) {
+    if (!$dara.isNull(request.ossKey)) {
       query["OssKey"] = request.ossKey;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMediaResourceId",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11998,7 +13274,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMediaResourceIdResponse>(await this.callApi(params, req, runtime), new GetMediaResourceIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaResourceIdResponse>(await this.callApi(params, req, runtime), new GetMediaResourceIdResponse({}));
+    } else {
+      return $dara.cast<GetMediaResourceIdResponse>(await this.execute(params, req, runtime), new GetMediaResourceIdResponse({}));
+    }
+
   }
 
   /**
@@ -12012,7 +13293,7 @@ export default class Client extends OpenApi {
    * @returns GetMediaResourceIdResponse
    */
   async getMediaResourceId(request: GetMediaResourceIdRequest): Promise<GetMediaResourceIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMediaResourceIdWithOptions(request, runtime);
   }
 
@@ -12028,9 +13309,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOSSInfoForCardTemplateResponse
    */
-  async getOSSInfoForCardTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async getOSSInfoForCardTemplateWithOptions(runtime: $dara.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "GetOSSInfoForCardTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12041,7 +13322,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOSSInfoForCardTemplateResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOSSInfoForCardTemplateResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
+    } else {
+      return $dara.cast<GetOSSInfoForCardTemplateResponse>(await this.execute(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -12054,7 +13340,7 @@ export default class Client extends OpenApi {
    * @returns GetOSSInfoForCardTemplateResponse
    */
   async getOSSInfoForCardTemplate(): Promise<GetOSSInfoForCardTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOSSInfoForCardTemplateWithOptions(runtime);
   }
 
@@ -12069,29 +13355,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOSSInfoForUploadFileResponse
    */
-  async getOSSInfoForUploadFileWithOptions(request: GetOSSInfoForUploadFileRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForUploadFileResponse> {
-    Util.validateModel(request);
+  async getOSSInfoForUploadFileWithOptions(request: GetOSSInfoForUploadFileRequest, runtime: $dara.RuntimeOptions): Promise<GetOSSInfoForUploadFileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOSSInfoForUploadFile",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12102,7 +13388,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOSSInfoForUploadFileResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForUploadFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOSSInfoForUploadFileResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForUploadFileResponse({}));
+    } else {
+      return $dara.cast<GetOSSInfoForUploadFileResponse>(await this.execute(params, req, runtime), new GetOSSInfoForUploadFileResponse({}));
+    }
+
   }
 
   /**
@@ -12116,7 +13407,7 @@ export default class Client extends OpenApi {
    * @returns GetOSSInfoForUploadFileResponse
    */
   async getOSSInfoForUploadFile(request: GetOSSInfoForUploadFileRequest): Promise<GetOSSInfoForUploadFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOSSInfoForUploadFileWithOptions(request, runtime);
   }
 
@@ -12132,29 +13423,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSmsSignResponse
    */
-  async getSmsSignWithOptions(request: GetSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsSignResponse> {
-    Util.validateModel(request);
+  async getSmsSignWithOptions(request: GetSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<GetSmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12165,7 +13456,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSmsSignResponse>(await this.callApi(params, req, runtime), new GetSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSmsSignResponse>(await this.callApi(params, req, runtime), new GetSmsSignResponse({}));
+    } else {
+      return $dara.cast<GetSmsSignResponse>(await this.execute(params, req, runtime), new GetSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -12180,7 +13476,7 @@ export default class Client extends OpenApi {
    * @returns GetSmsSignResponse
    */
   async getSmsSign(request: GetSmsSignRequest): Promise<GetSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSmsSignWithOptions(request, runtime);
   }
 
@@ -12197,29 +13493,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSmsTemplateResponse
    */
-  async getSmsTemplateWithOptions(request: GetSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsTemplateResponse> {
-    Util.validateModel(request);
+  async getSmsTemplateWithOptions(request: GetSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<GetSmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12230,7 +13526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSmsTemplateResponse>(await this.callApi(params, req, runtime), new GetSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSmsTemplateResponse>(await this.callApi(params, req, runtime), new GetSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<GetSmsTemplateResponse>(await this.execute(params, req, runtime), new GetSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -12246,7 +13547,7 @@ export default class Client extends OpenApi {
    * @returns GetSmsTemplateResponse
    */
   async getSmsTemplate(request: GetSmsTemplateRequest): Promise<GetSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSmsTemplateWithOptions(request, runtime);
   }
 
@@ -12261,53 +13562,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12318,7 +13619,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -12332,7 +13638,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -12353,47 +13659,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySmsSignResponse
    */
-  async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsSignResponse> {
-    Util.validateModel(request);
+  async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $dara.RuntimeOptions): Promise<ModifySmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.signSource)) {
+    if (!$dara.isNull(request.signSource)) {
       query["SignSource"] = request.signSource;
     }
 
-    if (!Util.isUnset(request.signType)) {
+    if (!$dara.isNull(request.signType)) {
       query["SignType"] = request.signType;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.signFileList)) {
+    if (!$dara.isNull(request.signFileList)) {
       body["SignFileList"] = request.signFileList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifySmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12404,7 +13710,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifySmsSignResponse>(await this.callApi(params, req, runtime), new ModifySmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifySmsSignResponse>(await this.callApi(params, req, runtime), new ModifySmsSignResponse({}));
+    } else {
+      return $dara.cast<ModifySmsSignResponse>(await this.execute(params, req, runtime), new ModifySmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -12424,7 +13735,7 @@ export default class Client extends OpenApi {
    * @returns ModifySmsSignResponse
    */
   async modifySmsSign(request: ModifySmsSignRequest): Promise<ModifySmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySmsSignWithOptions(request, runtime);
   }
 
@@ -12438,49 +13749,52 @@ export default class Client extends OpenApi {
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI ModifySmsTemplate is deprecated, please use Dysmsapi::2017-05-25::UpdateSmsTemplate instead.
+   * 
    * @param request - ModifySmsTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySmsTemplateResponse
    */
-  async modifySmsTemplateWithOptions(request: ModifySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsTemplateResponse> {
-    Util.validateModel(request);
+  // Deprecated
+  async modifySmsTemplateWithOptions(request: ModifySmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<ModifySmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateContent)) {
+    if (!$dara.isNull(request.templateContent)) {
       query["TemplateContent"] = request.templateContent;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifySmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12491,7 +13805,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifySmsTemplateResponse>(await this.callApi(params, req, runtime), new ModifySmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifySmsTemplateResponse>(await this.callApi(params, req, runtime), new ModifySmsTemplateResponse({}));
+    } else {
+      return $dara.cast<ModifySmsTemplateResponse>(await this.execute(params, req, runtime), new ModifySmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -12504,11 +13823,14 @@ export default class Client extends OpenApi {
    * ### QPS limit
    * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI ModifySmsTemplate is deprecated, please use Dysmsapi::2017-05-25::UpdateSmsTemplate instead.
+   * 
    * @param request - ModifySmsTemplateRequest
    * @returns ModifySmsTemplateResponse
    */
+  // Deprecated
   async modifySmsTemplate(request: ModifySmsTemplateRequest): Promise<ModifySmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySmsTemplateWithOptions(request, runtime);
   }
 
@@ -12523,17 +13845,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCardSmsTemplateResponse
    */
-  async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
-    Util.validateModel(request);
+  async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCardSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12544,7 +13866,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<QueryCardSmsTemplateResponse>(await this.execute(params, req, runtime), new QueryCardSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -12558,7 +13885,7 @@ export default class Client extends OpenApi {
    * @returns QueryCardSmsTemplateResponse
    */
   async queryCardSmsTemplate(request: QueryCardSmsTemplateRequest): Promise<QueryCardSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCardSmsTemplateWithOptions(request, runtime);
   }
 
@@ -12573,25 +13900,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCardSmsTemplateReportResponse
    */
-  async queryCardSmsTemplateReportWithOptions(request: QueryCardSmsTemplateReportRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateReportResponse> {
-    Util.validateModel(request);
+  async queryCardSmsTemplateReportWithOptions(request: QueryCardSmsTemplateReportRequest, runtime: $dara.RuntimeOptions): Promise<QueryCardSmsTemplateReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.templateCodes)) {
+    if (!$dara.isNull(request.templateCodes)) {
       query["TemplateCodes"] = request.templateCodes;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCardSmsTemplateReport",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12602,7 +13929,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCardSmsTemplateReportResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryCardSmsTemplateReportResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateReportResponse({}));
+    } else {
+      return $dara.cast<QueryCardSmsTemplateReportResponse>(await this.execute(params, req, runtime), new QueryCardSmsTemplateReportResponse({}));
+    }
+
   }
 
   /**
@@ -12616,7 +13948,7 @@ export default class Client extends OpenApi {
    * @returns QueryCardSmsTemplateReportResponse
    */
   async queryCardSmsTemplateReport(request: QueryCardSmsTemplateReportRequest): Promise<QueryCardSmsTemplateReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCardSmsTemplateReportWithOptions(request, runtime);
   }
 
@@ -12627,41 +13959,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryExtCodeSignResponse
    */
-  async queryExtCodeSignWithOptions(request: QueryExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<QueryExtCodeSignResponse> {
-    Util.validateModel(request);
+  async queryExtCodeSignWithOptions(request: QueryExtCodeSignRequest, runtime: $dara.RuntimeOptions): Promise<QueryExtCodeSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.extCode)) {
+    if (!$dara.isNull(request.extCode)) {
       query["ExtCode"] = request.extCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryExtCodeSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12672,7 +14004,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryExtCodeSignResponse>(await this.callApi(params, req, runtime), new QueryExtCodeSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryExtCodeSignResponse>(await this.callApi(params, req, runtime), new QueryExtCodeSignResponse({}));
+    } else {
+      return $dara.cast<QueryExtCodeSignResponse>(await this.execute(params, req, runtime), new QueryExtCodeSignResponse({}));
+    }
+
   }
 
   /**
@@ -12682,7 +14019,7 @@ export default class Client extends OpenApi {
    * @returns QueryExtCodeSignResponse
    */
   async queryExtCodeSign(request: QueryExtCodeSignRequest): Promise<QueryExtCodeSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryExtCodeSignWithOptions(request, runtime);
   }
 
@@ -12693,27 +14030,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMobilesCardSupportResponse
    */
-  async queryMobilesCardSupportWithOptions(tmpReq: QueryMobilesCardSupportRequest, runtime: $Util.RuntimeOptions): Promise<QueryMobilesCardSupportResponse> {
-    Util.validateModel(tmpReq);
+  async queryMobilesCardSupportWithOptions(tmpReq: QueryMobilesCardSupportRequest, runtime: $dara.RuntimeOptions): Promise<QueryMobilesCardSupportResponse> {
+    tmpReq.validate();
     let request = new QueryMobilesCardSupportShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.mobiles)) {
+    if (!$dara.isNull(tmpReq.mobiles)) {
       request.mobilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mobiles, "Mobiles", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.mobilesShrink)) {
+    if (!$dara.isNull(request.mobilesShrink)) {
       query["Mobiles"] = request.mobilesShrink;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryMobilesCardSupport",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12724,7 +14061,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new QueryMobilesCardSupportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryMobilesCardSupportResponse>(await this.callApi(params, req, runtime), new QueryMobilesCardSupportResponse({}));
+    } else {
+      return $dara.cast<QueryMobilesCardSupportResponse>(await this.execute(params, req, runtime), new QueryMobilesCardSupportResponse({}));
+    }
+
   }
 
   /**
@@ -12734,7 +14076,7 @@ export default class Client extends OpenApi {
    * @returns QueryMobilesCardSupportResponse
    */
   async queryMobilesCardSupport(request: QueryMobilesCardSupportRequest): Promise<QueryMobilesCardSupportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryMobilesCardSupportWithOptions(request, runtime);
   }
 
@@ -12745,49 +14087,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPageSmartShortUrlLogResponse
    */
-  async queryPageSmartShortUrlLogWithOptions(request: QueryPageSmartShortUrlLogRequest, runtime: $Util.RuntimeOptions): Promise<QueryPageSmartShortUrlLogResponse> {
-    Util.validateModel(request);
+  async queryPageSmartShortUrlLogWithOptions(request: QueryPageSmartShortUrlLogRequest, runtime: $dara.RuntimeOptions): Promise<QueryPageSmartShortUrlLogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.createDateEnd)) {
+    if (!$dara.isNull(request.createDateEnd)) {
       query["CreateDateEnd"] = request.createDateEnd;
     }
 
-    if (!Util.isUnset(request.createDateStart)) {
+    if (!$dara.isNull(request.createDateStart)) {
       query["CreateDateStart"] = request.createDateStart;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.shortUrl)) {
+    if (!$dara.isNull(request.shortUrl)) {
       query["ShortUrl"] = request.shortUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPageSmartShortUrlLog",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12798,7 +14140,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPageSmartShortUrlLogResponse>(await this.callApi(params, req, runtime), new QueryPageSmartShortUrlLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryPageSmartShortUrlLogResponse>(await this.callApi(params, req, runtime), new QueryPageSmartShortUrlLogResponse({}));
+    } else {
+      return $dara.cast<QueryPageSmartShortUrlLogResponse>(await this.execute(params, req, runtime), new QueryPageSmartShortUrlLogResponse({}));
+    }
+
   }
 
   /**
@@ -12808,7 +14155,7 @@ export default class Client extends OpenApi {
    * @returns QueryPageSmartShortUrlLogResponse
    */
   async queryPageSmartShortUrlLog(request: QueryPageSmartShortUrlLogRequest): Promise<QueryPageSmartShortUrlLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPageSmartShortUrlLogWithOptions(request, runtime);
   }
 
@@ -12819,45 +14166,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySendDetailsResponse
    */
-  async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
-    Util.validateModel(request);
+  async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $dara.RuntimeOptions): Promise<QuerySendDetailsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sendDate)) {
+    if (!$dara.isNull(request.sendDate)) {
       query["SendDate"] = request.sendDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySendDetails",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12868,7 +14215,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySendDetailsResponse>(await this.callApi(params, req, runtime), new QuerySendDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySendDetailsResponse>(await this.callApi(params, req, runtime), new QuerySendDetailsResponse({}));
+    } else {
+      return $dara.cast<QuerySendDetailsResponse>(await this.execute(params, req, runtime), new QuerySendDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -12878,7 +14230,7 @@ export default class Client extends OpenApi {
    * @returns QuerySendDetailsResponse
    */
   async querySendDetails(request: QuerySendDetailsRequest): Promise<QuerySendDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySendDetailsWithOptions(request, runtime);
   }
 
@@ -12894,53 +14246,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySendStatisticsResponse
    */
-  async querySendStatisticsWithOptions(request: QuerySendStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendStatisticsResponse> {
-    Util.validateModel(request);
+  async querySendStatisticsWithOptions(request: QuerySendStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<QuerySendStatisticsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.isGlobe)) {
+    if (!$dara.isNull(request.isGlobe)) {
       query["IsGlobe"] = request.isGlobe;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       query["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySendStatistics",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12951,7 +14303,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySendStatisticsResponse>(await this.callApi(params, req, runtime), new QuerySendStatisticsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySendStatisticsResponse>(await this.callApi(params, req, runtime), new QuerySendStatisticsResponse({}));
+    } else {
+      return $dara.cast<QuerySendStatisticsResponse>(await this.execute(params, req, runtime), new QuerySendStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -12966,7 +14323,7 @@ export default class Client extends OpenApi {
    * @returns QuerySendStatisticsResponse
    */
   async querySendStatistics(request: QuerySendStatisticsRequest): Promise<QuerySendStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySendStatisticsWithOptions(request, runtime);
   }
 
@@ -12981,31 +14338,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryShortUrlResponse
    */
-  async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryShortUrlResponse> {
-    Util.validateModel(request);
+  async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $dara.RuntimeOptions): Promise<QueryShortUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.shortUrl)) {
+    if (!$dara.isNull(request.shortUrl)) {
       body["ShortUrl"] = request.shortUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryShortUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13016,7 +14373,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryShortUrlResponse>(await this.callApi(params, req, runtime), new QueryShortUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryShortUrlResponse>(await this.callApi(params, req, runtime), new QueryShortUrlResponse({}));
+    } else {
+      return $dara.cast<QueryShortUrlResponse>(await this.execute(params, req, runtime), new QueryShortUrlResponse({}));
+    }
+
   }
 
   /**
@@ -13030,7 +14392,7 @@ export default class Client extends OpenApi {
    * @returns QueryShortUrlResponse
    */
   async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryShortUrlWithOptions(request, runtime);
   }
 
@@ -13046,29 +14408,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmsSignResponse
    */
-  async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
-    Util.validateModel(request);
+  async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13079,7 +14441,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySmsSignResponse>(await this.callApi(params, req, runtime), new QuerySmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySmsSignResponse>(await this.callApi(params, req, runtime), new QuerySmsSignResponse({}));
+    } else {
+      return $dara.cast<QuerySmsSignResponse>(await this.execute(params, req, runtime), new QuerySmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -13094,7 +14461,7 @@ export default class Client extends OpenApi {
    * @returns QuerySmsSignResponse
    */
   async querySmsSign(request: QuerySmsSignRequest): Promise<QuerySmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsSignWithOptions(request, runtime);
   }
 
@@ -13110,33 +14477,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmsSignListResponse
    */
-  async querySmsSignListWithOptions(request: QuerySmsSignListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignListResponse> {
-    Util.validateModel(request);
+  async querySmsSignListWithOptions(request: QuerySmsSignListRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsSignListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       query["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySmsSignList",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13147,7 +14514,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySmsSignListResponse>(await this.callApi(params, req, runtime), new QuerySmsSignListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySmsSignListResponse>(await this.callApi(params, req, runtime), new QuerySmsSignListResponse({}));
+    } else {
+      return $dara.cast<QuerySmsSignListResponse>(await this.execute(params, req, runtime), new QuerySmsSignListResponse({}));
+    }
+
   }
 
   /**
@@ -13162,7 +14534,7 @@ export default class Client extends OpenApi {
    * @returns QuerySmsSignListResponse
    */
   async querySmsSignList(request: QuerySmsSignListRequest): Promise<QuerySmsSignListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsSignListWithOptions(request, runtime);
   }
 
@@ -13174,33 +14546,36 @@ export default class Client extends OpenApi {
    * ### QPS limit
    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI QuerySmsTemplate is deprecated, please use Dysmsapi::2017-05-25::GetSmsTemplate instead.
+   * 
    * @param request - QuerySmsTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmsTemplateResponse
    */
-  async querySmsTemplateWithOptions(request: QuerySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateResponse> {
-    Util.validateModel(request);
+  // Deprecated
+  async querySmsTemplateWithOptions(request: QuerySmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13211,7 +14586,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySmsTemplateResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySmsTemplateResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateResponse({}));
+    } else {
+      return $dara.cast<QuerySmsTemplateResponse>(await this.execute(params, req, runtime), new QuerySmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -13222,11 +14602,14 @@ export default class Client extends OpenApi {
    * ### QPS limit
    * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
+   * @deprecated OpenAPI QuerySmsTemplate is deprecated, please use Dysmsapi::2017-05-25::GetSmsTemplate instead.
+   * 
    * @param request - QuerySmsTemplateRequest
    * @returns QuerySmsTemplateResponse
    */
+  // Deprecated
   async querySmsTemplate(request: QuerySmsTemplateRequest): Promise<QuerySmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsTemplateWithOptions(request, runtime);
   }
 
@@ -13242,33 +14625,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmsTemplateListResponse
    */
-  async querySmsTemplateListWithOptions(request: QuerySmsTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateListResponse> {
-    Util.validateModel(request);
+  async querySmsTemplateListWithOptions(request: QuerySmsTemplateListRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsTemplateListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       query["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySmsTemplateList",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13279,7 +14662,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySmsTemplateListResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySmsTemplateListResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateListResponse({}));
+    } else {
+      return $dara.cast<QuerySmsTemplateListResponse>(await this.execute(params, req, runtime), new QuerySmsTemplateListResponse({}));
+    }
+
   }
 
   /**
@@ -13294,7 +14682,7 @@ export default class Client extends OpenApi {
    * @returns QuerySmsTemplateListResponse
    */
   async querySmsTemplateList(request: QuerySmsTemplateListRequest): Promise<QuerySmsTemplateListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsTemplateListWithOptions(request, runtime);
   }
 
@@ -13310,65 +14698,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendBatchCardSmsResponse
    */
-  async sendBatchCardSmsWithOptions(request: SendBatchCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchCardSmsResponse> {
-    Util.validateModel(request);
+  async sendBatchCardSmsWithOptions(request: SendBatchCardSmsRequest, runtime: $dara.RuntimeOptions): Promise<SendBatchCardSmsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cardTemplateCode)) {
+    if (!$dara.isNull(request.cardTemplateCode)) {
       query["CardTemplateCode"] = request.cardTemplateCode;
     }
 
-    if (!Util.isUnset(request.cardTemplateParamJson)) {
+    if (!$dara.isNull(request.cardTemplateParamJson)) {
       query["CardTemplateParamJson"] = request.cardTemplateParamJson;
     }
 
-    if (!Util.isUnset(request.digitalTemplateCode)) {
+    if (!$dara.isNull(request.digitalTemplateCode)) {
       query["DigitalTemplateCode"] = request.digitalTemplateCode;
     }
 
-    if (!Util.isUnset(request.digitalTemplateParamJson)) {
+    if (!$dara.isNull(request.digitalTemplateParamJson)) {
       query["DigitalTemplateParamJson"] = request.digitalTemplateParamJson;
     }
 
-    if (!Util.isUnset(request.fallbackType)) {
+    if (!$dara.isNull(request.fallbackType)) {
       query["FallbackType"] = request.fallbackType;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.phoneNumberJson)) {
+    if (!$dara.isNull(request.phoneNumberJson)) {
       query["PhoneNumberJson"] = request.phoneNumberJson;
     }
 
-    if (!Util.isUnset(request.signNameJson)) {
+    if (!$dara.isNull(request.signNameJson)) {
       query["SignNameJson"] = request.signNameJson;
     }
 
-    if (!Util.isUnset(request.smsTemplateCode)) {
+    if (!$dara.isNull(request.smsTemplateCode)) {
       query["SmsTemplateCode"] = request.smsTemplateCode;
     }
 
-    if (!Util.isUnset(request.smsTemplateParamJson)) {
+    if (!$dara.isNull(request.smsTemplateParamJson)) {
       query["SmsTemplateParamJson"] = request.smsTemplateParamJson;
     }
 
-    if (!Util.isUnset(request.smsUpExtendCodeJson)) {
+    if (!$dara.isNull(request.smsUpExtendCodeJson)) {
       query["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateParamJson)) {
+    if (!$dara.isNull(request.templateParamJson)) {
       query["TemplateParamJson"] = request.templateParamJson;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendBatchCardSms",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13379,7 +14767,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendBatchCardSmsResponse>(await this.callApi(params, req, runtime), new SendBatchCardSmsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendBatchCardSmsResponse>(await this.callApi(params, req, runtime), new SendBatchCardSmsResponse({}));
+    } else {
+      return $dara.cast<SendBatchCardSmsResponse>(await this.execute(params, req, runtime), new SendBatchCardSmsResponse({}));
+    }
+
   }
 
   /**
@@ -13394,7 +14787,7 @@ export default class Client extends OpenApi {
    * @returns SendBatchCardSmsResponse
    */
   async sendBatchCardSms(request: SendBatchCardSmsRequest): Promise<SendBatchCardSmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendBatchCardSmsWithOptions(request, runtime);
   }
 
@@ -13408,51 +14801,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendBatchSmsResponse
    */
-  async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
-    Util.validateModel(request);
+  async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $dara.RuntimeOptions): Promise<SendBatchSmsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.phoneNumberJson)) {
+    if (!$dara.isNull(request.phoneNumberJson)) {
       body["PhoneNumberJson"] = request.phoneNumberJson;
     }
 
-    if (!Util.isUnset(request.signNameJson)) {
+    if (!$dara.isNull(request.signNameJson)) {
       body["SignNameJson"] = request.signNameJson;
     }
 
-    if (!Util.isUnset(request.smsUpExtendCodeJson)) {
+    if (!$dara.isNull(request.smsUpExtendCodeJson)) {
       body["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
     }
 
-    if (!Util.isUnset(request.templateParamJson)) {
+    if (!$dara.isNull(request.templateParamJson)) {
       body["TemplateParamJson"] = request.templateParamJson;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendBatchSms",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13463,7 +14856,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendBatchSmsResponse>(await this.callApi(params, req, runtime), new SendBatchSmsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendBatchSmsResponse>(await this.callApi(params, req, runtime), new SendBatchSmsResponse({}));
+    } else {
+      return $dara.cast<SendBatchSmsResponse>(await this.execute(params, req, runtime), new SendBatchSmsResponse({}));
+    }
+
   }
 
   /**
@@ -13476,7 +14874,7 @@ export default class Client extends OpenApi {
    * @returns SendBatchSmsResponse
    */
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendBatchSmsWithOptions(request, runtime);
   }
 
@@ -13493,61 +14891,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendCardSmsResponse
    */
-  async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendCardSmsResponse> {
-    Util.validateModel(request);
+  async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $dara.RuntimeOptions): Promise<SendCardSmsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cardObjects)) {
+    if (!$dara.isNull(request.cardObjects)) {
       query["CardObjects"] = request.cardObjects;
     }
 
-    if (!Util.isUnset(request.cardTemplateCode)) {
+    if (!$dara.isNull(request.cardTemplateCode)) {
       query["CardTemplateCode"] = request.cardTemplateCode;
     }
 
-    if (!Util.isUnset(request.digitalTemplateCode)) {
+    if (!$dara.isNull(request.digitalTemplateCode)) {
       query["DigitalTemplateCode"] = request.digitalTemplateCode;
     }
 
-    if (!Util.isUnset(request.digitalTemplateParam)) {
+    if (!$dara.isNull(request.digitalTemplateParam)) {
       query["DigitalTemplateParam"] = request.digitalTemplateParam;
     }
 
-    if (!Util.isUnset(request.fallbackType)) {
+    if (!$dara.isNull(request.fallbackType)) {
       query["FallbackType"] = request.fallbackType;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.smsTemplateCode)) {
+    if (!$dara.isNull(request.smsTemplateCode)) {
       query["SmsTemplateCode"] = request.smsTemplateCode;
     }
 
-    if (!Util.isUnset(request.smsTemplateParam)) {
+    if (!$dara.isNull(request.smsTemplateParam)) {
       query["SmsTemplateParam"] = request.smsTemplateParam;
     }
 
-    if (!Util.isUnset(request.smsUpExtendCode)) {
+    if (!$dara.isNull(request.smsUpExtendCode)) {
       query["SmsUpExtendCode"] = request.smsUpExtendCode;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateParam)) {
+    if (!$dara.isNull(request.templateParam)) {
       query["TemplateParam"] = request.templateParam;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendCardSms",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13558,7 +14956,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendCardSmsResponse>(await this.callApi(params, req, runtime), new SendCardSmsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendCardSmsResponse>(await this.callApi(params, req, runtime), new SendCardSmsResponse({}));
+    } else {
+      return $dara.cast<SendCardSmsResponse>(await this.execute(params, req, runtime), new SendCardSmsResponse({}));
+    }
+
   }
 
   /**
@@ -13574,7 +14977,7 @@ export default class Client extends OpenApi {
    * @returns SendCardSmsResponse
    */
   async sendCardSms(request: SendCardSmsRequest): Promise<SendCardSmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendCardSmsWithOptions(request, runtime);
   }
 
@@ -13591,49 +14994,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendSmsResponse
    */
-  async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
-    Util.validateModel(request);
+  async sendSmsWithOptions(request: SendSmsRequest, runtime: $dara.RuntimeOptions): Promise<SendSmsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumbers)) {
+    if (!$dara.isNull(request.phoneNumbers)) {
       query["PhoneNumbers"] = request.phoneNumbers;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.smsUpExtendCode)) {
+    if (!$dara.isNull(request.smsUpExtendCode)) {
       query["SmsUpExtendCode"] = request.smsUpExtendCode;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateParam)) {
+    if (!$dara.isNull(request.templateParam)) {
       query["TemplateParam"] = request.templateParam;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendSms",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13644,7 +15047,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendSmsResponse>(await this.callApi(params, req, runtime), new SendSmsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendSmsResponse>(await this.callApi(params, req, runtime), new SendSmsResponse({}));
+    } else {
+      return $dara.cast<SendSmsResponse>(await this.execute(params, req, runtime), new SendSmsResponse({}));
+    }
+
   }
 
   /**
@@ -13660,7 +15068,7 @@ export default class Client extends OpenApi {
    * @returns SendSmsResponse
    */
   async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendSmsWithOptions(request, runtime);
   }
 
@@ -13678,37 +15086,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SmsConversionIntlResponse
    */
-  async smsConversionIntlWithOptions(request: SmsConversionIntlRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionIntlResponse> {
-    Util.validateModel(request);
+  async smsConversionIntlWithOptions(request: SmsConversionIntlRequest, runtime: $dara.RuntimeOptions): Promise<SmsConversionIntlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.conversionTime)) {
+    if (!$dara.isNull(request.conversionTime)) {
       query["ConversionTime"] = request.conversionTime;
     }
 
-    if (!Util.isUnset(request.delivered)) {
+    if (!$dara.isNull(request.delivered)) {
       query["Delivered"] = request.delivered;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["MessageId"] = request.messageId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SmsConversionIntl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13719,7 +15127,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SmsConversionIntlResponse>(await this.callApi(params, req, runtime), new SmsConversionIntlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SmsConversionIntlResponse>(await this.callApi(params, req, runtime), new SmsConversionIntlResponse({}));
+    } else {
+      return $dara.cast<SmsConversionIntlResponse>(await this.execute(params, req, runtime), new SmsConversionIntlResponse({}));
+    }
+
   }
 
   /**
@@ -13736,7 +15149,7 @@ export default class Client extends OpenApi {
    * @returns SmsConversionIntlResponse
    */
   async smsConversionIntl(request: SmsConversionIntlRequest): Promise<SmsConversionIntlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.smsConversionIntlWithOptions(request, runtime);
   }
 
@@ -13751,45 +15164,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13800,7 +15213,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -13814,7 +15232,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -13829,49 +15247,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13882,7 +15300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -13896,7 +15319,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -13907,37 +15330,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateExtCodeSignResponse
    */
-  async updateExtCodeSignWithOptions(request: UpdateExtCodeSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExtCodeSignResponse> {
-    Util.validateModel(request);
+  async updateExtCodeSignWithOptions(request: UpdateExtCodeSignRequest, runtime: $dara.RuntimeOptions): Promise<UpdateExtCodeSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.existExtCode)) {
+    if (!$dara.isNull(request.existExtCode)) {
       query["ExistExtCode"] = request.existExtCode;
     }
 
-    if (!Util.isUnset(request.newExtCode)) {
+    if (!$dara.isNull(request.newExtCode)) {
       query["NewExtCode"] = request.newExtCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateExtCodeSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13948,7 +15371,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateExtCodeSignResponse>(await this.callApi(params, req, runtime), new UpdateExtCodeSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateExtCodeSignResponse>(await this.callApi(params, req, runtime), new UpdateExtCodeSignResponse({}));
+    } else {
+      return $dara.cast<UpdateExtCodeSignResponse>(await this.execute(params, req, runtime), new UpdateExtCodeSignResponse({}));
+    }
+
   }
 
   /**
@@ -13958,7 +15386,7 @@ export default class Client extends OpenApi {
    * @returns UpdateExtCodeSignResponse
    */
   async updateExtCodeSign(request: UpdateExtCodeSignRequest): Promise<UpdateExtCodeSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateExtCodeSignWithOptions(request, runtime);
   }
 
@@ -13974,63 +15402,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSmsSignResponse
    */
-  async updateSmsSignWithOptions(tmpReq: UpdateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsSignResponse> {
-    Util.validateModel(tmpReq);
+  async updateSmsSignWithOptions(tmpReq: UpdateSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSmsSignResponse> {
+    tmpReq.validate();
     let request = new UpdateSmsSignShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.moreData)) {
+    if (!$dara.isNull(tmpReq.moreData)) {
       request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.applySceneContent)) {
+    if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
 
-    if (!Util.isUnset(request.moreDataShrink)) {
+    if (!$dara.isNull(request.moreDataShrink)) {
       query["MoreData"] = request.moreDataShrink;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.qualificationId)) {
+    if (!$dara.isNull(request.qualificationId)) {
       query["QualificationId"] = request.qualificationId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.signName)) {
+    if (!$dara.isNull(request.signName)) {
       query["SignName"] = request.signName;
     }
 
-    if (!Util.isUnset(request.signSource)) {
+    if (!$dara.isNull(request.signSource)) {
       query["SignSource"] = request.signSource;
     }
 
-    if (!Util.isUnset(request.signType)) {
+    if (!$dara.isNull(request.signType)) {
       query["SignType"] = request.signType;
     }
 
-    if (!Util.isUnset(request.thirdParty)) {
+    if (!$dara.isNull(request.thirdParty)) {
       query["ThirdParty"] = request.thirdParty;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -14041,7 +15469,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSmsSignResponse>(await this.callApi(params, req, runtime), new UpdateSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSmsSignResponse>(await this.callApi(params, req, runtime), new UpdateSmsSignResponse({}));
+    } else {
+      return $dara.cast<UpdateSmsSignResponse>(await this.execute(params, req, runtime), new UpdateSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -14056,7 +15489,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSmsSignResponse
    */
   async updateSmsSign(request: UpdateSmsSignRequest): Promise<UpdateSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSmsSignWithOptions(request, runtime);
   }
 
@@ -14074,71 +15507,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSmsTemplateResponse
    */
-  async updateSmsTemplateWithOptions(tmpReq: UpdateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async updateSmsTemplateWithOptions(tmpReq: UpdateSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSmsTemplateResponse> {
+    tmpReq.validate();
     let request = new UpdateSmsTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.moreData)) {
+    if (!$dara.isNull(tmpReq.moreData)) {
       request.moreDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.moreData, "MoreData", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.applySceneContent)) {
+    if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
 
-    if (!Util.isUnset(request.intlType)) {
+    if (!$dara.isNull(request.intlType)) {
       query["IntlType"] = request.intlType;
     }
 
-    if (!Util.isUnset(request.moreDataShrink)) {
+    if (!$dara.isNull(request.moreDataShrink)) {
       query["MoreData"] = request.moreDataShrink;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.relatedSignName)) {
+    if (!$dara.isNull(request.relatedSignName)) {
       query["RelatedSignName"] = request.relatedSignName;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateContent)) {
+    if (!$dara.isNull(request.templateContent)) {
       query["TemplateContent"] = request.templateContent;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateRule)) {
+    if (!$dara.isNull(request.templateRule)) {
       query["TemplateRule"] = request.templateRule;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSmsTemplate",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -14149,7 +15582,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSmsTemplateResponse>(await this.callApi(params, req, runtime), new UpdateSmsTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSmsTemplateResponse>(await this.callApi(params, req, runtime), new UpdateSmsTemplateResponse({}));
+    } else {
+      return $dara.cast<UpdateSmsTemplateResponse>(await this.execute(params, req, runtime), new UpdateSmsTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -14166,7 +15604,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSmsTemplateResponse
    */
   async updateSmsTemplate(request: UpdateSmsTemplateRequest): Promise<UpdateSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSmsTemplateWithOptions(request, runtime);
   }
 
