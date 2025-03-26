@@ -616,6 +616,368 @@ export class CreateCdsFileResponseBodyFileModel extends $dara.Model {
   }
 }
 
+export class CreateCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 10.0.XX.XX/8
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @example
+   * inflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestClientType extends $dara.Model {
+  /**
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @example
+   * off
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @example
+   * camera
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDeviceRules extends $dara.Model {
+  /**
+   * @example
+   * sandisk
+   */
+  deviceName?: string;
+  /**
+   * @example
+   * 0x55b1
+   */
+  devicePid?: string;
+  /**
+   * @example
+   * storage
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * 0x0781
+   */
+  deviceVid?: string;
+  /**
+   * @example
+   * 2:0
+   */
+  optCommand?: string;
+  /**
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestDomainResolveRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * allow
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestNetRedirectRule extends $dara.Model {
+  /**
+   * @example
+   * *.taobao.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * allow
+   */
+  policy?: string;
+  /**
+   * @example
+   * domain
+   */
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+      ruleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 08**
+   */
+  productId?: string;
+  /**
+   * @example
+   * 1
+   */
+  usbRedirectType?: string;
+  /**
+   * @example
+   * 2
+   */
+  usbRuleType?: string;
+  /**
+   * @example
+   * 04**
+   */
+  vendorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      productId: 'ProductId',
+      usbRedirectType: 'UsbRedirectType',
+      usbRuleType: 'UsbRuleType',
+      vendorId: 'VendorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      productId: 'string',
+      usbRedirectType: 'string',
+      usbRuleType: 'string',
+      vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds extends $dara.Model {
   cdsId?: string;
   regionId?: string;
@@ -3381,6 +3743,1057 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * tcp
+   */
+  ipProtocol?: string;
+  /**
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @example
+   * inflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes extends $dara.Model {
+  /**
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects extends $dara.Model {
+  /**
+   * @example
+   * camera
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules extends $dara.Model {
+  /**
+   * @example
+   * sandisk
+   */
+  deviceName?: string;
+  /**
+   * @example
+   * 0x55b1
+   */
+  devicePid?: string;
+  /**
+   * @example
+   * storage
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * 0x0781
+   */
+  deviceVid?: string;
+  /**
+   * @example
+   * 2:0
+   */
+  optCommand?: string;
+  /**
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * allow
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule extends $dara.Model {
+  /**
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * allow
+   */
+  policy?: string;
+  /**
+   * @example
+   * domain
+   */
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+      ruleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 08**
+   */
+  productId?: string;
+  /**
+   * @example
+   * 1
+   */
+  usbRedirectType?: number;
+  /**
+   * @example
+   * 1
+   */
+  usbRuleType?: number;
+  /**
+   * @example
+   * 04**
+   */
+  vendorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      productId: 'ProductId',
+      usbRedirectType: 'UsbRedirectType',
+      usbRuleType: 'UsbRuleType',
+      vendorId: 'VendorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      productId: 'string',
+      usbRedirectType: 'number',
+      usbRuleType: 'number',
+      vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $dara.Model {
+  /**
+   * @example
+   * deny
+   */
+  adminAccess?: string;
+  /**
+   * @example
+   * off
+   */
+  appContentProtection?: string;
+  authorizeAccessPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules[];
+  authorizeSecurityPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
+  /**
+   * @example
+   * on
+   */
+  cameraRedirect?: string;
+  clientTypes?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes[];
+  /**
+   * @example
+   * off
+   */
+  clipboard?: string;
+  /**
+   * @example
+   * off
+   */
+  colorEnhancement?: string;
+  /**
+   * @example
+   * 30
+   */
+  cpuDownGradeDuration?: number;
+  cpuProcessors?: string[];
+  /**
+   * @example
+   * on
+   */
+  cpuProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  cpuRateLimit?: number;
+  /**
+   * @example
+   * 10
+   */
+  cpuSampleDuration?: number;
+  /**
+   * @example
+   * 70
+   */
+  cpuSingleRateLimit?: number;
+  /**
+   * @example
+   * 1
+   */
+  desktopCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  desktopGroupCount?: number;
+  deviceRedirects?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects[];
+  deviceRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules[];
+  /**
+   * @example
+   * persistent
+   */
+  disconnectKeepSession?: string;
+  /**
+   * @example
+   * 120
+   */
+  disconnectKeepSessionTime?: number;
+  /**
+   * @example
+   * adminCustom
+   */
+  displayMode?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  domainRegisterValue?: string;
+  domainResolveRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule[];
+  /**
+   * @example
+   * on
+   */
+  domainResolveRuleType?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserApplyAdminCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserGroupCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  gpuAcceleration?: string;
+  /**
+   * @example
+   * off
+   */
+  html5Access?: string;
+  /**
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @example
+   * tcp
+   */
+  internetCommunicationProtocol?: string;
+  /**
+   * @example
+   * readwrite
+   */
+  localDrive?: string;
+  /**
+   * @example
+   * 120
+   */
+  maxReconnectTime?: number;
+  /**
+   * @example
+   * 30
+   */
+  memoryDownGradeDuration?: number;
+  memoryProcessors?: string[];
+  /**
+   * @example
+   * off
+   */
+  memoryProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  memoryRateLimit?: number;
+  /**
+   * @example
+   * 30
+   */
+  memorySampleDuration?: number;
+  /**
+   * @example
+   * 30
+   */
+  memorySingleRateLimit?: number;
+  /**
+   * @example
+   * off
+   */
+  mobileRestart?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileShutdown?: string;
+  /**
+   * @example
+   * testPolicyGroupName
+   */
+  name?: string;
+  /**
+   * @example
+   * off
+   */
+  netRedirect?: string;
+  netRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule[];
+  /**
+   * @example
+   * off
+   */
+  noOperationDisconnect?: string;
+  /**
+   * @example
+   * 120
+   */
+  noOperationDisconnectTime?: number;
+  /**
+   * @example
+   * pg-gx2x1dhsmthe9****
+   */
+  policyGroupId?: string;
+  /**
+   * @example
+   * SYSTEM
+   */
+  policyGroupType?: string;
+  /**
+   * @example
+   * AVAILABLE
+   */
+  policyStatus?: string;
+  /**
+   * @example
+   * off
+   */
+  printerRedirection?: string;
+  /**
+   * @example
+   * off
+   */
+  qualityEnhancement?: string;
+  /**
+   * @example
+   * off
+   */
+  recordContent?: string;
+  /**
+   * @example
+   * 30
+   */
+  recordContentExpires?: number;
+  /**
+   * @example
+   * 10
+   */
+  recordEventDuration?: number;
+  recordEventFilePaths?: string[];
+  recordEventRegisters?: string[];
+  /**
+   * @example
+   * off
+   */
+  recording?: string;
+  /**
+   * @example
+   * on
+   */
+  recordingAudio?: string;
+  /**
+   * @example
+   * 10
+   */
+  recordingDuration?: number;
+  /**
+   * @example
+   * 08:59:00
+   */
+  recordingEndTime?: string;
+  /**
+   * @example
+   * 15
+   */
+  recordingExpires?: number;
+  /**
+   * @example
+   * 5
+   */
+  recordingFps?: number;
+  /**
+   * @example
+   * 08:00:00
+   */
+  recordingStartTime?: string;
+  /**
+   * @example
+   * off
+   */
+  recordingUserNotify?: string;
+  recordingUserNotifyMessage?: string;
+  /**
+   * @example
+   * fullControl
+   */
+  remoteCoordinate?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * adaptive
+   */
+  resolutionModel?: string;
+  /**
+   * @example
+   * 1920
+   */
+  resolutionWidth?: number;
+  /**
+   * @example
+   * 1
+   */
+  resourceGroupCount?: number;
+  /**
+   * @example
+   * GLOBAL
+   */
+  scope?: string;
+  scopeValue?: string[];
+  /**
+   * @example
+   * off
+   */
+  smoothEnhancement?: string;
+  /**
+   * @example
+   * on
+   */
+  statusMonitor?: string;
+  /**
+   * @example
+   * smooth
+   */
+  streamingMode?: string;
+  /**
+   * @example
+   * 30
+   */
+  targetFps?: number;
+  /**
+   * @example
+   * off
+   */
+  taskbar?: string;
+  /**
+   * @example
+   * off
+   */
+  usbRedirect?: string;
+  usbSupplyRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  /**
+   * @example
+   * 1000
+   */
+  videoEncAvgKbps?: number;
+  /**
+   * @example
+   * 20
+   */
+  videoEncMaxQP?: number;
+  /**
+   * @example
+   * 20
+   */
+  videoEncMinQP?: number;
+  /**
+   * @example
+   * 2000
+   */
+  videoEncPeakKbps?: number;
+  /**
+   * @example
+   * qualityFirst
+   */
+  videoEncPolicy?: string;
+  /**
+   * @example
+   * off
+   */
+  videoRedirect?: string;
+  /**
+   * @example
+   * medium
+   */
+  visualQuality?: string;
+  /**
+   * @example
+   * on
+   */
+  watermark?: string;
+  /**
+   * @example
+   * off
+   */
+  watermarkAntiCam?: string;
+  /**
+   * @example
+   * 0
+   */
+  watermarkColor?: number;
+  /**
+   * @example
+   * custom-watermark
+   */
+  watermarkCustomText?: string;
+  /**
+   * @example
+   * -10
+   */
+  watermarkDegree?: number;
+  /**
+   * @example
+   * 10
+   */
+  watermarkFontSize?: number;
+  /**
+   * @example
+   * plain
+   */
+  watermarkFontStyle?: string;
+  /**
+   * @example
+   * medium
+   */
+  watermarkPower?: string;
+  /**
+   * @example
+   * 3
+   */
+  watermarkRowAmount?: number;
+  /**
+   * @example
+   * on
+   */
+  watermarkSecurity?: string;
+  /**
+   * @example
+   * 10
+   */
+  watermarkTransparencyValue?: number;
+  /**
+   * @example
+   * EndUserId
+   */
+  watermarkType?: string;
+  /**
+   * @example
+   * on
+   */
+  wyAssistant?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adminAccess: 'AdminAccess',
+      appContentProtection: 'AppContentProtection',
+      authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
+      authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
+      cameraRedirect: 'CameraRedirect',
+      clientTypes: 'ClientTypes',
+      clipboard: 'Clipboard',
+      colorEnhancement: 'ColorEnhancement',
+      cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuProcessors: 'CpuProcessors',
+      cpuProtectedMode: 'CpuProtectedMode',
+      cpuRateLimit: 'CpuRateLimit',
+      cpuSampleDuration: 'CpuSampleDuration',
+      cpuSingleRateLimit: 'CpuSingleRateLimit',
+      desktopCount: 'DesktopCount',
+      desktopGroupCount: 'DesktopGroupCount',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
+      disconnectKeepSession: 'DisconnectKeepSession',
+      disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      displayMode: 'DisplayMode',
+      domainRegisterValue: 'DomainRegisterValue',
+      domainResolveRule: 'DomainResolveRule',
+      domainResolveRuleType: 'DomainResolveRuleType',
+      endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      gpuAcceleration: 'GpuAcceleration',
+      html5Access: 'Html5Access',
+      html5FileTransfer: 'Html5FileTransfer',
+      internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
+      memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryProcessors: 'MemoryProcessors',
+      memoryProtectedMode: 'MemoryProtectedMode',
+      memoryRateLimit: 'MemoryRateLimit',
+      memorySampleDuration: 'MemorySampleDuration',
+      memorySingleRateLimit: 'MemorySingleRateLimit',
+      mobileRestart: 'MobileRestart',
+      mobileShutdown: 'MobileShutdown',
+      name: 'Name',
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+      noOperationDisconnect: 'NoOperationDisconnect',
+      noOperationDisconnectTime: 'NoOperationDisconnectTime',
+      policyGroupId: 'PolicyGroupId',
+      policyGroupType: 'PolicyGroupType',
+      policyStatus: 'PolicyStatus',
+      printerRedirection: 'PrinterRedirection',
+      qualityEnhancement: 'QualityEnhancement',
+      recordContent: 'RecordContent',
+      recordContentExpires: 'RecordContentExpires',
+      recordEventDuration: 'RecordEventDuration',
+      recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventRegisters: 'RecordEventRegisters',
+      recording: 'Recording',
+      recordingAudio: 'RecordingAudio',
+      recordingDuration: 'RecordingDuration',
+      recordingEndTime: 'RecordingEndTime',
+      recordingExpires: 'RecordingExpires',
+      recordingFps: 'RecordingFps',
+      recordingStartTime: 'RecordingStartTime',
+      recordingUserNotify: 'RecordingUserNotify',
+      recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
+      remoteCoordinate: 'RemoteCoordinate',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionModel: 'ResolutionModel',
+      resolutionWidth: 'ResolutionWidth',
+      resourceGroupCount: 'ResourceGroupCount',
+      scope: 'Scope',
+      scopeValue: 'ScopeValue',
+      smoothEnhancement: 'SmoothEnhancement',
+      statusMonitor: 'StatusMonitor',
+      streamingMode: 'StreamingMode',
+      targetFps: 'TargetFps',
+      taskbar: 'Taskbar',
+      usbRedirect: 'UsbRedirect',
+      usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      videoEncAvgKbps: 'VideoEncAvgKbps',
+      videoEncMaxQP: 'VideoEncMaxQP',
+      videoEncMinQP: 'VideoEncMinQP',
+      videoEncPeakKbps: 'VideoEncPeakKbps',
+      videoEncPolicy: 'VideoEncPolicy',
+      videoRedirect: 'VideoRedirect',
+      visualQuality: 'VisualQuality',
+      watermark: 'Watermark',
+      watermarkAntiCam: 'WatermarkAntiCam',
+      watermarkColor: 'WatermarkColor',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkDegree: 'WatermarkDegree',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkFontStyle: 'WatermarkFontStyle',
+      watermarkPower: 'WatermarkPower',
+      watermarkRowAmount: 'WatermarkRowAmount',
+      watermarkSecurity: 'WatermarkSecurity',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkType: 'WatermarkType',
+      wyAssistant: 'WyAssistant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminAccess: 'string',
+      appContentProtection: 'string',
+      authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
+      authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
+      cameraRedirect: 'string',
+      clientTypes: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes },
+      clipboard: 'string',
+      colorEnhancement: 'string',
+      cpuDownGradeDuration: 'number',
+      cpuProcessors: { 'type': 'array', 'itemType': 'string' },
+      cpuProtectedMode: 'string',
+      cpuRateLimit: 'number',
+      cpuSampleDuration: 'number',
+      cpuSingleRateLimit: 'number',
+      desktopCount: 'number',
+      desktopGroupCount: 'number',
+      deviceRedirects: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules },
+      disconnectKeepSession: 'string',
+      disconnectKeepSessionTime: 'number',
+      displayMode: 'string',
+      domainRegisterValue: 'string',
+      domainResolveRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule },
+      domainResolveRuleType: 'string',
+      endUserApplyAdminCoordinate: 'string',
+      endUserGroupCoordinate: 'string',
+      gpuAcceleration: 'string',
+      html5Access: 'string',
+      html5FileTransfer: 'string',
+      internetCommunicationProtocol: 'string',
+      localDrive: 'string',
+      maxReconnectTime: 'number',
+      memoryDownGradeDuration: 'number',
+      memoryProcessors: { 'type': 'array', 'itemType': 'string' },
+      memoryProtectedMode: 'string',
+      memoryRateLimit: 'number',
+      memorySampleDuration: 'number',
+      memorySingleRateLimit: 'number',
+      mobileRestart: 'string',
+      mobileShutdown: 'string',
+      name: 'string',
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule },
+      noOperationDisconnect: 'string',
+      noOperationDisconnectTime: 'number',
+      policyGroupId: 'string',
+      policyGroupType: 'string',
+      policyStatus: 'string',
+      printerRedirection: 'string',
+      qualityEnhancement: 'string',
+      recordContent: 'string',
+      recordContentExpires: 'number',
+      recordEventDuration: 'number',
+      recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
+      recording: 'string',
+      recordingAudio: 'string',
+      recordingDuration: 'number',
+      recordingEndTime: 'string',
+      recordingExpires: 'number',
+      recordingFps: 'number',
+      recordingStartTime: 'string',
+      recordingUserNotify: 'string',
+      recordingUserNotifyMessage: 'string',
+      remoteCoordinate: 'string',
+      resolutionHeight: 'number',
+      resolutionModel: 'string',
+      resolutionWidth: 'number',
+      resourceGroupCount: 'number',
+      scope: 'string',
+      scopeValue: { 'type': 'array', 'itemType': 'string' },
+      smoothEnhancement: 'string',
+      statusMonitor: 'string',
+      streamingMode: 'string',
+      targetFps: 'number',
+      taskbar: 'string',
+      usbRedirect: 'string',
+      usbSupplyRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule },
+      videoEncAvgKbps: 'number',
+      videoEncMaxQP: 'number',
+      videoEncMinQP: 'number',
+      videoEncPeakKbps: 'number',
+      videoEncPolicy: 'string',
+      videoRedirect: 'string',
+      visualQuality: 'string',
+      watermark: 'string',
+      watermarkAntiCam: 'string',
+      watermarkColor: 'number',
+      watermarkCustomText: 'string',
+      watermarkDegree: 'number',
+      watermarkFontSize: 'number',
+      watermarkFontStyle: 'string',
+      watermarkPower: 'string',
+      watermarkRowAmount: 'number',
+      watermarkSecurity: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkType: 'string',
+      wyAssistant: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeAccessPolicyRules)) {
+      $dara.Model.validateArray(this.authorizeAccessPolicyRules);
+    }
+    if(Array.isArray(this.authorizeSecurityPolicyRules)) {
+      $dara.Model.validateArray(this.authorizeSecurityPolicyRules);
+    }
+    if(Array.isArray(this.clientTypes)) {
+      $dara.Model.validateArray(this.clientTypes);
+    }
+    if(Array.isArray(this.cpuProcessors)) {
+      $dara.Model.validateArray(this.cpuProcessors);
+    }
+    if(Array.isArray(this.deviceRedirects)) {
+      $dara.Model.validateArray(this.deviceRedirects);
+    }
+    if(Array.isArray(this.deviceRules)) {
+      $dara.Model.validateArray(this.deviceRules);
+    }
+    if(Array.isArray(this.domainResolveRule)) {
+      $dara.Model.validateArray(this.domainResolveRule);
+    }
+    if(Array.isArray(this.memoryProcessors)) {
+      $dara.Model.validateArray(this.memoryProcessors);
+    }
+    if(Array.isArray(this.netRedirectRule)) {
+      $dara.Model.validateArray(this.netRedirectRule);
+    }
+    if(Array.isArray(this.recordEventFilePaths)) {
+      $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventRegisters)) {
+      $dara.Model.validateArray(this.recordEventRegisters);
+    }
+    if(Array.isArray(this.scopeValue)) {
+      $dara.Model.validateArray(this.scopeValue);
+    }
+    if(Array.isArray(this.usbSupplyRedirectRule)) {
+      $dara.Model.validateArray(this.usbSupplyRedirectRule);
     }
     super.validate();
   }
@@ -13982,6 +15395,181 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
   }
 }
 
+export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList extends $dara.Model {
+  /**
+   * @example
+   * 18
+   */
+  appId?: string;
+  /**
+   * @example
+   * alipic-powergem
+   */
+  appName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList extends $dara.Model {
+  appModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList[];
+  /**
+   * @example
+   * 64
+   */
+  cpu?: number;
+  /**
+   * @example
+   * eds.enterprise_office.8c32g
+   */
+  desktopType?: string;
+  /**
+   * @example
+   * 0.125
+   */
+  gpuCount?: number;
+  /**
+   * @example
+   * 2GiB
+   */
+  gpuSpec?: string;
+  /**
+   * @example
+   * 10240
+   */
+  memory?: number;
+  /**
+   * @example
+   * Linux
+   */
+  osType?: string;
+  /**
+   * @example
+   * postPaid
+   */
+  payType?: string;
+  /**
+   * @example
+   * desktop
+   */
+  productType?: string;
+  /**
+   * @example
+   * ASP
+   */
+  protocolType?: string;
+  /**
+   * @example
+   * rg-d7pasxsd3b9nhq**
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * test
+   */
+  resourceGroupName?: string;
+  /**
+   * @example
+   * 10
+   */
+  resourceGroupRelCount?: number;
+  /**
+   * @example
+   * ecd-7o96aa08fr****
+   */
+  resourceId?: string;
+  resourceName?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  resourceRegionId?: string;
+  /**
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * Stopped
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appModelList: 'AppModelList',
+      cpu: 'Cpu',
+      desktopType: 'DesktopType',
+      gpuCount: 'GpuCount',
+      gpuSpec: 'GpuSpec',
+      memory: 'Memory',
+      osType: 'OsType',
+      payType: 'PayType',
+      productType: 'ProductType',
+      protocolType: 'ProtocolType',
+      resourceGroupId: 'ResourceGroupId',
+      resourceGroupName: 'ResourceGroupName',
+      resourceGroupRelCount: 'ResourceGroupRelCount',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appModelList: { 'type': 'array', 'itemType': DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList },
+      cpu: 'number',
+      desktopType: 'string',
+      gpuCount: 'number',
+      gpuSpec: 'string',
+      memory: 'number',
+      osType: 'string',
+      payType: 'string',
+      productType: 'string',
+      protocolType: 'string',
+      resourceGroupId: 'string',
+      resourceGroupName: 'string',
+      resourceGroupRelCount: 'number',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appModelList)) {
+      $dara.Model.validateArray(this.appModelList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSessionStatisticResponseBodyStatistic extends $dara.Model {
   /**
    * @remarks
@@ -17305,6 +18893,471 @@ export class ListUserAdOrganizationUnitsResponseBodyOUNames extends $dara.Model 
   }
 }
 
+export class ModifyCenterPolicyRequestAuthorizeAccessPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @example
+   * inflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestClientType extends $dara.Model {
+  /**
+   * @example
+   * android
+   */
+  clientType?: string;
+  /**
+   * @example
+   * off
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @example
+   * camera
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * deviceRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
+  /**
+   * @example
+   * sandisk
+   */
+  deviceName?: string;
+  /**
+   * @example
+   * 0x55b1
+   */
+  devicePid?: string;
+  /**
+   * @example
+   * storage
+   */
+  deviceType?: string;
+  /**
+   * @example
+   * 0x0781
+   */
+  deviceVid?: string;
+  /**
+   * @example
+   * 2:0
+   */
+  optCommand?: string;
+  /**
+   * @example
+   * usbRedirect
+   */
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestDomainResolveRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * *.example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * allow
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      domain: 'Domain',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      domain: 'string',
+      policy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestNetRedirectRule extends $dara.Model {
+  /**
+   * @example
+   * *.taobao.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * Allow
+   */
+  policy?: string;
+  /**
+   * @example
+   * domain
+   */
+  ruleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      policy: 'Policy',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      policy: 'string',
+      ruleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestRevokeAccessPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestRevokeSecurityPolicyRule extends $dara.Model {
+  /**
+   * @example
+   * 47.100.XX.XX/16
+   */
+  cidrIp?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @example
+   * accept
+   */
+  policy?: string;
+  /**
+   * @example
+   * 22/22
+   */
+  portRange?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @example
+   * outflow
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrIp: 'CidrIp',
+      description: 'Description',
+      ipProtocol: 'IpProtocol',
+      policy: 'Policy',
+      portRange: 'PortRange',
+      priority: 'Priority',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrIp: 'string',
+      description: 'string',
+      ipProtocol: 'string',
+      policy: 'string',
+      portRange: 'string',
+      priority: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 08**
+   */
+  productId?: string;
+  /**
+   * @example
+   * 1
+   */
+  usbRedirectType?: string;
+  /**
+   * @example
+   * 1
+   */
+  usbRuleType?: string;
+  /**
+   * @example
+   * 04**
+   */
+  vendorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      productId: 'ProductId',
+      usbRedirectType: 'UsbRedirectType',
+      usbRuleType: 'UsbRuleType',
+      vendorId: 'VendorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      productId: 'string',
+      usbRedirectType: 'string',
+      usbRuleType: 'string',
+      vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCustomizedListHeadersRequestHeaders extends $dara.Model {
   /**
    * @remarks
@@ -18535,6 +20588,40 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
       usbRedirectType: 'number',
       usbRuleType: 'number',
       vendorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResourceCenterPolicyResponseBodyModifyResults extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  checkResult?: boolean;
+  /**
+   * @example
+   * ecd-e254cpyt9bb*****
+   */
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkResult: 'CheckResult',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkResult: 'boolean',
+      resourceId: 'string',
     };
   }
 
@@ -22249,6 +24336,145 @@ export class CancelCopyImageResponse extends $dara.Model {
   }
 }
 
+export class CloneCenterPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testPolicyGroupName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-gx2x1dhsmthe9****
+   */
+  policyGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      name: 'Name',
+      policyGroupId: 'PolicyGroupId',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'number',
+      name: 'string',
+      policyGroupId: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneCenterPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pg-gx2x1dhsmthe9****
+   */
+  policyGroupId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyGroupId: 'PolicyGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneCenterPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneCenterPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneCenterPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClonePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
@@ -25368,6 +27594,782 @@ export class CreateCdsFileShareLinkResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateCdsFileShareLinkResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyRequest extends $dara.Model {
+  /**
+   * @example
+   * deny
+   */
+  adminAccess?: string;
+  /**
+   * @example
+   * off
+   */
+  appContentProtection?: string;
+  authorizeAccessPolicyRule?: CreateCenterPolicyRequestAuthorizeAccessPolicyRule[];
+  authorizeSecurityPolicyRule?: CreateCenterPolicyRequestAuthorizeSecurityPolicyRule[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @example
+   * off
+   */
+  cameraRedirect?: string;
+  clientType?: CreateCenterPolicyRequestClientType[];
+  /**
+   * @example
+   * off
+   */
+  clipboard?: string;
+  /**
+   * @example
+   * off
+   */
+  colorEnhancement?: string;
+  /**
+   * @example
+   * 30
+   */
+  cpuDownGradeDuration?: number;
+  cpuProcessors?: string[];
+  /**
+   * @example
+   * off
+   */
+  cpuProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  cpuRateLimit?: number;
+  /**
+   * @example
+   * 60
+   */
+  cpuSampleDuration?: number;
+  /**
+   * @example
+   * 70
+   */
+  cpuSingleRateLimit?: number;
+  /**
+   * @example
+   * off
+   */
+  deviceConnectHint?: string;
+  deviceRedirects?: CreateCenterPolicyRequestDeviceRedirects[];
+  deviceRules?: CreateCenterPolicyRequestDeviceRules[];
+  /**
+   * @example
+   * customTime
+   */
+  disconnectKeepSession?: string;
+  /**
+   * @example
+   * 30
+   */
+  disconnectKeepSessionTime?: number;
+  /**
+   * @example
+   * clientCustom
+   */
+  displayMode?: string;
+  domainResolveRule?: CreateCenterPolicyRequestDomainResolveRule[];
+  /**
+   * @example
+   * off
+   */
+  domainResolveRuleType?: string;
+  /**
+   * @example
+   * off
+   */
+  enableSessionRateLimiting?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserApplyAdminCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserGroupCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  fileMigrate?: string;
+  /**
+   * @example
+   * off
+   */
+  gpuAcceleration?: string;
+  /**
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @example
+   * both
+   */
+  internetCommunicationProtocol?: string;
+  /**
+   * @example
+   * off
+   */
+  localDrive?: string;
+  /**
+   * @example
+   * 120
+   */
+  maxReconnectTime?: number;
+  /**
+   * @example
+   * 40
+   */
+  memoryDownGradeDuration?: number;
+  memoryProcessors?: string[];
+  /**
+   * @example
+   * off
+   */
+  memoryProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  memoryRateLimit?: number;
+  /**
+   * @example
+   * 40
+   */
+  memorySampleDuration?: number;
+  /**
+   * @example
+   * 40
+   */
+  memorySingleRateLimit?: number;
+  /**
+   * @example
+   * off
+   */
+  mobileRestart?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileShutdown?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testPolicyGroupName
+   */
+  name?: string;
+  /**
+   * @example
+   * off
+   */
+  netRedirect?: string;
+  netRedirectRule?: CreateCenterPolicyRequestNetRedirectRule[];
+  /**
+   * @example
+   * off
+   */
+  noOperationDisconnect?: string;
+  /**
+   * @example
+   * 120
+   */
+  noOperationDisconnectTime?: number;
+  /**
+   * @example
+   * off
+   */
+  printerRedirect?: string;
+  /**
+   * @example
+   * off
+   */
+  qualityEnhancement?: string;
+  /**
+   * @example
+   * 10
+   */
+  recordEventDuration?: number;
+  recordEventFilePaths?: string[];
+  recordEventRegisters?: string[];
+  recordEvents?: string[];
+  /**
+   * @example
+   * off
+   */
+  recording?: string;
+  /**
+   * @example
+   * on
+   */
+  recordingAudio?: string;
+  /**
+   * @example
+   * 10
+   */
+  recordingDuration?: number;
+  /**
+   * @example
+   * 08:59:00
+   */
+  recordingEndTime?: string;
+  /**
+   * @example
+   * 15
+   */
+  recordingExpires?: number;
+  /**
+   * @example
+   * 2
+   */
+  recordingFps?: string;
+  /**
+   * @example
+   * 08:00:00
+   */
+  recordingStartTime?: string;
+  /**
+   * @example
+   * off
+   */
+  recordingUserNotify?: string;
+  recordingUserNotifyMessage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * fullControl
+   */
+  remoteCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  resetDesktop?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * adaptive
+   */
+  resolutionModel?: string;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * GLOBAL
+   */
+  scope?: string;
+  scopeValue?: string[];
+  /**
+   * @example
+   * 2000
+   */
+  sessionMaxRateKbps?: number;
+  /**
+   * @example
+   * off
+   */
+  smoothEnhancement?: string;
+  /**
+   * @example
+   * off
+   */
+  statusMonitor?: string;
+  /**
+   * @example
+   * smooth
+   */
+  streamingMode?: string;
+  /**
+   * @example
+   * 30
+   */
+  targetFps?: number;
+  /**
+   * @example
+   * off
+   */
+  taskbar?: string;
+  /**
+   * @example
+   * off
+   */
+  usbRedirect?: string;
+  usbSupplyRedirectRule?: CreateCenterPolicyRequestUsbSupplyRedirectRule[];
+  /**
+   * @example
+   * 2000
+   */
+  videoEncAvgKbps?: number;
+  /**
+   * @example
+   * 30
+   */
+  videoEncMaxQP?: number;
+  /**
+   * @example
+   * 30
+   */
+  videoEncMinQP?: number;
+  /**
+   * @example
+   * 2000
+   */
+  videoEncPeakKbps?: number;
+  /**
+   * @example
+   * qualityFirst
+   */
+  videoEncPolicy?: string;
+  /**
+   * @example
+   * on
+   */
+  videoRedirect?: string;
+  /**
+   * @example
+   * low
+   */
+  visualQuality?: string;
+  /**
+   * @example
+   * off
+   */
+  watermark?: string;
+  /**
+   * @example
+   * off
+   */
+  watermarkAntiCam?: string;
+  /**
+   * @example
+   * 0
+   */
+  watermarkColor?: number;
+  /**
+   * @example
+   * 3
+   */
+  watermarkColumnAmount?: number;
+  /**
+   * @example
+   * test
+   */
+  watermarkCustomText?: string;
+  /**
+   * @example
+   * -10
+   */
+  watermarkDegree?: number;
+  /**
+   * @example
+   * 10
+   */
+  watermarkFontSize?: number;
+  /**
+   * @example
+   * plain
+   */
+  watermarkFontStyle?: string;
+  /**
+   * @example
+   * medium
+   */
+  watermarkPower?: string;
+  /**
+   * @example
+   * 3
+   */
+  watermarkRowAmount?: number;
+  /**
+   * @example
+   * on
+   */
+  watermarkSecurity?: string;
+  /**
+   * @example
+   * 10
+   */
+  watermarkTransparencyValue?: number;
+  /**
+   * @example
+   * EndUserId,HostName,ClientTime
+   */
+  watermarkType?: string;
+  /**
+   * @example
+   * off
+   */
+  wuyingKeeper?: string;
+  /**
+   * @example
+   * on
+   */
+  wyAssistant?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adminAccess: 'AdminAccess',
+      appContentProtection: 'AppContentProtection',
+      authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
+      authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
+      businessType: 'BusinessType',
+      cameraRedirect: 'CameraRedirect',
+      clientType: 'ClientType',
+      clipboard: 'Clipboard',
+      colorEnhancement: 'ColorEnhancement',
+      cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuProcessors: 'CpuProcessors',
+      cpuProtectedMode: 'CpuProtectedMode',
+      cpuRateLimit: 'CpuRateLimit',
+      cpuSampleDuration: 'CpuSampleDuration',
+      cpuSingleRateLimit: 'CpuSingleRateLimit',
+      deviceConnectHint: 'DeviceConnectHint',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
+      disconnectKeepSession: 'DisconnectKeepSession',
+      disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      displayMode: 'DisplayMode',
+      domainResolveRule: 'DomainResolveRule',
+      domainResolveRuleType: 'DomainResolveRuleType',
+      enableSessionRateLimiting: 'EnableSessionRateLimiting',
+      endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      fileMigrate: 'FileMigrate',
+      gpuAcceleration: 'GpuAcceleration',
+      html5FileTransfer: 'Html5FileTransfer',
+      internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
+      memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryProcessors: 'MemoryProcessors',
+      memoryProtectedMode: 'MemoryProtectedMode',
+      memoryRateLimit: 'MemoryRateLimit',
+      memorySampleDuration: 'MemorySampleDuration',
+      memorySingleRateLimit: 'MemorySingleRateLimit',
+      mobileRestart: 'MobileRestart',
+      mobileShutdown: 'MobileShutdown',
+      name: 'Name',
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+      noOperationDisconnect: 'NoOperationDisconnect',
+      noOperationDisconnectTime: 'NoOperationDisconnectTime',
+      printerRedirect: 'PrinterRedirect',
+      qualityEnhancement: 'QualityEnhancement',
+      recordEventDuration: 'RecordEventDuration',
+      recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventRegisters: 'RecordEventRegisters',
+      recordEvents: 'RecordEvents',
+      recording: 'Recording',
+      recordingAudio: 'RecordingAudio',
+      recordingDuration: 'RecordingDuration',
+      recordingEndTime: 'RecordingEndTime',
+      recordingExpires: 'RecordingExpires',
+      recordingFps: 'RecordingFps',
+      recordingStartTime: 'RecordingStartTime',
+      recordingUserNotify: 'RecordingUserNotify',
+      recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
+      regionId: 'RegionId',
+      remoteCoordinate: 'RemoteCoordinate',
+      resetDesktop: 'ResetDesktop',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionModel: 'ResolutionModel',
+      resolutionWidth: 'ResolutionWidth',
+      resourceType: 'ResourceType',
+      scope: 'Scope',
+      scopeValue: 'ScopeValue',
+      sessionMaxRateKbps: 'SessionMaxRateKbps',
+      smoothEnhancement: 'SmoothEnhancement',
+      statusMonitor: 'StatusMonitor',
+      streamingMode: 'StreamingMode',
+      targetFps: 'TargetFps',
+      taskbar: 'Taskbar',
+      usbRedirect: 'UsbRedirect',
+      usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      videoEncAvgKbps: 'VideoEncAvgKbps',
+      videoEncMaxQP: 'VideoEncMaxQP',
+      videoEncMinQP: 'VideoEncMinQP',
+      videoEncPeakKbps: 'VideoEncPeakKbps',
+      videoEncPolicy: 'VideoEncPolicy',
+      videoRedirect: 'VideoRedirect',
+      visualQuality: 'VisualQuality',
+      watermark: 'Watermark',
+      watermarkAntiCam: 'WatermarkAntiCam',
+      watermarkColor: 'WatermarkColor',
+      watermarkColumnAmount: 'WatermarkColumnAmount',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkDegree: 'WatermarkDegree',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkFontStyle: 'WatermarkFontStyle',
+      watermarkPower: 'WatermarkPower',
+      watermarkRowAmount: 'WatermarkRowAmount',
+      watermarkSecurity: 'WatermarkSecurity',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkType: 'WatermarkType',
+      wuyingKeeper: 'WuyingKeeper',
+      wyAssistant: 'WyAssistant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminAccess: 'string',
+      appContentProtection: 'string',
+      authorizeAccessPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeAccessPolicyRule },
+      authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeSecurityPolicyRule },
+      businessType: 'number',
+      cameraRedirect: 'string',
+      clientType: { 'type': 'array', 'itemType': CreateCenterPolicyRequestClientType },
+      clipboard: 'string',
+      colorEnhancement: 'string',
+      cpuDownGradeDuration: 'number',
+      cpuProcessors: { 'type': 'array', 'itemType': 'string' },
+      cpuProtectedMode: 'string',
+      cpuRateLimit: 'number',
+      cpuSampleDuration: 'number',
+      cpuSingleRateLimit: 'number',
+      deviceConnectHint: 'string',
+      deviceRedirects: { 'type': 'array', 'itemType': CreateCenterPolicyRequestDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': CreateCenterPolicyRequestDeviceRules },
+      disconnectKeepSession: 'string',
+      disconnectKeepSessionTime: 'number',
+      displayMode: 'string',
+      domainResolveRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestDomainResolveRule },
+      domainResolveRuleType: 'string',
+      enableSessionRateLimiting: 'string',
+      endUserApplyAdminCoordinate: 'string',
+      endUserGroupCoordinate: 'string',
+      fileMigrate: 'string',
+      gpuAcceleration: 'string',
+      html5FileTransfer: 'string',
+      internetCommunicationProtocol: 'string',
+      localDrive: 'string',
+      maxReconnectTime: 'number',
+      memoryDownGradeDuration: 'number',
+      memoryProcessors: { 'type': 'array', 'itemType': 'string' },
+      memoryProtectedMode: 'string',
+      memoryRateLimit: 'number',
+      memorySampleDuration: 'number',
+      memorySingleRateLimit: 'number',
+      mobileRestart: 'string',
+      mobileShutdown: 'string',
+      name: 'string',
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestNetRedirectRule },
+      noOperationDisconnect: 'string',
+      noOperationDisconnectTime: 'number',
+      printerRedirect: 'string',
+      qualityEnhancement: 'string',
+      recordEventDuration: 'number',
+      recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
+      recordEvents: { 'type': 'array', 'itemType': 'string' },
+      recording: 'string',
+      recordingAudio: 'string',
+      recordingDuration: 'number',
+      recordingEndTime: 'string',
+      recordingExpires: 'number',
+      recordingFps: 'string',
+      recordingStartTime: 'string',
+      recordingUserNotify: 'string',
+      recordingUserNotifyMessage: 'string',
+      regionId: 'string',
+      remoteCoordinate: 'string',
+      resetDesktop: 'string',
+      resolutionHeight: 'number',
+      resolutionModel: 'string',
+      resolutionWidth: 'number',
+      resourceType: 'string',
+      scope: 'string',
+      scopeValue: { 'type': 'array', 'itemType': 'string' },
+      sessionMaxRateKbps: 'number',
+      smoothEnhancement: 'string',
+      statusMonitor: 'string',
+      streamingMode: 'string',
+      targetFps: 'number',
+      taskbar: 'string',
+      usbRedirect: 'string',
+      usbSupplyRedirectRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestUsbSupplyRedirectRule },
+      videoEncAvgKbps: 'number',
+      videoEncMaxQP: 'number',
+      videoEncMinQP: 'number',
+      videoEncPeakKbps: 'number',
+      videoEncPolicy: 'string',
+      videoRedirect: 'string',
+      visualQuality: 'string',
+      watermark: 'string',
+      watermarkAntiCam: 'string',
+      watermarkColor: 'number',
+      watermarkColumnAmount: 'number',
+      watermarkCustomText: 'string',
+      watermarkDegree: 'number',
+      watermarkFontSize: 'number',
+      watermarkFontStyle: 'string',
+      watermarkPower: 'string',
+      watermarkRowAmount: 'number',
+      watermarkSecurity: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkType: 'string',
+      wuyingKeeper: 'string',
+      wyAssistant: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeAccessPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeAccessPolicyRule);
+    }
+    if(Array.isArray(this.authorizeSecurityPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeSecurityPolicyRule);
+    }
+    if(Array.isArray(this.clientType)) {
+      $dara.Model.validateArray(this.clientType);
+    }
+    if(Array.isArray(this.cpuProcessors)) {
+      $dara.Model.validateArray(this.cpuProcessors);
+    }
+    if(Array.isArray(this.deviceRedirects)) {
+      $dara.Model.validateArray(this.deviceRedirects);
+    }
+    if(Array.isArray(this.deviceRules)) {
+      $dara.Model.validateArray(this.deviceRules);
+    }
+    if(Array.isArray(this.domainResolveRule)) {
+      $dara.Model.validateArray(this.domainResolveRule);
+    }
+    if(Array.isArray(this.memoryProcessors)) {
+      $dara.Model.validateArray(this.memoryProcessors);
+    }
+    if(Array.isArray(this.netRedirectRule)) {
+      $dara.Model.validateArray(this.netRedirectRule);
+    }
+    if(Array.isArray(this.recordEventFilePaths)) {
+      $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventRegisters)) {
+      $dara.Model.validateArray(this.recordEventRegisters);
+    }
+    if(Array.isArray(this.recordEvents)) {
+      $dara.Model.validateArray(this.recordEvents);
+    }
+    if(Array.isArray(this.scopeValue)) {
+      $dara.Model.validateArray(this.scopeValue);
+    }
+    if(Array.isArray(this.usbSupplyRedirectRule)) {
+      $dara.Model.validateArray(this.usbSupplyRedirectRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pg-gx2x1dhsmthe9****
+   */
+  policyGroupId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyGroupId: 'PolicyGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCenterPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCenterPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCenterPolicyResponseBody,
     };
   }
 
@@ -30881,6 +33883,128 @@ export class DeleteCdsFileResponse extends $dara.Model {
   }
 }
 
+export class DeleteCenterPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyGroupIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      policyGroupIds: 'PolicyGroupIds',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'number',
+      policyGroupIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyGroupIds)) {
+      $dara.Model.validateArray(this.policyGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCenterPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 72E47B1E-6B11-5A11-A27C-7A80F866****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCenterPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCenterPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCenterPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCloudDriveGroupsRequest extends $dara.Model {
   /**
    * @remarks
@@ -33680,6 +36804,148 @@ export class DescribeCensResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCensResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  policyGroupId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * GLOBAL
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyGroupId: 'PolicyGroupId',
+      resourceType: 'ResourceType',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyGroupId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      scope: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyGroupId)) {
+      $dara.Model.validateArray(this.policyGroupId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponseBody extends $dara.Model {
+  describePolicyGroups?: DescribeCenterPolicyListResponseBodyDescribePolicyGroups[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      describePolicyGroups: 'DescribePolicyGroups',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      describePolicyGroups: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroups },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.describePolicyGroups)) {
+      $dara.Model.validateArray(this.describePolicyGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCenterPolicyListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCenterPolicyListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCenterPolicyListResponseBody,
     };
   }
 
@@ -41886,6 +45152,146 @@ export class DescribeRenewalPriceResponse extends $dara.Model {
   }
 }
 
+export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l69tQX7yFxx6/4dbooBAOc
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-53iyi2aar0nd6****
+   */
+  policyGroupId?: string;
+  /**
+   * @example
+   * desktop
+   */
+  productType?: string;
+  /**
+   * @example
+   * ecd-ia2zw38bi6cm7****
+   */
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      policyGroupId: 'PolicyGroupId',
+      productType: 'ProductType',
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      policyGroupId: 'string',
+      productType: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  count?: string;
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 48174475-5EB2-5F99-A9E9-6F892D645****
+   */
+  requestId?: string;
+  resourceModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelList[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceModelList: 'ResourceModelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      resourceModelList: { 'type': 'array', 'itemType': DescribeResourceByCenterPolicyIdResponseBodyResourceModelList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceModelList)) {
+      $dara.Model.validateArray(this.resourceModelList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceByCenterPolicyIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceByCenterPolicyIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeResourceByCenterPolicyIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSessionStatisticRequest extends $dara.Model {
   /**
    * @remarks
@@ -49968,6 +53374,794 @@ export class ModifyCdsFileShareLinkResponse extends $dara.Model {
   }
 }
 
+export class ModifyCenterPolicyRequest extends $dara.Model {
+  /**
+   * @example
+   * deny
+   */
+  adminAccess?: string;
+  /**
+   * @example
+   * on
+   */
+  appContentProtection?: string;
+  authorizeAccessPolicyRule?: ModifyCenterPolicyRequestAuthorizeAccessPolicyRule[];
+  authorizeSecurityPolicyRule?: ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  businessType?: number;
+  /**
+   * @example
+   * on
+   */
+  cameraRedirect?: string;
+  clientType?: ModifyCenterPolicyRequestClientType[];
+  /**
+   * @example
+   * off
+   */
+  clipboard?: string;
+  /**
+   * @example
+   * off
+   */
+  colorEnhancement?: string;
+  /**
+   * @example
+   * 50
+   */
+  cpuDownGradeDuration?: number;
+  cpuProcessors?: string[];
+  /**
+   * @example
+   * off
+   */
+  cpuProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  cpuRateLimit?: number;
+  /**
+   * @example
+   * 30
+   */
+  cpuSampleDuration?: number;
+  /**
+   * @example
+   * 80
+   */
+  cpuSingleRateLimit?: number;
+  /**
+   * @example
+   * off
+   */
+  deviceConnectHint?: string;
+  deviceRedirects?: ModifyCenterPolicyRequestDeviceRedirects[];
+  deviceRules?: ModifyCenterPolicyRequestDeviceRules[];
+  /**
+   * @example
+   * customTime
+   */
+  disconnectKeepSession?: string;
+  /**
+   * @example
+   * 120
+   */
+  disconnectKeepSessionTime?: number;
+  /**
+   * @example
+   * clientCustom
+   */
+  displayMode?: string;
+  domainResolveRule?: ModifyCenterPolicyRequestDomainResolveRule[];
+  /**
+   * @example
+   * off
+   */
+  domainResolveRuleType?: string;
+  /**
+   * @example
+   * off
+   */
+  enableSessionRateLimiting?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserApplyAdminCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  endUserGroupCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  fileMigrate?: string;
+  /**
+   * @example
+   * off
+   */
+  gpuAcceleration?: string;
+  /**
+   * @example
+   * off
+   */
+  html5FileTransfer?: string;
+  /**
+   * @example
+   * both
+   */
+  internetCommunicationProtocol?: string;
+  /**
+   * @example
+   * off
+   */
+  localDrive?: string;
+  /**
+   * @example
+   * 120
+   */
+  maxReconnectTime?: number;
+  /**
+   * @example
+   * 40
+   */
+  memoryDownGradeDuration?: number;
+  memoryProcessors?: string[];
+  /**
+   * @example
+   * off
+   */
+  memoryProtectedMode?: string;
+  /**
+   * @example
+   * 70
+   */
+  memoryRateLimit?: number;
+  /**
+   * @example
+   * 40
+   */
+  memorySampleDuration?: number;
+  /**
+   * @example
+   * 40
+   */
+  memorySingleRateLimit?: number;
+  /**
+   * @example
+   * off
+   */
+  mobileRestart?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileShutdown?: string;
+  /**
+   * @example
+   * testPolicyGroupName
+   */
+  name?: string;
+  /**
+   * @example
+   * on
+   */
+  netRedirect?: string;
+  netRedirectRule?: ModifyCenterPolicyRequestNetRedirectRule[];
+  /**
+   * @example
+   * off
+   */
+  noOperationDisconnect?: string;
+  /**
+   * @example
+   * 120
+   */
+  noOperationDisconnectTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-53iyi2aar0nd6****
+   */
+  policyGroupId?: string;
+  /**
+   * @example
+   * off
+   */
+  printerRedirect?: string;
+  /**
+   * @example
+   * off
+   */
+  qualityEnhancement?: string;
+  /**
+   * @example
+   * 10
+   */
+  recordEventDuration?: number;
+  recordEventFilePaths?: string[];
+  recordEventRegisters?: string[];
+  recordEvents?: string[];
+  /**
+   * @example
+   * off
+   */
+  recording?: string;
+  /**
+   * @example
+   * on
+   */
+  recordingAudio?: string;
+  /**
+   * @example
+   * 10
+   */
+  recordingDuration?: number;
+  /**
+   * @example
+   * 08:59:00
+   */
+  recordingEndTime?: string;
+  /**
+   * @example
+   * 15
+   */
+  recordingExpires?: number;
+  /**
+   * @example
+   * 5
+   */
+  recordingFps?: string;
+  /**
+   * @example
+   * 08:00:00
+   */
+  recordingStartTime?: string;
+  /**
+   * @example
+   * off
+   */
+  recordingUserNotify?: string;
+  recordingUserNotifyMessage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * fullControl
+   */
+  remoteCoordinate?: string;
+  /**
+   * @example
+   * off
+   */
+  resetDesktop?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * adaptive
+   */
+  resolutionModel?: string;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  revokeAccessPolicyRule?: ModifyCenterPolicyRequestRevokeAccessPolicyRule[];
+  revokeSecurityPolicyRule?: ModifyCenterPolicyRequestRevokeSecurityPolicyRule[];
+  /**
+   * @example
+   * GLOBAL
+   */
+  scope?: string;
+  scopeValue?: string[];
+  /**
+   * @example
+   * 2000
+   */
+  sessionMaxRateKbps?: number;
+  /**
+   * @example
+   * off
+   */
+  smoothEnhancement?: string;
+  /**
+   * @example
+   * off
+   */
+  statusMonitor?: string;
+  /**
+   * @example
+   * smooth
+   */
+  streamingMode?: string;
+  /**
+   * @example
+   * 30
+   */
+  targetFps?: number;
+  /**
+   * @example
+   * off
+   */
+  taskbar?: string;
+  /**
+   * @example
+   * off
+   */
+  usbRedirect?: string;
+  usbSupplyRedirectRule?: ModifyCenterPolicyRequestUsbSupplyRedirectRule[];
+  /**
+   * @example
+   * 2000
+   */
+  videoEncAvgKbps?: number;
+  /**
+   * @example
+   * 30
+   */
+  videoEncMaxQP?: number;
+  /**
+   * @example
+   * 30
+   */
+  videoEncMinQP?: number;
+  /**
+   * @example
+   * 2000
+   */
+  videoEncPeakKbps?: number;
+  /**
+   * @example
+   * qualityFirst
+   */
+  videoEncPolicy?: string;
+  /**
+   * @example
+   * on
+   */
+  videoRedirect?: string;
+  /**
+   * @example
+   * low
+   */
+  visualQuality?: string;
+  /**
+   * @example
+   * off
+   */
+  watermark?: string;
+  /**
+   * @example
+   * off
+   */
+  watermarkAntiCam?: string;
+  /**
+   * @example
+   * 0
+   */
+  watermarkColor?: number;
+  /**
+   * @example
+   * 3
+   */
+  watermarkColumnAmount?: number;
+  /**
+   * @example
+   * test
+   */
+  watermarkCustomText?: string;
+  /**
+   * @example
+   * -10
+   */
+  watermarkDegree?: number;
+  /**
+   * @example
+   * 10
+   */
+  watermarkFontSize?: number;
+  /**
+   * @example
+   * plain
+   */
+  watermarkFontStyle?: string;
+  /**
+   * @example
+   * medium
+   */
+  watermarkPower?: string;
+  /**
+   * @example
+   * 5
+   */
+  watermarkRowAmount?: number;
+  /**
+   * @example
+   * off
+   */
+  watermarkSecurity?: string;
+  /**
+   * @example
+   * 10
+   */
+  watermarkTransparencyValue?: number;
+  /**
+   * @example
+   * EndUserId
+   */
+  watermarkType?: string;
+  /**
+   * @example
+   * off
+   */
+  wuyingKeeper?: string;
+  /**
+   * @example
+   * on
+   */
+  wyAssistant?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adminAccess: 'AdminAccess',
+      appContentProtection: 'AppContentProtection',
+      authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
+      authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
+      businessType: 'BusinessType',
+      cameraRedirect: 'CameraRedirect',
+      clientType: 'ClientType',
+      clipboard: 'Clipboard',
+      colorEnhancement: 'ColorEnhancement',
+      cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuProcessors: 'CpuProcessors',
+      cpuProtectedMode: 'CpuProtectedMode',
+      cpuRateLimit: 'CpuRateLimit',
+      cpuSampleDuration: 'CpuSampleDuration',
+      cpuSingleRateLimit: 'CpuSingleRateLimit',
+      deviceConnectHint: 'DeviceConnectHint',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
+      disconnectKeepSession: 'DisconnectKeepSession',
+      disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      displayMode: 'DisplayMode',
+      domainResolveRule: 'DomainResolveRule',
+      domainResolveRuleType: 'DomainResolveRuleType',
+      enableSessionRateLimiting: 'EnableSessionRateLimiting',
+      endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      fileMigrate: 'FileMigrate',
+      gpuAcceleration: 'GpuAcceleration',
+      html5FileTransfer: 'Html5FileTransfer',
+      internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      localDrive: 'LocalDrive',
+      maxReconnectTime: 'MaxReconnectTime',
+      memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryProcessors: 'MemoryProcessors',
+      memoryProtectedMode: 'MemoryProtectedMode',
+      memoryRateLimit: 'MemoryRateLimit',
+      memorySampleDuration: 'MemorySampleDuration',
+      memorySingleRateLimit: 'MemorySingleRateLimit',
+      mobileRestart: 'MobileRestart',
+      mobileShutdown: 'MobileShutdown',
+      name: 'Name',
+      netRedirect: 'NetRedirect',
+      netRedirectRule: 'NetRedirectRule',
+      noOperationDisconnect: 'NoOperationDisconnect',
+      noOperationDisconnectTime: 'NoOperationDisconnectTime',
+      policyGroupId: 'PolicyGroupId',
+      printerRedirect: 'PrinterRedirect',
+      qualityEnhancement: 'QualityEnhancement',
+      recordEventDuration: 'RecordEventDuration',
+      recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventRegisters: 'RecordEventRegisters',
+      recordEvents: 'RecordEvents',
+      recording: 'Recording',
+      recordingAudio: 'RecordingAudio',
+      recordingDuration: 'RecordingDuration',
+      recordingEndTime: 'RecordingEndTime',
+      recordingExpires: 'RecordingExpires',
+      recordingFps: 'RecordingFps',
+      recordingStartTime: 'RecordingStartTime',
+      recordingUserNotify: 'RecordingUserNotify',
+      recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
+      regionId: 'RegionId',
+      remoteCoordinate: 'RemoteCoordinate',
+      resetDesktop: 'ResetDesktop',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionModel: 'ResolutionModel',
+      resolutionWidth: 'ResolutionWidth',
+      resourceType: 'ResourceType',
+      revokeAccessPolicyRule: 'RevokeAccessPolicyRule',
+      revokeSecurityPolicyRule: 'RevokeSecurityPolicyRule',
+      scope: 'Scope',
+      scopeValue: 'ScopeValue',
+      sessionMaxRateKbps: 'SessionMaxRateKbps',
+      smoothEnhancement: 'SmoothEnhancement',
+      statusMonitor: 'StatusMonitor',
+      streamingMode: 'StreamingMode',
+      targetFps: 'TargetFps',
+      taskbar: 'Taskbar',
+      usbRedirect: 'UsbRedirect',
+      usbSupplyRedirectRule: 'UsbSupplyRedirectRule',
+      videoEncAvgKbps: 'VideoEncAvgKbps',
+      videoEncMaxQP: 'VideoEncMaxQP',
+      videoEncMinQP: 'VideoEncMinQP',
+      videoEncPeakKbps: 'VideoEncPeakKbps',
+      videoEncPolicy: 'VideoEncPolicy',
+      videoRedirect: 'VideoRedirect',
+      visualQuality: 'VisualQuality',
+      watermark: 'Watermark',
+      watermarkAntiCam: 'WatermarkAntiCam',
+      watermarkColor: 'WatermarkColor',
+      watermarkColumnAmount: 'WatermarkColumnAmount',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkDegree: 'WatermarkDegree',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkFontStyle: 'WatermarkFontStyle',
+      watermarkPower: 'WatermarkPower',
+      watermarkRowAmount: 'WatermarkRowAmount',
+      watermarkSecurity: 'WatermarkSecurity',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkType: 'WatermarkType',
+      wuyingKeeper: 'WuyingKeeper',
+      wyAssistant: 'WyAssistant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminAccess: 'string',
+      appContentProtection: 'string',
+      authorizeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeAccessPolicyRule },
+      authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule },
+      businessType: 'number',
+      cameraRedirect: 'string',
+      clientType: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestClientType },
+      clipboard: 'string',
+      colorEnhancement: 'string',
+      cpuDownGradeDuration: 'number',
+      cpuProcessors: { 'type': 'array', 'itemType': 'string' },
+      cpuProtectedMode: 'string',
+      cpuRateLimit: 'number',
+      cpuSampleDuration: 'number',
+      cpuSingleRateLimit: 'number',
+      deviceConnectHint: 'string',
+      deviceRedirects: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRules },
+      disconnectKeepSession: 'string',
+      disconnectKeepSessionTime: 'number',
+      displayMode: 'string',
+      domainResolveRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDomainResolveRule },
+      domainResolveRuleType: 'string',
+      enableSessionRateLimiting: 'string',
+      endUserApplyAdminCoordinate: 'string',
+      endUserGroupCoordinate: 'string',
+      fileMigrate: 'string',
+      gpuAcceleration: 'string',
+      html5FileTransfer: 'string',
+      internetCommunicationProtocol: 'string',
+      localDrive: 'string',
+      maxReconnectTime: 'number',
+      memoryDownGradeDuration: 'number',
+      memoryProcessors: { 'type': 'array', 'itemType': 'string' },
+      memoryProtectedMode: 'string',
+      memoryRateLimit: 'number',
+      memorySampleDuration: 'number',
+      memorySingleRateLimit: 'number',
+      mobileRestart: 'string',
+      mobileShutdown: 'string',
+      name: 'string',
+      netRedirect: 'string',
+      netRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestNetRedirectRule },
+      noOperationDisconnect: 'string',
+      noOperationDisconnectTime: 'number',
+      policyGroupId: 'string',
+      printerRedirect: 'string',
+      qualityEnhancement: 'string',
+      recordEventDuration: 'number',
+      recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
+      recordEvents: { 'type': 'array', 'itemType': 'string' },
+      recording: 'string',
+      recordingAudio: 'string',
+      recordingDuration: 'number',
+      recordingEndTime: 'string',
+      recordingExpires: 'number',
+      recordingFps: 'string',
+      recordingStartTime: 'string',
+      recordingUserNotify: 'string',
+      recordingUserNotifyMessage: 'string',
+      regionId: 'string',
+      remoteCoordinate: 'string',
+      resetDesktop: 'string',
+      resolutionHeight: 'number',
+      resolutionModel: 'string',
+      resolutionWidth: 'number',
+      resourceType: 'string',
+      revokeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeAccessPolicyRule },
+      revokeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeSecurityPolicyRule },
+      scope: 'string',
+      scopeValue: { 'type': 'array', 'itemType': 'string' },
+      sessionMaxRateKbps: 'number',
+      smoothEnhancement: 'string',
+      statusMonitor: 'string',
+      streamingMode: 'string',
+      targetFps: 'number',
+      taskbar: 'string',
+      usbRedirect: 'string',
+      usbSupplyRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestUsbSupplyRedirectRule },
+      videoEncAvgKbps: 'number',
+      videoEncMaxQP: 'number',
+      videoEncMinQP: 'number',
+      videoEncPeakKbps: 'number',
+      videoEncPolicy: 'string',
+      videoRedirect: 'string',
+      visualQuality: 'string',
+      watermark: 'string',
+      watermarkAntiCam: 'string',
+      watermarkColor: 'number',
+      watermarkColumnAmount: 'number',
+      watermarkCustomText: 'string',
+      watermarkDegree: 'number',
+      watermarkFontSize: 'number',
+      watermarkFontStyle: 'string',
+      watermarkPower: 'string',
+      watermarkRowAmount: 'number',
+      watermarkSecurity: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkType: 'string',
+      wuyingKeeper: 'string',
+      wyAssistant: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeAccessPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeAccessPolicyRule);
+    }
+    if(Array.isArray(this.authorizeSecurityPolicyRule)) {
+      $dara.Model.validateArray(this.authorizeSecurityPolicyRule);
+    }
+    if(Array.isArray(this.clientType)) {
+      $dara.Model.validateArray(this.clientType);
+    }
+    if(Array.isArray(this.cpuProcessors)) {
+      $dara.Model.validateArray(this.cpuProcessors);
+    }
+    if(Array.isArray(this.deviceRedirects)) {
+      $dara.Model.validateArray(this.deviceRedirects);
+    }
+    if(Array.isArray(this.deviceRules)) {
+      $dara.Model.validateArray(this.deviceRules);
+    }
+    if(Array.isArray(this.domainResolveRule)) {
+      $dara.Model.validateArray(this.domainResolveRule);
+    }
+    if(Array.isArray(this.memoryProcessors)) {
+      $dara.Model.validateArray(this.memoryProcessors);
+    }
+    if(Array.isArray(this.netRedirectRule)) {
+      $dara.Model.validateArray(this.netRedirectRule);
+    }
+    if(Array.isArray(this.recordEventFilePaths)) {
+      $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventRegisters)) {
+      $dara.Model.validateArray(this.recordEventRegisters);
+    }
+    if(Array.isArray(this.recordEvents)) {
+      $dara.Model.validateArray(this.recordEvents);
+    }
+    if(Array.isArray(this.revokeAccessPolicyRule)) {
+      $dara.Model.validateArray(this.revokeAccessPolicyRule);
+    }
+    if(Array.isArray(this.revokeSecurityPolicyRule)) {
+      $dara.Model.validateArray(this.revokeSecurityPolicyRule);
+    }
+    if(Array.isArray(this.scopeValue)) {
+      $dara.Model.validateArray(this.scopeValue);
+    }
+    if(Array.isArray(this.usbSupplyRedirectRule)) {
+      $dara.Model.validateArray(this.usbSupplyRedirectRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 5CED7F18-43B1-5035-BBB6-2538B***
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCenterPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCenterPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCenterPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCloudDriveGroupsRequest extends $dara.Model {
   /**
    * @remarks
@@ -54871,6 +59065,154 @@ export class ModifyPolicyGroupResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyPolicyGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResourceCenterPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  policyGroupIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * general
+   */
+  policyGroupType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desktop
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyGroupIds: 'PolicyGroupIds',
+      policyGroupType: 'PolicyGroupType',
+      productType: 'ProductType',
+      resourceIds: 'ResourceIds',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyGroupIds: { 'type': 'array', 'itemType': 'string' },
+      policyGroupType: 'string',
+      productType: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceRegionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyGroupIds)) {
+      $dara.Model.validateArray(this.policyGroupIds);
+    }
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResourceCenterPolicyResponseBody extends $dara.Model {
+  modifyResults?: ModifyResourceCenterPolicyResponseBodyModifyResults[];
+  /**
+   * @example
+   * 51592A88-0F2C-55E6-AD2C-2AD9C10D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifyResults: 'ModifyResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyResults: { 'type': 'array', 'itemType': ModifyResourceCenterPolicyResponseBodyModifyResults },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.modifyResults)) {
+      $dara.Model.validateArray(this.modifyResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyResourceCenterPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyResourceCenterPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyResourceCenterPolicyResponseBody,
     };
   }
 
@@ -61838,6 +66180,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CloneCenterPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneCenterPolicyResponse
+   */
+  async cloneCenterPolicyWithOptions(request: CloneCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CloneCenterPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloneCenterPolicy",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloneCenterPolicyResponse>(await this.callApi(params, req, runtime), new CloneCenterPolicyResponse({}));
+    } else {
+      return $dara.cast<CloneCenterPolicyResponse>(await this.execute(params, req, runtime), new CloneCenterPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CloneCenterPolicyRequest
+   * @returns CloneCenterPolicyResponse
+   */
+  async cloneCenterPolicy(request: CloneCenterPolicyRequest): Promise<CloneCenterPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloneCenterPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Clones an existing policy to quickly create a policy.
    * 
    * @param request - ClonePolicyGroupRequest
@@ -62959,6 +67360,441 @@ export default class Client extends OpenApi {
   async createCdsFileShareLink(request: CreateCdsFileShareLinkRequest): Promise<CreateCdsFileShareLinkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCdsFileShareLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateCenterPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCenterPolicyResponse
+   */
+  async createCenterPolicyWithOptions(request: CreateCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreateCenterPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adminAccess)) {
+      query["AdminAccess"] = request.adminAccess;
+    }
+
+    if (!$dara.isNull(request.appContentProtection)) {
+      query["AppContentProtection"] = request.appContentProtection;
+    }
+
+    if (!$dara.isNull(request.authorizeAccessPolicyRule)) {
+      query["AuthorizeAccessPolicyRule"] = request.authorizeAccessPolicyRule;
+    }
+
+    if (!$dara.isNull(request.authorizeSecurityPolicyRule)) {
+      query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule;
+    }
+
+    if (!$dara.isNull(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.cameraRedirect)) {
+      query["CameraRedirect"] = request.cameraRedirect;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.clipboard)) {
+      query["Clipboard"] = request.clipboard;
+    }
+
+    if (!$dara.isNull(request.colorEnhancement)) {
+      query["ColorEnhancement"] = request.colorEnhancement;
+    }
+
+    if (!$dara.isNull(request.cpuDownGradeDuration)) {
+      query["CpuDownGradeDuration"] = request.cpuDownGradeDuration;
+    }
+
+    if (!$dara.isNull(request.cpuProcessors)) {
+      query["CpuProcessors"] = request.cpuProcessors;
+    }
+
+    if (!$dara.isNull(request.cpuProtectedMode)) {
+      query["CpuProtectedMode"] = request.cpuProtectedMode;
+    }
+
+    if (!$dara.isNull(request.cpuRateLimit)) {
+      query["CpuRateLimit"] = request.cpuRateLimit;
+    }
+
+    if (!$dara.isNull(request.cpuSampleDuration)) {
+      query["CpuSampleDuration"] = request.cpuSampleDuration;
+    }
+
+    if (!$dara.isNull(request.cpuSingleRateLimit)) {
+      query["CpuSingleRateLimit"] = request.cpuSingleRateLimit;
+    }
+
+    if (!$dara.isNull(request.deviceConnectHint)) {
+      query["DeviceConnectHint"] = request.deviceConnectHint;
+    }
+
+    if (!$dara.isNull(request.deviceRedirects)) {
+      query["DeviceRedirects"] = request.deviceRedirects;
+    }
+
+    if (!$dara.isNull(request.deviceRules)) {
+      query["DeviceRules"] = request.deviceRules;
+    }
+
+    if (!$dara.isNull(request.disconnectKeepSession)) {
+      query["DisconnectKeepSession"] = request.disconnectKeepSession;
+    }
+
+    if (!$dara.isNull(request.disconnectKeepSessionTime)) {
+      query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime;
+    }
+
+    if (!$dara.isNull(request.displayMode)) {
+      query["DisplayMode"] = request.displayMode;
+    }
+
+    if (!$dara.isNull(request.domainResolveRule)) {
+      query["DomainResolveRule"] = request.domainResolveRule;
+    }
+
+    if (!$dara.isNull(request.domainResolveRuleType)) {
+      query["DomainResolveRuleType"] = request.domainResolveRuleType;
+    }
+
+    if (!$dara.isNull(request.enableSessionRateLimiting)) {
+      query["EnableSessionRateLimiting"] = request.enableSessionRateLimiting;
+    }
+
+    if (!$dara.isNull(request.endUserApplyAdminCoordinate)) {
+      query["EndUserApplyAdminCoordinate"] = request.endUserApplyAdminCoordinate;
+    }
+
+    if (!$dara.isNull(request.endUserGroupCoordinate)) {
+      query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate;
+    }
+
+    if (!$dara.isNull(request.fileMigrate)) {
+      query["FileMigrate"] = request.fileMigrate;
+    }
+
+    if (!$dara.isNull(request.gpuAcceleration)) {
+      query["GpuAcceleration"] = request.gpuAcceleration;
+    }
+
+    if (!$dara.isNull(request.html5FileTransfer)) {
+      query["Html5FileTransfer"] = request.html5FileTransfer;
+    }
+
+    if (!$dara.isNull(request.internetCommunicationProtocol)) {
+      query["InternetCommunicationProtocol"] = request.internetCommunicationProtocol;
+    }
+
+    if (!$dara.isNull(request.localDrive)) {
+      query["LocalDrive"] = request.localDrive;
+    }
+
+    if (!$dara.isNull(request.maxReconnectTime)) {
+      query["MaxReconnectTime"] = request.maxReconnectTime;
+    }
+
+    if (!$dara.isNull(request.memoryDownGradeDuration)) {
+      query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration;
+    }
+
+    if (!$dara.isNull(request.memoryProcessors)) {
+      query["MemoryProcessors"] = request.memoryProcessors;
+    }
+
+    if (!$dara.isNull(request.memoryProtectedMode)) {
+      query["MemoryProtectedMode"] = request.memoryProtectedMode;
+    }
+
+    if (!$dara.isNull(request.memoryRateLimit)) {
+      query["MemoryRateLimit"] = request.memoryRateLimit;
+    }
+
+    if (!$dara.isNull(request.memorySampleDuration)) {
+      query["MemorySampleDuration"] = request.memorySampleDuration;
+    }
+
+    if (!$dara.isNull(request.memorySingleRateLimit)) {
+      query["MemorySingleRateLimit"] = request.memorySingleRateLimit;
+    }
+
+    if (!$dara.isNull(request.mobileRestart)) {
+      query["MobileRestart"] = request.mobileRestart;
+    }
+
+    if (!$dara.isNull(request.mobileShutdown)) {
+      query["MobileShutdown"] = request.mobileShutdown;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.netRedirect)) {
+      query["NetRedirect"] = request.netRedirect;
+    }
+
+    if (!$dara.isNull(request.netRedirectRule)) {
+      query["NetRedirectRule"] = request.netRedirectRule;
+    }
+
+    if (!$dara.isNull(request.noOperationDisconnect)) {
+      query["NoOperationDisconnect"] = request.noOperationDisconnect;
+    }
+
+    if (!$dara.isNull(request.noOperationDisconnectTime)) {
+      query["NoOperationDisconnectTime"] = request.noOperationDisconnectTime;
+    }
+
+    if (!$dara.isNull(request.printerRedirect)) {
+      query["PrinterRedirect"] = request.printerRedirect;
+    }
+
+    if (!$dara.isNull(request.qualityEnhancement)) {
+      query["QualityEnhancement"] = request.qualityEnhancement;
+    }
+
+    if (!$dara.isNull(request.recordEventDuration)) {
+      query["RecordEventDuration"] = request.recordEventDuration;
+    }
+
+    if (!$dara.isNull(request.recordEventFilePaths)) {
+      query["RecordEventFilePaths"] = request.recordEventFilePaths;
+    }
+
+    if (!$dara.isNull(request.recordEventRegisters)) {
+      query["RecordEventRegisters"] = request.recordEventRegisters;
+    }
+
+    if (!$dara.isNull(request.recordEvents)) {
+      query["RecordEvents"] = request.recordEvents;
+    }
+
+    if (!$dara.isNull(request.recording)) {
+      query["Recording"] = request.recording;
+    }
+
+    if (!$dara.isNull(request.recordingAudio)) {
+      query["RecordingAudio"] = request.recordingAudio;
+    }
+
+    if (!$dara.isNull(request.recordingDuration)) {
+      query["RecordingDuration"] = request.recordingDuration;
+    }
+
+    if (!$dara.isNull(request.recordingEndTime)) {
+      query["RecordingEndTime"] = request.recordingEndTime;
+    }
+
+    if (!$dara.isNull(request.recordingExpires)) {
+      query["RecordingExpires"] = request.recordingExpires;
+    }
+
+    if (!$dara.isNull(request.recordingFps)) {
+      query["RecordingFps"] = request.recordingFps;
+    }
+
+    if (!$dara.isNull(request.recordingStartTime)) {
+      query["RecordingStartTime"] = request.recordingStartTime;
+    }
+
+    if (!$dara.isNull(request.recordingUserNotify)) {
+      query["RecordingUserNotify"] = request.recordingUserNotify;
+    }
+
+    if (!$dara.isNull(request.recordingUserNotifyMessage)) {
+      query["RecordingUserNotifyMessage"] = request.recordingUserNotifyMessage;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remoteCoordinate)) {
+      query["RemoteCoordinate"] = request.remoteCoordinate;
+    }
+
+    if (!$dara.isNull(request.resetDesktop)) {
+      query["ResetDesktop"] = request.resetDesktop;
+    }
+
+    if (!$dara.isNull(request.resolutionHeight)) {
+      query["ResolutionHeight"] = request.resolutionHeight;
+    }
+
+    if (!$dara.isNull(request.resolutionModel)) {
+      query["ResolutionModel"] = request.resolutionModel;
+    }
+
+    if (!$dara.isNull(request.resolutionWidth)) {
+      query["ResolutionWidth"] = request.resolutionWidth;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.scopeValue)) {
+      query["ScopeValue"] = request.scopeValue;
+    }
+
+    if (!$dara.isNull(request.sessionMaxRateKbps)) {
+      query["SessionMaxRateKbps"] = request.sessionMaxRateKbps;
+    }
+
+    if (!$dara.isNull(request.smoothEnhancement)) {
+      query["SmoothEnhancement"] = request.smoothEnhancement;
+    }
+
+    if (!$dara.isNull(request.statusMonitor)) {
+      query["StatusMonitor"] = request.statusMonitor;
+    }
+
+    if (!$dara.isNull(request.streamingMode)) {
+      query["StreamingMode"] = request.streamingMode;
+    }
+
+    if (!$dara.isNull(request.targetFps)) {
+      query["TargetFps"] = request.targetFps;
+    }
+
+    if (!$dara.isNull(request.taskbar)) {
+      query["Taskbar"] = request.taskbar;
+    }
+
+    if (!$dara.isNull(request.usbRedirect)) {
+      query["UsbRedirect"] = request.usbRedirect;
+    }
+
+    if (!$dara.isNull(request.usbSupplyRedirectRule)) {
+      query["UsbSupplyRedirectRule"] = request.usbSupplyRedirectRule;
+    }
+
+    if (!$dara.isNull(request.videoEncAvgKbps)) {
+      query["VideoEncAvgKbps"] = request.videoEncAvgKbps;
+    }
+
+    if (!$dara.isNull(request.videoEncMaxQP)) {
+      query["VideoEncMaxQP"] = request.videoEncMaxQP;
+    }
+
+    if (!$dara.isNull(request.videoEncMinQP)) {
+      query["VideoEncMinQP"] = request.videoEncMinQP;
+    }
+
+    if (!$dara.isNull(request.videoEncPeakKbps)) {
+      query["VideoEncPeakKbps"] = request.videoEncPeakKbps;
+    }
+
+    if (!$dara.isNull(request.videoEncPolicy)) {
+      query["VideoEncPolicy"] = request.videoEncPolicy;
+    }
+
+    if (!$dara.isNull(request.videoRedirect)) {
+      query["VideoRedirect"] = request.videoRedirect;
+    }
+
+    if (!$dara.isNull(request.visualQuality)) {
+      query["VisualQuality"] = request.visualQuality;
+    }
+
+    if (!$dara.isNull(request.watermark)) {
+      query["Watermark"] = request.watermark;
+    }
+
+    if (!$dara.isNull(request.watermarkAntiCam)) {
+      query["WatermarkAntiCam"] = request.watermarkAntiCam;
+    }
+
+    if (!$dara.isNull(request.watermarkColor)) {
+      query["WatermarkColor"] = request.watermarkColor;
+    }
+
+    if (!$dara.isNull(request.watermarkColumnAmount)) {
+      query["WatermarkColumnAmount"] = request.watermarkColumnAmount;
+    }
+
+    if (!$dara.isNull(request.watermarkCustomText)) {
+      query["WatermarkCustomText"] = request.watermarkCustomText;
+    }
+
+    if (!$dara.isNull(request.watermarkDegree)) {
+      query["WatermarkDegree"] = request.watermarkDegree;
+    }
+
+    if (!$dara.isNull(request.watermarkFontSize)) {
+      query["WatermarkFontSize"] = request.watermarkFontSize;
+    }
+
+    if (!$dara.isNull(request.watermarkFontStyle)) {
+      query["WatermarkFontStyle"] = request.watermarkFontStyle;
+    }
+
+    if (!$dara.isNull(request.watermarkPower)) {
+      query["WatermarkPower"] = request.watermarkPower;
+    }
+
+    if (!$dara.isNull(request.watermarkRowAmount)) {
+      query["WatermarkRowAmount"] = request.watermarkRowAmount;
+    }
+
+    if (!$dara.isNull(request.watermarkSecurity)) {
+      query["WatermarkSecurity"] = request.watermarkSecurity;
+    }
+
+    if (!$dara.isNull(request.watermarkTransparencyValue)) {
+      query["WatermarkTransparencyValue"] = request.watermarkTransparencyValue;
+    }
+
+    if (!$dara.isNull(request.watermarkType)) {
+      query["WatermarkType"] = request.watermarkType;
+    }
+
+    if (!$dara.isNull(request.wuyingKeeper)) {
+      query["WuyingKeeper"] = request.wuyingKeeper;
+    }
+
+    if (!$dara.isNull(request.wyAssistant)) {
+      query["WyAssistant"] = request.wyAssistant;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCenterPolicy",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCenterPolicyResponse>(await this.callApi(params, req, runtime), new CreateCenterPolicyResponse({}));
+    } else {
+      return $dara.cast<CreateCenterPolicyResponse>(await this.execute(params, req, runtime), new CreateCenterPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CreateCenterPolicyRequest
+   * @returns CreateCenterPolicyResponse
+   */
+  async createCenterPolicy(request: CreateCenterPolicyRequest): Promise<CreateCenterPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCenterPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -64775,6 +69611,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeleteCenterPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCenterPolicyResponse
+   */
+  async deleteCenterPolicyWithOptions(request: DeleteCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCenterPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.policyGroupIds)) {
+      query["PolicyGroupIds"] = request.policyGroupIds;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCenterPolicy",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCenterPolicyResponse>(await this.callApi(params, req, runtime), new DeleteCenterPolicyResponse({}));
+    } else {
+      return $dara.cast<DeleteCenterPolicyResponse>(await this.execute(params, req, runtime), new DeleteCenterPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - DeleteCenterPolicyRequest
+   * @returns DeleteCenterPolicyResponse
+   */
+  async deleteCenterPolicy(request: DeleteCenterPolicyRequest): Promise<DeleteCenterPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCenterPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes team spaces.
    * 
    * @param request - DeleteCloudDriveGroupsRequest
@@ -66012,6 +70903,73 @@ export default class Client extends OpenApi {
   async describeCens(request: DescribeCensRequest): Promise<DescribeCensResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCensWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询中心化策略
+   * 
+   * @param request - DescribeCenterPolicyListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCenterPolicyListResponse
+   */
+  async describeCenterPolicyListWithOptions(request: DescribeCenterPolicyListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCenterPolicyListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCenterPolicyList",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCenterPolicyListResponse>(await this.callApi(params, req, runtime), new DescribeCenterPolicyListResponse({}));
+    } else {
+      return $dara.cast<DescribeCenterPolicyListResponse>(await this.execute(params, req, runtime), new DescribeCenterPolicyListResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询中心化策略
+   * 
+   * @param request - DescribeCenterPolicyListRequest
+   * @returns DescribeCenterPolicyListResponse
+   */
+  async describeCenterPolicyList(request: DescribeCenterPolicyListRequest): Promise<DescribeCenterPolicyListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCenterPolicyListWithOptions(request, runtime);
   }
 
   /**
@@ -69116,6 +74074,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeResourceByCenterPolicyIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceByCenterPolicyIdResponse
+   */
+  async describeResourceByCenterPolicyIdWithOptions(request: DescribeResourceByCenterPolicyIdRequest, runtime: $dara.RuntimeOptions): Promise<DescribeResourceByCenterPolicyIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceByCenterPolicyId",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeResourceByCenterPolicyIdResponse>(await this.callApi(params, req, runtime), new DescribeResourceByCenterPolicyIdResponse({}));
+    } else {
+      return $dara.cast<DescribeResourceByCenterPolicyIdResponse>(await this.execute(params, req, runtime), new DescribeResourceByCenterPolicyIdResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - DescribeResourceByCenterPolicyIdRequest
+   * @returns DescribeResourceByCenterPolicyIdResponse
+   */
+  async describeResourceByCenterPolicyId(request: DescribeResourceByCenterPolicyIdRequest): Promise<DescribeResourceByCenterPolicyIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceByCenterPolicyIdWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the session statistics of a region.
    * 
    * @remarks
@@ -72167,6 +77184,453 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ModifyCenterPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCenterPolicyResponse
+   */
+  async modifyCenterPolicyWithOptions(request: ModifyCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyCenterPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adminAccess)) {
+      query["AdminAccess"] = request.adminAccess;
+    }
+
+    if (!$dara.isNull(request.appContentProtection)) {
+      query["AppContentProtection"] = request.appContentProtection;
+    }
+
+    if (!$dara.isNull(request.authorizeAccessPolicyRule)) {
+      query["AuthorizeAccessPolicyRule"] = request.authorizeAccessPolicyRule;
+    }
+
+    if (!$dara.isNull(request.authorizeSecurityPolicyRule)) {
+      query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule;
+    }
+
+    if (!$dara.isNull(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.cameraRedirect)) {
+      query["CameraRedirect"] = request.cameraRedirect;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.clipboard)) {
+      query["Clipboard"] = request.clipboard;
+    }
+
+    if (!$dara.isNull(request.colorEnhancement)) {
+      query["ColorEnhancement"] = request.colorEnhancement;
+    }
+
+    if (!$dara.isNull(request.cpuDownGradeDuration)) {
+      query["CpuDownGradeDuration"] = request.cpuDownGradeDuration;
+    }
+
+    if (!$dara.isNull(request.cpuProcessors)) {
+      query["CpuProcessors"] = request.cpuProcessors;
+    }
+
+    if (!$dara.isNull(request.cpuProtectedMode)) {
+      query["CpuProtectedMode"] = request.cpuProtectedMode;
+    }
+
+    if (!$dara.isNull(request.cpuRateLimit)) {
+      query["CpuRateLimit"] = request.cpuRateLimit;
+    }
+
+    if (!$dara.isNull(request.cpuSampleDuration)) {
+      query["CpuSampleDuration"] = request.cpuSampleDuration;
+    }
+
+    if (!$dara.isNull(request.cpuSingleRateLimit)) {
+      query["CpuSingleRateLimit"] = request.cpuSingleRateLimit;
+    }
+
+    if (!$dara.isNull(request.deviceConnectHint)) {
+      query["DeviceConnectHint"] = request.deviceConnectHint;
+    }
+
+    if (!$dara.isNull(request.deviceRedirects)) {
+      query["DeviceRedirects"] = request.deviceRedirects;
+    }
+
+    if (!$dara.isNull(request.deviceRules)) {
+      query["DeviceRules"] = request.deviceRules;
+    }
+
+    if (!$dara.isNull(request.disconnectKeepSession)) {
+      query["DisconnectKeepSession"] = request.disconnectKeepSession;
+    }
+
+    if (!$dara.isNull(request.disconnectKeepSessionTime)) {
+      query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime;
+    }
+
+    if (!$dara.isNull(request.displayMode)) {
+      query["DisplayMode"] = request.displayMode;
+    }
+
+    if (!$dara.isNull(request.domainResolveRule)) {
+      query["DomainResolveRule"] = request.domainResolveRule;
+    }
+
+    if (!$dara.isNull(request.domainResolveRuleType)) {
+      query["DomainResolveRuleType"] = request.domainResolveRuleType;
+    }
+
+    if (!$dara.isNull(request.enableSessionRateLimiting)) {
+      query["EnableSessionRateLimiting"] = request.enableSessionRateLimiting;
+    }
+
+    if (!$dara.isNull(request.endUserApplyAdminCoordinate)) {
+      query["EndUserApplyAdminCoordinate"] = request.endUserApplyAdminCoordinate;
+    }
+
+    if (!$dara.isNull(request.endUserGroupCoordinate)) {
+      query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate;
+    }
+
+    if (!$dara.isNull(request.fileMigrate)) {
+      query["FileMigrate"] = request.fileMigrate;
+    }
+
+    if (!$dara.isNull(request.gpuAcceleration)) {
+      query["GpuAcceleration"] = request.gpuAcceleration;
+    }
+
+    if (!$dara.isNull(request.html5FileTransfer)) {
+      query["Html5FileTransfer"] = request.html5FileTransfer;
+    }
+
+    if (!$dara.isNull(request.internetCommunicationProtocol)) {
+      query["InternetCommunicationProtocol"] = request.internetCommunicationProtocol;
+    }
+
+    if (!$dara.isNull(request.localDrive)) {
+      query["LocalDrive"] = request.localDrive;
+    }
+
+    if (!$dara.isNull(request.maxReconnectTime)) {
+      query["MaxReconnectTime"] = request.maxReconnectTime;
+    }
+
+    if (!$dara.isNull(request.memoryDownGradeDuration)) {
+      query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration;
+    }
+
+    if (!$dara.isNull(request.memoryProcessors)) {
+      query["MemoryProcessors"] = request.memoryProcessors;
+    }
+
+    if (!$dara.isNull(request.memoryProtectedMode)) {
+      query["MemoryProtectedMode"] = request.memoryProtectedMode;
+    }
+
+    if (!$dara.isNull(request.memoryRateLimit)) {
+      query["MemoryRateLimit"] = request.memoryRateLimit;
+    }
+
+    if (!$dara.isNull(request.memorySampleDuration)) {
+      query["MemorySampleDuration"] = request.memorySampleDuration;
+    }
+
+    if (!$dara.isNull(request.memorySingleRateLimit)) {
+      query["MemorySingleRateLimit"] = request.memorySingleRateLimit;
+    }
+
+    if (!$dara.isNull(request.mobileRestart)) {
+      query["MobileRestart"] = request.mobileRestart;
+    }
+
+    if (!$dara.isNull(request.mobileShutdown)) {
+      query["MobileShutdown"] = request.mobileShutdown;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.netRedirect)) {
+      query["NetRedirect"] = request.netRedirect;
+    }
+
+    if (!$dara.isNull(request.netRedirectRule)) {
+      query["NetRedirectRule"] = request.netRedirectRule;
+    }
+
+    if (!$dara.isNull(request.noOperationDisconnect)) {
+      query["NoOperationDisconnect"] = request.noOperationDisconnect;
+    }
+
+    if (!$dara.isNull(request.noOperationDisconnectTime)) {
+      query["NoOperationDisconnectTime"] = request.noOperationDisconnectTime;
+    }
+
+    if (!$dara.isNull(request.policyGroupId)) {
+      query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.printerRedirect)) {
+      query["PrinterRedirect"] = request.printerRedirect;
+    }
+
+    if (!$dara.isNull(request.qualityEnhancement)) {
+      query["QualityEnhancement"] = request.qualityEnhancement;
+    }
+
+    if (!$dara.isNull(request.recordEventDuration)) {
+      query["RecordEventDuration"] = request.recordEventDuration;
+    }
+
+    if (!$dara.isNull(request.recordEventFilePaths)) {
+      query["RecordEventFilePaths"] = request.recordEventFilePaths;
+    }
+
+    if (!$dara.isNull(request.recordEventRegisters)) {
+      query["RecordEventRegisters"] = request.recordEventRegisters;
+    }
+
+    if (!$dara.isNull(request.recordEvents)) {
+      query["RecordEvents"] = request.recordEvents;
+    }
+
+    if (!$dara.isNull(request.recording)) {
+      query["Recording"] = request.recording;
+    }
+
+    if (!$dara.isNull(request.recordingAudio)) {
+      query["RecordingAudio"] = request.recordingAudio;
+    }
+
+    if (!$dara.isNull(request.recordingDuration)) {
+      query["RecordingDuration"] = request.recordingDuration;
+    }
+
+    if (!$dara.isNull(request.recordingEndTime)) {
+      query["RecordingEndTime"] = request.recordingEndTime;
+    }
+
+    if (!$dara.isNull(request.recordingExpires)) {
+      query["RecordingExpires"] = request.recordingExpires;
+    }
+
+    if (!$dara.isNull(request.recordingFps)) {
+      query["RecordingFps"] = request.recordingFps;
+    }
+
+    if (!$dara.isNull(request.recordingStartTime)) {
+      query["RecordingStartTime"] = request.recordingStartTime;
+    }
+
+    if (!$dara.isNull(request.recordingUserNotify)) {
+      query["RecordingUserNotify"] = request.recordingUserNotify;
+    }
+
+    if (!$dara.isNull(request.recordingUserNotifyMessage)) {
+      query["RecordingUserNotifyMessage"] = request.recordingUserNotifyMessage;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remoteCoordinate)) {
+      query["RemoteCoordinate"] = request.remoteCoordinate;
+    }
+
+    if (!$dara.isNull(request.resetDesktop)) {
+      query["ResetDesktop"] = request.resetDesktop;
+    }
+
+    if (!$dara.isNull(request.resolutionHeight)) {
+      query["ResolutionHeight"] = request.resolutionHeight;
+    }
+
+    if (!$dara.isNull(request.resolutionModel)) {
+      query["ResolutionModel"] = request.resolutionModel;
+    }
+
+    if (!$dara.isNull(request.resolutionWidth)) {
+      query["ResolutionWidth"] = request.resolutionWidth;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.revokeAccessPolicyRule)) {
+      query["RevokeAccessPolicyRule"] = request.revokeAccessPolicyRule;
+    }
+
+    if (!$dara.isNull(request.revokeSecurityPolicyRule)) {
+      query["RevokeSecurityPolicyRule"] = request.revokeSecurityPolicyRule;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.scopeValue)) {
+      query["ScopeValue"] = request.scopeValue;
+    }
+
+    if (!$dara.isNull(request.sessionMaxRateKbps)) {
+      query["SessionMaxRateKbps"] = request.sessionMaxRateKbps;
+    }
+
+    if (!$dara.isNull(request.smoothEnhancement)) {
+      query["SmoothEnhancement"] = request.smoothEnhancement;
+    }
+
+    if (!$dara.isNull(request.statusMonitor)) {
+      query["StatusMonitor"] = request.statusMonitor;
+    }
+
+    if (!$dara.isNull(request.streamingMode)) {
+      query["StreamingMode"] = request.streamingMode;
+    }
+
+    if (!$dara.isNull(request.targetFps)) {
+      query["TargetFps"] = request.targetFps;
+    }
+
+    if (!$dara.isNull(request.taskbar)) {
+      query["Taskbar"] = request.taskbar;
+    }
+
+    if (!$dara.isNull(request.usbRedirect)) {
+      query["UsbRedirect"] = request.usbRedirect;
+    }
+
+    if (!$dara.isNull(request.usbSupplyRedirectRule)) {
+      query["UsbSupplyRedirectRule"] = request.usbSupplyRedirectRule;
+    }
+
+    if (!$dara.isNull(request.videoEncAvgKbps)) {
+      query["VideoEncAvgKbps"] = request.videoEncAvgKbps;
+    }
+
+    if (!$dara.isNull(request.videoEncMaxQP)) {
+      query["VideoEncMaxQP"] = request.videoEncMaxQP;
+    }
+
+    if (!$dara.isNull(request.videoEncMinQP)) {
+      query["VideoEncMinQP"] = request.videoEncMinQP;
+    }
+
+    if (!$dara.isNull(request.videoEncPeakKbps)) {
+      query["VideoEncPeakKbps"] = request.videoEncPeakKbps;
+    }
+
+    if (!$dara.isNull(request.videoEncPolicy)) {
+      query["VideoEncPolicy"] = request.videoEncPolicy;
+    }
+
+    if (!$dara.isNull(request.videoRedirect)) {
+      query["VideoRedirect"] = request.videoRedirect;
+    }
+
+    if (!$dara.isNull(request.visualQuality)) {
+      query["VisualQuality"] = request.visualQuality;
+    }
+
+    if (!$dara.isNull(request.watermark)) {
+      query["Watermark"] = request.watermark;
+    }
+
+    if (!$dara.isNull(request.watermarkAntiCam)) {
+      query["WatermarkAntiCam"] = request.watermarkAntiCam;
+    }
+
+    if (!$dara.isNull(request.watermarkColor)) {
+      query["WatermarkColor"] = request.watermarkColor;
+    }
+
+    if (!$dara.isNull(request.watermarkColumnAmount)) {
+      query["WatermarkColumnAmount"] = request.watermarkColumnAmount;
+    }
+
+    if (!$dara.isNull(request.watermarkCustomText)) {
+      query["WatermarkCustomText"] = request.watermarkCustomText;
+    }
+
+    if (!$dara.isNull(request.watermarkDegree)) {
+      query["WatermarkDegree"] = request.watermarkDegree;
+    }
+
+    if (!$dara.isNull(request.watermarkFontSize)) {
+      query["WatermarkFontSize"] = request.watermarkFontSize;
+    }
+
+    if (!$dara.isNull(request.watermarkFontStyle)) {
+      query["WatermarkFontStyle"] = request.watermarkFontStyle;
+    }
+
+    if (!$dara.isNull(request.watermarkPower)) {
+      query["WatermarkPower"] = request.watermarkPower;
+    }
+
+    if (!$dara.isNull(request.watermarkRowAmount)) {
+      query["WatermarkRowAmount"] = request.watermarkRowAmount;
+    }
+
+    if (!$dara.isNull(request.watermarkSecurity)) {
+      query["WatermarkSecurity"] = request.watermarkSecurity;
+    }
+
+    if (!$dara.isNull(request.watermarkTransparencyValue)) {
+      query["WatermarkTransparencyValue"] = request.watermarkTransparencyValue;
+    }
+
+    if (!$dara.isNull(request.watermarkType)) {
+      query["WatermarkType"] = request.watermarkType;
+    }
+
+    if (!$dara.isNull(request.wuyingKeeper)) {
+      query["WuyingKeeper"] = request.wuyingKeeper;
+    }
+
+    if (!$dara.isNull(request.wyAssistant)) {
+      query["WyAssistant"] = request.wyAssistant;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCenterPolicy",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyCenterPolicyResponse>(await this.callApi(params, req, runtime), new ModifyCenterPolicyResponse({}));
+    } else {
+      return $dara.cast<ModifyCenterPolicyResponse>(await this.execute(params, req, runtime), new ModifyCenterPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ModifyCenterPolicyRequest
+   * @returns ModifyCenterPolicyResponse
+   */
+  async modifyCenterPolicy(request: ModifyCenterPolicyRequest): Promise<ModifyCenterPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCenterPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies team spaces.
    * 
    * @param request - ModifyCloudDriveGroupsRequest
@@ -74259,6 +79723,69 @@ export default class Client extends OpenApi {
   async modifyPolicyGroup(request: ModifyPolicyGroupRequest): Promise<ModifyPolicyGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyResourceCenterPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourceCenterPolicyResponse
+   */
+  async modifyResourceCenterPolicyWithOptions(request: ModifyResourceCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyResourceCenterPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.policyGroupIds)) {
+      query["PolicyGroupIds"] = request.policyGroupIds;
+    }
+
+    if (!$dara.isNull(request.policyGroupType)) {
+      query["PolicyGroupType"] = request.policyGroupType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyResourceCenterPolicy",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyResourceCenterPolicyResponse>(await this.callApi(params, req, runtime), new ModifyResourceCenterPolicyResponse({}));
+    } else {
+      return $dara.cast<ModifyResourceCenterPolicyResponse>(await this.execute(params, req, runtime), new ModifyResourceCenterPolicyResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ModifyResourceCenterPolicyRequest
+   * @returns ModifyResourceCenterPolicyResponse
+   */
+  async modifyResourceCenterPolicy(request: ModifyResourceCenterPolicyRequest): Promise<ModifyResourceCenterPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyResourceCenterPolicyWithOptions(request, runtime);
   }
 
   /**
