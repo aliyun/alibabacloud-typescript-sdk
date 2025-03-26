@@ -5,6 +5,58 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class AllocateEipAddressRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateEipAddressProRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AllocateIpv6AddressRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -154,6 +206,32 @@ export class AssociateNetworkAclRequestResource extends $dara.Model {
     return {
       resourceId: 'string',
       resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommonBandwidthPackageRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -36007,6 +36085,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
    * AntiDDoS_Enhanced
    */
   securityProtectionTypes?: string[];
+  tag?: AllocateEipAddressRequestTag[];
   /**
    * @remarks
    * The zone of the EIP.
@@ -36043,6 +36122,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionTypes: 'SecurityProtectionTypes',
+      tag: 'Tag',
       zone: 'Zone',
     };
   }
@@ -36071,6 +36151,7 @@ export class AllocateEipAddressRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': AllocateEipAddressRequestTag },
       zone: 'string',
     };
   }
@@ -36078,6 +36159,9 @@ export class AllocateEipAddressRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.securityProtectionTypes)) {
       $dara.Model.validateArray(this.securityProtectionTypes);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }
@@ -36388,6 +36472,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * You can configure Anti-DDoS editions for up to 10 EIPs.
    */
   securityProtectionTypes?: string[];
+  tag?: AllocateEipAddressProRequestTag[];
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -36409,6 +36494,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionTypes: 'SecurityProtectionTypes',
+      tag: 'Tag',
     };
   }
 
@@ -36433,12 +36519,16 @@ export class AllocateEipAddressProRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': AllocateEipAddressProRequestTag },
     };
   }
 
   validate() {
     if(Array.isArray(this.securityProtectionTypes)) {
       $dara.Model.validateArray(this.securityProtectionTypes);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }
@@ -41505,9 +41595,9 @@ export class CreateBgpPeerRequest extends $dara.Model {
    * @remarks
    * The BFD hop count. Valid values: **1** to **255**.
    * 
-   * This parameter is required only if you enable BFD.
+   * This parameter is required only if you enable BFD. The parameter specifies the maximum number of network devices that a packet can traverse from the source to the destination. Set a value based on your network topology.
    * 
-   * The parameter specifies the maximum number of network devices that a packet can traverse from the source to the destination. Set a value based on your network topology.
+   * > If you use BFD in a multi-cloud environment or a fiber-optic direct connection network without any bridge device, you need to change the default BFD hop count from **255** to **1**.
    * 
    * @example
    * 3
@@ -41808,6 +41898,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
    * AntiDDoS_Enhanced
    */
   securityProtectionTypes?: string[];
+  tag?: CreateCommonBandwidthPackageRequestTag[];
   /**
    * @remarks
    * The zone of the Internet Shared Bandwidth instance. This parameter is required if you create an Internet Shared Bandwidth instance for a cloud box.
@@ -41832,6 +41923,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityProtectionTypes: 'SecurityProtectionTypes',
+      tag: 'Tag',
       zone: 'Zone',
     };
   }
@@ -41852,6 +41944,7 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityProtectionTypes: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': CreateCommonBandwidthPackageRequestTag },
       zone: 'string',
     };
   }
@@ -41859,6 +41952,9 @@ export class CreateCommonBandwidthPackageRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.securityProtectionTypes)) {
       $dara.Model.validateArray(this.securityProtectionTypes);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }
@@ -60859,6 +60955,8 @@ export class DeleteRouteEntriesRequest extends $dara.Model {
    * The region ID of the route table.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -114386,6 +114484,10 @@ export default class Client extends OpenApi {
       query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.zone)) {
       query["Zone"] = request.zone;
     }
@@ -114513,6 +114615,10 @@ export default class Client extends OpenApi {
       query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -114554,10 +114660,13 @@ export default class Client extends OpenApi {
    * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
    * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
    * 
+   * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
+   * 
    * @param request - AllocateEipSegmentAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateEipSegmentAddressResponse
    */
+  // Deprecated
   async allocateEipSegmentAddressWithOptions(request: AllocateEipSegmentAddressRequest, runtime: $dara.RuntimeOptions): Promise<AllocateEipSegmentAddressResponse> {
     request.validate();
     let query = { };
@@ -114643,9 +114752,12 @@ export default class Client extends OpenApi {
    * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
    * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
    * 
+   * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
+   * 
    * @param request - AllocateEipSegmentAddressRequest
    * @returns AllocateEipSegmentAddressResponse
    */
+  // Deprecated
   async allocateEipSegmentAddress(request: AllocateEipSegmentAddressRequest): Promise<AllocateEipSegmentAddressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.allocateEipSegmentAddressWithOptions(request, runtime);
@@ -117263,6 +117375,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityProtectionTypes)) {
       query["SecurityProtectionTypes"] = request.securityProtectionTypes;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!$dara.isNull(request.zone)) {
