@@ -1961,6 +1961,40 @@ export class ExecuteTextbookAssistantRetryConversationResponseBodyData extends $
   }
 }
 
+export class ExecuteTextbookAssistantSseDialogueResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * Thanks, Lily. Do you like meat, Lily?
+   */
+  englishResult?: string;
+  /**
+   * @example
+   * true
+   */
+  isFinish?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      englishResult: 'englishResult',
+      isFinish: 'isFinish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      englishResult: 'string',
+      isFinish: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecuteTextbookAssistantStartConversationResponseBodyDataResult extends $dara.Model {
   chineseResult?: string;
   /**
@@ -2527,6 +2561,298 @@ export class GetTextbookAssistantTokenResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList extends $dara.Model {
+  /**
+   * @example
+   * I\\"m Mike Black
+   */
+  answer?: string;
+  /**
+   * @example
+   * From the book, how does Mike Black introduce himself?
+   */
+  question?: string;
+  questionTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'answer',
+      question: 'question',
+      questionTranslate: 'questionTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      question: 'string',
+      questionTranslate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyDataSceneList extends $dara.Model {
+  /**
+   * @example
+   * In the park, you introduce yourself to John and ask his name.
+   */
+  scene?: string;
+  /**
+   * @example
+   * 38cddd70509911efbe6e0c42a106bb02
+   */
+  sceneId?: string;
+  sceneImageList?: string[];
+  sceneTransLate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'scene',
+      sceneId: 'sceneId',
+      sceneImageList: 'sceneImageList',
+      sceneTransLate: 'sceneTransLate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      sceneId: 'string',
+      sceneImageList: { 'type': 'array', 'itemType': 'string' },
+      sceneTransLate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sceneImageList)) {
+      $dara.Model.validateArray(this.sceneImageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList extends $dara.Model {
+  sentenceAnalysis?: string;
+  /**
+   * @example
+   * 4de677d2509811efbe6e0c42a106bb02
+   */
+  sentenceId?: string;
+  /**
+   * @example
+   * I\\"m Mike Black
+   */
+  sentenceText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentenceAnalysis: 'sentenceAnalysis',
+      sentenceId: 'sentenceId',
+      sentenceText: 'sentenceText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentenceAnalysis: 'string',
+      sentenceId: 'string',
+      sentenceText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyDataTheme extends $dara.Model {
+  themeImageList?: string[];
+  themeName?: string;
+  /**
+   * @example
+   * Self-awareness, self-management, self-improvement
+   */
+  themeTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      themeImageList: 'themeImageList',
+      themeName: 'themeName',
+      themeTranslate: 'themeTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      themeImageList: { 'type': 'array', 'itemType': 'string' },
+      themeName: 'string',
+      themeTranslate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.themeImageList)) {
+      $dara.Model.validateArray(this.themeImageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyDataTopic extends $dara.Model {
+  topicImageList?: string[];
+  topicName?: string;
+  /**
+   * @example
+   * Greetings and self-introduction
+   */
+  topicTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topicImageList: 'topicImageList',
+      topicName: 'topicName',
+      topicTranslate: 'topicTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicImageList: { 'type': 'array', 'itemType': 'string' },
+      topicName: 'string',
+      topicTranslate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.topicImageList)) {
+      $dara.Model.validateArray(this.topicImageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyDataWordList extends $dara.Model {
+  wordAnalysis?: string;
+  /**
+   * @example
+   * a94df134ed8c11eebe6e0c42a106bb02
+   */
+  wordId?: string;
+  /**
+   * @example
+   * nice
+   */
+  wordText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wordAnalysis: 'wordAnalysis',
+      wordId: 'wordId',
+      wordText: 'wordText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wordAnalysis: 'string',
+      wordId: 'string',
+      wordText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 0c05700d4d9411efbe6e0c42a106bb02
+   */
+  articleId?: string;
+  questionList?: ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList[];
+  sceneList?: ListTextbookAssistantArticleDetailsResponseBodyDataSceneList[];
+  sentenceList?: ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList[];
+  target?: string;
+  theme?: ListTextbookAssistantArticleDetailsResponseBodyDataTheme;
+  topic?: ListTextbookAssistantArticleDetailsResponseBodyDataTopic;
+  wordList?: ListTextbookAssistantArticleDetailsResponseBodyDataWordList[];
+  static names(): { [key: string]: string } {
+    return {
+      articleId: 'articleId',
+      questionList: 'questionList',
+      sceneList: 'sceneList',
+      sentenceList: 'sentenceList',
+      target: 'target',
+      theme: 'theme',
+      topic: 'topic',
+      wordList: 'wordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articleId: 'string',
+      questionList: { 'type': 'array', 'itemType': ListTextbookAssistantArticleDetailsResponseBodyDataQuestionList },
+      sceneList: { 'type': 'array', 'itemType': ListTextbookAssistantArticleDetailsResponseBodyDataSceneList },
+      sentenceList: { 'type': 'array', 'itemType': ListTextbookAssistantArticleDetailsResponseBodyDataSentenceList },
+      target: 'string',
+      theme: ListTextbookAssistantArticleDetailsResponseBodyDataTheme,
+      topic: ListTextbookAssistantArticleDetailsResponseBodyDataTopic,
+      wordList: { 'type': 'array', 'itemType': ListTextbookAssistantArticleDetailsResponseBodyDataWordList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.questionList)) {
+      $dara.Model.validateArray(this.questionList);
+    }
+    if(Array.isArray(this.sceneList)) {
+      $dara.Model.validateArray(this.sceneList);
+    }
+    if(Array.isArray(this.sentenceList)) {
+      $dara.Model.validateArray(this.sentenceList);
+    }
+    if(this.theme && typeof (this.theme as any).validate === 'function') {
+      (this.theme as any).validate();
+    }
+    if(this.topic && typeof (this.topic as any).validate === 'function') {
+      (this.topic as any).validate();
+    }
+    if(Array.isArray(this.wordList)) {
+      $dara.Model.validateArray(this.wordList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTextbookAssistantArticlesResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -2959,6 +3285,326 @@ export class ListTextbookAssistantGradeVolumesResponseBodyData extends $dara.Mod
   validate() {
     if(Array.isArray(this.gradeVolumes)) {
       $dara.Model.validateArray(this.gradeVolumes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataRoleList extends $dara.Model {
+  /**
+   * @example
+   * Carl, a curious boy
+   */
+  introduction?: string;
+  introductionTranslate?: string;
+  /**
+   * @example
+   * Hi Noah, who is that in the photo?
+   */
+  promoting?: string;
+  promotingTranslate?: string;
+  /**
+   * @example
+   * Carl
+   */
+  roleName?: string;
+  /**
+   * @example
+   * Carl
+   */
+  roleNameTranslate?: string;
+  /**
+   * @example
+   * 0
+   */
+  roleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      introduction: 'introduction',
+      introductionTranslate: 'introductionTranslate',
+      promoting: 'promoting',
+      promotingTranslate: 'promotingTranslate',
+      roleName: 'roleName',
+      roleNameTranslate: 'roleNameTranslate',
+      roleType: 'roleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      introduction: 'string',
+      introductionTranslate: 'string',
+      promoting: 'string',
+      promotingTranslate: 'string',
+      roleName: 'string',
+      roleNameTranslate: 'string',
+      roleType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList extends $dara.Model {
+  /**
+   * @example
+   * Say that this is your dad\\"s brother.
+   */
+  sceneTask?: string;
+  sceneTaskTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneTask: 'sceneTask',
+      sceneTaskTranslate: 'sceneTaskTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneTask: 'string',
+      sceneTaskTranslate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList extends $dara.Model {
+  sentenceAnalysis?: string;
+  /**
+   * @example
+   * a774c6d09c4511eebe6e0c42a106bb02
+   */
+  sentenceId?: string;
+  /**
+   * @example
+   * Is this your sister?
+   */
+  sentenceText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sentenceAnalysis: 'sentenceAnalysis',
+      sentenceId: 'sentenceId',
+      sentenceText: 'sentenceText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sentenceAnalysis: 'string',
+      sentenceId: 'string',
+      sentenceText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataTheme extends $dara.Model {
+  themeImageList?: string[];
+  themeName?: string;
+  /**
+   * @example
+   * Family and family life
+   */
+  themeTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      themeImageList: 'themeImageList',
+      themeName: 'themeName',
+      themeTranslate: 'themeTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      themeImageList: { 'type': 'array', 'itemType': 'string' },
+      themeName: 'string',
+      themeTranslate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.themeImageList)) {
+      $dara.Model.validateArray(this.themeImageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataTopic extends $dara.Model {
+  topicImageList?: string[];
+  topicName?: string;
+  /**
+   * @example
+   * Introducing family members
+   */
+  topicTranslate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topicImageList: 'topicImageList',
+      topicName: 'topicName',
+      topicTranslate: 'topicTranslate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicImageList: { 'type': 'array', 'itemType': 'string' },
+      topicName: 'string',
+      topicTranslate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.topicImageList)) {
+      $dara.Model.validateArray(this.topicImageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyDataWordList extends $dara.Model {
+  wordAnalysis?: string;
+  /**
+   * @example
+   * a94c3337ed8c11eebe6e0c42a106bb02
+   */
+  wordId?: string;
+  /**
+   * @example
+   * family
+   */
+  wordText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      wordAnalysis: 'wordAnalysis',
+      wordId: 'wordId',
+      wordText: 'wordText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wordAnalysis: 'string',
+      wordId: 'string',
+      wordText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBodyData extends $dara.Model {
+  roleList?: ListTextbookAssistantSceneDetailsResponseBodyDataRoleList[];
+  /**
+   * @example
+   * At school, Carl sees a photo and asks you about your family.
+   */
+  scene?: string;
+  /**
+   * @example
+   * 38c41b7b509911efbe6e0c42a106bb02
+   */
+  sceneId?: string;
+  sceneImageList?: string[];
+  sceneTaskList?: ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList[];
+  sentenceList?: ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList[];
+  /**
+   * @example
+   * ""
+   */
+  target?: string;
+  theme?: ListTextbookAssistantSceneDetailsResponseBodyDataTheme;
+  topic?: ListTextbookAssistantSceneDetailsResponseBodyDataTopic;
+  wordList?: ListTextbookAssistantSceneDetailsResponseBodyDataWordList[];
+  static names(): { [key: string]: string } {
+    return {
+      roleList: 'roleList',
+      scene: 'scene',
+      sceneId: 'sceneId',
+      sceneImageList: 'sceneImageList',
+      sceneTaskList: 'sceneTaskList',
+      sentenceList: 'sentenceList',
+      target: 'target',
+      theme: 'theme',
+      topic: 'topic',
+      wordList: 'wordList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      roleList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataRoleList },
+      scene: 'string',
+      sceneId: 'string',
+      sceneImageList: { 'type': 'array', 'itemType': 'string' },
+      sceneTaskList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataSceneTaskList },
+      sentenceList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataSentenceList },
+      target: 'string',
+      theme: ListTextbookAssistantSceneDetailsResponseBodyDataTheme,
+      topic: ListTextbookAssistantSceneDetailsResponseBodyDataTopic,
+      wordList: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyDataWordList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.roleList)) {
+      $dara.Model.validateArray(this.roleList);
+    }
+    if(Array.isArray(this.sceneImageList)) {
+      $dara.Model.validateArray(this.sceneImageList);
+    }
+    if(Array.isArray(this.sceneTaskList)) {
+      $dara.Model.validateArray(this.sceneTaskList);
+    }
+    if(Array.isArray(this.sentenceList)) {
+      $dara.Model.validateArray(this.sentenceList);
+    }
+    if(this.theme && typeof (this.theme as any).validate === 'function') {
+      (this.theme as any).validate();
+    }
+    if(this.topic && typeof (this.topic as any).validate === 'function') {
+      (this.topic as any).validate();
+    }
+    if(Array.isArray(this.wordList)) {
+      $dara.Model.validateArray(this.wordList);
     }
     super.validate();
   }
@@ -7753,6 +8399,175 @@ export class ExecuteTextbookAssistantRetryConversationResponse extends $dara.Mod
   }
 }
 
+export class ExecuteTextbookAssistantSseDialogueRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc_e6dc70c890866f4028ca685b6fa29874
+   */
+  authToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 67e374acb54c526c95c4fbd4
+   */
+  chatId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * EXPAND
+   */
+  scenario?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello
+   */
+  userMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'authToken',
+      chatId: 'chatId',
+      scenario: 'scenario',
+      userMessage: 'userMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'string',
+      chatId: 'string',
+      scenario: 'string',
+      userMessage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTextbookAssistantSseDialogueResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 67e4c9d95bdfc83cd742ae7c
+   */
+  assistant?: string;
+  /**
+   * @example
+   * 67e374acb54c526c95c4fbd4
+   */
+  chatId?: string;
+  data?: ExecuteTextbookAssistantSseDialogueResponseBodyData;
+  /**
+   * @example
+   * BIZ_ERROR
+   */
+  errCode?: string;
+  errMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 67e4c9d6b54c526c95c53925
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      chatId: 'chatId',
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      requestId: 'requestId',
+      success: 'success',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      chatId: 'string',
+      data: ExecuteTextbookAssistantSseDialogueResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      user: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteTextbookAssistantSseDialogueResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteTextbookAssistantSseDialogueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteTextbookAssistantSseDialogueResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecuteTextbookAssistantStartConversationRequest extends $dara.Model {
   /**
    * @remarks
@@ -8705,6 +9520,137 @@ export class GetTextbookAssistantTokenResponse extends $dara.Model {
   }
 }
 
+export class ListTextbookAssistantArticleDetailsRequest extends $dara.Model {
+  articleIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc_e6dc70c890866f4028ca685b6fa29874
+   */
+  authToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      articleIdList: 'articleIdList',
+      authToken: 'authToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articleIdList: { 'type': 'array', 'itemType': 'string' },
+      authToken: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.articleIdList)) {
+      $dara.Model.validateArray(this.articleIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponseBody extends $dara.Model {
+  data?: ListTextbookAssistantArticleDetailsResponseBodyData[];
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListTextbookAssistantArticleDetailsResponseBodyData },
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantArticleDetailsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTextbookAssistantArticleDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTextbookAssistantArticleDetailsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTextbookAssistantArticlesRequest extends $dara.Model {
   /**
    * @remarks
@@ -9262,6 +10208,134 @@ export class ListTextbookAssistantGradeVolumesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTextbookAssistantGradeVolumesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsRequest extends $dara.Model {
+  /**
+   * @example
+   * tc_e6dc70c890866f4028ca685b6fa29874
+   */
+  authToken?: string;
+  sceneIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'authToken',
+      sceneIdList: 'sceneIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'string',
+      sceneIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sceneIdList)) {
+      $dara.Model.validateArray(this.sceneIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponseBody extends $dara.Model {
+  data?: ListTextbookAssistantSceneDetailsResponseBodyData[];
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListTextbookAssistantSceneDetailsResponseBodyData },
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTextbookAssistantSceneDetailsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTextbookAssistantSceneDetailsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTextbookAssistantSceneDetailsResponseBody,
     };
   }
 
@@ -12352,6 +13426,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 进行对话-流式输出
+   * 
+   * @param request - ExecuteTextbookAssistantSseDialogueRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteTextbookAssistantSseDialogueResponse
+   */
+  async executeTextbookAssistantSseDialogueWithOptions(request: ExecuteTextbookAssistantSseDialogueRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ExecuteTextbookAssistantSseDialogueResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authToken)) {
+      body["authToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.chatId)) {
+      body["chatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      body["scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.userMessage)) {
+      body["userMessage"] = request.userMessage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteTextbookAssistantSseDialogue",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/textbookAssistant/dialogue/ExecuteSseDialogue`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExecuteTextbookAssistantSseDialogueResponse>(await this.callApi(params, req, runtime), new ExecuteTextbookAssistantSseDialogueResponse({}));
+    } else {
+      return $dara.cast<ExecuteTextbookAssistantSseDialogueResponse>(await this.execute(params, req, runtime), new ExecuteTextbookAssistantSseDialogueResponse({}));
+    }
+
+  }
+
+  /**
+   * 进行对话-流式输出
+   * 
+   * @param request - ExecuteTextbookAssistantSseDialogueRequest
+   * @returns ExecuteTextbookAssistantSseDialogueResponse
+   */
+  async executeTextbookAssistantSseDialogue(request: ExecuteTextbookAssistantSseDialogueRequest): Promise<ExecuteTextbookAssistantSseDialogueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeTextbookAssistantSseDialogueWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 开启自由对话
    * 
    * @param request - ExecuteTextbookAssistantStartConversationRequest
@@ -12728,6 +13864,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量获取文章详情
+   * 
+   * @param request - ListTextbookAssistantArticleDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTextbookAssistantArticleDetailsResponse
+   */
+  async listTextbookAssistantArticleDetailsWithOptions(request: ListTextbookAssistantArticleDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTextbookAssistantArticleDetailsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articleIdList)) {
+      body["articleIdList"] = request.articleIdList;
+    }
+
+    if (!$dara.isNull(request.authToken)) {
+      body["authToken"] = request.authToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTextbookAssistantArticleDetails",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/textbookAssistant/teachingResource/ListArticleDetails`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTextbookAssistantArticleDetailsResponse>(await this.callApi(params, req, runtime), new ListTextbookAssistantArticleDetailsResponse({}));
+    } else {
+      return $dara.cast<ListTextbookAssistantArticleDetailsResponse>(await this.execute(params, req, runtime), new ListTextbookAssistantArticleDetailsResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量获取文章详情
+   * 
+   * @param request - ListTextbookAssistantArticleDetailsRequest
+   * @returns ListTextbookAssistantArticleDetailsResponse
+   */
+  async listTextbookAssistantArticleDetails(request: ListTextbookAssistantArticleDetailsRequest): Promise<ListTextbookAssistantArticleDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTextbookAssistantArticleDetailsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取文章列表
    * 
    * @param request - ListTextbookAssistantArticlesRequest
@@ -12965,6 +14155,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTextbookAssistantGradeVolumesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取文章内容详情
+   * 
+   * @param request - ListTextbookAssistantSceneDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTextbookAssistantSceneDetailsResponse
+   */
+  async listTextbookAssistantSceneDetailsWithOptions(request: ListTextbookAssistantSceneDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTextbookAssistantSceneDetailsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authToken)) {
+      body["authToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.sceneIdList)) {
+      body["sceneIdList"] = request.sceneIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTextbookAssistantSceneDetails",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/textbookAssistant/teachingResource/ListSceneDetails`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTextbookAssistantSceneDetailsResponse>(await this.callApi(params, req, runtime), new ListTextbookAssistantSceneDetailsResponse({}));
+    } else {
+      return $dara.cast<ListTextbookAssistantSceneDetailsResponse>(await this.execute(params, req, runtime), new ListTextbookAssistantSceneDetailsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取文章内容详情
+   * 
+   * @param request - ListTextbookAssistantSceneDetailsRequest
+   * @returns ListTextbookAssistantSceneDetailsResponse
+   */
+  async listTextbookAssistantSceneDetails(request: ListTextbookAssistantSceneDetailsRequest): Promise<ListTextbookAssistantSceneDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTextbookAssistantSceneDetailsWithOptions(request, headers, runtime);
   }
 
   /**
