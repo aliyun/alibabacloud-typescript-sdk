@@ -4791,6 +4791,7 @@ export class DescribeDefenseRuleResponseBodyRule extends $dara.Model {
 }
 
 export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
+  actionExternal?: string;
   /**
    * @remarks
    * The details of the protection rule. The value is a string that contains multiple parameters in the JSON format. For more information, see the "**Rule parameters**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
@@ -4832,6 +4833,10 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    * waf_group
    */
   defenseScene?: string;
+  description?: string;
+  detailRuleIds?: string;
+  externalInfo?: string;
+  gmtCreate?: number;
   /**
    * @remarks
    * The most recent time when the protection rule was modified.
@@ -4856,6 +4861,7 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    * rules_41
    */
   ruleName?: string;
+  ruleType?: string;
   /**
    * @remarks
    * The status of the protection rule. Valid values:
@@ -4877,12 +4883,18 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      actionExternal: 'ActionExternal',
       config: 'Config',
       defenseOrigin: 'DefenseOrigin',
       defenseScene: 'DefenseScene',
+      description: 'Description',
+      detailRuleIds: 'DetailRuleIds',
+      externalInfo: 'ExternalInfo',
+      gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      ruleType: 'RuleType',
       status: 'Status',
       templateId: 'TemplateId',
     };
@@ -4890,12 +4902,18 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      actionExternal: 'string',
       config: 'string',
       defenseOrigin: 'string',
       defenseScene: 'string',
+      description: 'string',
+      detailRuleIds: 'string',
+      externalInfo: 'string',
+      gmtCreate: 'number',
       gmtModified: 'number',
       ruleId: 'number',
       ruleName: 'string',
+      ruleType: 'string',
       status: 'number',
       templateId: 'number',
     };
