@@ -3182,10 +3182,10 @@ export class DescribeCloudDiskAvailableResourceInfoResponseBodySupportResourcesS
    * @remarks
    * The type of the disk.
    * 
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: all-flash disk.
-   * *   local_hdd: local HDD.
-   * *   local_ssd: local SSD.
+   * *   cloud_efficiency:ultra disk.
+   * *   cloud_ssd:all-flash disk.
+   * *   local_hdd:local HDD.
+   * *   local_ssd:local SSD.
    * 
    * @example
    * cloud_ssd
@@ -9211,6 +9211,54 @@ export class DescribeInstanceBandwidthDetailResponseBodyBandwidths extends $dara
       rxBw: 'number',
       serviceType: 'string',
       txBw: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBootConfigurationResponseBodyInstances extends $dara.Model {
+  /**
+   * @example
+   * legacy
+   */
+  bootSet?: string;
+  /**
+   * @example
+   * disk
+   */
+  bootType?: string;
+  /**
+   * @example
+   * off
+   */
+  diskSet?: string;
+  /**
+   * @example
+   * i-****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootSet: 'BootSet',
+      bootType: 'BootType',
+      diskSet: 'DiskSet',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootSet: 'string',
+      bootType: 'string',
+      diskSet: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -18847,86 +18895,6 @@ export class GetBucketLifecycleResponseBodyRule extends $dara.Model {
   }
 }
 
-export class GetDeviceInternetPortResponseBodyNetworkInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The public IP address.
-   * 
-   * @example
-   * 39.105.62.120
-   */
-  externalIp?: string;
-  /**
-   * @remarks
-   * The external port number.
-   * 
-   * @example
-   * 20
-   */
-  externalPort?: string;
-  /**
-   * @remarks
-   * The Internet service provider (ISP).
-   * 
-   * @example
-   * cmcc
-   */
-  ISP?: string;
-  /**
-   * @remarks
-   * The internal IP address.
-   * 
-   * @example
-   * 10.0.0.49
-   */
-  internalIp?: string;
-  /**
-   * @remarks
-   * The internal port number.
-   * 
-   * @example
-   * 2020/2025
-   */
-  internalPort?: string;
-  /**
-   * @remarks
-   * The status of the external port.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      externalIp: 'ExternalIp',
-      externalPort: 'ExternalPort',
-      ISP: 'ISP',
-      internalIp: 'InternalIp',
-      internalPort: 'InternalPort',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      externalIp: 'string',
-      externalPort: 'string',
-      ISP: 'string',
-      internalIp: 'string',
-      internalPort: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Model {
   /**
    * @remarks
@@ -19055,6 +19023,47 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
       storageUsageByte: 'number',
       wanRxBw: 'number',
       wanTxBw: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportImageRequestDiskDeviceMapping extends $dara.Model {
+  /**
+   * @example
+   * www-cn
+   */
+  OSSBucket?: string;
+  /**
+   * @example
+   * image-bucket
+   */
+  OSSObject?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  OSSRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      OSSBucket: 'OSSBucket',
+      OSSObject: 'OSSObject',
+      OSSRegion: 'OSSRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      OSSBucket: 'string',
+      OSSObject: 'string',
+      OSSRegion: 'string',
     };
   }
 
@@ -22009,177 +22018,6 @@ export class AddBackendServersResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddBackendServersResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceInternetPortRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The Internet service provider (ISP). If you leave this parameter empty, the system automatically allows a random ISP. Valid values:
-   * 
-   * *   telecom: China Telecom
-   * *   cmcc: China Mobile
-   * *   unicom: China Unicom
-   * *   cbn: China Broadcasting Network (CBN)
-   * 
-   * @example
-   * telecom
-   */
-  ISP?: string;
-  /**
-   * @remarks
-   * The ID of the instance. You can specify the ID of the server or container.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-5saiou41t6ude2ia56ri902ke
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The private IP address of the simple application server.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10.0.0.50
-   */
-  internalIp?: string;
-  /**
-   * @remarks
-   * The internal port number. Specify this parameter in the following format: first port/last port. Separate multiple port number groups with commas (,). Example: 1026/2001,2005/2005. This parameter is required if you set NatType to DNAT. If you set NatType to SNAT, the value of this parameter is invalid.
-   * 
-   * @example
-   * 12022/12022
-   */
-  internalPort?: string;
-  /**
-   * @remarks
-   * The type of the NAT gateway. The value of this parameter is of the enumerated data type. Valid values:
-   * 
-   * *   SNAT
-   * *   DNAT
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DNAT
-   */
-  natType?: string;
-  /**
-   * @remarks
-   * The ID of the Edge Node Service (ENS) node.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-wuxi-5
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ISP: 'ISP',
-      instanceId: 'InstanceId',
-      internalIp: 'InternalIp',
-      internalPort: 'InternalPort',
-      natType: 'NatType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ISP: 'string',
-      instanceId: 'string',
-      internalIp: 'string',
-      internalPort: 'string',
-      natType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceInternetPortResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 0F9185F6-B6FA-514C-9E05-FFD5F0D7D156
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The list of rules.
-   */
-  ruleIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      ruleIds: 'RuleIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      ruleIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ruleIds)) {
-      $dara.Model.validateArray(this.ruleIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDeviceInternetPortResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDeviceInternetPortResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDeviceInternetPortResponseBody,
     };
   }
 
@@ -26426,6 +26264,7 @@ export class CreateImageRequest extends $dara.Model {
    * cn-beijing
    */
   targetOSSRegionId?: string;
+  withDataDisks?: boolean;
   static names(): { [key: string]: string } {
     return {
       deleteAfterImageUpload: 'DeleteAfterImageUpload',
@@ -26433,6 +26272,7 @@ export class CreateImageRequest extends $dara.Model {
       instanceId: 'InstanceId',
       snapshotId: 'SnapshotId',
       targetOSSRegionId: 'TargetOSSRegionId',
+      withDataDisks: 'WithDataDisks',
     };
   }
 
@@ -26443,6 +26283,7 @@ export class CreateImageRequest extends $dara.Model {
       instanceId: 'string',
       snapshotId: 'string',
       targetOSSRegionId: 'string',
+      withDataDisks: 'boolean',
     };
   }
 
@@ -31122,140 +30963,6 @@ export class DeleteBucketLifecycleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteBucketLifecycleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeviceInternetPortRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance. You can specify the ID of the server or container.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-5scdmgpdegymqyugf85q66l1a
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The type of the NAT gateway. The value must be of the enumerated data type. Valid values:
-   * 
-   * *   SNAT
-   * *   DNAT
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DNAT
-   */
-  natType?: string;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * snat-5rfzxah5gzfo869fl6epvon3y
-   */
-  ruleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      natType: 'NatType',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      natType: 'string',
-      ruleId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeviceInternetPortResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 51F57D60-7946-5EE1-A973-A3CCCCF2EF5B
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The list of rules.
-   */
-  ruleIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      ruleIds: 'RuleIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      ruleIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.ruleIds)) {
-      $dara.Model.validateArray(this.ruleIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeviceInternetPortResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDeviceInternetPortResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDeviceInternetPortResponseBody,
     };
   }
 
@@ -38217,6 +37924,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
    * cn-chengdu-telecom
    */
   ensRegionId?: string;
+  ensRegionIds?: string[];
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -38252,6 +37960,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       eipAddress: 'EipAddress',
       eipName: 'EipName',
       ensRegionId: 'EnsRegionId',
+      ensRegionIds: 'EnsRegionIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       standby: 'Standby',
@@ -38266,6 +37975,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       eipAddress: 'string',
       eipName: 'string',
       ensRegionId: 'string',
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
       standby: 'string',
@@ -38273,6 +37983,9 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ensRegionIds)) {
+      $dara.Model.validateArray(this.ensRegionIds);
+    }
     super.validate();
   }
 
@@ -41504,6 +41217,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
    * cn-beijing-cmcc
    */
   ensRegionId?: string;
+  ensRegionIds?: string[];
   /**
    * @remarks
    * The IP address of the HAVIP.
@@ -41576,6 +41290,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
+      ensRegionIds: 'EnsRegionIds',
       haVipAddress: 'HaVipAddress',
       haVipId: 'HaVipId',
       name: 'Name',
@@ -41590,6 +41305,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ensRegionId: 'string',
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
       haVipAddress: 'string',
       haVipId: 'string',
       name: 'string',
@@ -41602,6 +41318,9 @@ export class DescribeHaVipsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ensRegionIds)) {
+      $dara.Model.validateArray(this.ensRegionIds);
+    }
     super.validate();
   }
 
@@ -42503,6 +42222,132 @@ export class DescribeInstanceBandwidthDetailResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInstanceBandwidthDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBootConfigurationRequest extends $dara.Model {
+  /**
+   * @example
+   * legacy
+   */
+  bootSet?: string;
+  /**
+   * @example
+   * pxe
+   */
+  bootType?: string;
+  /**
+   * @example
+   * on
+   */
+  diskSet?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bootSet: 'BootSet',
+      bootType: 'BootType',
+      diskSet: 'DiskSet',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bootSet: 'string',
+      bootType: 'string',
+      diskSet: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBootConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Schema of Response
+   */
+  instances?: DescribeInstanceBootConfigurationResponseBodyInstances;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F3B261DD-3858-4D3C-877D-303ADF374600
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: DescribeInstanceBootConfigurationResponseBodyInstances,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.instances && typeof (this.instances as any).validate === 'function') {
+      (this.instances as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceBootConfigurationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceBootConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceBootConfigurationResponseBody,
     };
   }
 
@@ -49514,6 +49359,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
    * cn-hangzhou-44
    */
   ensRegionId?: string;
+  ensRegionIds?: string[];
   /**
    * @remarks
    * The Internet service provider. Valid values:
@@ -49561,6 +49407,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ensRegionId: 'EnsRegionId',
+      ensRegionIds: 'EnsRegionIds',
       isp: 'Isp',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -49572,6 +49419,7 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ensRegionId: 'string',
+      ensRegionIds: { 'type': 'array', 'itemType': 'string' },
       isp: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -49581,6 +49429,9 @@ export class DescribeSecondaryPublicIpAddressesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ensRegionIds)) {
+      $dara.Model.validateArray(this.ensRegionIds);
+    }
     super.validate();
   }
 
@@ -53504,148 +53355,6 @@ export class GetBucketLifecycleResponse extends $dara.Model {
   }
 }
 
-export class GetDeviceInternetPortRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance. You can specify the ID of the server or container. You can specify only one ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-5s6xbnx9srb3vm6tp9hg9o64e
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The type of the NAT gateway. The value must be of the enumerated data type. Valid values:
-   * 
-   * *   SNAT
-   * *   DNAT
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DNAT
-   */
-  natType?: string;
-  /**
-   * @remarks
-   * The ID of the rule. If you leave this parameter empty, all rules are queried.
-   * 
-   * @example
-   * snat-5ref5fc1l1xgqnpjzrtw1hw5a
-   */
-  ruleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      natType: 'NatType',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      natType: 'string',
-      ruleId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceInternetPortResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance. The value is the ID of the server or container.
-   * 
-   * @example
-   * i-5sadvk2xnylvra9kyejcnevi6
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The network mapping information about the instance.
-   */
-  networkInfo?: GetDeviceInternetPortResponseBodyNetworkInfo[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 36311833-83FC-57C3-A7DD-768F61F65555
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      networkInfo: 'NetworkInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      networkInfo: { 'type': 'array', 'itemType': GetDeviceInternetPortResponseBodyNetworkInfo },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.networkInfo)) {
-      $dara.Model.validateArray(this.networkInfo);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeviceInternetPortResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeviceInternetPortResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeviceInternetPortResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetOssStorageAndAccByBucketsRequest extends $dara.Model {
   /**
    * @remarks
@@ -53874,6 +53583,317 @@ export class GetOssUsageDataResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetOssUsageDataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ens_vm
+   */
+  computeType?: string;
+  diskDeviceMapping?: ImportImageRequestDiskDeviceMapping[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qcow2
+   */
+  imageFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  imageName?: string;
+  /**
+   * @example
+   * tmp-hybrid
+   */
+  OSSBucket?: string;
+  /**
+   * @example
+   * image-test
+   */
+  OSSObject?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  OSSRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * linux
+   */
+  OSType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6.8
+   */
+  OSVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * centos
+   */
+  platform?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  targetOSSRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      computeType: 'ComputeType',
+      diskDeviceMapping: 'DiskDeviceMapping',
+      imageFormat: 'ImageFormat',
+      imageName: 'ImageName',
+      OSSBucket: 'OSSBucket',
+      OSSObject: 'OSSObject',
+      OSSRegion: 'OSSRegion',
+      OSType: 'OSType',
+      OSVersion: 'OSVersion',
+      platform: 'Platform',
+      targetOSSRegionId: 'TargetOSSRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      computeType: 'string',
+      diskDeviceMapping: { 'type': 'array', 'itemType': ImportImageRequestDiskDeviceMapping },
+      imageFormat: 'string',
+      imageName: 'string',
+      OSSBucket: 'string',
+      OSSObject: 'string',
+      OSSRegion: 'string',
+      OSType: 'string',
+      OSVersion: 'string',
+      platform: 'string',
+      targetOSSRegionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskDeviceMapping)) {
+      $dara.Model.validateArray(this.diskDeviceMapping);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportImageShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ens_vm
+   */
+  computeType?: string;
+  diskDeviceMappingShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qcow2
+   */
+  imageFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  imageName?: string;
+  /**
+   * @example
+   * tmp-hybrid
+   */
+  OSSBucket?: string;
+  /**
+   * @example
+   * image-test
+   */
+  OSSObject?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  OSSRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * linux
+   */
+  OSType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6.8
+   */
+  OSVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * centos
+   */
+  platform?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  targetOSSRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      computeType: 'ComputeType',
+      diskDeviceMappingShrink: 'DiskDeviceMapping',
+      imageFormat: 'ImageFormat',
+      imageName: 'ImageName',
+      OSSBucket: 'OSSBucket',
+      OSSObject: 'OSSObject',
+      OSSRegion: 'OSSRegion',
+      OSType: 'OSType',
+      OSVersion: 'OSVersion',
+      platform: 'Platform',
+      targetOSSRegionId: 'TargetOSSRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      computeType: 'string',
+      diskDeviceMappingShrink: 'string',
+      imageFormat: 'string',
+      imageName: 'string',
+      OSSBucket: 'string',
+      OSSObject: 'string',
+      OSSRegion: 'string',
+      OSType: 'string',
+      OSVersion: 'string',
+      platform: 'string',
+      targetOSSRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportImageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * m-5wn1dh*******b48f440ntvad
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportImageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImportImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImportImageResponseBody,
     };
   }
 
@@ -61825,127 +61845,6 @@ export class ResetAICInstanceResponse extends $dara.Model {
   }
 }
 
-export class ResetDeviceInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d0639abf-789a-4527-b420-031d2cd9ad9b
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * m-5si16wo6simkt267p8b7hcmy3
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-5sfdblzjqf3zvjnr7oh0bhhj2
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      imageId: 'ImageId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      imageId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetDeviceInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 60C0D889-9C80-5D68-8645-6A55C58E72CF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetDeviceInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetDeviceInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetDeviceInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ResetDiskRequest extends $dara.Model {
   /**
    * @remarks
@@ -62156,115 +62055,6 @@ export class ResizeDiskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResizeDiskResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDeviceInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * f829265e-2f6f-4088-a4be-c1fb95ab45f9
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * i-5slvdwcxf6ch81nl4r7p04j5q
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDeviceInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 388AA3AE-CE49-5FF4-8CF5-A03D2BBA1C9A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDeviceInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartDeviceInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartDeviceInstanceResponseBody,
     };
   }
 
@@ -68326,49 +68116,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
-   * 
-   * @param request - AddDeviceInternetPortRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AddDeviceInternetPortResponse
-   */
-  async addDeviceInternetPortWithOptions(request: AddDeviceInternetPortRequest, runtime: $dara.RuntimeOptions): Promise<AddDeviceInternetPortResponse> {
-    request.validate();
-    let query = OpenApiUtil.query(request.toMap());
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "AddDeviceInternetPort",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AddDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new AddDeviceInternetPortResponse({}));
-    } else {
-      return $dara.cast<AddDeviceInternetPortResponse>(await this.execute(params, req, runtime), new AddDeviceInternetPortResponse({}));
-    }
-
-  }
-
-  /**
-   * Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
-   * 
-   * @param request - AddDeviceInternetPortRequest
-   * @returns AddDeviceInternetPortResponse
-   */
-  async addDeviceInternetPort(request: AddDeviceInternetPortRequest): Promise<AddDeviceInternetPortResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.addDeviceInternetPortWithOptions(request, runtime);
-  }
-
-  /**
    * Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
    * 
    * @remarks
@@ -70147,6 +69894,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.targetOSSRegionId)) {
       query["TargetOSSRegionId"] = request.targetOSSRegionId;
+    }
+
+    if (!$dara.isNull(request.withDataDisks)) {
+      query["WithDataDisks"] = request.withDataDisks;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -72030,49 +71781,6 @@ export default class Client extends OpenApi {
   async deleteBucketLifecycle(request: DeleteBucketLifecycleRequest): Promise<DeleteBucketLifecycleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBucketLifecycleWithOptions(request, runtime);
-  }
-
-  /**
-   * Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
-   * 
-   * @param request - DeleteDeviceInternetPortRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteDeviceInternetPortResponse
-   */
-  async deleteDeviceInternetPortWithOptions(request: DeleteDeviceInternetPortRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDeviceInternetPortResponse> {
-    request.validate();
-    let query = OpenApiUtil.query(request.toMap());
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteDeviceInternetPort",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new DeleteDeviceInternetPortResponse({}));
-    } else {
-      return $dara.cast<DeleteDeviceInternetPortResponse>(await this.execute(params, req, runtime), new DeleteDeviceInternetPortResponse({}));
-    }
-
-  }
-
-  /**
-   * Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
-   * 
-   * @param request - DeleteDeviceInternetPortRequest
-   * @returns DeleteDeviceInternetPortResponse
-   */
-  async deleteDeviceInternetPort(request: DeleteDeviceInternetPortRequest): Promise<DeleteDeviceInternetPortResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deleteDeviceInternetPortWithOptions(request, runtime);
   }
 
   /**
@@ -74765,6 +74473,10 @@ export default class Client extends OpenApi {
       query["EnsRegionId"] = request.ensRegionId;
     }
 
+    if (!$dara.isNull(request.ensRegionIds)) {
+      query["EnsRegionIds"] = request.ensRegionIds;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -76345,6 +76057,65 @@ export default class Client extends OpenApi {
   async describeInstanceBandwidthDetail(request: DescribeInstanceBandwidthDetailRequest): Promise<DescribeInstanceBandwidthDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceBandwidthDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * 
+   * @param request - DescribeInstanceBootConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceBootConfigurationResponse
+   */
+  async describeInstanceBootConfigurationWithOptions(request: DescribeInstanceBootConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceBootConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bootSet)) {
+      query["BootSet"] = request.bootSet;
+    }
+
+    if (!$dara.isNull(request.bootType)) {
+      query["BootType"] = request.bootType;
+    }
+
+    if (!$dara.isNull(request.diskSet)) {
+      query["DiskSet"] = request.diskSet;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceBootConfiguration",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceBootConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeInstanceBootConfigurationResponse({}));
+    } else {
+      return $dara.cast<DescribeInstanceBootConfigurationResponse>(await this.execute(params, req, runtime), new DescribeInstanceBootConfigurationResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * 
+   * @param request - DescribeInstanceBootConfigurationRequest
+   * @returns DescribeInstanceBootConfigurationResponse
+   */
+  async describeInstanceBootConfiguration(request: DescribeInstanceBootConfigurationRequest): Promise<DescribeInstanceBootConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceBootConfigurationWithOptions(request, runtime);
   }
 
   /**
@@ -78284,6 +78055,10 @@ export default class Client extends OpenApi {
       query["EnsRegionId"] = request.ensRegionId;
     }
 
+    if (!$dara.isNull(request.ensRegionIds)) {
+      query["EnsRegionIds"] = request.ensRegionIds;
+    }
+
     if (!$dara.isNull(request.isp)) {
       query["Isp"] = request.isp;
     }
@@ -79690,49 +79465,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
-   * 
-   * @param request - GetDeviceInternetPortRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetDeviceInternetPortResponse
-   */
-  async getDeviceInternetPortWithOptions(request: GetDeviceInternetPortRequest, runtime: $dara.RuntimeOptions): Promise<GetDeviceInternetPortResponse> {
-    request.validate();
-    let query = OpenApiUtil.query(request.toMap());
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetDeviceInternetPort",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeviceInternetPortResponse>(await this.callApi(params, req, runtime), new GetDeviceInternetPortResponse({}));
-    } else {
-      return $dara.cast<GetDeviceInternetPortResponse>(await this.execute(params, req, runtime), new GetDeviceInternetPortResponse({}));
-    }
-
-  }
-
-  /**
-   * Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
-   * 
-   * @param request - GetDeviceInternetPortRequest
-   * @returns GetDeviceInternetPortResponse
-   */
-  async getDeviceInternetPort(request: GetDeviceInternetPortRequest): Promise<GetDeviceInternetPortResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getDeviceInternetPortWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
    * 
    * @param request - GetOssStorageAndAccByBucketsRequest
@@ -79822,6 +79554,103 @@ export default class Client extends OpenApi {
   async getOssUsageData(request: GetOssUsageDataRequest): Promise<GetOssUsageDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getOssUsageDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用ImportImage导入一份您的镜像文件到云服务器。
+   * 
+   * @param tmpReq - ImportImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportImageResponse
+   */
+  async importImageWithOptions(tmpReq: ImportImageRequest, runtime: $dara.RuntimeOptions): Promise<ImportImageResponse> {
+    tmpReq.validate();
+    let request = new ImportImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.diskDeviceMapping)) {
+      request.diskDeviceMappingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.diskDeviceMapping, "DiskDeviceMapping", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.architecture)) {
+      query["Architecture"] = request.architecture;
+    }
+
+    if (!$dara.isNull(request.computeType)) {
+      query["ComputeType"] = request.computeType;
+    }
+
+    if (!$dara.isNull(request.diskDeviceMappingShrink)) {
+      query["DiskDeviceMapping"] = request.diskDeviceMappingShrink;
+    }
+
+    if (!$dara.isNull(request.imageFormat)) {
+      query["ImageFormat"] = request.imageFormat;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.OSSBucket)) {
+      query["OSSBucket"] = request.OSSBucket;
+    }
+
+    if (!$dara.isNull(request.OSSObject)) {
+      query["OSSObject"] = request.OSSObject;
+    }
+
+    if (!$dara.isNull(request.OSSRegion)) {
+      query["OSSRegion"] = request.OSSRegion;
+    }
+
+    if (!$dara.isNull(request.OSType)) {
+      query["OSType"] = request.OSType;
+    }
+
+    if (!$dara.isNull(request.OSVersion)) {
+      query["OSVersion"] = request.OSVersion;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.targetOSSRegionId)) {
+      query["TargetOSSRegionId"] = request.targetOSSRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportImage",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImportImageResponse>(await this.callApi(params, req, runtime), new ImportImageResponse({}));
+    } else {
+      return $dara.cast<ImportImageResponse>(await this.execute(params, req, runtime), new ImportImageResponse({}));
+    }
+
+  }
+
+  /**
+   * 调用ImportImage导入一份您的镜像文件到云服务器。
+   * 
+   * @param request - ImportImageRequest
+   * @returns ImportImageResponse
+   */
+  async importImage(request: ImportImageRequest): Promise<ImportImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importImageWithOptions(request, runtime);
   }
 
   /**
@@ -83257,49 +83086,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets an instance including its image.
-   * 
-   * @param request - ResetDeviceInstanceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ResetDeviceInstanceResponse
-   */
-  async resetDeviceInstanceWithOptions(request: ResetDeviceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ResetDeviceInstanceResponse> {
-    request.validate();
-    let query = OpenApiUtil.query(request.toMap());
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ResetDeviceInstance",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetDeviceInstanceResponse>(await this.callApi(params, req, runtime), new ResetDeviceInstanceResponse({}));
-    } else {
-      return $dara.cast<ResetDeviceInstanceResponse>(await this.execute(params, req, runtime), new ResetDeviceInstanceResponse({}));
-    }
-
-  }
-
-  /**
-   * Resets an instance including its image.
-   * 
-   * @param request - ResetDeviceInstanceRequest
-   * @returns ResetDeviceInstanceResponse
-   */
-  async resetDeviceInstance(request: ResetDeviceInstanceRequest): Promise<ResetDeviceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.resetDeviceInstanceWithOptions(request, runtime);
-  }
-
-  /**
    * Rolls back a disk by using a snapshot.
    * 
    * @remarks
@@ -83413,49 +83199,6 @@ export default class Client extends OpenApi {
   async resizeDisk(request: ResizeDiskRequest): Promise<ResizeDiskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resizeDiskWithOptions(request, runtime);
-  }
-
-  /**
-   * Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
-   * 
-   * @param request - RestartDeviceInstanceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RestartDeviceInstanceResponse
-   */
-  async restartDeviceInstanceWithOptions(request: RestartDeviceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RestartDeviceInstanceResponse> {
-    request.validate();
-    let query = OpenApiUtil.query(request.toMap());
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "RestartDeviceInstance",
-      version: "2017-11-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RestartDeviceInstanceResponse>(await this.callApi(params, req, runtime), new RestartDeviceInstanceResponse({}));
-    } else {
-      return $dara.cast<RestartDeviceInstanceResponse>(await this.execute(params, req, runtime), new RestartDeviceInstanceResponse({}));
-    }
-
-  }
-
-  /**
-   * Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
-   * 
-   * @param request - RestartDeviceInstanceRequest
-   * @returns RestartDeviceInstanceResponse
-   */
-  async restartDeviceInstance(request: RestartDeviceInstanceRequest): Promise<RestartDeviceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.restartDeviceInstanceWithOptions(request, runtime);
   }
 
   /**
