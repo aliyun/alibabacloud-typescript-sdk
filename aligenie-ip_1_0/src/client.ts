@@ -4058,21 +4058,31 @@ export class ListHotelOrderResponseBodyPage extends $dara.Model {
 }
 
 export class ListHotelOrderResponseBodyResult extends $dara.Model {
+  amt?: number;
   /**
    * @example
    * 21.5
    */
   applyAmt?: number;
+  deliveryMethod?: string;
+  deliveryRoomName?: string;
+  deliveryTime?: number;
   /**
    * @example
    * 1659952892000
    */
   gmtCreate?: number;
+  icon?: string;
+  itemId?: number;
+  itemType?: string;
+  name?: string;
   /**
    * @example
    * 20220808180132000114508555527711
    */
   orderNo?: string;
+  orderStatus?: string;
+  paymentMethod?: string;
   /**
    * @example
    * 12
@@ -4083,11 +4093,13 @@ export class ListHotelOrderResponseBodyResult extends $dara.Model {
    * 2001
    */
   roomNo?: string;
+  startTime?: number;
   /**
    * @example
    * INIT
    */
   status?: string;
+  sumAmt?: number;
   /**
    * @example
    * REPAIR
@@ -4105,12 +4117,24 @@ export class ListHotelOrderResponseBodyResult extends $dara.Model {
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
+      amt: 'Amt',
       applyAmt: 'ApplyAmt',
+      deliveryMethod: 'DeliveryMethod',
+      deliveryRoomName: 'DeliveryRoomName',
+      deliveryTime: 'DeliveryTime',
       gmtCreate: 'GmtCreate',
+      icon: 'Icon',
+      itemId: 'ItemId',
+      itemType: 'ItemType',
+      name: 'Name',
       orderNo: 'OrderNo',
+      orderStatus: 'OrderStatus',
+      paymentMethod: 'PaymentMethod',
       quantity: 'Quantity',
       roomNo: 'RoomNo',
+      startTime: 'StartTime',
       status: 'Status',
+      sumAmt: 'SumAmt',
       type: 'Type',
       typeIconUrl: 'TypeIconUrl',
       typeName: 'TypeName',
@@ -4119,12 +4143,24 @@ export class ListHotelOrderResponseBodyResult extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      amt: 'number',
       applyAmt: 'number',
+      deliveryMethod: 'string',
+      deliveryRoomName: 'string',
+      deliveryTime: 'number',
       gmtCreate: 'number',
+      icon: 'string',
+      itemId: 'number',
+      itemType: 'string',
+      name: 'string',
       orderNo: 'string',
+      orderStatus: 'string',
+      paymentMethod: 'string',
       quantity: 'number',
       roomNo: 'string',
+      startTime: 'number',
       status: 'string',
+      sumAmt: 'number',
       type: 'string',
       typeIconUrl: 'string',
       typeName: 'string',
@@ -7243,10 +7279,12 @@ export class SubmitHotelOrderRequestPayloadItemList extends $dara.Model {
    * 2
    */
   quantity?: number;
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       itemId: 'ItemId',
       quantity: 'Quantity',
+      remark: 'Remark',
     };
   }
 
@@ -7254,6 +7292,7 @@ export class SubmitHotelOrderRequestPayloadItemList extends $dara.Model {
     return {
       itemId: 'number',
       quantity: 'number',
+      remark: 'string',
     };
   }
 
@@ -25746,11 +25785,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -25839,11 +25878,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -25932,11 +25971,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -25999,11 +26038,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26072,11 +26111,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26169,11 +26208,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26242,11 +26281,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26313,11 +26352,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26382,11 +26421,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26455,11 +26494,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26528,11 +26567,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26595,11 +26634,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26670,11 +26709,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26759,11 +26798,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26868,11 +26907,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26953,11 +26992,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27030,11 +27069,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27093,11 +27132,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27166,11 +27205,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27239,11 +27278,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27310,11 +27349,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27377,11 +27416,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27440,11 +27479,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27507,11 +27546,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27584,11 +27623,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27655,11 +27694,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27718,11 +27757,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27781,11 +27820,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27858,11 +27897,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -27932,11 +27971,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28002,11 +28041,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28071,11 +28110,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28140,11 +28179,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28209,11 +28248,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28278,11 +28317,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28345,11 +28384,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28414,11 +28453,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28485,11 +28524,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28554,11 +28593,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28617,11 +28656,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28684,11 +28723,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28740,11 +28779,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28812,11 +28851,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28875,11 +28914,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -28954,11 +28993,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29027,11 +29066,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29108,11 +29147,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29185,11 +29224,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29259,11 +29298,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29335,11 +29374,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29391,11 +29430,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29451,11 +29490,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29528,11 +29567,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29591,11 +29630,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29664,11 +29703,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29733,11 +29772,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29789,11 +29828,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29842,11 +29881,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29916,11 +29955,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -29989,11 +30028,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30067,11 +30106,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30145,11 +30184,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30219,11 +30258,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30289,11 +30328,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30371,11 +30410,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30439,11 +30478,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30522,11 +30561,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30589,11 +30628,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30656,11 +30695,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30737,11 +30776,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30846,11 +30885,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30917,11 +30956,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -30980,11 +31019,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31049,11 +31088,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31126,11 +31165,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31205,11 +31244,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31286,11 +31325,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31363,11 +31402,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31442,11 +31481,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31509,11 +31548,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31576,11 +31615,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31643,11 +31682,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31732,11 +31771,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31807,11 +31846,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31878,11 +31917,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31941,11 +31980,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32018,11 +32057,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32095,11 +32134,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32210,11 +32249,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32317,11 +32356,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32414,11 +32453,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32523,11 +32562,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32604,11 +32643,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32678,11 +32717,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32761,11 +32800,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32833,11 +32872,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32910,11 +32949,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -32985,11 +33024,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -33056,11 +33095,11 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = JSON.stringify(headers.xAcsAligenieAccessToken);
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
     }
 
     if (!$dara.isNull(headers.authorization)) {
-      realHeaders["Authorization"] = JSON.stringify(headers.authorization);
+      realHeaders["Authorization"] = String(headers.authorization);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
