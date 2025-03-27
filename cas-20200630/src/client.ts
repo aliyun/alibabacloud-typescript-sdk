@@ -2559,6 +2559,8 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
 }
 
 export class CreateClientCertificateWithCsrResponseBody extends $dara.Model {
+  certKmcRep1?: string;
+  certSignBufKmc?: string;
   /**
    * @remarks
    * The certificate chain of the client certificate.
@@ -2601,6 +2603,8 @@ export class CreateClientCertificateWithCsrResponseBody extends $dara.Model {
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certKmcRep1: 'CertKmcRep1',
+      certSignBufKmc: 'CertSignBufKmc',
       certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       requestId: 'RequestId',
@@ -2611,6 +2615,8 @@ export class CreateClientCertificateWithCsrResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certKmcRep1: 'string',
+      certSignBufKmc: 'string',
       certificateChain: 'string',
       identifier: 'string',
       requestId: 'string',
