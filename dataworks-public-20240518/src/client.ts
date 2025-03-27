@@ -2424,7 +2424,7 @@ export class CreateAlertRuleRequestTriggerCondition extends $dara.Model {
 export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods. Valid values:
+   * The alert notification method. Valid values:
    * 
    * *   Mail
    * *   Phone
@@ -2515,7 +2515,7 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
 export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   /**
    * @remarks
-   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * This parameter is deprecated and replaced by the MuteInterval parameter.
    * 
    * @example
    * 5
@@ -2525,7 +2525,7 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   inhibitionInterval?: number;
   /**
    * @remarks
-   * 告警抑制间隔时长，单位分钟，默认5分钟。
+   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
    * 
    * @example
    * 5
@@ -2577,14 +2577,14 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
 export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect.
+   * This parameter is deprecated and replaced by the DdlTypes parameter.
    * 
    * @deprecated
    */
   ddlReportTags?: string[];
   /**
    * @remarks
-   * 在DDL通知的时候才生效，需要生效的DDL列表。
+   * The types of DDL operations for which the alert rule takes effect.
    */
   ddlTypes?: string[];
   /**
@@ -2829,8 +2829,8 @@ export class CreateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
    * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
    * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
    * *   runtime.realtime.concurrent: specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
-   * *   runtime.realtime.failover.minute.dataxcdc: The maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
-   * *   runtime.realtime.failover.times.dataxcdc: The maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
+   * *   runtime.realtime.failover.minute.dataxcdc: specifies the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
+   * *   runtime.realtime.failover.times.dataxcdc: specifies the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
    * 
    * @example
    * runtime.offline.concurrent
@@ -2872,19 +2872,19 @@ export class CreateDIJobRequestJobSettings extends $dara.Model {
    * @remarks
    * The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
    * 
-   * 1.  Data synchronization from Hologres to Kafka
+   * 1.  Holo2Kafka
    * 
    * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
    * *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you write data to a Kafka data source.
    * *   keyColumns: the names of Kafka columns to which you want to write data.
-   * *   writeMode: the writing format. Valid values: json and canal.
+   * *   writeMode: the writing format of the Kafka data source. Valid values: json and canal.
    * 
-   * 2.  Data synchronization between Hologres data sources
+   * 2.  Holo2Holo
    * 
    * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
    * *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
    * *   writeMode: the mode in which you want to write data to Hologres. Valid values: replay and insert.
-   * *   dynamicColumnAction: the method used to write data to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
+   * *   dynamicColumnAction: the mode in which you want to write data to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
    * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
@@ -4247,6 +4247,8 @@ export class CreateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
    * *   emr
    * *   analyticdb_for_postgresql
    * 
+   * This parameter is required.
+   * 
    * @example
    * maxcompute
    */
@@ -4262,6 +4264,8 @@ export class CreateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   /**
    * @remarks
    * The ID of the table in Data Map.
+   * 
+   * This parameter is required.
    * 
    * @example
    * odps.api_test.ods_openapi_log_d
@@ -5115,10 +5119,11 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $dara.Model {
   /**
    * @remarks
-   * The notification method.
-   * - Sms: Sms only
-   * - Mail: Mail only
-   * - SmsMail: SMS and email.
+   * The alert notification method. Valid values:
+   * 
+   * *   Sms
+   * *   Mail
+   * *   SmsMail
    * 
    * @example
    * Sms
@@ -5126,10 +5131,11 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
   noticeType?: string;
   /**
    * @remarks
-   * The alert policy.
-   * - Success: successful alert
-   * - Failure: failed alarm
-   * - SuccessFailure: alerts for both success and failure
+   * The alerting policy. Valid values:
+   * 
+   * *   SUCCESS: An alert is reported when data backfill succeeds.
+   * *   FAILURE: An alert is reported when data backfill fails.
+   * *   SuccessFailure: An alert is reported regardless of whether data backfill succeeds or fails.
    * 
    * @example
    * Succes
@@ -5161,7 +5167,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends $dara.Model {
   /**
    * @remarks
-   * Whether to block the operation if the analysis fails.
+   * Specifies whether to block the running of the instance if the analysis fails.
    * 
    * @example
    * true
@@ -5169,7 +5175,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
   blocked?: boolean;
   /**
    * @remarks
-   * Whether to enable analysis.
+   * Specifies whether to enable the analysis feature.
    * 
    * @example
    * true
@@ -5201,7 +5207,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends $dara.Model {
   /**
    * @remarks
-   * The end runtime. This field is required if the policy is set.
+   * The time when the instance finishes running. This parameter is required if you specify the RunPolicy parameter.
    * 
    * @example
    * 23:59:59
@@ -5209,7 +5215,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   endTime?: string;
   /**
    * @remarks
-   * The default value is false.
+   * Specifies whether the instance can be run immediately during the time period in the future. Default value: false.
    * 
    * @example
    * false
@@ -5217,7 +5223,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   immediately?: boolean;
   /**
    * @remarks
-   * The start time. This field is required if the policy is set.
+   * The time when the instance starts to run. This parameter is required if you specify the RunPolicy parameter.
    * 
    * @example
    * 00:00:00
@@ -5225,9 +5231,10 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   startTime?: string;
   /**
    * @remarks
-   * The type of the time period. This field is required if the policy is set.
-   * - Daily: every day
-   * - Weekend: Weekends only
+   * The type of the time period during which the data is backfilled. This parameter is required if you specify the RunPolicy parameter. Valid values:
+   * 
+   * *   Daily
+   * *   Weekend
    * 
    * @example
    * Daily
@@ -5263,41 +5270,42 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
 export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Model {
   /**
    * @remarks
-   * Alarm configuration.
+   * The alert settings.
    */
   alert?: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert;
   /**
    * @remarks
-   * Analyze the configuration.
+   * The analysis of the configurations.
    */
   analysis?: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis;
   /**
    * @remarks
-   * The list of project IDs that do not need to be run.
+   * The IDs of the projects that do not need to be run.
    */
   excludeProjectIds?: number[];
   /**
    * @remarks
-   * The list of task IDs that you do not want to run.
+   * The IDs of the tasks that do not need to be run.
    */
   excludeTaskIds?: number[];
   /**
    * @remarks
-   * The list of project IDs to be run.
+   * The IDs of the projects that need to be run.
    */
   includeProjectIds?: number[];
   /**
    * @remarks
-   * The list of task IDs to be run.
+   * The IDs of the tasks that need to be run.
    */
   includeTaskIds?: number[];
   /**
    * @remarks
-   * The data replenishment mode. The default value is ManualSelection.
-   * - General: In normal mode, only one \\"roottaskkids\\" can be filled in, and \\"IncludeTaskIds\\" is optional. If not, the content in \\"roottaskkids\\" will be included by default.
-   * - ManualSelection: manually select, \\"roottaskkids\\" can be filled in multiple, \\"IncludeTaskIds\\" optional, if not, the content in \\"roottaskkids\\" will be included by default.
-   * - Chain: the link, \\"roottaskkids\\" is empty, and \\"IncludeTaskIds\\" is filled with two IDs, which are the start and end tasks respectively.
-   * - AllDownstream: all downstream, \\"roottaskkids\\" can only be filled in one
+   * The data backfill mode. Default value: ManualSelection. Valid values:
+   * 
+   * *   General: You can specify only one root task ID. The `IncludeTaskIds` parameter is optional. If you do not specify the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.``
+   * *   ManualSelection: You can specify multiple root tasks IDs. The `IncludeTaskIds` parameter is optional. If you do not specify the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.``
+   * *   Chain: The value of the `RootTaskIds` parameter is left empty. You must set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
+   * *   AllDownstream: You can specify only one root task ID.``
    * 
    * @example
    * ManualSelection
@@ -5305,9 +5313,10 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   mode?: string;
   /**
    * @remarks
-   * The running sequence. Default value: Asc.
-   * - Asc: ascending order by business date.
-   * - Desc: descending order by business date.
+   * The running order. Default value: Asc. Valid values:
+   * 
+   * *   Asc: The tasks are sorted by data timestamp in ascending order.
+   * *   Desc: The tasks are sorted by data timestamp in descending order.
    * 
    * @example
    * Asc
@@ -5315,7 +5324,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   order?: string;
   /**
    * @remarks
-   * The number of rows that the task has. Values from 2 to 10 are parallelism and 1 is serial.
+   * The number of tasks that can be run in parallel. If you specify the value to 2 to 10, the value indicates the number of tasks that can be run in parallel. If you specify the value to 1, the tasks are run one by one.
    * 
    * @example
    * 2
@@ -5323,17 +5332,17 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   parallelism?: number;
   /**
    * @remarks
-   * The ID list of the root task.
+   * The root task IDs.
    */
   rootTaskIds?: number[];
   /**
    * @remarks
-   * Run the policy. If this field is empty, the task configuration is followed.
+   * The data backfill policy. If you leave this parameter empty, the runtime configuration is used.
    */
   runPolicy?: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy;
   /**
    * @remarks
-   * The identifier of the custom scheduling Resource Group. If this field is empty, the task configuration is followed.
+   * The identifier of the custom resource group for scheduling. If you leave this parameter empty, the runtime configuration is used.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -7676,7 +7685,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
   /**
    * @remarks
-   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB_For_MySQL, Kafka, Hive.
    * 
    * @example
    * Hologres
@@ -7711,6 +7720,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * Running
    */
   jobStatus?: string;
+  jobType?: string;
   /**
    * @remarks
    * The synchronization type. Valid values:
@@ -7747,7 +7757,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   sourceDataSourceSettings?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettings[];
   /**
    * @remarks
-   * The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SQLServer, Doris, ClickHouse.
    * 
    * @example
    * Mysql
@@ -7777,6 +7787,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
       jobName: 'JobName',
       jobSettings: 'JobSettings',
       jobStatus: 'JobStatus',
+      jobType: 'JobType',
       migrationType: 'MigrationType',
       projectId: 'ProjectId',
       resourceSettings: 'ResourceSettings',
@@ -7797,6 +7808,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
       jobName: 'string',
       jobSettings: GetDIJobResponseBodyPagingInfoJobSettings,
       jobStatus: 'string',
+      jobType: 'string',
       migrationType: 'string',
       projectId: 'number',
       resourceSettings: GetDIJobResponseBodyPagingInfoResourceSettings,
@@ -8296,10 +8308,10 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * Hook trigger condition. When this condition is met, hook action is triggered. Currently, only two conditional expressions are supported:
+   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
    * 
-   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
-   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -8463,10 +8475,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two conditional expressions are supported:
+   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
    * 
-   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
-   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -8572,10 +8584,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   taskIds?: number[];
   /**
    * @remarks
-   * Quality Monitoring trigger type:
+   * The trigger type of the monitor. Valid values:
    * 
-   * - ByManual: manually triggered. Default value
-   * - ByScheduledTaskInstance: triggered by associated scheduling tasks
+   * *   ByManual (default): The monitor is manually triggered.
+   * *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -8618,7 +8630,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   description?: string;
   /**
    * @remarks
-   * Callback settings.
+   * The hook.
    */
   hooks?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks[];
   /**
@@ -8665,12 +8677,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   runtimeConf?: string;
   /**
    * @remarks
-   * For more information, see DataQualityTarget monitoring objects for the sample data quality verification task. For more information, see DataQualityTarget.
+   * The monitored object of the monitor.
    */
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget;
   /**
    * @remarks
-   * The trigger configuration of the data quality verification task.
+   * The trigger configuration of the monitor.
    */
   trigger?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger;
   static names(): { [key: string]: string } {
@@ -14413,8 +14425,8 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -16394,7 +16406,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive. If you do not configure this parameter, the API operation returns synchronization tasks that use all type of destinations.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, DataHub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive.
    * 
    * @example
    * Hologres
@@ -20014,7 +20026,10 @@ export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends 
   connectionProperties?: any;
   /**
    * @remarks
-   * The mode in which the data source is added. The mode varies based on the data source type. Valid values: InstanceMode, UrlMode, and CdhMode. The value InstanceMode indicates the instance mode. The value UrlMode indicates the connection string mode. The value CdhMode indicates the CDH cluster mode.
+   * The mode in which the data source is added. The mode varies based on the data source type. Valid values:
+   * 
+   * *   InstanceMode: instance mode
+   * *   UrlMode: connection string mode
    * 
    * @example
    * UrlMode
@@ -21276,9 +21291,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
-   * 
-   * *   Prod: production environment
-   * *   Dev: development environment
    * 
    * @example
    * Prod
@@ -25459,8 +25471,8 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
    * @remarks
    * The type of the role. Valid values:
    * 
-   * *   UserCustom: custom role
-   * *   System: built-in role
+   * *   UserCustom: user-defined role
+   * *   System: system role
    * 
    * @example
    * System
@@ -28348,8 +28360,8 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -29541,9 +29553,8 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * T+1
-   * 
-   * Immediately
+   * *   T+1
+   * *   Immediately
    * 
    * @example
    * T+1
@@ -29651,9 +29662,8 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * Normal: same-cycle scheduling dependency
-   * 
-   * CrossCycle: cross-cycle scheduling dependency
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -31208,17 +31218,30 @@ export class TagDataAssetsRequestTags extends $dara.Model {
 
 export class TestDataSourceConnectivityResponseBodyConnectivityDetailLogs extends $dara.Model {
   /**
+   * @remarks
+   * The code of the test item.
+   * 
    * @example
    * validate_input_parameters
    */
   code?: string;
   /**
+   * @remarks
+   * The end time of a step.
+   * 
    * @example
    * 1730217604002
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The name of the step.
+   */
   message?: string;
   /**
+   * @remarks
+   * The start time of a step.
+   * 
    * @example
    * 1730217600001
    */
@@ -31251,12 +31274,23 @@ export class TestDataSourceConnectivityResponseBodyConnectivityDetailLogs extend
 }
 
 export class TestDataSourceConnectivityResponseBodyConnectivity extends $dara.Model {
+  /**
+   * @remarks
+   * The error message returned if the connectivity test fails. No such a message is returned if the connectivity test is successful.
+   */
   connectMessage?: string;
   /**
+   * @remarks
+   * The result of the connectivity test. Valid values: Connectable: The network can be connected. ConfigError: The network can be connected, but the configurations are incorrect. Unreachable: The network cannot be connected. Unsupport: An error is reported due to other causes. For example, the desired resource group is being initialized.
+   * 
    * @example
    * Connectable
    */
   connectState?: string;
+  /**
+   * @remarks
+   * The detailed logs of each step in the connectivity test.
+   */
   detailLogs?: TestDataSourceConnectivityResponseBodyConnectivityDetailLogs[];
   static names(): { [key: string]: string } {
     return {
@@ -32044,7 +32078,7 @@ export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
 export class UpdateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
   /**
    * @remarks
-   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * This parameter is deprecated and replaced by the MuteInterval parameter.
    * 
    * @example
    * 5
@@ -32106,7 +32140,7 @@ export class UpdateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
 export class UpdateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect.
+   * This parameter is deprecated and replaced by the DdlTypes parameter.
    * 
    * @deprecated
    */
@@ -32185,7 +32219,7 @@ export class UpdateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
 export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.Model {
   /**
    * @remarks
-   * The data type of the destination field.
+   * The data type of the destination field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * text
@@ -32193,7 +32227,7 @@ export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.M
   destinationDataType?: string;
   /**
    * @remarks
-   * The data type of the source field.
+   * The data type of the source field. Valid values: Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * bigint
@@ -32309,14 +32343,14 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * *   runtime.offline.speed.limit.mb: indicates the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
-   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
-   * *   dst.offline.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
-   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   dst.realtime.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
-   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
-   * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
-   * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   src.offline.datasource.max.connection: specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   dst.offline.truncate: specifies whether to clear the destination table before data writing.
+   * *   runtime.offline.speed.limit.enable: specifies whether throttling is enabled for a batch synchronization task.
+   * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
+   * *   runtime.realtime.concurrent: specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   runtime.realtime.failover.minute.dataxcdc: specifies the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
+   * *   runtime.realtime.failover.times.dataxcdc: specifies the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
    * 
    * @example
    * runtime.offline.concurrent
@@ -32356,7 +32390,21 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
 export class UpdateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
-   * The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+   * The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
+   * 
+   * 1.  Holo2Kafka
+   * 
+   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
+   * *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you read data from a Kafka data source.
+   * *   keyColumns: the names of Kafka columns to which you want to write data.
+   * *   writeMode: the writing format. Valid values: json and canal.
+   * 
+   * 2.  Holo2Holo
+   * 
+   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
+   * *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
+   * *   writeMode: the mode in which you want to write data to Hologres. Valid values: replay and insert.
+   * *   dynamicColumnAction: the mode in which you want to write data to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
    * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
@@ -32365,6 +32413,8 @@ export class UpdateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
    * The data type mappings between source fields and destination fields.
+   * 
+   * >  "ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
    */
   columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
   /**
@@ -32375,6 +32425,8 @@ export class UpdateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
    * The processing settings for DDL messages.
+   * 
+   * >  "DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
    */
   ddlHandlingSettings?: UpdateDIJobRequestJobSettingsDdlHandlingSettings[];
   /**
@@ -32623,6 +32675,7 @@ export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
    * The object type. Valid values:
    * 
    * *   Table
+   * *   Schema
    * *   Database
    * 
    * @example
@@ -32684,6 +32737,7 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -32717,12 +32771,12 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
 export class UpdateDIJobRequestTableMappings extends $dara.Model {
   /**
    * @remarks
-   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   * The list of rules that you want to use to select synchronization objects in the source.
    */
   sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
   /**
    * @remarks
-   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   * The transformation rules that you want to apply to the synchronization objects selected from the source.
    */
   transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
@@ -32763,6 +32817,9 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
    * *   Rename
    * *   AddColumn
    * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefinePartitionKey
    * 
    * @example
    * Rename
@@ -32772,15 +32829,48 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
    * @remarks
    * The expression of the rule. The expression must be a JSON string.
    * 
-   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}.
+   * 1.  Example of a renaming rule
    * 
-   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name cannot be enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from specifies the original string. to specifies the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
+   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
+   * *   expression: the expression of the renaming rule. You can use the following variables in an expression: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} specifies the name of the source. ${srcDatabaseName} specifies the name of a source database. ${srcTableName} specifies the name of a source table.
    * 
-   * If you do not configure such a rule, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that you want to add. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field. If you set the valueType parameter to Constant, set the columnValue parameter to a custom constant of the STRING type. If you set the valueType parameter to Variable, set the columnValue to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
+   * 2.  Example of a column addition rule
    * 
-   * If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
+   * *   If you do not configure such a rule, no fields are added to the destination and no values are assigned by default.
+   * *   columnName: the name of the field that is added.
+   * *   columnValueType: the value type of the field. Valid values: Constant and Variable.
+   * *   columnValue: the value of the field. If the columnValueType parameter is set to Constant, set the columnValue parameter to a constant of the STRING data type. If the columnValueType parameter is set to Variable, set the columnValue parameter to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC specifies the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation.
    * 
-   * If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * 3.  Example of a rule used to specify primary key fields for a destination table
+   * 
+   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
+   * *   If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default.
+   * *   If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * *   If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * 
+   * 4.  Example of a rule used to process DML messages
+   * 
+   * *   Example: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
+   * *   If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal.
+   * *   dmlType: the DML operation. Valid values: Insert, Update, and Delete.
+   * *   dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete.
+   * *   filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * 
+   * 5.  Example of a rule used to perform incremental synchronization
+   * 
+   * *   Example: {"where":"id > 0"}
+   * *   You can configure such a rule to perform incremental synchronization.
+   * 
+   * 6.  Example of a rule used to configure scheduling parameters for an auto triggered task
+   * 
+   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
+   * *   You can configure such a rule to configure scheduling parameters for an auto triggered task.
+   * 
+   * 7.  Example of a rule used to specify a partition key
+   * 
+   * *   Example: {"columns":["id"]}
+   * *   You can configure such a rule to specify a partition key.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -32800,6 +32890,7 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -35434,8 +35525,8 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -37454,6 +37545,7 @@ export class CreateDIJobRequest extends $dara.Model {
    * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
    */
   jobSettings?: CreateDIJobRequestJobSettings;
+  jobType?: string;
   /**
    * @remarks
    * The synchronization type. Valid values:
@@ -37535,6 +37627,7 @@ export class CreateDIJobRequest extends $dara.Model {
       destinationDataSourceType: 'DestinationDataSourceType',
       jobName: 'JobName',
       jobSettings: 'JobSettings',
+      jobType: 'JobType',
       migrationType: 'MigrationType',
       name: 'Name',
       projectId: 'ProjectId',
@@ -37553,6 +37646,7 @@ export class CreateDIJobRequest extends $dara.Model {
       destinationDataSourceType: 'string',
       jobName: 'string',
       jobSettings: CreateDIJobRequestJobSettings,
+      jobType: 'string',
       migrationType: 'string',
       name: 'string',
       projectId: 'number',
@@ -37632,6 +37726,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
    */
   jobSettingsShrink?: string;
+  jobType?: string;
   /**
    * @remarks
    * The synchronization type. Valid values:
@@ -37713,6 +37808,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       destinationDataSourceType: 'DestinationDataSourceType',
       jobName: 'JobName',
       jobSettingsShrink: 'JobSettings',
+      jobType: 'JobType',
       migrationType: 'MigrationType',
       name: 'Name',
       projectId: 'ProjectId',
@@ -37731,6 +37827,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       destinationDataSourceType: 'string',
       jobName: 'string',
       jobSettingsShrink: 'string',
+      jobType: 'string',
       migrationType: 'string',
       name: 'string',
       projectId: 'number',
@@ -38071,6 +38168,8 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
    * @remarks
    * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
@@ -38109,6 +38208,8 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
    * 
    * You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 10000
    */
@@ -38131,6 +38232,8 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The monitored object of the monitor.
+   * 
+   * This parameter is required.
    */
   target?: CreateDataQualityEvaluationTaskRequestTarget;
   /**
@@ -38202,6 +38305,8 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
@@ -38240,6 +38345,8 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
    * 
    * You can use this parameter to specify the DataWorks workspace on which you want to perform the API operation.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 10000
    */
@@ -38262,6 +38369,8 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The monitored object of the monitor.
+   * 
+   * This parameter is required.
    */
   targetShrink?: string;
   /**
@@ -41562,14 +41671,15 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Runtime configuration.
+   * The runtime configuration.
    */
   defaultRunProperties?: CreateWorkflowInstancesRequestDefaultRunProperties;
   /**
    * @remarks
-   * The project environment.
-   * - Prod (production)
-   * - Dev
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
    * 
    * @example
    * Prod
@@ -41613,10 +41723,10 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
   taskParameters?: string;
   /**
    * @remarks
-   * The type of the workflow instance.
+   * The type of the workflow instance. Valid values:
    * 
-   * - SupplementData: Retroactive data
-   * - ManualWorkflow: manual workflow
+   * *   SupplementData
+   * *   ManualWorkflow
    * 
    * This parameter is required.
    * 
@@ -41711,14 +41821,15 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Runtime configuration.
+   * The runtime configuration.
    */
   defaultRunPropertiesShrink?: string;
   /**
    * @remarks
-   * The project environment.
-   * - Prod (production)
-   * - Dev
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
    * 
    * @example
    * Prod
@@ -41762,10 +41873,10 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   taskParameters?: string;
   /**
    * @remarks
-   * The type of the workflow instance.
+   * The type of the workflow instance. Valid values:
    * 
-   * - SupplementData: Retroactive data
-   * - ManualWorkflow: manual workflow
+   * *   SupplementData
+   * *   ManualWorkflow
    * 
    * This parameter is required.
    * 
@@ -42018,6 +42129,8 @@ export class DeleteAlertRuleResponse extends $dara.Model {
 export class DeleteCertificateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the certificate file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42025,6 +42138,9 @@ export class DeleteCertificateRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the workspace to which the certificate file belongs.
+   * 
    * @example
    * 106560
    */
@@ -42054,11 +42170,17 @@ export class DeleteCertificateRequest extends $dara.Model {
 
 export class DeleteCertificateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D9A61DC0-B922-421B-B706
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -43570,7 +43692,7 @@ export class DeleteProjectMemberRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the **Tenant Members and Roles** page, view the ID of the account used by the member in the workspace.
    * 
    * This parameter is required.
    * 
@@ -45569,10 +45691,10 @@ export class GetDIJobLogRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @remarks
-   * Node type. Currently, it is only applicable in the view resource group 2.0 task:
+   * The type of the node. This parameter is applicable only to the tasks that are run on serverless resource groups. Valid values:
    * 
-   * - MASTER: obtains logs of JobManager.
-   * - WORKER: obtains logs of TaskManager.
+   * *   **MASTER**: the master node, which is used to query the logs of JobManagers.
+   * *   **WORKER**: the worker node, which is used to query the logs of TaskManagers.
    * 
    * @example
    * MASTER
@@ -46932,7 +47054,7 @@ export class GetProjectMemberRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the account used by the member. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
    * 
    * This parameter is required.
    * 
@@ -51510,7 +51632,7 @@ export class ListDataSourcesRequest extends $dara.Model {
    * *   Desc: descending order
    * *   Asc: ascending order
    * 
-   * Default value: Asc
+   * Default value: Desc
    * 
    * @example
    * Asc
@@ -51552,7 +51674,7 @@ export class ListDataSourcesRequest extends $dara.Model {
    * *   Id
    * *   Name
    * 
-   * Default value: Id
+   * Default value: CreateTime
    * 
    * @example
    * Id
@@ -51563,7 +51685,7 @@ export class ListDataSourcesRequest extends $dara.Model {
    * The tag of the data source. This parameter specifies a filter condition.
    * 
    * *   You can specify multiple tags, which are in the logical AND relation. For example, you can query the data sources that contain the following tags: `["tag1", "tag2", "tag3"]`.
-   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * *   If you do not configure this parameter, tag-based filtering is not performed. You can specify up to 10 tags.
    * 
    * @example
    * ["tag1", "tag2", "tag3"]
@@ -51641,7 +51763,7 @@ export class ListDataSourcesShrinkRequest extends $dara.Model {
    * *   Desc: descending order
    * *   Asc: ascending order
    * 
-   * Default value: Asc
+   * Default value: Desc
    * 
    * @example
    * Asc
@@ -51683,7 +51805,7 @@ export class ListDataSourcesShrinkRequest extends $dara.Model {
    * *   Id
    * *   Name
    * 
-   * Default value: Id
+   * Default value: CreateTime
    * 
    * @example
    * Id
@@ -51694,7 +51816,7 @@ export class ListDataSourcesShrinkRequest extends $dara.Model {
    * The tag of the data source. This parameter specifies a filter condition.
    * 
    * *   You can specify multiple tags, which are in the logical AND relation. For example, you can query the data sources that contain the following tags: `["tag1", "tag2", "tag3"]`.
-   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * *   If you do not configure this parameter, tag-based filtering is not performed. You can specify up to 10 tags.
    * 
    * @example
    * ["tag1", "tag2", "tag3"]
@@ -53429,18 +53551,6 @@ export class ListProjectsRequest extends $dara.Model {
    * *   Updating
    * *   UpdateFailed
    * 
-   * <!---->
-   * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
    * @example
    * Available
    */
@@ -53581,18 +53691,6 @@ export class ListProjectsShrinkRequest extends $dara.Model {
    * *   Frozen
    * *   Updating
    * *   UpdateFailed
-   * 
-   * <!---->
-   * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
    * 
    * @example
    * Available
@@ -55302,7 +55400,28 @@ export class ListTasksRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The type of the task. Valid values:
+   * 
+   * *   ODPS_SQL
+   * *   SPARK
+   * *   PY_ODPS
+   * *   PY_ODPS3
+   * *   ODPS_SCRIPT
+   * *   ODPS_MR
+   * *   COMPONENT_SQL
+   * *   EMR_HIVE
+   * *   EMR_MR
+   * *   EMR_SPARK_SQL
+   * *   EMR_SPARK
+   * *   EMR_SHELL
+   * *   EMR_PRESTO
+   * *   EMR_IMPALA
+   * *   SPARK_STREAMING
+   * *   EMR_KYUUBI
+   * *   EMR_TRINO
+   * *   HOLOGRES_SQL
+   * *   HOLOGRES_SYNC_DDL
+   * *   HOLOGRES_SYNC_DATA
    * 
    * @example
    * ODPS_SQL
@@ -55478,7 +55597,28 @@ export class ListTasksShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The type of the task. Valid values:
+   * 
+   * *   ODPS_SQL
+   * *   SPARK
+   * *   PY_ODPS
+   * *   PY_ODPS3
+   * *   ODPS_SCRIPT
+   * *   ODPS_MR
+   * *   COMPONENT_SQL
+   * *   EMR_HIVE
+   * *   EMR_MR
+   * *   EMR_SPARK_SQL
+   * *   EMR_SPARK
+   * *   EMR_SHELL
+   * *   EMR_PRESTO
+   * *   EMR_IMPALA
+   * *   SPARK_STREAMING
+   * *   EMR_KYUUBI
+   * *   EMR_TRINO
+   * *   HOLOGRES_SQL
+   * *   HOLOGRES_SYNC_DDL
+   * *   HOLOGRES_SYNC_DATA
    * 
    * @example
    * ODPS_SQL
@@ -55795,9 +55935,7 @@ export class ListUpstreamTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -59830,6 +59968,8 @@ export class TagDataAssetsResponse extends $dara.Model {
 export class TestDataSourceConnectivityRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data source for which you want to test the network connectivity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59838,6 +59978,8 @@ export class TestDataSourceConnectivityRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59846,6 +59988,8 @@ export class TestDataSourceConnectivityRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The resource group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59878,8 +60022,15 @@ export class TestDataSourceConnectivityRequest extends $dara.Model {
 }
 
 export class TestDataSourceConnectivityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the connectivity test.
+   */
   connectivity?: TestDataSourceConnectivityResponseBodyConnectivity;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4CDF7B72-020B-542A-8465-21CFFA81****
    */
@@ -60900,11 +61051,15 @@ export class UpdateDIJobRequest extends $dara.Model {
   /**
    * @remarks
    * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
    */
   tableMappings?: UpdateDIJobRequestTableMappings[];
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules for objects involved in the synchronization task.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRules?: UpdateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
@@ -61004,11 +61159,15 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
    */
   tableMappingsShrink?: string;
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules for objects involved in the synchronization task.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
@@ -61716,7 +61875,7 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: UpdateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule.
+   * The strength of the rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -61838,7 +61997,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule.
+   * The strength of the rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -65266,7 +65425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a monitor instance
+   * Creates a monitor instance.
    * 
    * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65320,7 +65479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a monitor instance
+   * Creates a monitor instance.
    * 
    * @param request - CreateDataQualityEvaluationTaskInstanceRequest
    * @returns CreateDataQualityEvaluationTaskInstanceResponse
@@ -66434,7 +66593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom alert monitoring rule.
+   * Deletes a custom monitoring alert rule.
    * 
    * @param request - DeleteAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66470,7 +66629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom alert monitoring rule.
+   * Deletes a custom monitoring alert rule.
    * 
    * @param request - DeleteAlertRuleRequest
    * @returns DeleteAlertRuleResponse
@@ -66481,7 +66640,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除认证文件
+   * Deletes a certificate file.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
    * 
    * @param request - DeleteCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66521,7 +66684,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除认证文件
+   * Deletes a certificate file.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M.
    * 
    * @param request - DeleteCertificateRequest
    * @returns DeleteCertificateResponse
@@ -69179,7 +69346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Imports a certificate file.
    * 
    * @param request - ImportCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69227,7 +69394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Imports a certificate file.
    * 
    * @param request - ImportCertificateRequest
    * @returns ImportCertificateResponse
@@ -72782,7 +72949,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试数据源在资源组上的连通性
+   * Tests the network connectivity between a resource group and a data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M
    * 
    * @param request - TestDataSourceConnectivityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72826,7 +72997,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 测试数据源在资源组上的连通性
+   * Tests the network connectivity between a resource group and a data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M
    * 
    * @param request - TestDataSourceConnectivityRequest
    * @returns TestDataSourceConnectivityResponse
