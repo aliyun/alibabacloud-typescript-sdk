@@ -716,6 +716,41 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
   }
 }
 
+export class LivePackagingConfigDrmConfig extends $dara.Model {
+  encryptionMethod?: string;
+  IV?: string;
+  systemIds?: string[];
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionMethod: 'EncryptionMethod',
+      IV: 'IV',
+      systemIds: 'SystemIds',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionMethod: 'string',
+      IV: 'string',
+      systemIds: { 'type': 'array', 'itemType': 'string' },
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.systemIds)) {
+      $dara.Model.validateArray(this.systemIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ProgramAdBreaks extends $dara.Model {
   channelName?: string;
   messageType?: string;
@@ -51305,6 +51340,94 @@ export class LicenseInstanceAppDTO extends $dara.Model {
   }
 }
 
+export class LiveManifestConfig extends $dara.Model {
+  adMarkers?: string;
+  dateTimeInterval?: number;
+  manifestName?: string;
+  maxVideoBitrate?: number;
+  minBufferTime?: number;
+  minVideoBitrate?: number;
+  protocol?: string;
+  segmentNum?: number;
+  streamOrder?: string;
+  useAudioRenditionGroups?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkers: 'AdMarkers',
+      dateTimeInterval: 'DateTimeInterval',
+      manifestName: 'ManifestName',
+      maxVideoBitrate: 'MaxVideoBitrate',
+      minBufferTime: 'MinBufferTime',
+      minVideoBitrate: 'MinVideoBitrate',
+      protocol: 'Protocol',
+      segmentNum: 'SegmentNum',
+      streamOrder: 'StreamOrder',
+      useAudioRenditionGroups: 'UseAudioRenditionGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkers: 'string',
+      dateTimeInterval: 'number',
+      manifestName: 'string',
+      maxVideoBitrate: 'number',
+      minBufferTime: 'number',
+      minVideoBitrate: 'number',
+      protocol: 'string',
+      segmentNum: 'number',
+      streamOrder: 'string',
+      useAudioRenditionGroups: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LivePackagingConfig extends $dara.Model {
+  drmConfig?: LivePackagingConfigDrmConfig;
+  liveManifestConfigs?: LiveManifestConfig[];
+  segmentDuration?: number;
+  useAudioRenditionGroups?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      drmConfig: 'DrmConfig',
+      liveManifestConfigs: 'LiveManifestConfigs',
+      segmentDuration: 'SegmentDuration',
+      useAudioRenditionGroups: 'UseAudioRenditionGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drmConfig: LivePackagingConfigDrmConfig,
+      liveManifestConfigs: { 'type': 'array', 'itemType': LiveManifestConfig },
+      segmentDuration: 'number',
+      useAudioRenditionGroups: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.drmConfig && typeof (this.drmConfig as any).validate === 'function') {
+      (this.drmConfig as any).validate();
+    }
+    if(Array.isArray(this.liveManifestConfigs)) {
+      $dara.Model.validateArray(this.liveManifestConfigs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MediaConvertAudio extends $dara.Model {
   bitrate?: number;
   channels?: number;
@@ -90291,6 +90414,7 @@ export class SubmitBatchMediaProducingJobRequest extends $dara.Model {
    * }
    */
   outputConfig?: string;
+  templateConfig?: string;
   /**
    * @remarks
    * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
@@ -90302,6 +90426,7 @@ export class SubmitBatchMediaProducingJobRequest extends $dara.Model {
       editingConfig: 'EditingConfig',
       inputConfig: 'InputConfig',
       outputConfig: 'OutputConfig',
+      templateConfig: 'TemplateConfig',
       userData: 'UserData',
     };
   }
@@ -90312,6 +90437,7 @@ export class SubmitBatchMediaProducingJobRequest extends $dara.Model {
       editingConfig: 'string',
       inputConfig: 'string',
       outputConfig: 'string',
+      templateConfig: 'string',
       userData: 'string',
     };
   }
@@ -118196,6 +118322,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.outputConfig)) {
       query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.templateConfig)) {
+      query["TemplateConfig"] = request.templateConfig;
     }
 
     if (!$dara.isNull(request.userData)) {
