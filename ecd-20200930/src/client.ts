@@ -979,7 +979,21 @@ export class CreateCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model 
 }
 
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the enterprise drive.
+   * 
+   * @example
+   * cn-hangzhou+cds-778205****
+   */
   cdsId?: string;
+  /**
+   * @remarks
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1005,8 +1019,29 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds e
 }
 
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the enterprise drive. The enterprise drive cannot be used if the order is unpaid.
+   * 
+   * @example
+   * cn-hangzhou+cds-778205****
+   */
   cdsId?: string;
+  /**
+   * @remarks
+   * The ID of the order. You can obtain an order ID on the **Orders** page in the Expenses and Costs console.
+   * 
+   * @example
+   * 22442411898****
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1034,7 +1069,15 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
 }
 
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dara.Model {
+  /**
+   * @remarks
+   * The conflicting enterprise drive.
+   */
   conflictCds?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds[];
+  /**
+   * @remarks
+   * The subscription orders of the conflicting enterprise drives that are unpaid.
+   */
   conflictOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder[];
   static names(): { [key: string]: string } {
     return {
@@ -1100,6 +1143,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
    * 10
    */
   interval?: number;
+  notificationTime?: number;
   /**
    * @remarks
    * The type of the scheduled operation. If you set TimerType to NoConnect, you can specify this parameter.
@@ -1173,6 +1217,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
       cronExpression: 'CronExpression',
       enforce: 'Enforce',
       interval: 'Interval',
+      notificationTime: 'NotificationTime',
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
       resetType: 'ResetType',
@@ -1187,6 +1232,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
       cronExpression: 'string',
       enforce: 'boolean',
       interval: 'number',
+      notificationTime: 'number',
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
       resetType: 'string',
@@ -5724,7 +5770,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
 export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`. You cannot specify an empty string as a tag key.
+   * The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -5732,7 +5778,7 @@ export class DescribeDesktopGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -5870,7 +5916,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus extend
 export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * desktop_group_name
@@ -5878,7 +5924,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * ds-dq2mybjr23yw*****
@@ -5910,7 +5956,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $dara.Mo
 export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of concurrent sessions that is allowed for each cloud computer pool in a multi-session cloud computer pool.
+   * The number of concurrent sessions per cloud computer within the multi-session many-to-many share.
    * 
    * @example
    * 1
@@ -5918,8 +5964,8 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   bindAmount?: number;
   /**
    * @remarks
-   * *   This parameter has different meanings based on the billing method of the cloud computer pool. For a subscription pool, this parameter specifies the number of cloud computers to purchase in the pool. Valid values: 0 to 200.
-   * *   For a pay-as-you-go pool, this parameter specifies the minimum number of cloud computers to create in the pool. Valid values: 0 to `MaxDesktopsCount`. Default value: 1.
+   * *   For subscription cloud computer shares, this parameter indicates the number of purchased cloud computers. Valid values: 0 to 200.
+   * *   For pay-as-you-go cloud computer shares, this parameter indicates the minimum number of cloud computers created in the initial batch. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
    * 
    * @example
    * 5
@@ -6002,7 +6048,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopCount?: number;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -6010,7 +6056,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer pool.
+   * The name of the cloud computer share.
    * 
    * @example
    * test1
@@ -6026,7 +6072,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   desktopType?: string;
   /**
    * @remarks
-   * The number of users that are granted permissions to use the cloud computer pool.
+   * The number of users who can access the cloud computer share.
    * 
    * @example
    * 1
@@ -6034,7 +6080,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   endUserCount?: number;
   /**
    * @remarks
-   * The time when the subscription cloud computer pool expires.
+   * The expiration date of the subscription cloud computer share.
    * 
    * @example
    * 2022-03-17T16:00:00Z
@@ -6092,7 +6138,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy of the multi-session cloud computer pool.
+   * The load balancing policy for the multi-session many-to-many share.
    * 
    * Valid values:
    * 
@@ -6105,7 +6151,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be housed in the pay-as-you-go cloud computer pool.
+   * The maximum number of cloud computers allowed in the pay-as-you-go cloud computer share.
    * 
    * @example
    * 10
@@ -6121,7 +6167,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   memory?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be automatically created in the subscription cloud computer pool.
+   * The maximum number of cloud computers that can be automatically created in the subscription cloud computer share.
    * 
    * @example
    * 1
@@ -6129,7 +6175,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   minDesktopsCount?: number;
   /**
    * @remarks
-   * The name of the office network in which the cloud computer pool resides.
+   * The ID of the office network in which the cloud computer network resides.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -6137,7 +6183,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   officeSiteId?: string;
   /**
    * @remarks
-   * The ID of the office network to which the cloud computer pool belongs.
+   * The ID of the office network in which the cloud computer share resides.
    * 
    * @example
    * testName
@@ -6202,12 +6248,12 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   ownBundleName?: string;
   /**
    * @remarks
-   * The type of the cloud computer pool.
+   * The type of the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: individual (single session)
-   * *   1: shared (multiple sessions)
+   * *   0: a single-session many-to-many share.
+   * *   1: a multi-session many-to-many share.
    * 
    * @example
    * 0
@@ -6228,7 +6274,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   payType?: string;
   /**
    * @remarks
-   * The ID of the policy that is associated with the cloud computer pool.
+   * The ID of the applied policy.
    * 
    * @example
    * pg-53iyi2aar0nd6c8qj
@@ -6236,7 +6282,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   policyGroupId?: string;
   /**
    * @remarks
-   * The name of the policy that is associated with the cloud computer pool.
+   * The name of the applied policy.
    * 
    * @example
    * test-policy
@@ -6270,11 +6316,11 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   protocolType?: string;
   /**
    * @remarks
-   * The threshold for the ratio of connected sessions. This parameter indicates the condition that triggers auto scaling in a multi-session cloud computer pool. The ratio of connected sessions is calculated by using the following formula:
+   * The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
    * 
    * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
    * 
-   * When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
+   * If the session ratio exceeds the threshold, new cloud computers are provisioned. If it falls below the threshold, additional cloud computers are removed.
    * 
    * @example
    * 0.85
@@ -6282,14 +6328,14 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   ratioThreshold?: number;
   /**
    * @remarks
-   * The disk reset type of the cloud computer pool.
+   * The reset option for the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: does not reset disks
-   * *   1: resets only the system disks
-   * *   2: resets only the user disks
-   * *   3: resets the system disks and user disks
+   * *   0: does not reset any disk.
+   * *   1: resets only the system disk.
+   * *   2: resets only the data disk.
+   * *   3: resets the system disk and data disk.
    * 
    * @example
    * 0
@@ -6297,13 +6343,13 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   resetType?: number;
   /**
    * @remarks
-   * The payment status of the cloud computer pool.
+   * The status of the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: unpaid
-   * *   1: paid
-   * *   2: overdue or expired
+   * *   0: The cloud computer share is unpaid.
+   * *   1: The cloud computer share is normal.
+   * *   2: The cloud computer share expired, or your account has an overdue payment.
    * 
    * @example
    * 1
@@ -6349,13 +6395,20 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   systemDiskSize?: number;
   /**
    * @remarks
-   * The tags attached to the cloud computer pool.
+   * The tags.
    */
   tags?: DescribeDesktopGroupsResponseBodyDesktopGroupsTags[];
+  /**
+   * @remarks
+   * 用户组织单元路径。
+   * 
+   * @example
+   * example.com\\wuying\\users
+   */
   userOuPath?: string;
   /**
    * @remarks
-   * The version number of the cloud computer pool.
+   * The version number of the cloud computer share.
    * 
    * @example
    * 2
@@ -11215,18 +11268,35 @@ export class DescribeKmsKeysResponseBodyKeys extends $dara.Model {
 
 export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The description of the promotion rule.
+   * 
    * @example
    * test
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The promotion description.
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The ID of the promotion activity.
+   * 
    * @example
    * promo_option
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The name of the promotion activity.
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether an item is selected.
+   * 
    * @example
    * false
    */
@@ -11262,23 +11332,43 @@ export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions exten
 
 export class DescribeModificationPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
+   * @remarks
+   * The unit of currency (USD).
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted amount.
+   * 
    * @example
    * 15.8
    */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The orders.
+   */
   orderLines?: { [key: string]: string };
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 79.0
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The promotion activities.
+   */
   promotions?: DescribeModificationPriceResponseBodyPriceInfoPricePromotions[];
   /**
+   * @remarks
+   * The actual price. The actual price is the original price minus the discount.
+   * 
    * @example
    * 63.2
    */
@@ -11321,8 +11411,15 @@ export class DescribeModificationPriceResponseBodyPriceInfoPrice extends $dara.M
 }
 
 export class DescribeModificationPriceResponseBodyPriceInfoRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 14806
    */
@@ -11351,7 +11448,15 @@ export class DescribeModificationPriceResponseBodyPriceInfoRules extends $dara.M
 }
 
 export class DescribeModificationPriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The price information.
+   */
   price?: DescribeModificationPriceResponseBodyPriceInfoPrice;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeModificationPriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {
     return {
@@ -15228,18 +15333,35 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 
 export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The description of the promotion rule.
+   * 
    * @example
    * test
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The promotion description.
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * promo_option
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The promotion name.
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether an item is selected.
+   * 
    * @example
    * false
    */
@@ -15275,23 +15397,43 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
 
 export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
+   * @remarks
+   * The unit of currency (USD).
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted amount.
+   * 
    * @example
    * 15.8
    */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The orders.
+   */
   orderLines?: { [key: string]: string };
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 79.0
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The promotions.
+   */
   promotions?: DescribeRenewalPriceResponseBodyPriceInfoPricePromotions[];
   /**
+   * @remarks
+   * The actual price. The actual price is the original price minus the discount.
+   * 
    * @example
    * 63.2
    */
@@ -15334,8 +15476,15 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model {
+  /**
+   * @remarks
+   * The rule description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 29644
    */
@@ -15364,7 +15513,15 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeRenewalPriceResponseBodyPriceInfoRules[];
   static names(): { [key: string]: string } {
     return {
@@ -15956,6 +16113,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
    * 10
    */
   interval?: number;
+  notificationTime?: number;
   /**
    * @remarks
    * The type of the scheduled disconnection task.
@@ -16027,6 +16185,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
       cronExpression: 'CronExpression',
       enforce: 'Enforce',
       interval: 'Interval',
+      notificationTime: 'NotificationTime',
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
       resetType: 'ResetType',
@@ -16041,6 +16200,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
       cronExpression: 'string',
       enforce: 'boolean',
       interval: 'number',
+      notificationTime: 'number',
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
       resetType: 'string',
@@ -17423,12 +17583,12 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy of the multi-session cloud computer pool.
+   * The load balancing policy for the multi-session many-to-many share.
    * 
    * Valid values:
    * 
-   * *   0: depth-first
-   * *   1: breadth-first
+   * *   0: depth-first.
+   * *   1: breadth-first.
    * 
    * @example
    * 1
@@ -17452,11 +17612,11 @@ export class GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos extends $d
   minResAmount?: number;
   /**
    * @remarks
-   * The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
+   * The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
    * 
-   * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+   * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
    * 
-   * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+   * If the session ratio exceeds the threshold, new cloud computers are provisioned. If it falls below the threshold, additional cloud computers are removed.
    * 
    * @example
    * 0.5
@@ -17588,12 +17748,12 @@ export class GetDesktopGroupDetailResponseBodyDesktopsTimerInfos extends $dara.M
 export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether cloud computers can be automatically created in the subscription cloud computer pool.
+   * Specifies whether to enable batch-based automatic creation of cloud computers in the subscription cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: false
-   * *   1: true
+   * *   0: enables batch-based automatic creation of cloud computers.
+   * *   1: disables batch-based automatic creation of cloud computers.
    * 
    * @example
    * 1
@@ -17601,10 +17761,10 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * The number of cloud computers that is allowed to be reserved in the pay-as-you-go cloud computer pool. Valid values:
+   * This parameter applies to pay-as-you-go cloud computer shares and specifies the number of standby cloud computers that can be reserved per cloud computer share. Valid values:
    * 
-   * *   0: does not allow the system to reserve cloud computers.
-   * *   N: allows the system to reserve N cloud computers. (1≤ N ≤ 100)
+   * *   0: does not reserve any cloud computers.
+   * *   N: reserves N cloud computers (1≤ N ≤ 100).
    * 
    * @example
    * 1
@@ -17612,7 +17772,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions that is allowed for each cloud computer in a multi-session cloud computer pool.
+   * The maximum number of concurrent sessions allowed per cloud computer within the multi-session many-to-many share.
    * 
    * @example
    * 1
@@ -17620,8 +17780,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * *   This parameter has different meanings based on the billing method of the cloud computer pool. For a subscription pool, this parameter indicates the number of cloud computers that you purchase in the pool. Valid values: 0 to 200.
-   * *   For a pay-as-you-go pool, this parameter indicates the minimum number of cloud computers that you can create in the pool. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
+   * *   The number of purchased cloud computers in the subscription share. Valid values: 0 to 200.
+   * *   The minimum initial number of cloud computers created in the pay-as-you-go share. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
    * 
    * @example
    * 5
@@ -17685,7 +17845,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   dataDiskSize?: string;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -17693,7 +17853,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer pool that is queried.
+   * The name of the cloud computer share.
    * 
    * @example
    * DesktopGroupDemo
@@ -17717,7 +17877,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * The time when the subscription cloud computer pool expires.
+   * The expiration date of the subscription cloud computer share.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -17767,12 +17927,12 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy of the multi-session cloud computer pool.
+   * The load balancing policy for the multi-session many-to-many share.
    * 
    * Valid values:
    * 
-   * *   0: depth-first
-   * *   1: breadth-first
+   * *   0: depth-first.
+   * *   1: breadth-first.
    * 
    * @example
    * 0
@@ -17780,7 +17940,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be housed in the pay-as-you-go cloud computer pool.
+   * The maximum number of cloud computers allowed in the pay-as-you-go cloud computer share.
    * 
    * @example
    * 10
@@ -17796,7 +17956,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be automatically created in the subscription cloud computer pool.
+   * The number of cloud computers created in the initial batch within the subscription cloud computer share.
    * 
    * @example
    * 1
@@ -17828,7 +17988,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network in which the cloud computer pool resides.
+   * The name of the office network in which the cloud computer resides.
    * 
    * @example
    * test
@@ -17867,12 +18027,12 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   ownBundleName?: string;
   /**
    * @remarks
-   * The type of the cloud computer pool.
+   * The type of the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: individual (single session)
-   * *   1: shared (multiple sessions)
+   * *   0: a one-to-many share.
+   * *   1: a many-to-many share.
    * 
    * @example
    * 0
@@ -17894,7 +18054,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The ID of the policy that is associated with the cloud computer pool.
+   * The ID of the applied policy.
    * 
    * @example
    * pg-9cktlowtxfl6****
@@ -17902,12 +18062,12 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The IDs of policies that are associated with the cloud computer pool.
+   * The IDs of the applied policies.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
-   * The name of the policy that is associated with the cloud computer pool.
+   * The name of the applied policy.
    * 
    * @example
    * test
@@ -17915,7 +18075,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   policyGroupName?: string;
   /**
    * @remarks
-   * The names of policies that are associated with the cloud computer pool.
+   * The names of the applied policies.
    */
   policyGroupNames?: string[];
   /**
@@ -17928,11 +18088,11 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   profileFollowSwitch?: boolean;
   /**
    * @remarks
-   * The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
+   * The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
    * 
-   * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+   * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
    * 
-   * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+   * If the session ratio exceeds the threshold, new cloud computers are provisioned. If it falls below the threshold, additional cloud computers are removed.
    * 
    * @example
    * 0.6
@@ -17967,18 +18127,18 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   resetType?: number;
   /**
    * @remarks
-   * Details of the scheduled tasks.
+   * The scheduled tasks.
    */
   scaleTimerInfos?: GetDesktopGroupDetailResponseBodyDesktopsScaleTimerInfos[];
   /**
    * @remarks
-   * The payment status of the cloud computer pool.
+   * The status of the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: unpaid
-   * *   1: paid
-   * *   2: overdue or expired
+   * *   0: The cloud computer share is unpaid.
+   * *   1: The cloud computer share is normal.
+   * *   2: The cloud computer share expired, or your account has an overdue payment.
    * 
    * @example
    * 1
@@ -18023,7 +18183,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
   timingStrategyInfo?: string;
   /**
    * @remarks
-   * The version number of the cloud computer pool.
+   * The version number of the cloud computer share.
    * 
    * @example
    * 1
@@ -20669,6 +20829,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
    * 10
    */
   interval?: number;
+  notificationTime?: number;
   /**
    * @remarks
    * The type of the scheduled operation. If you set TimerType to NoConnect, you can specify this parameter.
@@ -20740,6 +20901,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
       cronExpression: 'CronExpression',
       enforce: 'Enforce',
       interval: 'Interval',
+      notificationTime: 'NotificationTime',
       operationType: 'OperationType',
       processWhitelist: 'ProcessWhitelist',
       resetType: 'ResetType',
@@ -20754,6 +20916,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
       cronExpression: 'string',
       enforce: 'boolean',
       interval: 'number',
+      notificationTime: 'number',
       operationType: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
       resetType: 'string',
@@ -28389,30 +28552,81 @@ export class CreateCenterPolicyResponse extends $dara.Model {
 }
 
 export class CreateCloudDriveServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the auto-payment feature.
+   * 
+   * Valid values:
+   * 
+   * *   true: enables the auto-payment feature. Ensure your Alibaba Cloud account has sufficient balance. Insufficient balance may result in abnormal orders.
+   * *   false (default): disables the auto-payment feature. The order is generated, but payment must be made manually. You can log on to the Alibaba Cloud Management Console and complete the payment based on the order ID on the Orders page.
+   * 
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Optional. Specifies whether to enable the auto-renewal feature. This parameter takes effect only if you set CdsChargeType to `Prepaid`.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
   /**
    * @remarks
-   * The business type.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 3
    */
   bizType?: number;
+  /**
+   * @remarks
+   * The billing method of the enterprise drive.
+   * 
+   * Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
+   * 
+   * @example
+   * PostPaid
+   */
   cdsChargeType?: string;
   /**
+   * @remarks
+   * The ID of the Cloud Enterprise Network (CEN) instance. This parameter takes effect only if you set `OfficeSiteType` to `AD_CONNECTOR`. If you have configured `OfficeSiteId`, you can leave this parameter empty.
+   * 
    * @example
    * cen-g4ba1mkji8nj6****
    */
   cenId?: string;
   /**
+   * @remarks
+   * The domain name of the enterprise AD office network. This parameter takes effect only if you set `OfficeSiteType` to `AD_CONNECTOR`. If you have configured `OfficeSiteId`, you can leave this parameter empty.
+   * 
    * @example
    * test.local
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The user IDs.
+   */
   endUserId?: string[];
   /**
    * @remarks
+   * The maximum storage capacity of the enterprise drive.
+   * 
+   * *   For a pay-as-you-go enterprise drive, the unit is bytes.
+   * *   For a subscription enterprise drive, the unit is GiB. For example, to create a 500 GiB subscription drive, set the value to 500 GiB. To create a 2 TiB subscription drive, set the value to 2048 GiB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28421,27 +28635,62 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   maxSize?: number;
   /**
    * @remarks
-   * The name of the cloud disk that you want to create in Cloud Drive Service.
+   * The name of the enterprise drive
    * 
    * @example
    * wuying-pds
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the office network. This parameter takes effect only if you set OfficeSiteType to `AD_CONNECTOR`.
+   * 
    * @example
    * cn-hangzhou+dir-400695****
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The type of the office network.
+   * 
+   * Valid values:
+   * 
+   * *   SIMPLE: convenience office network.
+   * *   AD_CONNECTOR: enterprise Active Directory (AD) office network.
+   * 
    * @example
    * SIMPLE
    */
   officeSiteType?: string;
+  /**
+   * @remarks
+   * The subscription duration. The unit is specified by `PeriodUnit`. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
+   * 
+   * Valid values:
+   * 
+   * *   1
+   * *   2
+   * *   3
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * Required. The unit of the subscription duration. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
+   * 
+   * Valid value:
+   * 
+   * *   Year
+   * 
+   * @example
+   * Year
+   */
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Enterprise Drive Service is available.
    * 
    * This parameter is required.
    * 
@@ -28451,14 +28700,30 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The solution ID.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * co-0esnf8kb8zpfbqmvt
    */
   solutionId?: string;
+  /**
+   * @remarks
+   * Required. The maximum number of users allowed on the enterprise drive. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
+   * 
+   * Valid values:
+   * 
+   * *   5 when the value of MaxSize is 500 GiB.
+   * *   20 when the value of MaxSize is 2048 GiB.
+   * *   50 when the value of MaxSize is 5120 GiB.
+   * 
+   * @example
+   * 5
+   */
   userCount?: number;
   /**
+   * @remarks
+   * The maximum storage capacity of the user\\"s personal disk when allocated. Unit: bytes.
+   * 
    * @example
    * 1024000
    */
@@ -28522,7 +28787,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
 export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the attached cloud disk.
+   * The ID of the enterprise drive.
    * 
    * @example
    * cn-hangzhou+cds-7782057786
@@ -28537,30 +28802,64 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
    */
   cdsName?: string;
   /**
+   * @remarks
+   * The ID of the CEN instance.
+   * 
+   * >  To allow end users to connect to cloud computers via virtual private clouds (VPCs), attach your office network to a CEN instance. The CEN instance connects to your on-premises network through VPN Gateway or Express Connect.
+   * 
    * @example
    * cen-638u3wxds9snyc****
    */
   cenId?: string;
+  /**
+   * @remarks
+   * The existing enterprise drive or its order that conflicts with the enterprise drive being created.
+   */
   conflictCdsAndOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrder;
   /**
+   * @remarks
+   * The domain name of the enterprise AD office network.
+   * 
    * @example
    * test1.local
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * ExistConflictCds
+   */
   errorCode?: string;
   /**
    * @remarks
-   * The maximum capacity of each instance in Cloud Drive Service. Unit: GiB
+   * The maximum storage capacity of the enterprise drive. Unit: bytes.
    * 
    * @example
    * 213674622976
    */
   maxSize?: string;
   /**
+   * @remarks
+   * The type of the office network.
+   * 
+   * Valid values:
+   * 
+   * *   SIMPLE: convenience office network.
+   * *   AD_CONNECTOR: enterprise AD office network.
+   * 
    * @example
    * AD_CONNECTOR
    */
   officeSiteType?: string;
+  /**
+   * @remarks
+   * The ID of the order. You can obtain an order ID on the Orders page in the Expenses and Costs console.
+   * 
+   * @example
+   * 214552063030752
+   */
   orderId?: string;
   /**
    * @remarks
@@ -38357,7 +38656,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   bundleId?: string[];
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -38370,7 +38669,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   desktopGroupIds?: string[];
   /**
    * @remarks
-   * The name of the cloud computer pool to query. Fuzzy search is supported.
+   * The name of the cloud computer share that you want to query. Fuzzy search is supported.
    * 
    * @example
    * testName
@@ -38378,7 +38677,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The authorized user IDs of cloud computer pools.
+   * The IDs of the users who can access the cloud computer share.
    */
   endUserIds?: string[];
   /**
@@ -38425,7 +38724,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the office network to which the cloud computer pool belongs.
+   * The ID of the office network in which the cloud computer share resides.
    * 
    * @example
    * cn-hangzhou+dir-467671****
@@ -38433,14 +38732,14 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the cloud computer pool.
+   * The type of the cloud computer share.
    * 
    * >  This parameter is not publicly available.
    * 
    * Valid values:
    * 
-   * *   0: individual (single session)
-   * *   1: shared (multiple sessions)
+   * *   0: a single-session many-to-many share.
+   * *   1: a multi-session many-to-many share.
    * 
    * @example
    * 0
@@ -38448,16 +38747,16 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The subscription duration of the cloud computer pool. The unit is specified by the `PeriodUnit` parameter.
+   * The subscription duration of the cloud computer share. The unit is specified by `PeriodUnit`.
    * 
-   * *   Valid values if the `PeriodUnit` parameter is set to `Month`:
+   * *   Valid values if you set `PeriodUnit` to `Month`:
    * 
    *     *   1
    *     *   2
    *     *   3
    *     *   6
    * 
-   * *   Valid values if the `PeriodUnit` parameter is set to `Year`:
+   * *   Valid values if you set `PeriodUnit` to `Year`:
    * 
    *     *   1
    *     *   2
@@ -38479,7 +38778,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the policy that you want to associate with the cloud computer pool.
+   * The ID of the applied policy.
    * 
    * @example
    * pg-53iyi2aar0nd6****
@@ -38523,13 +38822,13 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The payment status of the cloud computer pool.
+   * The status of the cloud computer share.
    * 
    * Valid values:
    * 
-   * *   0: unpaid
-   * *   1: paid
-   * *   2: overdue or expired
+   * *   0: The cloud computer share is unpaid.
+   * *   1: The cloud computer share is normal.
+   * *   2: The cloud computer share expired, or your account has an overdue payment.
    * 
    * @example
    * 1
@@ -38537,7 +38836,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The tags attached to the cloud computer pool. You can specify 1 to 20 tags.
+   * The tags that you want to add to the cloud computer share. You can specify 1 to 20 tags.
    */
   tag?: DescribeDesktopGroupsRequestTag[];
   static names(): { [key: string]: string } {
@@ -38618,7 +38917,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
 export class DescribeDesktopGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer pools.
+   * The cloud computer shares.
    */
   desktopGroups?: DescribeDesktopGroupsResponseBodyDesktopGroups[];
   /**
@@ -43034,22 +43333,58 @@ export class DescribeKmsKeysResponse extends $dara.Model {
 
 export class DescribeModificationPriceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum public bandwidth. Unit: Mbit/s.
+   * 
+   * >  Valid values when PayByTraffic is set to PayByBandwidth: 10 to 1000.
+   * 
    * @example
    * 20
    */
   bandwidth?: number;
   /**
+   * @remarks
+   * The ID of either the monthly subscription cloud computer with unlimited hours or the premium bandwidth plan.
+   * 
    * @example
    * ecd-0gfv2z3sf95zvt****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The specifications.
+   * 
+   * *   Valid values when you set `ResourceType` to `Desktop`:
+   * 
+   *     *   ecd.basic.small
+   *     *   ecd.basic.large
+   *     *   ecd.advanced.large
+   *     *   ecd.advanced.xlarge
+   *     *   ecd.performance.2xlarge
+   *     *   ecd.graphics.xlarge
+   *     *   ecd.graphics.2xlarge
+   *     *   ecd.advanced.xlarge_s8d2
+   *     *   ecd.advanced.xlarge_s8d7
+   *     *   ecd.graphics.1g72c
+   *     *   eds.general.2c2g
+   *     *   eds.general.2c4g
+   *     *   eds.general.2c8g
+   *     *   eds.general.4c8g
+   *     *   eds.general.4c16g
+   *     *   eds.general.8c16g
+   *     *   eds.general.8c32g
+   *     *   eds.general.16c32g
+   * 
+   * *   You can skip this parameter if `ResourceType` is set to `NetworkPackage`.
+   * 
    * @example
    * eds.enterprise_office.8c16g
    */
   instanceType?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43057,16 +43392,33 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource type. The required parameters depend on the resource type.
+   * 
+   * *   When `ResourceType` is set to `Desktop`, the required parameters are `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib`.
+   * *   When `ResourceType` is set to `NetworkPackage`, the required parameter is `Bandwidth`.
+   * 
+   * Valid values:
+   * 
+   * *   Desktop (default): cloud computers.
+   * *   NetworkPackage: premium bandwidth plans.
+   * 
    * @example
    * Desktop
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
    * @example
    * 80
    */
   rootDiskSizeGib?: number;
   /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
    * @example
    * 50
    */
@@ -43105,8 +43457,15 @@ export class DescribeModificationPriceRequest extends $dara.Model {
 }
 
 export class DescribeModificationPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   priceInfo?: DescribeModificationPriceResponseBodyPriceInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 48174475-5EB2-5F99-A9E9-6F892D645****
    */
@@ -45022,23 +45381,52 @@ export class DescribeRegionsResponse extends $dara.Model {
 
 export class DescribeRenewalPriceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID. The value you specify depends on the resource type (ResourceType) you\\"re querying the renewal price for.
+   * 
+   * *   When `ResourceType` is set to `Desktop`, you must provide the cloud computer ID as the value of `InstanceId`.
+   * *   When `ResourceType` is set to `DesktopGroup`, you must provide the share ID as the value of `InstanceId`.
+   * *   When `ResourceType` is set to `Bandwidth`, you must provide the ID of the premium bandwidth plan as the value of `InstanceId`.
+   * 
    * @example
    * ecd-6ldllk9zxcpfhs****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The instance IDs. The value you specify depends on the resource type (ResourceType) you\\"re querying the renewal price for.
+   */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The renewal duration. The valid values for this parameter depend on the value of `PeriodUnit`.
+   * 
+   * *   If you set `PeriodUnit` to `Month`, set the value of this parameter to 1, 2, 3, or 6.
+   * *   If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
+   * 
+   * Default value: 1.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the renewal duration specified by `Period`.
+   * 
+   * Valid values:
+   * 
+   * *   Month (default)
+   * *   Year
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45046,6 +45434,15 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Desktop (default): cloud computers.
+   * *   Bandwidth: premium bandwidth plans.
+   * *   DesktopGroup: cloud computer shares.
+   * 
    * @example
    * Desktop
    */
@@ -45085,8 +45482,15 @@ export class DescribeRenewalPriceRequest extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 72E47B1E-6B11-5A11-A27C-7A80F866****
    */
@@ -49261,7 +49665,7 @@ export class GetCoordinateTicketResponse extends $dara.Model {
 export class GetDesktopGroupDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -49305,7 +49709,7 @@ export class GetDesktopGroupDetailRequest extends $dara.Model {
 export class GetDesktopGroupDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the cloud computer pool.
+   * The cloud computers within the share.
    */
   desktops?: GetDesktopGroupDetailResponseBodyDesktops;
   /**
@@ -55120,12 +55524,12 @@ export class ModifyDesktopChargeTypeResponse extends $dara.Model {
 export class ModifyDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether cloud computers can be automatically created in the subscription cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PrePaid`.
+   * Specifies whether to enable auto-creation of cloud computers for the subscription cloud computer share. You must specify this parameter when `ChargeType` is set to `PrePaid`.
    * 
    * Valid values:
    * 
-   * *   0: false
-   * *   1: true
+   * *   0: disable auto-creation of cloud computers.
+   * *   1: enables auto-creation of cloud computers.
    * 
    * @example
    * 1
@@ -55133,12 +55537,12 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * The number of cloud computers that can be reserved in the pay-as-you-go cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PostPaid`. Valid values:
+   * The maximum number of standby cloud computers that can be reserved within the pay-as-you-go cloud computer share. You must specify this property only when `ChargeType` is set to `PostPaid`. Valid values:
    * 
-   * *   0: does not allow the system to reserve cloud computers.
-   * *   N: allows the system to reserve N cloud computers (1≤ N ≤ 100).
+   * *   0: does not reserve any cloud computer.
+   * *   N: reserves N cloud computers (1≤ N ≤ 100).
    * 
-   * >  If you set this parameter to 0, the system must create and start cloud computers and then assign the cloud computers to end users when the end users request cloud computers. This process is time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
+   * >  Setting this parameter to 0 means no cloud computers will be reserved within the cloud computer share. In this case, the system must create, start, and assign cloud computers to end users upon request, which can be time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
    * 
    * @example
    * 1
@@ -55146,9 +55550,9 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * The number of concurrent sessions that is allowed for each cloud computer in a multi-session cloud computer pool.
+   * The number of concurrent sessions allowed for each cloud computer within the multi-session many-to-many share.
    * 
-   * >  This parameter is unavailable.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -55156,8 +55560,8 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * *   This parameter has different meanings based on the billing method of the cloud computer pool. For a subscription pool, this parameter specifies the number of cloud computers to purchase in the pool. Valid values: 0 to 200.
-   * *   For a pay-as-you-go pool, this parameter specifies the minimum number of cloud computers to create in the pool. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
+   * *   For subscription cloud computer shares, this parameter specifies the number of purchased cloud computers. Valid values: 0 to 200.
+   * *   For pay-as-you-go cloud computer shares, this parameter specifies the minimum number of cloud computers created in the initial batch. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
    * 
    * @example
    * 5
@@ -55165,27 +55569,14 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   buyDesktopsCount?: number;
   /**
    * @remarks
-   * The role that uses the cloud computer pool.
+   * The type of the cloud computer share.
    * 
-   * >  This parameter is unavailable.
+   * >  This parameter is not publicly available.
    * 
    * Valid values:
    * 
-   * *   teacher
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   student
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   teacher: teacher-oriented.
+   * *   student: student-oriented.
    * 
    * @example
    * teacher
@@ -55209,7 +55600,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   connectDuration?: number;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * The ID of the cloud computer share.
    * 
    * This parameter is required.
    * 
@@ -55219,7 +55610,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer pool.
+   * The name of the cloud computer share.
    * 
    * @example
    * desktopGroupName1
@@ -55275,14 +55666,14 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy of the multi-session cloud computer pool.
+   * The load balancing policy for the multi-session many-to-many share.
    * 
-   * >  This parameter is unavailable.
+   * >  This parameter is not publicly available.
    * 
    * Valid values:
    * 
-   * *   0: depth-first
-   * *   1: breadth-first
+   * *   0: depth first.
+   * *   1: breadth first.
    * 
    * @example
    * 0
@@ -55290,7 +55681,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be housed in the pay-as-you-go cloud computer pool. Valid values: 0 to 500.
+   * The maximum number of cloud computers allowed in the pay-as-you-go cloud computer share. Valid values: 0 to 500.
    * 
    * @example
    * 10
@@ -55298,7 +55689,7 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   maxDesktopsCount?: number;
   /**
    * @remarks
-   * The maximum number of cloud computers that can be automatically created in the subscription cloud computer pool. This parameter takes effect and is required only if you set `ChargeType` to `PrePaid`. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
+   * The maximum number of auto-created cloud computers allowed in the subscription cloud computer share. You must specify this parameter when `ChargeType` is set to `PrePaid`. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
    * 
    * @example
    * 1
@@ -55337,13 +55728,13 @@ export class ModifyDesktopGroupRequest extends $dara.Model {
   profileFollowSwitch?: boolean;
   /**
    * @remarks
-   * The threshold for the ratio of connected sessions. This parameter indicates the condition that triggers auto scaling in a multi-session cloud computer pool. The ratio of connected sessions IS calculated by using the following formula:
+   * The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
    * 
    * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
    * 
-   * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+   * If the session ratio exceeds the threshold, new cloud computers are provisioned. If it falls below the threshold, additional cloud computers are removed.
    * 
-   * >  This parameter is unavailable.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 0.5
@@ -67798,7 +68189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud disk.
+   * Creates an enterprise drive.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
    * 
    * @param request - CreateCloudDriveServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -67898,7 +68292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud disk.
+   * Creates an enterprise drive.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
    * 
    * @param request - CreateCloudDriveServiceRequest
    * @returns CreateCloudDriveServiceResponse
@@ -71488,7 +71885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of desktop groups.
+   * Queries cloud computer shares.
    * 
    * @param request - DescribeDesktopGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71596,7 +71993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of desktop groups.
+   * Queries cloud computer shares.
    * 
    * @param request - DescribeDesktopGroupsRequest
    * @returns DescribeDesktopGroupsResponse
@@ -73175,6 +73572,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+   * 
    * @param request - DescribeModificationPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeModificationPriceResponse
@@ -73233,6 +73632,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+   * 
    * @param request - DescribeModificationPriceRequest
    * @returns DescribeModificationPriceResponse
    */
@@ -74011,6 +74412,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the renewal price of an Alibaba Cloud Workspace service.
+   * 
    * @param request - DescribeRenewalPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRenewalPriceResponse
@@ -74065,6 +74468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the renewal price of an Alibaba Cloud Workspace service.
+   * 
    * @param request - DescribeRenewalPriceRequest
    * @returns DescribeRenewalPriceResponse
    */
@@ -75689,7 +76094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a cloud computer pool.
+   * Queries the information about a cloud computer share.
    * 
    * @param request - GetDesktopGroupDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75729,7 +76134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a cloud computer pool.
+   * Queries the information about a cloud computer share.
    * 
    * @param request - GetDesktopGroupDetailRequest
    * @returns GetDesktopGroupDetailResponse
@@ -78019,10 +78424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a cloud computer pool.
+   * Modifies a cloud computer share.
    * 
    * @remarks
-   * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+   * Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -78158,10 +78563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a cloud computer pool.
+   * Modifies a cloud computer share.
    * 
    * @remarks
-   * After a cloud computer pool is created, the system creates a specific number of cloud computers in the pool based on the auto scaling policy and user connections. Cloud computers are created by using the same cloud computer template and security policy. You can modify the configurations of the pool, including the pool name, cloud computer template, and policy, in different business scenarios.
+   * Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
    * 
    * @param request - ModifyDesktopGroupRequest
    * @returns ModifyDesktopGroupResponse
