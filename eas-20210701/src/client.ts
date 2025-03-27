@@ -858,56 +858,101 @@ export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
 
 export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores in the instance type.
+   * 
    * @example
    * 32
    */
   CPU?: number;
   /**
+   * @remarks
+   * The GPU type in the instance type. If the instance type is not a GPU-based instance type, this parameter does not exist.
+   * 
    * @example
    * GU30
    */
   GPU?: string;
   /**
+   * @remarks
+   * The number of GPUs in the instance type.
+   * 
    * @example
    * 1
    */
   GPUAmount?: number;
   /**
+   * @remarks
+   * The GPU memory in the instance type. Unit: GB.
+   * 
    * @example
    * 24
    */
   GPUMemory?: number;
   /**
+   * @remarks
+   * The name of the instance type.
+   * 
    * @example
    * ml.gu7i.c32m188.1-gu30
    */
   instanceType?: string;
   /**
+   * @remarks
+   * Indicates whether the instance type is available.
+   * 
    * @example
    * true
    */
   isAvailable?: boolean;
   /**
+   * @remarks
+   * The memory size in the instance type. Unit: GB.
+   * 
    * @example
    * 188
    */
   memory?: number;
   /**
+   * @remarks
+   * The minimum discount that can be accepted when the preemptible instance type does not include a usage duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+   * 
    * @example
    * 0.1
    */
   nonProtectSpotDiscount?: number;
   /**
+   * @remarks
+   * The minimum discount that can be accepted when the preemptible instance type has the 1-hour protection duration. 0.1 indicates one fold. If this parameter is not returned, the bidding feature is not supported.
+   * 
    * @example
    * 0.12
    */
   spotDiscount?: number;
   /**
+   * @remarks
+   * The inventory status of the instance type.
+   * 
+   * Valid values:
+   * 
+   * *   WithStock
+   * *   ClosedWithStock
+   * *   NoStock
+   * 
    * @example
    * WithStock
    */
   stockStatus?: string;
   /**
+   * @remarks
+   * The source of the instance type.
+   * 
+   * Valid values:
+   * 
+   * *   ECS
+   * *   BareMetal
+   * *   Lingjun
+   * 
    * @example
    * ECS
    */
@@ -955,10 +1000,17 @@ export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
 
 export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
   /**
+   * @remarks
+   * Valid values:
+   * 
    * @example
    * 1
    */
   CPU?: number;
+  /**
+   * @remarks
+   * The optional values for memory when CPU is set to a specific value as above.
+   */
   memory?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -978,6 +1030,36 @@ export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
     if(Array.isArray(this.memory)) {
       $dara.Model.validateArray(this.memory);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  regionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      regionName: 'RegionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      regionName: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -2183,6 +2265,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
 }
 
 export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $dara.Model {
+  authoritativeDnsEnabled?: boolean;
   /**
    * @remarks
    * The IP address.
@@ -2251,6 +2334,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authoritativeDnsEnabled: 'AuthoritativeDnsEnabled',
       ip: 'Ip',
       securityGroupId: 'SecurityGroupId',
       status: 'Status',
@@ -2261,6 +2345,7 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
 
   static types(): { [key: string]: any } {
     return {
+      authoritativeDnsEnabled: 'boolean',
       ip: 'string',
       securityGroupId: 'string',
       status: 'string',
@@ -3504,6 +3589,7 @@ export class Service extends $dara.Model {
   createTime?: string;
   currentVersion?: number;
   extraData?: string;
+  gateway?: string;
   gpu?: number;
   image?: string;
   internetEndpoint?: string;
@@ -3515,6 +3601,7 @@ export class Service extends $dara.Model {
   namespace?: string;
   parentUid?: string;
   pendingInstance?: number;
+  quotaId?: string;
   reason?: string;
   region?: string;
   requestId?: string;
@@ -3550,6 +3637,7 @@ export class Service extends $dara.Model {
       createTime: 'CreateTime',
       currentVersion: 'CurrentVersion',
       extraData: 'ExtraData',
+      gateway: 'Gateway',
       gpu: 'Gpu',
       image: 'Image',
       internetEndpoint: 'InternetEndpoint',
@@ -3561,6 +3649,7 @@ export class Service extends $dara.Model {
       namespace: 'Namespace',
       parentUid: 'ParentUid',
       pendingInstance: 'PendingInstance',
+      quotaId: 'QuotaId',
       reason: 'Reason',
       region: 'Region',
       requestId: 'RequestId',
@@ -3599,6 +3688,7 @@ export class Service extends $dara.Model {
       createTime: 'string',
       currentVersion: 'number',
       extraData: 'string',
+      gateway: 'string',
       gpu: 'number',
       image: 'string',
       internetEndpoint: 'string',
@@ -3610,6 +3700,7 @@ export class Service extends $dara.Model {
       namespace: 'string',
       parentUid: 'string',
       pendingInstance: 'number',
+      quotaId: 'string',
       reason: 'string',
       region: 'string',
       requestId: 'string',
@@ -4837,6 +4928,7 @@ export class CreateGatewayResponse extends $dara.Model {
 }
 
 export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
+  enableAuthoritativeDns?: boolean;
   /**
    * @remarks
    * The vSwitch ID.
@@ -4855,6 +4947,7 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      enableAuthoritativeDns: 'EnableAuthoritativeDns',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -4862,6 +4955,7 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableAuthoritativeDns: 'boolean',
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -9141,6 +9235,9 @@ export class DescribeGroupEndpointsResponse extends $dara.Model {
 
 export class DescribeMachineSpecRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @deprecated
    */
   instanceTypes?: string[];
@@ -9170,6 +9267,9 @@ export class DescribeMachineSpecRequest extends $dara.Model {
 
 export class DescribeMachineSpecShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
    * @deprecated
    */
   instanceTypesShrink?: string;
@@ -9195,12 +9295,23 @@ export class DescribeMachineSpecShrinkRequest extends $dara.Model {
 }
 
 export class DescribeMachineSpecResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance types when the resources are specified.
+   */
   instanceMetas?: DescribeMachineSpecResponseBodyInstanceMetas[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The values that can be supported when the number of CPUs and memory size are specified for deployment.
+   */
   types?: DescribeMachineSpecResponseBodyTypes[];
   static names(): { [key: string]: string } {
     return {
@@ -9250,6 +9361,74 @@ export class DescribeMachineSpecResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeMachineSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $dara.Model {
+  regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
     };
   }
 
@@ -14320,6 +14499,7 @@ export class ListServicesRequest extends $dara.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  resourceType?: string;
   /**
    * @remarks
    * The server role.
@@ -14585,6 +14765,7 @@ export class ListServicesRequest extends $dara.Model {
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
       role: 'Role',
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
@@ -14607,6 +14788,7 @@ export class ListServicesRequest extends $dara.Model {
       parentServiceUid: 'string',
       quotaId: 'string',
       resourceName: 'string',
+      resourceType: 'string',
       role: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
@@ -14710,6 +14892,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
    * eas-r-hd0qwy8cxxxx
    */
   resourceName?: string;
+  resourceType?: string;
   /**
    * @remarks
    * The server role.
@@ -14975,6 +15158,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
       resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
       role: 'Role',
       serviceName: 'ServiceName',
       serviceStatus: 'ServiceStatus',
@@ -14997,6 +15181,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       parentServiceUid: 'string',
       quotaId: 'string',
       resourceName: 'string',
+      resourceType: 'string',
       role: 'string',
       serviceName: 'string',
       serviceStatus: 'string',
@@ -16046,7 +16231,7 @@ export class UpdateAppServiceResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Succee
+   * Success
    */
   message?: string;
   /**
@@ -18491,6 +18676,10 @@ export default class Client extends OpenApi {
   async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enableAuthoritativeDns)) {
+      query["EnableAuthoritativeDns"] = request.enableAuthoritativeDns;
+    }
+
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
@@ -20134,7 +20323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可用机器规格
+   * Queries a list of instance types for an available instance in a shared resource group.
    * 
    * @param tmpReq - DescribeMachineSpecRequest
    * @param headers - map
@@ -20178,7 +20367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可用机器规格
+   * Queries a list of instance types for an available instance in a shared resource group.
    * 
    * @param request - DescribeMachineSpecRequest
    * @returns DescribeMachineSpecResponse
@@ -20187,6 +20376,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeMachineSpecWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询可用的地域信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询可用的地域信息
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(): Promise<DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(headers, runtime);
   }
 
   /**
@@ -21948,6 +22177,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     if (!$dara.isNull(request.role)) {
