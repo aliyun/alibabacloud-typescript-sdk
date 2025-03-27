@@ -8,7 +8,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudResourceRequestListenCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of the HTTPS certificate. Valid values:
+   * The type of the certificate. Valid values:
    * 
    * *   **default**: default certificate.
    * *   **extension**: additional certificate.
@@ -53,7 +53,7 @@ export class CreateCloudResourceRequestListenCertificates extends $dara.Model {
 export class CreateCloudResourceRequestListen extends $dara.Model {
   /**
    * @remarks
-   * An array of certificates.
+   * The certificates.
    */
   certificates?: CreateCloudResourceRequestListenCertificates[];
   /**
@@ -61,7 +61,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
    * 
    * *   **1**: all cipher suites.
-   * *   **2**: strong cipher suites. You can set the parameter to this value only if you set **TLSVersion** to **tlsv1.2**.
+   * *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
    * *   **99**: custom cipher suites.
    * 
    * @example
@@ -100,7 +100,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The port of the resource that you want to add to WAF.
+   * The port of the cloud service.
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
    * *   **http**
    * *   **https**
@@ -123,7 +123,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The instance ID of the cloud service.
    * 
    * This parameter is required.
    * 
@@ -133,11 +133,12 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The cloud service. Valid values:
+   * The type of the cloud service that you want to add. Valid values:
    * 
    * *   **clb4**: Layer 4 CLB.
    * *   **clb7**: Layer 7 CLB.
    * *   **ecs**: ECS.
+   * *   **nlb**: Network Load Balancer (NLB).
    * 
    * This parameter is required.
    * 
@@ -147,7 +148,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   resourceProduct?: string;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) version. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
    * 
    * *   **tlsv1**
    * *   **tlsv1.1**
@@ -248,7 +249,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
    * Specifies whether to enable the persistent connection feature. Valid values:
    * 
    * *   **true** (default)
-   * *   **false:**
+   * *   **false**
    * 
    * @example
    * true
@@ -256,9 +257,9 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that reuse persistent connections. Valid values: 60 to 1000.
+   * The number of reused persistent connections. Valid values: 60 to 1000.
    * 
-   * >  This parameter specifies the number of requests that can reuse persistent connections after you enable the persistent connection feature.
+   * >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
    * 
    * @example
    * 1000
@@ -266,9 +267,9 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * The timeout period of idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
    * 
-   * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed
+   * >  This parameter specifies the period of time after which an idle persistent connection is closed.
    * 
    * @example
    * 15
@@ -276,7 +277,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+   * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -284,14 +285,14 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of the custom header field. ***value*** specifies the value of the custom header field.
+   * The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of a custom header field. ***value*** specifies the value of a custom header field.
    * 
-   * >  If the request contains the custom header field, WAF overwrites the original value of the field with the specified value.
+   * >  If a request contains a custom header field, WAF overwrites the original value of the field with the specified value.
    */
   requestHeaders?: CreateCloudResourceRequestRedirectRequestHeaders[];
   /**
    * @remarks
-   * The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+   * The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -299,7 +300,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * The method that WAF uses to obtain the originating IP address of a client. Valid values:
+   * The method that is used to obtain the originating IP address of a client. Valid values:
    * 
    * *   **0**: No Layer 7 proxies are deployed in front of WAF.
    * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
@@ -318,7 +319,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
   xffHeaders?: string[];
   /**
    * @remarks
-   * Specifies whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
    * 
    * *   **true** (default)
    * *   **false**
@@ -373,7 +374,7 @@ export class CreateCloudResourceRequestRedirect extends $dara.Model {
 export class CreateCloudResourceRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. Valid values of N: 1 to 20.
+   * The key of the tag.
    * 
    * @example
    * TagKey1
@@ -381,7 +382,7 @@ export class CreateCloudResourceRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. Valid values of N: 1 to 20.
+   * The value of the tag.
    * 
    * @example
    * TagValue1
@@ -413,7 +414,7 @@ export class CreateCloudResourceRequestTag extends $dara.Model {
 export class CreateCloudResourceShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. Valid values of N: 1 to 20.
+   * The key of the tag.
    * 
    * @example
    * TagKey1
@@ -421,7 +422,7 @@ export class CreateCloudResourceShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. Valid values of N: 1 to 20.
+   * The value of the tag.
    * 
    * @example
    * TagValue1
@@ -1342,7 +1343,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   apiTag?: string;
   /**
    * @remarks
-   * The time at which the risk was detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time at which the risk was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -1355,7 +1356,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   examples?: string[];
   /**
    * @remarks
-   * The time at which the risk was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time at which the API was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1701138088
@@ -1382,13 +1383,16 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   ignoreTime?: number;
   /**
    * @remarks
-   * The time at which the risk was last active. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
    */
   lastestTime?: number;
   /**
+   * @remarks
+   * The time at which the risk was last detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
    * @example
    * 1684252800
    */
@@ -1610,7 +1614,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -1689,7 +1693,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   follow?: number;
   /**
    * @remarks
-   * The most recent access time of the API. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1683388800
@@ -1947,7 +1951,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -3878,7 +3882,21 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
 }
 
 export class DescribeDefenseResourceResponseBodyResourceResponseHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the key for a custom response header.
+   * 
+   * @example
+   * Header-Key
+   */
   key?: string;
+  /**
+   * @remarks
+   * Specifies the value for a custom response header.
+   * 
+   * @example
+   * Header-Value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4038,6 +4056,10 @@ export class DescribeDefenseResourceResponseBodyResource extends $dara.Model {
    * custom
    */
   resourceOrigin?: string;
+  /**
+   * @remarks
+   * The response header.
+   */
   responseHeaders?: DescribeDefenseResourceResponseBodyResourceResponseHeaders[];
   /**
    * @remarks
@@ -4424,7 +4446,21 @@ export class DescribeDefenseResourcesRequestTag extends $dara.Model {
 }
 
 export class DescribeDefenseResourcesResponseBodyResourcesResponseHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the key for a custom response header.
+   * 
+   * @example
+   * Header-Key
+   */
   key?: string;
+  /**
+   * @remarks
+   * Specifies the value for a custom response header.
+   * 
+   * @example
+   * Header-Value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4573,6 +4609,10 @@ export class DescribeDefenseResourcesResponseBodyResources extends $dara.Model {
    * custom
    */
   resourceOrigin?: string;
+  /**
+   * @remarks
+   * The response header.
+   */
   responseHeaders?: DescribeDefenseResourcesResponseBodyResourcesResponseHeaders[];
   /**
    * @remarks
@@ -4772,7 +4812,21 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
   defenseOrigin?: string;
   /**
    * @remarks
-   * The scenario in which the protection rule is used. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
+   * The protection module for which the protection rule is created. Valid values:
+   * 
+   * *   **waf_group**: the basic protection rule module.
+   * *   **waf_base_compliance**: the protocol compliance feature of the basic protection rule module.
+   * *   **waf_base_sema**: the semantic analysis feature of the basic protection rule module.
+   * *   **cc**: the HTTP flood protection module.
+   * *   **antiscan_dirscan**: the directory traversal blocking feature of the scan protection module.
+   * *   **antiscan_highfreq**: the high-frequency scanning blocking feature of the scan protection module.
+   * *   **antiscan_scantools**: the scanner blocking feature of the scan protection module.
+   * *   **ip_blacklist**: the IP address blacklist module.
+   * *   **custom_acl**: the custom rule module.
+   * *   **region_block**: the region blacklist module.
+   * *   **tamperproof**: the website tamper-proofing module.
+   * *   **dlp**: the data leakage prevention module.
+   * *   **custom_response_block**: the custom response module.
    * 
    * @example
    * waf_group
@@ -8460,6 +8514,554 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   }
 }
 
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The filter field. Valid values:
+   * 
+   * *   matched_host: The protected object.
+   * *   cluster: The protected cluster.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The filter operator.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * Specifies the values to filter by.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * End time of the query range (UNIX timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time of the query range (UNIX timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * An array of filter conditions. Multiple filter parameters use AND logic.
+   */
+  conditions?: DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * Specifies the date range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions },
+      dateRange: DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries extends $dara.Model {
+  /**
+   * @remarks
+   * The metric name, consistent with the Metric request parameter.
+   * 
+   * @example
+   * total_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The array of timestamps (seconds) marking the start of each time interval.
+   */
+  timestamps?: string[];
+  /**
+   * @remarks
+   * The array of counts, each representing the count for the corresponding time interval.
+   */
+  values?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      timestamps: 'Timestamps',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      timestamps: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timestamps)) {
+      $dara.Model.validateArray(this.timestamps);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the query range (in UNIX timestamp, seconds). Same as the EndDate request parameter.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The start time of the query range (in UNIX timestamp, seconds). It is the same as the StartDate request parameter.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The time granularity. For example, "15m" indicates that each data point is counted every 15 minutes. For details, see **Time granularity of time series data points**.
+   * 
+   * @example
+   * "1m"
+   */
+  aggregateInterval?: string;
+  /**
+   * @remarks
+   * The query time range.
+   */
+  dateRange?: DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the returned data. Defaults to the value: request.
+   * 
+   * @example
+   * request
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregateInterval: 'AggregateInterval',
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregateInterval: 'string',
+      dateRange: DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The filter fields. Valid values:
+   * 
+   * *   matched_host: The protected object.
+   * *   cluster: The protected cluster.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The filter operator.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The filter content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * End time of the query range (UNIX timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * Start time of the query range (UNIX timestamp, seconds).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * An array of filter conditions. Multiple filter parameters use AND logic.
+   */
+  conditions?: DescribeNetworkFlowTopNMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * Specifies the date range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeNetworkFlowTopNMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeNetworkFlowTopNMetricRequestFilterConditions },
+      dateRange: DescribeNetworkFlowTopNMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues extends $dara.Model {
+  /**
+   * @remarks
+   * Returns additional information, such as the country, province, and city to which an IP address belongs. It\\"s currently empty.
+   * 
+   * @example
+   * “”
+   */
+  attribute?: string;
+  /**
+   * @remarks
+   * The value of this field varies depending on the queried Metric.
+   * 
+   * @example
+   * i-8v****a-443-ecs (Protected object)
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Counts for top ranking.
+   * 
+   * @example
+   * 1123
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      name: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the query range (in UNIX timestamp, seconds). Same as the EndDate request parameter.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The start time of the query range (in UNIX timestamp, seconds). Same as the StartDate request parameter.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The query time range.
+   */
+  dateRange?: DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the returned data. Defaults to the value: request.
+   * 
+   * @example
+   * request
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateRange: DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePeakTrendResponseBodyFlowChart extends $dara.Model {
   /**
    * @remarks
@@ -9324,6 +9926,764 @@ export class DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl extends $dara.Mode
   }
 }
 
+export class DescribeSecurityEventLogsRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field name. This operation supports all fields.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The field content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions. Multiple conditions are evaluated by using a logical AND.
+   */
+  conditions?: DescribeSecurityEventLogsRequestFilterConditions[];
+  /**
+   * @remarks
+   * The time range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeSecurityEventLogsRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeSecurityEventLogsRequestFilterConditions },
+      dateRange: DescribeSecurityEventLogsRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsResponseBodySecurityEventMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The time range that is used for the query.
+   */
+  dateRange?: DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the returned data. Defaults to the value: requests.
+   * 
+   * @example
+   * requests
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateRange: DescribeSecurityEventLogsResponseBodySecurityEventMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field name. This operation supports all fields.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The field content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions. Multiple conditions are evaluated by using a logical AND.
+   */
+  conditions?: DescribeSecurityEventTimeSeriesMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * The time range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeSecurityEventTimeSeriesMetricRequestFilterConditions },
+      dateRange: DescribeSecurityEventTimeSeriesMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries extends $dara.Model {
+  /**
+   * @remarks
+   * The metric. This value is the same as the value of Metric in the request parameters.
+   * 
+   * @example
+   * monitored_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The time points. Each point represents a time range.
+   */
+  timestamps?: string[];
+  /**
+   * @remarks
+   * The data points. Each point represents a count for a time range.
+   */
+  values?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      timestamps: 'Timestamps',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      timestamps: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timestamps)) {
+      $dara.Model.validateArray(this.timestamps);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The time granularity of data points in the time series data returned. For example, a value of 15m indicates that data points are collected at 15-minute intervals. For more information about the supported time granularities, see the "**Time granularities for data points in time series records**" section of the **DescribeNetworkFlowTimeSeriesMetric** topic.
+   * 
+   * @example
+   * 1m
+   */
+  aggregateInterval?: string;
+  /**
+   * @remarks
+   * The time range that is used for the query.
+   */
+  dateRange?: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the returned data. Defaults to the value: request.
+   * 
+   * @example
+   * requests
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregateInterval: 'AggregateInterval',
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregateInterval: 'string',
+      dateRange: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricRequestFilterConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The field name. This operation supports all fields.
+   * 
+   * @example
+   * matched_host
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The filter operator.
+   * 
+   * @example
+   * eq
+   */
+  opValue?: string;
+  /**
+   * @remarks
+   * The field content.
+   * 
+   * @example
+   * test.waf-top
+   */
+  values?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opValue: 'OpValue',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opValue: 'string',
+      values: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricRequestFilterDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions. Multiple conditions are evaluated by using a logical AND.
+   */
+  conditions?: DescribeSecurityEventTopNMetricRequestFilterConditions[];
+  /**
+   * @remarks
+   * The time range for the query.
+   * 
+   * This parameter is required.
+   */
+  dateRange?: DescribeSecurityEventTopNMetricRequestFilterDateRange;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'Conditions',
+      dateRange: 'DateRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': DescribeSecurityEventTopNMetricRequestFilterConditions },
+      dateRange: DescribeSecurityEventTopNMetricRequestFilterDateRange,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues extends $dara.Model {
+  /**
+   * @remarks
+   * The additional information, such as the protection module for a protection rule whose ID is returned.
+   * 
+   * @example
+   * “”
+   */
+  attribute?: string;
+  /**
+   * @remarks
+   * The field value, which varies based on the metric.
+   * 
+   * @example
+   * i-8v****a-443-ecs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The count for the data entry.
+   * 
+   * @example
+   * 1111
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attribute: 'Attribute',
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attribute: 'string',
+      name: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
+   * 
+   * @example
+   * 1713888600
+   */
+  endDate?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
+   * 
+   * @example
+   * 1713888000
+   */
+  startDate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'number',
+      startDate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * The time range that is used for the query.
+   */
+  dateRange?: DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange;
+  /**
+   * @remarks
+   * The unit of the returned data. Defaults to the value: request.
+   * 
+   * @example
+   * request
+   */
+  units?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dateRange: 'DateRange',
+      units: 'Units',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dateRange: DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange,
+      units: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dateRange && typeof (this.dateRange as any).validate === 'function') {
+      (this.dateRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
@@ -9898,8 +11258,9 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $dara.Model {
   requestTime?: number;
   /**
    * @remarks
-   * The sensitive data. The value of this parameter is a JSON string that contains multiple parameters. The Key of JSON is the sensitive information type identifier (including default and custom types), and the Value is the sensitive information data list.
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
+   * The details of sensitive data. The value is a string that consists of a JSON struct. The JSON struct contains key-value pairs. In a key-value pair, a key indicates the identifier of a sensitive data type, including built-in and custom types, and a value indicates specific sensitive data.
+   * 
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
    * 
    * @example
    * {
@@ -10878,7 +12239,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ModifyCloudResourceRequestListenCertificates extends $dara.Model {
   /**
    * @remarks
-   * The type of the HTTPS certificate. Valid values:
+   * The type of the certificate. Valid values:
    * 
    * *   **default**: default certificate.
    * *   **extension**: additional certificate.
@@ -10921,7 +12282,7 @@ export class ModifyCloudResourceRequestListenCertificates extends $dara.Model {
 export class ModifyCloudResourceRequestListen extends $dara.Model {
   /**
    * @remarks
-   * An array of certificates.
+   * The certificates.
    */
   certificates?: ModifyCloudResourceRequestListenCertificates[];
   /**
@@ -10929,7 +12290,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
    * The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
    * 
    * *   **1**: all cipher suites.
-   * *   **2**: strong cipher suites. You can set the parameter to this value only if you set **TLSVersion** to **tlsv1.2**.
+   * *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
    * *   **99**: custom cipher suites.
    * 
    * @example
@@ -10938,7 +12299,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * An array of custom cipher suites.
+   * The custom cipher suites that you want to add.
    */
   customCiphers?: string[];
   /**
@@ -10968,7 +12329,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The port of the resource that you want to add to WAF.
+   * The port of the cloud service instance that is added to WAF.
    * 
    * This parameter is required.
    * 
@@ -10978,7 +12339,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The protocol type. Valid values:
    * 
    * *   **http**
    * *   **https**
@@ -10991,7 +12352,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The ID of the cloud service instance that is added to WAF.
    * 
    * This parameter is required.
    * 
@@ -11001,11 +12362,12 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The cloud service. Valid values:
+   * The type of the cloud service. Valid values:
    * 
    * *   **clb4**: Layer 4 Classic Load Balancer (CLB).
    * *   **clb7**: Layer 7 CLB.
    * *   **ecs**: Elastic Compute Service (ECS).
+   * *   **nlb**: Network Load Balancer (NLB).
    * 
    * This parameter is required.
    * 
@@ -11015,7 +12377,7 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
   resourceProduct?: string;
   /**
    * @remarks
-   * The Transport Layer Security (TLS) version. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
    * 
    * *   **tlsv1**
    * *   **tlsv1.1**
@@ -11116,7 +12478,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
    * Specifies whether to enable the persistent connection feature. Valid values:
    * 
    * *   **true** (default)
-   * *   **false:**
+   * *   **false**
    * 
    * @example
    * true
@@ -11124,9 +12486,9 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that reuse persistent connections. Valid values: 60 to 1000.
+   * The number of reused persistent connections. Valid values: 60 to 1000.
    * 
-   * >  This parameter specifies the number of requests that can reuse persistent connections after you enable the persistent connection feature.
+   * >  This parameter specifies the number of persistent connections that can be reused after you enable the persistent connection feature.
    * 
    * @example
    * 1000
@@ -11134,9 +12496,9 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * The timeout period of idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
    * 
-   * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed.
+   * >  This parameter specifies the period of time after which an idle persistent connection is closed.
    * 
    * @example
    * 15
@@ -11144,7 +12506,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+   * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -11152,12 +12514,12 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The custom header field that you want to use to label requests that are processed by WAF.
+   * The custom header fields, which are key-value pairs. The fields are used to mark requests that pass through WAF.
    */
   requestHeaders?: ModifyCloudResourceRequestRedirectRequestHeaders[];
   /**
    * @remarks
-   * The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+   * The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 1
@@ -11165,7 +12527,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * The method that WAF uses to obtain the originating IP address of a client. Valid values:
+   * The method that is used to obtain the originating IP address of a client. Valid values:
    * 
    * *   **0**: No Layer 7 proxies are deployed in front of WAF.
    * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
@@ -11177,14 +12539,14 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The custom header field that is used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
+   * The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
    * 
    * >  This parameter is required only if you set **XffHeaderMode** to 2.
    */
   xffHeaders?: string[];
   /**
    * @remarks
-   * Specifies whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
    * 
    * *   **true** (default)
    * *   **false**
@@ -11237,7 +12599,21 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
 }
 
 export class ModifyDefenseResourceXffRequestResponseHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the key for a custom response header.
+   * 
+   * @example
+   * Header-Key
+   */
   key?: string;
+  /**
+   * @remarks
+   * Specifies the value for a custom response header.
+   * 
+   * @example
+   * Header-Value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11878,7 +13254,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the protected object in Web Application Firewall (WAF) that you want to manage.
+   * The ID of the protected object that you want to manage.
    * 
    * This parameter is required.
    * 
@@ -11896,7 +13272,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The resource type. The value is fixed as defenseresource.
+   * The resource type. Set the value to defenseresource.
    * 
    * This parameter is required.
    * 
@@ -12491,7 +13867,7 @@ export class CreateCloudResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of the listeners.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
@@ -12506,7 +13882,7 @@ export class CreateCloudResourceRequest extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The configurations of the forwarding rule.
+   * The forwarding configurations.
    */
   redirect?: CreateCloudResourceRequestRedirect;
   /**
@@ -12532,7 +13908,7 @@ export class CreateCloudResourceRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the resource.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: CreateCloudResourceRequestTag[];
   static names(): { [key: string]: string } {
@@ -12592,7 +13968,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of the listeners.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
@@ -12607,7 +13983,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The configurations of the forwarding rule.
+   * The forwarding configurations.
    */
   redirectShrink?: string;
   /**
@@ -12633,7 +14009,7 @@ export class CreateCloudResourceShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The tags to add to the resource.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: CreateCloudResourceShrinkRequestTag[];
   static names(): { [key: string]: string } {
@@ -12788,10 +14164,10 @@ export class CreateDefenseResourceGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -13814,9 +15190,9 @@ export class CreateMajorProtectionBlackIpRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time after which the IP address blacklist becomes invalid. Unit: seconds.
+   * The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
    * 
-   * >  If you set the value to **0**, the blacklist is permanently valid.
+   * >  If you set the parameter to **0**, the IP address blacklist is always valid.
    * 
    * This parameter is required.
    * 
@@ -13826,7 +15202,7 @@ export class CreateMajorProtectionBlackIpRequest extends $dara.Model {
   expiredTime?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -13846,10 +15222,10 @@ export class CreateMajorProtectionBlackIpRequest extends $dara.Model {
   ipList?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -13921,7 +15297,7 @@ export class CreateMajorProtectionBlackIpRequest extends $dara.Model {
 export class CreateMajorProtectionBlackIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D****
@@ -14130,9 +15506,9 @@ export class CreateMemberAccountsResponse extends $dara.Model {
 export class CreatePostpaidInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
    * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
@@ -16393,8 +17769,9 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
    * @remarks
    * The name of the sorting field. Valid values:
    * 
-   * * **firstTime (default)**: first detection time
-   * * **abnormalLevel**: risk level
+   * *   **discoverTime** (default): indicates the time when a risk was first detected.
+   * *   **abnormalLevel**: indicates the level of a risk.
+   * *   **latestDiscoverTime**: indicates the time when a risk was last detected.
    * 
    * @example
    * allCnt
@@ -16440,7 +17817,7 @@ export class DescribeApisecAbnormalsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid value:
+   * The region ID of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
    * *   **ap-southeast-1**: outside the Chinese mainland.
@@ -16671,7 +18048,7 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -16703,7 +18080,8 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 740
@@ -16801,10 +18179,10 @@ export class DescribeApisecApiResourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region ID of the WAF instance. Value:
    * 
-   * * **cn-hangzhou**: Chinese mainland
-   * * **ap-southeast-1**: outside the Chinese mainland
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -17398,7 +18776,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -17415,7 +18793,8 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -17531,7 +18910,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region ID of the WAF instance. Value:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
    * *   **ap-southeast-1**: outside the Chinese mainland.
@@ -18052,7 +19431,7 @@ export class DescribeApisecProtectionGroupsRequest extends $dara.Model {
   apisecStatus?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
    * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
@@ -19174,7 +20553,8 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -19195,7 +20575,7 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
    * *   **ap-southeast-1**: outside the Chinese mainland.
@@ -19214,10 +20594,10 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of statistics to be detected. Valid values:
+   * The type of the statistics. Valid values:
    * 
-   * *   **risk**: risk impact statistics
-   * *   **event**: attack impact statistics
+   * *   **risk**: risk-related statistics.
+   * *   **event**: event-related statistics.
    * 
    * @example
    * asset_num
@@ -19255,7 +20635,7 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
 export class DescribeApisecStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The check results.
+   * The returned results.
    */
   data?: DescribeApisecStatisticsResponseBodyData;
   /**
@@ -21022,10 +22402,10 @@ export class DescribeDefenseResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -21087,7 +22467,7 @@ export class DescribeDefenseResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the protected object.
+   * The protected object.
    */
   resource?: DescribeDefenseResourceResponseBodyResource;
   static names(): { [key: string]: string } {
@@ -22036,7 +23416,7 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the paginated results Default value: **1**.
    * 
    * @example
    * 1
@@ -22044,7 +23424,7 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of results per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -22062,10 +23442,10 @@ export class DescribeDefenseResourcesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -22220,10 +23600,10 @@ export class DescribeDefenseRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -22474,7 +23854,7 @@ export class DescribeDefenseRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of protection rules.
+   * The protection rules.
    */
   rules?: DescribeDefenseRulesResponseBodyRules[];
   /**
@@ -22563,10 +23943,10 @@ export class DescribeDefenseTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -25921,10 +27301,10 @@ export class DescribeHybridCloudUserResponse extends $dara.Model {
 export class DescribeInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -26474,6 +27854,548 @@ export class DescribeMemberAccountsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeMemberAccountsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies filtering conditions. Multiple filter parameters use AND logic.
+   * 
+   * This parameter is required.
+   */
+  filter?: DescribeNetworkFlowTimeSeriesMetricRequestFilter;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) instance ID.
+   * 
+   * >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to get the WAF instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the type of data returned by each metric. Valid values:
+   * 
+   * *   qps: Queries per second (QPS) of requests processed by WAF.
+   * *   total_requests: Total number of requests processed by WAF.
+   * *   top5_status: The top 5 HTTP status codes returned by WAF, along with their counts.
+   * *   top 5_upstream_status: The top 5 HTTP status codes returned by the origin server, along with their counts.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * total_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      instanceId: 'InstanceId',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: DescribeNetworkFlowTimeSeriesMetricRequestFilter,
+      instanceId: 'string',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies filtering conditions. Multiple filter parameters use AND logic.
+   * 
+   * This parameter is required.
+   */
+  filterShrink?: string;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) instance ID.
+   * 
+   * >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to get the WAF instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the type of data returned by each metric. Valid values:
+   * 
+   * *   qps: Queries per second (QPS) of requests processed by WAF.
+   * *   total_requests: Total number of requests processed by WAF.
+   * *   top5_status: The top 5 HTTP status codes returned by WAF, along with their counts.
+   * *   top 5_upstream_status: The top 5 HTTP status codes returned by the origin server, along with their counts.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * total_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      instanceId: 'InstanceId',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      instanceId: 'string',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The array of time-series data. Supports returning data with multiple values.
+   */
+  networkFlowTimeSeries?: DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The time series metadata.
+   */
+  timeSeriesMetaData?: DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      networkFlowTimeSeries: 'NetworkFlowTimeSeries',
+      requestId: 'RequestId',
+      timeSeriesMetaData: 'TimeSeriesMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkFlowTimeSeries: { 'type': 'array', 'itemType': DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries },
+      requestId: 'string',
+      timeSeriesMetaData: DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.networkFlowTimeSeries)) {
+      $dara.Model.validateArray(this.networkFlowTimeSeries);
+    }
+    if(this.timeSeriesMetaData && typeof (this.timeSeriesMetaData as any).validate === 'function') {
+      (this.timeSeriesMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTimeSeriesMetricResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkFlowTimeSeriesMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNetworkFlowTimeSeriesMetricResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies filtering conditions. Multiple filter parameters use AND logic.
+   * 
+   * This parameter is required.
+   */
+  filter?: DescribeNetworkFlowTopNMetricRequestFilter;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) instance ID.
+   * 
+   * >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Returns up to 10 data entries, sorted in descending order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * Specifies the type of data returned by each metric. Valid values:
+   * 
+   * *   real_client_ip: The top N requests, sorted in descending order by source IP address, aggregated from all the user\\"s WAF requests.
+   * *   request_path: The top N requests, sorted in descending order by user-agent, aggregated from all the current user\\"s WAF requests.
+   * *   request_path: The top N URLs, sorted in descending order by frequency, aggregated from all the current user\\"s WAF requests.
+   * *   matched_host_by_total_requests: The top N protected objects with their request counts for the current user.
+   * *   matched_host_by_qps: The top N protected objects and their queries per second (QPS) values.
+   * *   matched_host_by_status: When using it, you must specify status in the Conditions field of the Filter parameter. If the HTTP response code returned by WAF matches the status specified in Conditions, then the top N data is returned, sorted by protected objects. The format for specifying the status is as follows:\\
+   *     {"Key":"status","OpValue":"eq","Values":"200"}
+   * *   matched_host_by_upstream_status: When using it, you must specify a upstream_status in the Conditions field of the Filter parameter. If the HTTP response code returned by the origin server matches the upstream_status specified by Conditions, the top N data is returned, sorted by protected objects. The format for specifying the upstream_status is as follows:\\
+   *     {"Key":"upstream_status","OpValue":"eq","Values":"200"}
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * matched_host_by_upstream_status
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      instanceId: 'InstanceId',
+      limit: 'Limit',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: DescribeNetworkFlowTopNMetricRequestFilter,
+      instanceId: 'string',
+      limit: 'number',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies filtering conditions. Multiple filter parameters use AND logic.
+   * 
+   * This parameter is required.
+   */
+  filterShrink?: string;
+  /**
+   * @remarks
+   * The Web Application Firewall (WAF) instance ID.
+   * 
+   * >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Returns up to 10 data entries, sorted in descending order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * Specifies the type of data returned by each metric. Valid values:
+   * 
+   * *   real_client_ip: The top N requests, sorted in descending order by source IP address, aggregated from all the user\\"s WAF requests.
+   * *   request_path: The top N requests, sorted in descending order by user-agent, aggregated from all the current user\\"s WAF requests.
+   * *   request_path: The top N URLs, sorted in descending order by frequency, aggregated from all the current user\\"s WAF requests.
+   * *   matched_host_by_total_requests: The top N protected objects with their request counts for the current user.
+   * *   matched_host_by_qps: The top N protected objects and their queries per second (QPS) values.
+   * *   matched_host_by_status: When using it, you must specify status in the Conditions field of the Filter parameter. If the HTTP response code returned by WAF matches the status specified in Conditions, then the top N data is returned, sorted by protected objects. The format for specifying the status is as follows:\\
+   *     {"Key":"status","OpValue":"eq","Values":"200"}
+   * *   matched_host_by_upstream_status: When using it, you must specify a upstream_status in the Conditions field of the Filter parameter. If the HTTP response code returned by the origin server matches the upstream_status specified by Conditions, the top N data is returned, sorted by protected objects. The format for specifying the upstream_status is as follows:\\
+   *     {"Key":"upstream_status","OpValue":"eq","Values":"200"}
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * matched_host_by_upstream_status
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      instanceId: 'InstanceId',
+      limit: 'Limit',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      instanceId: 'string',
+      limit: 'number',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The top statistical data array returned.
+   */
+  networkFlowTopNValues?: DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The metadata of the returned data.
+   */
+  topNMetaData?: DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      networkFlowTopNValues: 'NetworkFlowTopNValues',
+      requestId: 'RequestId',
+      topNMetaData: 'TopNMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkFlowTopNValues: { 'type': 'array', 'itemType': DescribeNetworkFlowTopNMetricResponseBodyNetworkFlowTopNValues },
+      requestId: 'string',
+      topNMetaData: DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.networkFlowTopNValues)) {
+      $dara.Model.validateArray(this.networkFlowTopNValues);
+    }
+    if(this.topNMetaData && typeof (this.topNMetaData as any).validate === 'function') {
+      (this.topNMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkFlowTopNMetricResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetworkFlowTopNMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNetworkFlowTopNMetricResponseBody,
     };
   }
 
@@ -27083,6 +29005,12 @@ export class DescribePunishedDomainsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The type of punishment. Valid values:
+   * 
+   * *   **beian** (default): the filing center.
+   * *   **punishCenter**: the punishment center.
+   * 
    * @example
    * beian
    */
@@ -27688,9 +29616,9 @@ export class DescribeResourceRegionIdRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
    * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
@@ -27741,7 +29669,7 @@ export class DescribeResourceRegionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The region IDs.
+   * The region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode.
    */
   resourceRegionIds?: string[];
   static names(): { [key: string]: string } {
@@ -29380,6 +31308,842 @@ export class DescribeRuleHitsTopUrlResponse extends $dara.Model {
   }
 }
 
+export class DescribeSecurityEventLogsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filter?: DescribeSecurityEventLogsRequestFilter;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: **100**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: DescribeSecurityEventLogsRequestFilter,
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filterShrink?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: **100**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The attack logs returned.
+   */
+  securityEventLogs?: any[];
+  /**
+   * @remarks
+   * The total number of logs returned.
+   * 
+   * @example
+   * 1000
+   */
+  securityEventLogsTotalCount?: number;
+  /**
+   * @remarks
+   * The metadata of logs returned.
+   */
+  securityEventMetaData?: DescribeSecurityEventLogsResponseBodySecurityEventMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityEventLogs: 'SecurityEventLogs',
+      securityEventLogsTotalCount: 'SecurityEventLogsTotalCount',
+      securityEventMetaData: 'SecurityEventMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityEventLogs: { 'type': 'array', 'itemType': 'any' },
+      securityEventLogsTotalCount: 'number',
+      securityEventMetaData: DescribeSecurityEventLogsResponseBodySecurityEventMetaData,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityEventLogs)) {
+      $dara.Model.validateArray(this.securityEventLogs);
+    }
+    if(this.securityEventMetaData && typeof (this.securityEventMetaData as any).validate === 'function') {
+      (this.securityEventMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventLogsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityEventLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSecurityEventLogsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filter?: DescribeSecurityEventTimeSeriesMetricRequestFilter;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-tl32ast****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The metric whose time series data you want to return. The following metrics are supported:
+   * 
+   * *   mitigated_requests: The system returns the time series data of requests that are blocked.
+   * *   monitored_requests: The system returns the time series data of requests that match Monitor protection rules.
+   * *   mitigated_requests_group_by_defense_scene: The system returns the number of requests that match each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can match multiple protection modules. Therefore, the total number of matched requests is inconsistent with the total number of requests.
+   * *   mitigated_requests_group_by_block_defense_scene: The system returns the number of requests that are blocked by each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can be blocked by only one protection module. Therefore, the total number of blocked requests is consistent with the total number of requests.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mitigated_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      instanceId: 'InstanceId',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: DescribeSecurityEventTimeSeriesMetricRequestFilter,
+      instanceId: 'string',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filterShrink?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-tl32ast****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The metric whose time series data you want to return. The following metrics are supported:
+   * 
+   * *   mitigated_requests: The system returns the time series data of requests that are blocked.
+   * *   monitored_requests: The system returns the time series data of requests that match Monitor protection rules.
+   * *   mitigated_requests_group_by_defense_scene: The system returns the number of requests that match each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can match multiple protection modules. Therefore, the total number of matched requests is inconsistent with the total number of requests.
+   * *   mitigated_requests_group_by_block_defense_scene: The system returns the number of requests that are blocked by each protection module. The returned results are grouped by protection module and can be used to generate time series charts. A request can be blocked by only one protection module. Therefore, the total number of blocked requests is consistent with the total number of requests.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mitigated_requests
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      instanceId: 'InstanceId',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      instanceId: 'string',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The time series data returned. This operation can return time series for multiple metrics.
+   */
+  securityEventTimeSeries?: DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries[];
+  /**
+   * @remarks
+   * The metadata of the time series data returned.
+   */
+  timeSeriesMetaData?: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityEventTimeSeries: 'SecurityEventTimeSeries',
+      timeSeriesMetaData: 'TimeSeriesMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityEventTimeSeries: { 'type': 'array', 'itemType': DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries },
+      timeSeriesMetaData: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityEventTimeSeries)) {
+      $dara.Model.validateArray(this.securityEventTimeSeries);
+    }
+    if(this.timeSeriesMetaData && typeof (this.timeSeriesMetaData as any).validate === 'function') {
+      (this.timeSeriesMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTimeSeriesMetricResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityEventTimeSeriesMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSecurityEventTimeSeriesMetricResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filter?: DescribeSecurityEventTopNMetricRequestFilter;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The number of data entries that can be returned. Data entries are sorted in descending order before they are returned. Maximum value: 10.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * The metric whose top N data entries you want to return. The following metrics are supported:
+   * 
+   * >  For more information about attack requests, see the "Usage notes" section of this topic.
+   * 
+   * *   real_client_ip: The system aggregates the source IP addresses of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   http_user_agent: The system aggregates the User-Agent header field of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   matched_host: The system aggregates the protected objects that are matched by attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   remote_region_id: The system aggregates the countries to which the source IP addresses of attack requests belong to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   request_path: The system aggregates the URLs of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries. The URLs exclude query strings.
+   * *   block_defense_scene: The system aggregates the protection modules that block attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries. The requests match protection rules whose actions are not set to Monitor.
+   * *   defense_scene: The system aggregates the protection modules that are matched by attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   defense_scene_rule_id: The system returns the IDs of top N protection rules that are matched by attack requests and also the related protection modules. Only protection rules whose actions are not set to Monitor are counted. The system returns the value in the following format:\\
+   *     `{ "Attribute": "waf_base", "Value": 140, "Name": "111034" }`
+   * *   defense_scene_with_rule_id: The system returns the IDs of top N protection rules that are matched by attack requests and also the related protection modules. The IDs and protection modules are connected by using hyphens (-). Protection rules whose actions are set to Monitor and Block are counted. The system returns the value in the following format:\\
+   *     `{ "Attribute": "", "Value": 1, "Name": "120075-waf_base" }`
+   * *   defense_scene_top_rule_id: The system returns top N matched protection rules of a specific protection module. You can specify Conditions in Filter to configure filter conditions. For example, you can use the following condition to query top N matched protection rules of the custom rule module:\\
+   *     `{ "Key": "defense_scene_map", "OpValue": "contain", "Values": "custom_acl" }`
+   * *   defense_scene_rule_type: The system returns top N matched protection rules of the core web protection module. This metric is supported only by the core web protection module because only this module supports subtypes of protection rules. You must specify Conditions in Filter to configure filter conditions. Example:\\
+   *     `{ "Key": "defense_scene", "OpValue": "eq", "Values": "waf_base" }`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * real_client_ip
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      instanceId: 'InstanceId',
+      limit: 'Limit',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: DescribeSecurityEventTopNMetricRequestFilter,
+      instanceId: 'string',
+      limit: 'number',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter parameters for the query. Multiple parameters are evaluated by using a logical AND.
+   * 
+   * This parameter is required.
+   */
+  filterShrink?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The number of data entries that can be returned. Data entries are sorted in descending order before they are returned. Maximum value: 10.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @remarks
+   * The metric whose top N data entries you want to return. The following metrics are supported:
+   * 
+   * >  For more information about attack requests, see the "Usage notes" section of this topic.
+   * 
+   * *   real_client_ip: The system aggregates the source IP addresses of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   http_user_agent: The system aggregates the User-Agent header field of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   matched_host: The system aggregates the protected objects that are matched by attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   remote_region_id: The system aggregates the countries to which the source IP addresses of attack requests belong to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   request_path: The system aggregates the URLs of attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries. The URLs exclude query strings.
+   * *   block_defense_scene: The system aggregates the protection modules that block attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries. The requests match protection rules whose actions are not set to Monitor.
+   * *   defense_scene: The system aggregates the protection modules that are matched by attack requests to collect statistics, sorts the statistical results in descending order, and returns top N data entries.
+   * *   defense_scene_rule_id: The system returns the IDs of top N protection rules that are matched by attack requests and also the related protection modules. Only protection rules whose actions are not set to Monitor are counted. The system returns the value in the following format:\\
+   *     `{ "Attribute": "waf_base", "Value": 140, "Name": "111034" }`
+   * *   defense_scene_with_rule_id: The system returns the IDs of top N protection rules that are matched by attack requests and also the related protection modules. The IDs and protection modules are connected by using hyphens (-). Protection rules whose actions are set to Monitor and Block are counted. The system returns the value in the following format:\\
+   *     `{ "Attribute": "", "Value": 1, "Name": "120075-waf_base" }`
+   * *   defense_scene_top_rule_id: The system returns top N matched protection rules of a specific protection module. You can specify Conditions in Filter to configure filter conditions. For example, you can use the following condition to query top N matched protection rules of the custom rule module:\\
+   *     `{ "Key": "defense_scene_map", "OpValue": "contain", "Values": "custom_acl" }`
+   * *   defense_scene_rule_type: The system returns top N matched protection rules of the core web protection module. This metric is supported only by the core web protection module because only this module supports subtypes of protection rules. You must specify Conditions in Filter to configure filter conditions. Example:\\
+   *     `{ "Key": "defense_scene", "OpValue": "eq", "Values": "waf_base" }`
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * real_client_ip
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The region ID of the WAF instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      instanceId: 'InstanceId',
+      limit: 'Limit',
+      metric: 'Metric',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      instanceId: 'string',
+      limit: 'number',
+      metric: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D827FCFE-90A7-4330-9326-D33C8B4C7726
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The top N data entries returned.
+   */
+  securityEventTopNValues?: DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues[];
+  /**
+   * @remarks
+   * The metadata of the data entries returned.
+   */
+  topNMetaData?: DescribeSecurityEventTopNMetricResponseBodyTopNMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityEventTopNValues: 'SecurityEventTopNValues',
+      topNMetaData: 'TopNMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityEventTopNValues: { 'type': 'array', 'itemType': DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues },
+      topNMetaData: DescribeSecurityEventTopNMetricResponseBodyTopNMetaData,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityEventTopNValues)) {
+      $dara.Model.validateArray(this.securityEventTopNValues);
+    }
+    if(this.topNMetaData && typeof (this.topNMetaData as any).validate === 'function') {
+      (this.topNMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityEventTopNMetricResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityEventTopNMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSecurityEventTopNMetricResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSensitiveApiStatisticRequest extends $dara.Model {
   /**
    * @remarks
@@ -30441,7 +33205,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the WAF instance. Valid value:
+   * The region ID of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
    * *   **ap-southeast-1**: outside the Chinese mainland.
@@ -34045,7 +36809,8 @@ export class ModifyApisecAbnormalsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -34083,9 +36848,6 @@ export class ModifyApisecAbnormalsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
-   * @remarks
-   * 阿里云资源组ID。
-   * 
    * @example
    * rg-acfm***q
    */
@@ -35219,14 +37981,14 @@ export class ModifyCloudResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of the listeners.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
   listen?: ModifyCloudResourceRequestListen;
   /**
    * @remarks
-   * The configurations of the forwarding rule.
+   * The forwarding configurations.
    */
   redirect?: ModifyCloudResourceRequestRedirect;
   /**
@@ -35300,14 +38062,14 @@ export class ModifyCloudResourceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configurations of the listeners.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The configurations of the forwarding rule.
+   * The forwarding configurations.
    */
   redirectShrink?: string;
   /**
@@ -35868,6 +38630,10 @@ export class ModifyDefenseResourceXffRequest extends $dara.Model {
    * rg-acfm2kie2****wq
    */
   resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The response header.
+   */
   responseHeaders?: ModifyDefenseResourceXffRequestResponseHeaders[];
   /**
    * @remarks
@@ -37045,10 +39811,10 @@ export class ModifyDomainPunishStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -37330,10 +40096,10 @@ export class ModifyHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region of the WAF instance. Valid value:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -37691,9 +40457,9 @@ export class ModifyHybridCloudGroupExpansionServerRequest extends $dara.Model {
   mids?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid value:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
    * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
@@ -37849,10 +40615,10 @@ export class ModifyHybridCloudGroupShrinkServerRequest extends $dara.Model {
   mids?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid value:
+   * The region of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38153,10 +40919,10 @@ export class ModifyHybridCloudServerRequest extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid value:
+   * The region of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38910,12 +41676,12 @@ export class ModifyResourceLogStatusResponse extends $dara.Model {
 export class ModifyTemplateResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The protected object groups that you want to associate with the protection rule template. Specify the value of this parameter in the ["group1","group2",...] format.
+   * The protected object groups that you want to associate with the template. Specify the value in the [**"group1","group2",...**] format.
    */
   bindResourceGroups?: string[];
   /**
    * @remarks
-   * The protected objects that you want to associate with the protection rule template. Specify the value of this parameter in the ["XX1","XX2",...] format.
+   * The protected objects that you want to associate with the template. Specify the value in the [**"XX1","XX2",...**] format.
    */
   bindResources?: string[];
   /**
@@ -38932,10 +41698,10 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland.
-   * *   **ap-southeast-1:** outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -38961,12 +41727,12 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The protected object groups that you want to disassociate from the protection rule template. Specify the value of this parameter in the ["group1","group2",...] format.
+   * The protected object groups that you want to disassociate from the template. Specify the value in the [**"group1","group2",...**] format.
    */
   unbindResourceGroups?: string[];
   /**
    * @remarks
-   * The protected objects that you want to disassociate from the protection rule template. Specify the value of this parameter in the ["XX1","XX2",...] format.
+   * The protected objects that you want to disassociate from the template. Specify the value in the [**"XX1","XX2",...**] format.
    */
   unbindResources?: string[];
   static names(): { [key: string]: string } {
@@ -39019,7 +41785,7 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
 export class ModifyTemplateResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CF708F2F-FFB0-54D4-B1E0-B84A7CEBFB60
@@ -39084,9 +41850,9 @@ export class ModifyTemplateResourcesResponse extends $dara.Model {
 export class ReleaseInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * >  Obtain the ID of the WAF instance by calling the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation.
    * 
    * This parameter is required.
    * 
@@ -39220,19 +41986,16 @@ export class SyncProductInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
    * *   **cn-hangzhou**: Chinese mainland.
-   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
-   * @remarks
-   * 阿里云资源组ID。
-   * 
    * @example
    * rg-acfm4co****f5qa
    */
@@ -45314,6 +48077,148 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+   * 
+   * @param tmpReq - DescribeNetworkFlowTimeSeriesMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkFlowTimeSeriesMetricResponse
+   */
+  async describeNetworkFlowTimeSeriesMetricWithOptions(tmpReq: DescribeNetworkFlowTimeSeriesMetricRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNetworkFlowTimeSeriesMetricResponse> {
+    tmpReq.validate();
+    let request = new DescribeNetworkFlowTimeSeriesMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetworkFlowTimeSeriesMetric",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNetworkFlowTimeSeriesMetricResponse>(await this.callApi(params, req, runtime), new DescribeNetworkFlowTimeSeriesMetricResponse({}));
+    } else {
+      return $dara.cast<DescribeNetworkFlowTimeSeriesMetricResponse>(await this.execute(params, req, runtime), new DescribeNetworkFlowTimeSeriesMetricResponse({}));
+    }
+
+  }
+
+  /**
+   * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+   * 
+   * @param request - DescribeNetworkFlowTimeSeriesMetricRequest
+   * @returns DescribeNetworkFlowTimeSeriesMetricResponse
+   */
+  async describeNetworkFlowTimeSeriesMetric(request: DescribeNetworkFlowTimeSeriesMetricRequest): Promise<DescribeNetworkFlowTimeSeriesMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetworkFlowTimeSeriesMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+   * 
+   * @param tmpReq - DescribeNetworkFlowTopNMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkFlowTopNMetricResponse
+   */
+  async describeNetworkFlowTopNMetricWithOptions(tmpReq: DescribeNetworkFlowTopNMetricRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNetworkFlowTopNMetricResponse> {
+    tmpReq.validate();
+    let request = new DescribeNetworkFlowTopNMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetworkFlowTopNMetric",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNetworkFlowTopNMetricResponse>(await this.callApi(params, req, runtime), new DescribeNetworkFlowTopNMetricResponse({}));
+    } else {
+      return $dara.cast<DescribeNetworkFlowTopNMetricResponse>(await this.execute(params, req, runtime), new DescribeNetworkFlowTopNMetricResponse({}));
+    }
+
+  }
+
+  /**
+   * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+   * 
+   * @param request - DescribeNetworkFlowTopNMetricRequest
+   * @returns DescribeNetworkFlowTopNMetricResponse
+   */
+  async describeNetworkFlowTopNMetric(request: DescribeNetworkFlowTopNMetricRequest): Promise<DescribeNetworkFlowTopNMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetworkFlowTopNMetricWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the protection status of Web Application Firewall (WAF).
    * 
    * @param request - DescribePauseProtectionStatusRequest
@@ -45783,7 +48688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45827,7 +48732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+   * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @returns DescribeResourceRegionIdResponse
@@ -46458,6 +49363,257 @@ export default class Client extends OpenApi {
   async describeRuleHitsTopUrl(request: DescribeRuleHitsTopUrlRequest): Promise<DescribeRuleHitsTopUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRuleHitsTopUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param tmpReq - DescribeSecurityEventLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityEventLogsResponse
+   */
+  async describeSecurityEventLogsWithOptions(tmpReq: DescribeSecurityEventLogsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSecurityEventLogsResponse> {
+    tmpReq.validate();
+    let request = new DescribeSecurityEventLogsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityEventLogs",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSecurityEventLogsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventLogsResponse({}));
+    } else {
+      return $dara.cast<DescribeSecurityEventLogsResponse>(await this.execute(params, req, runtime), new DescribeSecurityEventLogsResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param request - DescribeSecurityEventLogsRequest
+   * @returns DescribeSecurityEventLogsResponse
+   */
+  async describeSecurityEventLogs(request: DescribeSecurityEventLogsRequest): Promise<DescribeSecurityEventLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityEventLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param tmpReq - DescribeSecurityEventTimeSeriesMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityEventTimeSeriesMetricResponse
+   */
+  async describeSecurityEventTimeSeriesMetricWithOptions(tmpReq: DescribeSecurityEventTimeSeriesMetricRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSecurityEventTimeSeriesMetricResponse> {
+    tmpReq.validate();
+    let request = new DescribeSecurityEventTimeSeriesMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityEventTimeSeriesMetric",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSecurityEventTimeSeriesMetricResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventTimeSeriesMetricResponse({}));
+    } else {
+      return $dara.cast<DescribeSecurityEventTimeSeriesMetricResponse>(await this.execute(params, req, runtime), new DescribeSecurityEventTimeSeriesMetricResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param request - DescribeSecurityEventTimeSeriesMetricRequest
+   * @returns DescribeSecurityEventTimeSeriesMetricResponse
+   */
+  async describeSecurityEventTimeSeriesMetric(request: DescribeSecurityEventTimeSeriesMetricRequest): Promise<DescribeSecurityEventTimeSeriesMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityEventTimeSeriesMetricWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param tmpReq - DescribeSecurityEventTopNMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityEventTopNMetricResponse
+   */
+  async describeSecurityEventTopNMetricWithOptions(tmpReq: DescribeSecurityEventTopNMetricRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSecurityEventTopNMetricResponse> {
+    tmpReq.validate();
+    let request = new DescribeSecurityEventTopNMetricShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityEventTopNMetric",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSecurityEventTopNMetricResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventTopNMetricResponse({}));
+    } else {
+      return $dara.cast<DescribeSecurityEventTopNMetricResponse>(await this.execute(params, req, runtime), new DescribeSecurityEventTopNMetricResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+   * 
+   * @remarks
+   * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+   * *   Requests that match the protection rules of the whitelist module.
+   * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+   * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+   * 
+   * @param request - DescribeSecurityEventTopNMetricRequest
+   * @returns DescribeSecurityEventTopNMetricResponse
+   */
+  async describeSecurityEventTopNMetric(request: DescribeSecurityEventTopNMetricRequest): Promise<DescribeSecurityEventTopNMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityEventTopNMetricWithOptions(request, runtime);
   }
 
   /**
