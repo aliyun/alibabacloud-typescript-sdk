@@ -2055,7 +2055,7 @@ export class BatchCreateRecordsResponseBodyRecordResultList extends $dara.Model 
 export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
   /**
    * @remarks
-   * The content of the regular expression.
+   * Content of the expression.
    * 
    * @example
    * ip.src eq 1.1.1.1
@@ -2063,7 +2063,7 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The ID of the regular expression.
+   * The sequence number of the expression.
    * 
    * @example
    * 1
@@ -2095,12 +2095,12 @@ export class BatchGetExpressionFieldsRequestExpressions extends $dara.Model {
 export class BatchGetExpressionFieldsResponseBodyFields extends $dara.Model {
   /**
    * @remarks
-   * The fields that match the regular expression.
+   * List of match fields for a single expression.
    */
   fields?: string[];
   /**
    * @remarks
-   * The ID of the regular expression, which corresponds to the expression ID in the request parameter.
+   * ID of the expression, corresponding to the ID in the input parameters.
    * 
    * @example
    * 1
@@ -3143,7 +3143,7 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
    * The access key required for private authentication.
    * 
    * @example
-   * LTAI5tGLgmPe1wFwpX86****
+   * yourAccessKeyID
    */
   accessKey?: string;
   /**
@@ -3172,7 +3172,7 @@ export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
    * The secret key required for private authentication.
    * 
    * @example
-   * bd8tjba5lXxxxxiRXFIBvoCIfJI****
+   * yourAccessKeySecret
    */
   secretKey?: string;
   /**
@@ -8000,13 +8000,363 @@ export class GetLoadBalancerResponseBodyRules extends $dara.Model {
   }
 }
 
+export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2024-03-05 18:24:04
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * 
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2024-03-05 18:24:04
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2020-05-12 02:00:53
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The domain names to associate.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * DigiCert
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * 
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2024-03-05 18:24:04
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      hostnames: 'Hostnames',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
   /**
    * @remarks
    * The AccessKey required when AuthType is set to private_cross_account or private.
    * 
    * @example
-   * LTAI5tSpj224hDfLmXEx****
+   * yourAccessKeyID
    */
   accessKey?: string;
   /**
@@ -8035,7 +8385,7 @@ export class GetOriginPoolResponseBodyOriginsAuthConf extends $dara.Model {
    * The SecretKey required when AuthType is set to private_cross_account or private.
    * 
    * @example
-   * tzXL8ub4GtjkjZOJhS****
+   * yourAccessKeySecret
    */
   secretKey?: string;
   /**
@@ -9426,6 +9776,176 @@ export class GetSiteCustomLogResponseBodyLogCustomField extends $dara.Model {
     if(Array.isArray(this.responseHeaders)) {
       $dara.Model.validateArray(this.responseHeaders);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSiteOriginClientCertificateResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * DigiCert
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babab022c5e9b27bf9c64d7f4b16****
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * 
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2024-07-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -14339,7 +14859,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
 export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.Model {
   /**
    * @remarks
-   * The name of the managed rule group.
+   * Name of the managed rule group.
    * 
    * @example
    * example
@@ -14347,7 +14867,7 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.
   name?: string;
   /**
    * @remarks
-   * The number of rules in the managed rule group.
+   * Number of rules within the managed rule group.
    * 
    * @example
    * 1000
@@ -14532,13 +15052,365 @@ export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
   }
 }
 
+export class ListOriginCaCertificatesResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-11-26T16:00:00Z
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The certificate status.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * *   upload: custom certificate that you upload
+   * 
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2024-07-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginClientCertificatesResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456a****
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The domain names to associate.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * DigiCert
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The certificate status.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The certificate type.
+   * *   upload: custom certificate that you upload
+   * 
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
+   * @example
+   * 2024-07-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      hostnames: 'Hostnames',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOriginPoolsResponseBodyOriginPoolsOriginsAuthConf extends $dara.Model {
   /**
    * @remarks
    * The AccessKey required for private authentication.
    * 
    * @example
-   * LTAI5tMfEib****ahybCpZqp
+   * yourAccessKeyID
    */
   accessKey?: string;
   /**
@@ -14567,7 +15439,7 @@ export class ListOriginPoolsResponseBodyOriginPoolsOriginsAuthConf extends $dara
    * The SecretKey required for private authentication.
    * 
    * @example
-   * VIxuvJSA2****fgYoZ3nkp208dy5w7
+   * yourAccessKeySecret
    */
   secretKey?: string;
   /**
@@ -17199,7 +18071,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The action that you want WAF to perform on requests that match the rule.
+   * Action.
    * 
    * @example
    * deny
@@ -17207,7 +18079,7 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The rule ID or name for fuzzy search.
+   * Fuzzy search for rule ID or rule name.
    * 
    * @example
    * example
@@ -17215,12 +18087,12 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * The protection levels of the rules.
+   * List of rule protection levels.
    */
   protectionLevels?: number[];
   /**
    * @remarks
-   * The status of the rule.
+   * Status.
    * 
    * @example
    * on
@@ -17259,7 +18131,7 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
 export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The action that WAF performs on requests that match the managed rule.
+   * Protection action of the managed rule.
    * 
    * @example
    * deny
@@ -17267,7 +18139,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The ID of the managed rule.
+   * ID of the managed rule.
    * 
    * @example
    * 100001
@@ -17275,12 +18147,15 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the managed rule.
+   * Name of the managed rule.
+   * 
+   * @example
+   * SQL注入
    */
   name?: string;
   /**
    * @remarks
-   * The protection level of the managed rule.
+   * Protection level of the managed rule.
    * 
    * @example
    * 1
@@ -17288,7 +18163,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * The status of the protection rule.
+   * Protection status of the managed rule.
    * 
    * @example
    * on
@@ -17326,7 +18201,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
 export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF ruleset.[](~~2850233~~)
+   * ID of the WAF ruleset.
    * 
    * @example
    * 10000001
@@ -17334,7 +18209,7 @@ export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the WAF ruleset.
+   * Name of the WAF ruleset.
    * 
    * @example
    * example
@@ -17342,12 +18217,12 @@ export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The rule configurations in the WAF ruleset.
+   * List of rule configurations in the WAF ruleset.
    */
   rules?: WafRuleConfig[];
   /**
    * @remarks
-   * The configurations shared by the rules in the WAF ruleset.
+   * Shared configuration for rules in the WAF ruleset.
    */
   shared?: WafBatchRuleShared;
   static names(): { [key: string]: string } {
@@ -17386,7 +18261,7 @@ export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
 export class ListWafPhasesResponseBodyPhases extends $dara.Model {
   /**
    * @remarks
-   * The name of the WAF rule category.
+   * Name of the WAF operation phase.
    * 
    * @example
    * http_custom
@@ -17394,7 +18269,7 @@ export class ListWafPhasesResponseBodyPhases extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The WAF rulesets.
+   * List of WAF rulesets.
    */
   rulesets?: ListWafPhasesResponseBodyPhasesRulesets[];
   static names(): { [key: string]: string } {
@@ -17423,10 +18298,427 @@ export class ListWafPhasesResponseBodyPhases extends $dara.Model {
   }
 }
 
+export class ListWafRulesRequestQueryArgs extends $dara.Model {
+  /**
+   * @remarks
+   * Fuzzy search for values in IP access control.
+   * 
+   * @example
+   * 10.0.0.1
+   */
+  configValueLike?: string;
+  /**
+   * @remarks
+   * Whether to reverse the sorting result.
+   * 
+   * @example
+   * true
+   */
+  desc?: boolean;
+  /**
+   * @remarks
+   * Exact query for WAF rule ID.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Fuzzy query for WAF rule ID or name.
+   * 
+   * @example
+   * example
+   */
+  idNameLike?: string;
+  /**
+   * @remarks
+   * Fuzzy query for WAF rule name.
+   * 
+   * @example
+   * example
+   */
+  nameLike?: string;
+  /**
+   * @remarks
+   * Sort the returned list by the specified column.
+   * 
+   * @example
+   * position
+   */
+  orderBy?: string;
+  /**
+   * @remarks
+   * Exact query for WAF rule status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValueLike: 'ConfigValueLike',
+      desc: 'Desc',
+      id: 'Id',
+      idNameLike: 'IdNameLike',
+      nameLike: 'NameLike',
+      orderBy: 'OrderBy',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValueLike: 'string',
+      desc: 'boolean',
+      id: 'number',
+      idNameLike: 'string',
+      nameLike: 'string',
+      orderBy: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesResponseBodyRules extends $dara.Model {
+  /**
+   * @remarks
+   * The action corresponding to the rule.
+   * 
+   * @example
+   * deny
+   */
+  action?: string;
+  /**
+   * @remarks
+   * List of statistical objects for frequency control rules.
+   */
+  characteristicsFields?: string[];
+  /**
+   * @remarks
+   * Rule configuration.
+   */
+  config?: WafRuleConfig;
+  /**
+   * @remarks
+   * List of fields for rule matching
+   */
+  fields?: string[];
+  /**
+   * @remarks
+   * Rule ID.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Rule name.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * WAF phase.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Position order of the rule in the corresponding ruleset.
+   * 
+   * @example
+   * 1
+   */
+  position?: number;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Skip attribute for whitelist rules.
+   * 
+   * @example
+   * part
+   */
+  skip?: string;
+  /**
+   * @remarks
+   * Rule status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  /**
+   * @remarks
+   * List of WAF phases to be skipped by whitelist rules.
+   */
+  tags?: string[];
+  /**
+   * @remarks
+   * Configuration for the effective time of the rule.
+   */
+  timer?: WafTimer;
+  /**
+   * @remarks
+   * Rule type.
+   * 
+   * @example
+   * http_custom
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Modification time.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      characteristicsFields: 'CharacteristicsFields',
+      config: 'Config',
+      fields: 'Fields',
+      id: 'Id',
+      name: 'Name',
+      phase: 'Phase',
+      position: 'Position',
+      rulesetId: 'RulesetId',
+      skip: 'Skip',
+      status: 'Status',
+      tags: 'Tags',
+      timer: 'Timer',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      characteristicsFields: { 'type': 'array', 'itemType': 'string' },
+      config: WafRuleConfig,
+      fields: { 'type': 'array', 'itemType': 'string' },
+      id: 'number',
+      name: 'string',
+      phase: 'string',
+      position: 'number',
+      rulesetId: 'number',
+      skip: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      timer: WafTimer,
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.characteristicsFields)) {
+      $dara.Model.validateArray(this.characteristicsFields);
+    }
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.timer && typeof (this.timer as any).validate === 'function') {
+      (this.timer as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
+  /**
+   * @remarks
+   * Fuzzy search for rule set ID, rule set name, rule ID, and rule name.
+   * 
+   * @example
+   * example
+   */
+  anyLike?: string;
+  /**
+   * @remarks
+   * Whether to sort in descending order.
+   */
+  desc?: boolean;
+  /**
+   * @remarks
+   * Fuzzy search for rule set name.
+   * 
+   * @example
+   * example
+   */
+  nameLike?: string;
+  /**
+   * @remarks
+   * Specify the column to sort by.
+   * 
+   * @example
+   * id
+   */
+  orderBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anyLike: 'AnyLike',
+      desc: 'Desc',
+      nameLike: 'NameLike',
+      orderBy: 'OrderBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anyLike: 'string',
+      desc: 'boolean',
+      nameLike: 'string',
+      orderBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
+  /**
+   * @remarks
+   * List of match objects.
+   */
+  fields?: string[];
+  /**
+   * @remarks
+   * ID of the WAF rule set.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Name of the rule set.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * WAF operation phase.
+   * 
+   * @example
+   * http_bot
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Status of the rule set.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Protection target type in http_bot.
+   * 
+   * @example
+   * web
+   */
+  target?: string;
+  /**
+   * @remarks
+   * List of rule types.
+   */
+  types?: string[];
+  /**
+   * @remarks
+   * Last modification time of the rule set.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'Fields',
+      id: 'Id',
+      name: 'Name',
+      phase: 'Phase',
+      status: 'Status',
+      target: 'Target',
+      types: 'Types',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: { 'type': 'array', 'itemType': 'string' },
+      id: 'number',
+      name: 'string',
+      phase: 'string',
+      status: 'string',
+      target: 'string',
+      types: { 'type': 'array', 'itemType': 'string' },
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.types)) {
+      $dara.Model.validateArray(this.types);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The rule type.
+   * Rule type.
    * 
    * @example
    * http_directory_traversal
@@ -17456,12 +18748,12 @@ export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
 export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the rule.
+   * Rule configuration.
    */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * The rule name.
+   * Rule name.
    * 
    * @example
    * HTTP Directory Traversal Rule [Template]
@@ -17469,7 +18761,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The WAF rule category.
+   * WAF operation phase.
    * 
    * @example
    * http_anti_scan
@@ -17477,7 +18769,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled.
+   * Rule status.
    * 
    * @example
    * on
@@ -17485,7 +18777,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The rule type.
+   * Rule type.
    * 
    * @example
    * http_directory_traversal
@@ -17526,7 +18818,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
 export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   /**
    * @remarks
-   * The website ID.
+   * Site ID.
    * 
    * @example
    * 1
@@ -17534,7 +18826,7 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The website name.
+   * Site name.
    * 
    * @example
    * example.com
@@ -17542,7 +18834,7 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The usage of WAF rules or WAF rulesets.
+   * Usage of WAF rules/WAF rule sets.
    * 
    * @example
    * 1
@@ -18896,7 +20188,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
    * The AccessKey required for private authentication.
    * 
    * @example
-   * LTAI5t7fKVT****atQpfNes
+   * yourAccessKeyID
    */
   accessKey?: string;
   /**
@@ -18925,7 +20217,7 @@ export class UpdateOriginPoolRequestOriginsAuthConf extends $dara.Model {
    * The SecretKey required for private authentication.
    * 
    * @example
-   * VIxuvJSA2S0****YoZ3nkp208dy5w7
+   * yourAccessKeySecret
    */
   secretKey?: string;
   /**
@@ -20465,6 +21757,251 @@ export class BatchCreateRecordsResponse extends $dara.Model {
   }
 }
 
+export class BatchCreateWafRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of configurations for each rule, specifying detailed configurations for each rule.
+   */
+  configs?: WafRuleConfig[];
+  /**
+   * @remarks
+   * WAF rule type, with values:
+   * 
+   * - **http_anti_scan**: Scan protection.
+   * - **http_bot**: Bots.
+   * 
+   * @example
+   * http_anti_scan
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Shared configuration for multiple rules, specifying common attributes of multiple rules.
+   */
+  shared?: WafBatchRuleShared;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      shared: 'Shared',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': WafRuleConfig },
+      phase: 'string',
+      rulesetId: 'number',
+      shared: WafBatchRuleShared,
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    if(this.shared && typeof (this.shared as any).validate === 'function') {
+      (this.shared as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateWafRulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of configurations for each rule, specifying detailed configurations for each rule.
+   */
+  configsShrink?: string;
+  /**
+   * @remarks
+   * WAF rule type, with values:
+   * 
+   * - **http_anti_scan**: Scan protection.
+   * - **http_bot**: Bots.
+   * 
+   * @example
+   * http_anti_scan
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Shared configuration for multiple rules, specifying common attributes of multiple rules.
+   */
+  sharedShrink?: string;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configsShrink: 'Configs',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      sharedShrink: 'Shared',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configsShrink: 'string',
+      phase: 'string',
+      rulesetId: 'number',
+      sharedShrink: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateWafRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   */
+  ids?: number[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+      rulesetId: 'RulesetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+      requestId: 'string',
+      rulesetId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateWafRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCreateWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchCreateWafRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchDeleteKvRequest extends $dara.Model {
   /**
    * @remarks
@@ -20811,7 +22348,7 @@ export class BatchDeleteKvWithHighCapacityResponse extends $dara.Model {
 export class BatchGetExpressionFieldsRequest extends $dara.Model {
   /**
    * @remarks
-   * The regular expressions.
+   * List of expressions.
    * 
    * @example
    * http_bot
@@ -20819,7 +22356,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   expressions?: BatchGetExpressionFieldsRequestExpressions[];
   /**
    * @remarks
-   * The WAF rule category.
+   * WAF Phase
    * 
    * @example
    * http_bot
@@ -20827,7 +22364,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The website ID.
+   * Site ID
    * 
    * @example
    * 1
@@ -20864,7 +22401,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
 export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The regular expressions.
+   * List of expressions.
    * 
    * @example
    * http_bot
@@ -20872,7 +22409,7 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   expressionsShrink?: string;
   /**
    * @remarks
-   * The WAF rule category.
+   * WAF Phase
    * 
    * @example
    * http_bot
@@ -20880,7 +22417,7 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The website ID.
+   * Site ID
    * 
    * @example
    * 1
@@ -20914,12 +22451,12 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
 export class BatchGetExpressionFieldsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The fields that match the regular expressions.
+   * List of match fields.
    */
   fields?: BatchGetExpressionFieldsResponseBodyFields[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -21311,6 +22848,225 @@ export class BatchPutKvWithHighCapacityResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchPutKvWithHighCapacityResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateWafRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of rules.
+   */
+  configs?: WafRuleConfig[];
+  /**
+   * @remarks
+   * The WAF rule category.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
+  shared?: WafBatchRuleShared;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      shared: 'Shared',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': WafRuleConfig },
+      phase: 'string',
+      rulesetId: 'number',
+      shared: WafBatchRuleShared,
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    if(this.shared && typeof (this.shared as any).validate === 'function') {
+      (this.shared as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateWafRulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of rules.
+   */
+  configsShrink?: string;
+  /**
+   * @remarks
+   * The WAF rule category.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
+  sharedShrink?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configsShrink: 'Configs',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      sharedShrink: 'Shared',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configsShrink: 'string',
+      phase: 'string',
+      rulesetId: 'number',
+      sharedShrink: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateWafRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateWafRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchUpdateWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchUpdateWafRulesResponseBody,
     };
   }
 
@@ -22337,6 +24093,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Serve stale cache. When enabled, the node can still use the expired cached files to respond to user requests even if the origin server is unavailable. Value range:
@@ -22425,6 +24182,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       serveStale: 'ServeStale',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
@@ -22455,6 +24213,7 @@ export class CreateCacheRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       serveStale: 'string',
       siteId: 'number',
       siteVersion: 'number',
@@ -22859,6 +24618,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -22895,6 +24655,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
       zstd: 'Zstd',
@@ -22908,6 +24669,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
       zstd: 'string',
@@ -23866,6 +25628,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -23890,6 +25653,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -23901,6 +25665,7 @@ export class CreateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -23954,6 +25719,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -23978,6 +25744,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -23989,6 +25756,7 @@ export class CreateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -24114,6 +25882,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID. You can obtain this by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
@@ -24138,6 +25907,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -24149,6 +25919,7 @@ export class CreateHttpResponseHeaderModificationRuleRequest extends $dara.Model
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -24202,6 +25973,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID. You can obtain this by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
@@ -24226,6 +25998,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -24237,6 +26010,7 @@ export class CreateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -24453,6 +26227,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -24486,6 +26261,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -24506,6 +26282,7 @@ export class CreateHttpsApplicationConfigurationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -24683,6 +26460,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
@@ -24744,6 +26522,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       tls10: 'Tls10',
       tls11: 'Tls11',
@@ -24763,6 +26542,7 @@ export class CreateHttpsBasicConfigurationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       tls10: 'string',
       tls11: 'string',
@@ -24894,6 +26674,7 @@ export class CreateImageTransformRequest extends $dara.Model {
    * test
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -24918,6 +26699,7 @@ export class CreateImageTransformRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -24929,6 +26711,7 @@ export class CreateImageTransformRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -25927,6 +27710,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
@@ -25980,6 +27764,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
       smartRouting: 'SmartRouting',
@@ -25995,6 +27780,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
       smartRouting: 'string',
@@ -26502,6 +28288,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -26535,6 +28322,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -26555,6 +28343,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -27219,6 +29008,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -27282,6 +29072,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
       statusCode: 'StatusCode',
@@ -27296,6 +29087,7 @@ export class CreateRedirectRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
       statusCode: 'string',
@@ -27453,6 +29245,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -27487,6 +29280,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
       uri: 'Uri',
@@ -27501,6 +29295,7 @@ export class CreateRewriteUrlRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       siteVersion: 'number',
       uri: 'string',
@@ -29690,6 +31485,375 @@ export class CreateUserDeliveryTaskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateUserDeliveryTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration, specifying the detailed configuration for creating a rule.
+   */
+  config?: WafRuleConfig;
+  /**
+   * @remarks
+   * WAF operation phase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: WafRuleConfig,
+      phase: 'string',
+      rulesetId: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration, specifying the detailed configuration for creating a rule.
+   */
+  configShrink?: string;
+  /**
+   * @remarks
+   * WAF operation phase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configShrink: 'Config',
+      phase: 'Phase',
+      rulesetId: 'RulesetId',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configShrink: 'string',
+      phase: 'string',
+      rulesetId: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) API.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * 
+   * @example
+   * 10000001
+   */
+  rulesetId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      rulesetId: 'RulesetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+      rulesetId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWafRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRulesetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ruleset name.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * WAF operation phase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      phase: 'Phase',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      phase: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRulesetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWafRulesetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWafRulesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWafRulesetResponseBody,
     };
   }
 
@@ -32982,6 +35146,284 @@ export class DeleteNetworkOptimizationResponse extends $dara.Model {
   }
 }
 
+export class DeleteOriginCaCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginCaCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginCaCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOriginCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOriginCaCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteOriginPoolRequest extends $dara.Model {
   /**
    * @remarks
@@ -34638,6 +37080,145 @@ export class DeleteSiteDeliveryTaskResponse extends $dara.Model {
   }
 }
 
+export class DeleteSiteOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID on ESA.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSiteOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID on ESA.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSiteOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSiteOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSiteOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteUserDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -34717,6 +37298,242 @@ export class DeleteUserDeliveryTaskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteUserDeliveryTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWafRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRulesetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRulesetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWafRulesetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWafRulesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWafRulesetResponseBody,
     };
   }
 
@@ -36988,12 +39805,12 @@ export class DisableCustomScenePolicyResponse extends $dara.Model {
 export class EditSiteWafSettingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF configuration of the website in the JSON format.
+   * WAF configuration information for the site, passed in JSON format.
    */
   settings?: WafSiteSettings;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -37001,7 +39818,7 @@ export class EditSiteWafSettingsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * Site version.
    * 
    * @example
    * 0
@@ -37038,12 +39855,12 @@ export class EditSiteWafSettingsRequest extends $dara.Model {
 export class EditSiteWafSettingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF configuration of the website in the JSON format.
+   * WAF configuration information for the site, passed in JSON format.
    */
   settingsShrink?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -37051,7 +39868,7 @@ export class EditSiteWafSettingsShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * Site version.
    * 
    * @example
    * 0
@@ -37085,7 +39902,7 @@ export class EditSiteWafSettingsShrinkRequest extends $dara.Model {
 export class EditSiteWafSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -41410,6 +44227,7 @@ export class GetIPv6ResponseBody extends $dara.Model {
    * on
    */
   enable?: string;
+  region?: string;
   /**
    * @remarks
    * The request ID.
@@ -41421,6 +44239,7 @@ export class GetIPv6ResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
+      region: 'Region',
       requestId: 'RequestId',
     };
   }
@@ -41428,6 +44247,7 @@ export class GetIPv6ResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'string',
+      region: 'string',
       requestId: 'string',
     };
   }
@@ -42950,6 +45770,473 @@ export class GetNetworkOptimizationResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetNetworkOptimizationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginCaCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginCaCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3558df77-8a7a-4060-a900-2d7949403836
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
+  result?: GetOriginCaCertificateResponseBodyResult;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetOriginCaCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginCaCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOriginCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOriginCaCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
+  result?: GetOriginClientCertificateResponseBodyResult;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetOriginClientCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateHostnamesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateHostnamesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The domain names to associate.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The ID of the client certificate.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginClientCertificateHostnamesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOriginClientCertificateHostnamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOriginClientCertificateHostnamesResponseBody,
     };
   }
 
@@ -46241,6 +49528,165 @@ export class GetSiteNameExclusiveResponse extends $dara.Model {
   }
 }
 
+export class GetSiteOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSiteOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 34DCBC8A-****-****-****-6DAA11D7DDBD
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
+  result?: GetSiteOriginClientCertificateResponseBodyResult;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetSiteOriginClientCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSiteOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSiteOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSiteOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSitePauseRequest extends $dara.Model {
   /**
    * @remarks
@@ -46352,10 +49798,17 @@ export class GetSitePauseResponse extends $dara.Model {
 }
 
 export class GetSiteWafSettingsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies the configuration path. If not provided, all configurations will be retrieved.
+   * 
+   * @example
+   * bot_management
+   */
   path?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -46363,7 +49816,7 @@ export class GetSiteWafSettingsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * Site version.
    * 
    * @example
    * 0
@@ -46397,7 +49850,7 @@ export class GetSiteWafSettingsRequest extends $dara.Model {
 export class GetSiteWafSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -46405,7 +49858,7 @@ export class GetSiteWafSettingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The WAF configurations of the website.
+   * Details of site WAF configuration.
    */
   settings?: WafSiteSettings;
   static names(): { [key: string]: string } {
@@ -47345,6 +50798,378 @@ export class GetWafQuotaResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWafQuotaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration.
+   */
+  config?: WafRuleConfig;
+  /**
+   * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * @example
+   * 2000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Rule name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * WAF operation phase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The position of the rule in the rule set.
+   * 
+   * @example
+   * 1
+   */
+  position?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Rule status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The last modified time of the rule.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      id: 'Id',
+      name: 'Name',
+      phase: 'Phase',
+      position: 'Position',
+      requestId: 'RequestId',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: WafRuleConfig,
+      id: 'number',
+      name: 'string',
+      phase: 'string',
+      position: 'number',
+      requestId: 'string',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWafRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRulesetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The WAF operation phase, specifying the phase of the ruleset to query.
+   * 
+   * @example
+   * http_bot
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phase: 'Phase',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      phase: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRulesetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Ruleset name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The WAF operation phase applicable to the ruleset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http_bot
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * List of rule configurations in the ruleset.
+   */
+  rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * Shared configurations for the rules in the ruleset.
+   */
+  shared?: WafBatchRuleShared;
+  /**
+   * @remarks
+   * Ruleset status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The last modified time of the ruleset.
+   * 
+   * @example
+   * 2024-01-01T00:00:00Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      phase: 'Phase',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      shared: 'Shared',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      phase: 'string',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': WafRuleConfig },
+      shared: WafBatchRuleShared,
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    if(this.shared && typeof (this.shared as any).validate === 'function') {
+      (this.shared as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWafRulesetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWafRulesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWafRulesetResponseBody,
     };
   }
 
@@ -52063,7 +55888,7 @@ export class ListLoadBalancersResponse extends $dara.Model {
 export class ListManagedRulesGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * Page number, used to specify the page number for pagination queries.
    * 
    * @example
    * 1
@@ -52071,7 +55896,7 @@ export class ListManagedRulesGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size, used to specify the number of items per page for pagination queries.
    * 
    * @example
    * 20
@@ -52103,12 +55928,12 @@ export class ListManagedRulesGroupsRequest extends $dara.Model {
 export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the managed rule groups.
+   * List of managed rule group information.
    */
   managedRulesGroups?: ListManagedRulesGroupsResponseBodyManagedRulesGroups[];
   /**
    * @remarks
-   * The page number returned.
+   * Current page number.
    * 
    * @example
    * 1
@@ -52116,7 +55941,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -52124,7 +55949,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -52132,7 +55957,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of managed rule groups returned.
+   * Total number of records after filtering.
    * 
    * @example
    * 5
@@ -52399,6 +56224,360 @@ export class ListNetworkOptimizationsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNetworkOptimizationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginCaCertificatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **20**. Valid values: 1 to 500.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginCaCertificatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Page number, default is 1 if not provided.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 34DCBC8A-****-****-****-6DAA11D7DDBD
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Details of the certificates.
+   */
+  result?: ListOriginCaCertificatesResponseBodyResult[];
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListOriginCaCertificatesResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginCaCertificatesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOriginCaCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOriginCaCertificatesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginClientCertificatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginClientCertificatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3558df77-8a7a-4060-a900-2d7949403836
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
+  result?: ListOriginClientCertificatesResponseBodyResult[];
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListOriginClientCertificatesResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOriginClientCertificatesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOriginClientCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOriginClientCertificatesResponseBody,
     };
   }
 
@@ -55420,18 +59599,17 @@ export class ListUserRatePlanInstancesResponse extends $dara.Model {
 export class ListWafManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The attack type. Valid values:
-   * 
-   * *   SQL injection
-   * *   Cross-site scripting
-   * *   Code execution
-   * *   CRLF
-   * *   Local file inclusion
-   * *   Remote file inclusion
-   * *   webshell
-   * *   Cross-site request forgery
-   * *   Others
-   * *   SEMA
+   * Attack type of the vulnerability protection event. Values:
+   * - SQL injection
+   * - Cross-site scripting
+   * - Code execution
+   * - CRLF
+   * - Local file inclusion
+   * - Remote file inclusion
+   * - Webshell
+   * - Cross-site request forgery
+   * - Other
+   * - SEMA
    * 
    * This parameter is required.
    * 
@@ -55441,7 +59619,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   attackType?: number;
   /**
    * @remarks
-   * The ID of the WAF rule.
+   * ID of the WAF rule.
    * 
    * This parameter is required.
    * 
@@ -55451,10 +59629,10 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type, which will be used to return the response. Value range:
    * 
-   * *   **en**: English.
-   * *   **zh**: Chinese.
+   * - **en**: English.
+   * - **zh**: Chinese.
    * 
    * @example
    * zh
@@ -55462,7 +59640,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The page number.
+   * Query page number.
    * 
    * @example
    * 1
@@ -55470,7 +59648,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Query page size.
    * 
    * @example
    * 20
@@ -55479,12 +59657,12 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * The query conditions.
+   * Query conditions.
    */
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -55533,18 +59711,17 @@ export class ListWafManagedRulesRequest extends $dara.Model {
 export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The attack type. Valid values:
-   * 
-   * *   SQL injection
-   * *   Cross-site scripting
-   * *   Code execution
-   * *   CRLF
-   * *   Local file inclusion
-   * *   Remote file inclusion
-   * *   webshell
-   * *   Cross-site request forgery
-   * *   Others
-   * *   SEMA
+   * Attack type of the vulnerability protection event. Values:
+   * - SQL injection
+   * - Cross-site scripting
+   * - Code execution
+   * - CRLF
+   * - Local file inclusion
+   * - Remote file inclusion
+   * - Webshell
+   * - Cross-site request forgery
+   * - Other
+   * - SEMA
    * 
    * This parameter is required.
    * 
@@ -55554,7 +59731,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   attackType?: number;
   /**
    * @remarks
-   * The ID of the WAF rule.
+   * ID of the WAF rule.
    * 
    * This parameter is required.
    * 
@@ -55564,10 +59741,10 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type, which will be used to return the response. Value range:
    * 
-   * *   **en**: English.
-   * *   **zh**: Chinese.
+   * - **en**: English.
+   * - **zh**: Chinese.
    * 
    * @example
    * zh
@@ -55575,7 +59752,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The page number.
+   * Query page number.
    * 
    * @example
    * 1
@@ -55583,7 +59760,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Query page size.
    * 
    * @example
    * 20
@@ -55592,12 +59769,12 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   protectionLevel?: number;
   /**
    * @remarks
-   * The query conditions.
+   * Query conditions.
    */
   queryArgsShrink?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -55643,7 +59820,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
 export class ListWafManagedRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * Page number.
    * 
    * @example
    * 1
@@ -55651,7 +59828,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size.
    * 
    * @example
    * 20
@@ -55659,7 +59836,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -55667,12 +59844,12 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The managed rules.
+   * List of managed rules.
    */
   rules?: ListWafManagedRulesResponseBodyRules[];
   /**
    * @remarks
-   * The total number of filtered rules.
+   * Total number of rules after filtering.
    * 
    * @example
    * 20
@@ -55748,7 +59925,7 @@ export class ListWafManagedRulesResponse extends $dara.Model {
 export class ListWafPhasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * This parameter is required.
    * 
@@ -55758,7 +59935,7 @@ export class ListWafPhasesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version of the website.
+   * Site version.
    * 
    * @example
    * 0
@@ -55790,12 +59967,12 @@ export class ListWafPhasesRequest extends $dara.Model {
 export class ListWafPhasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The WAF rule categories.
+   * List of WAF operation phases.
    */
   phases?: ListWafPhasesResponseBodyPhases[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -55862,10 +60039,602 @@ export class ListWafPhasesResponse extends $dara.Model {
   }
 }
 
+export class ListWafRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query page number, used for pagination.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Query page size, used for pagination.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * WAF rule type. Values:
+   * 
+   * - http_anti_scan: Scan protection
+   * - http_bot: Bots
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Query filter conditions.
+   * 
+   * @example
+   * http_custom
+   */
+  queryArgs?: ListWafRulesRequestQueryArgs;
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      phase: 'Phase',
+      queryArgs: 'QueryArgs',
+      rulesetId: 'RulesetId',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      phase: 'string',
+      queryArgs: ListWafRulesRequestQueryArgs,
+      rulesetId: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    if(this.queryArgs && typeof (this.queryArgs as any).validate === 'function') {
+      (this.queryArgs as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query page number, used for pagination.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Query page size, used for pagination.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * WAF rule type. Values:
+   * 
+   * - http_anti_scan: Scan protection
+   * - http_bot: Bots
+   * 
+   * @example
+   * http_custom
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Query filter conditions.
+   * 
+   * @example
+   * http_custom
+   */
+  queryArgsShrink?: string;
+  rulesetId?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      phase: 'Phase',
+      queryArgsShrink: 'QueryArgs',
+      rulesetId: 'RulesetId',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      phase: 'string',
+      queryArgsShrink: 'string',
+      rulesetId: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Number of rules used in this WAF phase for the corresponding instance of the site.
+   * 
+   * @example
+   * 10
+   */
+  instanceUsage?: number;
+  /**
+   * @remarks
+   * Page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned list of rules.
+   */
+  rules?: ListWafRulesResponseBodyRules[];
+  /**
+   * @remarks
+   * Site usage.
+   * 
+   * @example
+   * 5
+   */
+  siteUsage?: number;
+  /**
+   * @remarks
+   * Total number of rules after filtering.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceUsage: 'InstanceUsage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rules: 'Rules',
+      siteUsage: 'SiteUsage',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceUsage: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rules: { 'type': 'array', 'itemType': ListWafRulesResponseBodyRules },
+      siteUsage: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWafRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWafRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Page number, specifying the current page number for paginated queries.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size, specifying the number of records per page for paginated queries.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * WAF operation phase, specifying the rule set phase to query.
+   * 
+   * @example
+   * http_bot
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Query parameters, passed in JSON format, containing various filtering conditions.
+   * 
+   * @example
+   * http_bot
+   */
+  queryArgs?: ListWafRulesetsRequestQueryArgs;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      phase: 'Phase',
+      queryArgs: 'QueryArgs',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      phase: 'string',
+      queryArgs: ListWafRulesetsRequestQueryArgs,
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    if(this.queryArgs && typeof (this.queryArgs as any).validate === 'function') {
+      (this.queryArgs as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Page number, specifying the current page number for paginated queries.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size, specifying the number of records per page for paginated queries.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * WAF operation phase, specifying the rule set phase to query.
+   * 
+   * @example
+   * http_bot
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * Query parameters, passed in JSON format, containing various filtering conditions.
+   * 
+   * @example
+   * http_bot
+   */
+  queryArgsShrink?: string;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      phase: 'Phase',
+      queryArgsShrink: 'QueryArgs',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      phase: 'string',
+      queryArgsShrink: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Number of WAF rule sets used by the instance in this WAF operation phase.
+   * 
+   * @example
+   * 10
+   */
+  instanceUsage?: number;
+  /**
+   * @remarks
+   * Current page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * List of rule set information, containing detailed information about the rule sets.
+   */
+  rulesets?: ListWafRulesetsResponseBodyRulesets[];
+  /**
+   * @remarks
+   * Number of WAF rule sets used by the site in this WAF operation phase.
+   * 
+   * @example
+   * 5
+   */
+  siteUsage?: number;
+  /**
+   * @remarks
+   * Total number of filtered records.
+   * 
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceUsage: 'InstanceUsage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      rulesets: 'Rulesets',
+      siteUsage: 'SiteUsage',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceUsage: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      rulesets: { 'type': 'array', 'itemType': ListWafRulesetsResponseBodyRulesets },
+      siteUsage: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rulesets)) {
+      $dara.Model.validateArray(this.rulesets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafRulesetsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWafRulesetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWafRulesetsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafTemplateRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF rule category, which is used to filter template rules of a specific category.
+   * WAF operation phase, used to filter template rules for a specific phase.
    * 
    * @example
    * http_anti_scan
@@ -55873,7 +60642,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The query parameter, which is used to filter template rules based on criteria such as the rule type.
+   * Query parameters, used to filter template rules based on conditions such as rule type.
    * 
    * @example
    * http_anti_scan
@@ -55881,7 +60650,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   queryArgs?: ListWafTemplateRulesRequestQueryArgs;
   /**
    * @remarks
-   * 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -55918,7 +60687,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
 export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF rule category, which is used to filter template rules of a specific category.
+   * WAF operation phase, used to filter template rules for a specific phase.
    * 
    * @example
    * http_anti_scan
@@ -55926,7 +60695,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The query parameter, which is used to filter template rules based on criteria such as the rule type.
+   * Query parameters, used to filter template rules based on conditions such as rule type.
    * 
    * @example
    * http_anti_scan
@@ -55934,7 +60703,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   queryArgsShrink?: string;
   /**
    * @remarks
-   * 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
    * 
    * @example
    * 1
@@ -55968,7 +60737,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
 export class ListWafTemplateRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -55976,7 +60745,7 @@ export class ListWafTemplateRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned template rules.
+   * The list of returned template rules.
    */
   rules?: ListWafTemplateRulesResponseBodyRules[];
   static names(): { [key: string]: string } {
@@ -56043,18 +60812,18 @@ export class ListWafTemplateRulesResponse extends $dara.Model {
 export class ListWafUsageOfRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF rule category.
+   * Name of the WAF operation phase.
    * 
    * @example
-   * http_anti_scan
+   * http_custom
    */
   phase?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
    * @example
-   * ListWafUsageOfRules
+   * 1
    */
   siteId?: number;
   static names(): { [key: string]: string } {
@@ -56083,7 +60852,7 @@ export class ListWafUsageOfRulesRequest extends $dara.Model {
 export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -56091,7 +60860,7 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The usage details of WAF rules of the website.
+   * List of site usage.
    */
   sites?: ListWafUsageOfRulesResponseBodySites[];
   static names(): { [key: string]: string } {
@@ -59521,6 +64290,220 @@ export class SetHttpDDoSAttackProtectionResponse extends $dara.Model {
   }
 }
 
+export class SetOriginClientCertificateHostnamesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The domain names to associate.
+   * 
+   * This parameter is required.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetOriginClientCertificateHostnamesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The domain names to associate.
+   * 
+   * This parameter is required.
+   */
+  hostnamesShrink?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hostnamesShrink: 'Hostnames',
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnamesShrink: 'string',
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   */
+  hostnames?: string[];
+  /**
+   * @remarks
+   * The ID of the client certificate.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: string;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      requestId: 'string',
+      siteId: 'string',
+      siteName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetOriginClientCertificateHostnamesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetOriginClientCertificateHostnamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetOriginClientCertificateHostnamesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartScheduledPreloadExecutionRequest extends $dara.Model {
   /**
    * @remarks
@@ -60342,6 +65325,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Serve stale cache. When enabled, the node can still use the expired cached files to respond to user requests even if the origin server is unavailable. Value range:
@@ -60423,6 +65407,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       serveStale: 'ServeStale',
       siteId: 'SiteId',
       sortQueryStringForCache: 'SortQueryStringForCache',
@@ -60453,6 +65438,7 @@ export class UpdateCacheRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       serveStale: 'string',
       siteId: 'number',
       sortQueryStringForCache: 'string',
@@ -60836,6 +65822,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -60864,6 +65851,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       zstd: 'Zstd',
     };
@@ -60877,6 +65865,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       zstd: 'string',
     };
@@ -61670,6 +66659,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
@@ -61687,6 +66677,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -61698,6 +66689,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequest extends $dara.Model 
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -61758,6 +66750,7 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
@@ -61775,6 +66768,7 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -61786,6 +66780,7 @@ export class UpdateHttpRequestHeaderModificationRuleShrinkRequest extends $dara.
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -61908,6 +66903,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -61925,6 +66921,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -61936,6 +66933,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequest extends $dara.Model
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -61996,6 +66994,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -62013,6 +67012,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -62024,6 +67024,7 @@ export class UpdateHttpResponseHeaderModificationRuleShrinkRequest extends $dara
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -62239,6 +67240,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -62265,6 +67267,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -62285,6 +67288,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -62461,6 +67465,7 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -62523,6 +67528,7 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       tls10: 'Tls10',
       tls11: 'Tls11',
@@ -62543,6 +67549,7 @@ export class UpdateHttpsBasicConfigurationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       tls10: 'string',
       tls11: 'string',
@@ -62639,6 +67646,7 @@ export class UpdateIPv6Request extends $dara.Model {
    * on
    */
   enable?: string;
+  region?: string;
   /**
    * @remarks
    * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
@@ -62652,6 +67660,7 @@ export class UpdateIPv6Request extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
+      region: 'Region',
       siteId: 'SiteId',
     };
   }
@@ -62659,6 +67668,7 @@ export class UpdateIPv6Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'string',
+      region: 'string',
       siteId: 'number',
     };
   }
@@ -62787,6 +67797,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
    * test
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -62804,6 +67815,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -62815,6 +67827,7 @@ export class UpdateImageTransformRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -63721,6 +68734,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
@@ -63767,6 +68781,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       smartRouting: 'SmartRouting',
       uploadMaxFilesize: 'UploadMaxFilesize',
@@ -63782,6 +68797,7 @@ export class UpdateNetworkOptimizationRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       smartRouting: 'string',
       uploadMaxFilesize: 'string',
@@ -64400,6 +69416,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
@@ -64426,6 +69443,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
     };
   }
@@ -64446,6 +69464,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
     };
   }
@@ -65204,6 +70223,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
    * rule_example
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -65254,6 +70274,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       statusCode: 'StatusCode',
       targetUrl: 'TargetUrl',
@@ -65268,6 +70289,7 @@ export class UpdateRedirectRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       statusCode: 'string',
       targetUrl: 'string',
@@ -65419,6 +70441,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
    * example=123
    */
   ruleName?: string;
+  sequence?: number;
   /**
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
@@ -65446,6 +70469,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
+      sequence: 'Sequence',
       siteId: 'SiteId',
       uri: 'Uri',
     };
@@ -65460,6 +70484,7 @@ export class UpdateRewriteUrlRuleRequest extends $dara.Model {
       rule: 'string',
       ruleEnable: 'string',
       ruleName: 'string',
+      sequence: 'number',
       siteId: 'number',
       uri: 'string',
     };
@@ -67262,6 +72287,373 @@ export class UpdateUserDeliveryTaskStatusResponse extends $dara.Model {
   }
 }
 
+export class UpdateWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration.
+   */
+  config?: WafRuleConfig;
+  /**
+   * @remarks
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The position of the rule in the rule set.
+   * 
+   * @example
+   * 1
+   */
+  position?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  /**
+   * @remarks
+   * Rule status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      id: 'Id',
+      position: 'Position',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: WafRuleConfig,
+      id: 'number',
+      position: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration.
+   */
+  configShrink?: string;
+  /**
+   * @remarks
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The position of the rule in the rule set.
+   * 
+   * @example
+   * 1
+   */
+  position?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  /**
+   * @remarks
+   * Rule status.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configShrink: 'Config',
+      id: 'Id',
+      position: 'Position',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configShrink: 'string',
+      id: 'number',
+      position: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * 
+   * @example
+   * 20000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWafRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWafRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRulesetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
+   * @example
+   * 1
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  /**
+   * @remarks
+   * The target status to change for the ruleset.
+   * 
+   * @example
+   * on
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      siteId: 'number',
+      siteVersion: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRulesetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWafRulesetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWafRulesetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWafRulesetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWaitingRoomRequest extends $dara.Model {
   /**
    * @remarks
@@ -68682,6 +74074,690 @@ export class UploadFileResponse extends $dara.Model {
   }
 }
 
+export class UploadOriginCaCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890***
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      name: 'Name',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      name: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadOriginCaCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The CA that issued the certificate.
+   * 
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-12-01T02:13:07Z
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-12-01T02:13:07Z
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1daa
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * *   OK
+   * *   Fail
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The validity period of the certificate. Unit: day.
+   * 
+   * @example
+   * 365
+   */
+  validityDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      validityDays: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadOriginCaCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadOriginCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadOriginCaCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The private key of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN PRIVATE KEY-----
+   */
+  privateKey?: string;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      name: 'Name',
+      privateKey: 'PrivateKey',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      name: 'string',
+      privateKey: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The CA that issued the certificate.
+   * 
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-12-01T02:13:07Z
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-12-01T02:13:07Z
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1daa
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The validity period of the certificate. Unit: day.
+   * 
+   * @example
+   * 365
+   */
+  validityDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      validityDays: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSiteOriginClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate content.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @remarks
+   * The certificate name.
+   * 
+   * @example
+   * example
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The private key of the certificate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN PRIVATE KEY-----
+   */
+  privateKey?: string;
+  /**
+   * @remarks
+   * Site ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      name: 'Name',
+      privateKey: 'PrivateKey',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      name: 'string',
+      privateKey: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSiteOriginClientCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The SHA-256 fingerprint of the certificate.
+   * 
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca**
+   */
+  fingerprintSha256?: string;
+  /**
+   * @remarks
+   * The certificate ID on ESA.
+   * 
+   * @example
+   * babaabcd****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The CA that issued the certificate.
+   * 
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
+   * @example
+   * 2024-12-01T02:12:49Z
+   */
+  notAfter?: string;
+  /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
+   * @example
+   * 2023-12-01T02:13:07Z
+   */
+  notBefore?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The serial number of the certificate.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d**
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @remarks
+   * The status of the certificate.
+   * 
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The validity period of the certificate. Unit: day.
+   * 
+   * @example
+   * 365
+   */
+  validityDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      validityDays: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadSiteOriginClientCertificateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadSiteOriginClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadSiteOriginClientCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VerifySiteRequest extends $dara.Model {
   /**
    * @remarks
@@ -69014,6 +75090,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Batch Create WAF Rules
+   * 
+   * @param tmpReq - BatchCreateWafRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateWafRulesResponse
+   */
+  async batchCreateWafRulesWithOptions(tmpReq: BatchCreateWafRulesRequest, runtime: $dara.RuntimeOptions): Promise<BatchCreateWafRulesResponse> {
+    tmpReq.validate();
+    let request = new BatchCreateWafRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configs)) {
+      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shared)) {
+      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      body["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.rulesetId)) {
+      body["RulesetId"] = request.rulesetId;
+    }
+
+    if (!$dara.isNull(request.sharedShrink)) {
+      body["Shared"] = request.sharedShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateWafRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchCreateWafRulesResponse>(await this.callApi(params, req, runtime), new BatchCreateWafRulesResponse({}));
+    } else {
+      return $dara.cast<BatchCreateWafRulesResponse>(await this.execute(params, req, runtime), new BatchCreateWafRulesResponse({}));
+    }
+
+  }
+
+  /**
+   * Batch Create WAF Rules
+   * 
+   * @param request - BatchCreateWafRulesRequest
+   * @returns BatchCreateWafRulesResponse
+   */
+  async batchCreateWafRules(request: BatchCreateWafRulesRequest): Promise<BatchCreateWafRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateWafRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes key-value pairs from a namespace at a time based on keys.
    * 
    * @param tmpReq - BatchDeleteKvRequest
@@ -69273,7 +75428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch queries the objects that match specific expressions.
+   * Batch Get Expression Matches
    * 
    * @param tmpReq - BatchGetExpressionFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69325,7 +75480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch queries the objects that match specific expressions.
+   * Batch Get Expression Matches
    * 
    * @param request - BatchGetExpressionFieldsRequest
    * @returns BatchGetExpressionFieldsResponse
@@ -69608,6 +75763,85 @@ export default class Client extends OpenApi {
 
     let batchPutKvWithHighCapacityResp = await this.batchPutKvWithHighCapacityWithOptions(batchPutKvWithHighCapacityReq, runtime);
     return batchPutKvWithHighCapacityResp;
+  }
+
+  /**
+   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
+   * 
+   * @param tmpReq - BatchUpdateWafRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateWafRulesResponse
+   */
+  async batchUpdateWafRulesWithOptions(tmpReq: BatchUpdateWafRulesRequest, runtime: $dara.RuntimeOptions): Promise<BatchUpdateWafRulesResponse> {
+    tmpReq.validate();
+    let request = new BatchUpdateWafRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configs)) {
+      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shared)) {
+      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configsShrink)) {
+      body["Configs"] = request.configsShrink;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      body["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.rulesetId)) {
+      body["RulesetId"] = request.rulesetId;
+    }
+
+    if (!$dara.isNull(request.sharedShrink)) {
+      body["Shared"] = request.sharedShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchUpdateWafRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchUpdateWafRulesResponse>(await this.callApi(params, req, runtime), new BatchUpdateWafRulesResponse({}));
+    } else {
+      return $dara.cast<BatchUpdateWafRulesResponse>(await this.execute(params, req, runtime), new BatchUpdateWafRulesResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
+   * 
+   * @param request - BatchUpdateWafRulesRequest
+   * @returns BatchUpdateWafRulesResponse
+   */
+  async batchUpdateWafRules(request: BatchUpdateWafRulesRequest): Promise<BatchUpdateWafRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchUpdateWafRulesWithOptions(request, runtime);
   }
 
   /**
@@ -69982,6 +76216,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.serveStale)) {
       query["ServeStale"] = request.serveStale;
     }
@@ -70132,6 +76370,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -70493,6 +76735,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -70564,6 +76810,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -70669,6 +76919,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -70756,6 +77010,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -70833,6 +77091,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -71153,6 +77415,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -71386,6 +77652,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -71609,6 +77879,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -71694,6 +77968,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -72469,6 +78747,138 @@ export default class Client extends OpenApi {
   async createUserDeliveryTask(request: CreateUserDeliveryTaskRequest): Promise<CreateUserDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Create WAF Rule
+   * 
+   * @param tmpReq - CreateWafRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWafRuleResponse
+   */
+  async createWafRuleWithOptions(tmpReq: CreateWafRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateWafRuleResponse> {
+    tmpReq.validate();
+    let request = new CreateWafRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configShrink)) {
+      body["Config"] = request.configShrink;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      body["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.rulesetId)) {
+      body["RulesetId"] = request.rulesetId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWafRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateWafRuleResponse>(await this.callApi(params, req, runtime), new CreateWafRuleResponse({}));
+    } else {
+      return $dara.cast<CreateWafRuleResponse>(await this.execute(params, req, runtime), new CreateWafRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * Create WAF Rule
+   * 
+   * @param request - CreateWafRuleRequest
+   * @returns CreateWafRuleResponse
+   */
+  async createWafRule(request: CreateWafRuleRequest): Promise<CreateWafRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWafRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Create WAF Ruleset
+   * 
+   * @param request - CreateWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWafRulesetResponse
+   */
+  async createWafRulesetWithOptions(request: CreateWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<CreateWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      body["Phase"] = request.phase;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateWafRulesetResponse>(await this.callApi(params, req, runtime), new CreateWafRulesetResponse({}));
+    } else {
+      return $dara.cast<CreateWafRulesetResponse>(await this.execute(params, req, runtime), new CreateWafRulesetResponse({}));
+    }
+
+  }
+
+  /**
+   * Create WAF Ruleset
+   * 
+   * @param request - CreateWafRulesetRequest
+   * @returns CreateWafRulesetResponse
+   */
+  async createWafRuleset(request: CreateWafRulesetRequest): Promise<CreateWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWafRulesetWithOptions(request, runtime);
   }
 
   /**
@@ -73759,6 +80169,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除源服务器CA证书
+   * 
+   * @param request - DeleteOriginCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOriginCaCertificateResponse
+   */
+  async deleteOriginCaCertificateWithOptions(request: DeleteOriginCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteOriginCaCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOriginCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteOriginCaCertificateResponse>(await this.callApi(params, req, runtime), new DeleteOriginCaCertificateResponse({}));
+    } else {
+      return $dara.cast<DeleteOriginCaCertificateResponse>(await this.execute(params, req, runtime), new DeleteOriginCaCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除源服务器CA证书
+   * 
+   * @param request - DeleteOriginCaCertificateRequest
+   * @returns DeleteOriginCaCertificateResponse
+   */
+  async deleteOriginCaCertificate(request: DeleteOriginCaCertificateRequest): Promise<DeleteOriginCaCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOriginCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除域名回源客户端证书
+   * 
+   * @param request - DeleteOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOriginClientCertificateResponse
+   */
+  async deleteOriginClientCertificateWithOptions(request: DeleteOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteOriginClientCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<DeleteOriginClientCertificateResponse>(await this.execute(params, req, runtime), new DeleteOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除域名回源客户端证书
+   * 
+   * @param request - DeleteOriginClientCertificateRequest
+   * @returns DeleteOriginClientCertificateResponse
+   */
+  async deleteOriginClientCertificate(request: DeleteOriginClientCertificateRequest): Promise<DeleteOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Origin Address Pool
    * 
    * @param request - DeleteOriginPoolRequest
@@ -74522,6 +81018,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除站点回源客户端证书
+   * 
+   * @param request - DeleteSiteOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSiteOriginClientCertificateResponse
+   */
+  async deleteSiteOriginClientCertificateWithOptions(request: DeleteSiteOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSiteOriginClientCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSiteOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSiteOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteSiteOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<DeleteSiteOriginClientCertificateResponse>(await this.execute(params, req, runtime), new DeleteSiteOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除站点回源客户端证书
+   * 
+   * @param request - DeleteSiteOriginClientCertificateRequest
+   * @returns DeleteSiteOriginClientCertificateResponse
+   */
+  async deleteSiteOriginClientCertificate(request: DeleteSiteOriginClientCertificateRequest): Promise<DeleteSiteOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSiteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a log delivery task from your Alibaba Cloud account.
    * 
    * @remarks
@@ -74578,6 +81117,120 @@ export default class Client extends OpenApi {
   async deleteUserDeliveryTask(request: DeleteUserDeliveryTaskRequest): Promise<DeleteUserDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete WAF Rule
+   * 
+   * @param request - DeleteWafRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWafRuleResponse
+   */
+  async deleteWafRuleWithOptions(request: DeleteWafRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteWafRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWafRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteWafRuleResponse>(await this.callApi(params, req, runtime), new DeleteWafRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteWafRuleResponse>(await this.execute(params, req, runtime), new DeleteWafRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete WAF Rule
+   * 
+   * @param request - DeleteWafRuleRequest
+   * @returns DeleteWafRuleResponse
+   */
+  async deleteWafRule(request: DeleteWafRuleRequest): Promise<DeleteWafRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWafRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete WAF Ruleset
+   * 
+   * @param request - DeleteWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWafRulesetResponse
+   */
+  async deleteWafRulesetWithOptions(request: DeleteWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<DeleteWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteWafRulesetResponse>(await this.callApi(params, req, runtime), new DeleteWafRulesetResponse({}));
+    } else {
+      return $dara.cast<DeleteWafRulesetResponse>(await this.execute(params, req, runtime), new DeleteWafRulesetResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete WAF Ruleset
+   * 
+   * @param request - DeleteWafRulesetRequest
+   * @returns DeleteWafRulesetResponse
+   */
+  async deleteWafRuleset(request: DeleteWafRulesetRequest): Promise<DeleteWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWafRulesetWithOptions(request, runtime);
   }
 
   /**
@@ -75322,7 +81975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
+   * Edit WAF Configuration for a Site
    * 
    * @param tmpReq - EditSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75374,7 +82027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
+   * Edit WAF Configuration for a Site
    * 
    * @param request - EditSiteWafSettingsRequest
    * @returns EditSiteWafSettingsResponse
@@ -76912,6 +83565,135 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取源服务器CA证书信息
+   * 
+   * @param request - GetOriginCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOriginCaCertificateResponse
+   */
+  async getOriginCaCertificateWithOptions(request: GetOriginCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<GetOriginCaCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOriginCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOriginCaCertificateResponse>(await this.callApi(params, req, runtime), new GetOriginCaCertificateResponse({}));
+    } else {
+      return $dara.cast<GetOriginCaCertificateResponse>(await this.execute(params, req, runtime), new GetOriginCaCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取源服务器CA证书信息
+   * 
+   * @param request - GetOriginCaCertificateRequest
+   * @returns GetOriginCaCertificateResponse
+   */
+  async getOriginCaCertificate(request: GetOriginCaCertificateRequest): Promise<GetOriginCaCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOriginCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取域名回源客户端证书信息
+   * 
+   * @param request - GetOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOriginClientCertificateResponse
+   */
+  async getOriginClientCertificateWithOptions(request: GetOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<GetOriginClientCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new GetOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<GetOriginClientCertificateResponse>(await this.execute(params, req, runtime), new GetOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取域名回源客户端证书信息
+   * 
+   * @param request - GetOriginClientCertificateRequest
+   * @returns GetOriginClientCertificateResponse
+   */
+  async getOriginClientCertificate(request: GetOriginClientCertificateRequest): Promise<GetOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取域名回源客户端证书绑定的域名列表
+   * 
+   * @param request - GetOriginClientCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOriginClientCertificateHostnamesResponse
+   */
+  async getOriginClientCertificateHostnamesWithOptions(request: GetOriginClientCertificateHostnamesRequest, runtime: $dara.RuntimeOptions): Promise<GetOriginClientCertificateHostnamesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOriginClientCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOriginClientCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new GetOriginClientCertificateHostnamesResponse({}));
+    } else {
+      return $dara.cast<GetOriginClientCertificateHostnamesResponse>(await this.execute(params, req, runtime), new GetOriginClientCertificateHostnamesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取域名回源客户端证书绑定的域名列表
+   * 
+   * @param request - GetOriginClientCertificateHostnamesRequest
+   * @returns GetOriginClientCertificateHostnamesResponse
+   */
+  async getOriginClientCertificateHostnames(request: GetOriginClientCertificateHostnamesRequest): Promise<GetOriginClientCertificateHostnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOriginClientCertificateHostnamesWithOptions(request, runtime);
+  }
+
+  /**
    * Query a specific origin pool
    * 
    * @param request - GetOriginPoolRequest
@@ -77855,6 +84637,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取站点回源客户端证书信息
+   * 
+   * @param request - GetSiteOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSiteOriginClientCertificateResponse
+   */
+  async getSiteOriginClientCertificateWithOptions(request: GetSiteOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<GetSiteOriginClientCertificateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSiteOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSiteOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new GetSiteOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<GetSiteOriginClientCertificateResponse>(await this.execute(params, req, runtime), new GetSiteOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取站点回源客户端证书信息
+   * 
+   * @param request - GetSiteOriginClientCertificateRequest
+   * @returns GetSiteOriginClientCertificateResponse
+   */
+  async getSiteOriginClientCertificate(request: GetSiteOriginClientCertificateRequest): Promise<GetSiteOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSiteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the ESA proxy configuration of a website.
    * 
    * @param request - GetSitePauseRequest
@@ -77898,7 +84723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Web Application Firewall (WAF) configurations of a website.
+   * Get WAF Configuration for a Site
    * 
    * @param request - GetSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -77942,7 +84767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Web Application Firewall (WAF) configurations of a website.
+   * Get WAF Configuration for a Site
    * 
    * @param request - GetSiteWafSettingsRequest
    * @returns GetSiteWafSettingsResponse
@@ -78281,6 +85106,112 @@ export default class Client extends OpenApi {
   async getWafQuota(request: GetWafQuotaRequest): Promise<GetWafQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWafQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Details of a Single WAF Rule
+   * 
+   * @param request - GetWafRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWafRuleResponse
+   */
+  async getWafRuleWithOptions(request: GetWafRuleRequest, runtime: $dara.RuntimeOptions): Promise<GetWafRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWafRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWafRuleResponse>(await this.callApi(params, req, runtime), new GetWafRuleResponse({}));
+    } else {
+      return $dara.cast<GetWafRuleResponse>(await this.execute(params, req, runtime), new GetWafRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * Get Details of a Single WAF Rule
+   * 
+   * @param request - GetWafRuleRequest
+   * @returns GetWafRuleResponse
+   */
+  async getWafRule(request: GetWafRuleRequest): Promise<GetWafRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWafRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Get WAF Ruleset Details
+   * 
+   * @param request - GetWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWafRulesetResponse
+   */
+  async getWafRulesetWithOptions(request: GetWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<GetWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      query["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWafRulesetResponse>(await this.callApi(params, req, runtime), new GetWafRulesetResponse({}));
+    } else {
+      return $dara.cast<GetWafRulesetResponse>(await this.execute(params, req, runtime), new GetWafRulesetResponse({}));
+    }
+
+  }
+
+  /**
+   * Get WAF Ruleset Details
+   * 
+   * @param request - GetWafRulesetRequest
+   * @returns GetWafRulesetResponse
+   */
+  async getWafRuleset(request: GetWafRulesetRequest): Promise<GetWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWafRulesetWithOptions(request, runtime);
   }
 
   /**
@@ -79421,7 +86352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all WAF managed rule groups in your Alibaba Cloud account.
+   * List Custom Managed Rule Groups
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79461,7 +86392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all WAF managed rule groups in your Alibaba Cloud account.
+   * List Custom Managed Rule Groups
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @returns ListManagedRulesGroupsResponse
@@ -79512,6 +86443,92 @@ export default class Client extends OpenApi {
   async listNetworkOptimizations(request: ListNetworkOptimizationsRequest): Promise<ListNetworkOptimizationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNetworkOptimizationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询源服务器CA证书列表
+   * 
+   * @param request - ListOriginCaCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOriginCaCertificatesResponse
+   */
+  async listOriginCaCertificatesWithOptions(request: ListOriginCaCertificatesRequest, runtime: $dara.RuntimeOptions): Promise<ListOriginCaCertificatesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOriginCaCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListOriginCaCertificatesResponse>(await this.callApi(params, req, runtime), new ListOriginCaCertificatesResponse({}));
+    } else {
+      return $dara.cast<ListOriginCaCertificatesResponse>(await this.execute(params, req, runtime), new ListOriginCaCertificatesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询源服务器CA证书列表
+   * 
+   * @param request - ListOriginCaCertificatesRequest
+   * @returns ListOriginCaCertificatesResponse
+   */
+  async listOriginCaCertificates(request: ListOriginCaCertificatesRequest): Promise<ListOriginCaCertificatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOriginCaCertificatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询域名回源客户端证书列表
+   * 
+   * @param request - ListOriginClientCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOriginClientCertificatesResponse
+   */
+  async listOriginClientCertificatesWithOptions(request: ListOriginClientCertificatesRequest, runtime: $dara.RuntimeOptions): Promise<ListOriginClientCertificatesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOriginClientCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListOriginClientCertificatesResponse>(await this.callApi(params, req, runtime), new ListOriginClientCertificatesResponse({}));
+    } else {
+      return $dara.cast<ListOriginClientCertificatesResponse>(await this.execute(params, req, runtime), new ListOriginClientCertificatesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询域名回源客户端证书列表
+   * 
+   * @param request - ListOriginClientCertificatesRequest
+   * @returns ListOriginClientCertificatesResponse
+   */
+  async listOriginClientCertificates(request: ListOriginClientCertificatesRequest): Promise<ListOriginClientCertificatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOriginClientCertificatesWithOptions(request, runtime);
   }
 
   /**
@@ -80259,7 +87276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
+   * List WAF Managed Rules
    * 
    * @param tmpReq - ListWafManagedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80329,7 +87346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
+   * List WAF Managed Rules
    * 
    * @param request - ListWafManagedRulesRequest
    * @returns ListWafManagedRulesResponse
@@ -80340,7 +87357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WAF rule categories that are applied to a website and related rulesets.
+   * List WAF Phases
    * 
    * @param request - ListWafPhasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80380,7 +87397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WAF rule categories that are applied to a website and related rulesets.
+   * List WAF Phases
    * 
    * @param request - ListWafPhasesRequest
    * @returns ListWafPhasesResponse
@@ -80391,7 +87408,157 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
+   * List WAF Rules
+   * 
+   * @param tmpReq - ListWafRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWafRulesResponse
+   */
+  async listWafRulesWithOptions(tmpReq: ListWafRulesRequest, runtime: $dara.RuntimeOptions): Promise<ListWafRulesResponse> {
+    tmpReq.validate();
+    let request = new ListWafRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      query["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    if (!$dara.isNull(request.rulesetId)) {
+      query["RulesetId"] = request.rulesetId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWafRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListWafRulesResponse>(await this.callApi(params, req, runtime), new ListWafRulesResponse({}));
+    } else {
+      return $dara.cast<ListWafRulesResponse>(await this.execute(params, req, runtime), new ListWafRulesResponse({}));
+    }
+
+  }
+
+  /**
+   * List WAF Rules
+   * 
+   * @param request - ListWafRulesRequest
+   * @returns ListWafRulesResponse
+   */
+  async listWafRules(request: ListWafRulesRequest): Promise<ListWafRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWafRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * List WAF Rule Sets
+   * 
+   * @param tmpReq - ListWafRulesetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWafRulesetsResponse
+   */
+  async listWafRulesetsWithOptions(tmpReq: ListWafRulesetsRequest, runtime: $dara.RuntimeOptions): Promise<ListWafRulesetsResponse> {
+    tmpReq.validate();
+    let request = new ListWafRulesetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryArgs)) {
+      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.phase)) {
+      query["Phase"] = request.phase;
+    }
+
+    if (!$dara.isNull(request.queryArgsShrink)) {
+      query["QueryArgs"] = request.queryArgsShrink;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWafRulesets",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListWafRulesetsResponse>(await this.callApi(params, req, runtime), new ListWafRulesetsResponse({}));
+    } else {
+      return $dara.cast<ListWafRulesetsResponse>(await this.execute(params, req, runtime), new ListWafRulesetsResponse({}));
+    }
+
+  }
+
+  /**
+   * List WAF Rule Sets
+   * 
+   * @param request - ListWafRulesetsRequest
+   * @returns ListWafRulesetsResponse
+   */
+  async listWafRulesets(request: ListWafRulesetsRequest): Promise<ListWafRulesetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWafRulesetsWithOptions(request, runtime);
+  }
+
+  /**
+   * List WAF Template Rules
    * 
    * @param tmpReq - ListWafTemplateRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80441,7 +87608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
+   * List WAF Template Rules
    * 
    * @param request - ListWafTemplateRulesRequest
    * @returns ListWafTemplateRulesResponse
@@ -80452,7 +87619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage details of WAF rules.
+   * List WAF Rule Usage
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80492,7 +87659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage details of WAF rules.
+   * List WAF Rule Usage
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @returns ListWafUsageOfRulesResponse
@@ -81821,6 +88988,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为域名回源客户端证书绑定域名
+   * 
+   * @param tmpReq - SetOriginClientCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetOriginClientCertificateHostnamesResponse
+   */
+  async setOriginClientCertificateHostnamesWithOptions(tmpReq: SetOriginClientCertificateHostnamesRequest, runtime: $dara.RuntimeOptions): Promise<SetOriginClientCertificateHostnamesResponse> {
+    tmpReq.validate();
+    let request = new SetOriginClientCertificateHostnamesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hostnames)) {
+      request.hostnamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hostnames, "Hostnames", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hostnamesShrink)) {
+      body["Hostnames"] = request.hostnamesShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetOriginClientCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetOriginClientCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new SetOriginClientCertificateHostnamesResponse({}));
+    } else {
+      return $dara.cast<SetOriginClientCertificateHostnamesResponse>(await this.execute(params, req, runtime), new SetOriginClientCertificateHostnamesResponse({}));
+    }
+
+  }
+
+  /**
+   * 为域名回源客户端证书绑定域名
+   * 
+   * @param request - SetOriginClientCertificateHostnamesRequest
+   * @returns SetOriginClientCertificateHostnamesResponse
+   */
+  async setOriginClientCertificateHostnames(request: SetOriginClientCertificateHostnamesRequest): Promise<SetOriginClientCertificateHostnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setOriginClientCertificateHostnamesWithOptions(request, runtime);
+  }
+
+  /**
    * Starts a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - StartScheduledPreloadExecutionRequest
@@ -82130,6 +89358,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.serveStale)) {
       query["ServeStale"] = request.serveStale;
     }
@@ -82329,6 +89561,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -82650,6 +89886,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -82721,6 +89961,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -82826,6 +90070,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -82913,6 +90161,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -82980,6 +90232,10 @@ export default class Client extends OpenApi {
       query["Enable"] = request.enable;
     }
 
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -83045,6 +90301,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -83373,6 +90633,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -83649,6 +90913,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -83955,6 +91223,10 @@ export default class Client extends OpenApi {
       query["RuleName"] = request.ruleName;
     }
 
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -84040,6 +91312,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -84809,6 +92085,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update WAF Rule Page
+   * 
+   * @param tmpReq - UpdateWafRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWafRuleResponse
+   */
+  async updateWafRuleWithOptions(tmpReq: UpdateWafRuleRequest, runtime: $dara.RuntimeOptions): Promise<UpdateWafRuleResponse> {
+    tmpReq.validate();
+    let request = new UpdateWafRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configShrink)) {
+      body["Config"] = request.configShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.position)) {
+      body["Position"] = request.position;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWafRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateWafRuleResponse>(await this.callApi(params, req, runtime), new UpdateWafRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateWafRuleResponse>(await this.execute(params, req, runtime), new UpdateWafRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * Update WAF Rule Page
+   * 
+   * @param request - UpdateWafRuleRequest
+   * @returns UpdateWafRuleResponse
+   */
+  async updateWafRule(request: UpdateWafRuleRequest): Promise<UpdateWafRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWafRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Update WAF Ruleset
+   * 
+   * @param request - UpdateWafRulesetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWafRulesetResponse
+   */
+  async updateWafRulesetWithOptions(request: UpdateWafRulesetRequest, runtime: $dara.RuntimeOptions): Promise<UpdateWafRulesetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWafRuleset",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateWafRulesetResponse>(await this.callApi(params, req, runtime), new UpdateWafRulesetResponse({}));
+    } else {
+      return $dara.cast<UpdateWafRulesetResponse>(await this.execute(params, req, runtime), new UpdateWafRulesetResponse({}));
+    }
+
+  }
+
+  /**
+   * Update WAF Ruleset
+   * 
+   * @param request - UpdateWafRulesetRequest
+   * @returns UpdateWafRulesetResponse
+   */
+  async updateWafRuleset(request: UpdateWafRulesetRequest): Promise<UpdateWafRulesetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWafRulesetWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of a waiting room.
    * 
    * @param tmpReq - UpdateWaitingRoomRequest
@@ -85318,6 +92730,183 @@ export default class Client extends OpenApi {
 
     let uploadFileResp = await this.uploadFileWithOptions(uploadFileReq, runtime);
     return uploadFileResp;
+  }
+
+  /**
+   * 上传源服务器CA证书
+   * 
+   * @param request - UploadOriginCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadOriginCaCertificateResponse
+   */
+  async uploadOriginCaCertificateWithOptions(request: UploadOriginCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<UploadOriginCaCertificateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certificate)) {
+      body["Certificate"] = request.certificate;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      body["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadOriginCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UploadOriginCaCertificateResponse>(await this.callApi(params, req, runtime), new UploadOriginCaCertificateResponse({}));
+    } else {
+      return $dara.cast<UploadOriginCaCertificateResponse>(await this.execute(params, req, runtime), new UploadOriginCaCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 上传源服务器CA证书
+   * 
+   * @param request - UploadOriginCaCertificateRequest
+   * @returns UploadOriginCaCertificateResponse
+   */
+  async uploadOriginCaCertificate(request: UploadOriginCaCertificateRequest): Promise<UploadOriginCaCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadOriginCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传域名回源客户端证书
+   * 
+   * @param request - UploadOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadOriginClientCertificateResponse
+   */
+  async uploadOriginClientCertificateWithOptions(request: UploadOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<UploadOriginClientCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certificate)) {
+      body["Certificate"] = request.certificate;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.privateKey)) {
+      body["PrivateKey"] = request.privateKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UploadOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new UploadOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<UploadOriginClientCertificateResponse>(await this.execute(params, req, runtime), new UploadOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * 上传域名回源客户端证书
+   * 
+   * @param request - UploadOriginClientCertificateRequest
+   * @returns UploadOriginClientCertificateResponse
+   */
+  async uploadOriginClientCertificate(request: UploadOriginClientCertificateRequest): Promise<UploadOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * Upload site origin client certificate
+   * 
+   * @param request - UploadSiteOriginClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadSiteOriginClientCertificateResponse
+   */
+  async uploadSiteOriginClientCertificateWithOptions(request: UploadSiteOriginClientCertificateRequest, runtime: $dara.RuntimeOptions): Promise<UploadSiteOriginClientCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certificate)) {
+      body["Certificate"] = request.certificate;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.privateKey)) {
+      body["PrivateKey"] = request.privateKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadSiteOriginClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UploadSiteOriginClientCertificateResponse>(await this.callApi(params, req, runtime), new UploadSiteOriginClientCertificateResponse({}));
+    } else {
+      return $dara.cast<UploadSiteOriginClientCertificateResponse>(await this.execute(params, req, runtime), new UploadSiteOriginClientCertificateResponse({}));
+    }
+
+  }
+
+  /**
+   * Upload site origin client certificate
+   * 
+   * @param request - UploadSiteOriginClientCertificateRequest
+   * @returns UploadSiteOriginClientCertificateResponse
+   */
+  async uploadSiteOriginClientCertificate(request: UploadSiteOriginClientCertificateRequest): Promise<UploadSiteOriginClientCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadSiteOriginClientCertificateWithOptions(request, runtime);
   }
 
   /**
