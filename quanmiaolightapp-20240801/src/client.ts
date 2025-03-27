@@ -7748,6 +7748,7 @@ export class RunTagMiningAnalysisResponse extends $dara.Model {
 }
 
 export class RunVideoAnalysisRequest extends $dara.Model {
+  excludeGenerateOptions?: string[];
   faceIdentitySimilarityMinScore?: number;
   frameSampleMethod?: RunVideoAnalysisRequestFrameSampleMethod;
   generateOptions?: string[];
@@ -7800,6 +7801,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      excludeGenerateOptions: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethod: 'frameSampleMethod',
       generateOptions: 'generateOptions',
@@ -7823,6 +7825,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
       faceIdentitySimilarityMinScore: 'number',
       frameSampleMethod: RunVideoAnalysisRequestFrameSampleMethod,
       generateOptions: { 'type': 'array', 'itemType': 'string' },
@@ -7845,6 +7848,9 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.excludeGenerateOptions)) {
+      $dara.Model.validateArray(this.excludeGenerateOptions);
+    }
     if(this.frameSampleMethod && typeof (this.frameSampleMethod as any).validate === 'function') {
       (this.frameSampleMethod as any).validate();
     }
@@ -7866,6 +7872,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
 }
 
 export class RunVideoAnalysisShrinkRequest extends $dara.Model {
+  excludeGenerateOptionsShrink?: string;
   faceIdentitySimilarityMinScore?: number;
   frameSampleMethodShrink?: string;
   generateOptionsShrink?: string;
@@ -7918,6 +7925,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      excludeGenerateOptionsShrink: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethodShrink: 'frameSampleMethod',
       generateOptionsShrink: 'generateOptions',
@@ -7941,6 +7949,7 @@ export class RunVideoAnalysisShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      excludeGenerateOptionsShrink: 'string',
       faceIdentitySimilarityMinScore: 'number',
       frameSampleMethodShrink: 'string',
       generateOptionsShrink: 'string',
@@ -8287,6 +8296,12 @@ export class SubmitTagMiningAnalysisTaskResponse extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  deduplicationId?: string;
+  excludeGenerateOptions?: string[];
   faceIdentitySimilarityMinScore?: number;
   frameSampleMethod?: SubmitVideoAnalysisTaskRequestFrameSampleMethod;
   generateOptions?: string[];
@@ -8336,6 +8351,8 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      deduplicationId: 'deduplicationId',
+      excludeGenerateOptions: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethod: 'frameSampleMethod',
       generateOptions: 'generateOptions',
@@ -8357,6 +8374,8 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deduplicationId: 'string',
+      excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
       faceIdentitySimilarityMinScore: 'number',
       frameSampleMethod: SubmitVideoAnalysisTaskRequestFrameSampleMethod,
       generateOptions: { 'type': 'array', 'itemType': 'string' },
@@ -8377,6 +8396,9 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.excludeGenerateOptions)) {
+      $dara.Model.validateArray(this.excludeGenerateOptions);
+    }
     if(this.frameSampleMethod && typeof (this.frameSampleMethod as any).validate === 'function') {
       (this.frameSampleMethod as any).validate();
     }
@@ -8398,6 +8420,12 @@ export class SubmitVideoAnalysisTaskRequest extends $dara.Model {
 }
 
 export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  deduplicationId?: string;
+  excludeGenerateOptionsShrink?: string;
   faceIdentitySimilarityMinScore?: number;
   frameSampleMethodShrink?: string;
   generateOptionsShrink?: string;
@@ -8447,6 +8475,8 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
   videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      deduplicationId: 'deduplicationId',
+      excludeGenerateOptionsShrink: 'excludeGenerateOptions',
       faceIdentitySimilarityMinScore: 'faceIdentitySimilarityMinScore',
       frameSampleMethodShrink: 'frameSampleMethod',
       generateOptionsShrink: 'generateOptions',
@@ -8468,6 +8498,8 @@ export class SubmitVideoAnalysisTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deduplicationId: 'string',
+      excludeGenerateOptionsShrink: 'string',
       faceIdentitySimilarityMinScore: 'number',
       frameSampleMethodShrink: 'string',
       generateOptionsShrink: 'string',
@@ -9876,6 +9908,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new RunVideoAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
+      request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.frameSampleMethod)) {
       request.frameSampleMethodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod, "frameSampleMethod", "json");
     }
@@ -9893,6 +9929,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.excludeGenerateOptionsShrink)) {
+      body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink;
+    }
+
     if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
       body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
     }
@@ -10100,6 +10140,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new SubmitVideoAnalysisTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.excludeGenerateOptions)) {
+      request.excludeGenerateOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions, "excludeGenerateOptions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.frameSampleMethod)) {
       request.frameSampleMethodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.frameSampleMethod, "frameSampleMethod", "json");
     }
@@ -10117,6 +10161,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deduplicationId)) {
+      body["deduplicationId"] = request.deduplicationId;
+    }
+
+    if (!$dara.isNull(request.excludeGenerateOptionsShrink)) {
+      body["excludeGenerateOptions"] = request.excludeGenerateOptionsShrink;
+    }
+
     if (!$dara.isNull(request.faceIdentitySimilarityMinScore)) {
       body["faceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore;
     }
