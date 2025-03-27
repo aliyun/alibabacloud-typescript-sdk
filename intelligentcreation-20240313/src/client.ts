@@ -617,6 +617,96 @@ export class GetAICoachScriptResponseBodyPointDeductionRuleList extends $dara.Mo
   }
 }
 
+export class GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues extends $dara.Model {
+  name?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules extends $dara.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPointsAnswerListAnswerValues extends $dara.Model {
+  answerName?: string;
+  answerWeight?: number;
+  keywordValues?: GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues[];
+  keywordWeight?: number;
+  scoringRules?: GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules[];
+  static names(): { [key: string]: string } {
+    return {
+      answerName: 'answerName',
+      answerWeight: 'answerWeight',
+      keywordValues: 'keywordValues',
+      keywordWeight: 'keywordWeight',
+      scoringRules: 'scoringRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerName: 'string',
+      answerWeight: 'number',
+      keywordValues: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesKeywordValues },
+      keywordWeight: 'number',
+      scoringRules: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerListAnswerValuesScoringRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keywordValues)) {
+      $dara.Model.validateArray(this.keywordValues);
+    }
+    if(Array.isArray(this.scoringRules)) {
+      $dara.Model.validateArray(this.scoringRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAICoachScriptResponseBodyPointsAnswerListParameters extends $dara.Model {
   /**
    * @example
@@ -652,6 +742,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerListParameters extends $dar
 }
 
 export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
+  answerValues?: GetAICoachScriptResponseBodyPointsAnswerListAnswerValues[];
+  enabledKeyword?: boolean;
   name?: string;
   nameList?: string[];
   operators?: string;
@@ -668,6 +760,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   weight?: number;
   static names(): { [key: string]: string } {
     return {
+      answerValues: 'answerValues',
+      enabledKeyword: 'enabledKeyword',
       name: 'name',
       nameList: 'nameList',
       operators: 'operators',
@@ -679,6 +773,8 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      answerValues: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerListAnswerValues },
+      enabledKeyword: 'boolean',
       name: 'string',
       nameList: { 'type': 'array', 'itemType': 'string' },
       operators: 'string',
@@ -689,6 +785,9 @@ export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.answerValues)) {
+      $dara.Model.validateArray(this.answerValues);
+    }
     if(Array.isArray(this.nameList)) {
       $dara.Model.validateArray(this.nameList);
     }
