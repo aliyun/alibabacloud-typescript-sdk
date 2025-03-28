@@ -457,33 +457,17 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetSubPartnerListResponseBodyData extends $dara.Model {
+export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
   address?: string;
-  /**
-   * @example
-   * ACTIVE_PERIOD
-   */
   agreementStatus?: string;
   agreementStatusDesc?: string;
   city?: string;
   companyName?: string;
   contact?: string;
   district?: string;
-  /**
-   * @example
-   * 2025-02-28 01:00:00
-   */
   joinTime?: string;
   masterAccount?: string;
-  /**
-   * @example
-   * 1708588696796450
-   */
   masterUid?: string;
-  /**
-   * @example
-   * P1233453
-   */
   pid?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -1476,7 +1460,6 @@ export class GetSubPartnerListRequest extends $dara.Model {
 }
 
 export class GetSubPartnerListResponseBody extends $dara.Model {
-  data?: GetSubPartnerListResponseBodyData;
   message?: string;
   /**
    * @example
@@ -1496,6 +1479,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
    */
   requestId?: string;
+  subPartnerList?: GetSubPartnerListResponseBodySubPartnerList[];
   /**
    * @example
    * true
@@ -1508,11 +1492,11 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
       message: 'Message',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       requestId: 'RequestId',
+      subPartnerList: 'SubPartnerList',
       success: 'Success',
       total: 'Total',
     };
@@ -1520,19 +1504,19 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: GetSubPartnerListResponseBodyData,
       message: 'string',
       pageNo: 'string',
       pageSize: 'string',
       requestId: 'string',
+      subPartnerList: { 'type': 'array', 'itemType': GetSubPartnerListResponseBodySubPartnerList },
       success: 'boolean',
       total: 'number',
     };
   }
 
   validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
+    if(Array.isArray(this.subPartnerList)) {
+      $dara.Model.validateArray(this.subPartnerList);
     }
     super.validate();
   }
