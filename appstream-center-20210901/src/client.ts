@@ -3441,6 +3441,81 @@ export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
   }
 }
 
+export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels extends $dara.Model {
+  /**
+   * @example
+   * aig-0bxls9m9arax6****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-azn3kmwruh1vl****
+   */
+  appInstanceId?: string;
+  /**
+   * @example
+   * p-0cc7s3mw2fg4j****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @example
+   * test-persistent-name
+   */
+  appInstancePersistentName?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  appInstancePersistentStatus?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  appInstanceStatus?: string;
+  authorizedUsers?: string[];
+  /**
+   * @example
+   * 2025-03-13T03:22:18.000+00:00
+   */
+  gmtCreate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      appInstancePersistentName: 'AppInstancePersistentName',
+      appInstancePersistentStatus: 'AppInstancePersistentStatus',
+      appInstanceStatus: 'AppInstanceStatus',
+      authorizedUsers: 'AuthorizedUsers',
+      gmtCreate: 'GmtCreate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appInstancePersistentId: 'string',
+      appInstancePersistentName: 'string',
+      appInstancePersistentStatus: 'string',
+      appInstanceStatus: 'string',
+      authorizedUsers: { 'type': 'array', 'itemType': 'string' },
+      gmtCreate: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizedUsers)) {
+      $dara.Model.validateArray(this.authorizedUsers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsResponseBodyRegionModels extends $dara.Model {
   /**
    * @remarks
@@ -9304,6 +9379,159 @@ export class ListOtaTaskResponse extends $dara.Model {
   }
 }
 
+export class ListPersistentAppInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-0bxls9m9arax6****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  appInstancePersistentIds?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstancePersistentIds: 'AppInstancePersistentIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstancePersistentIds: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstancePersistentIds)) {
+      $dara.Model.validateArray(this.appInstancePersistentIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersistentAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  persistentAppInstanceModels?: ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      persistentAppInstanceModels: 'PersistentAppInstanceModels',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      persistentAppInstanceModels: { 'type': 'array', 'itemType': ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.persistentAppInstanceModels)) {
+      $dara.Model.validateArray(this.persistentAppInstanceModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersistentAppInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPersistentAppInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersistentAppInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRegionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -13693,6 +13921,69 @@ export default class Client extends OpenApi {
   async listOtaTask(request: ListOtaTaskRequest): Promise<ListOtaTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listOtaTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询交付组内持久会话列表
+   * 
+   * @param request - ListPersistentAppInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPersistentAppInstancesResponse
+   */
+  async listPersistentAppInstancesWithOptions(request: ListPersistentAppInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListPersistentAppInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      query["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.appInstancePersistentIds)) {
+      query["AppInstancePersistentIds"] = request.appInstancePersistentIds;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPersistentAppInstances",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPersistentAppInstancesResponse>(await this.callApi(params, req, runtime), new ListPersistentAppInstancesResponse({}));
+    } else {
+      return $dara.cast<ListPersistentAppInstancesResponse>(await this.execute(params, req, runtime), new ListPersistentAppInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询交付组内持久会话列表
+   * 
+   * @param request - ListPersistentAppInstancesRequest
+   * @returns ListPersistentAppInstancesResponse
+   */
+  async listPersistentAppInstances(request: ListPersistentAppInstancesRequest): Promise<ListPersistentAppInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPersistentAppInstancesWithOptions(request, runtime);
   }
 
   /**
