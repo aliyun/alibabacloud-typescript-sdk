@@ -10738,8 +10738,6 @@ export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * List of resource IDs
-   * 
-   * This parameter is required.
    */
   resourceId?: string[];
   /**
