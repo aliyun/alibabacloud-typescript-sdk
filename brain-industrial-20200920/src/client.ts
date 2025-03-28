@@ -1546,6 +1546,204 @@ export class ActivateLicenseResponse extends $dara.Model {
   }
 }
 
+export class AicsOpenApiInvokeRequest extends $dara.Model {
+  /**
+   * @example
+   * 119397
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * {"a":1}
+   */
+  param?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae5f9884c9914ed7af72b07e6c1616f9
+   */
+  serviceId?: string;
+  /**
+   * @example
+   * EXPERIMENT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      param: 'Param',
+      serviceId: 'ServiceId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      param: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      serviceId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.param) {
+      $dara.Model.validateMap(this.param);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AicsOpenApiInvokeShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 119397
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * {"a":1}
+   */
+  paramShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ae5f9884c9914ed7af72b07e6c1616f9
+   */
+  serviceId?: string;
+  /**
+   * @example
+   * EXPERIMENT
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      paramShrink: 'Param',
+      serviceId: 'ServiceId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      paramShrink: 'string',
+      serviceId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AicsOpenApiInvokeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * {"c":2}
+   */
+  data?: any;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 68738E75-43C1-5AE5-9F3A-AFEF576D7B5F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AicsOpenApiInvokeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AicsOpenApiInvokeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AicsOpenApiInvokeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEssOptJobRequest extends $dara.Model {
   /**
    * @example
@@ -3331,6 +3529,73 @@ export default class Client extends OpenApi {
   async activateLicense(request: ActivateLicenseRequest): Promise<ActivateLicenseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.activateLicenseWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用aics openapi
+   * 
+   * @param tmpReq - AicsOpenApiInvokeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AicsOpenApiInvokeResponse
+   */
+  async aicsOpenApiInvokeWithOptions(tmpReq: AicsOpenApiInvokeRequest, runtime: $dara.RuntimeOptions): Promise<AicsOpenApiInvokeResponse> {
+    tmpReq.validate();
+    let request = new AicsOpenApiInvokeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.param)) {
+      request.paramShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.param, "Param", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.paramShrink)) {
+      body["Param"] = request.paramShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AicsOpenApiInvoke",
+      version: "2020-09-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AicsOpenApiInvokeResponse>(await this.callApi(params, req, runtime), new AicsOpenApiInvokeResponse({}));
+    } else {
+      return $dara.cast<AicsOpenApiInvokeResponse>(await this.execute(params, req, runtime), new AicsOpenApiInvokeResponse({}));
+    }
+
+  }
+
+  /**
+   * 调用aics openapi
+   * 
+   * @param request - AicsOpenApiInvokeRequest
+   * @returns AicsOpenApiInvokeResponse
+   */
+  async aicsOpenApiInvoke(request: AicsOpenApiInvokeRequest): Promise<AicsOpenApiInvokeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.aicsOpenApiInvokeWithOptions(request, runtime);
   }
 
   /**
