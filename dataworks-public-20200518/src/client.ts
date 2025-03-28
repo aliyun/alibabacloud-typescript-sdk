@@ -1067,6 +1067,7 @@ export class CreateMetaCategoryResponseBodyData extends $dara.Model {
 }
 
 export class CreatePermissionApplyOrderRequestApplyObjectColumnMetaList extends $dara.Model {
+  actions?: string;
   /**
    * @remarks
    * The field on which you want to request permissions. If you want to request permissions on an entire table, enter all fields in the table. You can request permissions on specific fields of a table in a MaxCompute project only after LabelSecurity is enabled for this project. If LabelSecurity is disabled, you can request permissions only on an entire table.
@@ -1079,12 +1080,14 @@ export class CreatePermissionApplyOrderRequestApplyObjectColumnMetaList extends 
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      actions: 'Actions',
       name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actions: 'string',
       name: 'string',
     };
   }
@@ -1103,8 +1106,6 @@ export class CreatePermissionApplyOrderRequestApplyObject extends $dara.Model {
    * @remarks
    * The permission that you want to request. If you want to request multiple permissions at the same time, separate them with commas (,). You can request only the following permissions: Select, Describe, Drop, Alter, Update, and Download.
    * 
-   * This parameter is required.
-   * 
    * @example
    * Select,Describe
    */
@@ -1112,8 +1113,6 @@ export class CreatePermissionApplyOrderRequestApplyObject extends $dara.Model {
   /**
    * @remarks
    * The fields on which you want to request permissions.
-   * 
-   * This parameter is required.
    */
   columnMetaList?: CreatePermissionApplyOrderRequestApplyObjectColumnMetaList[];
   /**
@@ -6728,9 +6727,10 @@ export class GetDISyncInstanceInfoResponseBodyData extends $dara.Model {
 export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.Model {
   /**
    * @remarks
-   * The calculation method of indicators,
-   * - avg interval average
-   * - max interval takes the maximum value
+   * The calculation method of a metric. Valid values:
+   * 
+   * *   avg
+   * *   max
    * 
    * @example
    * avg
@@ -6738,10 +6738,11 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
   aggregator?: string;
   /**
    * @remarks
-   * Comparison method of comparison symbols, indicators and alarm rules
-   * - \\"=\\"
-   * - \\"<\\"
-   * - \\">\\"
+   * The comparison operator, which indicates the method used to compare a metric with the alert rule.
+   * 
+   * *   \\"=\\"
+   * *   \\"<\\"
+   * *   \\">\\"
    * 
    * @example
    * =
@@ -6749,7 +6750,7 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
   comparator?: string;
   /**
    * @remarks
-   * Duration: How long does this condition last before an alarm is triggered, in minutes.
+   * The duration that a condition is met before an alert is triggered. Unit: minutes.
    * 
    * @example
    * 3
@@ -6757,8 +6758,8 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
   duration?: number;
   /**
    * @remarks
-   * - WARNING WARNING: alert
-   * - CRITICAL CRITICAL: alarm
+   * *   WARNING
+   * *   CRITICAL
    * 
    * @example
    * WARNING
@@ -6766,7 +6767,7 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
   level?: string;
   /**
    * @remarks
-   * Comparison threshold between metrics and alarm rules.
+   * The threshold for the comparison between a metric and the alert rule.
    * 
    * @example
    * 1
@@ -6804,12 +6805,12 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
 export class GetDISyncTaskResponseBodyDataAlarmListNotifyRule extends $dara.Model {
   /**
    * @remarks
-   * Critical-level alert notification list.
+   * The settings for Critical-level alert notifications.
    */
   critical?: string[];
   /**
    * @remarks
-   * Alarm interval, in minutes.
+   * The alert interval. Unit: minutes.
    * 
    * @example
    * 5
@@ -6817,7 +6818,7 @@ export class GetDISyncTaskResponseBodyDataAlarmListNotifyRule extends $dara.Mode
   interval?: number;
   /**
    * @remarks
-   * Warning-level alert notification list.
+   * The settings for Warning-level alert notifications.
    */
   warning?: string[];
   static names(): { [key: string]: string } {
@@ -6854,12 +6855,12 @@ export class GetDISyncTaskResponseBodyDataAlarmListNotifyRule extends $dara.Mode
 export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
   /**
    * @remarks
-   * Alarm Notification configuration array.
+   * The alert notification settings. The value of this parameter is an array.
    */
   alarmRuleList?: GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList[];
   /**
    * @remarks
-   * Alarm rule description.
+   * The description of the alert rule.
    * 
    * @example
    * Description
@@ -6867,7 +6868,7 @@ export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether alarm rules are enabled.
+   * Indicates whether the alert rule is enabled.
    * 
    * @example
    * true
@@ -6875,7 +6876,7 @@ export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Alarm rule id.
+   * The ID of the alert rule.
    * 
    * @example
    * 45242
@@ -6883,14 +6884,14 @@ export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Alarm Type:
+   * The alert type. Valid values:
    * 
-   * - taskStatus: task status
-   * - bizDelay: business latency
-   * - taskFailoverCount: monitoring Failover
-   * - ddlUnsupport: DDL is not supported
-   * - ddlReport: DDL notifications
-   * - totalDirtyRecordWriteInLines: dirty data
+   * *   taskStatus
+   * *   bizDelay
+   * *   taskFailoverCount
+   * *   ddlUnsupport
+   * *   ddlReport
+   * *   totalDirtyRecordWriteInLines
    * 
    * @example
    * taskStatus
@@ -6898,12 +6899,12 @@ export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * Alert notification rule array.
+   * The settings for alert notification rules. The value of this parameter is an array.
    */
   notifyRule?: GetDISyncTaskResponseBodyDataAlarmListNotifyRule;
   /**
    * @remarks
-   * Alarm rule name.
+   * The name of the alert rule.
    * 
    * @example
    * Delay alert rule name 1
@@ -7092,7 +7093,7 @@ export class GetDISyncTaskResponseBodyDataSolutionDetail extends $dara.Model {
 export class GetDISyncTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Array of alarm rules associated with real-time tasks.
+   * The alert rules that are associated with the real-time synchronization task. The value of this parameter is an array.
    */
   alarmList?: GetDISyncTaskResponseBodyDataAlarmList[];
   /**
@@ -11165,6 +11166,13 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
    * true
    */
   ignoreParentSkipRunningProperty?: string;
+  /**
+   * @remarks
+   * The ID of the custom image.
+   * 
+   * @example
+   * m-bp1h4b5a8ogkbll2f3tr
+   */
   imageId?: string;
   /**
    * @remarks
@@ -16988,6 +16996,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAcc
 }
 
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList extends $dara.Model {
+  columnActions?: string[];
   /**
    * @remarks
    * The description of the column on which you request permissions.
@@ -17014,6 +17023,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   securityLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      columnActions: 'ColumnActions',
       columnComment: 'ColumnComment',
       columnName: 'ColumnName',
       securityLevel: 'SecurityLevel',
@@ -17022,6 +17032,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 
   static types(): { [key: string]: any } {
     return {
+      columnActions: { 'type': 'array', 'itemType': 'string' },
       columnComment: 'string',
       columnName: 'string',
       securityLevel: 'string',
@@ -17029,6 +17040,9 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   }
 
   validate() {
+    if(Array.isArray(this.columnActions)) {
+      $dara.Model.validateArray(this.columnActions);
+    }
     super.validate();
   }
 
@@ -17038,6 +17052,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 }
 
 export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaList extends $dara.Model {
+  actions?: string[];
   /**
    * @remarks
    * The information about the column fields in the object on which you request permissions.
@@ -17053,6 +17068,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   objectName?: string;
   static names(): { [key: string]: string } {
     return {
+      actions: 'Actions',
       columnMetaList: 'ColumnMetaList',
       objectName: 'ObjectName',
     };
@@ -17060,12 +17076,16 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
 
   static types(): { [key: string]: any } {
     return {
+      actions: { 'type': 'array', 'itemType': 'string' },
       columnMetaList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList },
       objectName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
     if(Array.isArray(this.columnMetaList)) {
       $dara.Model.validateArray(this.columnMetaList);
     }
@@ -18385,6 +18405,9 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The description of the monitoring rule.
+   * 
+   * @example
+   * Verify that the primary key is unique
    */
   comment?: string;
   /**
@@ -18497,6 +18520,9 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the monitoring rule.
+   * 
+   * @example
+   * View table fluctuations
    */
   ruleName?: string;
   /**
@@ -18507,6 +18533,13 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
    * 0
    */
   ruleType?: number;
+  /**
+   * @remarks
+   * The variable settings inserted before the custom rule. Format: x=a,y=b.
+   * 
+   * @example
+   * x=a,y=b
+   */
   taskSetting?: string;
   /**
    * @remarks
@@ -19652,7 +19685,7 @@ export class GetTopicInfluenceResponseBodyDataInfluences extends $dara.Model {
 export class GetTopicInfluenceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of affected baseline instances.
+   * The affected baseline instances.
    */
   influences?: GetTopicInfluenceResponseBodyDataInfluences[];
   /**
@@ -20484,6 +20517,14 @@ export class ListBaselineStatusesResponseBodyDataBaselineStatuses extends $dara.
   baselineName?: string;
   /**
    * @remarks
+   * The type of the baseline, including DAILY and HOURLY. Separate multiple types with commas (,).
+   * 
+   * @example
+   * DAILY,HOURLY
+   */
+  baselineType?: string;
+  /**
+   * @remarks
    * The data timestamp.
    * 
    * @example
@@ -20582,6 +20623,7 @@ export class ListBaselineStatusesResponseBodyDataBaselineStatuses extends $dara.
     return {
       baselineId: 'BaselineId',
       baselineName: 'BaselineName',
+      baselineType: 'BaselineType',
       bizdate: 'Bizdate',
       buffer: 'Buffer',
       endCast: 'EndCast',
@@ -20601,6 +20643,7 @@ export class ListBaselineStatusesResponseBodyDataBaselineStatuses extends $dara.
     return {
       baselineId: 'number',
       baselineName: 'string',
+      baselineType: 'string',
       bizdate: 'number',
       buffer: 'number',
       endCast: 'number',
@@ -26394,7 +26437,7 @@ export class ListDataSourcesResponseBodyDataDataSources extends $dara.Model {
    *           "authType": "2"
    *         }
    * 
-   * *   MySQL
+   * *   mysql
    * 
    *         {
    *           "configType": "1",
@@ -26406,7 +26449,7 @@ export class ListDataSourcesResponseBodyDataDataSources extends $dara.Model {
    *           "username": "mysql_db111"
    *         }
    * 
-   * *   ApsaraDB RDS for SQL Server
+   * *   sqlserver
    * 
    *         {
    *           "configType": "1",
@@ -26416,18 +26459,18 @@ export class ListDataSourcesResponseBodyDataDataSources extends $dara.Model {
    *           "username": "sqlserver_db111"
    *         }
    * 
-   * *   Object Storage Service (OSS)
+   * *   oss
    * 
    *         {
-   *           "accessId": "LTAINbR9Uxxxx",
-   *           "accessKey": "***",
+   *           "accessId": "***********",
+   *           "accessKey": "***********",
    *           "bucket": "bigxxx1223",
    *           "configType": "1",
    *           "endpoint": "http://oss-cn-hangzhou.aliyuncs.com",
    *           "tag": "public"
    *         }
    * 
-   * *   ApsaraDB RDS for PostgreSQL
+   * *   postgresql
    * 
    *         {
    *           "configType": "1",
@@ -26439,7 +26482,7 @@ export class ListDataSourcesResponseBodyDataDataSources extends $dara.Model {
    *           "username": "cdp_xxx"
    *         }
    * 
-   * *   AnalyticDB for MySQL
+   * *   ads
    * 
    *         {
    *           "configType": "1",
@@ -27447,7 +27490,7 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
 export class ListFileVersionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the file version.
+   * The details of file versions.
    */
   fileVersions?: ListFileVersionsResponseBodyDataFileVersions[];
   /**
@@ -27507,7 +27550,7 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
 export class ListFilesResponseBodyDataFiles extends $dara.Model {
   /**
    * @remarks
-   * The path of the folder where the file is located.
+   * The path of the folder to which the file belongs.
    * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
@@ -28846,7 +28889,8 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
    * @remarks
    * The data channel. Valid values:
    * 
-   *     FIRST_PARTY: DataWorks platformTHIRD_PARTY: user registration
+   * *   **FIRST_PARTY: DataWorks platform**
+   * *   **THIRD_PARTY: user registration**
    * 
    * @example
    * THIRD_PARTY
@@ -28854,7 +28898,7 @@ export class ListLineageResponseBodyDataDataEntityListRelationList extends $dara
   channel?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source.
    * 
    * @example
    * mysql
@@ -32689,7 +32733,7 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   checkerId?: number;
   /**
    * @remarks
-   * The description of the system defense rule.
+   * The description of the monitoring rule.
    * 
    * @example
    * Verify table rules
@@ -32973,7 +33017,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the monitoring rule.
+   * The details of the monitoring rules.
    */
   rules?: ListQualityRulesResponseBodyDataRules[];
   /**
@@ -33730,7 +33774,7 @@ export class ListShiftPersonnelsResponseBodyPaging extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of on-duty engineers in a shift schedule.
+   * The on-duty engineers in the shift schedule.
    */
   shiftPersons?: ListShiftPersonnelsResponseBodyPagingShiftPersons[];
   /**
@@ -34364,7 +34408,7 @@ export class ListTablesResponseBodyDataTableEntityListEntityContent extends $dar
 export class ListTablesResponseBodyDataTableEntityList extends $dara.Model {
   /**
    * @remarks
-   * Table entity information.
+   * The information about the table.
    */
   entityContent?: ListTablesResponseBodyDataTableEntityListEntityContent;
   /**
@@ -34412,7 +34456,7 @@ export class ListTablesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Entity array.
+   * An array of entities.
    */
   tableEntityList?: ListTablesResponseBodyDataTableEntityList[];
   /**
@@ -35872,7 +35916,7 @@ export class UpdateBaselineRequestAlertSettings extends $dara.Model {
 export class UpdateBaselineRequestOvertimeSettings extends $dara.Model {
   /**
    * @remarks
-   * The cycle that corresponds to the committed completion time. For a day-level baseline, set this parameter to 1. For an hour-level baseline, set this parameter to a value that does not exceed 24.
+   * The cycle that corresponds to the committed completion time. For a day-level baseline, set this parameter to 1. For an hour-level baseline, set this parameter to a value that is no more than 24.
    * 
    * @example
    * 1
@@ -42349,8 +42393,8 @@ export class CreateDataSourceRequest extends $dara.Model {
    * *   odps
    * 
    *         {
-   *           "accessId": "xssssss",
-   *           "accessKey": "xsaxsaxsa",
+   *           "accessId": "*****",
+   *           "accessKey": "*****",
    *           "authType": 2,
    *           "endpoint": "http://service.odps.aliyun.com/api",
    *           "project": "xsaxsax",
@@ -42384,8 +42428,8 @@ export class CreateDataSourceRequest extends $dara.Model {
    * *   oss
    * 
    *         {
-   *           "accessId": "sssssxx",
-   *           "accessKey": "xsaxaxsaxs",
+   *           "accessId": "*****",
+   *           "accessKey": "*****",
    *           "bucket": "xsa-xs-xs",
    *           "endpoint": "http://oss-cn-shanghai.aliyuncs.com",
    *           "tag": "public"
@@ -42442,11 +42486,11 @@ export class CreateDataSourceRequest extends $dara.Model {
    * *   emr
    * 
    *         {
-   *           "accessId": "xsaxsa",
+   *           "accessId": "*****",
    *           "emrClusterId": "C-dsads",
    *           "emrResourceQueueName": "default",
    *           "emrEndpoint": "emr.aliyuncs.com",
-   *           "accessKey": "dsadsad",
+   *           "accessKey": "*****",
    *           "emrUserId": "224833315798889783",
    *           "name": "sasdsadsa",
    *           "emrAccessMode": "simple",
@@ -42489,8 +42533,8 @@ export class CreateDataSourceRequest extends $dara.Model {
    * *   holo
    * 
    *         {
-   *           "accessId": "xsaxsaxs",
-   *           "accessKey": "xsaxsaxsa",
+   *           "accessId": "*****",
+   *           "accessKey": "*****",
    *           "database": "xsaxsaxsa",
    *           "instanceId": "xsaxa",
    *           "tag": "aliyun"
@@ -43103,6 +43147,13 @@ export class CreateFileRequest extends $dara.Model {
    * false
    */
   ignoreParentSkipRunningProperty?: boolean;
+  /**
+   * @remarks
+   * Custom image ID
+   * 
+   * @example
+   * m-bp1h4b5a8ogkbll2f3tr
+   */
   imageId?: string;
   /**
    * @remarks
@@ -44620,6 +44671,7 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
    * I need to use this table
    */
   applyReason?: string;
+  applyType?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account for which you want to request permissions. If you want to request permissions for multiple Alibaba Cloud accounts, separate the IDs of the accounts with commas (,).
@@ -44630,6 +44682,7 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
    * 267842600408993176,267842600408993177
    */
   applyUserIds?: string;
+  catalogName?: string;
   /**
    * @remarks
    * The expiration time of the permissions that you request. This value is a UNIX timestamp. The default value is January 1, 2065. If LabelSecurity is disabled for the MaxCompute project in which you want to request permissions on the fields of a table, or the security level of the fields is 0 or is lower than or equal to the security level of the Alibaba Cloud account for which you want to request permissions, you can request only permanent permissions. You can go to the Workspace Management page in the DataWorks console, click MaxCompute Management in the left-side navigation pane, and then check whether column-level access control is enabled. You can go to your DataWorks workspace, view the security level of the fields in Data Map, and then view the security level of the Alibaba Cloud account on the User Management page.
@@ -44650,8 +44703,6 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
    * @remarks
    * The name of the MaxCompute project in which you request permissions on the fields of a table.
    * 
-   * This parameter is required.
-   * 
    * @example
    * aMaxcomputeProjectName
    */
@@ -44668,8 +44719,6 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
    * @remarks
    * The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the SettingCenter page in the DataWorks console to view the workspace ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 12345
    */
@@ -44678,7 +44727,9 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
     return {
       applyObject: 'ApplyObject',
       applyReason: 'ApplyReason',
+      applyType: 'ApplyType',
       applyUserIds: 'ApplyUserIds',
+      catalogName: 'CatalogName',
       deadline: 'Deadline',
       engineType: 'EngineType',
       maxComputeProjectName: 'MaxComputeProjectName',
@@ -44691,7 +44742,9 @@ export class CreatePermissionApplyOrderRequest extends $dara.Model {
     return {
       applyObject: { 'type': 'array', 'itemType': CreatePermissionApplyOrderRequestApplyObject },
       applyReason: 'string',
+      applyType: 'string',
       applyUserIds: 'string',
+      catalogName: 'string',
       deadline: 'number',
       engineType: 'string',
       maxComputeProjectName: 'string',
@@ -65596,7 +65649,7 @@ export class GetMigrationSummaryRequest extends $dara.Model {
    * @remarks
    * The migration task ID.
    * 
-   * You can call the [CreateImportMigration](https://help.aliyun.com/document_detail/2809123.html) operation to obtain the ID of the import task and call the [CreateExportMigration](https://help.aliyun.com/document_detail/3241603.html) operation to obtain the ID of the export task.
+   * You can call the [CreateImportMigration](https://help.aliyun.com/document_detail/2780280.html) operation to obtain the ID of the import task and call the [CreateExportMigration](https://help.aliyun.com/document_detail/2780281.html) operation to obtain the ID of the export task.
    * 
    * This parameter is required.
    * 
@@ -68626,7 +68679,7 @@ export class GetTopicInfluenceRequest extends $dara.Model {
 export class GetTopicInfluenceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of baseline instances affected by the event.
+   * The data returned.
    */
   data?: GetTopicInfluenceResponseBodyData;
   /**
@@ -74187,7 +74240,7 @@ export class ListFileVersionsRequest extends $dara.Model {
 export class ListFileVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The file versions returned.
+   * The file versions.
    */
   data?: ListFileVersionsResponseBodyData;
   /**
@@ -74310,7 +74363,7 @@ export class ListFilesRequest extends $dara.Model {
   exactFileName?: string;
   /**
    * @remarks
-   * The path of the files.
+   * The path of the folder to which files belong.
    * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
@@ -74342,6 +74395,7 @@ export class ListFilesRequest extends $dara.Model {
    * ods
    */
   keyword?: string;
+  lastEditUser?: string;
   /**
    * @remarks
    * Whether the query result contains the path of the folder where the file is located.
@@ -74432,6 +74486,7 @@ export class ListFilesRequest extends $dara.Model {
       fileIdIn: 'FileIdIn',
       fileTypes: 'FileTypes',
       keyword: 'Keyword',
+      lastEditUser: 'LastEditUser',
       needAbsoluteFolderPath: 'NeedAbsoluteFolderPath',
       needContent: 'NeedContent',
       nodeId: 'NodeId',
@@ -74451,6 +74506,7 @@ export class ListFilesRequest extends $dara.Model {
       fileIdIn: 'string',
       fileTypes: 'string',
       keyword: 'string',
+      lastEditUser: 'string',
       needAbsoluteFolderPath: 'boolean',
       needContent: 'boolean',
       nodeId: 'number',
@@ -75532,9 +75588,10 @@ export class ListInstancesResponse extends $dara.Model {
 export class ListLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The lineage type. Valid values:\\
-   * up: ancestor lineage\\
-   * down: descendant lineage
+   * The lineage type. Valid values:
+   * 
+   * *   up: ancestor lineage
+   * *   down: descendant lineage
    * 
    * This parameter is required.
    * 
@@ -75647,9 +75704,8 @@ export class ListLineageResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * true
-   * 
-   * false
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -77669,6 +77725,8 @@ export class ListNodesByOutputResponse extends $dara.Model {
 }
 
 export class ListPermissionApplyOrdersRequest extends $dara.Model {
+  applyType?: string;
+  catalogName?: string;
   /**
    * @remarks
    * The end of the time range to query. You can query all the permissions request orders that have been submitted before the time. The parameter value is a UNIX timestamp. If you do not specify the parameter, all permission request orders that are submitted before the current time are queried.
@@ -77680,8 +77738,6 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the compute engine with which the permission request order is associated. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in the MaxCompute compute engine.
-   * 
-   * This parameter is required.
    * 
    * @example
    * odps
@@ -77720,8 +77776,6 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1
@@ -77782,6 +77836,8 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {
+      applyType: 'ApplyType',
+      catalogName: 'CatalogName',
       endTime: 'EndTime',
       engineType: 'EngineType',
       flowStatus: 'FlowStatus',
@@ -77798,6 +77854,8 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applyType: 'string',
+      catalogName: 'string',
       endTime: 'number',
       engineType: 'string',
       flowStatus: 'number',
@@ -79916,7 +79974,7 @@ export class ListShiftPersonnelsRequest extends $dara.Model {
 export class ListShiftPersonnelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination data.
+   * The pagination information.
    */
   paging?: ListShiftPersonnelsResponseBodyPaging;
   /**
@@ -80051,7 +80109,7 @@ export class ListShiftSchedulesRequest extends $dara.Model {
 export class ListShiftSchedulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination data.
+   * The pagination information.
    */
   paging?: ListShiftSchedulesResponseBodyPaging;
   /**
@@ -80929,180 +80987,6 @@ export class ListTopicsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTopicsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MountDirectoryRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter. For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
-   * 
-   * @example
-   * album.339
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the directory that you want to add to the left-side navigation pane of DataAnalysis. Example: META_ALBUM, which indicates the data album.
-   * 
-   * @example
-   * META_ALBUM
-   */
-  targetType?: string;
-  /**
-   * @remarks
-   * The ID of the user in the tenant.
-   * 
-   * *   If you do not configure TargetUserId, the specified directory belongs to you.
-   * *   If you configure TargetUserId, the specified directory belongs to the user specified by using TargetUserId.
-   * 
-   * @example
-   * 1234567890
-   */
-  targetUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-      targetUserId: 'TargetUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetId: 'string',
-      targetType: 'string',
-      targetUserId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MountDirectoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The number of directories that are added. Valid values:
-   * 
-   * *   0: No directories are added. The left-side navigation pane may contain the specified directory.
-   * *   1: One directory is added.
-   * 
-   * @example
-   * 1
-   */
-  data?: number;
-  /**
-   * @remarks
-   * The error code. The value 200 indicates that the task is successful.
-   * 
-   * @example
-   * 200
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * You have no permission.
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * C27D4FB9-C59B-5E17-BD6C-1099B9D6A381
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'number',
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpStatusCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MountDirectoryResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MountDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MountDirectoryResponseBody,
     };
   }
 
@@ -83650,174 +83534,6 @@ export class ResumeInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResumeInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeColumnPermissionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The fields for which you want to revoke permissions from a user. Separate multiple fields with commas (,). You can revoke the permissions on the fields only in MaxCompute tables.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * id,name
-   */
-  columns?: string;
-  /**
-   * @remarks
-   * The name of the MaxCompute project to which the fields belong. You can log on to the DataWorks console and go to the SettingCenter page to obtain the name of the MaxCompute project that you associate with the workspace.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aMaxcomputeProjectName
-   */
-  maxComputeProjectName?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account of the user from which you want to revoke permissions. You can log on to the DataWorks console and go to the Security Settings page to obtain the ID. You must specify either this parameter or the RevokeUserName parameter. If you specify both this parameter and the RevokeUserName parameter and the parameter values are different, the value of this parameter prevails.
-   * 
-   * @example
-   * 267842600408993176
-   */
-  revokeUserId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account from which you want to revoke permissions. Specify this parameter in the format that is the same as the format of the account used to access the MaxCompute project.
-   * 
-   * *   If the account is an Alibaba Cloud account, the value is in the ALIYUN$+Account name format.
-   * *   If the account is a RAM user, the value is in the RAM$+Account name format.
-   * 
-   * You must specify either this parameter or the RevokeUserId parameter. If you specify both this parameter and the RevokeUserId parameter and the parameter values are different, the value of the RevokeUserId parameter prevails.
-   * 
-   * @example
-   * RAM$dataworks_3h1_1:stsramuser
-   */
-  revokeUserName?: string;
-  /**
-   * @remarks
-   * The name of the MaxCompute table to which the fields belong. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name of the MaxCompute table.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aTableName
-   */
-  tableName?: string;
-  /**
-   * @remarks
-   * The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace page to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12345
-   */
-  workspaceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'Columns',
-      maxComputeProjectName: 'MaxComputeProjectName',
-      revokeUserId: 'RevokeUserId',
-      revokeUserName: 'RevokeUserName',
-      tableName: 'TableName',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: 'string',
-      maxComputeProjectName: 'string',
-      revokeUserId: 'string',
-      revokeUserName: 'string',
-      tableName: 'string',
-      workspaceId: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeColumnPermissionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0bc1ec92159376****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the permissions are revoked.
-   * 
-   * @example
-   * true
-   */
-  revokeSuccess?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      revokeSuccess: 'RevokeSuccess',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      revokeSuccess: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeColumnPermissionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RevokeColumnPermissionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RevokeColumnPermissionResponseBody,
     };
   }
 
@@ -88131,180 +87847,6 @@ export class TopTenErrorTimesInstanceResponse extends $dara.Model {
   }
 }
 
-export class UmountDirectoryRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the directory that you want to remove from the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter. For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the metadata data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
-   * 
-   * @example
-   * album.339
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the directory that you want to remove from the left-side navigation pane of DataAnalysis. Example: META_ALBUM, which indicates the metadata data album.
-   * 
-   * @example
-   * META_ALBUM
-   */
-  targetType?: string;
-  /**
-   * @remarks
-   * The ID of the user in the tenant.
-   * 
-   * *   If you do not configure TargetUserId, the directory belongs to you.
-   * *   If you configure TargetUserId, the directory belongs to the user specified by using TargetUserId.
-   * 
-   * @example
-   * 1234567890
-   */
-  targetUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-      targetUserId: 'TargetUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetId: 'string',
-      targetType: 'string',
-      targetUserId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UmountDirectoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The number of directories that are removed. Valid values:
-   * 
-   * *   0: No directories are removed. The left-side navigation pane may not contain the specified directory.
-   * *   1: One directory is removed.
-   * 
-   * @example
-   * 1
-   */
-  data?: number;
-  /**
-   * @remarks
-   * The error code. The value 200 indicates that the task is successful.
-   * 
-   * @example
-   * 200
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * You have no permission.
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code. The value 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
-   * 
-   * @example
-   * 0bc5aa2716455247597991794e65bd
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'number',
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpStatusCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UmountDirectoryResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UmountDirectoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UmountDirectoryResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateBaselineRequest extends $dara.Model {
   /**
    * @remarks
@@ -90937,7 +90479,7 @@ export class UpdateFileRequest extends $dara.Model {
   advancedSettings?: string;
   /**
    * @remarks
-   * Whether the scheduling configuration takes effect immediately after the release.
+   * Specifies whether scheduling configurations immediately take effect after the node is deployed.
    * 
    * @example
    * true
@@ -91096,12 +90638,19 @@ export class UpdateFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Scheduling configuration-> previous cycle-> whether to skip the upstream empty run attribute.
+   * Specifies whether to skip the dry-run property of the ancestor nodes of the node. This parameter corresponds to the Skip the dry-run property of the ancestor node parameter that is displayed after you configure the Depend On parameter in the Dependencies section of the Properties tab in the DataWorks console.
    * 
    * @example
    * true
    */
   ignoreParentSkipRunningProperty?: boolean;
+  /**
+   * @remarks
+   * The ID of the custom image.
+   * 
+   * @example
+   * m-uf6d7npxk1hhek8ng0cb
+   */
   imageId?: string;
   /**
    * @remarks
@@ -96142,6 +95691,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a data synchronization task.
    * 
+   * @remarks
+   * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
+   * 
    * @param request - CreateDISyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDISyncTaskResponse
@@ -96199,6 +95751,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a data synchronization task.
+   * 
+   * @remarks
+   * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
    * 
    * @param request - CreateDISyncTaskRequest
    * @returns CreateDISyncTaskResponse
@@ -97451,8 +97006,16 @@ export default class Client extends OpenApi {
       query["ApplyReason"] = request.applyReason;
     }
 
+    if (!$dara.isNull(request.applyType)) {
+      query["ApplyType"] = request.applyType;
+    }
+
     if (!$dara.isNull(request.applyUserIds)) {
       query["ApplyUserIds"] = request.applyUserIds;
+    }
+
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
     }
 
     if (!$dara.isNull(request.deadline)) {
@@ -107494,6 +107057,10 @@ export default class Client extends OpenApi {
       body["Keyword"] = request.keyword;
     }
 
+    if (!$dara.isNull(request.lastEditUser)) {
+      body["LastEditUser"] = request.lastEditUser;
+    }
+
     if (!$dara.isNull(request.needAbsoluteFolderPath)) {
       body["NeedAbsoluteFolderPath"] = request.needAbsoluteFolderPath;
     }
@@ -108640,6 +108207,14 @@ export default class Client extends OpenApi {
   async listPermissionApplyOrdersWithOptions(request: ListPermissionApplyOrdersRequest, runtime: $dara.RuntimeOptions): Promise<ListPermissionApplyOrdersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.applyType)) {
+      query["ApplyType"] = request.applyType;
+    }
+
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -109810,61 +109385,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a directory to the left-side navigation pane of DataAnalysis.
-   * 
-   * @param request - MountDirectoryRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns MountDirectoryResponse
-   */
-  async mountDirectoryWithOptions(request: MountDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<MountDirectoryResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.targetId)) {
-      body["TargetId"] = request.targetId;
-    }
-
-    if (!$dara.isNull(request.targetType)) {
-      body["TargetType"] = request.targetType;
-    }
-
-    if (!$dara.isNull(request.targetUserId)) {
-      body["TargetUserId"] = request.targetUserId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "MountDirectory",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<MountDirectoryResponse>(await this.callApi(params, req, runtime), new MountDirectoryResponse({}));
-    } else {
-      return $dara.cast<MountDirectoryResponse>(await this.execute(params, req, runtime), new MountDirectoryResponse({}));
-    }
-
-  }
-
-  /**
-   * Adds a directory to the left-side navigation pane of DataAnalysis.
-   * 
-   * @param request - MountDirectoryRequest
-   * @returns MountDirectoryResponse
-   */
-  async mountDirectory(request: MountDirectoryRequest): Promise<MountDirectoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.mountDirectoryWithOptions(request, runtime);
-  }
-
-  /**
    * Undeploys a node.
    * 
    * @param request - OfflineNodeRequest
@@ -110724,73 +110244,6 @@ export default class Client extends OpenApi {
   async resumeInstance(request: ResumeInstanceRequest): Promise<ResumeInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resumeInstanceWithOptions(request, runtime);
-  }
-
-  /**
-   * Revokes permissions on table fields from a user.
-   * 
-   * @param request - RevokeColumnPermissionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RevokeColumnPermissionResponse
-   */
-  async revokeColumnPermissionWithOptions(request: RevokeColumnPermissionRequest, runtime: $dara.RuntimeOptions): Promise<RevokeColumnPermissionResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.columns)) {
-      query["Columns"] = request.columns;
-    }
-
-    if (!$dara.isNull(request.maxComputeProjectName)) {
-      query["MaxComputeProjectName"] = request.maxComputeProjectName;
-    }
-
-    if (!$dara.isNull(request.revokeUserId)) {
-      query["RevokeUserId"] = request.revokeUserId;
-    }
-
-    if (!$dara.isNull(request.revokeUserName)) {
-      query["RevokeUserName"] = request.revokeUserName;
-    }
-
-    if (!$dara.isNull(request.tableName)) {
-      query["TableName"] = request.tableName;
-    }
-
-    if (!$dara.isNull(request.workspaceId)) {
-      query["WorkspaceId"] = request.workspaceId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "RevokeColumnPermission",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RevokeColumnPermissionResponse>(await this.callApi(params, req, runtime), new RevokeColumnPermissionResponse({}));
-    } else {
-      return $dara.cast<RevokeColumnPermissionResponse>(await this.execute(params, req, runtime), new RevokeColumnPermissionResponse({}));
-    }
-
-  }
-
-  /**
-   * Revokes permissions on table fields from a user.
-   * 
-   * @param request - RevokeColumnPermissionRequest
-   * @returns RevokeColumnPermissionResponse
-   */
-  async revokeColumnPermission(request: RevokeColumnPermissionRequest): Promise<RevokeColumnPermissionResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.revokeColumnPermissionWithOptions(request, runtime);
   }
 
   /**
@@ -112369,61 +111822,6 @@ export default class Client extends OpenApi {
   async topTenErrorTimesInstance(request: TopTenErrorTimesInstanceRequest): Promise<TopTenErrorTimesInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.topTenErrorTimesInstanceWithOptions(request, runtime);
-  }
-
-  /**
-   * Removes a directory from the left-side navigation pane of DataAnalysis.
-   * 
-   * @param request - UmountDirectoryRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UmountDirectoryResponse
-   */
-  async umountDirectoryWithOptions(request: UmountDirectoryRequest, runtime: $dara.RuntimeOptions): Promise<UmountDirectoryResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.targetId)) {
-      body["TargetId"] = request.targetId;
-    }
-
-    if (!$dara.isNull(request.targetType)) {
-      body["TargetType"] = request.targetType;
-    }
-
-    if (!$dara.isNull(request.targetUserId)) {
-      body["TargetUserId"] = request.targetUserId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UmountDirectory",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UmountDirectoryResponse>(await this.callApi(params, req, runtime), new UmountDirectoryResponse({}));
-    } else {
-      return $dara.cast<UmountDirectoryResponse>(await this.execute(params, req, runtime), new UmountDirectoryResponse({}));
-    }
-
-  }
-
-  /**
-   * Removes a directory from the left-side navigation pane of DataAnalysis.
-   * 
-   * @param request - UmountDirectoryRequest
-   * @returns UmountDirectoryResponse
-   */
-  async umountDirectory(request: UmountDirectoryRequest): Promise<UmountDirectoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.umountDirectoryWithOptions(request, runtime);
   }
 
   /**
