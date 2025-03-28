@@ -11035,6 +11035,11 @@ export class RealTimeDialogRequest extends $dara.Model {
   metaData?: { [key: string]: any };
   /**
    * @example
+   * common
+   */
+  opType?: string;
+  /**
+   * @example
    * false
    */
   recommend?: boolean;
@@ -11060,6 +11065,7 @@ export class RealTimeDialogRequest extends $dara.Model {
       conversationModel: 'conversationModel',
       dialogMemoryTurns: 'dialogMemoryTurns',
       metaData: 'metaData',
+      opType: 'opType',
       recommend: 'recommend',
       scriptContentPlayed: 'scriptContentPlayed',
       sessionId: 'sessionId',
@@ -11075,6 +11081,7 @@ export class RealTimeDialogRequest extends $dara.Model {
       conversationModel: { 'type': 'array', 'itemType': RealTimeDialogRequestConversationModel },
       dialogMemoryTurns: 'number',
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      opType: 'string',
       recommend: 'boolean',
       scriptContentPlayed: 'string',
       sessionId: 'string',
@@ -15044,6 +15051,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.metaData)) {
       body["metaData"] = request.metaData;
+    }
+
+    if (!$dara.isNull(request.opType)) {
+      body["opType"] = request.opType;
     }
 
     if (!$dara.isNull(request.recommend)) {
