@@ -1,111 +1,475 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class ClearInstanceStorageRequest extends $tea.Model {
+export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $dara.Model {
+  /**
+   * @example
+   * API
+   */
+  description?: string;
+  /**
+   * @example
+   * 1578067200000
+   */
+  expireTime?: number;
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * tsiqvqjjlq-public.dbaudit.aliyuncs.com
+   */
+  internetEndpoint?: string;
+  /**
+   * @example
+   * tsiqvqjjlq.dbaudit.aliyuncs.com
+   */
+  intranetEndpoint?: string;
+  /**
+   * @example
+   * alpha.professional
+   */
+  licenseCode?: string;
+  /**
+   * @example
+   * true
+   */
+  publicNetworkAccess?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
-  storageSpace?: string;
-  storageCategory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-      storageSpace: 'StorageSpace',
-      storageCategory: 'StorageCategory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-      storageSpace: 'string',
-      storageCategory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearInstanceStorageResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearInstanceStorageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ClearInstanceStorageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ClearInstanceStorageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigInstanceWhiteListRequest extends $tea.Model {
-  instanceId?: string;
-  regionId?: string;
+  /**
+   * @example
+   * alpha
+   */
+  seriesCode?: string;
+  /**
+   * @example
+   * 1577437765000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * vpc-bp1c85tzgqu1bf5b****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vsw-bp1kep1f0k5fnyfs****
+   */
+  vswitchId?: string;
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
+      expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      internetEndpoint: 'InternetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      licenseCode: 'LicenseCode',
+      publicNetworkAccess: 'PublicNetworkAccess',
       regionId: 'RegionId',
+      seriesCode: 'SeriesCode',
+      startTime: 'StartTime',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
       whiteList: 'WhiteList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
+      expireTime: 'number',
       instanceId: 'string',
+      instanceStatus: 'string',
+      internetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      licenseCode: 'string',
+      publicNetworkAccess: 'boolean',
       regionId: 'string',
+      seriesCode: 'string',
+      startTime: 'number',
+      vpcId: 'string',
+      vswitchId: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
+  validate() {
+    if(Array.isArray(this.whiteList)) {
+      $dara.Model.validateArray(this.whiteList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigInstanceWhiteListResponseBody extends $tea.Model {
+export class DescribeInstanceStorageResponseBodyInstanceStorages extends $dara.Model {
+  /**
+   * @example
+   * 6047313952768
+   */
+  storageCapacity?: number;
+  /**
+   * @example
+   * dbaudit-audit-dbaudit-cn-78v1gc****
+   */
+  storageCategory?: string;
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  storageSpace?: string;
+  /**
+   * @example
+   * 180
+   */
+  storageTime?: number;
+  /**
+   * @example
+   * 0
+   */
+  storageUsed?: number;
+  static names(): { [key: string]: string } {
+    return {
+      storageCapacity: 'StorageCapacity',
+      storageCategory: 'StorageCategory',
+      storageSpace: 'StorageSpace',
+      storageTime: 'StorageTime',
+      storageUsed: 'StorageUsed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageCapacity: 'number',
+      storageCategory: 'string',
+      storageSpace: 'string',
+      storageTime: 'number',
+      storageUsed: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  key?: string;
+  /**
+   * @example
+   * testapi
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstances extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 1578067200000
+   */
+  expireTime?: number;
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * tsiqvqjjlq-public.dbaudit.aliyuncs.com
+   */
+  internetEndpoint?: string;
+  /**
+   * @example
+   * tsiqvqjjlq.dbaudit.aliyuncs.com
+   */
+  intranetEndpoint?: string;
+  /**
+   * @example
+   * alpha.professional
+   */
+  licenseCode?: string;
+  /**
+   * @example
+   * true
+   */
+  publicNetworkAccess?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * alpha
+   */
+  seriesCode?: string;
+  /**
+   * @example
+   * 1577437765000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * vpc-bp1c85tzgqu1bf5b****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vsw-bp1kep1f0k5fnyfs****
+   */
+  vswitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      internetEndpoint: 'InternetEndpoint',
+      intranetEndpoint: 'IntranetEndpoint',
+      licenseCode: 'LicenseCode',
+      publicNetworkAccess: 'PublicNetworkAccess',
+      regionId: 'RegionId',
+      seriesCode: 'SeriesCode',
+      startTime: 'StartTime',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      expireTime: 'number',
+      instanceId: 'string',
+      instanceStatus: 'string',
+      internetEndpoint: 'string',
+      intranetEndpoint: 'string',
+      licenseCode: 'string',
+      publicNetworkAccess: 'boolean',
+      regionId: 'string',
+      seriesCode: 'string',
+      startTime: 'number',
+      vpcId: 'string',
+      vswitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  key?: string;
+  /**
+   * @example
+   * testapi
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * INSTANCE
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * testapi
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearInstanceStorageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  instanceId?: string;
+  lang?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbaudit-audit-dbaudit-cn-78v1gc****
+   */
+  storageCategory?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  storageSpace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      regionId: 'RegionId',
+      storageCategory: 'StorageCategory',
+      storageSpace: 'StorageSpace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lang: 'string',
+      regionId: 'string',
+      storageCategory: 'string',
+      storageSpace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearInstanceStorageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 482EF142-BFA5-43FF-B4B0-84A4B0763639
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,17 +485,23 @@ export class ConfigInstanceWhiteListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigInstanceWhiteListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ConfigInstanceWhiteListResponseBody;
+export class ClearInstanceStorageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearInstanceStorageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -139,8 +509,19 @@ export class ConfigInstanceWhiteListResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ConfigInstanceWhiteListResponseBody,
+      statusCode: 'number',
+      body: ClearInstanceStorageResponseBody,
     };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -148,12 +529,25 @@ export class ConfigInstanceWhiteListResponse extends $tea.Model {
   }
 }
 
-export class DescribeInstanceAttributeRequest extends $tea.Model {
+export class DescribeInstanceAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
   instanceId?: string;
+  lang?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      lang: 'Lang',
       regionId: 'RegionId',
     };
   }
@@ -161,8 +555,13 @@ export class DescribeInstanceAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      lang: 'string',
       regionId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -170,21 +569,32 @@ export class DescribeInstanceAttributeRequest extends $tea.Model {
   }
 }
 
-export class DescribeInstanceAttributeResponseBody extends $tea.Model {
-  requestId?: string;
+export class DescribeInstanceAttributeResponseBody extends $dara.Model {
   instanceAttribute?: DescribeInstanceAttributeResponseBodyInstanceAttribute;
+  /**
+   * @example
+   * 28382024-466D-4641-A144-40FD0DD53766
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceAttribute: 'InstanceAttribute',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceAttribute: DescribeInstanceAttributeResponseBodyInstanceAttribute,
+      requestId: 'string',
     };
+  }
+
+  validate() {
+    if(this.instanceAttribute && typeof (this.instanceAttribute as any).validate === 'function') {
+      (this.instanceAttribute as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -192,12 +602,14 @@ export class DescribeInstanceAttributeResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeInstanceAttributeResponseBody;
+export class DescribeInstanceAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -205,45 +617,19 @@ export class DescribeInstanceAttributeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceAttributeResponseBody,
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequest extends $tea.Model {
-  pageSize?: number;
-  pageNumber?: number;
-  regionId?: string;
-  instanceStatus?: string;
-  resourceGroupId?: string;
-  instanceId?: string[];
-  tag?: DescribeInstancesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      regionId: 'RegionId',
-      instanceStatus: 'InstanceStatus',
-      resourceGroupId: 'ResourceGroupId',
-      instanceId: 'InstanceId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageSize: 'number',
-      pageNumber: 'number',
-      regionId: 'string',
-      instanceStatus: 'string',
-      resourceGroupId: 'string',
-      instanceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': DescribeInstancesRequestTag },
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -251,59 +637,25 @@ export class DescribeInstancesRequest extends $tea.Model {
   }
 }
 
-export class DescribeInstancesResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  instances?: DescribeInstancesResponseBodyInstances[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      instances: 'Instances',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      requestId: 'string',
-      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceStorageRequest extends $tea.Model {
+export class DescribeInstanceStorageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
   instanceId?: string;
+  lang?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      lang: 'Lang',
       regionId: 'RegionId',
     };
   }
@@ -311,8 +663,13 @@ export class DescribeInstanceStorageRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      lang: 'string',
       regionId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -320,21 +677,32 @@ export class DescribeInstanceStorageRequest extends $tea.Model {
   }
 }
 
-export class DescribeInstanceStorageResponseBody extends $tea.Model {
-  requestId?: string;
+export class DescribeInstanceStorageResponseBody extends $dara.Model {
   instanceStorages?: DescribeInstanceStorageResponseBodyInstanceStorages[];
+  /**
+   * @example
+   * 4226E2BB-EED8-4067-B31B-7F02966765B2
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceStorages: 'InstanceStorages',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceStorages: { 'type': 'array', 'itemType': DescribeInstanceStorageResponseBodyInstanceStorages },
+      requestId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceStorages)) {
+      $dara.Model.validateArray(this.instanceStorages);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -342,12 +710,14 @@ export class DescribeInstanceStorageResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeInstanceStorageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeInstanceStorageResponseBody;
+export class DescribeInstanceStorageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceStorageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -355,30 +725,19 @@ export class DescribeInstanceStorageResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: DescribeInstanceStorageResponseBody,
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      regionId: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -386,287 +745,76 @@ export class DescribeRegionsRequest extends $tea.Model {
   }
 }
 
-export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
-  regions?: DescribeRegionsResponseBodyRegions[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      regions: 'Regions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableInstancePublicAccessRequest extends $tea.Model {
-  instanceId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableInstancePublicAccessResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableInstancePublicAccessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DisableInstancePublicAccessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DisableInstancePublicAccessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableInstancePublicAccessRequest extends $tea.Model {
-  instanceId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableInstancePublicAccessResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableInstancePublicAccessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EnableInstancePublicAccessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EnableInstancePublicAccessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
-  pageSize?: number;
+export class DescribeInstancesRequest extends $dara.Model {
+  getCenterInstance?: boolean;
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  instanceId?: string[];
+  /**
+   * @example
+   * RUNNING
+   */
+  instanceStatus?: string;
+  lang?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceType: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBody extends $tea.Model {
-  requestId?: string;
-  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
-  totalCount?: number;
-  tagKeys?: ListTagKeysResponseBodyTagKeys[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfm26ougij6****
+   */
+  resourceGroupId?: string;
+  tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      getCenterInstance: 'GetCenterInstance',
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      lang: 'Lang',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      tagKeys: 'TagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      tagKeys: { 'type': 'array', 'itemType': ListTagKeysResponseBodyTagKeys },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTagKeysResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTagKeysResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
-  nextToken?: string;
-  resourceId?: string[];
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
       regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      getCenterInstance: 'boolean',
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+      instanceStatus: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       regionId: 'string',
-      resourceType: 'string',
-      nextToken: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeInstancesRequestTag },
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceId)) {
+      $dara.Model.validateArray(this.instanceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -674,8 +822,154 @@ export class ListTagResourcesRequest extends $tea.Model {
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class DescribeInstancesResponseBody extends $dara.Model {
+  instances?: DescribeInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * 12AA0353-F01D-43E2-A85C-9040F7A35D93
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 18
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * 52EcpzBpR86EEpcc.9xyfvym3cKAXsdV2SSFZnouWTRzf1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * dbaudit-cn-78v1gc****
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 52EcpzBpR86EEpcc.9xyfvym3cKAXsdV2SSFZnouWTRzf1
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * E6A08A8A-F962-4FAD-AF0C-86B393E1F9C1
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
@@ -694,17 +988,26 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTagResourcesResponseBody;
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      statusCode: 'statusCode',
       body: 'body',
     };
   }
@@ -712,713 +1015,19 @@ export class ListTagResourcesResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
       body: ListTagResourcesResponseBody,
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceAttributeRequest extends $tea.Model {
-  instanceId?: string;
-  description?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      description: 'Description',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      description: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceAttributeResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyInstanceAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyInstanceAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceStorageRequest extends $tea.Model {
-  instanceId?: string;
-  regionId?: string;
-  storageSpace?: string;
-  storageCategory?: string;
-  storageTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-      storageSpace: 'StorageSpace',
-      storageCategory: 'StorageCategory',
-      storageTime: 'StorageTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-      storageSpace: 'string',
-      storageCategory: 'string',
-      storageTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceStorageResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstanceStorageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyInstanceStorageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyInstanceStorageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupRequest extends $tea.Model {
-  resourceId?: string;
-  resourceGroupId?: string;
-  resourceType?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceType: 'ResourceType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceGroupId: 'string',
-      resourceType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveResourceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: MoveResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: MoveResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartInstanceRequest extends $tea.Model {
-  instanceId?: string;
-  vswitchId?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      vswitchId: 'VswitchId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      vswitchId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartInstanceResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
-  resourceId?: string[];
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  regionId?: string;
-  resourceType?: string;
-  all?: boolean;
-  resourceId?: string[];
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-      all: 'All',
-      resourceId: 'ResourceId',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceType: 'string',
-      all: 'boolean',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceAttributeResponseBodyInstanceAttribute extends $tea.Model {
-  vpcId?: string;
-  vswitchId?: string;
-  expireTime?: number;
-  instanceId?: string;
-  internetEndpoint?: string;
-  regionId?: string;
-  intranetEndpoint?: string;
-  startTime?: number;
-  seriesCode?: string;
-  description?: string;
-  instanceStatus?: string;
-  licenseCode?: string;
-  publicNetworkAccess?: boolean;
-  whiteList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      vpcId: 'VpcId',
-      vswitchId: 'VswitchId',
-      expireTime: 'ExpireTime',
-      instanceId: 'InstanceId',
-      internetEndpoint: 'InternetEndpoint',
-      regionId: 'RegionId',
-      intranetEndpoint: 'IntranetEndpoint',
-      startTime: 'StartTime',
-      seriesCode: 'SeriesCode',
-      description: 'Description',
-      instanceStatus: 'InstanceStatus',
-      licenseCode: 'LicenseCode',
-      publicNetworkAccess: 'PublicNetworkAccess',
-      whiteList: 'WhiteList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vpcId: 'string',
-      vswitchId: 'string',
-      expireTime: 'number',
-      instanceId: 'string',
-      internetEndpoint: 'string',
-      regionId: 'string',
-      intranetEndpoint: 'string',
-      startTime: 'number',
-      seriesCode: 'string',
-      description: 'string',
-      instanceStatus: 'string',
-      licenseCode: 'string',
-      publicNetworkAccess: 'boolean',
-      whiteList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstances extends $tea.Model {
-  vpcId?: string;
-  vswitchId?: string;
-  expireTime?: number;
-  instanceId?: string;
-  internetEndpoint?: string;
-  regionId?: string;
-  intranetEndpoint?: string;
-  startTime?: number;
-  seriesCode?: string;
-  description?: string;
-  instanceStatus?: string;
-  licenseCode?: string;
-  publicNetworkAccess?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      vpcId: 'VpcId',
-      vswitchId: 'VswitchId',
-      expireTime: 'ExpireTime',
-      instanceId: 'InstanceId',
-      internetEndpoint: 'InternetEndpoint',
-      regionId: 'RegionId',
-      intranetEndpoint: 'IntranetEndpoint',
-      startTime: 'StartTime',
-      seriesCode: 'SeriesCode',
-      description: 'Description',
-      instanceStatus: 'InstanceStatus',
-      licenseCode: 'LicenseCode',
-      publicNetworkAccess: 'PublicNetworkAccess',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vpcId: 'string',
-      vswitchId: 'string',
-      expireTime: 'number',
-      instanceId: 'string',
-      internetEndpoint: 'string',
-      regionId: 'string',
-      intranetEndpoint: 'string',
-      startTime: 'number',
-      seriesCode: 'string',
-      description: 'string',
-      instanceStatus: 'string',
-      licenseCode: 'string',
-      publicNetworkAccess: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceStorageResponseBodyInstanceStorages extends $tea.Model {
-  storageTime?: number;
-  storageCapacity?: number;
-  storageCategory?: string;
-  storageSpace?: string;
-  storageUsed?: number;
-  static names(): { [key: string]: string } {
-    return {
-      storageTime: 'StorageTime',
-      storageCapacity: 'StorageCapacity',
-      storageCategory: 'StorageCategory',
-      storageSpace: 'StorageSpace',
-      storageUsed: 'StorageUsed',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      storageTime: 'number',
-      storageCapacity: 'number',
-      storageCategory: 'string',
-      storageSpace: 'string',
-      storageUsed: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  regionEndpoint?: string;
-  localName?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionEndpoint: 'RegionEndpoint',
-      localName: 'LocalName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionEndpoint: 'string',
-      localName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyTagKeys extends $tea.Model {
-  tagCount?: number;
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagCount: 'TagCount',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagCount: 'number',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  tagValue?: string;
-  resourceType?: string;
-  resourceId?: string;
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagValue: 'TagValue',
-      resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagValue: 'string',
-      resourceType: 'string',
-      resourceId: 'string',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1429,7 +1038,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -1438,223 +1047,326 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async clearInstanceStorageWithOptions(request: ClearInstanceStorageRequest, runtime: $Util.RuntimeOptions): Promise<ClearInstanceStorageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+  /**
+   * 清理SLS存储空间
+   * 
+   * @param request - ClearInstanceStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearInstanceStorageResponse
+   */
+  async clearInstanceStorageWithOptions(request: ClearInstanceStorageRequest, runtime: $dara.RuntimeOptions): Promise<ClearInstanceStorageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.storageCategory)) {
+      query["StorageCategory"] = request.storageCategory;
+    }
+
+    if (!$dara.isNull(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ClearInstanceStorageResponse>(await this.doRPCRequest("ClearInstanceStorage", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ClearInstanceStorageResponse({}));
+    let params = new $OpenApiUtil.Params({
+      action: "ClearInstanceStorage",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ClearInstanceStorageResponse>(await this.callApi(params, req, runtime), new ClearInstanceStorageResponse({}));
+    } else {
+      return $dara.cast<ClearInstanceStorageResponse>(await this.execute(params, req, runtime), new ClearInstanceStorageResponse({}));
+    }
+
   }
 
+  /**
+   * 清理SLS存储空间
+   * 
+   * @param request - ClearInstanceStorageRequest
+   * @returns ClearInstanceStorageResponse
+   */
   async clearInstanceStorage(request: ClearInstanceStorageRequest): Promise<ClearInstanceStorageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.clearInstanceStorageWithOptions(request, runtime);
   }
 
-  async configInstanceWhiteListWithOptions(request: ConfigInstanceWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<ConfigInstanceWhiteListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+  /**
+   * 获取实例属性
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAttributeResponse
+   */
+  async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ConfigInstanceWhiteListResponse>(await this.doRPCRequest("ConfigInstanceWhiteList", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigInstanceWhiteListResponse({}));
-  }
-
-  async configInstanceWhiteList(request: ConfigInstanceWhiteListRequest): Promise<ConfigInstanceWhiteListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.configInstanceWhiteListWithOptions(request, runtime);
-  }
-
-  async describeInstanceAttributeWithOptions(request: DescribeInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAttributeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceAttribute",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceAttributeResponse>(await this.doRPCRequest("DescribeInstanceAttribute", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAttributeResponse({}));
+    } else {
+      return $dara.cast<DescribeInstanceAttributeResponse>(await this.execute(params, req, runtime), new DescribeInstanceAttributeResponse({}));
+    }
+
   }
 
+  /**
+   * 获取实例属性
+   * 
+   * @param request - DescribeInstanceAttributeRequest
+   * @returns DescribeInstanceAttributeResponse
+   */
   async describeInstanceAttribute(request: DescribeInstanceAttributeRequest): Promise<DescribeInstanceAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceAttributeWithOptions(request, runtime);
   }
 
-  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+  /**
+   * 获取存储大小
+   * 
+   * @param request - DescribeInstanceStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceStorageResponse
+   */
+  async describeInstanceStorageWithOptions(request: DescribeInstanceStorageRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceStorageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstancesResponse>(await this.doRPCRequest("DescribeInstances", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstancesResponse({}));
-  }
-
-  async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstancesWithOptions(request, runtime);
-  }
-
-  async describeInstanceStorageWithOptions(request: DescribeInstanceStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStorageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceStorage",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceStorageResponse>(await this.doRPCRequest("DescribeInstanceStorage", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceStorageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceStorageResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStorageResponse({}));
+    } else {
+      return $dara.cast<DescribeInstanceStorageResponse>(await this.execute(params, req, runtime), new DescribeInstanceStorageResponse({}));
+    }
+
   }
 
+  /**
+   * 获取存储大小
+   * 
+   * @param request - DescribeInstanceStorageRequest
+   * @returns DescribeInstanceStorageResponse
+   */
   async describeInstanceStorage(request: DescribeInstanceStorageRequest): Promise<DescribeInstanceStorageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceStorageWithOptions(request, runtime);
   }
 
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+  /**
+   * 获取实例列表
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.getCenterInstance)) {
+      query["GetCenterInstance"] = request.getCenterInstance;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceStatus)) {
+      query["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
-  }
-
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async disableInstancePublicAccessWithOptions(request: DisableInstancePublicAccessRequest, runtime: $Util.RuntimeOptions): Promise<DisableInstancePublicAccessResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstances",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DisableInstancePublicAccessResponse>(await this.doRPCRequest("DisableInstancePublicAccess", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new DisableInstancePublicAccessResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    } else {
+      return $dara.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
+    }
+
   }
 
-  async disableInstancePublicAccess(request: DisableInstancePublicAccessRequest): Promise<DisableInstancePublicAccessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.disableInstancePublicAccessWithOptions(request, runtime);
+  /**
+   * 获取实例列表
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
+   */
+  async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstancesWithOptions(request, runtime);
   }
 
-  async enableInstancePublicAccessWithOptions(request: EnableInstancePublicAccessRequest, runtime: $Util.RuntimeOptions): Promise<EnableInstancePublicAccessResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+  /**
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableInstancePublicAccessResponse>(await this.doRPCRequest("EnableInstancePublicAccess", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new EnableInstancePublicAccessResponse({}));
-  }
-
-  async enableInstancePublicAccess(request: EnableInstancePublicAccessRequest): Promise<EnableInstancePublicAccessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.enableInstancePublicAccessWithOptions(request, runtime);
-  }
-
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<ListTagKeysResponse>(await this.doRPCRequest("ListTagKeys", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagKeysResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
-  async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTagKeysWithOptions(request, runtime);
-  }
-
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
-  }
-
+  /**
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
-  }
-
-  async modifyInstanceAttributeWithOptions(request: ModifyInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAttributeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyInstanceAttributeResponse>(await this.doRPCRequest("ModifyInstanceAttribute", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceAttributeResponse({}));
-  }
-
-  async modifyInstanceAttribute(request: ModifyInstanceAttributeRequest): Promise<ModifyInstanceAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyInstanceAttributeWithOptions(request, runtime);
-  }
-
-  async modifyInstanceStorageWithOptions(request: ModifyInstanceStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceStorageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyInstanceStorageResponse>(await this.doRPCRequest("ModifyInstanceStorage", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceStorageResponse({}));
-  }
-
-  async modifyInstanceStorage(request: ModifyInstanceStorageRequest): Promise<ModifyInstanceStorageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyInstanceStorageWithOptions(request, runtime);
-  }
-
-  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<MoveResourceGroupResponse>(await this.doRPCRequest("MoveResourceGroup", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new MoveResourceGroupResponse({}));
-  }
-
-  async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.moveResourceGroupWithOptions(request, runtime);
-  }
-
-  async startInstanceWithOptions(request: StartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StartInstanceResponse>(await this.doRPCRequest("StartInstance", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new StartInstanceResponse({}));
-  }
-
-  async startInstance(request: StartInstanceRequest): Promise<StartInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startInstanceWithOptions(request, runtime);
-  }
-
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
-  }
-
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.tagResourcesWithOptions(request, runtime);
-  }
-
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2019-12-09", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
-  }
-
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }
