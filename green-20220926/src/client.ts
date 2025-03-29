@@ -986,6 +986,76 @@ export class GetCipStatsResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetFeatureConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of feature configurations
+   */
+  featureConf?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * @example
+   * text
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Service code.
+   * 
+   * @example
+   * llm_query_moderation
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * Type
+   * 
+   * @example
+   * custom_llm_template
+   */
+  type?: string;
+  /**
+   * @remarks
+   * UID.
+   * 
+   * @example
+   * 1643953****74290
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureConf: 'FeatureConf',
+      resourceType: 'ResourceType',
+      serviceCode: 'ServiceCode',
+      type: 'Type',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureConf: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      resourceType: 'string',
+      serviceCode: 'string',
+      type: 'string',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.featureConf)) {
+      $dara.Model.validateArray(this.featureConf);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -1234,6 +1304,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $dara.Model {
 }
 
 export class GetScanResultResponseBodyDataItems extends $dara.Model {
+  attackLevel?: string;
   /**
    * @example
    * xxx
@@ -1302,6 +1373,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * 1
    */
   pageNum?: number;
+  requestFrom?: string;
   /**
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -1326,6 +1398,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * 25
    */
   score?: number;
+  sensitiveLevel?: string;
   /**
    * @example
    * baselineCheck
@@ -1375,6 +1448,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   voiceService?: string;
   static names(): { [key: string]: string } {
     return {
+      attackLevel: 'AttackLevel',
       content: 'Content',
       dataId: 'DataId',
       endTime: 'EndTime',
@@ -1389,6 +1463,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       noLabels: 'NoLabels',
       offset: 'Offset',
       pageNum: 'PageNum',
+      requestFrom: 'RequestFrom',
       requestId: 'RequestId',
       requestTime: 'RequestTime',
       result: 'Result',
@@ -1397,6 +1472,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       riskWords: 'RiskWords',
       scanResult: 'ScanResult',
       score: 'Score',
+      sensitiveLevel: 'SensitiveLevel',
       serviceCode: 'ServiceCode',
       startTime: 'StartTime',
       suggestion: 'Suggestion',
@@ -1413,6 +1489,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attackLevel: 'string',
       content: 'string',
       dataId: 'string',
       endTime: 'string',
@@ -1427,6 +1504,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       noLabels: { 'type': 'array', 'itemType': 'string' },
       offset: 'number',
       pageNum: 'number',
+      requestFrom: 'string',
       requestId: 'string',
       requestTime: 'string',
       result: { 'type': 'array', 'itemType': GetScanResultResponseBodyDataItemsResult },
@@ -1435,6 +1513,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
       riskWords: 'string',
       scanResult: 'string',
       score: 'number',
+      sensitiveLevel: 'string',
       serviceCode: 'string',
       startTime: 'string',
       suggestion: 'string',
@@ -5081,6 +5160,191 @@ export class DeleteCallbackResponse extends $dara.Model {
   }
 }
 
+export class DeleteFeatureConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Label value, customer-defined
+   * 
+   * @example
+   * __config__
+   */
+  field?: string;
+  /**
+   * @remarks
+   * Region
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * @example
+   * text
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Service code.
+   * 
+   * @example
+   * llm_query_moderation
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * Type
+   * 
+   * @example
+   * custom_llm_template
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+      serviceCode: 'ServiceCode',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+      serviceCode: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFeatureConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Return result.
+   * 
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message of this request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Success indicator.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFeatureConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFeatureConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFeatureConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteImagesFromLibRequest extends $dara.Model {
   /**
    * @example
@@ -7537,6 +7801,181 @@ export class GetExecuteTimeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetExecuteTimeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * @example
+   * text
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Service code.
+   * 
+   * @example
+   * llm_query_moderation
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * Type
+   * 
+   * @example
+   * custom_llm_template
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+      serviceCode: 'ServiceCode',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceType: 'string',
+      serviceCode: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Status code
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
+  data?: GetFeatureConfigResponseBodyData;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message for this request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Success indicator
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetFeatureConfigResponseBodyData,
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFeatureConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFeatureConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetFeatureConfigResponseBody,
     };
   }
 
@@ -11529,6 +11968,211 @@ export class ModifyCallbackResponse extends $dara.Model {
   }
 }
 
+export class ModifyFeatureConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration, in JSON format
+   * 
+   * @example
+   * {}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * Label meaning
+   * 
+   * @example
+   * 标签2
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Label value, customer-defined
+   * 
+   * @example
+   * __config__
+   */
+  field?: string;
+  /**
+   * @remarks
+   * Region
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * @example
+   * text
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * Service code.
+   * 
+   * @example
+   * llm_query_moderation
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * Type
+   * 
+   * @example
+   * custom_llm_template
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      description: 'Description',
+      field: 'Field',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+      serviceCode: 'ServiceCode',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      description: 'string',
+      field: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+      serviceCode: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFeatureConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * Returned data
+   * 
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Response message of this request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Success indicator.
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFeatureConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyFeatureConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyFeatureConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyServiceInfoRequest extends $dara.Model {
   /**
    * @example
@@ -14053,6 +14697,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete feature configuration
+   * 
+   * @param request - DeleteFeatureConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFeatureConfigResponse
+   */
+  async deleteFeatureConfigWithOptions(request: DeleteFeatureConfigRequest, runtime: $dara.RuntimeOptions): Promise<DeleteFeatureConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.field)) {
+      body["Field"] = request.field;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFeatureConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFeatureConfigResponse>(await this.callApi(params, req, runtime), new DeleteFeatureConfigResponse({}));
+    } else {
+      return $dara.cast<DeleteFeatureConfigResponse>(await this.execute(params, req, runtime), new DeleteFeatureConfigResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete feature configuration
+   * 
+   * @param request - DeleteFeatureConfigRequest
+   * @returns DeleteFeatureConfigResponse
+   */
+  async deleteFeatureConfig(request: DeleteFeatureConfigRequest): Promise<DeleteFeatureConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFeatureConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 批量删除
    * 
    * @param request - DeleteImagesFromLibRequest
@@ -15085,6 +15794,67 @@ export default class Client extends OpenApi {
   async getExecuteTime(request: GetExecuteTimeRequest): Promise<GetExecuteTimeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getExecuteTimeWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Feature Configuration
+   * 
+   * @param request - GetFeatureConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFeatureConfigResponse
+   */
+  async getFeatureConfigWithOptions(request: GetFeatureConfigRequest, runtime: $dara.RuntimeOptions): Promise<GetFeatureConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFeatureConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetFeatureConfigResponse>(await this.callApi(params, req, runtime), new GetFeatureConfigResponse({}));
+    } else {
+      return $dara.cast<GetFeatureConfigResponse>(await this.execute(params, req, runtime), new GetFeatureConfigResponse({}));
+    }
+
+  }
+
+  /**
+   * Get Feature Configuration
+   * 
+   * @param request - GetFeatureConfigRequest
+   * @returns GetFeatureConfigResponse
+   */
+  async getFeatureConfig(request: GetFeatureConfigRequest): Promise<GetFeatureConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFeatureConfigWithOptions(request, runtime);
   }
 
   /**
@@ -16687,6 +17457,79 @@ export default class Client extends OpenApi {
   async modifyCallback(request: ModifyCallbackRequest): Promise<ModifyCallbackResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * Save Feature Configuration
+   * 
+   * @param request - ModifyFeatureConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFeatureConfigResponse
+   */
+  async modifyFeatureConfigWithOptions(request: ModifyFeatureConfigRequest, runtime: $dara.RuntimeOptions): Promise<ModifyFeatureConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.field)) {
+      body["Field"] = request.field;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      body["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyFeatureConfig",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyFeatureConfigResponse>(await this.callApi(params, req, runtime), new ModifyFeatureConfigResponse({}));
+    } else {
+      return $dara.cast<ModifyFeatureConfigResponse>(await this.execute(params, req, runtime), new ModifyFeatureConfigResponse({}));
+    }
+
+  }
+
+  /**
+   * Save Feature Configuration
+   * 
+   * @param request - ModifyFeatureConfigRequest
+   * @returns ModifyFeatureConfigResponse
+   */
+  async modifyFeatureConfig(request: ModifyFeatureConfigRequest): Promise<ModifyFeatureConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyFeatureConfigWithOptions(request, runtime);
   }
 
   /**
