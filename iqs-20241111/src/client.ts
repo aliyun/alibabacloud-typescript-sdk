@@ -491,6 +491,7 @@ export class ScorePageItem extends $dara.Model {
    * 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，小米SU7确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
    */
   snippet?: string;
+  summary?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -517,6 +518,7 @@ export class ScorePageItem extends $dara.Model {
       score: 'score',
       siteLabel: 'siteLabel',
       snippet: 'snippet',
+      summary: 'summary',
       title: 'title',
     };
   }
@@ -539,6 +541,7 @@ export class ScorePageItem extends $dara.Model {
       score: 'number',
       siteLabel: 'string',
       snippet: 'string',
+      summary: 'string',
       title: 'string',
     };
   }
@@ -877,6 +880,7 @@ export class GenericAdvancedSearchResponse extends $dara.Model {
 }
 
 export class GenericSearchRequest extends $dara.Model {
+  enableRerank?: boolean;
   industry?: string;
   /**
    * @example
@@ -888,6 +892,9 @@ export class GenericSearchRequest extends $dara.Model {
    * This parameter is required.
    */
   query?: string;
+  returnMainText?: boolean;
+  returnMarkdownText?: boolean;
+  returnSummary?: boolean;
   sessionId?: string;
   /**
    * @example
@@ -896,9 +903,13 @@ export class GenericSearchRequest extends $dara.Model {
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
+      enableRerank: 'enableRerank',
       industry: 'industry',
       page: 'page',
       query: 'query',
+      returnMainText: 'returnMainText',
+      returnMarkdownText: 'returnMarkdownText',
+      returnSummary: 'returnSummary',
       sessionId: 'sessionId',
       timeRange: 'timeRange',
     };
@@ -906,9 +917,13 @@ export class GenericSearchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableRerank: 'boolean',
       industry: 'string',
       page: 'number',
       query: 'string',
+      returnMainText: 'boolean',
+      returnMarkdownText: 'boolean',
+      returnSummary: 'boolean',
       sessionId: 'string',
       timeRange: 'string',
     };
@@ -1120,6 +1135,10 @@ export default class Client extends OpenApi {
   async genericSearchWithOptions(request: GenericSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenericSearchResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enableRerank)) {
+      query["enableRerank"] = request.enableRerank;
+    }
+
     if (!$dara.isNull(request.industry)) {
       query["industry"] = request.industry;
     }
@@ -1130,6 +1149,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.query)) {
       query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.returnMainText)) {
+      query["returnMainText"] = request.returnMainText;
+    }
+
+    if (!$dara.isNull(request.returnMarkdownText)) {
+      query["returnMarkdownText"] = request.returnMarkdownText;
+    }
+
+    if (!$dara.isNull(request.returnSummary)) {
+      query["returnSummary"] = request.returnSummary;
     }
 
     if (!$dara.isNull(request.sessionId)) {
