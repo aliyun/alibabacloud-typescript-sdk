@@ -9374,6 +9374,67 @@ export class DeleteProjectResponse extends $dara.Model {
   }
 }
 
+export class DeployEnvironmentRequest extends $dara.Model {
+  body?: DeployEnvironmentOptions;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: DeployEnvironmentOptions,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployEnvironmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnvironmentDeployment;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnvironmentDeployment,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEnvironmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -9391,6 +9452,41 @@ export class GetEnvironmentResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Environment,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnvironmentDeploymentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnvironmentDeployment;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnvironmentDeployment,
     };
   }
 
@@ -10835,6 +10931,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 手动触发环境部署
+   * 
+   * @param request - DeployEnvironmentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployEnvironmentResponse
+   */
+  async deployEnvironmentWithOptions(projectName: string, name: string, request: DeployEnvironmentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeployEnvironmentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployEnvironment",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/projects/${$dara.URL.percentEncode(projectName)}/environments/${$dara.URL.percentEncode(name)}/deploy`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeployEnvironmentResponse>(await this.callApi(params, req, runtime), new DeployEnvironmentResponse({}));
+    } else {
+      return $dara.cast<DeployEnvironmentResponse>(await this.execute(params, req, runtime), new DeployEnvironmentResponse({}));
+    }
+
+  }
+
+  /**
+   * 手动触发环境部署
+   * 
+   * @param request - DeployEnvironmentRequest
+   * @returns DeployEnvironmentResponse
+   */
+  async deployEnvironment(projectName: string, name: string, request: DeployEnvironmentRequest): Promise<DeployEnvironmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deployEnvironmentWithOptions(projectName, name, request, headers, runtime);
+  }
+
+  /**
    * 获取环境信息
    * 
    * @param headers - map
@@ -10872,6 +11013,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getEnvironmentWithOptions(projectName, name, headers, runtime);
+  }
+
+  /**
+   * 查询环境部署信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEnvironmentDeploymentResponse
+   */
+  async getEnvironmentDeploymentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetEnvironmentDeploymentResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEnvironmentDeployment",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/environmentdeployments/${$dara.URL.percentEncode(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEnvironmentDeploymentResponse>(await this.callApi(params, req, runtime), new GetEnvironmentDeploymentResponse({}));
+    } else {
+      return $dara.cast<GetEnvironmentDeploymentResponse>(await this.execute(params, req, runtime), new GetEnvironmentDeploymentResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询环境部署信息
+   * @returns GetEnvironmentDeploymentResponse
+   */
+  async getEnvironmentDeployment(name: string): Promise<GetEnvironmentDeploymentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEnvironmentDeploymentWithOptions(name, headers, runtime);
   }
 
   /**
