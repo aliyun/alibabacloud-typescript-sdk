@@ -192,11 +192,13 @@ export class CreateJobRequestDeploymentPolicy extends $dara.Model {
    * Dedicated
    */
   allocationSpec?: string;
+  level?: string;
   network?: CreateJobRequestDeploymentPolicyNetwork;
   tag?: CreateJobRequestDeploymentPolicyTag[];
   static names(): { [key: string]: string } {
     return {
       allocationSpec: 'AllocationSpec',
+      level: 'Level',
       network: 'Network',
       tag: 'Tag',
     };
@@ -205,6 +207,7 @@ export class CreateJobRequestDeploymentPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allocationSpec: 'string',
+      level: 'string',
       network: CreateJobRequestDeploymentPolicyNetwork,
       tag: { 'type': 'array', 'itemType': CreateJobRequestDeploymentPolicyTag },
     };
@@ -1186,10 +1189,12 @@ export class GetImageResponseBodyImage extends $dara.Model {
 }
 
 export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Model {
+  enableENIMapping?: boolean;
   enableExternalIpAddress?: boolean;
   vswitch?: string[];
   static names(): { [key: string]: string } {
     return {
+      enableENIMapping: 'EnableENIMapping',
       enableExternalIpAddress: 'EnableExternalIpAddress',
       vswitch: 'Vswitch',
     };
@@ -1197,6 +1202,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      enableENIMapping: 'boolean',
       enableExternalIpAddress: 'boolean',
       vswitch: { 'type': 'array', 'itemType': 'string' },
     };
@@ -1246,11 +1252,13 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
    * Dedicated
    */
   allocationSpec?: string;
+  level?: string;
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
   tags?: GetJobResponseBodyJobInfoDeploymentPolicyTags[];
   static names(): { [key: string]: string } {
     return {
       allocationSpec: 'AllocationSpec',
+      level: 'Level',
       network: 'Network',
       tags: 'Tags',
     };
@@ -1259,6 +1267,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allocationSpec: 'string',
+      level: 'string',
       network: GetJobResponseBodyJobInfoDeploymentPolicyNetwork,
       tags: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoDeploymentPolicyTags },
     };
