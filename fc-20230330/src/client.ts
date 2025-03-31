@@ -7772,6 +7772,7 @@ export class ListFunctionVersionsResponse extends $dara.Model {
 }
 
 export class ListFunctionsRequest extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
@@ -7780,6 +7781,7 @@ export class ListFunctionsRequest extends $dara.Model {
    * v3
    */
   fcVersion?: string;
+  gpuType?: string;
   /**
    * @remarks
    * The number of functions to return. The minimum value is 1 and the maximum value is 100.
@@ -7804,23 +7806,30 @@ export class ListFunctionsRequest extends $dara.Model {
    * my-func
    */
   prefix?: string;
+  runtime?: string;
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       fcVersion: 'fcVersion',
+      gpuType: 'gpuType',
       limit: 'limit',
       nextToken: 'nextToken',
       prefix: 'prefix',
+      runtime: 'runtime',
       tags: 'tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fcVersion: 'string',
+      gpuType: 'string',
       limit: 'number',
       nextToken: 'string',
       prefix: 'string',
+      runtime: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
     };
   }
@@ -7838,6 +7847,7 @@ export class ListFunctionsRequest extends $dara.Model {
 }
 
 export class ListFunctionsShrinkRequest extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
@@ -7846,6 +7856,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
    * v3
    */
   fcVersion?: string;
+  gpuType?: string;
   /**
    * @remarks
    * The number of functions to return. The minimum value is 1 and the maximum value is 100.
@@ -7870,23 +7881,30 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
    * my-func
    */
   prefix?: string;
+  runtime?: string;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       fcVersion: 'fcVersion',
+      gpuType: 'gpuType',
       limit: 'limit',
       nextToken: 'nextToken',
       prefix: 'prefix',
+      runtime: 'runtime',
       tagsShrink: 'tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fcVersion: 'string',
+      gpuType: 'string',
       limit: 'number',
       nextToken: 'string',
       prefix: 'string',
+      runtime: 'string',
       tagsShrink: 'string',
     };
   }
@@ -11237,8 +11255,16 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      query["description"] = request.description;
+    }
+
     if (!$dara.isNull(request.fcVersion)) {
       query["fcVersion"] = request.fcVersion;
+    }
+
+    if (!$dara.isNull(request.gpuType)) {
+      query["gpuType"] = request.gpuType;
     }
 
     if (!$dara.isNull(request.limit)) {
@@ -11251,6 +11277,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
+    }
+
+    if (!$dara.isNull(request.runtime)) {
+      query["runtime"] = request.runtime;
     }
 
     if (!$dara.isNull(request.tagsShrink)) {
