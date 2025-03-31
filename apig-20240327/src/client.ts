@@ -1887,7 +1887,7 @@ export class TlsCipherSuitesConfigTlsCipherSuite extends $dara.Model {
 export class CreateDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Domain ID.
+   * The ID of the domain name.
    * 
    * @example
    * d-cpu1aullhtgkidg7sa4g
@@ -1947,7 +1947,7 @@ export class CreateEnvironmentResponseBodyData extends $dara.Model {
 export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cq146allhtgk***
@@ -1955,7 +1955,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Ingress Class being listened to.
+   * The Ingress Class for listening.
    * 
    * @example
    * mse
@@ -1963,7 +1963,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Whether to update the address in the Ingress Status.
+   * Specifies whether to update the address in Ingress Status.
    * 
    * @example
    * false
@@ -1971,7 +1971,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   overrideIngressIp?: boolean;
   /**
    * @remarks
-   * Source ID.
+   * The source ID.
    * 
    * @example
    * src-crdddallhtgtr***
@@ -1979,7 +1979,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * Namespace being watched.
+   * The namespace for listening.
    * 
    * @example
    * default
@@ -2017,7 +2017,7 @@ export class CreateHttpApiRequestIngressConfig extends $dara.Model {
 export class CreateHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * HTTP API ID.
+   * The HTTP API ID.
    * 
    * @example
    * api-xxx
@@ -2025,7 +2025,7 @@ export class CreateHttpApiResponseBodyData extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * Name of the API.
+   * The API name.
    * 
    * @example
    * test-api
@@ -2325,23 +2325,22 @@ export class CreatePolicyAttachmentResponseBodyData extends $dara.Model {
 export class CreateServiceRequestServiceConfigs extends $dara.Model {
   /**
    * @remarks
-   * List of domain names or fixed addresses.
+   * The list of domain names or fixed addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * AI service configuration.
+   * The AI service configurations.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * List of DNS server addresses.
+   * The list of DNS service addresses.
    */
   dnsServers?: string[];
   /**
    * @remarks
-   * Service group name.
-   * Needs to be specified when `sourceType` is MSE_NACOS.
+   * The service group name. This parameter is required if sourceType is set to MSE_NACOS.
    * 
    * @example
    * DEFAULT_GROUP
@@ -2349,7 +2348,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * user-service
@@ -2357,12 +2356,10 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Namespace of the service:
+   * The service namespace. This parameter is required when sourceType is set to K8S or MSE_NACOS.
    * 
-   * - When `sourceType` is K8S, it represents the namespace where the K8S service is located.
-   * - When `sourceType` is MSE_NACOS, it represents the namespace in Nacos.
-   * 
-   * It needs to be specified when `sourceType` is K8S or MSE_NACOS.
+   * *   If sourceType is set to K8S, this parameter specifies the namespace where the K8s service resides.
+   * *   If sourceType is set to MSE_NACOS, this parameter specifies a namespace in Nacos.
    * 
    * @example
    * PUBLIC
@@ -2370,7 +2367,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Function version or alias.
+   * The function version or alias.
    * 
    * @example
    * LATEST
@@ -2421,7 +2418,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
 export class CreateServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of service IDs.
+   * The list of service IDs.
    */
   serviceIds?: string[];
   static names(): { [key: string]: string } {
@@ -2673,7 +2670,7 @@ export class ExportHttpApiResponseBodyData extends $dara.Model {
 export class GetDashboardRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * Route name
+   * The route name.
    * 
    * @example
    * test-route
@@ -2703,7 +2700,7 @@ export class GetDashboardRequestFilter extends $dara.Model {
 export class GetDashboardResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Gateway unique identifier
+   * The instance ID.
    * 
    * @example
    * gw-co370icmjeu****
@@ -2711,7 +2708,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Dashboard name
+   * The dashboard name.
    * 
    * @example
    * PLUGIN
@@ -2719,7 +2716,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Dashboard title
+   * The dashboard title.
    * 
    * @example
    * APIG Plugin
@@ -2727,7 +2724,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Dashboard URL link
+   * The dashboard URL.
    * 
    * @example
    * https://sls.console.aliyun.com/lognext/project/xxxxx
@@ -2763,12 +2760,12 @@ export class GetDashboardResponseBodyData extends $dara.Model {
 export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
   /**
    * @remarks
-   * The array of related resource infomations.
+   * The resource statistics.
    */
   resourceStatistics?: ResourceStatistic[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of resources.
    * 
    * @example
    * 1
@@ -2803,7 +2800,7 @@ export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
 export class GetDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Encryption algorithm name
+   * The encryption algorithm.
    * 
    * @example
    * RSA
@@ -2811,7 +2808,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * CA certificate identifier
+   * The CA certificate ID.
    * 
    * @example
    * 876****-cn-hangzhou
@@ -2819,7 +2816,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * Certificate Identifier
+   * The certificate ID.
    * 
    * @example
    * 645****-cn-hangzhou
@@ -2827,7 +2824,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * Certificate name
+   * The certificate name.
    * 
    * @example
    * test-cert
@@ -2835,7 +2832,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * Client CA Cert
+   * The client CA certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -2850,7 +2847,12 @@ export class GetDomainResponseBodyData extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Where it was created from.
+   * The creation source.
+   * 
+   * Valid values:
+   * 
+   * *   Console
+   * *   Ingress
    * 
    * @example
    * Console
@@ -2858,7 +2860,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * Creation timestamp.
+   * The creation timestamp.
    * 
    * @example
    * 1719386834548
@@ -2866,7 +2868,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Whether it is the default domain.
+   * Indicates whether the domain name is the default domain name.
    * 
    * @example
    * false
@@ -2874,7 +2876,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * Domain ID.
+   * The ID of the domain name.
    * 
    * @example
    * d-cq1m3utlhtgvgkv7sitg
@@ -2882,7 +2884,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * Setting for HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * Indicates whether forcible HTTPS redirection is enabled.
    * 
    * @example
    * false
@@ -2890,7 +2892,13 @@ export class GetDomainResponseBodyData extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * HTTP/2 setting.
+   * The HTTP/2 configuration.
+   * 
+   * Valid values:
+   * 
+   * *   GlobalConfig
+   * *   Close
+   * *   Open
    * 
    * @example
    * Open
@@ -2898,7 +2906,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Certificate issuer.
+   * The certificate issuer.
    * 
    * @example
    * Alibaba
@@ -2906,7 +2914,12 @@ export class GetDomainResponseBodyData extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * true
+   * Indicates whether mutual authentication is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   false
+   * *   true
    * 
    * @example
    * false
@@ -2914,7 +2927,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   mTLSEnabled?: boolean;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * @example
    * abc.com
@@ -2922,7 +2935,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Certificate expiration time.
+   * The expiration time of the certificate.
    * 
    * @example
    * 1719386834548
@@ -2930,7 +2943,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notAfterTimstamp?: number;
   /**
    * @remarks
-   * Certificate effective time.
+   * The time when the certificate started to take effect.
    * 
    * @example
    * 1719386834548
@@ -2938,10 +2951,10 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol types supported by the domain.
+   * The supported protocol. Valid values:
    * 
-   * - HTTP: Supports only HTTP protocol.
-   * - HTTPS: Supports only HTTPS protocol.
+   * *   HTTP: Only HTTP is supported.
+   * *   HTTPS: Only HTTPS is supported.
    * 
    * @example
    * HTTP
@@ -2949,7 +2962,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzvlxzgo5b4si
@@ -2957,7 +2970,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * All domain names bound to the certificate.
+   * All domain names that are bound to the certificate.
    * 
    * @example
    * aliyun.com
@@ -2965,17 +2978,17 @@ export class GetDomainResponseBodyData extends $dara.Model {
   sans?: string;
   /**
    * @remarks
-   * The array of domain related resource information
+   * The information about online resources.
    */
   statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
   /**
    * @remarks
-   * The TLS cipher suites config.
+   * The cipher suite configuration.
    */
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
    * 
    * @example
    * TLS 1.3
@@ -2983,7 +2996,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
    * 
    * @example
    * TLS 1.0
@@ -2991,7 +3004,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsMin?: string;
   /**
    * @remarks
-   * Update timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1719386834548
@@ -4223,7 +4236,7 @@ export class GetTraceConfigResponseBodyData extends $dara.Model {
 export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the Object Storage Service (OSS) bucket that stores the dictionary file.
+   * The bucket name.
    * 
    * @example
    * api-1
@@ -4231,7 +4244,7 @@ export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The file path.
+   * The full path of the file.
    * 
    * @example
    * /test/swagger.json
@@ -4273,15 +4286,15 @@ export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
 export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $dara.Model {
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
-   * 数据结构定义有误。
+   * The data struct is incorrectly defined.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * 数据结构名称。
+   * The data struct name.
    * 
    * @example
    * orderDTO
@@ -4313,15 +4326,15 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $dara.Model {
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
-   * 缺少响应定义。
+   * Missing response definition.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * API method.
+   * The HTTP method of the operation.
    * 
    * @example
    * GET
@@ -4329,7 +4342,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
   method?: string;
   /**
    * @remarks
-   * API path.
+   * The operation path.
    * 
    * @example
    * /v1/orders
@@ -4363,9 +4376,10 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * Action to be executed after the precheck.
-   * - Create: Create
-   * - Update: Update
+   * The action that will be performed for the data struct after the dry run.
+   * 
+   * *   Create: The data struct is created.
+   * *   Update: The data struct is updated.
    * 
    * @example
    * Create
@@ -4373,7 +4387,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   action?: string;
   /**
    * @remarks
-   * Data structure name.
+   * The data struct name.
    * 
    * @example
    * userDTO
@@ -4405,9 +4419,10 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * Action to be executed after the precheck.
-   * - Create: Create
-   * - Update: Update
+   * The action that will be performed for the operation after the dry run.
+   * 
+   * *   Create: The operation is created.
+   * *   Update: The operation is updated.
    * 
    * @example
    * Create
@@ -4415,7 +4430,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   action?: string;
   /**
    * @remarks
-   * API method.
+   * The HTTP method of the operation.
    * 
    * @example
    * POST
@@ -4423,7 +4438,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   method?: string;
   /**
    * @remarks
-   * API name.
+   * The operation name.
    * 
    * @example
    * CreateUser
@@ -4431,7 +4446,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   name?: string;
   /**
    * @remarks
-   * API path.
+   * The operation path.
    * 
    * @example
    * /v1/users
@@ -4467,37 +4482,37 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * Error messages. If there are any error messages, the API cannot be imported successfully.
+   * The error messages. If an error message is returned, the API fails to be imported.
    */
   errorMessages?: string[];
   /**
    * @remarks
-   * 已存在的API信息。若该字段非空，则导入动作将更新该API。
+   * The existing APIs. If an existing API is returned, the import updates the existing API.
    */
   existHttpApiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * List of data structures that failed the precheck.
+   * The data structs that fail the dry run.
    */
   failureComponents?: ImportHttpApiResponseBodyDataDryRunInfoFailureComponents[];
   /**
    * @remarks
-   * List of APIs that failed the precheck.
+   * The operations that fail the dry run.
    */
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
   /**
    * @remarks
-   * List of data structures that passed the precheck.
+   * The data structs that pass the dry run.
    */
   successComponents?: ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents[];
   /**
    * @remarks
-   * List of successfully pre-checked interfaces.
+   * The operations that pass the dry run.
    */
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
   /**
    * @remarks
-   * Warning messages. If there are any warning messages, some interfaces or data interfaces may not be imported successfully.
+   * The alerts. If an alert is returned, specific operations or structs may fail to be imported.
    */
   warningMessages?: string[];
   static names(): { [key: string]: string } {
@@ -4557,12 +4572,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
 export class ImportHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Pre-import check result.
+   * The dry run result.
    */
   dryRunInfo?: ImportHttpApiResponseBodyDataDryRunInfo;
   /**
    * @remarks
-   * HTTP API ID.
+   * The API ID.
    * 
    * @example
    * api-xxx
@@ -4570,7 +4585,7 @@ export class ImportHttpApiResponseBodyData extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * API name.
+   * The API name.
    * 
    * @example
    * import-test
@@ -4607,12 +4622,12 @@ export class ImportHttpApiResponseBodyData extends $dara.Model {
 export class ListDomainsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of domain information.
+   * The information about the domain names.
    */
   items?: DomainInfo[];
   /**
    * @remarks
-   * Page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -4620,7 +4635,7 @@ export class ListDomainsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -4628,7 +4643,7 @@ export class ListDomainsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries returned.
    * 
    * @example
    * 9
@@ -4727,7 +4742,7 @@ export class ListEnvironmentsResponseBodyData extends $dara.Model {
 export class ListGatewaysRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of tag N.
    * 
    * @example
    * owner
@@ -4735,7 +4750,7 @@ export class ListGatewaysRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of tag N.
    * 
    * @example
    * zhangsan
@@ -4767,7 +4782,7 @@ export class ListGatewaysRequestTag extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
-   * Port number.
+   * The port number.
    * 
    * @example
    * 443
@@ -4775,9 +4790,10 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
   port?: number;
   /**
    * @remarks
-   * Protocol:
-   * - TCP
-   * - UDP
+   * The protocol. Valid values:
+   * 
+   * *   TCP
+   * *   UDP
    * 
    * @example
    * TCP
@@ -4809,7 +4825,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
 export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * Load balancer address.
+   * The load balancer IP address.
    * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
@@ -4817,9 +4833,10 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   address?: string;
   /**
    * @remarks
-   * IP version:
-   * - ipv4: IPv4.
-   * - ipv6: IPv6.
+   * The IP version of the address. Valid values:
+   * 
+   * *   ipv4: IPv4
+   * *   ipv6: IPv6
    * 
    * @example
    * ipv4
@@ -4827,9 +4844,10 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   addressIpVersion?: string;
   /**
    * @remarks
-   * Load balancer address type:
-   * - Internet: Public network.
-   * - Intranet: Private network.
+   * The address type. Valid values:
+   * 
+   * *   Internet
+   * *   Intranet
    * 
    * @example
    * Internet
@@ -4837,7 +4855,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   addressType?: string;
   /**
    * @remarks
-   * Indicates whether this is the default entry address for the gateway.
+   * Indicates whether the address is the default ingress address of the instance.
    * 
    * @example
    * true
@@ -4845,7 +4863,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   gatewayDefault?: boolean;
   /**
    * @remarks
-   * Load balancer ID.
+   * The load balancer ID.
    * 
    * @example
    * nlb-xqwioje1c91r***
@@ -4853,8 +4871,9 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   loadBalancerId?: string;
   /**
    * @remarks
-   * Load balancer provision mode for the gateway:
-   * - Managed: Managed by the Cloud Native API Gateway.
+   * The mode in which the load balancer is provided. Valid values:
+   * 
+   * *   Managed: Cloud-native API Gateway manages and provides the load balancer.
    * 
    * @example
    * Managed
@@ -4862,14 +4881,15 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   mode?: string;
   /**
    * @remarks
-   * List of listening ports.
+   * The list of listened ports.
    */
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
    * @remarks
-   * Status of the load balancer:
-   * - Ready: Available.
-   * - NotCreate: No associated instance.
+   * The load balancer status. Valid values:
+   * 
+   * *   Ready: The load balancer is available.
+   * *   NotCreate: The load balancer is not associated with the instance.
    * 
    * @example
    * Ready
@@ -4877,9 +4897,10 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * Type of load balancer for the gateway:
-   * - NLB: Network Load Balancer.
-   * - CLB: Classic Load Balancer.
+   * The load balancer type. Valid values:
+   * 
+   * *   NLB: Network Load Balancer
+   * *   CLB: Classic Load Balancer
    * 
    * @example
    * NLB
@@ -4928,7 +4949,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
 export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $dara.Model {
   /**
    * @remarks
-   * The Security Group ID.
+   * The security group ID.
    * 
    * @example
    * sg-xxxx
@@ -4958,7 +4979,7 @@ export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $dara.Model 
 export class ListGatewaysResponseBodyDataItemsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * owner
@@ -4966,7 +4987,7 @@ export class ListGatewaysResponseBodyDataItemsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * zhangsan
@@ -5088,12 +5109,12 @@ export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $dara.Model {
 export class ListGatewaysResponseBodyDataItemsZones extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch.
+   * The vSwitch information.
    */
   vSwitch?: ListGatewaysResponseBodyDataItemsZonesVSwitch;
   /**
    * @remarks
-   * The ID of the current zone.
+   * The zone ID.
    * 
    * @example
    * cn-hangzhou-f
@@ -5128,10 +5149,10 @@ export class ListGatewaysResponseBodyDataItemsZones extends $dara.Model {
 export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Charge type
+   * The billing method. Valid values:
    * 
-   * - POSTPAY: Postpaid (pay-as-you-go)
-   * - PREPAY: Prepaid (subscription)
+   * *   POSTPAY: pay-as-you-go
+   * *   PREPAY: subscription
    * 
    * @example
    * POSTPAY
@@ -5139,8 +5160,9 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Source of gateway creation:
-   * - Console: Console.
+   * The creation source of the instance. Valid values:
+   * 
+   * *   Console
    * 
    * @example
    * Console
@@ -5148,7 +5170,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * Creation timestamp, in milliseconds.
+   * The time when the instance was created. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -5156,7 +5178,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Expiration timestamp for prepaid (annual or monthly) subscriptions. Unit: milliseconds.
+   * The time when the instance expires. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 172086834548
@@ -5164,7 +5186,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * Gateway ID.
+   * The instance ID.
    * 
    * @example
    * gw-cpv54p5***
@@ -5172,12 +5194,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * List of gateway entry addresses.
+   * The ingress addresses of the instance.
    */
   loadBalancers?: ListGatewaysResponseBodyDataItemsLoadBalancers[];
   /**
    * @remarks
-   * Gateway name.
+   * The instance name.
    * 
    * @example
    * itemcenter-gateway
@@ -5185,7 +5207,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Number of gateway instance nodes.
+   * The node quantity of the instance.
    * 
    * @example
    * 2
@@ -5193,7 +5215,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   replicas?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-xxx
@@ -5201,13 +5223,14 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Security Group.
+   * The security group information about the instance.
    */
   securityGroup?: ListGatewaysResponseBodyDataItemsSecurityGroup;
   /**
    * @remarks
-   * Gateway specification:
-   * - apigw.small.x1: Small specification.
+   * The instance specification. Valid values:
+   * 
+   * *   apigw.small.x1
    * 
    * @example
    * apigw.small.x1
@@ -5215,16 +5238,17 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * Gateway status:
-   * - Running: Running.
-   * - Creating: Creating.
-   * - CreateFailed: Creation failed.
-   * - Upgrading: Upgrading.
-   * - UpgradeFailed: Upgrade failed.
-   * - Restarting: Restarting.
-   * - RestartFailed: Restart failed.
-   * - Deleting: Deleting.
-   * - DeleteFailed: Deletion failed.
+   * The instance state. Valid values:
+   * 
+   * *   Running: The instance is running.
+   * *   Creating: The instance is being created.
+   * *   CreateFailed: The instance fails to be created.
+   * *   Upgrading: The instance is being upgraded.
+   * *   UpgradeFailed: The instance fails to be upgraded.
+   * *   Restarting: The instance is being restarted.
+   * *   RestartFailed: The instance fails to be restarted.
+   * *   Deleting: The instance is being released.
+   * *   DeleteFailed: The instance failed to be released.
    * 
    * @example
    * Running
@@ -5232,17 +5256,17 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * List of sub domain information
+   * The second-level domain names.
    */
   subDomainInfos?: SubDomainInfo[];
   /**
    * @remarks
-   * Array of tags.
+   * The tags.
    */
   tags?: ListGatewaysResponseBodyDataItemsTags[];
   /**
    * @remarks
-   * Target version of the gateway. When it is inconsistent with the current `version`, an upgrade can be performed.
+   * The destination version of the instance. If the value is inconsistent with the current version, you can upgrade the instance.
    * 
    * @example
    * 2.0.2
@@ -5250,7 +5274,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   targetVersion?: string;
   /**
    * @remarks
-   * Update timestamp. Unit: milliseconds.
+   * The time when the instance was last updated. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -5258,12 +5282,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   updateTimestamp?: number;
   /**
    * @remarks
-   * The vSwtich.
+   * The vSwitch information.
    */
   vSwitch?: ListGatewaysResponseBodyDataItemsVSwitch;
   /**
    * @remarks
-   * Gateway version.
+   * The instance version.
    * 
    * @example
    * 2.0.2
@@ -5271,12 +5295,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The VPC.
+   * The virtual private cloud (VPC) information of the instance.
    */
   vpc?: ListGatewaysResponseBodyDataItemsVpc;
   /**
    * @remarks
-   * The Zones.
+   * The availability zones of the instance.
    */
   zones?: ListGatewaysResponseBodyDataItemsZones[];
   static names(): { [key: string]: string } {
@@ -5362,12 +5386,12 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
 export class ListGatewaysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Gateway list
+   * The instances.
    */
   items?: ListGatewaysResponseBodyDataItems[];
   /**
    * @remarks
-   * Page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -5375,7 +5399,7 @@ export class ListGatewaysResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -5383,7 +5407,7 @@ export class ListGatewaysResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries returned.
    * 
    * @example
    * 6
@@ -5482,12 +5506,12 @@ export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
 export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * List of routes.
+   * The routes.
    */
   items?: HttpRoute[];
   /**
    * @remarks
-   * Page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -5495,7 +5519,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -5503,7 +5527,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total number of items.
+   * The total number of entries returned.
    * 
    * @example
    * 9
@@ -5542,12 +5566,12 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
 export class ListHttpApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * API information.
+   * The API information.
    */
   items?: HttpApiInfoByName[];
   /**
    * @remarks
-   * Page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -5555,7 +5579,7 @@ export class ListHttpApisResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -5563,7 +5587,7 @@ export class ListHttpApisResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries returned.
    * 
    * @example
    * 10
@@ -5662,12 +5686,12 @@ export class ListPolicyClassesResponseBodyData extends $dara.Model {
 export class ListServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Service list.
+   * The services.
    */
   items?: Service[];
   /**
    * @remarks
-   * Page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -5675,7 +5699,7 @@ export class ListServicesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -5683,7 +5707,7 @@ export class ListServicesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Total count.
+   * The total number of entries returned.
    * 
    * @example
    * 18
@@ -5842,7 +5866,7 @@ export class ListZonesResponseBodyData extends $dara.Model {
 export class UpdateDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Deploy revision id.
+   * The released version ID.
    * 
    * @example
    * apr-xxx
@@ -5942,7 +5966,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
 export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * Service port, do not pass in for dynamic ports.
+   * The service port. If you want to use a dynamic port, do not pass this parameter.
    * 
    * @example
    * 8080
@@ -5950,9 +5974,10 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * Service protocol:
-   * - HTTP.
-   * - HTTPS.
+   * The protocol. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
    * 
    * @example
    * HTTP
@@ -5960,7 +5985,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   protocol?: string;
   /**
    * @remarks
-   * Service ID.
+   * The service ID.
    * 
    * @example
    * svc-cr6pk4tlhtgm58e***
@@ -5968,7 +5993,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * Service version.
+   * The service version.
    * 
    * @example
    * v1
@@ -5976,7 +6001,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * Percentage value of traffic ratio.
+   * The percentage value of traffic.
    * 
    * @example
    * 49
@@ -6014,7 +6039,14 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
 export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   /**
    * @remarks
-   * Backend service scenario.
+   * The backend service scenario.
+   * 
+   * Valid values:
+   * 
+   * *   SingleService
+   * *   MultiServiceByRatio
+   * *   Redirect
+   * *   Mock
    * 
    * @example
    * SingleService
@@ -6022,7 +6054,7 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * List of backend services.
+   * The backend services.
    */
   services?: UpdateHttpApiRouteRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
@@ -8583,7 +8615,7 @@ export class ChangeResourceGroupResponse extends $dara.Model {
 export class CreateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * CA Certificate Identifier.
+   * The CA certificate ID.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -8591,7 +8623,7 @@ export class CreateDomainRequest extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * Certificate Unique Identifier.
+   * The certificate ID.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -8599,7 +8631,7 @@ export class CreateDomainRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * Client CA Certificate
+   * The client CA certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -8611,7 +8643,7 @@ export class CreateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * Specifies whether to enable forcible HTTPS redirection.
    * 
    * @example
    * false
@@ -8619,7 +8651,13 @@ export class CreateDomainRequest extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * HTTP/2 settings.
+   * The HTTP/2 configuration.
+   * 
+   * Valid values:
+   * 
+   * *   GlobalConfig
+   * *   Close
+   * *   Open
    * 
    * @example
    * Open
@@ -8627,12 +8665,12 @@ export class CreateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Whether to enable mTLS mutual authentication
+   * Specifies whether to enable mutual authentication.
    */
   mTLSEnabled?: boolean;
   /**
    * @remarks
-   * Domain name.
+   * The domain name.
    * 
    * This parameter is required.
    * 
@@ -8642,10 +8680,10 @@ export class CreateDomainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type supported by the domain.
+   * The protocol type supported by the domain name.
    * 
-   * - HTTP: Supports only HTTP protocol.
-   * - HTTPS: Supports only HTTPS protocol.
+   * *   HTTP: Only HTTP is supported.
+   * *   HTTPS: Only HTTPS is supported.
    * 
    * This parameter is required.
    * 
@@ -8655,7 +8693,7 @@ export class CreateDomainRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-aekzoiafjtr7zyq
@@ -8663,12 +8701,12 @@ export class CreateDomainRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The TLS cipher suites config.
+   * The cipher suite configuration.
    */
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * The maximum version of the TLS protocol. Up to TLS 1.3 is supported.
    * 
    * @example
    * TLS1.3
@@ -8676,7 +8714,7 @@ export class CreateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * The minimum version of the TLS protocol. Down to TLS 1.0 is supported.
    * 
    * @example
    * TLS1.0
@@ -8731,7 +8769,7 @@ export class CreateDomainRequest extends $dara.Model {
 export class CreateDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code returned.
    * 
    * @example
    * Ok
@@ -8739,12 +8777,12 @@ export class CreateDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: CreateDomainResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -8752,7 +8790,7 @@ export class CreateDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * The request ID, which is used to trace the API call link.
    * 
    * @example
    * 0C2D1C68-0D93-5561-8EE6-FDB7BF067A30
@@ -8997,13 +9035,19 @@ export class CreateEnvironmentResponse extends $dara.Model {
 export class CreateHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI protocols list.
+   * The AI API protocols. Valid value:
+   * 
+   * *   OpenAI/v1
    */
   aiProtocols?: string[];
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * Base path of the API, which must start with a \\"/\\".
+   * The API base path, which must start with a forward slash (/).
    * 
    * @example
    * /v1
@@ -9011,26 +9055,30 @@ export class CreateHttpApiRequest extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The deploy configs.
+   * The API deployment configurations. Currently, only AI APIs support deployment configurations, and only a single deployment configuration can be passed.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * Description of the API.
+   * The API description.
    * 
    * @example
-   * 测试专用API。
+   * API for testing
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   */
   enableAuth?: boolean;
   /**
    * @remarks
-   * Configuration information for the HTTP Ingress API.
+   * The HTTP Ingress configurations.
    */
   ingressConfig?: CreateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Name of the API.
+   * The API name.
    * 
    * This parameter is required.
    * 
@@ -9040,12 +9088,12 @@ export class CreateHttpApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * List of API access protocols.
+   * The protocols that are used to call the API.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzgvmlotionbi
@@ -9053,11 +9101,12 @@ export class CreateHttpApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Type of the HTTP API.
-   * - Http
-   * - Rest
-   * - WebSocket
-   * - HttpIngress
+   * The API type. Valid values:
+   * 
+   * *   Http
+   * *   Rest
+   * *   WebSocket
+   * *   HttpIngress
    * 
    * @example
    * Http
@@ -9065,7 +9114,7 @@ export class CreateHttpApiRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Versioning configuration for the API.
+   * The versioning configuration of the API.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
@@ -9132,7 +9181,7 @@ export class CreateHttpApiRequest extends $dara.Model {
 export class CreateHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -9140,12 +9189,12 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * API information.
+   * The API information.
    */
   data?: CreateHttpApiResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -9153,7 +9202,7 @@ export class CreateHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
@@ -9863,7 +9912,7 @@ export class CreatePolicyAttachmentResponse extends $dara.Model {
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Gateway ID.
+   * The gateway instance ID.
    * 
    * @example
    * gw-cq7l5s5lhtg***
@@ -9871,7 +9920,7 @@ export class CreateServiceRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-xxx
@@ -9879,18 +9928,28 @@ export class CreateServiceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * List of service configuration information.
+   * The list of service configurations.
    */
   serviceConfigs?: CreateServiceRequestServiceConfigs[];
   /**
    * @remarks
-   * Service source:
-   * - MSE_NACOS: Services in MSE Nacos.
-   * - K8S: Services in the K8S cluster of container service.
-   * - VIP: Fixed address service.
-   * - DNS: DNS domain name service.
-   * - FC3: Function Compute service.
-   * - SAE_K8S_SERVICE: SAE K8S service.
+   * The service source. Valid values:
+   * 
+   * *   MSE_NACOS: a service in an MSE Nacos instance
+   * *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
+   * *   VIP: a fixed IP address
+   * *   DNS: a Domain Name System (DNS) domain name
+   * *   FC3: a service in Function Compute
+   * *   SAE_K8S_SERVICE: a service in a K8s cluster in Serverless App Engine (SAE)
+   * 
+   * Enumerated values:
+   * 
+   * *   SAE_K8S_SERVICE
+   * *   K8S
+   * *   FC3
+   * *   DNS
+   * *   VIP
+   * *   MSE_NACOS
    * 
    * @example
    * MSE_NACOS
@@ -9929,7 +9988,7 @@ export class CreateServiceRequest extends $dara.Model {
 export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -9937,12 +9996,12 @@ export class CreateServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: CreateServiceResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -9950,7 +10009,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * C67DED2B-F19B-5BEC-88C1-D6EB854CD0D4
@@ -11039,8 +11098,7 @@ export class ExportHttpApiResponse extends $dara.Model {
 export class GetDashboardRequest extends $dara.Model {
   /**
    * @remarks
-   * zh: Chinese
-   * en: English
+   * The language. Valid values: zh (Chinese) and en (English).
    * 
    * @example
    * zh
@@ -11056,14 +11114,15 @@ export class GetDashboardRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * Filter configuration
+   * The filter configurations.
    */
   filter?: GetDashboardRequestFilter;
   /**
    * @remarks
-   * Dashboard name:
-   * - LOG: Access log
-   * - PLUGIN: Plugin log
+   * The dashboard name.
+   * 
+   * *   LOG: access logs
+   * *   PLUGIN: plug-in logs
    * 
    * @example
    * PLUGIN
@@ -11071,21 +11130,24 @@ export class GetDashboardRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * pls-dn82a9djd8z****
    */
   pluginClassId?: string;
+  pluginId?: string;
   /**
    * @remarks
-   * Dashboard source:
-   * - SLS: Log dashboard
+   * The dashboard source. Valid values:
+   * 
+   * *   SLS: Simple Log Service
    * 
    * @example
    * SLS
    */
   source?: string;
+  upstreamCluster?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'acceptLanguage',
@@ -11093,7 +11155,9 @@ export class GetDashboardRequest extends $dara.Model {
       filter: 'filter',
       name: 'name',
       pluginClassId: 'pluginClassId',
+      pluginId: 'pluginId',
       source: 'source',
+      upstreamCluster: 'upstreamCluster',
     };
   }
 
@@ -11104,7 +11168,9 @@ export class GetDashboardRequest extends $dara.Model {
       filter: GetDashboardRequestFilter,
       name: 'string',
       pluginClassId: 'string',
+      pluginId: 'string',
       source: 'string',
+      upstreamCluster: 'string',
     };
   }
 
@@ -11123,8 +11189,7 @@ export class GetDashboardRequest extends $dara.Model {
 export class GetDashboardShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * zh: Chinese
-   * en: English
+   * The language. Valid values: zh (Chinese) and en (English).
    * 
    * @example
    * zh
@@ -11140,14 +11205,15 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * Filter configuration
+   * The filter configurations.
    */
   filterShrink?: string;
   /**
    * @remarks
-   * Dashboard name:
-   * - LOG: Access log
-   * - PLUGIN: Plugin log
+   * The dashboard name.
+   * 
+   * *   LOG: access logs
+   * *   PLUGIN: plug-in logs
    * 
    * @example
    * PLUGIN
@@ -11155,21 +11221,24 @@ export class GetDashboardShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Plugin ID.
+   * The plug-in ID.
    * 
    * @example
    * pls-dn82a9djd8z****
    */
   pluginClassId?: string;
+  pluginId?: string;
   /**
    * @remarks
-   * Dashboard source:
-   * - SLS: Log dashboard
+   * The dashboard source. Valid values:
+   * 
+   * *   SLS: Simple Log Service
    * 
    * @example
    * SLS
    */
   source?: string;
+  upstreamCluster?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'acceptLanguage',
@@ -11177,7 +11246,9 @@ export class GetDashboardShrinkRequest extends $dara.Model {
       filterShrink: 'filter',
       name: 'name',
       pluginClassId: 'pluginClassId',
+      pluginId: 'pluginId',
       source: 'source',
+      upstreamCluster: 'upstreamCluster',
     };
   }
 
@@ -11188,7 +11259,9 @@ export class GetDashboardShrinkRequest extends $dara.Model {
       filterShrink: 'string',
       name: 'string',
       pluginClassId: 'string',
+      pluginId: 'string',
       source: 'string',
+      upstreamCluster: 'string',
     };
   }
 
@@ -11204,7 +11277,7 @@ export class GetDashboardShrinkRequest extends $dara.Model {
 export class GetDashboardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -11212,12 +11285,12 @@ export class GetDashboardResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response data
+   * The data returned.
    */
   data?: GetDashboardResponseBodyData;
   /**
    * @remarks
-   * Backend error code
+   * The error code.
    * 
    * @example
    * Ok
@@ -11225,7 +11298,7 @@ export class GetDashboardResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * success
@@ -11233,7 +11306,7 @@ export class GetDashboardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
@@ -11241,7 +11314,7 @@ export class GetDashboardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -11319,7 +11392,7 @@ export class GetDashboardResponse extends $dara.Model {
 export class GetDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether include domain related resource information.
+   * Specifies whether to return online resource information.
    * 
    * @example
    * true
@@ -11349,7 +11422,7 @@ export class GetDomainRequest extends $dara.Model {
 export class GetDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code returned.
    * 
    * @example
    * Ok
@@ -11357,12 +11430,12 @@ export class GetDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The data returned.
    */
   data?: GetDomainResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message returned.
    * 
    * @example
    * success
@@ -11370,7 +11443,7 @@ export class GetDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * The request ID, which is used to trace the API call link.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
@@ -11864,7 +11937,7 @@ export class GetHttpApiOperationResponse extends $dara.Model {
 export class GetHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -11872,12 +11945,12 @@ export class GetHttpApiRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Route detail data.
+   * The route details.
    */
   data?: HttpRoute;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -11885,7 +11958,7 @@ export class GetHttpApiRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
@@ -11959,7 +12032,7 @@ export class GetHttpApiRouteResponse extends $dara.Model {
 export class GetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -11967,12 +12040,12 @@ export class GetPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The data returned.
    */
   data?: PolicyDetailInfo;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -11980,7 +12053,7 @@ export class GetPolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32A***
@@ -12244,7 +12317,7 @@ export class GetResourceOverviewResponse extends $dara.Model {
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -12252,12 +12325,12 @@ export class GetServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Service details data.
+   * The service details.
    */
   data?: Service;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -12265,7 +12338,7 @@ export class GetServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 8FA9BB94-915B-5299-A694-49FCC7F5DD00
@@ -12478,15 +12551,15 @@ export class GetTraceConfigResponse extends $dara.Model {
 export class ImportHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the imported API. If not provided, it will be extracted from the API definition. The length is limited to 255 bytes.
+   * The API description, which cannot exceed 255 bytes in length. If you do not specify a description, a description is extracted from the definition file.
    * 
    * @example
-   * 测试专用API
+   * API for testing
    */
   description?: string;
   /**
    * @remarks
-   * Pre-import check. If enabled, only the check will be performed without importing the API.
+   * Specifies whether to perform a dry run. If this parameter is set to true, a dry run is performed without importing the file.
    * 
    * @example
    * false
@@ -12494,7 +12567,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The name of the imported API. If not provided, it will be extracted from the API definition file. If the API name and version configuration already exist, this import will update the existing API definition based on the `strategy` field.
+   * The API name. If you do not specify a name, a name is extracted from the definition file. If a name and a versioning configuration already exist, the existing API definition is updated based on the strategy field.
    * 
    * @example
    * import-test
@@ -12502,7 +12575,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * [The resource group ID](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfm3q4zjh7fkki
@@ -12510,7 +12583,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Base64 encoded API definition, supporting OAS2.0 and OAS3.0 specifications, in YAML or JSON format. It has a higher priority than the `specFileUrl` parameter. If the file size exceeds 10MB, please use the `specFileUrl` parameter to transfer.
+   * The Base64-encoded API definition. OAS 2.0 and OAS 3.0 specifications are supported. YAML and JSON formats are supported. This parameter precedes over the specFileUrl parameter. However, if the file size exceeds 10 MB, use the specFileUrl parameter to pass the definition.
    * 
    * @example
    * b3BlbmFwaTogMy4wLjAKaW5mbzoKICAgIHRpdGxlOiBkZW1vCiAgICBkZXNjcmlwdGlvbjogdGhpc2lzZGVtbwogICAgdmVyc2lvbjogIiIKcGF0aHM6CiAgICAvdXNlci97dXNlcklkfToKICAgICAgICBnZXQ6CiAgICAgICAgICAgIHN1bW1hcnk6IOiOt+WPlueUqOaIt+S/oeaBrwogICAgICAgICAgICBkZXNjcmlwdGlvbjog6I635Y+W55So5oi35L+h5oGvCiAgICAgICAgICAgIG9wZXJhdGlvbklkOiBHZXRVc2VySW5mbwogICAgICAgICAgICByZXNwb25zZXM6CiAgICAgICAgICAgICAgICAiMjAwIjoKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjog5oiQ5YqfCiAgICAgICAgICAgICAgICAgICAgY29udGVudDoKICAgICAgICAgICAgICAgICAgICAgICAgYXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04OgogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NoZW1hOiBudWxsCnNlcnZlcnM6CiAgICAtIHVybDogaHR0cDovL2FwaS5leGFtcGxlLmNvbS92MQo=
@@ -12518,7 +12591,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   specContentBase64?: string;
   /**
    * @remarks
-   * Download URL for the API definition file, which must be accessible from the public network or via an internal OSS download address within the same region. The file URL must have download permissions. For non-publicly readable OSS file links, refer to the documentation at https://help.aliyun.com/zh/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects, and provide a URL with download permissions. Currently, only API definition files stored on OSS are supported.
+   * The download URL of the API definition file. You can download the file over the Internet or by using an Object Storage Service (OSS) internal download URL that belongs to the current region. You must obtain the required permissions to download the file. For OSS URLs that are not publicly readable, refer to https://help.aliyun.com/zh/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects to specify URLs that provide download permissions. Currently, only OSS URLs are supported.
    * 
    * @example
    * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/my-api/api.yaml
@@ -12526,16 +12599,16 @@ export class ImportHttpApiRequest extends $dara.Model {
   specFileUrl?: string;
   /**
    * @remarks
-   * The oss config info.
+   * The OSS information.
    */
   specOssConfig?: ImportHttpApiRequestSpecOssConfig;
   /**
    * @remarks
-   * When the imported API name and version management match an existing API, you need to specify an update strategy.
-   * - SpecOnly: Completely based on the imported file.
-   * - SpecFirst: Prioritize the imported file, add new interfaces and update existing ones, while keeping interfaces not mentioned in the file unchanged.
-   * - ExistFirst: Prioritize the existing API, only add new interfaces without updating existing ones.
-   * If not specified, the default strategy is ExistFirst.
+   * The update policy when the API to be imported has the same version and name as an existing one. Valid values:
+   * 
+   * *   SpectOnly: All configurations in the file take effect.
+   * *   SpecFirst: The file takes precedence. New APIs are created and existing ones are updated. APIs not included in the file remain unchanged.
+   * *   ExistFirst (default): The existing APIs take precedence. New APIs are created but existing ones remain unchanged.
    * 
    * @example
    * ExistFirst
@@ -12543,7 +12616,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   strategy?: string;
   /**
    * @remarks
-   * If this field is specified, this import will update the specified API instead of importing or searching for an existing API based on the API name and version management configuration. The target API must be of REST type.
+   * The API to be updated. If this parameter is specified, this import updates only the specified API. New APIs are not created and unspecified existing APIs are not updated. Only REST APIs can be specified.
    * 
    * @example
    * api-xxxx
@@ -12551,7 +12624,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   targetHttpApiId?: string;
   /**
    * @remarks
-   * API versioning configuration. If versioning is enabled, and the version number and API name match an existing API, this import will be treated as an update. If versioning is not enabled, and the API name matches an existing API, this import will also be treated as an update.
+   * Version configuration.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
@@ -12602,7 +12675,7 @@ export class ImportHttpApiRequest extends $dara.Model {
 export class ImportHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -12610,12 +12683,12 @@ export class ImportHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * API information.
+   * The API information.
    */
   data?: ImportHttpApiResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -12623,7 +12696,7 @@ export class ImportHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CE857A85-251D-5018-8103-A38957D71E20
@@ -12697,7 +12770,7 @@ export class ImportHttpApiResponse extends $dara.Model {
 export class ListDomainsRequest extends $dara.Model {
   /**
    * @remarks
-   * Gateway Id.
+   * The instance ID.
    * 
    * @example
    * gw-xxx
@@ -12705,7 +12778,7 @@ export class ListDomainsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Domain name, fuzzy search.
+   * The domain name keyword for fuzzy search.
    * 
    * @example
    * test
@@ -12713,7 +12786,7 @@ export class ListDomainsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Page number, default is 1.
+   * The page number of the page to return. Default value: 1.
    * 
    * @example
    * 1
@@ -12721,7 +12794,7 @@ export class ListDomainsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page, default is 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -12729,7 +12802,7 @@ export class ListDomainsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -12767,7 +12840,7 @@ export class ListDomainsRequest extends $dara.Model {
 export class ListDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code returned.
    * 
    * @example
    * Ok
@@ -12775,12 +12848,12 @@ export class ListDomainsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response data.
    */
   data?: ListDomainsResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The message returned.
    * 
    * @example
    * success
@@ -12788,7 +12861,7 @@ export class ListDomainsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * The request ID, which is used to trace the API call link.
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129
@@ -13047,7 +13120,7 @@ export class ListEnvironmentsResponse extends $dara.Model {
 export class ListGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * Query exactly by Gateway ID.
+   * The instance ID. If you specify an ID, an exact search is performed.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -13055,7 +13128,7 @@ export class ListGatewaysRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Keyword, search with full match, case-insensitive.
+   * The search keyword. A full match is performed. The search is case-insensitive.
    * 
    * @example
    * dev
@@ -13063,7 +13136,7 @@ export class ListGatewaysRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Query exactly by Gateway name.
+   * The instance name. If you specify a name, an exact search is performed.
    * 
    * @example
    * itemcenter-gateway
@@ -13071,7 +13144,7 @@ export class ListGatewaysRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page number.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -13079,7 +13152,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -13087,7 +13160,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-aekz3wes3hnre5a
@@ -13095,7 +13168,7 @@ export class ListGatewaysRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Filter list by tags
+   * The tags that you want to use for the search.
    */
   tag?: ListGatewaysRequestTag[];
   static names(): { [key: string]: string } {
@@ -13137,7 +13210,7 @@ export class ListGatewaysRequest extends $dara.Model {
 export class ListGatewaysShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Query exactly by Gateway ID.
+   * The instance ID. If you specify an ID, an exact search is performed.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -13145,7 +13218,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Keyword, search with full match, case-insensitive.
+   * The search keyword. A full match is performed. The search is case-insensitive.
    * 
    * @example
    * dev
@@ -13153,7 +13226,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Query exactly by Gateway name.
+   * The instance name. If you specify a name, an exact search is performed.
    * 
    * @example
    * itemcenter-gateway
@@ -13161,7 +13234,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page number.
+   * The number of the page to return.
    * 
    * @example
    * 1
@@ -13169,7 +13242,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -13177,7 +13250,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-aekz3wes3hnre5a
@@ -13185,7 +13258,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Filter list by tags
+   * The tags that you want to use for the search.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {
@@ -13224,7 +13297,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
 export class ListGatewaysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13232,12 +13305,12 @@ export class ListGatewaysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Result of gateway list query.
+   * The instances.
    */
   data?: ListGatewaysResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -13245,7 +13318,7 @@ export class ListGatewaysResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 5B626361-070A-56A7-B127-ADAC8F3655DB
@@ -13534,7 +13607,7 @@ export class ListHttpApiOperationsResponse extends $dara.Model {
 export class ListHttpApiRoutesRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter the interface list based on a specific consumer authorization rule ID. The interface list in the response will only include authorized interfaces.
+   * The string that is used to filter routes based on consumer authentication rules. Only authorized APIs are returned.
    * 
    * @example
    * cas-xxx
@@ -13542,7 +13615,17 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * Deployment status of the route.
+   * The deployment state of the route.
+   * 
+   * Enumerated values:
+   * 
+   * *   Deploying: The route is being deployed.
+   * *   DeployedWithChanges: The route is deployed and modified.
+   * *   Undeploying: The route is being undeployed.
+   * *   NotDeployed: The route is not deployed.
+   * *   Deployed: The route is deployed.
+   * *   UndeployFailed: The route failed to be undeployed.
+   * *   DeployFailed: The route failed to be deployed.
    * 
    * @example
    * NotDeployed
@@ -13550,7 +13633,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * Filter route information by domain ID.
+   * Specifies to filter routes by domain ID.
    * 
    * @example
    * d-xxx
@@ -13558,7 +13641,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cpqnr6tlhtgubc***
@@ -13566,7 +13649,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Cloud-native API Gateway ID.
+   * The ID of the Cloud-native API Gateway instance.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -13574,7 +13657,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Route name.
+   * The route name.
    * 
    * @example
    * itemcenter-gateway
@@ -13582,7 +13665,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Fuzzy search by route name.
+   * The route name keyword for a fuzzy search.
    * 
    * @example
    * item
@@ -13590,7 +13673,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Page number, starting from 1. Default is 1 if not specified.
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13598,7 +13681,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, valid range [1, 100]. Default is 10 if not specified.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -13606,7 +13689,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Fuzzy search by route path.
+   * The route path keyword for a fuzzy search.
    * 
    * @example
    * /v1
@@ -13614,7 +13697,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * The response includes consumer authorization information.
+   * The consumer authorization information in the response.
    * 
    * @example
    * true
@@ -13622,7 +13705,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withAuthPolicyInfo?: boolean;
   /**
    * @remarks
-   * Each route information in the response carries the list of authorization rules for the specified consumer ID.
+   * The authentication rules of the specified consumer in each route returned.
    * 
    * @example
    * cs-xxx
@@ -13630,7 +13713,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * Each route information in the response carries the attachment information for the specified plugin ID.
+   * The mounting information of the specified plug-in in each route returned.
    * 
    * @example
    * pl-xxx
@@ -13684,7 +13767,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
 export class ListHttpApiRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13692,12 +13775,12 @@ export class ListHttpApiRoutesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response parameters.
    */
   data?: ListHttpApiRoutesResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -13705,7 +13788,7 @@ export class ListHttpApiRoutesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CBEEB8C1-108E-50F0-9BEA-DED79553C309
@@ -13779,7 +13862,7 @@ export class ListHttpApiRoutesResponse extends $dara.Model {
 export class ListHttpApisRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud-native API Gateway ID.
+   * The ID of the Cloud-native API Gateway instance.
    * 
    * @example
    * gw-cq2avtllh****
@@ -13787,7 +13870,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Search keyword, supports fuzzy search by API name or exact search by API ID.
+   * The search keyword. You can fuzzy-search by API name or exact-search by API ID.
    * 
    * @example
    * test-
@@ -13795,7 +13878,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Exact search by name.
+   * The API name that is used for the search. In this case, exact search is performed.
    * 
    * @example
    * login
@@ -13803,7 +13886,7 @@ export class ListHttpApisRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page number, starting from 1, default is 1 if not specified.
+   * The page number of the page to return. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13811,7 +13894,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, valid range [1, 100], default is 10 if not specified.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -13819,7 +13902,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -13827,19 +13910,21 @@ export class ListHttpApisRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Type of HTTP API. Multiple types can be passed, separated by ",".
-   * - Http
-   * - Rest
-   * - WebSocket
-   * - HttpIngress
+   * The API type. You can specify multiple types and separate them with a comma (,).
+   * 
+   * *   Http
+   * *   Rest
+   * *   WebSocket
+   * *   HttpIngress
    * 
    * @example
    * Http,Rest
    */
   types?: string;
+  withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * Each API information in the response carries consumer authentication policy information for the specified environment ID.
+   * The consumer authentication policy in the specified environment in each returned API.
    * 
    * @example
    * env-xxx
@@ -13847,7 +13932,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyInEnvironmentId?: string;
   /**
    * @remarks
-   * Whether the authentication policy is enabled.
+   * Specifies whether authentication is enabled.
    * 
    * @example
    * true
@@ -13855,7 +13940,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * Each API information in the response carries a list of authorization rules for the specified consumer ID.
+   * The authorization rules of the specified consumer in each returned API.
    * 
    * @example
    * cs-xxx
@@ -13863,7 +13948,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * Environment information
+   * The environment information.
    * 
    * @example
    * true
@@ -13871,7 +13956,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfo?: boolean;
   /**
    * @remarks
-   * Environment ID
+   * The environment ID.
    * 
    * @example
    * env-ctovu5mm1hksb4q8ln40
@@ -13879,7 +13964,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfoById?: string;
   /**
    * @remarks
-   * Ingress information
+   * The Ingress information.
    * 
    * @example
    * false
@@ -13887,12 +13972,13 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * Plugin ID, used to get plugin release information based on this ID.
+   * The plug-in ID. You can use the returned value of this parameter to query the plug-in.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0
    */
   withPluginAttachmentByPluginId?: string;
+  withPolicyConfigs?: boolean;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
@@ -13902,6 +13988,7 @@ export class ListHttpApisRequest extends $dara.Model {
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
       types: 'types',
+      withAPIsPublishedToEnvironment: 'withAPIsPublishedToEnvironment',
       withAuthPolicyInEnvironmentId: 'withAuthPolicyInEnvironmentId',
       withAuthPolicyList: 'withAuthPolicyList',
       withConsumerInfoById: 'withConsumerInfoById',
@@ -13909,6 +13996,7 @@ export class ListHttpApisRequest extends $dara.Model {
       withEnvironmentInfoById: 'withEnvironmentInfoById',
       withIngressInfo: 'withIngressInfo',
       withPluginAttachmentByPluginId: 'withPluginAttachmentByPluginId',
+      withPolicyConfigs: 'withPolicyConfigs',
     };
   }
 
@@ -13921,6 +14009,7 @@ export class ListHttpApisRequest extends $dara.Model {
       pageSize: 'number',
       resourceGroupId: 'string',
       types: 'string',
+      withAPIsPublishedToEnvironment: 'boolean',
       withAuthPolicyInEnvironmentId: 'string',
       withAuthPolicyList: 'boolean',
       withConsumerInfoById: 'string',
@@ -13928,6 +14017,7 @@ export class ListHttpApisRequest extends $dara.Model {
       withEnvironmentInfoById: 'string',
       withIngressInfo: 'boolean',
       withPluginAttachmentByPluginId: 'string',
+      withPolicyConfigs: 'boolean',
     };
   }
 
@@ -13943,7 +14033,7 @@ export class ListHttpApisRequest extends $dara.Model {
 export class ListHttpApisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -13951,12 +14041,12 @@ export class ListHttpApisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * API list.
+   * The APIs.
    */
   data?: ListHttpApisResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -13964,7 +14054,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
@@ -14214,7 +14304,7 @@ export class ListPolicyClassesResponse extends $dara.Model {
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud-native API Gateway ID.
+   * The ID of the Cloud-native API Gateway instance.
    * 
    * @example
    * gw-cpv4sqdl*****
@@ -14222,7 +14312,7 @@ export class ListServicesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Exact query by service name.
+   * The service name.
    * 
    * @example
    * user-service
@@ -14230,7 +14320,7 @@ export class ListServicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Page number, starting from 1. Default is 1 if not specified.
+   * The page number to return. Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -14238,7 +14328,7 @@ export class ListServicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, valid range [1, 100]. Default is 10 if not specified.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -14246,7 +14336,7 @@ export class ListServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmxxe5rc6cvla
@@ -14254,12 +14344,21 @@ export class ListServicesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Query by service source type. Service sources:
-   * - MSE_NACOS: Services from MSE Nacos.
-   * - K8S: Services from K8S clusters in container services.
-   * - FC3: Services from function computing.
-   * - VIP: Services from a fixed address.
-   * - DNS: Services from a domain name.
+   * The service source. Valid values:
+   * 
+   * *   MSE_NACOS: a service in an MSE Nacos instance
+   * *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
+   * *   FC3: a service in Function Compute
+   * *   VIP: a fixed address
+   * *   DNS: a domain name
+   * 
+   * Enumerated values:
+   * 
+   * *   K8S
+   * *   FC3
+   * *   DNS
+   * *   VIP
+   * *   MSE_NACOS
    * 
    * @example
    * MSE_NACOS
@@ -14299,7 +14398,7 @@ export class ListServicesRequest extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -14307,12 +14406,12 @@ export class ListServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data.
+   * The response parameters.
    */
   data?: ListServicesResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -14320,7 +14419,7 @@ export class ListServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
@@ -14728,11 +14827,17 @@ export class RestartGatewayResponse extends $dara.Model {
 
 export class UndeployHttpApiRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-cqsmtellhtgvo***
    */
   environmentId?: string;
   /**
+   * @remarks
+   * Route ID. This must be provided when publishing the route of an HTTP API.
+   * 
    * @example
    * hr-cr82undlhtgrle***
    */
@@ -14762,16 +14867,25 @@ export class UndeployHttpApiRequest extends $dara.Model {
 
 export class UndeployHttpApiResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
    */
@@ -14839,7 +14953,7 @@ export class UndeployHttpApiResponse extends $dara.Model {
 export class UpdateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * CA certificate identifier
+   * The CA certificate ID.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -14847,7 +14961,7 @@ export class UpdateDomainRequest extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * Certificate identifier
+   * The certificate ID.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -14855,7 +14969,7 @@ export class UpdateDomainRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * Client CA Certificate
+   * The client CA certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -14867,7 +14981,7 @@ export class UpdateDomainRequest extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * Specifies whether to enable HTTPS redirection. If protocol is set to HTTPS, forceHttps is required.
    * 
    * @example
    * false
@@ -14875,7 +14989,13 @@ export class UpdateDomainRequest extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * HTTP/2 settings.
+   * The HTTP/2 configuration.
+   * 
+   * Enumerated values:
+   * 
+   * *   GlobalConfig
+   * *   Close
+   * *   Open
    * 
    * @example
    * Open
@@ -14883,15 +15003,15 @@ export class UpdateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Whether to enable mTLS mutual authentication
+   * Specifies whether to enable mutual TLS (mTLS) authentication.
    */
   mTLSEnabled?: boolean;
   /**
    * @remarks
-   * The protocol type supported by the domain.
+   * The protocol type to be supported by the domain name. Valid values:
    * 
-   * - HTTP: Supports only HTTP protocol.
-   * - HTTPS: Supports only HTTPS protocol.
+   * *   HTTP
+   * *   HTTPS
    * 
    * This parameter is required.
    * 
@@ -14901,12 +15021,12 @@ export class UpdateDomainRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * TLS Cipher Suite Configuration.
+   * The cipher suite configuration.
    */
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * The maximum TLS version. Up to TLS 1.3 is supported.
    * 
    * @example
    * TLS 1.3
@@ -14914,7 +15034,7 @@ export class UpdateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * The minimum TLS version. Down to TLS 1.0 is supported.
    * 
    * @example
    * TLS 1.0
@@ -14965,7 +15085,7 @@ export class UpdateDomainRequest extends $dara.Model {
 export class UpdateDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -14973,12 +15093,12 @@ export class UpdateDomainResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response parameters.
    */
   data?: UpdateDomainResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -14986,7 +15106,7 @@ export class UpdateDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, used for tracing the API call chain.
+   * The request ID. You can use this value to trace the API call.
    * 
    * @example
    * 4BACB05C-3FE2-588F-9148-700C5C026B74
@@ -15726,12 +15846,12 @@ export class UpdateHttpApiOperationResponse extends $dara.Model {
 export class UpdateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * Backend service configuration for the route.
+   * The backend service configurations of the route.
    */
   backendConfig?: UpdateHttpApiRouteRequestBackendConfig;
   /**
    * @remarks
-   * Route description.
+   * The route description.
    * 
    * @example
    * test route
@@ -15739,12 +15859,12 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * List of domain IDs.
+   * The domain IDs.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * Environment ID.
+   * The environment ID.
    * 
    * @example
    * env-cquqsollhtgid***
@@ -15752,7 +15872,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Route match rule.
+   * The rules for matching the route.
    */
   match?: HttpRouteMatch;
   static names(): { [key: string]: string } {
@@ -15796,7 +15916,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
 export class UpdateHttpApiRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The status code.
    * 
    * @example
    * Ok
@@ -15804,7 +15924,7 @@ export class UpdateHttpApiRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -15812,7 +15932,7 @@ export class UpdateHttpApiRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CBEEB8C1-108E-50F0-9BEA-DED79553C309
@@ -16276,7 +16396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Domain
+   * Creates a domain name.
    * 
    * @remarks
    * Create Domain.
@@ -16361,7 +16481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Domain
+   * Creates a domain name.
    * 
    * @remarks
    * Create Domain.
@@ -16454,7 +16574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an API of HTTP type
+   * Creates an HTTP API.
    * 
    * @param request - CreateHttpApiRequest
    * @param headers - map
@@ -16536,7 +16656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an API of HTTP type
+   * Creates an HTTP API.
    * 
    * @param request - CreateHttpApiRequest
    * @returns CreateHttpApiResponse
@@ -16796,10 +16916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Service
+   * Creates a service.
    * 
    * @remarks
-   * The interface supports creating multiple services.
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - CreateServiceRequest
    * @param headers - map
@@ -16849,10 +16969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Service
+   * Creates a service.
    * 
    * @remarks
-   * The interface supports creating multiple services.
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -17334,7 +17454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Monitoring/Logging Dashboard Interface
+   * Obtains data from dashboards.
    * 
    * @param tmpReq - GetDashboardRequest
    * @param headers - map
@@ -17370,8 +17490,16 @@ export default class Client extends OpenApi {
       query["pluginClassId"] = request.pluginClassId;
     }
 
+    if (!$dara.isNull(request.pluginId)) {
+      query["pluginId"] = request.pluginId;
+    }
+
     if (!$dara.isNull(request.source)) {
       query["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.upstreamCluster)) {
+      query["upstreamCluster"] = request.upstreamCluster;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17398,7 +17526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Monitoring/Logging Dashboard Interface
+   * Obtains data from dashboards.
    * 
    * @param request - GetDashboardRequest
    * @returns GetDashboardResponse
@@ -17410,7 +17538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query domain details
+   * Queries the information about a domain name.
    * 
    * @param request - GetDomainRequest
    * @param headers - map
@@ -17448,7 +17576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query domain details
+   * Queries the information about a domain name.
    * 
    * @param request - GetDomainRequest
    * @returns GetDomainResponse
@@ -17640,7 +17768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of an HttpApi route
+   * Queries the details of a route of an HTTP API.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17670,7 +17798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the details of an HttpApi route
+   * Queries the details of a route of an HTTP API.
    * @returns GetHttpApiRouteResponse
    */
   async getHttpApiRoute(httpApiId: string, routeId: string): Promise<GetHttpApiRouteResponse> {
@@ -17680,7 +17808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetPolicy
+   * Queries a policy.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17710,7 +17838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetPolicy
+   * Queries a policy.
    * @returns GetPolicyResponse
    */
   async getPolicy(policyId: string): Promise<GetPolicyResponse> {
@@ -17800,7 +17928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service Details
+   * Queries the details of a service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17830,7 +17958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service Details
+   * Queries the details of a service.
    * @returns GetServiceResponse
    */
   async getService(serviceId: string): Promise<GetServiceResponse> {
@@ -17890,7 +18018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Import HttpApi
+   * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -17964,7 +18092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Import HttpApi
+   * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -17976,7 +18104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDomains
+   * Queries a list of domain names.
    * 
    * @param request - ListDomainsRequest
    * @param headers - map
@@ -18030,7 +18158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDomains
+   * Queries a list of domain names.
    * 
    * @param request - ListDomainsRequest
    * @returns ListDomainsResponse
@@ -18122,7 +18250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of created cloud-native gateways
+   * Queries a list of instances.
    * 
    * @param tmpReq - ListGatewaysRequest
    * @param headers - map
@@ -18190,7 +18318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of created cloud-native gateways
+   * Queries a list of instances.
    * 
    * @param request - ListGatewaysRequest
    * @returns ListGatewaysResponse
@@ -18288,7 +18416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a route for HttpApi
+   * Queries the routes of an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @param headers - map
@@ -18374,7 +18502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a route for HttpApi
+   * Queries the routes of an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @returns ListHttpApiRoutesResponse
@@ -18386,7 +18514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List HTTP APIs
+   * Queries a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @param headers - map
@@ -18424,6 +18552,10 @@ export default class Client extends OpenApi {
       query["types"] = request.types;
     }
 
+    if (!$dara.isNull(request.withAPIsPublishedToEnvironment)) {
+      query["withAPIsPublishedToEnvironment"] = request.withAPIsPublishedToEnvironment;
+    }
+
     if (!$dara.isNull(request.withAuthPolicyInEnvironmentId)) {
       query["withAuthPolicyInEnvironmentId"] = request.withAuthPolicyInEnvironmentId;
     }
@@ -18452,6 +18584,10 @@ export default class Client extends OpenApi {
       query["withPluginAttachmentByPluginId"] = request.withPluginAttachmentByPluginId;
     }
 
+    if (!$dara.isNull(request.withPolicyConfigs)) {
+      query["withPolicyConfigs"] = request.withPolicyConfigs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -18476,7 +18612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List HTTP APIs
+   * Queries a list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @returns ListHttpApisResponse
@@ -18554,7 +18690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Queries a list of services.
    * 
    * @param request - ListServicesRequest
    * @param headers - map
@@ -18612,7 +18748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Service List
+   * Queries a list of services.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -18820,10 +18956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateDomain
-   * 
-   * @remarks
-   * 只有类型为**容器服务**的来源允许更新监听Ingress的配置。
+   * Updates a domain name.
    * 
    * @param request - UpdateDomainRequest
    * @param headers - map
@@ -18897,10 +19030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateDomain
-   * 
-   * @remarks
-   * 只有类型为**容器服务**的来源允许更新监听Ingress的配置。
+   * Updates a domain name.
    * 
    * @param request - UpdateDomainRequest
    * @returns UpdateDomainResponse
@@ -19204,7 +19334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the route of HttpApi
+   * Updates the route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -19258,7 +19388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the route of HttpApi
+   * Updates the route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse
