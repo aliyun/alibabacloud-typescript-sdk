@@ -86,10 +86,12 @@ export class CreateTaskRequestInput extends $dara.Model {
 
 export class CreateTaskRequestParametersContentExtractionExtractionContents extends $dara.Model {
   content?: string;
+  identity?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      identity: 'Identity',
       title: 'Title',
     };
   }
@@ -97,6 +99,7 @@ export class CreateTaskRequestParametersContentExtractionExtractionContents exte
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      identity: 'string',
       title: 'string',
     };
   }
@@ -238,6 +241,61 @@ export class CreateTaskRequestParametersExtraParams extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestParametersIdentityRecognitionIdentityContents extends $dara.Model {
+  description?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestParametersIdentityRecognition extends $dara.Model {
+  identityContents?: CreateTaskRequestParametersIdentityRecognitionIdentityContents[];
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityContents: 'IdentityContents',
+      sceneIntroduction: 'SceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityContents: { 'type': 'array', 'itemType': CreateTaskRequestParametersIdentityRecognitionIdentityContents },
+      sceneIntroduction: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.identityContents)) {
+      $dara.Model.validateArray(this.identityContents);
+    }
     super.validate();
   }
 
@@ -539,6 +597,8 @@ export class CreateTaskRequestParameters extends $dara.Model {
   customPrompt?: CreateTaskRequestParametersCustomPrompt;
   customPromptEnabled?: boolean;
   extraParams?: CreateTaskRequestParametersExtraParams;
+  identityRecognition?: CreateTaskRequestParametersIdentityRecognition;
+  identityRecognitionEnabled?: boolean;
   meetingAssistance?: CreateTaskRequestParametersMeetingAssistance;
   /**
    * @example
@@ -571,6 +631,8 @@ export class CreateTaskRequestParameters extends $dara.Model {
       customPrompt: 'CustomPrompt',
       customPromptEnabled: 'CustomPromptEnabled',
       extraParams: 'ExtraParams',
+      identityRecognition: 'IdentityRecognition',
+      identityRecognitionEnabled: 'IdentityRecognitionEnabled',
       meetingAssistance: 'MeetingAssistance',
       meetingAssistanceEnabled: 'MeetingAssistanceEnabled',
       pptExtractionEnabled: 'PptExtractionEnabled',
@@ -594,6 +656,8 @@ export class CreateTaskRequestParameters extends $dara.Model {
       customPrompt: CreateTaskRequestParametersCustomPrompt,
       customPromptEnabled: 'boolean',
       extraParams: CreateTaskRequestParametersExtraParams,
+      identityRecognition: CreateTaskRequestParametersIdentityRecognition,
+      identityRecognitionEnabled: 'boolean',
       meetingAssistance: CreateTaskRequestParametersMeetingAssistance,
       meetingAssistanceEnabled: 'boolean',
       pptExtractionEnabled: 'boolean',
@@ -618,6 +682,9 @@ export class CreateTaskRequestParameters extends $dara.Model {
     }
     if(this.extraParams && typeof (this.extraParams as any).validate === 'function') {
       (this.extraParams as any).validate();
+    }
+    if(this.identityRecognition && typeof (this.identityRecognition as any).validate === 'function') {
+      (this.identityRecognition as any).validate();
     }
     if(this.meetingAssistance && typeof (this.meetingAssistance as any).validate === 'function') {
       (this.meetingAssistance as any).validate();
