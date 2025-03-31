@@ -403,6 +403,73 @@ export class CreateAppRequestCustomAppInfo extends $dara.Model {
   }
 }
 
+export class CreateCloudPhoneNodeRequestTag extends $dara.Model {
+  /**
+   * @example
+   * keyname
+   */
+  key?: string;
+  /**
+   * @example
+   * valuename
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
+  instanceIds?: string[];
+  /**
+   * @example
+   * cpn-e5kxgjyt8s1mb****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateKeyPairResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -1886,6 +1953,145 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
     if(Array.isArray(this.sourceFilePathList)) {
       $dara.Model.validateArray(this.sourceFilePathList);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 2
+   */
+  cpu?: string;
+  /**
+   * @example
+   * 2024-11-13 02:03:14
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2025-03-09 02:00:34
+   */
+  gmtExpired?: string;
+  /**
+   * @example
+   * 2025-02-13 02:03:14
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 32
+   */
+  memory?: number;
+  /**
+   * @example
+   * cn-hangzhou+dir-5mwr9azebliva****
+   */
+  networkId?: string;
+  /**
+   * @example
+   * cpn-ehs0yoedq8ntm****
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * node_name
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * 25
+   */
+  phoneCount?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @example
+   * cpm.gn6.gx1
+   */
+  serverType?: string;
+  /**
+   * @example
+   * 100
+   */
+  shareDataVolume?: number;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  /**
+   * @example
+   * vsw-2zeekryyc1q3sm72l****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      cpu: 'Cpu',
+      gmtCreate: 'GmtCreate',
+      gmtExpired: 'GmtExpired',
+      gmtModified: 'GmtModified',
+      memory: 'Memory',
+      networkId: 'NetworkId',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      phoneCount: 'PhoneCount',
+      regionId: 'RegionId',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+      serverType: 'ServerType',
+      shareDataVolume: 'ShareDataVolume',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      cpu: 'string',
+      gmtCreate: 'string',
+      gmtExpired: 'string',
+      gmtModified: 'string',
+      memory: 'number',
+      networkId: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      phoneCount: 'number',
+      regionId: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+      serverType: 'string',
+      shareDataVolume: 'number',
+      status: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -4711,6 +4917,232 @@ export class CreateAppResponse extends $dara.Model {
   }
 }
 
+export class CreateCloudPhoneNodeRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  count?: string;
+  /**
+   * @example
+   * imgc-075cllfeuazh0****
+   */
+  imageId?: string;
+  /**
+   * @example
+   * ac.max
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * cn-hangzhou+dir-5mwr9azebliva****
+   */
+  networkId?: string;
+  /**
+   * @example
+   * node_name
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * 25
+   */
+  phoneCount?: number;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @example
+   * 200
+   */
+  serverShareDataVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cpm.gn6.gx1
+   */
+  serverType?: string;
+  tag?: CreateCloudPhoneNodeRequestTag[];
+  /**
+   * @example
+   * vsw-2zeekryyc1q3sm72l****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
+      count: 'Count',
+      imageId: 'ImageId',
+      instanceType: 'InstanceType',
+      networkId: 'NetworkId',
+      nodeName: 'NodeName',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      phoneCount: 'PhoneCount',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+      serverShareDataVolume: 'ServerShareDataVolume',
+      serverType: 'ServerType',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bizRegionId: 'string',
+      chargeType: 'string',
+      count: 'string',
+      imageId: 'string',
+      instanceType: 'string',
+      networkId: 'string',
+      nodeName: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      phoneCount: 'number',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+      serverShareDataVolume: 'number',
+      serverType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeResponseBody extends $dara.Model {
+  nodeInfos?: CreateCloudPhoneNodeResponseBodyNodeInfos[];
+  /**
+   * @example
+   * 223684716098****
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeInfos: 'NodeInfos',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeInfos: { 'type': 'array', 'itemType': CreateCloudPhoneNodeResponseBodyNodeInfos },
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeInfos)) {
+      $dara.Model.validateArray(this.nodeInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCloudPhoneNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCloudPhoneNodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomImageRequest extends $dara.Model {
   /**
    * @remarks
@@ -5606,6 +6038,94 @@ export class DeleteAppsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAppsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudPhoneNodesRequest extends $dara.Model {
+  nodeIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeIds: 'NodeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudPhoneNodesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCloudPhoneNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCloudPhoneNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCloudPhoneNodesResponseBody,
     };
   }
 
@@ -6925,6 +7445,166 @@ export class DescribeBackupFilesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBackupFilesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudPhoneNodesRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: string;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
+   */
+  nextToken?: string;
+  nodeIds?: string[];
+  /**
+   * @example
+   * node_name
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * cpm.gn6.gx1
+   */
+  serverType?: string;
+  /**
+   * @example
+   * CREATING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeIds: 'NodeIds',
+      nodeName: 'NodeName',
+      serverType: 'ServerType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizRegionId: 'string',
+      chargeType: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      nodeName: 'string',
+      serverType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudPhoneNodesResponseBody extends $dara.Model {
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
+  nextToken?: string;
+  nodeModel?: DescribeCloudPhoneNodesResponseBodyNodeModel[];
+  /**
+   * @example
+   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 31
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeModel: 'NodeModel',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeModel: { 'type': 'array', 'itemType': DescribeCloudPhoneNodesResponseBodyNodeModel },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeModel)) {
+      $dara.Model.validateArray(this.nodeModel);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudPhoneNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudPhoneNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudPhoneNodesResponseBody,
     };
   }
 
@@ -9587,6 +10267,102 @@ export class ModifyAppResponse extends $dara.Model {
   }
 }
 
+export class ModifyCloudPhoneNodeRequest extends $dara.Model {
+  /**
+   * @example
+   * node_name_new
+   */
+  newNodeName?: string;
+  /**
+   * @example
+   * cpn-0ugbptfu473fy****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newNodeName: 'NewNodeName',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newNodeName: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCloudPhoneNodeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCloudPhoneNodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCloudPhoneNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCloudPhoneNodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
@@ -10783,6 +11559,122 @@ export class RenewAndroidInstanceGroupsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RenewAndroidInstanceGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCloudPhoneNodesRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  nodeIds?: string[];
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      nodeIds: 'NodeIds',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      period: 'number',
+      periodUnit: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCloudPhoneNodesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22365781890****
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCloudPhoneNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewCloudPhoneNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewCloudPhoneNodesResponseBody,
     };
   }
 
@@ -12591,6 +13483,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建云机节点
+   * 
+   * @param request - CreateCloudPhoneNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudPhoneNodeResponse
+   */
+  async createCloudPhoneNodeWithOptions(request: CreateCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<CreateCloudPhoneNodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.networkId)) {
+      query["NetworkId"] = request.networkId;
+    }
+
+    if (!$dara.isNull(request.nodeName)) {
+      query["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.phoneCount)) {
+      query["PhoneCount"] = request.phoneCount;
+    }
+
+    if (!$dara.isNull(request.resolutionHeight)) {
+      query["ResolutionHeight"] = request.resolutionHeight;
+    }
+
+    if (!$dara.isNull(request.resolutionWidth)) {
+      query["ResolutionWidth"] = request.resolutionWidth;
+    }
+
+    if (!$dara.isNull(request.serverShareDataVolume)) {
+      query["ServerShareDataVolume"] = request.serverShareDataVolume;
+    }
+
+    if (!$dara.isNull(request.serverType)) {
+      query["ServerType"] = request.serverType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudPhoneNode",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new CreateCloudPhoneNodeResponse({}));
+    } else {
+      return $dara.cast<CreateCloudPhoneNodeResponse>(await this.execute(params, req, runtime), new CreateCloudPhoneNodeResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建云机节点
+   * 
+   * @param request - CreateCloudPhoneNodeRequest
+   * @returns CreateCloudPhoneNodeResponse
+   */
+  async createCloudPhoneNode(request: CreateCloudPhoneNodeRequest): Promise<CreateCloudPhoneNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudPhoneNodeWithOptions(request, runtime);
+  }
+
+  /**
    * Create Custom Image
    * 
    * @param request - CreateCustomImageRequest
@@ -12950,6 +13957,53 @@ export default class Client extends OpenApi {
   async deleteApps(request: DeleteAppsRequest): Promise<DeleteAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppsWithOptions(request, runtime);
+  }
+
+  /**
+   * 释放服务器
+   * 
+   * @param request - DeleteCloudPhoneNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudPhoneNodesResponse
+   */
+  async deleteCloudPhoneNodesWithOptions(request: DeleteCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCloudPhoneNodesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudPhoneNodes",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new DeleteCloudPhoneNodesResponse({}));
+    } else {
+      return $dara.cast<DeleteCloudPhoneNodesResponse>(await this.execute(params, req, runtime), new DeleteCloudPhoneNodesResponse({}));
+    }
+
+  }
+
+  /**
+   * 释放服务器
+   * 
+   * @param request - DeleteCloudPhoneNodesRequest
+   * @returns DeleteCloudPhoneNodesResponse
+   */
+  async deleteCloudPhoneNodes(request: DeleteCloudPhoneNodesRequest): Promise<DeleteCloudPhoneNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudPhoneNodesWithOptions(request, runtime);
   }
 
   /**
@@ -13473,6 +14527,81 @@ export default class Client extends OpenApi {
   async describeBackupFiles(request: DescribeBackupFilesRequest): Promise<DescribeBackupFilesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云手机节点
+   * 
+   * @param request - DescribeCloudPhoneNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudPhoneNodesResponse
+   */
+  async describeCloudPhoneNodesWithOptions(request: DescribeCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCloudPhoneNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
+    }
+
+    if (!$dara.isNull(request.nodeName)) {
+      query["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.serverType)) {
+      query["ServerType"] = request.serverType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudPhoneNodes",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new DescribeCloudPhoneNodesResponse({}));
+    } else {
+      return $dara.cast<DescribeCloudPhoneNodesResponse>(await this.execute(params, req, runtime), new DescribeCloudPhoneNodesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询云手机节点
+   * 
+   * @param request - DescribeCloudPhoneNodesRequest
+   * @returns DescribeCloudPhoneNodesResponse
+   */
+  async describeCloudPhoneNodes(request: DescribeCloudPhoneNodesRequest): Promise<DescribeCloudPhoneNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudPhoneNodesWithOptions(request, runtime);
   }
 
   /**
@@ -14637,6 +15766,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改云机节点信息
+   * 
+   * @param request - ModifyCloudPhoneNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCloudPhoneNodeResponse
+   */
+  async modifyCloudPhoneNodeWithOptions(request: ModifyCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyCloudPhoneNodeResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCloudPhoneNode",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new ModifyCloudPhoneNodeResponse({}));
+    } else {
+      return $dara.cast<ModifyCloudPhoneNodeResponse>(await this.execute(params, req, runtime), new ModifyCloudPhoneNodeResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改云机节点信息
+   * 
+   * @param request - ModifyCloudPhoneNodeRequest
+   * @returns ModifyCloudPhoneNodeResponse
+   */
+  async modifyCloudPhoneNode(request: ModifyCloudPhoneNodeRequest): Promise<ModifyCloudPhoneNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCloudPhoneNodeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
    * 
    * @param request - ModifyInstanceChargeTypeRequest
@@ -15085,6 +16257,65 @@ export default class Client extends OpenApi {
   async renewAndroidInstanceGroups(request: RenewAndroidInstanceGroupsRequest): Promise<RenewAndroidInstanceGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewAndroidInstanceGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 续费服务器
+   * 
+   * @param request - RenewCloudPhoneNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewCloudPhoneNodesResponse
+   */
+  async renewCloudPhoneNodesWithOptions(request: RenewCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<RenewCloudPhoneNodesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewCloudPhoneNodes",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenewCloudPhoneNodesResponse>(await this.callApi(params, req, runtime), new RenewCloudPhoneNodesResponse({}));
+    } else {
+      return $dara.cast<RenewCloudPhoneNodesResponse>(await this.execute(params, req, runtime), new RenewCloudPhoneNodesResponse({}));
+    }
+
+  }
+
+  /**
+   * 续费服务器
+   * 
+   * @param request - RenewCloudPhoneNodesRequest
+   * @returns RenewCloudPhoneNodesResponse
+   */
+  async renewCloudPhoneNodes(request: RenewCloudPhoneNodesRequest): Promise<RenewCloudPhoneNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewCloudPhoneNodesWithOptions(request, runtime);
   }
 
   /**
