@@ -4200,7 +4200,7 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
    * The access key ID of your Amazon S3 account.
    * 
    * @example
-   * LTAIKh***
+   * yourAccessKeyID
    */
   accessKey?: string;
   /**
@@ -17316,7 +17316,7 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
 export class ListSitesRequestTagFilter extends $dara.Model {
   /**
    * @remarks
-   * Tag key, used as a filter condition for the query.
+   * The tag key. This parameter specifies a filter condition for the query.
    * 
    * @example
    * tag1
@@ -17324,7 +17324,7 @@ export class ListSitesRequestTagFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value, used as a filter condition for the query.
+   * The tag value. This parameter specifies a filter condition for the query.
    * 
    * @example
    * aaa
@@ -17356,10 +17356,10 @@ export class ListSitesRequestTagFilter extends $dara.Model {
 export class ListSitesResponseBodySites extends $dara.Model {
   /**
    * @remarks
-   * Site access type. Values:
+   * The DNS setup for the website. Valid values:
    * 
-   * - **NS**: Access through NS.
-   * - **CNAME**: Access through CNAME.
+   * *   **NS**
+   * *   **CNAME**
    * 
    * @example
    * NS
@@ -17367,7 +17367,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * CNAME suffix of the site. For sites accessed via CNAME, this is the CNAME suffix that needs to be configured.
+   * The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
    * 
    * @example
    * example.cname.com
@@ -17375,11 +17375,11 @@ export class ListSitesResponseBodySites extends $dara.Model {
   cnameZone?: string;
   /**
    * @remarks
-   * Site acceleration region. Values:
+   * The service location for the website. Valid values:
    * 
-   * - **domestic**: China mainland only.
-   * - **global**: Global.
-   * - **overseas**: Global (excluding China mainland).
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
    * 
    * @example
    * domestic
@@ -17387,7 +17387,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Site creation time, in ISO8601 format and using UTC time, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the website was added. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -17395,7 +17395,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the plan instance bound to the site.
+   * The ID of the plan associated with the website.
    * 
    * @example
    * onBvtlmIyeXLbiDw81F9
@@ -17403,7 +17403,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of NS (Name Servers) assigned to the site. Separated by commas (,).
+   * The nameservers assigned to the website domain, which are separated by commas (,).
    * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
@@ -17412,7 +17412,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   offlineReason?: string;
   /**
    * @remarks
-   * The name of the plan.
+   * The plan name.
    * 
    * @example
    * plan-168656498****
@@ -17420,7 +17420,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The specification name of the site\\"s plan.
+   * The plan associated with the website.
    * 
    * @example
    * normal
@@ -17428,7 +17428,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   planSpecName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek26g6i6se6pna
@@ -17436,7 +17436,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The site ID.
+   * The website ID.
    * 
    * @example
    * 123456789****
@@ -17444,7 +17444,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the site.
+   * The website name.
    * 
    * @example
    * example.com
@@ -17452,11 +17452,12 @@ export class ListSitesResponseBodySites extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * The status of the site. Possible values:
-   * - **pending**: The site is pending configuration.
-   * - **active**: The site is active.
-   * - **offline**: The site is offline.
-   * - **moved**: The site has been replaced.
+   * The website status. Valid values:
+   * 
+   * *   **pending**: The website is to be configured.
+   * *   **active**: The website is active.
+   * *   **offline**: The website is suspended.
+   * *   **moved**: The website has been added and verified by another Alibaba Cloud account.
    * 
    * @example
    * pending
@@ -17464,7 +17465,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the site.
+   * The tags of the website.
    * 
    * @example
    * {"tag1":"value1"}
@@ -17472,7 +17473,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The update time of the site, represented in ISO8601 format and using UTC, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the website was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -17480,7 +17481,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The verification code for site ownership. When the site is accessed via CNAME, this TXT verification code needs to be configured.
+   * The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
    * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
@@ -17488,7 +17489,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
   verifyCode?: string;
   /**
    * @remarks
-   * The visit time of the site, formatted according to ISO8601 and using UTC, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The website visit time is represented in the ISO 8601 date format using UTC time, formatted as yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-12-24T02:01:11Z
@@ -37438,7 +37439,7 @@ export class DeleteWafRuleResponse extends $dara.Model {
 export class DeleteWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
    * 
    * This parameter is required.
    * 
@@ -41916,6 +41917,105 @@ export class GetCompressionRuleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCompressionRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrossBorderOptimizationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 340035003106221
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrossBorderOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @example
+   * CF521A24-633F-5350-A6A5-42AD503D0D20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCrossBorderOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCrossBorderOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCrossBorderOptimizationResponseBody,
     };
   }
 
@@ -58468,10 +58568,10 @@ export class ListSiteDeliveryTasksResponse extends $dara.Model {
 export class ListSitesRequest extends $dara.Model {
   /**
    * @remarks
-   * Access type. Values:
+   * The DNS setup. Valid values:
    * 
-   * - **NS**: Access through NS hosting.
-   * - **CNAME**: Access through CNAME.
+   * *   **NS**
+   * *   **CNAME**
    * 
    * @example
    * NS
@@ -58479,10 +58579,11 @@ export class ListSitesRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * Acceleration region. Values:
-   * - **domestic**: China mainland only.
-   * - **global**: Global.
-   * - **overseas**: Global (excluding China mainland).
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
    * 
    * @example
    * global
@@ -58490,7 +58591,7 @@ export class ListSitesRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Enterprise edition only. When set to **true**, it indicates that only enterprise edition sites are queried.
+   * Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
    * 
    * @example
    * false
@@ -58498,9 +58599,9 @@ export class ListSitesRequest extends $dara.Model {
   onlyEnterprise?: boolean;
   /**
    * @remarks
-   * Sorting field, default sorted by creation time, supports:
-   * - gmtCreate: Site creation time
-   * - visitTime: Site access time
+   * Sorting field. By default, it sorts by creation time, supporting the following options:
+   * - gmtCreate: website creation time
+   * - visitTime：website visit time
    * 
    * @example
    * visitTime
@@ -58508,7 +58609,7 @@ export class ListSitesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Page number. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -58516,7 +58617,7 @@ export class ListSitesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Default value: **500**.
+   * The number of entries per page. Default value: **500**.
    * 
    * @example
    * 20
@@ -58524,11 +58625,12 @@ export class ListSitesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Plan subscription type. Values:
-   * - **basicplan**: Basic plan.
-   * - **standardplan**: Standard plan.
-   * - **advancedplan**: Advanced plan.
-   * - **enterpriseplan**: Enterprise plan.
+   * The plan type. Valid values:
+   * 
+   * *   **basicplan**: Entrance
+   * *   **standardplan**: Pro
+   * *   **advancedplan**: Premium
+   * *   **enterpriseplan**: Enterprise
    * 
    * @example
    * basicplan
@@ -58536,7 +58638,7 @@ export class ListSitesRequest extends $dara.Model {
   planSubscribeType?: string;
   /**
    * @remarks
-   * Resource group ID. Used as a filter condition for the query.
+   * The ID of the resource group. This parameter specifies a filter condition for the query.
    * 
    * @example
    * rg-aekzd3styujvyei
@@ -58544,7 +58646,7 @@ export class ListSitesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Site name. Used as a filter condition for the query.
+   * The website name. This parameter specifies a filter condition for the query.
    * 
    * @example
    * example.com
@@ -58552,12 +58654,12 @@ export class ListSitesRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Search match pattern for the site name. The default is exact match, with values:
+   * The match mode to search for the website name. Default value: exact. Valid values:
    * 
-   * - **prefix**: Prefix match.
-   * - **suffix**: Suffix match.
-   * - **exact**: Exact match.
-   * - **fuzzy**: Fuzzy match.
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact**: exact match.
+   * *   **fuzzy**: fuzzy match.
    * 
    * @example
    * fuzzy
@@ -58565,7 +58667,7 @@ export class ListSitesRequest extends $dara.Model {
   siteSearchType?: string;
   /**
    * @remarks
-   * Site status. Used as a filter condition for the query.
+   * The website status. This parameter specifies a filter condition for the query.
    * 
    * @example
    * pending
@@ -58573,7 +58675,7 @@ export class ListSitesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Tag filtering rules.
+   * The tag filtering rule.
    */
   tagFilter?: ListSitesRequestTagFilter[];
   static names(): { [key: string]: string } {
@@ -58625,10 +58727,10 @@ export class ListSitesRequest extends $dara.Model {
 export class ListSitesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Access type. Values:
+   * The DNS setup. Valid values:
    * 
-   * - **NS**: Access through NS hosting.
-   * - **CNAME**: Access through CNAME.
+   * *   **NS**
+   * *   **CNAME**
    * 
    * @example
    * NS
@@ -58636,10 +58738,11 @@ export class ListSitesShrinkRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * Acceleration region. Values:
-   * - **domestic**: China mainland only.
-   * - **global**: Global.
-   * - **overseas**: Global (excluding China mainland).
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
    * 
    * @example
    * global
@@ -58647,7 +58750,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * Enterprise edition only. When set to **true**, it indicates that only enterprise edition sites are queried.
+   * Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
    * 
    * @example
    * false
@@ -58655,9 +58758,9 @@ export class ListSitesShrinkRequest extends $dara.Model {
   onlyEnterprise?: boolean;
   /**
    * @remarks
-   * Sorting field, default sorted by creation time, supports:
-   * - gmtCreate: Site creation time
-   * - visitTime: Site access time
+   * Sorting field. By default, it sorts by creation time, supporting the following options:
+   * - gmtCreate: website creation time
+   * - visitTime：website visit time
    * 
    * @example
    * visitTime
@@ -58665,7 +58768,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Page number. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -58673,7 +58776,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Default value: **500**.
+   * The number of entries per page. Default value: **500**.
    * 
    * @example
    * 20
@@ -58681,11 +58784,12 @@ export class ListSitesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Plan subscription type. Values:
-   * - **basicplan**: Basic plan.
-   * - **standardplan**: Standard plan.
-   * - **advancedplan**: Advanced plan.
-   * - **enterpriseplan**: Enterprise plan.
+   * The plan type. Valid values:
+   * 
+   * *   **basicplan**: Entrance
+   * *   **standardplan**: Pro
+   * *   **advancedplan**: Premium
+   * *   **enterpriseplan**: Enterprise
    * 
    * @example
    * basicplan
@@ -58693,7 +58797,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   planSubscribeType?: string;
   /**
    * @remarks
-   * Resource group ID. Used as a filter condition for the query.
+   * The ID of the resource group. This parameter specifies a filter condition for the query.
    * 
    * @example
    * rg-aekzd3styujvyei
@@ -58701,7 +58805,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Site name. Used as a filter condition for the query.
+   * The website name. This parameter specifies a filter condition for the query.
    * 
    * @example
    * example.com
@@ -58709,12 +58813,12 @@ export class ListSitesShrinkRequest extends $dara.Model {
   siteName?: string;
   /**
    * @remarks
-   * Search match pattern for the site name. The default is exact match, with values:
+   * The match mode to search for the website name. Default value: exact. Valid values:
    * 
-   * - **prefix**: Prefix match.
-   * - **suffix**: Suffix match.
-   * - **exact**: Exact match.
-   * - **fuzzy**: Fuzzy match.
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact**: exact match.
+   * *   **fuzzy**: fuzzy match.
    * 
    * @example
    * fuzzy
@@ -58722,7 +58826,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   siteSearchType?: string;
   /**
    * @remarks
-   * Site status. Used as a filter condition for the query.
+   * The website status. This parameter specifies a filter condition for the query.
    * 
    * @example
    * pending
@@ -58730,7 +58834,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Tag filtering rules.
+   * The tag filtering rule.
    */
   tagFilterShrink?: string;
   static names(): { [key: string]: string } {
@@ -58779,7 +58883,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
 export class ListSitesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Page number of the returned data.
+   * The page number.
    * 
    * @example
    * 1
@@ -58787,7 +58891,7 @@ export class ListSitesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of sites per page.
+   * The number of websites per page.
    * 
    * @example
    * 20
@@ -58795,7 +58899,7 @@ export class ListSitesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -58803,12 +58907,12 @@ export class ListSitesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of queried site information.
+   * The queried websites.
    */
   sites?: ListSitesResponseBodySites[];
   /**
    * @remarks
-   * Total number of sites.
+   * The total number of websites.
    * 
    * @example
    * 40
@@ -64428,7 +64532,7 @@ export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model
    * @example
    * 123456789****
    */
-  siteId?: string;
+  siteId?: number;
   /**
    * @remarks
    * The website name.
@@ -64452,7 +64556,7 @@ export class SetOriginClientCertificateHostnamesResponseBody extends $dara.Model
       hostnames: { 'type': 'array', 'itemType': 'string' },
       id: 'string',
       requestId: 'string',
-      siteId: 'string',
+      siteId: 'number',
       siteName: 'string',
     };
   }
@@ -65927,6 +66031,108 @@ export class UpdateCompressionRuleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateCompressionRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCrossBorderOptimizationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCrossBorderOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCrossBorderOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCrossBorderOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateCrossBorderOptimizationResponseBody,
     };
   }
 
@@ -82552,6 +82758,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点中国大陆网络接入优化配置
+   * 
+   * @param request - GetCrossBorderOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCrossBorderOptimizationResponse
+   */
+  async getCrossBorderOptimizationWithOptions(request: GetCrossBorderOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<GetCrossBorderOptimizationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCrossBorderOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCrossBorderOptimizationResponse>(await this.callApi(params, req, runtime), new GetCrossBorderOptimizationResponse({}));
+    } else {
+      return $dara.cast<GetCrossBorderOptimizationResponse>(await this.execute(params, req, runtime), new GetCrossBorderOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询站点中国大陆网络接入优化配置
+   * 
+   * @param request - GetCrossBorderOptimizationRequest
+   * @returns GetCrossBorderOptimizationResponse
+   */
+  async getCrossBorderOptimization(request: GetCrossBorderOptimizationRequest): Promise<GetCrossBorderOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCrossBorderOptimizationWithOptions(request, runtime);
+  }
+
+  /**
    * Query Site Developer Mode Configuration
    * 
    * @param request - GetDevelopmentModeRequest
@@ -87023,7 +87272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site List
+   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
    * 
    * @param tmpReq - ListSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -87061,7 +87310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site List
+   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
    * 
    * @param request - ListSitesRequest
    * @returns ListSitesResponse
@@ -89606,6 +89855,57 @@ export default class Client extends OpenApi {
   async updateCompressionRule(request: UpdateCompressionRuleRequest): Promise<UpdateCompressionRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCompressionRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改站点中国大陆网络接入优化配置
+   * 
+   * @param request - UpdateCrossBorderOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCrossBorderOptimizationResponse
+   */
+  async updateCrossBorderOptimizationWithOptions(request: UpdateCrossBorderOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCrossBorderOptimizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCrossBorderOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateCrossBorderOptimizationResponse>(await this.callApi(params, req, runtime), new UpdateCrossBorderOptimizationResponse({}));
+    } else {
+      return $dara.cast<UpdateCrossBorderOptimizationResponse>(await this.execute(params, req, runtime), new UpdateCrossBorderOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改站点中国大陆网络接入优化配置
+   * 
+   * @param request - UpdateCrossBorderOptimizationRequest
+   * @returns UpdateCrossBorderOptimizationResponse
+   */
+  async updateCrossBorderOptimization(request: UpdateCrossBorderOptimizationRequest): Promise<UpdateCrossBorderOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCrossBorderOptimizationWithOptions(request, runtime);
   }
 
   /**
