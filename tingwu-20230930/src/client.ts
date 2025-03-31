@@ -831,7 +831,9 @@ export class DeleteTranscriptionPhrasesResponseBodyData extends $dara.Model {
 
 export class GetTaskInfoResponseBodyDataResult extends $dara.Model {
   autoChapters?: string;
+  contentExtraction?: string;
   customPrompt?: string;
+  identityRecognition?: string;
   meetingAssistance?: string;
   pptExtraction?: string;
   serviceInspection?: string;
@@ -842,7 +844,9 @@ export class GetTaskInfoResponseBodyDataResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoChapters: 'AutoChapters',
+      contentExtraction: 'ContentExtraction',
       customPrompt: 'CustomPrompt',
+      identityRecognition: 'IdentityRecognition',
       meetingAssistance: 'MeetingAssistance',
       pptExtraction: 'PptExtraction',
       serviceInspection: 'ServiceInspection',
@@ -856,7 +860,9 @@ export class GetTaskInfoResponseBodyDataResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoChapters: 'string',
+      contentExtraction: 'string',
       customPrompt: 'string',
+      identityRecognition: 'string',
       meetingAssistance: 'string',
       pptExtraction: 'string',
       serviceInspection: 'string',
