@@ -177,7 +177,7 @@ export class CancelSparkReplStatementResponseBodyData extends $dara.Model {
    * The error message.
    * 
    * @example
-   * StackOverflow Exception：
+   * StackOverflow Exception:
    */
   error?: string;
   /**
@@ -261,11 +261,17 @@ export class CancelSparkReplStatementResponseBodyData extends $dara.Model {
 
 export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
   /**
+   * @remarks
+   * The token that is used to access Databricks.
+   * 
    * @example
    * ******
    */
   accessToken?: string;
   /**
+   * @remarks
+   * The URL of the workspace.
+   * 
    * @example
    * xxxxx
    */
@@ -295,26 +301,41 @@ export class CreateApsDatasoureRequestDatabricksInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * ******
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The configuration of the host.
+   * 
    * @example
    * ******
    */
   hostConfig?: string;
   /**
+   * @remarks
+   * The URL of the Hive Metastore.
+   * 
    * @example
    * ******
    */
   metaStoreUri?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-uf*******h
    */
   securityGroup?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-bp1*****k
    */
@@ -350,11 +371,17 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Apache Kafka instance.
+   * 
    * @example
    * ******
    */
   kafkaClusterId?: string;
   /**
+   * @remarks
+   * The topic of the Apache Kafka instance.
+   * 
    * @example
    * test
    */
@@ -384,46 +411,76 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the data source is a cross-account resource. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   across?: boolean;
   /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
    * @example
    * test-role
    */
   acrossRole?: string;
   /**
+   * @remarks
+   * The cross-account UID.
+   * 
    * @example
    * 123456789*
    */
   acrossUid?: string;
   /**
+   * @remarks
+   * The URL used to connect to the custom ApsaraDB RDS for MySQL instance.
+   * 
    * @example
    * ****
    */
   connectUrl?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * pc-bp*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * ***
    */
   password?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-******
    */
   securityGroup?: string;
   /**
+   * @remarks
+   * The username used to access the instance.
+   * 
    * @example
    * test-user-name
    */
@@ -467,6 +524,9 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * -
    */
@@ -494,30 +554,49 @@ export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   /**
+   * @remarks
+   * The URL used to connect to the read-only instance.
+   * 
    * @example
    * ******
    */
   connectUrl?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rm-xxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The password of the database account of the instance.
+   * 
    * @example
    * ******
    */
   password?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-******
    */
   securityGroup?: string;
+  /**
+   * @remarks
+   * The name of the database account of the instance.
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -552,33 +631,48 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
 
 export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the data source is a cross-account resource.
+   * 
    * @example
    * false
    */
   across?: boolean;
   /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
    * @example
    * yyy
    */
   acrossRole?: string;
   /**
+   * @remarks
+   * The cross-account UID.
+   * 
    * @example
    * xxxx
    */
   acrossUid?: string;
   /**
+   * @remarks
+   * The SLS project.
+   * 
    * @example
    * test-project
    */
   project?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   sourceRegionId?: string;
   /**
    * @remarks
-   * sls logstore。
+   * The name of the SLS Logstore.
    * 
    * @example
    * test-store
@@ -617,21 +711,33 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
 
 export class CreateApsSlsADBJobRequestColumns extends $dara.Model {
   /**
+   * @remarks
+   * The name of the mapping.
+   * 
    * @example
    * test
    */
   mapName?: string;
   /**
+   * @remarks
+   * The type of the mapping.
+   * 
    * @example
    * int
    */
   mapType?: string;
   /**
+   * @remarks
+   * The name of the column.
+   * 
    * @example
    * id
    */
   name?: string;
   /**
+   * @remarks
+   * The data type of the column.
+   * 
    * @example
    * bigint
    */
@@ -665,16 +771,25 @@ export class CreateApsSlsADBJobRequestColumns extends $dara.Model {
 
 export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the conversion of timestamps.
+   * 
    * @example
-   * false。
+   * false
    */
   convert?: string;
   /**
+   * @remarks
+   * The format of the timestamp.
+   * 
    * @example
    *  APSyyyyMMdd
    */
   format?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the timestamp conversion.
+   * 
    * @example
    * false
    */
@@ -707,10 +822,9 @@ export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
 export class CreateDBClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The method that you want to use to restore data. Valid values:
+   * The key of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
    * 
-   * *   **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
-   * *   **timepoint**: restores data to a point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
+   * >  The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * testkey1
@@ -718,9 +832,9 @@ export class CreateDBClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The region ID of the source cluster.
+   * The value of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
    * 
-   * >  This parameter must be specified for cloning clusters across regions.
+   * >  The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
    * 
    * @example
    * test1
@@ -741,6 +855,79 @@ export class CreateDBClusterRequestTag extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
+  allocateUnit?: string;
+  groupName?: string;
+  maxWorkerQuantity?: number;
+  minWorkerQuantity?: number;
+  workerDiskCapacity?: string;
+  workerSpecName?: string;
+  workerSpecType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      groupName: 'GroupName',
+      maxWorkerQuantity: 'MaxWorkerQuantity',
+      minWorkerQuantity: 'MinWorkerQuantity',
+      workerDiskCapacity: 'WorkerDiskCapacity',
+      workerSpecName: 'WorkerSpecName',
+      workerSpecType: 'WorkerSpecType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      groupName: 'string',
+      maxWorkerQuantity: 'number',
+      minWorkerQuantity: 'number',
+      workerDiskCapacity: 'string',
+      workerSpecName: 'string',
+      workerSpecType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
+  category?: string;
+  headSpec?: string;
+  workerGroups?: CreateDBResourceGroupRequestRayConfigWorkerGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      headSpec: 'HeadSpec',
+      workerGroups: 'WorkerGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      headSpec: 'string',
+      workerGroups: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRayConfigWorkerGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workerGroups)) {
+      $dara.Model.validateArray(this.workerGroups);
+    }
     super.validate();
   }
 
@@ -1165,36 +1352,57 @@ export class DeleteSparkTemplateFileResponseBodyData extends $dara.Model {
 
 export class DescribeAPSADBInstancesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * The specifications of the reserved computing resources.
+   * 
    * @example
    * 16ACU
    */
   computeResource?: string;
   /**
+   * @remarks
+   * The description of the cluster.
+   * 
    * @example
    * adb_test
    */
   DBClusterDescription?: string;
   /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * 
    * @example
    * am-bp1********
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The status of the cluster.
+   * 
    * @example
    * Running
    */
   DBClusterStatus?: string;
   /**
+   * @remarks
+   * The amount of remaining reserved computing resources that are available in the cluster.
+   * 
    * @example
    * 24ACU
    */
   reservedACU?: string;
   /**
+   * @remarks
+   * The specifications of the reserved storage resources.
+   * 
    * @example
    * 24ACU
    */
   storageResource?: number;
   /**
+   * @remarks
+   * The zone ID of the cluster.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -2984,109 +3192,169 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
 
 export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model {
   /**
+   * @remarks
+   * The advanced configurations.
+   * 
    * @example
    * test.adv.config=value
    */
   advancedConfig?: string;
   /**
+   * @remarks
+   * The policy to handle tables with the same name in the destination cluster.
+   * 
    * @example
    * Intercept
    */
   conflictStrategy?: string;
   /**
+   * @remarks
+   * The time when the workload was created.
+   * 
    * @example
    * -
    */
   createTime?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * amv-*******
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 8
    */
   datasourceId?: number;
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * sls-******
    */
   datasourceName?: string;
   /**
+   * @remarks
+   * The ID of the E-MapReduce (EMR) cluster.
+   * 
    * @example
    * -
    */
   emrClusterId?: string;
   /**
+   * @remarks
+   * The number of AnalyticDB compute units (ACUs) required for migration.
+   * 
    * @example
    * 16
    */
   fullComputeUnit?: string;
   /**
    * @remarks
-   * hive meta store url。
+   * The URL of the Hive Metastore.
    * 
    * @example
    * -
    */
   metaStoreUri?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the AnalyticDB for MySQL cluster data.
+   * 
    * @example
    * oss://******
    */
   ossLocation?: string;
   /**
+   * @remarks
+   * The number of tasks that are allowed in parallel.
+   * 
    * @example
    * 2
    */
   parallelism?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group to which the SQL statement belongs.
+   * 
    * @example
    * test
    */
   resourceGroup?: string;
   /**
+   * @remarks
+   * The status of the workload.
+   * 
    * @example
    * COMPLETED
    */
   state?: string;
   /**
+   * @remarks
+   * The expression that manually matches the source database table whitelist.
+   * 
    * @example
    * abc
    */
   syncAllowExpression?: string;
   /**
+   * @remarks
+   * Manually match the blacklist expressions for source database tables.
+   * 
    * @example
    * def
    */
   syncDenyExpression?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * OSS
    */
   targetType?: string;
   /**
+   * @remarks
+   * The name of the vSwitch.
+   * 
    * @example
    * vsw-******
    */
   vswitch?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-******
    */
   workloadId?: string;
   /**
+   * @remarks
+   * The name of the workload.
+   * 
    * @example
    * test
    */
   workloadName?: string;
   /**
+   * @remarks
+   * The name of the workload.
+   * 
    * @example
    * test
    */
@@ -3254,47 +3522,78 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
 
 export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-******
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The name of the APS job.
+   * 
    * @example
    * data-sync-******
    */
   apsJobName?: string;
   /**
+   * @remarks
+   * The time when the APS job was created.
+   * 
    * @example
    * 2022-06-28 15:00:04
    */
   createTime?: string;
   /**
+   * @remarks
+   * The synchronization latency.
+   * 
    * @example
    * 0
    */
   delay?: number;
   /**
+   * @remarks
+   * The destination cluster ID.
+   * 
    * @example
    * amv-*******
    */
   destinationInstanceID?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   errMessage?: string;
+  /**
+   * @remarks
+   * The progress.
+   */
   projress?: string;
   /**
+   * @remarks
+   * The ID of the source instance or cluster.
+   * 
    * @example
    * pc-******
    */
   sourceInstanceID?: string;
   /**
+   * @remarks
+   * The status of the APS job.
+   * 
    * @example
    * -
    */
   status?: string;
   /**
+   * @remarks
+   * The status of the task.
+   * 
    * @example
    * -
    */
@@ -3470,21 +3769,33 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
 
 export class DescribeApsProgressResponseBodyApsHiveProgress extends $dara.Model {
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * test
    */
   dbName?: string;
   /**
+   * @remarks
+   * The migration progress.
+   * 
    * @example
    * 95
    */
   progress?: string;
   /**
+   * @remarks
+   * The migration speed.
+   * 
    * @example
    * 2
    */
   speed?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test
    */
@@ -3785,7 +4096,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The date when the suggestion is generated.The date is in the yyyyMMdd format.
+   * The date when the suggestion is generated. The date is in the yyyyMMdd format.
    * 
    * @example
    * 20221124
@@ -5313,31 +5624,53 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTags extends $d
 
 export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepListStepList extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the job step. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-03-10T10:28:34Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time of the job step. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-03-10T09:28:34Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The description of the job step.
+   * 
    * @example
    * Prepare resources
    */
   stepDesc?: string;
   /**
+   * @remarks
+   * The name of the job step.
+   * 
    * @example
    * PrepareResources
    */
   stepName?: string;
   /**
+   * @remarks
+   * The progress of the job step. Unit: %.
+   * 
    * @example
    * 50
    */
   stepProgress?: string;
   /**
+   * @remarks
+   * The status of the job step. Valid values:
+   * 
+   * *   NOT_RUN
+   * *   RUNNING
+   * *   SUCCEED
+   * 
    * @example
    * RUNNING
    */
@@ -5401,20 +5734,37 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepLis
 
 export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo extends $dara.Model {
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * ScaleUpDBCluster
    */
   name?: string;
   /**
+   * @remarks
+   * The progress of the job. Unit: %.
+   * 
    * @example
    * 10
    */
   progress?: string;
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   NOT_RUN
+   * *   RUNNING
+   * *   SUCCEED
+   * 
    * @example
    * RUNNING
    */
   status?: string;
+  /**
+   * @remarks
+   * The job steps.
+   */
   stepList?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepList;
   static names(): { [key: string]: string } {
     return {
@@ -5567,6 +5917,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    * 5.0
    */
   DBVersion?: string;
+  diskEncryption?: boolean;
   /**
    * @remarks
    * The engine of the cluster. **AnalyticDB** is returned.
@@ -5739,6 +6090,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    * rg-acfmyiu4ekp****
    */
   resourceGroupId?: string;
+  secondaryVSwitchId?: string;
+  secondaryZoneId?: string;
   /**
    * @remarks
    * The specifications of reserved storage resources. Each AnalyticDB compute unit (ACU) is approximately equal to 1 core and 4 GB memory. Storage resources are used to read and write data. The increase in the storage resources can improve the read and write performance of the cluster.
@@ -5765,6 +6118,10 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    * The tags that are added to the cluster.
    */
   tags?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags;
+  /**
+   * @remarks
+   * The job information.
+   */
   taskInfo?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo;
   /**
    * @remarks
@@ -5778,16 +6135,25 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
    */
   userENIStatus?: boolean;
   /**
+   * @remarks
+   * The vSwitch connected to the ENI. Separate multiple vSwitches with commas (,).
+   * 
    * @example
    * vsw-rj9ixufmywqq98z******,vsw-rj95ij6wcz656v7******
    */
   userENIVSwitchOptions?: string;
   /**
+   * @remarks
+   * The VPC information of the ENI.
+   * 
    * @example
    * vpc-rj9hnedlfm645uj******
    */
   userENIVpcId?: string;
   /**
+   * @remarks
+   * The zone associated with the ENI. Separate multiple zones with commas (,).
+   * 
    * @example
    * cn-hangzhou-k,cn-hangzhou-h
    */
@@ -5831,6 +6197,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       DBClusterStatus: 'DBClusterStatus',
       DBClusterType: 'DBClusterType',
       DBVersion: 'DBVersion',
+      diskEncryption: 'DiskEncryption',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
@@ -5849,6 +6216,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       reservedNodeCount: 'ReservedNodeCount',
       reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
+      secondaryVSwitchId: 'SecondaryVSwitchId',
+      secondaryZoneId: 'SecondaryZoneId',
       storageResource: 'StorageResource',
       storageResourceTotal: 'StorageResourceTotal',
       supportedFeatures: 'SupportedFeatures',
@@ -5879,6 +6248,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       DBClusterStatus: 'string',
       DBClusterType: 'string',
       DBVersion: 'string',
+      diskEncryption: 'boolean',
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
@@ -5897,6 +6267,8 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       reservedNodeCount: 'number',
       reservedNodeSize: 'string',
       resourceGroupId: 'string',
+      secondaryVSwitchId: 'string',
+      secondaryZoneId: 'string',
       storageResource: 'string',
       storageResourceTotal: 'string',
       supportedFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -6181,189 +6553,7 @@ export class DescribeDBClusterHealthStatusResponseBodyWorker extends $dara.Model
 export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends $dara.Model {
   /**
    * @remarks
-   * *   CPU
-   * 
-   *     *   **AnalyticDB_CPU_Usage_Percentage**: the CPU utilization.
-   * 
-   *         *   AnalyticDB_Storage_CPU_Avg_Usage_Percentage: the average CPU utilization across storage nodes.
-   *         *   AnalyticDB_Storage_CPU_Max_Usage_Percentage: the maximum CPU utilization across storage nodes.
-   *         *   AnalyticDB_Compute_CPU_Max_Usage_Percentage: the average CPU utilization across compute nodes.
-   *         *   AnalyticDB_Compute_CPU_Max_Usage_Percentage: the maximum CPU utilization across compute nodes.
-   *         *   AnalyticDB_CS_CPU_Avg_Usage_Percentage: the average CPU utilization across access nodes.
-   *         *   AnalyticDB_CS_CPU_Max_Usage_Percentage: the maximum CPU utilization across access nodes.
-   * 
-   * *   Connections
-   * 
-   *     *   **AnalyticDB_Instance_Connection_Count**: the number of connections to the cluster.
-   * 
-   *         *   AnalyticDB_Instance_Connection_Count: the number of connections to the cluster.
-   * 
-   * *   Writes
-   * 
-   *     *   **AnalyticDB_TPS**: the write TPS.
-   * 
-   *         *   tps: the sum of the insert_tps, update_tps, delete_tps, and load_tps values.
-   *         *   insert_tps: the number of successful INSERT INTO VALUES operations per second.
-   *         *   update_tps: the number of successful UPDATE operations per second.
-   *         *   delete_tps: the number of successful DELETE operations per second.
-   *         *   load_tps: the number of successful INSERT OVERWRITE operations per second.
-   * 
-   *     *   **AnalyticDB_InsertRT**: the write response time.
-   * 
-   *         *   AnalyticDB_Avg_InsertRT: the average amount of time consumed by writes.
-   *         *   AnalyticDB_Max_InsertRT: the maximum amount of time consumed by a single write.
-   * 
-   *     *   **AnalyticDB_InsertBytes**: the write throughput.
-   * 
-   *         *   AnalyticDB_InsertBytes: the amount of written data.
-   * 
-   * *   Updates
-   * 
-   *     *   **AnalyticDB_UpdateRT**: the update response time.
-   * 
-   *         *   updateinto_avg_rt: the average amount of time consumed by updates.
-   *         *   updateinto_max_rt: the maximum amount of time consumed by a single update.
-   * 
-   * *   Deletes
-   * 
-   *     *   **AnalyticDB_DeleteRT**: the delete response time.
-   * 
-   *         *   delete_avg_rt: the average amount of time consumed by deletes.
-   *         *   delete_max_rt: the maximum amount of time consumed by a single delete.
-   * 
-   * *   Queries
-   * 
-   *     *   **AnalyticDB_QPS**: the QPS.
-   * 
-   *         *   AnalyticDB_QPS: the number of SELECT operations completed per second.
-   *         *   AnalyticDB_ETL_QPS: the number of INSERT OVERWRITE operations completed per second.
-   * 
-   *     *   **AnalyticDB_QueryRT**: the query response time.
-   * 
-   *         *   AnalyticDB_Avg_QueryRT: the average amount of time consumed by queries.
-   *         *   AnalyticDB_Max_QueryRT: the maximum amount of time consumed by a single query.
-   *         *   etl_avg_rt: the average amount of time consumed by extract, transform, load (ETL) operations.
-   *         *   etl_max_rt: the maximum amount of time consumed by a single ETL operation.
-   * 
-   *     *   **AnalyticDB_QueryWaitTime**: the query wait time.
-   * 
-   *         *   AnalyticDB_Avg_QueryWaitTime: the average wait time for SELECT and ETL operations.
-   *         *   AnalyticDB_Max_QueryWaitTime: the maximum wait time for SELECT and ETL operations.
-   * 
-   *     *   AnalyticDB_QueryFailedRatio: the query failure rate.
-   * 
-   *         *   query_failed_ratio: the failure rate of SELECT and ETL operations.
-   * 
-   * *   Disks
-   * 
-   *     *   **AnalyticDB_IO_Throughput**: the disk I/O throughput.
-   * 
-   *         *   AnalyticDB_Storage_Read_IO_Throughput: the average read throughput across storage nodes.
-   *         *   AnalyticDB_Storage_Write_IO_Throughput: the average write throughput across storage nodes.
-   *         *   AnalyticDB_Compute_Read_IO_Throughput: the average read throughput across compute nodes.
-   *         *   AnalyticDB_Compute_Write_IO_Throughput: the average write throughput across compute nodes.
-   * 
-   *     *   **AnalyticDB_Disk_IO_Avg_Usage_Percentage**: the average I/O usage.
-   * 
-   *         *   AnalyticDB_Disk_IO_Avg_Usage_Percentage: the average I/O usage across storage nodes.
-   * 
-   *     *   **AnalyticDB_Disk_IO_Avg_Waiting_Time**: the average I/O wait time.
-   * 
-   *         *   AnalyticDB_Disk_IO_Avg_Waiting_Time: the average I/O wait time of storage nodes.
-   * 
-   *     *   **AnalyticDB_IOPS**: the disk IOPS.
-   * 
-   *         *   AnalyticDB_Storage_Read_IOPS: the average read IOPS of storage nodes.
-   *         *   AnalyticDB_Storage_Write_IOPS: the average write IOPS of storage nodes.
-   *         *   AnalyticDB_Compute_Read_IOPS: the average read IOPS of compute nodes.
-   *         *   AnalyticDB_Compute_Write_IOPS: the average write IOPS of compute nodes.
-   * 
-   *     *   **AnalyticDB_DiskUsage**: the disk storage that is used.
-   * 
-   *         *   disk_used_ratio: the average disk usage across nodes.
-   *         *   worker_max_node_disk_used_ratio: the maximum disk usage across nodes.
-   * 
-   *     *   **AnalyticDB_Hot_Data_Usage**: the disk storage that is used by hot data.
-   * 
-   *         *   AnalyticDB_Hot_Data_Usage: the disk storage that is used by hot data.
-   * 
-   *     *   **AnalyticDB_Cold_Data_Usage**: the disk storage that is used by cold data.
-   * 
-   *         *   AnalyticDB_Cold_Data_Usage: the disk storage that is used by cold data.
-   * 
-   *     *   AnalyticDB_DiskUsedRatio: the node disk usage.
-   * 
-   *         *   disk_used_ratio: the average disk usage across nodes.
-   *         *   worker_max_node_disk_used_ratio: the maximum disk usage across nodes.
-   * 
-   *     *   AnalyticDB_DiskUsedSize: the total data size of the cluster.
-   * 
-   *         *   user_used_disk_max: the maximum hot data size across nodes.
-   *         *   user_used_disk_avg: the average hot data size across nodes.
-   *         *   hot_disk_used: the hot data size.
-   *         *   cold_disk_used: the cold data size.
-   * 
-   * *   Other
-   * 
-   *     *   **AnalyticDB_BuildTaskCount**: the number of BUILD jobs.
-   * 
-   *         *   max_build_task_count: the maximum number of running BUILD jobs across nodes.
-   *         *   avg_build_task_count: the average number of running BUILD jobs across nodes.
-   * 
-   *     *   **AnalyticDB_ComputeMemoryUsedRatio**: the compute memory usage.
-   * 
-   *         *   max_worker_compute_memory_used_ratio: the maximum compute memory usage across storage nodes.
-   *         *   avg_worker_compute_memory_used_ratio: the average compute memory usage across storage nodes.
-   *         *   max_executor_compute_memory_used_ratio: the maximum compute memory usage across compute nodes.
-   *         *   avg_executor_compute_memory_used_ratio: the average compute memory usage across compute nodes.
-   * 
-   *     *   AnalyticDB_UnavailableNodeCount: the number of unavailable nodes.
-   * 
-   *         *   worker_unavailable_node_count: the number of unavailable storage nodes.
-   *         *   executor_unavailable_node_count: the number of unavailable compute nodes.
-   * 
-   * *   WLM
-   * 
-   *     *   AnalyticDB_WLM_ResubmitQueries_Count: the number of resubmitted WLM queries.
-   * 
-   *         *   AnalyticDB_WLM_ResubmitQueries_Count: the number of resubmitted WLM queries.
-   * 
-   *     *   AnalyticDB_WLM_SQA_AvgRt_MS: the average amount of time consumed by accelerated short WLM queries.
-   * 
-   *         *   AnalyticDB_WLM_SQA_AvgRt_MS: the average amount of time consumed by accelerated short WLM queries.
-   * 
-   *     *   AnalyticDB_WLM_SQA_Queries_Count: the number of accelerated short WLM queries.
-   * 
-   *         *   AnalyticDB_WLM_SQA_Queries_Count: the number of accelerated short WLM queries.
-   * 
-   *     *   AnalyticDB_WLM_TotalQueries_Count: the total number of WLM queries.
-   * 
-   *         *   AnalyticDB_WLM_TotalQueries_Count: the total number of WLM queries.
-   * 
-   * *   AnalyticDB Pipeline Service (APS)
-   * 
-   *     *   AnalyticDB_APS_BPS: the bytes per second (BPS) of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   *         *   APS_Read_BPS: the read BPS of APS.
-   * 
-   *     *   AnalyticDB_APS_CPU: the CPU utilization of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   *         *   APS_CPU_Avg_Usage_Percentage: the average CPU utilization of APS.
-   *         *   APS_CPU_Max_Usage_Percentage: the maximum CPU utilization of APS.
-   * 
-   *     *   AnalyticDB_APS_Memory: the memory usage of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   *         *   APS_Memory_Avg_Usage_Percentage: the average memory usage of APS.
-   *         *   APS_Memory_Max_Usage_Percentage: the maximum memory usage of APS.
-   * 
-   *     *   AnalyticDB_APS_RPS: the number of records per second of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   *         *   APS_Read_RPS: the number of read records per second of APS.
-   * 
-   *     *   AnalyticDB_APS_RT: the response time of APS provided by the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   *         *   APS_Read_Avg_RT: the average response time of APS.
-   *         *   APS_Read_Max_RT: the maximum response time of APS.
+   * The name of the performance metric value. For more information about the performance metrics, see [Metric overview](https://help.aliyun.com/document_detail/2863211.html).
    * 
    * @example
    * AnalyticDB_Storage_CPU_Avg_Usage_Percentage
@@ -7541,6 +7731,88 @@ export class DescribeDBClustersResponseBodyItems extends $dara.Model {
   }
 }
 
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups extends $dara.Model {
+  allocateUnit?: string;
+  groupName?: string;
+  maxWorkerQuantity?: number;
+  minWorkerQuantity?: number;
+  workerDiskCapacity?: string;
+  workerSpecName?: string;
+  workerSpecType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      groupName: 'GroupName',
+      maxWorkerQuantity: 'MaxWorkerQuantity',
+      minWorkerQuantity: 'MinWorkerQuantity',
+      workerDiskCapacity: 'WorkerDiskCapacity',
+      workerSpecName: 'WorkerSpecName',
+      workerSpecType: 'WorkerSpecType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      groupName: 'string',
+      maxWorkerQuantity: 'number',
+      minWorkerQuantity: 'number',
+      workerDiskCapacity: 'string',
+      workerSpecName: 'string',
+      workerSpecType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dara.Model {
+  category?: string;
+  headSpec?: string;
+  rayClusterAddress?: string;
+  rayDashboardAddress?: string;
+  rayGrafanaAddress?: string;
+  workerGroups?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      headSpec: 'HeadSpec',
+      rayClusterAddress: 'RayClusterAddress',
+      rayDashboardAddress: 'RayDashboardAddress',
+      rayGrafanaAddress: 'RayGrafanaAddress',
+      workerGroups: 'WorkerGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      headSpec: 'string',
+      rayClusterAddress: 'string',
+      rayDashboardAddress: 'string',
+      rayGrafanaAddress: 'string',
+      workerGroups: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workerGroups)) {
+      $dara.Model.validateArray(this.workerGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRules extends $dara.Model {
   /**
    * @remarks
@@ -7708,6 +7980,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
    */
   minComputeResource?: string;
   minGpuQuantity?: number;
+  rayConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig;
   /**
    * @remarks
    * The job resubmission rules.
@@ -7763,6 +8036,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       minGpuQuantity: 'MinGpuQuantity',
+      rayConfig: 'RayConfig',
       rules: 'Rules',
       runningClusterCount: 'RunningClusterCount',
       specName: 'SpecName',
@@ -7792,6 +8066,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       minGpuQuantity: 'number',
+      rayConfig: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig,
       rules: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRules },
       runningClusterCount: 'number',
       specName: 'string',
@@ -7804,6 +8079,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   validate() {
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
+    }
+    if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
+      (this.rayConfig as any).validate();
     }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
@@ -10640,7 +10918,15 @@ export class DescribeSchemasResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The operators sorted by the execution duration.
+   */
   operatorListSortedByExclusiveTime?: SparkOperatorInfo[];
+  /**
+   * @remarks
+   * The operators sorted by the maximum memory used.
+   */
   operatorListSortedByMaxMemory?: SparkOperatorInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -10673,51 +10959,88 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByM
 
 export class DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
+   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+   * 
    * @example
    * s202404291020bjd448ad40002122
    */
   appId?: string;
   /**
+   * @remarks
+   * The execution duration of the query. Unit: milliseconds.
+   * 
    * @example
    * 100
    */
   elapsedTime?: number;
   /**
+   * @remarks
+   * The ID of the query executed within the Spark application.
+   * 
    * @example
    * 1
    */
   innerQueryId?: number;
   /**
+   * @remarks
+   * The maximum operator execution duration. Unit: milliseconds.
+   * 
    * @example
    * 90
    */
   maxExclusiveTime?: number;
   /**
+   * @remarks
+   * The maximum operator memory used. Unit: bytes.
+   * 
    * @example
    * 1024
    */
   peakMemory?: number;
   /**
+   * @remarks
+   * The SQL statement.
+   * 
    * @example
    * select * from device where name = \\"105506012112790031\\"
    */
   SQL?: string;
   /**
+   * @remarks
+   * The number of entries scanned.
+   * 
    * @example
    * 100
    */
   scanRowCount?: number;
   /**
+   * @remarks
+   * The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-11-20 09:09:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The execution status of the query. Valid values:
+   * 
+   * *   COMPLETED
+   * *   CANCELED
+   * *   ABORTED
+   * *   FAILED
+   * 
    * @example
    * COMPLETED
    */
   state?: string;
   /**
+   * @remarks
+   * The unique ID of the code block in the Spark job.
+   * 
    * @example
    * 1
    */
@@ -13886,26 +14209,44 @@ export class ListApsLifecycleStrategyResponseBodyItems extends $dara.Model {
 
 export class ListApsOptimizationStrategyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * amv-23xxxx
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The status of the lifecycle management policy. Valid values:
+   * 
+   * 1.  on: enabled.
+   * 2.  off: disabled.
+   * 
    * @example
    * off
    */
   status?: string;
   /**
+   * @remarks
+   * The description of the lifecycle management policy.
+   * 
    * @example
    * test
    */
   strategyDesc?: string;
   /**
+   * @remarks
+   * The name of the lifecycle management policy.
+   * 
    * @example
    * test
    */
   strategyName?: string;
   /**
+   * @remarks
+   * The type of the lifecycle management policy. Only StrategyValue is returned.
+   * 
    * @example
    * StrategyValue
    */
@@ -14068,7 +14409,7 @@ export class ListApsOptimizationTasksResponseBodyItems extends $dara.Model {
 export class ListLakeStoragesResponseBodyItemsPermissions extends $dara.Model {
   /**
    * @remarks
-   * 具有该权限的账户或RAM用户ID
+   * The database account ID.
    * 
    * @example
    * -
@@ -14076,7 +14417,7 @@ export class ListLakeStoragesResponseBodyItemsPermissions extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * 表示是否允许读取湖存储的权限
+   * The read permissions.
    * 
    * @example
    * true
@@ -14084,7 +14425,7 @@ export class ListLakeStoragesResponseBodyItemsPermissions extends $dara.Model {
   read?: boolean;
   /**
    * @remarks
-   * 指定权限的账户类型
+   * The type of the database account.
    * 
    * @example
    * -
@@ -14092,7 +14433,7 @@ export class ListLakeStoragesResponseBodyItemsPermissions extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * 表示是否允许向湖存储写入数据的权限
+   * The write permissions.
    * 
    * @example
    * false
@@ -14128,7 +14469,7 @@ export class ListLakeStoragesResponseBodyItemsPermissions extends $dara.Model {
 export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 湖存储被创建的时间
+   * The time when the lake storage was created.
    * 
    * @example
    * 2021-04-01T09:50:18Z
@@ -14136,7 +14477,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 创建湖存储的用户账号的唯一标识符
+   * The creator UID.
    * 
    * @example
    * 123456
@@ -14144,7 +14485,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   creatorUid?: string;
   /**
    * @remarks
-   * 用于指定和挂载到特定ADB主实例的湖存储
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
    * @example
    * amv-*******
@@ -14152,20 +14493,23 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * 对湖存储的描述信息
+   * The description of the lake storage.
    * 
    * @example
    * Create a role to run ROS StackGroups.
    */
   description?: string;
   /**
+   * @remarks
+   * The size of data files.
+   * 
    * @example
    * 651
    */
   fileSize?: string;
   /**
    * @remarks
-   * 用于识别特定湖存储的唯一标识符
+   * The unique identifier of the lake storage.
    * 
    * @example
    * -
@@ -14173,7 +14517,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   lakeStorageId?: string;
   /**
    * @remarks
-   * 最后操作湖存储的用户账号的唯一标识符
+   * The operator UID.
    * 
    * @example
    * 123456
@@ -14181,7 +14525,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   operatorUid?: string;
   /**
    * @remarks
-   * 拥有湖存储资源的用户账号的唯一标识符
+   * The queried lake storage.
    * 
    * @example
    * 123456
@@ -14189,7 +14533,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   ownerUid?: string;
   /**
    * @remarks
-   * 设置湖存储的读/写权限和账户级别权限的数组
+   * The permissions on the lake storage.
    * 
    * @example
    * -
@@ -14197,7 +14541,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   permissions?: ListLakeStoragesResponseBodyItemsPermissions[];
   /**
    * @remarks
-   * 指定要操作的湖存储所在区域的ID
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -14205,7 +14549,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 湖存储中库表的总数量
+   * The number of tables.
    * 
    * @example
    * 30
@@ -14213,7 +14557,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   tableCount?: number;
   /**
    * @remarks
-   * 湖存储中所有库表的总数据行数
+   * The total number of entries returned.
    * 
    * @example
    * 30
@@ -14221,7 +14565,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   totalRows?: number;
   /**
    * @remarks
-   * 湖存储中数据的总存储量
+   * The total storage size.
    * 
    * @example
    * 111333
@@ -14229,7 +14573,7 @@ export class ListLakeStoragesResponseBodyItems extends $dara.Model {
   totalStorage?: string;
   /**
    * @remarks
-   * 湖存储最后一次更新的时间
+   * The time when the lake storage was last updated.
    * 
    * @example
    * 2024-03-15T02:24:32
@@ -14810,6 +15154,10 @@ export class ListSparkWarehouseBatchSQLResponseBodyData extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The queried Spark SQL statements.
+   */
   queries?: SparkBatchSQL[];
   /**
    * @example
@@ -15349,21 +15697,33 @@ export class ModifyApsDatasoureRequestSlsInfo extends $dara.Model {
 
 export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
   /**
+   * @remarks
+   * The name of the mapping.
+   * 
    * @example
    * map_name
    */
   mapName?: string;
   /**
+   * @remarks
+   * The type of the mapping.
+   * 
    * @example
    * bigint
    */
   mapType?: string;
   /**
+   * @remarks
+   * The name of the column.
+   * 
    * @example
    * test_name
    */
   name?: string;
   /**
+   * @remarks
+   * The data type of the column.
+   * 
    * @example
    * bigint
    */
@@ -15387,6 +15747,79 @@ export class ModifyApsSlsADBJobRequestColumns extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
+  allocateUnit?: string;
+  groupName?: string;
+  maxWorkerQuantity?: number;
+  minWorkerQuantity?: number;
+  workerDiskCapacity?: string;
+  workerSpecName?: string;
+  workerSpecType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      groupName: 'GroupName',
+      maxWorkerQuantity: 'MaxWorkerQuantity',
+      minWorkerQuantity: 'MinWorkerQuantity',
+      workerDiskCapacity: 'WorkerDiskCapacity',
+      workerSpecName: 'WorkerSpecName',
+      workerSpecType: 'WorkerSpecType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      groupName: 'string',
+      maxWorkerQuantity: 'number',
+      minWorkerQuantity: 'number',
+      workerDiskCapacity: 'string',
+      workerSpecName: 'string',
+      workerSpecType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
+  category?: string;
+  headSpec?: string;
+  workerGroups?: ModifyDBResourceGroupRequestRayConfigWorkerGroups[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      headSpec: 'HeadSpec',
+      workerGroups: 'WorkerGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      headSpec: 'string',
+      workerGroups: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRayConfigWorkerGroups },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workerGroups)) {
+      $dara.Model.validateArray(this.workerGroups);
+    }
     super.validate();
   }
 
@@ -17235,6 +17668,11 @@ export class SparkBatchSQL extends $dara.Model {
 export class SparkBatchSQLStatement extends $dara.Model {
   /**
    * @example
+   * s20240122jsdx****
+   */
+  appId?: string;
+  /**
+   * @example
    * SELECT 100
    */
   code?: string;
@@ -17275,6 +17713,7 @@ export class SparkBatchSQLStatement extends $dara.Model {
   statementId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       code: 'Code',
       endTime: 'EndTime',
       error: 'Error',
@@ -17288,6 +17727,7 @@ export class SparkBatchSQLStatement extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       code: 'string',
       endTime: 'number',
       error: 'string',
@@ -18754,6 +19194,9 @@ export class CancelSparkWarehouseBatchSQLRequest extends $dara.Model {
 
 export class CancelSparkWarehouseBatchSQLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * 123
    */
@@ -19059,6 +19502,8 @@ export class CheckSampleDataSetResponse extends $dara.Model {
 export class CreateAPSJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the synchronization job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19067,6 +19512,8 @@ export class CreateAPSJobRequest extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
+   * The objects to be synchronized.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19075,6 +19522,8 @@ export class CreateAPSJobRequest extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
+   * The name of the database account of the destination cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19082,22 +19531,35 @@ export class CreateAPSJobRequest extends $dara.Model {
    */
   destinationEndpointInstanceID?: string;
   /**
+   * @remarks
+   * The password of the database account of the destination cluster.
+   * 
    * @example
    * ******
    */
   destinationEndpointPassword?: string;
   /**
+   * @remarks
+   * The name of the database account of the destination cluster.
+   * 
    * @example
    * ******
    */
   destinationEndpointUserName?: string;
   /**
+   * @remarks
+   * The partitions.
+   * 
    * @example
    * {}
    */
   partitionList?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19106,6 +19568,8 @@ export class CreateAPSJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the source instance or cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19113,21 +19577,33 @@ export class CreateAPSJobRequest extends $dara.Model {
    */
   sourceEndpointInstanceID?: string;
   /**
+   * @remarks
+   * The password of the database account of the source instance.
+   * 
    * @example
    * ******
    */
   sourceEndpointPassword?: string;
   /**
+   * @remarks
+   * The region ID of the source instance.
+   * 
    * @example
    * cn-beijing
    */
   sourceEndpointRegion?: string;
   /**
+   * @remarks
+   * The name of the database account of the source instance.
+   * 
    * @example
    * xxxx
    */
   sourceEndpointUserName?: string;
   /**
+   * @remarks
+   * The mode of the destination table.
+   * 
    * @example
    * 1
    */
@@ -19177,31 +19653,55 @@ export class CreateAPSJobRequest extends $dara.Model {
 
 export class CreateAPSJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-bj1xxxxxx
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1B8ED33-5E9B-512D-B188-1579ED6xxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -19446,6 +19946,8 @@ export class CreateAccountResponse extends $dara.Model {
 export class CreateApsCopyWorkloadRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19453,27 +19955,41 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 123
    */
   datasourceId?: number;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * dbName
    */
   dbName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test
    */
   tableName?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19482,6 +19998,8 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
   workloadId?: string;
   /**
    * @remarks
+   * The type of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19523,31 +20041,55 @@ export class CreateApsCopyWorkloadRequest extends $dara.Model {
 
 export class CreateApsCopyWorkloadResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * -
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -19624,6 +20166,8 @@ export class CreateApsCopyWorkloadResponse extends $dara.Model {
 export class CreateApsDatasoureRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19631,17 +20175,25 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The information about the Databricks data source.
+   * 
    * @example
    * -
    */
   databricksInfo?: CreateApsDatasoureRequestDatabricksInfo;
   /**
+   * @remarks
+   * The description of the data source.
+   * 
    * @example
    * description
    */
   datasourceDescription?: string;
   /**
    * @remarks
+   * The name of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19650,6 +20202,8 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
+   * The type of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19657,37 +20211,57 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    */
   datasourceType?: string;
   /**
+   * @remarks
+   * The information about the Hive data source.
+   * 
    * @example
    * -
    */
   hiveInfo?: CreateApsDatasoureRequestHiveInfo;
   /**
+   * @remarks
+   * The information about the source Apache Kafka instance.
+   * 
    * @example
    * -
    */
   kafkaInfo?: CreateApsDatasoureRequestKafkaInfo;
   /**
+   * @remarks
+   * The mode.
+   * 
    * @example
    * ALI_CLOUD_INSTANCE
    */
   mode?: string;
   /**
+   * @remarks
+   * The information about the source PolarDB for MySQL cluster.
+   * 
    * @example
    * -
    */
   polarDBMysqlInfo?: CreateApsDatasoureRequestPolarDBMysqlInfo;
   /**
+   * @remarks
+   * The information about the source PolarDB-X instance.
+   * 
    * @example
    * -
    */
   polarDBXInfo?: CreateApsDatasoureRequestPolarDBXInfo;
   /**
+   * @remarks
+   * The information about the source ApsaraDB RDS for MySQL instance.
+   * 
    * @example
    * -
    */
   rdsMysqlInfo?: CreateApsDatasoureRequestRdsMysqlInfo;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19695,6 +20269,9 @@ export class CreateApsDatasoureRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The information about the source Simple Log Service (SLS) instance or cluster.
+   * 
    * @example
    * -
    */
@@ -19768,6 +20345,8 @@ export class CreateApsDatasoureRequest extends $dara.Model {
 export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19775,17 +20354,25 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The information about the Databricks data source.
+   * 
    * @example
    * -
    */
   databricksInfoShrink?: string;
   /**
+   * @remarks
+   * The description of the data source.
+   * 
    * @example
    * description
    */
   datasourceDescription?: string;
   /**
    * @remarks
+   * The name of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19794,6 +20381,8 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
+   * The type of the data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19801,37 +20390,57 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    */
   datasourceType?: string;
   /**
+   * @remarks
+   * The information about the Hive data source.
+   * 
    * @example
    * -
    */
   hiveInfoShrink?: string;
   /**
+   * @remarks
+   * The information about the source Apache Kafka instance.
+   * 
    * @example
    * -
    */
   kafkaInfoShrink?: string;
   /**
+   * @remarks
+   * The mode.
+   * 
    * @example
    * ALI_CLOUD_INSTANCE
    */
   mode?: string;
   /**
+   * @remarks
+   * The information about the source PolarDB for MySQL cluster.
+   * 
    * @example
    * -
    */
   polarDBMysqlInfoShrink?: string;
   /**
+   * @remarks
+   * The information about the source PolarDB-X instance.
+   * 
    * @example
    * -
    */
   polarDBXInfoShrink?: string;
   /**
+   * @remarks
+   * The information about the source ApsaraDB RDS for MySQL instance.
+   * 
    * @example
    * -
    */
   rdsMysqlInfoShrink?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19839,6 +20448,9 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The information about the source Simple Log Service (SLS) instance or cluster.
+   * 
    * @example
    * -
    */
@@ -19890,36 +20502,63 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
 
 export class CreateApsDatasoureResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * amv-7xxxxx
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The information about the cluster resource usage.
+   * 
    * @example
    * 69
    */
   data?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 65D2***-45C1-5C18-**********
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the dry run succeeds. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -19994,13 +20633,22 @@ export class CreateApsDatasoureResponse extends $dara.Model {
 
 export class CreateApsHiveJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The advanced configurations.
+   * 
    * @example
    * -
    */
   advancedConfig?: string;
+  /**
+   * @remarks
+   * The policy to handle tables with the same name in the destination cluster.
+   */
   conflictStrategy?: string;
   /**
    * @remarks
+   * The ID of the AnalyticDB for MySQL cluster.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20008,12 +20656,17 @@ export class CreateApsHiveJobRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 40
    */
   datasourceId?: number;
   /**
    * @remarks
+   * The number of AnalyticDB compute units (ACUs) required for data migration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20022,16 +20675,25 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   fullComputeUnit?: string;
   /**
    * @remarks
+   * The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
+   * 
    * This parameter is required.
    */
   ossLocation?: string;
   /**
+   * @remarks
+   * The number of tasks that are allowed in parallel.
+   * 
    * @example
    * 8
    */
   parallelism?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20040,6 +20702,8 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The name of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20047,22 +20711,33 @@ export class CreateApsHiveJobRequest extends $dara.Model {
    */
   resourceGroup?: string;
   /**
+   * @remarks
+   * The expression that allows objects to be synchronized.
+   * 
    * @example
    * *
    */
   syncAllowExpression?: string;
   /**
+   * @remarks
+   * The expression that denies objects to be synchronized.
+   * 
    * @example
    * abc
    */
   syncDenyExpression?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * OSS
    */
   targetType?: string;
   /**
    * @remarks
+   * The name of the workload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20116,31 +20791,55 @@ export class CreateApsHiveJobRequest extends $dara.Model {
 
 export class CreateApsHiveJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * -
    */
   data?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2895BB82-B2C1-408E-AA73-DB8D59******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -20213,22 +20912,33 @@ export class CreateApsHiveJobResponse extends $dara.Model {
 
 export class CreateApsSlsADBJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
    * @example
    * test-role
    */
   acrossRole?: string;
   /**
+   * @remarks
+   * The cross-account UID.
+   * 
    * @example
    * 123456
    */
   acrossUid?: string;
   /**
+   * @remarks
+   * The advanced configurations.
+   * 
    * @example
    * -
    */
   advancedConfig?: string;
   /**
    * @remarks
+   * The information about columns.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20237,6 +20947,8 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   columns?: CreateApsSlsADBJobRequestColumns[];
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20244,12 +20956,17 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 327
    */
   datasourceId?: number;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20258,6 +20975,8 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The dirty data processing mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20265,60 +20984,89 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    */
   dirtyDataHandleMode?: string;
   /**
+   * @remarks
+   * The dirty data processing mode.
+   * 
    * @example
    * STOP
    */
   dirtyDataProcessPattern?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the consistency check.
+   * 
    * @example
    * false
    */
   exactlyOnce?: string;
   /**
+   * @remarks
+   * The number of full AnalyticDB compute units (ACUs).
+   * 
    * @example
    * 16
    */
   fullComputeUnit?: string;
   /**
+   * @remarks
+   * The advanced configurations of Hudi.
+   * 
    * @example
    * -
    */
   hudiAdvancedConfig?: string;
   /**
+   * @remarks
+   * The number of increment ACUs.
+   * 
    * @example
    * 168
    */
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * lakehosue ID。
+   * The lakehouse ID.
    * 
    * @example
    * 123
    */
   lakehouseId?: number;
   /**
+   * @remarks
+   * The latest offset.
+   * 
    * @example
    * -
    */
   maxOffsetsPerTrigger?: number;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL.
+   * 
    * @example
    * oss://test*
    */
   ossLocation?: string;
   /**
+   * @remarks
+   * The format of the output file.
+   * 
    * @example
    * -
    */
   outputFormat?: string;
   /**
+   * @remarks
+   * The information about partition.
+   * 
    * @example
    * -
    */
   partitionSpecs?: { [key: string]: any }[];
   /**
    * @remarks
+   * The password of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20326,17 +21074,25 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * The definition of the primary key.
+   * 
    * @example
    * -
    */
   primaryKeyDefinition?: string;
   /**
+   * @remarks
+   * The name of the SLS project.
+   * 
    * @example
    * test
    */
   project?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20344,17 +21100,25 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * test
    */
   resourceGroup?: string;
   /**
+   * @remarks
+   * 源集群所处地域ID。
+   * 
    * @example
    * cn-beijing
    */
   sourceRegionId?: string;
   /**
    * @remarks
+   * The start offset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20363,7 +21127,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   startingOffsets?: string;
   /**
    * @remarks
-   * sls Store。
+   * The SLS Logstore.
    * 
    * @example
    * test
@@ -20371,6 +21135,8 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   store?: string;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20378,22 +21144,33 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The rules for generating the destination database.
+   * 
    * @example
    * -
    */
   targetGenerateRule?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * ADB
    */
   targetType?: string;
   /**
+   * @remarks
+   * The timestamp conversion.
+   * 
    * @example
    * -
    */
   unixTimestampConvert?: CreateApsSlsADBJobRequestUnixTimestampConvert;
   /**
    * @remarks
+   * The name of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20402,6 +21179,8 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
+   * The name of the workload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20502,22 +21281,33 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
 
 export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the cross-account role.
+   * 
    * @example
    * test-role
    */
   acrossRole?: string;
   /**
+   * @remarks
+   * The cross-account UID.
+   * 
    * @example
    * 123456
    */
   acrossUid?: string;
   /**
+   * @remarks
+   * The advanced configurations.
+   * 
    * @example
    * -
    */
   advancedConfig?: string;
   /**
    * @remarks
+   * The information about columns.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20526,6 +21316,8 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   columnsShrink?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20533,12 +21325,17 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 327
    */
   datasourceId?: number;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20547,6 +21344,8 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The dirty data processing mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20554,60 +21353,89 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   dirtyDataHandleMode?: string;
   /**
+   * @remarks
+   * The dirty data processing mode.
+   * 
    * @example
    * STOP
    */
   dirtyDataProcessPattern?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the consistency check.
+   * 
    * @example
    * false
    */
   exactlyOnce?: string;
   /**
+   * @remarks
+   * The number of full AnalyticDB compute units (ACUs).
+   * 
    * @example
    * 16
    */
   fullComputeUnit?: string;
   /**
+   * @remarks
+   * The advanced configurations of Hudi.
+   * 
    * @example
    * -
    */
   hudiAdvancedConfig?: string;
   /**
+   * @remarks
+   * The number of increment ACUs.
+   * 
    * @example
    * 168
    */
   incrementalComputeUnit?: string;
   /**
    * @remarks
-   * lakehosue ID。
+   * The lakehouse ID.
    * 
    * @example
    * 123
    */
   lakehouseId?: number;
   /**
+   * @remarks
+   * The latest offset.
+   * 
    * @example
    * -
    */
   maxOffsetsPerTrigger?: number;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) URL.
+   * 
    * @example
    * oss://test*
    */
   ossLocation?: string;
   /**
+   * @remarks
+   * The format of the output file.
+   * 
    * @example
    * -
    */
   outputFormat?: string;
   /**
+   * @remarks
+   * The information about partition.
+   * 
    * @example
    * -
    */
   partitionSpecsShrink?: string;
   /**
    * @remarks
+   * The password of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20615,17 +21443,25 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   password?: string;
   /**
+   * @remarks
+   * The definition of the primary key.
+   * 
    * @example
    * -
    */
   primaryKeyDefinition?: string;
   /**
+   * @remarks
+   * The name of the SLS project.
+   * 
    * @example
    * test
    */
   project?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20633,17 +21469,25 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * test
    */
   resourceGroup?: string;
   /**
+   * @remarks
+   * 源集群所处地域ID。
+   * 
    * @example
    * cn-beijing
    */
   sourceRegionId?: string;
   /**
    * @remarks
+   * The start offset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20652,7 +21496,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   startingOffsets?: string;
   /**
    * @remarks
-   * sls Store。
+   * The SLS Logstore.
    * 
    * @example
    * test
@@ -20660,6 +21504,8 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   store?: string;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20667,22 +21513,33 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The rules for generating the destination database.
+   * 
    * @example
    * -
    */
   targetGenerateRule?: string;
   /**
+   * @remarks
+   * The destination type.
+   * 
    * @example
    * ADB
    */
   targetType?: string;
   /**
+   * @remarks
+   * The timestamp conversion.
+   * 
    * @example
    * -
    */
   unixTimestampConvertShrink?: string;
   /**
    * @remarks
+   * The name of the database account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20691,6 +21548,8 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   userName?: string;
   /**
    * @remarks
+   * The name of the workload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20782,31 +21641,55 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
 
 export class CreateApsSlsADBJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * -
    */
   data?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the dry run succeeds. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -20880,22 +21763,29 @@ export class CreateApsSlsADBJobResponse extends $dara.Model {
 export class CreateDBClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The default resource group ID.
+   * The ID of the backup set that you want to use to restore data.
+   * 
+   * >  You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup sets of the cluster.
    * 
    * @example
    * 1880808684
    */
   backupSetId?: string;
   /**
+   * @remarks
+   * The region ID of the source cluster.
+   * 
+   * >  This parameter must be specified for cloning clusters across regions.
+   * 
    * @example
    * cn-beijing
    */
   cloneSourceRegionId?: string;
   /**
    * @remarks
-   * The key of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * The amount of reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
    * 
-   * >  The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * >  This parameter must be specified with a unit.
    * 
    * @example
    * 16ACU
@@ -20903,7 +21793,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   computeResource?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the cluster.
+   * The description of the cluster.
+   * 
+   * *   The description cannot start with `http://` or `https://`.
+   * *   The description must be 2 to 256 characters in length
    * 
    * @example
    * test
@@ -20911,12 +21804,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterDescription?: string;
   /**
    * @remarks
-   * The subscription duration of the subscription cluster.
-   * 
-   * *   Valid values when **Period** is set to Year: 1 to 3 (integer).
-   * *   Valid values when **Period** is set to Month: 1 to 9 (integer).
-   * 
-   * >  This parameter must be specified when PayType is set to **Prepaid**.
+   * The network type of the cluster. Set the value to **VPC**.
    * 
    * @example
    * VPC
@@ -20924,12 +21812,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   DBClusterNetworkType?: string;
   /**
    * @remarks
-   * The subscription type of the subscription cluster. Valid values:
-   * 
-   * *   **Year**: subscription on a yearly basis.
-   * *   **Month**: subscription on a monthly basis.
-   * 
-   * >  This parameter must be specified when PayType is set to Prepaid.
+   * The version of the cluster. Set the value to **5.0**.
    * 
    * This parameter is required.
    * 
@@ -20937,21 +21820,41 @@ export class CreateDBClusterRequest extends $dara.Model {
    * 5.0
    */
   DBClusterVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable disk encryption.
+   * 
+   * @example
+   * false
+   */
   diskEncryption?: boolean;
   /**
    * @remarks
-   * The value of tag N to add to the cluster. You can use tags to filter clusters. Valid values of N: 1 to 20. The values that you specify for N must be unique and consecutive integers that start from 1. Each value of `Tag.N.Key` is paired with a value of `Tag.N.Value`.
+   * Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
    * 
-   * >  The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+   * *   **true** (default)
+   * *   **false**
    * 
    * @example
    * true
    */
   enableDefaultResourcePool?: boolean;
+  /**
+   * @remarks
+   * The ID of the key that is used to encrypt disk data.
+   * 
+   * >  This parameter must be specified only when disk encryption is enabled.
+   * 
+   * @example
+   * e1935511-cf88-1123-a0f8-1be8d251****
+   */
   kmsId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the cluster.
+   * The billing method of the cluster. Valid values:
+   * 
+   * *   **Postpaid**: pay-as-you-go.
+   * *   **Prepaid**: subscription.
    * 
    * This parameter is required.
    * 
@@ -20961,25 +21864,46 @@ export class CreateDBClusterRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The amount of reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
+   * The subscription type of the subscription cluster. Valid values:
    * 
-   * >  This parameter must be specified with a unit.
+   * *   **Year**: subscription on a yearly basis.
+   * *   **Month**: subscription on a monthly basis.
+   * 
+   * >  This parameter must be specified when PayType is set to Prepaid.
    * 
    * @example
    * Month
    */
   period?: string;
   /**
+   * @remarks
+   * The product form of the cluster. Valid values:
+   * 
+   * *   **IntegrationForm**: integrated.
+   * *   **LegacyForm**: Data Lakehouse Edition.
+   * 
    * @example
    * LegacyForm
    */
   productForm?: string;
   /**
    * @remarks
-   * The description of the cluster.
+   * The edition of the cluster. Valid values:
    * 
-   * *   The description cannot start with `http://` or `https://`.
-   * *   The description must be 2 to 256 characters in length
+   * *   **BasicVersion**: Basic Edition.
+   * *   **EnterpriseVersion**: Enterprise Edition.
+   * 
+   * >  This parameter must be specified only when ProductForm is set to IntegrationForm.
+   * 
+   * @example
+   * BasicVersion
+   */
+  productVersion?: string;
+  /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -20987,13 +21911,30 @@ export class CreateDBClusterRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The number of reserved resource nodes.
+   * 
+   * *   For Enterprise Edition, the default value is 3 and the step size is 3.
+   * *   For Basic Edition, the default value is 1.
+   * 
+   * >  This parameter must be specified only when ProductForm is set to IntegrationForm.
+   * 
+   * @example
+   * 3
+   */
   reservedNodeCount?: number;
+  /**
+   * @remarks
+   * The specifications of reserved resource nodes. Unit: ACUs.
+   * 
+   * @example
+   * 8ACU
+   */
   reservedNodeSize?: string;
   /**
    * @remarks
-   * The ID of the backup set that you want to use to restore data.
-   * 
-   * >  You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup sets of the cluster.
+   * The resource group ID.
    * 
    * @example
    * rg-4690g37929****
@@ -21001,7 +21942,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The point in time to which you want to restore data from the backup set.
    * 
    * @example
    * 2023-09-20T03:13:56Z
@@ -21009,7 +21950,10 @@ export class CreateDBClusterRequest extends $dara.Model {
   restoreToTime?: string;
   /**
    * @remarks
-   * The order ID.
+   * The method that you want to use to restore data. Valid values:
+   * 
+   * *   **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
+   * *   **timepoint**: restores data to a point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
    * 
    * @example
    * backup
@@ -21017,7 +21961,27 @@ export class CreateDBClusterRequest extends $dara.Model {
   restoreType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the secondary vSwitch.
+   * 
+   * >  You cannot set this parameter to a value that is the same as that of the VSwitchId parameter.
+   * 
+   * @example
+   * vsw-bp1aadw9k19x451gx****
+   */
+  secondaryVSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the secondary zone.
+   * 
+   * >  You cannot set this parameter to a value that is the same as that of the ZoneId parameter.
+   * 
+   * @example
+   * cn-beijing-h
+   */
+  secondaryZoneId?: string;
+  /**
+   * @remarks
+   * The ID of the source AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @example
    * amv-bp1r053byu48p****
@@ -21025,7 +21989,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   sourceDbClusterId?: string;
   /**
    * @remarks
-   * The tags to add to the cluster.
+   * The amount of reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
+   * 
+   * >  This parameter must be specified with a unit.
    * 
    * @example
    * 24ACU
@@ -21033,25 +21999,26 @@ export class CreateDBClusterRequest extends $dara.Model {
   storageResource?: string;
   /**
    * @remarks
-   * The point in time to which you want to restore data from the backup set.
+   * The tags to add to the cluster.
    */
   tag?: CreateDBClusterRequestTag[];
   /**
    * @remarks
-   * The amount of reserved computing resources. Valid values: 0ACU to 4096ACU. The value must be in increments of 16ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
+   * The subscription period of the subscription cluster.
    * 
-   * >  This parameter must be specified with a unit.
+   * *   Valid values when Period is set to Year: 1, 2, and 3 (integer)
+   * *   Valid values when Period is set to Month: 1 to 9 (integer)
+   * 
+   * > * This parameter is required if the PayType parameter is set to Prepaid.
+   * > * Longer subscription periods offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
    * 
    * @example
-   * 3
+   * 1
    */
   usedTime?: string;
   /**
    * @remarks
-   * Specifies whether to allocate all reserved computing resources to the user_default resource group. Valid values:
-   * 
-   * *   **true** (default)
-   * *   **false**
+   * The virtual private cloud (VPC) ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -21061,7 +22028,7 @@ export class CreateDBClusterRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The vSwitch ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -21071,10 +22038,9 @@ export class CreateDBClusterRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The billing method of the cluster. Valid values:
+   * The zone ID of the cluster.
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
    * 
    * This parameter is required.
    * 
@@ -21096,12 +22062,15 @@ export class CreateDBClusterRequest extends $dara.Model {
       payType: 'PayType',
       period: 'Period',
       productForm: 'ProductForm',
+      productVersion: 'ProductVersion',
       regionId: 'RegionId',
       reservedNodeCount: 'ReservedNodeCount',
       reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
       restoreToTime: 'RestoreToTime',
       restoreType: 'RestoreType',
+      secondaryVSwitchId: 'SecondaryVSwitchId',
+      secondaryZoneId: 'SecondaryZoneId',
       sourceDbClusterId: 'SourceDbClusterId',
       storageResource: 'StorageResource',
       tag: 'Tag',
@@ -21126,12 +22095,15 @@ export class CreateDBClusterRequest extends $dara.Model {
       payType: 'string',
       period: 'string',
       productForm: 'string',
+      productVersion: 'string',
       regionId: 'string',
       reservedNodeCount: 'number',
       reservedNodeSize: 'string',
       resourceGroupId: 'string',
       restoreToTime: 'string',
       restoreType: 'string',
+      secondaryVSwitchId: 'string',
+      secondaryZoneId: 'string',
       sourceDbClusterId: 'string',
       storageResource: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
@@ -21156,21 +22128,33 @@ export class CreateDBClusterRequest extends $dara.Model {
 
 export class CreateDBClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * 
    * @example
    * amv-bp1r053byu48p****
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 202353278****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The default resource group ID.
+   * 
    * @example
    * rg-4690g37929****
    */
@@ -21359,6 +22343,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    */
   minComputeResource?: string;
   minGpuQuantity?: number;
+  rayConfig?: CreateDBResourceGroupRequestRayConfig;
   /**
    * @remarks
    * The region ID of the cluster.
@@ -21393,6 +22378,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       minGpuQuantity: 'MinGpuQuantity',
+      rayConfig: 'RayConfig',
       regionId: 'RegionId',
       rules: 'Rules',
       specName: 'SpecName',
@@ -21417,6 +22403,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       minGpuQuantity: 'number',
+      rayConfig: CreateDBResourceGroupRequestRayConfig,
       regionId: 'string',
       rules: { 'type': 'array', 'itemType': CreateDBResourceGroupRequestRules },
       specName: 'string',
@@ -21427,6 +22414,9 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   validate() {
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
+    }
+    if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
+      (this.rayConfig as any).validate();
     }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
@@ -21561,6 +22551,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
    */
   minComputeResource?: string;
   minGpuQuantity?: number;
+  rayConfigShrink?: string;
   /**
    * @remarks
    * The region ID of the cluster.
@@ -21595,6 +22586,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       minGpuQuantity: 'MinGpuQuantity',
+      rayConfigShrink: 'RayConfig',
       regionId: 'RegionId',
       rulesShrink: 'Rules',
       specName: 'SpecName',
@@ -21619,6 +22611,7 @@ export class CreateDBResourceGroupShrinkRequest extends $dara.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       minGpuQuantity: 'number',
+      rayConfigShrink: 'string',
       regionId: 'string',
       rulesShrink: 'string',
       specName: 'string',
@@ -23123,6 +24116,8 @@ export class DeleteApsDatasoureResponse extends $dara.Model {
 export class DeleteApsJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23131,6 +24126,10 @@ export class DeleteApsJobRequest extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23162,41 +24161,68 @@ export class DeleteApsJobRequest extends $dara.Model {
 
 export class DeleteApsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-*****
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * OK
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****-****-5D14-AC9F-*********
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
@@ -24495,6 +25521,8 @@ export class DeleteSparkTemplateFileResponse extends $dara.Model {
 export class DescribeAPSADBInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24503,6 +25531,8 @@ export class DescribeAPSADBInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24511,6 +25541,8 @@ export class DescribeAPSADBInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24544,46 +25576,79 @@ export class DescribeAPSADBInstancesRequest extends $dara.Model {
 
 export class DescribeAPSADBInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * 0
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The queried clusters.
+   * 
    * @example
    * -
    */
   items?: DescribeAPSADBInstancesResponseBodyItems[];
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -27314,6 +28379,8 @@ export class DescribeApsDatasourcesResponse extends $dara.Model {
 export class DescribeApsHiveWorkloadRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27321,12 +28388,17 @@ export class DescribeApsHiveWorkloadRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27360,11 +28432,17 @@ export class DescribeApsHiveWorkloadRequest extends $dara.Model {
 
 export class DescribeApsHiveWorkloadResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The queried job.
+   * 
    * @example
    * -
    */
   apsWorkload?: DescribeApsHiveWorkloadResponseBodyApsWorkload;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 86F92D26-B774-5FA1-8E53-******
    */
@@ -27552,22 +28630,33 @@ export class DescribeApsJobDetailResponse extends $dara.Model {
 
 export class DescribeApsJobsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the APS job.
+   * 
    * @example
    * aps-xxxxx
    */
   apsJobName?: string;
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2022-04-23T01:10Z
    */
   createTimeEnd?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2022-03-23T01:10Z
    */
   createTimeStart?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27576,6 +28665,8 @@ export class DescribeApsJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27583,6 +28674,9 @@ export class DescribeApsJobsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -27620,46 +28714,79 @@ export class DescribeApsJobsRequest extends $dara.Model {
 
 export class DescribeApsJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The queried APS jobs.
+   * 
    * @example
    * -
    */
   APSJobs?: DescribeApsJobsResponseBodyAPSJobs[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * ok
    */
   code?: string;
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * ok
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-7F9D-5DBD-993E-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 0
    */
@@ -27941,6 +29068,8 @@ export class DescribeApsMigrationWorkloadsResponse extends $dara.Model {
 export class DescribeApsProgressRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27948,12 +29077,17 @@ export class DescribeApsProgressRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27987,26 +29121,41 @@ export class DescribeApsProgressRequest extends $dara.Model {
 
 export class DescribeApsProgressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The migration progress.
+   * 
    * @example
    * -
    */
   apsHiveProgress?: DescribeApsProgressResponseBodyApsHiveProgress[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The success rate.
+   * 
    * @example
    * 100
    */
   successPercentage?: number;
   /**
+   * @remarks
+   * The total number of migrated tables returned.
+   * 
    * @example
    * 10
    */
   successTableCount?: number;
   /**
+   * @remarks
+   * The total number of tables to be migrated.
+   * 
    * @example
    * 10
    */
@@ -30859,40 +32008,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The performance metrics to be queried. Separate multiple values with commas (,). Valid values:
-   * 
-   * *   CPU
-   * 
-   *     *   **AnalyticDB_CPU_Usage_Percentage**: the average CPU utilization.
-   * 
-   * *   Connections
-   * 
-   *     *   **AnalyticDB_Instance_Connection_Count**: the number of database connections.
-   * 
-   * *   Writes
-   * 
-   *     *   **AnalyticDB_TPS**: the write transactions per second (TPS).
-   *     *   **AnalyticDB_InsertRT**: the write response time.
-   *     *   **AnalyticDB_InsertBytes**: the write throughput.
-   * 
-   * *   Queries
-   * 
-   *     *   **AnalyticDB_QPS**: the queries per second (QPS).
-   *     *   **AnalyticDB_QueryRT**: the query response time.
-   *     *   **AnalyticDB_QueryWaitTime**: the query wait time.
-   * 
-   * *   Disks
-   * 
-   *     *   **AnalyticDB_Disk_IO_Avg_Usage_Percentage**: the average I/O utilization.
-   *     *   **AnalyticDB_Disk_IO_Avg_Waiting_Time**: the average I/O wait time.
-   *     *   **AnalyticDB_IO_Throughput**: the disk throughput.
-   *     *   **AnalyticDB_IOPS**: the disk IOPS.
-   *     *   **AnalyticDB_Disk_Usage**: the disk space that is used.
-   *     *   **AnalyticDB_Disk_Usage_Percentage**: the disk usage.
-   *     *   **AnalyticDB_Hot_Data_Usage**: the disk space that is used by hot data.
-   *     *   **AnalyticDB_Cold_Data_Usage**: the disk space that is used by code data.
-   * 
-   * >  This parameter must be specified.
+   * The key of the performance metric that you want to query. Separate multiple keys with commas (,). For more information about the performance metrics, see [Metric overview](https://help.aliyun.com/document_detail/2863211.html).
    * 
    * @example
    * AnalyticDB_CPU_Usage_Percentage
@@ -37071,6 +38187,10 @@ export class DescribeSparkCodeWebUiResponse extends $dara.Model {
 export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
+   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37079,6 +38199,12 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > 
+   * 
+   * *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37087,6 +38213,8 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The ID of the query executed within the Spark application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37095,6 +38223,11 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   innerQueryId?: number;
   /**
    * @remarks
+   * The language in which to return the query results. Valid values:
+   * 
+   * *   en: English.
+   * *   zh: Chinese.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37103,6 +38236,10 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37140,32 +38277,61 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
 
 export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The information about the request denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
+   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+   * 
    * @example
    * s202411071444hzdvk486d9d2001****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The queried diagnostic information.
+   */
   diagnosisInfos?: Adb4MysqlSparkDiagnosisInfo[];
   /**
+   * @remarks
+   * The execution duration of the query. Unit: milliseconds.
+   * 
    * @example
    * 100
    */
   elapsedTime?: number;
   /**
+   * @remarks
+   * The ID of the query executed within the Spark application.
+   * 
    * @example
    * 1
    */
   innerQueryId?: number;
+  /**
+   * @remarks
+   * The operators sorted by metrics.
+   */
   operatorListSortedByMetrics?: DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The Spark execution plan tree.
+   */
   root?: OperatorNode;
   static names(): { [key: string]: string } {
     return {
@@ -37249,6 +38415,10 @@ export class DescribeSparkSQLDiagnosisAttributeResponse extends $dara.Model {
 export class DescribeSparkSQLDiagnosisListRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37256,32 +38426,67 @@ export class DescribeSparkSQLDiagnosisListRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The latest start time.
+   * 
    * @example
    * 2024-11-28 23:00:00
    */
   maxStartTime?: string;
   /**
+   * @remarks
+   * The earliest start time.
+   * 
    * @example
    * 2024-11-28 22:00:00
    */
   minStartTime?: string;
   /**
+   * @remarks
+   * The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"MaxExclusiveTime","Type":"Asc"}]`.
+   * 
+   * *   `Field` specifies the field by which to sort the query results. Valid values:
+   * 
+   *     *   `MaxExclusiveTime`: the maximum execution duration.
+   *     *   `PeakMemory`: the peak memory.
+   *     *   `QueryStartTime`: the start time of the query.
+   *     *   `QueryWallclockTime`: the execution duration of the query.
+   * 
+   * *   `Type` specifies the sorting order. Valid values:
+   * 
+   *     *   `Asc`: ascending order.
+   *     *   `Desc`: descending order.
+   * 
+   * > 
+   * 
+   * *   If you do not specify this parameter, query results are sorted by `MaxExclusiveTime` in ascending order.
+   * 
    * @example
    * [{\\"Field\\":\\"QueryStartTime\\",\\"Type\\":\\"Desc\\"}]
    */
   order?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37289,6 +38494,9 @@ export class DescribeSparkSQLDiagnosisListRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The unique ID of the code block in the Spark job.
+   * 
    * @example
    * 123
    */
@@ -37330,27 +38538,46 @@ export class DescribeSparkSQLDiagnosisListRequest extends $dara.Model {
 
 export class DescribeSparkSQLDiagnosisListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The information about the request denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A91C9D07-7462-5F35-BB47-83629CE6CCAC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried diagnostic information.
+   */
   SQLDiagnosisList?: DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1343
    */
@@ -40063,6 +41290,9 @@ export class ExecuteSparkReplStatementResponse extends $dara.Model {
 
 export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the client.
+   * 
    * @example
    * Dataworks。
    */
@@ -40076,11 +41306,17 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The maximum amount of execution result data that can be written to Object Storage Service (OSS). Unit: MB. Default value: 4096. The size of compressed objects is difficult to estimate. The data that is actually written to OSS is smaller than the specified value.
+   * 
    * @example
    * 4096
    */
   executeResultLimit?: number;
   /**
+   * @remarks
+   * The maximum execution duration. Unit: seconds. If a set of SQL statements fail to be executed for the specified period of time after submission, they are marked as a timeout error. The default value is 360000 seconds, which is equivalent to 100 hours.
+   * 
    * @example
    * 3600000
    */
@@ -40152,6 +41388,9 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
 
 export class ExecuteSparkWarehouseBatchSQLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
@@ -42807,6 +44046,9 @@ export class GetSparkTemplateFullTreeResponse extends $dara.Model {
 
 export class GetSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the client, which can be up to 16 characters in length. Specify a descriptive name that makes it easy to identify.
+   * 
    * @example
    * DMS
    */
@@ -42851,6 +44093,9 @@ export class GetSparkWarehouseBatchSQLRequest extends $dara.Model {
 
 export class GetSparkWarehouseBatchSQLResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * {\\"DBClusterId\\": \\"amv-uf6485635fz852mn\\", \\"Statements\\": [{\\"Code\\": \\"show databases\\", \\"State\\": \\"FINISHED\\", \\"StatementId\\": \\"sq202501141001sh8e12e080006846-0000\\", \\"Result\\": \\"+--------------------+n
    */
@@ -44953,6 +46198,8 @@ export class ListApsLifecycleStrategyResponse extends $dara.Model {
 export class ListApsOptimizationStrategyRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44961,6 +46208,8 @@ export class ListApsOptimizationStrategyRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44992,31 +46241,55 @@ export class ListApsOptimizationStrategyRequest extends $dara.Model {
 
 export class ListApsOptimizationStrategyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * -
    */
   data?: ListApsOptimizationStrategyResponseBodyData[];
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -45343,6 +46616,8 @@ export class ListApsOptimizationTasksResponse extends $dara.Model {
 export class ListLakeStoragesRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45350,22 +46625,33 @@ export class ListLakeStoragesRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The filter parameters that you want to use to query lake storages. Specify multiple parameters in an AND relationship. For example, if you want to query lake storage whose names are in the range of i-a123, or i-b123, and in the Stopped state, set this parameter to \\&Filter. 1.Name=InstanceName\\&Filter. 1.Value.1=i-a123\\&Filter.1.Value.2=i-b123\\&Filter.2.Name=Status\\&Filter. 2.Value=Stopped.
+   * 
    * @example
    * -
    */
   filter?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45403,46 +46689,79 @@ export class ListLakeStoragesRequest extends $dara.Model {
 
 export class ListLakeStoragesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The queried lake storages.
+   * 
    * @example
    * -
    */
   items?: ListLakeStoragesResponseBodyItems[];
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The token that is used for paging when the number of results is greater than the value of MaxResults.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****-964D-****-9D31-****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the dry run succeeds. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 30
    */
@@ -46530,11 +47849,17 @@ export class ListSparkWarehouseBatchSQLRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 30
    */
@@ -46575,6 +47900,10 @@ export class ListSparkWarehouseBatchSQLRequest extends $dara.Model {
 }
 
 export class ListSparkWarehouseBatchSQLResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListSparkWarehouseBatchSQLResponseBodyData;
   /**
    * @example
@@ -47652,6 +48981,8 @@ export class ModifyApsDatasoureResponse extends $dara.Model {
 export class ModifyApsJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47660,6 +48991,8 @@ export class ModifyApsJobRequest extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
+   * The objects to be synchronized.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47667,12 +49000,17 @@ export class ModifyApsJobRequest extends $dara.Model {
    */
   dbList?: string;
   /**
+   * @remarks
+   * The partitions.
+   * 
    * @example
    * {}
    */
   partitionList?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47708,41 +49046,71 @@ export class ModifyApsJobRequest extends $dara.Model {
 
 export class ModifyApsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-bj1xxxxxx
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request is successful.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * OK
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -47819,12 +49187,17 @@ export class ModifyApsJobResponse extends $dara.Model {
 
 export class ModifyApsSlsADBJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The information about columns.
+   * 
    * @example
    * -
    */
   columns?: ModifyApsSlsADBJobRequestColumns[];
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47832,27 +49205,41 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * dbName
    */
   dbName?: string;
   /**
+   * @remarks
+   * The dirty data processing mode.
+   * 
    * @example
    * STOP
    */
   dirtyDataProcessPattern?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the consistency check.
+   * 
    * @example
    * true
    */
   exactlyOnce?: string;
   /**
+   * @remarks
+   * The password of the database account.
+   * 
    * @example
    * test_123
    */
   password?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47860,27 +49247,41 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The start offset.
+   * 
    * @example
    * end_cursor
    */
   startingOffsets?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test
    */
   tableName?: string;
   /**
+   * @remarks
+   * The timestamp conversion.
+   * 
    * @example
    * -
    */
   unixTimestampConvert?: string;
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * user-name
    */
   userName?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47888,6 +49289,9 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
    */
   workloadId?: string;
   /**
+   * @remarks
+   * The name of the workload.
+   * 
    * @example
    * test-name
    */
@@ -47942,12 +49346,17 @@ export class ModifyApsSlsADBJobRequest extends $dara.Model {
 
 export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The information about columns.
+   * 
    * @example
    * -
    */
   columnsShrink?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47955,27 +49364,41 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * dbName
    */
   dbName?: string;
   /**
+   * @remarks
+   * The dirty data processing mode.
+   * 
    * @example
    * STOP
    */
   dirtyDataProcessPattern?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the consistency check.
+   * 
    * @example
    * true
    */
   exactlyOnce?: string;
   /**
+   * @remarks
+   * The password of the database account.
+   * 
    * @example
    * test_123
    */
   password?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47983,27 +49406,41 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The start offset.
+   * 
    * @example
    * end_cursor
    */
   startingOffsets?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test
    */
   tableName?: string;
   /**
+   * @remarks
+   * The timestamp conversion.
+   * 
    * @example
    * -
    */
   unixTimestampConvert?: string;
   /**
+   * @remarks
+   * The name of the database account.
+   * 
    * @example
    * user-name
    */
   userName?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48011,6 +49448,9 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
    */
   workloadId?: string;
   /**
+   * @remarks
+   * The name of the workload.
+   * 
    * @example
    * test-name
    */
@@ -48062,27 +49502,52 @@ export class ModifyApsSlsADBJobShrinkRequest extends $dara.Model {
 
 export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -48159,6 +49624,8 @@ export class ModifyApsSlsADBJobResponse extends $dara.Model {
 export class ModifyApsWorkloadNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48167,6 +49634,8 @@ export class ModifyApsWorkloadNameRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48175,6 +49644,8 @@ export class ModifyApsWorkloadNameRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48183,6 +49654,8 @@ export class ModifyApsWorkloadNameRequest extends $dara.Model {
   workloadId?: string;
   /**
    * @remarks
+   * The name of the workload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48218,31 +49691,55 @@ export class ModifyApsWorkloadNameRequest extends $dara.Model {
 
 export class ModifyApsWorkloadNameResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * InvalidInput
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * 123
    */
   data?: string;
   /**
+   * @remarks
+   * The status code. A value of 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -49744,9 +51241,9 @@ export class ModifyDBClusterVipRequest extends $dara.Model {
   connectString?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -49875,6 +51372,10 @@ export class ModifyDBClusterVipResponse extends $dara.Model {
 }
 
 export class ModifyDBResourceGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * 5m
+   */
   autoStopInterval?: string;
   /**
    * @remarks
@@ -49913,6 +51414,10 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * true
    */
   enableSpot?: boolean;
+  /**
+   * @example
+   * {\\"spark.adb.version\\":\\"3.5\\"}
+   */
   engineParams?: { [key: string]: any };
   /**
    * @remarks
@@ -49981,6 +51486,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    */
   minComputeResource?: string;
   minGpuQuantity?: number;
+  rayConfig?: ModifyDBResourceGroupRequestRayConfig;
   /**
    * @remarks
    * The region ID of the cluster.
@@ -49997,6 +51503,10 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    */
   rules?: ModifyDBResourceGroupRequestRules[];
   specName?: string;
+  /**
+   * @example
+   * starting
+   */
   status?: string;
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -50015,6 +51525,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       minGpuQuantity: 'MinGpuQuantity',
+      rayConfig: 'RayConfig',
       regionId: 'RegionId',
       rules: 'Rules',
       specName: 'SpecName',
@@ -50039,6 +51550,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       minGpuQuantity: 'number',
+      rayConfig: ModifyDBResourceGroupRequestRayConfig,
       regionId: 'string',
       rules: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRules },
       specName: 'string',
@@ -50050,6 +51562,9 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   validate() {
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
+    }
+    if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
+      (this.rayConfig as any).validate();
     }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
@@ -50063,6 +51578,10 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
 }
 
 export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 5m
+   */
   autoStopInterval?: string;
   /**
    * @remarks
@@ -50101,6 +51620,10 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * true
    */
   enableSpot?: boolean;
+  /**
+   * @example
+   * {\\"spark.adb.version\\":\\"3.5\\"}
+   */
   engineParamsShrink?: string;
   /**
    * @remarks
@@ -50169,6 +51692,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    */
   minComputeResource?: string;
   minGpuQuantity?: number;
+  rayConfigShrink?: string;
   /**
    * @remarks
    * The region ID of the cluster.
@@ -50185,6 +51709,10 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    */
   rulesShrink?: string;
   specName?: string;
+  /**
+   * @example
+   * starting
+   */
   status?: string;
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {
@@ -50203,6 +51731,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
       minClusterCount: 'MinClusterCount',
       minComputeResource: 'MinComputeResource',
       minGpuQuantity: 'MinGpuQuantity',
+      rayConfigShrink: 'RayConfig',
       regionId: 'RegionId',
       rulesShrink: 'Rules',
       specName: 'SpecName',
@@ -50227,6 +51756,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
       minClusterCount: 'number',
       minComputeResource: 'string',
       minGpuQuantity: 'number',
+      rayConfigShrink: 'string',
       regionId: 'string',
       rulesShrink: 'string',
       specName: 'string',
@@ -51100,7 +52630,7 @@ export class ModifyUserEniVswitchOptionsResponseBody extends $dara.Model {
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   If the request was successful, a **SUCCESS** message is returned.
+   * *   If the request was successful, a success message is returned.****
    * *   If the request failed, an error message is returned.
    * 
    * @example
@@ -51811,6 +53341,8 @@ export class SetSparkAppLogRootPathResponse extends $dara.Model {
 export class StartApsJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51819,6 +53351,8 @@ export class StartApsJobRequest extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51850,41 +53384,71 @@ export class StartApsJobRequest extends $dara.Model {
 
 export class StartApsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-******
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * 0
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * OK
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message. Valid values:
+   * 
+   * *   If the request was successful, a success message is returned.****
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
@@ -52778,6 +54342,8 @@ export class SubmitSparkLogAnalyzeTaskResponse extends $dara.Model {
 export class SuspendApsJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52785,6 +54351,9 @@ export class SuspendApsJobRequest extends $dara.Model {
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -52814,31 +54383,52 @@ export class SuspendApsJobRequest extends $dara.Model {
 
 export class SuspendApsJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * aps-bj1xxxxxx
    */
   apsJobId?: string;
   /**
+   * @remarks
+   * The HTTP status code or the error code.
+   * 
    * @example
    * Success
    */
   errCode?: string;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * OK
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******-3EEC-******-9F06-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -53547,6 +55137,144 @@ export class UpdateSparkTemplateFileResponse extends $dara.Model {
   }
 }
 
+export class UpgradeKernelVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL Data Warehouse Edition clusters within a region, including cluster IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6g8w25jacm7****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The minor version to which you want to update.
+   * 
+   * >  You can call the **DescribeKernelVersion** operation to query the supported minor versions.
+   * 
+   * @example
+   * 3.1.9
+   */
+  DBVersion?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The time when to perform the update. Valid values:
+   * 
+   * *   **0** (default): immediately performs the update.
+   * *   **1**: performs the update during the maintenance window.
+   * 
+   * >  You can call the [ModifyDBClusterMaintainTime](https://help.aliyun.com/document_detail/612236.html) operation to modify the maintenance window of an AnalyticDB for MySQL cluster.
+   * 
+   * @example
+   * 0
+   */
+  switchMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      DBVersion: 'DBVersion',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      switchMode: 'SwitchMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      DBVersion: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      switchMode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeKernelVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A444FFFFFF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeKernelVersionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeKernelVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeKernelVersionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -54193,7 +55921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一站式链路
+   * Creates an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateAPSJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54273,7 +56004,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一站式链路
+   * Creates an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateAPSJobRequest
    * @returns CreateAPSJobResponse
@@ -54357,7 +56091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作负载复制链路
+   * Creates an AnalyticDB Pipeline Service (APS) replication job.
    * 
    * @param request - CreateApsCopyWorkloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54417,7 +56151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作负载复制链路
+   * Creates an AnalyticDB Pipeline Service (APS) replication job.
    * 
    * @param request - CreateApsCopyWorkloadRequest
    * @returns CreateApsCopyWorkloadResponse
@@ -54428,7 +56162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建APS数据源。
+   * Creates an AnalyticDB Pipeline Service (APS) data source.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param tmpReq - CreateApsDatasoureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54542,7 +56279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建APS数据源。
+   * Creates an AnalyticDB Pipeline Service (APS) data source.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsDatasoureRequest
    * @returns CreateApsDatasoureResponse
@@ -54553,7 +56293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Hive数据迁移链路。
+   * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsHiveJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54637,7 +56380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Hive数据迁移链路。
+   * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - CreateApsHiveJobRequest
    * @returns CreateApsHiveJobResponse
@@ -54648,7 +56394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个SLS到ADB数仓的APS链路
+   * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param tmpReq - CreateApsSlsADBJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54822,7 +56568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个SLS到ADB数仓的APS链路
+   * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param request - CreateApsSlsADBJobRequest
    * @returns CreateApsSlsADBJobResponse
@@ -54833,7 +56579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The request ID.
+   * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
    * CreateDBCluster
@@ -54893,6 +56639,10 @@ export default class Client extends OpenApi {
       query["ProductForm"] = request.productForm;
     }
 
+    if (!$dara.isNull(request.productVersion)) {
+      query["ProductVersion"] = request.productVersion;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -54915,6 +56665,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.restoreType)) {
       query["RestoreType"] = request.restoreType;
+    }
+
+    if (!$dara.isNull(request.secondaryVSwitchId)) {
+      query["SecondaryVSwitchId"] = request.secondaryVSwitchId;
+    }
+
+    if (!$dara.isNull(request.secondaryZoneId)) {
+      query["SecondaryZoneId"] = request.secondaryZoneId;
     }
 
     if (!$dara.isNull(request.sourceDbClusterId)) {
@@ -54968,7 +56726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The request ID.
+   * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
    * CreateDBCluster
@@ -54997,6 +56755,10 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.engineParams)) {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.rayConfig)) {
+      request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.rules)) {
@@ -55062,6 +56824,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.minGpuQuantity)) {
       query["MinGpuQuantity"] = request.minGpuQuantity;
+    }
+
+    if (!$dara.isNull(request.rayConfigShrink)) {
+      query["RayConfig"] = request.rayConfigShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -55622,7 +57388,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除aps任务
+   * Deletes an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+   * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
    * 
    * @param request - DeleteApsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55662,7 +57433,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除aps任务
+   * Deletes an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+   * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
    * 
    * @param request - DeleteApsJobRequest
    * @returns DeleteApsJobResponse
@@ -56248,7 +58024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取APS联邦分析ADB实例列表
+   * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+   * 
+   * @remarks
+   * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
    * 
    * @param request - DescribeAPSADBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56280,7 +58059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取APS联邦分析ADB实例列表
+   * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+   * 
+   * @remarks
+   * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
    * 
    * @param request - DescribeAPSADBInstancesRequest
    * @returns DescribeAPSADBInstancesResponse
@@ -57303,7 +59085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询APS Hive工作负载
+   * Queries the information about an AnalyticDB Pipeline Service (APS) job from a Hive data source.
    * 
    * @param request - DescribeApsHiveWorkloadRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57347,7 +59129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询APS Hive工作负载
+   * Queries the information about an AnalyticDB Pipeline Service (APS) job from a Hive data source.
    * 
    * @param request - DescribeApsHiveWorkloadRequest
    * @returns DescribeApsHiveWorkloadResponse
@@ -57409,7 +59191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一站式链路列表
+   * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
    * 
    * @param request - DescribeApsJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57465,7 +59247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一站式链路列表
+   * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
    * 
    * @param request - DescribeApsJobsRequest
    * @returns DescribeApsJobsResponse
@@ -57547,7 +59329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询aps任务进展。
+   * Queries the progress of an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - DescribeApsProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57591,7 +59373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询aps任务进展。
+   * Queries the progress of an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - DescribeApsProgressRequest
    * @returns DescribeApsProgressResponse
@@ -61034,6 +62816,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the diagnostic information about a Spark SQL query.
+   * 
    * @param request - DescribeSparkSQLDiagnosisAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSparkSQLDiagnosisAttributeResponse
@@ -61084,6 +62868,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the diagnostic information about a Spark SQL query.
+   * 
    * @param request - DescribeSparkSQLDiagnosisAttributeRequest
    * @returns DescribeSparkSQLDiagnosisAttributeResponse
    */
@@ -61093,6 +62879,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the diagnostic information about Spark SQL queries.
+   * 
    * @param request - DescribeSparkSQLDiagnosisListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSparkSQLDiagnosisListResponse
@@ -61155,6 +62943,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the diagnostic information about Spark SQL queries.
+   * 
    * @param request - DescribeSparkSQLDiagnosisListRequest
    * @returns DescribeSparkSQLDiagnosisListResponse
    */
@@ -64307,7 +66097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前ADB实例湖存储优化策略列表。
+   * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ListApsOptimizationStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64347,7 +66140,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前ADB实例湖存储优化策略列表。
+   * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ListApsOptimizationStrategyRequest
    * @returns ListApsOptimizationStrategyResponse
@@ -64429,7 +66225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列取湖存储
+   * Queries a list of lake storages.
    * 
    * @param request - ListLakeStoragesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64461,7 +66257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列取湖存储
+   * Queries a list of lake storages.
    * 
    * @param request - ListLakeStoragesRequest
    * @returns ListLakeStoragesResponse
@@ -65261,7 +67057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改aps任务
+   * Modifies an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyApsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65309,7 +67108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改aps任务
+   * Modifies an AnalyticDB Pipeline Service (APS) job.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyApsJobRequest
    * @returns ModifyApsJobResponse
@@ -65320,7 +67122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改sls投递adb数仓任务
+   * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param tmpReq - ModifyApsSlsADBJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65410,7 +67212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改sls投递adb数仓任务
+   * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param request - ModifyApsSlsADBJobRequest
    * @returns ModifyApsSlsADBJobResponse
@@ -65422,6 +67224,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the AnalyticDB Pipeline Service (APS) workload name.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyApsWorkloadNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65470,6 +67275,9 @@ export default class Client extends OpenApi {
 
   /**
    * Modifies the AnalyticDB Pipeline Service (APS) workload name.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifyApsWorkloadNameRequest
    * @returns ModifyApsWorkloadNameResponse
@@ -66256,6 +68064,10 @@ export default class Client extends OpenApi {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
     }
 
+    if (!$dara.isNull(tmpReq.rayConfig)) {
+      request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.rules)) {
       request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
     }
@@ -66315,6 +68127,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.minGpuQuantity)) {
       query["MinGpuQuantity"] = request.minGpuQuantity;
+    }
+
+    if (!$dara.isNull(request.rayConfigShrink)) {
+      query["RayConfig"] = request.rayConfigShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -67028,7 +68844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动aps任务
+   * Starts an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - StartApsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -67068,7 +68884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动aps任务
+   * Starts an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - StartApsJobRequest
    * @returns StartApsJobResponse
@@ -67428,7 +69244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停aps任务
+   * Suspends an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - SuspendApsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -67468,7 +69284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停aps任务
+   * Suspends an AnalyticDB Pipeline Service (APS) job.
    * 
    * @param request - SuspendApsJobRequest
    * @returns SuspendApsJobResponse
@@ -67732,6 +69548,77 @@ export default class Client extends OpenApi {
   async updateSparkTemplateFile(request: UpdateSparkTemplateFileRequest): Promise<UpdateSparkTemplateFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSparkTemplateFileWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the minor version of an AnalyticDB for MySQL cluster.
+   * 
+   * @param request - UpgradeKernelVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeKernelVersionResponse
+   */
+  async upgradeKernelVersionWithOptions(request: UpgradeKernelVersionRequest, runtime: $dara.RuntimeOptions): Promise<UpgradeKernelVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeKernelVersion",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpgradeKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeKernelVersionResponse({}));
+    } else {
+      return $dara.cast<UpgradeKernelVersionResponse>(await this.execute(params, req, runtime), new UpgradeKernelVersionResponse({}));
+    }
+
+  }
+
+  /**
+   * Updates the minor version of an AnalyticDB for MySQL cluster.
+   * 
+   * @param request - UpgradeKernelVersionRequest
+   * @returns UpgradeKernelVersionResponse
+   */
+  async upgradeKernelVersion(request: UpgradeKernelVersionRequest): Promise<UpgradeKernelVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeKernelVersionWithOptions(request, runtime);
   }
 
 }
