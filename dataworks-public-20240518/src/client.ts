@@ -8305,6 +8305,391 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   }
 }
 
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails extends $dara.Model {
+  checkedValue?: string;
+  referencedValue?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkedValue: 'CheckedValue',
+      referencedValue: 'ReferencedValue',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkedValue: 'string',
+      referencedValue: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
+  expression?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
+  expression?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
+  expression?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds extends $dara.Model {
+  critical?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical;
+  expected?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected;
+  warned?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical,
+      expected: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected,
+      warned: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned,
+    };
+  }
+
+  validate() {
+    if(this.critical && typeof (this.critical as any).validate === 'function') {
+      (this.critical as any).validate();
+    }
+    if(this.expected && typeof (this.expected as any).validate === 'function') {
+      (this.expected as any).validate();
+    }
+    if(this.warned && typeof (this.warned as any).validate === 'function') {
+      (this.warned as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig extends $dara.Model {
+  referencedSamplesFilter?: string;
+  thresholds?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.thresholds && typeof (this.thresholds as any).validate === 'function') {
+      (this.thresholds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers extends $dara.Model {
+  errorDataFilter?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig extends $dara.Model {
+  metric?: string;
+  metricParameters?: string;
+  samplingFilter?: string;
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget extends $dara.Model {
+  databaseType?: string;
+  tableGuid?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule extends $dara.Model {
+  checkingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig;
+  description?: string;
+  enabled?: boolean;
+  errorHandlers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers[];
+  id?: number;
+  name?: string;
+  projectId?: number;
+  samplingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig;
+  severity?: string;
+  target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig,
+      severity: 'string',
+      target: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget,
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    if(this.checkingConfig && typeof (this.checkingConfig as any).validate === 'function') {
+      (this.checkingConfig as any).validate();
+    }
+    if(Array.isArray(this.errorHandlers)) {
+      $dara.Model.validateArray(this.errorHandlers);
+    }
+    if(this.samplingConfig && typeof (this.samplingConfig as any).validate === 'function') {
+      (this.samplingConfig as any).validate();
+    }
+    if(this.target && typeof (this.target as any).validate === 'function') {
+      (this.target as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults extends $dara.Model {
+  createTime?: number;
+  details?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails[];
+  id?: number;
+  rule?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule;
+  sample?: string;
+  status?: string;
+  taskInstanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      details: 'Details',
+      id: 'Id',
+      rule: 'Rule',
+      sample: 'Sample',
+      status: 'Status',
+      taskInstanceId: 'TaskInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      details: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails },
+      id: 'number',
+      rule: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule,
+      sample: 'string',
+      status: 'string',
+      taskInstanceId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.details)) {
+      $dara.Model.validateArray(this.details);
+    }
+    if(this.rule && typeof (this.rule as any).validate === 'function') {
+      (this.rule as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
    * @remarks
@@ -8776,6 +9161,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
    * 98330
    */
   projectId?: number;
+  results?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults[];
   /**
    * @remarks
    * The status of the data quality monitoring instance.
@@ -8811,6 +9197,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
       id: 'Id',
       parameters: 'Parameters',
       projectId: 'ProjectId',
+      results: 'Results',
       status: 'Status',
       task: 'Task',
       triggerContext: 'TriggerContext',
@@ -8824,6 +9211,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
       id: 'number',
       parameters: 'string',
       projectId: 'number',
+      results: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults },
       status: 'string',
       task: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask,
       triggerContext: 'string',
@@ -8831,6 +9219,9 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   }
 
   validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
     if(this.task && typeof (this.task as any).validate === 'function') {
       (this.task as any).validate();
     }
@@ -17951,6 +18342,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks extends $dara.Model {
+  dataSourceId?: number;
   /**
    * @remarks
    * The description of the data quality monitoring task. The description can be up to 65,535 characters in length.
@@ -18013,6 +18405,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   trigger?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger;
   static names(): { [key: string]: string } {
     return {
+      dataSourceId: 'DataSourceId',
       description: 'Description',
       hooks: 'Hooks',
       id: 'Id',
@@ -18027,6 +18420,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
   static types(): { [key: string]: any } {
     return {
+      dataSourceId: 'number',
       description: 'string',
       hooks: { 'type': 'array', 'itemType': ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks },
       id: 'number',
@@ -35604,8 +35998,6 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   /**
    * @remarks
    * The task ID. If you configure this parameter, full update is performed on the task. If you do not configure this parameter, another task is created.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1234
