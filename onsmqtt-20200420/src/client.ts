@@ -872,6 +872,32 @@ export class ListDeviceCredentialClientIdResponseBodyDeviceCredentialClientIdLis
   }
 }
 
+export class ListGroupIdResponseBodyDataTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -908,6 +934,7 @@ export class ListGroupIdResponseBodyData extends $dara.Model {
    * post-cn-45910tj****
    */
   instanceId?: string;
+  tags?: ListGroupIdResponseBodyDataTags[];
   /**
    * @remarks
    * The time when the group was last updated.
@@ -922,6 +949,7 @@ export class ListGroupIdResponseBodyData extends $dara.Model {
       groupId: 'GroupId',
       independentNaming: 'IndependentNaming',
       instanceId: 'InstanceId',
+      tags: 'Tags',
       updateTime: 'UpdateTime',
     };
   }
@@ -932,11 +960,15 @@ export class ListGroupIdResponseBodyData extends $dara.Model {
       groupId: 'string',
       independentNaming: 'boolean',
       instanceId: 'string',
+      tags: { 'type': 'array', 'itemType': ListGroupIdResponseBodyDataTags },
       updateTime: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -3302,10 +3334,12 @@ export class CreateGroupIdRequest extends $dara.Model {
    * mqtt-cn-0pp1ldu****
    */
   instanceId?: string;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
       instanceId: 'InstanceId',
+      tags: 'Tags',
     };
   }
 
@@ -3313,6 +3347,7 @@ export class CreateGroupIdRequest extends $dara.Model {
     return {
       groupId: 'string',
       instanceId: 'string',
+      tags: 'string',
     };
   }
 
@@ -4227,6 +4262,8 @@ export class DeleteGroupIdResponse extends $dara.Model {
 export class DisasterDowngradeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance for which you want to downgrade the VIP access.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4235,6 +4272,8 @@ export class DisasterDowngradeRequest extends $dara.Model {
   downgradeInstanceId?: string;
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4266,29 +4305,41 @@ export class DisasterDowngradeRequest extends $dara.Model {
 
 export class DisasterDowngradeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * 
    * @example
    * None
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For information about error codes, see Error codes.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 82B9E503-F4A1-4F30-976F-C6999FF9****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * True
    */
@@ -5788,15 +5839,18 @@ export class ListGroupIdRequest extends $dara.Model {
    * mqtt-cn-0pp1ldu****
    */
   instanceId?: string;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      tags: 'string',
     };
   }
 
@@ -9836,6 +9890,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10225,7 +10283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisasterDowngrade
+   * Downgrades the virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call the operation, you must submit a ticket.
    * 
    * @param request - DisasterDowngradeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10265,7 +10323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisasterDowngrade
+   * Downgrades the virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call the operation, you must submit a ticket.
    * 
    * @param request - DisasterDowngradeRequest
    * @returns DisasterDowngradeResponse
@@ -10276,7 +10334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisasterRecovery
+   * Recovers the public virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call this operation, you must submit a ticket.
    * 
    * @param request - DisasterRecoveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10316,7 +10374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DisasterRecovery
+   * Recovers the public virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call this operation, you must submit a ticket.
    * 
    * @param request - DisasterRecoveryRequest
    * @returns DisasterRecoveryResponse
@@ -10893,6 +10951,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
