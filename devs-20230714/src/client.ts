@@ -7502,10 +7502,12 @@ export class ServicePluginStep extends $dara.Model {
 }
 
 export class SourceConfig extends $dara.Model {
+  oss?: OpenStructOssSourceConfig;
   repository?: RepositorySourceConfig;
   template?: TemplateSourceConfig;
   static names(): { [key: string]: string } {
     return {
+      oss: 'oss',
       repository: 'repository',
       template: 'template',
     };
@@ -7513,12 +7515,16 @@ export class SourceConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      oss: OpenStructOssSourceConfig,
       repository: RepositorySourceConfig,
       template: TemplateSourceConfig,
     };
   }
 
   validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
     if(this.repository && typeof (this.repository as any).validate === 'function') {
       (this.repository as any).validate();
     }
@@ -8975,6 +8981,107 @@ export class WebhookCodeContext extends $dara.Model {
   }
 }
 
+export class OpenStructOssSourceConfig extends $dara.Model {
+  /**
+   * @example
+   * demo-bucket
+   */
+  bucket?: string;
+  /**
+   * @example
+   * demo-object
+   */
+  object?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      object: 'object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      object: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActivateConnectionRequest extends $dara.Model {
+  account?: GitAccount;
+  credential?: OAuthCredential;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      credential: 'credential',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: GitAccount,
+      credential: OAuthCredential,
+    };
+  }
+
+  validate() {
+    if(this.account && typeof (this.account as any).validate === 'function') {
+      (this.account as any).validate();
+    }
+    if(this.credential && typeof (this.credential as any).validate === 'function') {
+      (this.credential as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActivateConnectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Connection;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Connection,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelPipelineResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -9379,6 +9486,95 @@ export class DeleteArtifactResponse extends $dara.Model {
   }
 }
 
+export class DeleteConnectionRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConnectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * A5152937-1C8A-5260-90FA-520CEF028D2D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConnectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConnectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEnvironmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -9577,6 +9773,41 @@ export class FetchArtifactTempBucketTokenResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ArtifactTempBucketToken,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchConnectionCredentialResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OAuthCredential;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OAuthCredential,
     };
   }
 
@@ -9857,6 +10088,179 @@ export class GetTaskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Task,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionsRequest extends $dara.Model {
+  /**
+   * @example
+   * auto-
+   */
+  keyword?: string;
+  labelSelector?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      labelSelector: 'labelSelector',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labelSelector)) {
+      $dara.Model.validateArray(this.labelSelector);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * auto-
+   */
+  keyword?: string;
+  labelSelectorShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      labelSelectorShrink: 'labelSelector',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      labelSelectorShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionsResponseBody extends $dara.Model {
+  data?: Connection[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': Connection },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConnectionsResponseBody,
     };
   }
 
@@ -11223,6 +11627,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 激活身份绑定,完成OAuth授权
+   * 
+   * @param request - ActivateConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateConnectionResponse
+   */
+  async activateConnectionWithOptions(name: string, request: ActivateConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ActivateConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.account)) {
+      body["account"] = request.account;
+    }
+
+    if (!$dara.isNull(request.credential)) {
+      body["credential"] = request.credential;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActivateConnection",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/connections/${$dara.URL.percentEncode(name)}/activate`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ActivateConnectionResponse>(await this.callApi(params, req, runtime), new ActivateConnectionResponse({}));
+    } else {
+      return $dara.cast<ActivateConnectionResponse>(await this.execute(params, req, runtime), new ActivateConnectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 激活身份绑定,完成OAuth授权
+   * 
+   * @param request - ActivateConnectionRequest
+   * @returns ActivateConnectionResponse
+   */
+  async activateConnection(name: string, request: ActivateConnectionRequest): Promise<ActivateConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activateConnectionWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * 取消流水线
    * 
    * @param headers - map
@@ -11568,6 +12026,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除身份绑定
+   * 
+   * @param request - DeleteConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnectionResponse
+   */
+  async deleteConnectionWithOptions(name: string, request: DeleteConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteConnectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConnection",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/connections/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteConnectionResponse>(await this.callApi(params, req, runtime), new DeleteConnectionResponse({}));
+    } else {
+      return $dara.cast<DeleteConnectionResponse>(await this.execute(params, req, runtime), new DeleteConnectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除身份绑定
+   * 
+   * @param request - DeleteConnectionRequest
+   * @returns DeleteConnectionResponse
+   */
+  async deleteConnection(name: string, request: DeleteConnectionRequest): Promise<DeleteConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConnectionWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * 删除环境
    * 
    * @param headers - map
@@ -11780,6 +12288,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.fetchArtifactTempBucketTokenWithOptions(headers, runtime);
+  }
+
+  /**
+   * 查询身份绑定中的凭证信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchConnectionCredentialResponse
+   */
+  async fetchConnectionCredentialWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<FetchConnectionCredentialResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchConnectionCredential",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/connections/${$dara.URL.percentEncode(name)}/fetchCredential`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FetchConnectionCredentialResponse>(await this.callApi(params, req, runtime), new FetchConnectionCredentialResponse({}));
+    } else {
+      return $dara.cast<FetchConnectionCredentialResponse>(await this.execute(params, req, runtime), new FetchConnectionCredentialResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询身份绑定中的凭证信息
+   * @returns FetchConnectionCredentialResponse
+   */
+  async fetchConnectionCredential(name: string): Promise<FetchConnectionCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.fetchConnectionCredentialWithOptions(name, headers, runtime);
   }
 
   /**
@@ -12100,6 +12648,74 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskWithOptions(name, headers, runtime);
+  }
+
+  /**
+   * 批量查询身份绑定
+   * 
+   * @param tmpReq - ListConnectionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConnectionsResponse
+   */
+  async listConnectionsWithOptions(tmpReq: ListConnectionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConnectionsResponse> {
+    tmpReq.validate();
+    let request = new ListConnectionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConnections",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/connections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConnectionsResponse>(await this.callApi(params, req, runtime), new ListConnectionsResponse({}));
+    } else {
+      return $dara.cast<ListConnectionsResponse>(await this.execute(params, req, runtime), new ListConnectionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量查询身份绑定
+   * 
+   * @param request - ListConnectionsRequest
+   * @returns ListConnectionsResponse
+   */
+  async listConnections(request: ListConnectionsRequest): Promise<ListConnectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConnectionsWithOptions(request, headers, runtime);
   }
 
   /**
