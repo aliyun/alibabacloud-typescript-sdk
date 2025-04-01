@@ -1916,6 +1916,7 @@ export class Function extends $dara.Model {
    * true
    */
   internetAccess?: boolean;
+  invocationRestriction?: OpenStructFunctionRestriction;
   /**
    * @example
    * 2023-05-01T08:15:27Z
@@ -1999,6 +2000,7 @@ export class Function extends $dara.Model {
       instanceConcurrency: 'instanceConcurrency',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
+      invocationRestriction: 'invocationRestriction',
       lastModifiedTime: 'lastModifiedTime',
       lastUpdateStatus: 'lastUpdateStatus',
       lastUpdateStatusReason: 'lastUpdateStatusReason',
@@ -2041,6 +2043,7 @@ export class Function extends $dara.Model {
       instanceConcurrency: 'number',
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
+      invocationRestriction: OpenStructFunctionRestriction,
       lastModifiedTime: 'string',
       lastUpdateStatus: 'string',
       lastUpdateStatusReason: 'string',
@@ -2080,6 +2083,9 @@ export class Function extends $dara.Model {
     }
     if(this.instanceLifecycleConfig && typeof (this.instanceLifecycleConfig as any).validate === 'function') {
       (this.instanceLifecycleConfig as any).validate();
+    }
+    if(this.invocationRestriction && typeof (this.invocationRestriction as any).validate === 'function') {
+      (this.invocationRestriction as any).validate();
     }
     if(Array.isArray(this.layers)) {
       $dara.Model.validateArray(this.layers);
@@ -5771,6 +5777,35 @@ export class OpenStructDescribeRegionsOutput extends $dara.Model {
   }
 }
 
+export class OpenStructFunctionRestriction extends $dara.Model {
+  disable?: boolean;
+  lastModifiedTime?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disable: 'disable',
+      lastModifiedTime: 'lastModifiedTime',
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disable: 'boolean',
+      lastModifiedTime: 'string',
+      reason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAliasRequest extends $dara.Model {
   /**
    * @remarks
@@ -6508,6 +6543,160 @@ export class DeleteVpcBindingResponse extends $dara.Model {
   validate() {
     if(this.headers) {
       $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableFunctionInvocationRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  abortOngoingRequest?: boolean;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abortOngoingRequest: 'abortOngoingRequest',
+      reason: 'reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abortOngoingRequest: 'boolean',
+      reason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableFunctionInvocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableFunctionInvocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableFunctionInvocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableFunctionInvocationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableFunctionInvocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableFunctionInvocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableFunctionInvocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableFunctionInvocationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
@@ -10293,6 +10482,100 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
+  }
+
+  /**
+   * 禁止函数调用
+   * 
+   * @param request - DisableFunctionInvocationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableFunctionInvocationResponse
+   */
+  async disableFunctionInvocationWithOptions(functionName: string, request: DisableFunctionInvocationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DisableFunctionInvocationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.abortOngoingRequest)) {
+      body["abortOngoingRequest"] = request.abortOngoingRequest;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["reason"] = request.reason;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableFunctionInvocation",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/invoke/disable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableFunctionInvocationResponse>(await this.callApi(params, req, runtime), new DisableFunctionInvocationResponse({}));
+    } else {
+      return $dara.cast<DisableFunctionInvocationResponse>(await this.execute(params, req, runtime), new DisableFunctionInvocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 禁止函数调用
+   * 
+   * @param request - DisableFunctionInvocationRequest
+   * @returns DisableFunctionInvocationResponse
+   */
+  async disableFunctionInvocation(functionName: string, request: DisableFunctionInvocationRequest): Promise<DisableFunctionInvocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableFunctionInvocationWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 允许函数调用
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableFunctionInvocationResponse
+   */
+  async enableFunctionInvocationWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<EnableFunctionInvocationResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableFunctionInvocation",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/invoke/enable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableFunctionInvocationResponse>(await this.callApi(params, req, runtime), new EnableFunctionInvocationResponse({}));
+    } else {
+      return $dara.cast<EnableFunctionInvocationResponse>(await this.execute(params, req, runtime), new EnableFunctionInvocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 允许函数调用
+   * @returns EnableFunctionInvocationResponse
+   */
+  async enableFunctionInvocation(functionName: string): Promise<EnableFunctionInvocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableFunctionInvocationWithOptions(functionName, headers, runtime);
   }
 
   /**
