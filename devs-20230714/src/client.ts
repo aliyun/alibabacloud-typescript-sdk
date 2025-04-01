@@ -6339,6 +6339,40 @@ export class OperationModelFileAction extends $dara.Model {
   }
 }
 
+export class OssSourceConfig extends $dara.Model {
+  /**
+   * @example
+   * demo-bucket
+   */
+  bucket?: string;
+  /**
+   * @example
+   * demo-object
+   */
+  object?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'bucket',
+      object: 'object',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      object: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Pipeline extends $dara.Model {
   /**
    * @example
@@ -7502,7 +7536,7 @@ export class ServicePluginStep extends $dara.Model {
 }
 
 export class SourceConfig extends $dara.Model {
-  oss?: OpenStructOssSourceConfig;
+  oss?: OssSourceConfig;
   repository?: RepositorySourceConfig;
   template?: TemplateSourceConfig;
   static names(): { [key: string]: string } {
@@ -7515,7 +7549,7 @@ export class SourceConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      oss: OpenStructOssSourceConfig,
+      oss: OssSourceConfig,
       repository: RepositorySourceConfig,
       template: TemplateSourceConfig,
     };
