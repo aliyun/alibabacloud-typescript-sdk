@@ -1770,10 +1770,7 @@ export class SubmenuItems extends $dara.Model {
 export class AbortAndRollbackChangeOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The ID of the change order.
    * 
    * @example
    * ba386059-69b1-4e65-b1e5-0682d9fa****
@@ -1803,10 +1800,7 @@ export class AbortAndRollbackChangeOrderResponseBodyData extends $dara.Model {
 export class AbortChangeOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The ID of the change order.
    * 
    * @example
    * be2e1c76-682b-4897-98d3-1d8d6478****
@@ -2012,9 +2006,25 @@ export class CreateApplicationScalingRuleResponseBodyDataMetricMetrics extends $
    * CPU
    */
   metricType?: string;
+  /**
+   * @example
+   * lb-xxx
+   */
   slbId?: string;
+  /**
+   * @example
+   * test
+   */
   slbLogstore?: string;
+  /**
+   * @example
+   * test
+   */
   slbProject?: string;
+  /**
+   * @example
+   * 80
+   */
   vport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2093,7 +2103,15 @@ export class CreateApplicationScalingRuleResponseBodyDataTimerSchedules extends 
    * 08:00
    */
   atTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxReplicas?: number;
+  /**
+   * @example
+   * 5
+   */
   minReplicas?: number;
   /**
    * @example
@@ -2291,10 +2309,7 @@ export class CreateConfigMapResponseBodyData extends $dara.Model {
 export class CreateGreyTagRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The ID of the canary release rule. The ID is globally unique.
    * 
    * @example
    * 16
@@ -2392,6 +2407,16 @@ export class CreateJobResponseBodyData extends $dara.Model {
 }
 
 export class CreateNamespaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the SAE built-in registry is enabled:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enableMicroRegistration?: boolean;
   /**
    * @remarks
@@ -2532,10 +2557,7 @@ export class CreateSecretResponseBodyData extends $dara.Model {
 export class DeleteApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code that is returned if the request fails.
-   * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information about the values of this parameter, see the "**Error codes**" section of this topic.
+   * The ID of the change order. The ID can be used to query the status of the change task.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -2565,7 +2587,7 @@ export class DeleteApplicationResponseBodyData extends $dara.Model {
 export class DeleteConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted ConfigMap instance.
+   * The ID of the deleted ConfigMap.
    * 
    * @example
    * 1
@@ -2595,10 +2617,7 @@ export class DeleteConfigMapResponseBodyData extends $dara.Model {
 export class DeleteGreyTagRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The ID of the canary release rule. The ID is globally unique.
    * 
    * @example
    * 16
@@ -2628,7 +2647,7 @@ export class DeleteGreyTagRouteResponseBodyData extends $dara.Model {
 export class DeleteIngressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the routing rule that you want to delete.
+   * The ID of the deleted routing rule.
    * 
    * @example
    * 87
@@ -2959,8 +2978,23 @@ export class DescribeAppServiceDetailResponseBodyData extends $dara.Model {
    * service-provider
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The port used by the service.
+   */
   servicePorts?: number[];
+  /**
+   * @remarks
+   * The protocol used by the service.
+   * 
+   * @example
+   * HTTP
+   */
   serviceProtocol?: string;
+  /**
+   * @remarks
+   * The tag of the service.
+   */
   serviceTags?: string[];
   /**
    * @remarks
@@ -3434,6 +3468,10 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The SAE application type.
+   * 
+   * *   micro_service
+   * *   web
+   * *   job
    * 
    * @example
    * micro_service
@@ -3938,6 +3976,10 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The canary tag configured for the application.
+   */
   serviceTags?: { [key: string]: string };
   sidecarContainersConfig?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfig[];
   /**
@@ -4807,9 +4849,25 @@ export class DescribeApplicationScalingRuleResponseBodyDataMetricMetrics extends
    * CPU
    */
   metricType?: string;
+  /**
+   * @example
+   * lb-xxx
+   */
   slbId?: string;
+  /**
+   * @example
+   * test
+   */
   slbLogstore?: string;
+  /**
+   * @example
+   * test
+   */
   slbProject?: string;
+  /**
+   * @example
+   * 80
+   */
   vport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5237,7 +5295,15 @@ export class DescribeApplicationScalingRuleResponseBodyDataTimerSchedules extend
    * 08:00
    */
   atTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxReplicas?: number;
+  /**
+   * @example
+   * 1
+   */
   minReplicas?: number;
   /**
    * @remarks
@@ -5371,7 +5437,6 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $dara.Model 
    * 1624329843790
    */
   createTime?: number;
-  enableIdle?: boolean;
   /**
    * @remarks
    * The time when the auto scaling policy was last disabled.
@@ -5385,7 +5450,15 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $dara.Model 
    * The details of the metric-based auto scaling policy.
    */
   metric?: DescribeApplicationScalingRuleResponseBodyDataMetric;
+  /**
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
   /**
    * @remarks
@@ -5435,7 +5508,6 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $dara.Model 
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
-      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
@@ -5452,7 +5524,6 @@ export class DescribeApplicationScalingRuleResponseBodyData extends $dara.Model 
     return {
       appId: 'string',
       createTime: 'number',
-      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: DescribeApplicationScalingRuleResponseBodyDataMetric,
       minReadyInstanceRatio: 'number',
@@ -5509,9 +5580,25 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * CPU
    */
   metricType?: string;
+  /**
+   * @example
+   * lb-xxx
+   */
   slbId?: string;
+  /**
+   * @example
+   * test
+   */
   slbLogstore?: string;
+  /**
+   * @example
+   * test
+   */
   slbProject?: string;
+  /**
+   * @example
+   * 80
+   */
   vport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6107,7 +6194,6 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * 1616642248938
    */
   createTime?: number;
-  enableIdle?: boolean;
   /**
    * @remarks
    * The time when the auto scaling policy was last disabled.
@@ -6121,7 +6207,15 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
    * The details of the metric-based auto scaling policy.
    */
   metric?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric;
+  /**
+   * @example
+   * -1
+   */
   minReadyInstanceRatio?: number;
+  /**
+   * @example
+   * 1
+   */
   minReadyInstances?: number;
   /**
    * @remarks
@@ -6171,7 +6265,6 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
-      enableIdle: 'EnableIdle',
       lastDisableTime: 'LastDisableTime',
       metric: 'Metric',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
@@ -6188,7 +6281,6 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'string',
       createTime: 'number',
-      enableIdle: 'boolean',
       lastDisableTime: 'number',
       metric: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric,
       minReadyInstanceRatio: 'number',
@@ -6277,9 +6369,28 @@ export class DescribeApplicationScalingRulesResponseBodyData extends $dara.Model
 }
 
 export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model {
+  /**
+   * @example
+   * wwe
+   */
   cookie?: string;
+  /**
+   * @example
+   * 56
+   */
   cookieTimeout?: number;
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was created.
+   * 
+   * @example
+   * 1741247308294
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1513561019707729_16f37aae5f3_-375882821_-169099****
+   */
   httpsCaCertId?: string;
   /**
    * @remarks
@@ -6305,7 +6416,15 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
    * TCP
    */
   protocol?: string;
+  /**
+   * @example
+   * false
+   */
   stickySession?: boolean;
+  /**
+   * @example
+   * insert
+   */
   stickySessionType?: string;
   /**
    * @remarks
@@ -6355,9 +6474,28 @@ export class DescribeApplicationSlbsResponseBodyDataInternet extends $dara.Model
 }
 
 export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model {
+  /**
+   * @example
+   * wwe
+   */
   cookie?: string;
+  /**
+   * @example
+   * 56
+   */
   cookieTimeout?: number;
+  /**
+   * @remarks
+   * The timestamp when the canary release rule was created.
+   * 
+   * @example
+   * 1741247308294
+   */
   createTime?: number;
+  /**
+   * @example
+   * 1513561019707729_16f37aae5f3_-375882821_-169099****
+   */
   httpsCaCertId?: string;
   /**
    * @remarks
@@ -6383,7 +6521,15 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
    * TCP
    */
   protocol?: string;
+  /**
+   * @example
+   * false
+   */
   stickySession?: boolean;
+  /**
+   * @example
+   * insert
+   */
   stickySessionType?: string;
   /**
    * @remarks
@@ -6435,7 +6581,7 @@ export class DescribeApplicationSlbsResponseBodyDataIntranet extends $dara.Model
 export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SSL certificate issued by Alibaba Cloud.
+   * The configurations of the Internet-facing SLB instance.
    */
   internet?: DescribeApplicationSlbsResponseBodyDataInternet[];
   /**
@@ -6446,7 +6592,15 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
    * ``59.74.**.**``
    */
   internetIp?: string;
+  /**
+   * @example
+   * PayBySpec
+   */
   internetSlbChargeType?: string;
+  /**
+   * @example
+   * false
+   */
   internetSlbExpired?: boolean;
   /**
    * @remarks
@@ -6458,7 +6612,7 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
   internetSlbId?: string;
   /**
    * @remarks
-   * The ID of the SSL certificate issued by Alibaba Cloud.
+   * The configurations of the internal-facing SLB instance.
    */
   intranet?: DescribeApplicationSlbsResponseBodyDataIntranet[];
   /**
@@ -6472,7 +6626,15 @@ export class DescribeApplicationSlbsResponseBodyData extends $dara.Model {
    * 192.168.0.0
    */
   intranetIp?: string;
+  /**
+   * @example
+   * PayBySpec
+   */
   intranetSlbChargeType?: string;
+  /**
+   * @example
+   * false
+   */
   intranetSlbExpired?: boolean;
   /**
    * @remarks
@@ -6565,7 +6727,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The current state of the application. Valid values:
+   * The current status of the application. Valid values:
    * 
    * *   **RUNNING**
    * *   **STOPPED**
@@ -6596,7 +6758,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   fileSizeLimit?: number;
   /**
    * @remarks
-   * The ID of the latest change order that is executed. If no change orders have been executed or if change orders have expired, an empty parameter is returned.
+   * The ID of the latest change order that is executed. If no change orders are executed or if change orders expire, this parameter is left empty.
    * 
    * @example
    * 1ccc2339-fc19-49aa-bda0-1e7b8497****
@@ -6615,11 +6777,11 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   lastChangeOrderRunning?: boolean;
   /**
    * @remarks
-   * The state of the latest change order. Valid values:
+   * The status of the latest change order. Valid values:
    * 
    * *   **READY**: The change order is ready.
    * *   **RUNNING**: The change order is being executed.
-   * *   **SUCCESS**: The change order was executed successfully.
+   * *   **SUCCESS**: The change order was executed.
    * *   **FAIL**: The change order failed to be executed.
    * *   **ABORT**: The change order is stopped.
    * *   **WAIT_BATCH_CONFIRM**: The change order is pending execution. You must manually confirm the release batch.
@@ -6642,10 +6804,10 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   runningInstances?: number;
   /**
    * @remarks
-   * Indicates whether an error occurred while the change order was being executed. Valid values:
+   * The substatus of the change order. This parameter indicates whether an exception occurred while the change order was being executed. Valid values:
    * 
    * *   **NORMAL**
-   * *   **RUNNING_BUT_HAS_ERROR** If an error occurs during a batch release, you must manually perform a rollback. In this case, the change order is still running because the task is not completed, but the state of the change order is RUNNING_BUT_HAS_ERROR.
+   * *   **RUNNING_BUT_HAS_ERROR**: For example, if an error occurs during a phased release, you must manually roll back the application. In this case, the change order cannot be completed because the change order is still being executed.
    * 
    * @example
    * NORMAL
@@ -6729,7 +6891,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The time when the batch processing starts.
+   * The time when the batch processing started.
    * 
    * @example
    * 1562831689704
@@ -6742,13 +6904,13 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
    * *   **0**: The batch is being prepared.
    * *   **1**: The batch is being processed.
    * *   **2**: The batch was processed.
-   * *   **3**: The batch could not be processed.
+   * *   **3**: The batch failed to be processed.
    * *   **6**: The batch processing was terminated.
-   * *   **8**: The execution process is pending. You must manually determine the release batch.
-   * *   **9**: The execution process is pending. SAE will automatically determine the release batch.
-   * *   **10**: The batch could not be processed due to a system exception.
-   * *   **11**: The change order is pending approval.
-   * *   **12**: The change order is approved and is pending execution.
+   * *   **8**: The execution process is pending. You must manually release the batch.
+   * *   **9**: The execution process is pending. SAE will automatically release the batch.
+   * *   **10**: The batch failed to be processed due to a system exception.
+   * *   **11**: The batch is pending approval.
+   * *   **12**: The batch is approved and is pending execution.
    * 
    * @example
    * 2
@@ -6756,7 +6918,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the batch information is last modified.
+   * The time when the batch information was last modified.
    * 
    * @example
    * 1562847178007
@@ -6822,10 +6984,10 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   approvalId?: string;
   /**
    * @remarks
-   * Indicates whether SAE automatically determines the release batches. Valid values:
+   * Indicates whether SAE automatically releases the batches. Valid values:
    * 
-   * *   **true**: SAE automatically determines the release batches.
-   * *   **false**: SAE does not automatically determine the release batches.
+   * *   **true**: SAE automatically releases the batches.
+   * *   **false**: SAE does not automatically release the batches.
    * 
    * @example
    * true
@@ -6841,10 +7003,10 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   batchCount?: number;
   /**
    * @remarks
-   * The mode in which the release batches are determined. Valid values:
+   * The processing method for the batches. Valid values:
    * 
-   * *   **auto**: SAE automatically determines the release batches.
-   * *   **Manual**: You must manually determine the release batches.
+   * *   **auto**: SAE automatically releases the batches.
+   * *   **Manual**: You must manually release the batches.
    * 
    * @example
    * auto
@@ -6852,7 +7014,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   batchType?: string;
   /**
    * @remarks
-   * The interval between batches when SAE automatically determines the release batches in a phased release. Unit: minutes.
+   * The interval between batches in a phased release. SAE automatically releases batches at the specified interval. Unit: minutes.
    * 
    * @example
    * 0
@@ -6868,14 +7030,14 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * The description about the change type, which corresponds to the **CoTypeCode** parameter.
+   * The change type, which corresponds to the **CoTypeCode** parameter.
    */
   coType?: string;
   /**
    * @remarks
    * The code of the change type. Valid values:
    * 
-   * *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
+   * *   **CoBindSlb**: associates a Sever Load Balancer (SLB) instance with the application.
    * *   **CoUnbindSlb**: disassociates the SLB instance from the application.
    * *   **CoCreateApp**: creates the application.
    * *   **CoDeleteApp**: deletes the application.
@@ -6886,15 +7048,15 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
    * *   **CoScaleOut**: scales out the application.
    * *   **CoStart**: starts the application.
    * *   **CoStop**: stops the application.
-   * *   **CoRescaleApplicationVertically**: modifies the instance specifications.
+   * *   **CoRescaleApplicationVertically**: modifies the instance type.
    * *   **CoDeployHistroy**: rolls back the application to a historical version.
-   * *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
+   * *   **CoBindNas**: associates a NAS file system with the application.
    * *   **CoUnbindNas**: disassociates the NAS file system from the application.
    * *   **CoBatchStartApplication**: starts multiple applications concurrently.
    * *   **CoBatchStopApplication**: stops multiple applications concurrently.
    * *   **CoRestartInstances**: restarts the instances.
    * *   **CoDeleteInstances**: deletes the instances.
-   * *   **CoScaleInAppWithInstances**: reduces the number of specified application instances.
+   * *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
    * 
    * @example
    * CoRestartInstances
@@ -6944,10 +7106,10 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
    * *   **0**: The change order is being prepared.
    * *   **1**: The change order is being executed.
    * *   **2**: The change order was executed.
-   * *   **3**: The change order could not be executed.
+   * *   **3**: The change order failed to be executed.
    * *   **6**: The change order was terminated.
-   * *   **8**: The execution process is pending. You must manually determine the release batch.
-   * *   **9**: The execution process is pending. SAE will automatically determine the release batches.
+   * *   **8**: The execution process is pending. You must manually release the batches.
+   * *   **9**: The execution process is pending. SAE will automatically release the batches.
    * *   **10**: The execution failed due to a system exception.
    * *   **11**: The change order is pending approval.
    * *   **12**: The change order is approved and is pending execution.
@@ -6961,7 +7123,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
    * The substatus of the change order. This parameter indicates whether an exception occurred while the change order was being executed. Valid values:
    * 
    * *   **0**: No exception occurred.
-   * *   **1**: An exception occurred. For example, when an error occurred during a phased release, you must manually roll back the application. In this case, the change order cannot be completed, so the Status parameter is still displayed as "1", which indicates that the change order is being executed. You can check the value of this parameter to determine whether an exception occurs.
+   * *   **1**: An exception occurred. For example, if an error occurs during a phased release, you must manually roll back the application. In this case, the change order cannot be completed, so the Status parameter is still displayed as "1", which indicates that the change order is being executed. You can check the value of this parameter to determine whether an exception occurs.
    * 
    * @example
    * 0
@@ -7039,10 +7201,7 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
 export class DescribeComponentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the component is expired. Valid values:
-   * 
-   * *   **true**: The component is expired.
-   * *   **false**: The component is not expired.
+   * The description of the component.
    * 
    * @example
    * Open JDK 8
@@ -7050,7 +7209,7 @@ export class DescribeComponentsResponseBodyData extends $dara.Model {
   componentDescription?: string;
   /**
    * @remarks
-   * The description of the component.
+   * The component ID.
    * 
    * @example
    * Open JDK 8
@@ -7058,10 +7217,10 @@ export class DescribeComponentsResponseBodyData extends $dara.Model {
   componentKey?: string;
   /**
    * @remarks
-   * The error code.
+   * Indicates whether the component is expired. Valid values:
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   **true**: The component is expired.
+   * *   **false**: The component is not expired.
    * 
    * @example
    * false
@@ -7069,7 +7228,7 @@ export class DescribeComponentsResponseBodyData extends $dara.Model {
   expired?: boolean;
   /**
    * @remarks
-   * The ID of the component.
+   * The type of the component.
    * 
    * @example
    * JDK
@@ -7105,7 +7264,7 @@ export class DescribeComponentsResponseBodyData extends $dara.Model {
 export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ConfigMap instance.
+   * The ID of the application.
    * 
    * @example
    * f16b4000-9058-4c22-a49d-49a28f0b****
@@ -7113,7 +7272,7 @@ export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The name of the application.
    * 
    * @example
    * test-app
@@ -7145,7 +7304,7 @@ export class DescribeConfigMapResponseBodyDataRelateApps extends $dara.Model {
 export class DescribeConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the ConfigMap instance.
+   * The ID of the ConfigMap.
    * 
    * @example
    * 1
@@ -7153,7 +7312,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   configMapId?: number;
   /**
    * @remarks
-   * The application that is associated with the instance.
+   * The time when the ConfigMap was created.
    * 
    * @example
    * 1593746835111
@@ -7161,7 +7320,11 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the namespace to which the instance belongs.
+   * The key-value pairs of the ConfigMap. Format:
+   * 
+   * {"k1":"v1", "k2":"v2"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes ConfigMap](https://help.aliyun.com/document_detail/171326.html).
    * 
    * @example
    * {"k1":"v1","k2":"v2"}
@@ -7169,7 +7332,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the instance was created.
+   * The description of the ConfigMap.
    * 
    * @example
    * test-desc
@@ -7177,10 +7340,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The name of the ConfigMap.
    * 
    * @example
    * test-configmap
@@ -7188,7 +7348,7 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The ID of the namespace.
    * 
    * @example
    * cn-hangzhou
@@ -7196,16 +7356,12 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application that is associated with the ConfigMap.
    */
   relateApps?: DescribeConfigMapResponseBodyDataRelateApps[];
   /**
    * @remarks
-   * The data of ConfigMap key-value pairs. Format:
-   * 
-   * {"k1":"v1", "k2":"v2"}
-   * 
-   * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
+   * The time when the ConfigMap was updated.
    * 
    * @example
    * 1593747274195
@@ -7254,12 +7410,18 @@ export class DescribeConfigMapResponseBodyData extends $dara.Model {
 
 export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Model {
   /**
+   * @remarks
+   * The available CPU capacity. Unit: cores \\*.
+   * 
    * @example
    * 497570.450009
    */
   cpu?: number;
   cu?: number;
   /**
+   * @remarks
+   * The available memory size. Unit: GiB ×.
+   * 
    * @example
    * 989802.563546
    */
@@ -7291,17 +7453,30 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Mo
 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 0.0009259
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 0.0046296
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The ID of the discount rule.
+   */
   ruleIds?: string[];
   /**
+   * @remarks
+   * The final price of the order.
+   * 
    * @example
    * 0.0037037
    */
@@ -7337,8 +7512,15 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends 
 }
 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of discount rule.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the discount rule.
+   * 
    * @example
    * 2000010******
    */
@@ -7367,7 +7549,15 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends 
 }
 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The information about pricing.
+   */
   order?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder;
+  /**
+   * @remarks
+   * The discount rules.
+   */
   rules?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules[];
   static names(): { [key: string]: string } {
     return {
@@ -7400,17 +7590,30 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $dara
 
 export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 0.0018518
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price of the order.
+   * 
    * @example
    * 0.0092592
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The ID of the promotion rule.
+   */
   ruleIds?: string[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 0.0074074
    */
@@ -7447,17 +7650,30 @@ export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model
 
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 0.0009259
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price of the order.
+   * 
    * @example
    * 0.0046296
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The ID of the discount rule.
+   */
   ruleIds?: string[];
   /**
+   * @remarks
+   * The actual price of the order.
+   * 
    * @example
    * 0.0037037
    */
@@ -7493,8 +7709,15 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends
 }
 
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the discount rule.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the discount policy.
+   * 
    * @example
    * 2000010******
    */
@@ -7523,7 +7746,15 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends
 }
 
 export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The information about pricing.
+   */
   order?: DescribeConfigurationPriceResponseBodyDataRequestPriceOrder;
+  /**
+   * @remarks
+   * The discount rule.
+   */
   rules?: DescribeConfigurationPriceResponseBodyDataRequestPriceRules[];
   static names(): { [key: string]: string } {
     return {
@@ -7555,8 +7786,15 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dar
 }
 
 export class DescribeConfigurationPriceResponseBodyDataRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the promotion rule.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the promotion rule.
+   * 
    * @example
    * 2000010******
    */
@@ -7586,17 +7824,30 @@ export class DescribeConfigurationPriceResponseBodyDataRules extends $dara.Model
 
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends $dara.Model {
   /**
+   * @remarks
+   * The discount amount.
+   * 
    * @example
    * 0.0009259
    */
   discountAmount?: number;
   /**
+   * @remarks
+   * The original price of the order.
+   * 
    * @example
    * 0.0046296
    */
   originalAmount?: number;
+  /**
+   * @remarks
+   * The ID of the discount rule.
+   */
   ruleIds?: string[];
   /**
+   * @remarks
+   * The final price of the order.
+   * 
    * @example
    * 0.0037037
    */
@@ -7632,8 +7883,15 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
 }
 
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the discount rule.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the discount rule.
+   * 
    * @example
    * 2000010******
    */
@@ -7662,7 +7920,15 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends
 }
 
 export class DescribeConfigurationPriceResponseBodyDataTrafficPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The information about pricing.
+   */
   order?: DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder;
+  /**
+   * @remarks
+   * The discount rule.
+   */
   rules?: DescribeConfigurationPriceResponseBodyDataTrafficPriceRules[];
   static names(): { [key: string]: string } {
     return {
@@ -7694,11 +7960,35 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPrice extends $dar
 }
 
 export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The remaining capacity of the resource plan.
+   */
   bagUsage?: DescribeConfigurationPriceResponseBodyDataBagUsage;
+  /**
+   * @remarks
+   * The price of CPU and memory.
+   */
   cpuMemPrice?: DescribeConfigurationPriceResponseBodyDataCpuMemPrice;
+  /**
+   * @remarks
+   * The information about pricing.
+   */
   order?: DescribeConfigurationPriceResponseBodyDataOrder;
+  /**
+   * @remarks
+   * The price based on the number of requests.
+   */
   requestPrice?: DescribeConfigurationPriceResponseBodyDataRequestPrice;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeConfigurationPriceResponseBodyDataRules[];
+  /**
+   * @remarks
+   * The traffic price.
+   */
   trafficPrice?: DescribeConfigurationPriceResponseBodyDataTrafficPrice;
   static names(): { [key: string]: string } {
     return {
@@ -7754,8 +8044,8 @@ export class DescribeEdasContainersResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the component is disabled. Valid values:
    * 
-   * *   **true**: indicates that the component is disabled.
-   * *   **false**: indicates that the component is not disabled.
+   * *   **true**: The component is disabled.
+   * *   **false**: The component is not disabled.
    * 
    * @example
    * false
@@ -7763,7 +8053,7 @@ export class DescribeEdasContainersResponseBodyData extends $dara.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * The version of the container, such as Ali-Tomcat, in which a High-speed Service Framework (HSF) application runs.
+   * The version of the container, such as Ali-Tomcat, in which an application that is developed based on High-speed Service Framework (HSF) is deployed.
    * 
    * @example
    * 3.5.3
@@ -8385,10 +8675,51 @@ export class DescribeGreyTagRouteResponseBodyData extends $dara.Model {
   }
 }
 
+export class DescribeIngressResponseBodyDataCorsConfig extends $dara.Model {
+  allowCredentials?: string;
+  allowHeaders?: string;
+  allowMethods?: string;
+  allowOrigin?: string;
+  enable?: string;
+  exposeHeaders?: string;
+  maxAge?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCredentials: 'AllowCredentials',
+      allowHeaders: 'AllowHeaders',
+      allowMethods: 'AllowMethods',
+      allowOrigin: 'AllowOrigin',
+      enable: 'Enable',
+      exposeHeaders: 'ExposeHeaders',
+      maxAge: 'MaxAge',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCredentials: 'string',
+      allowHeaders: 'string',
+      allowMethods: 'string',
+      allowOrigin: 'string',
+      enable: 'string',
+      exposeHeaders: 'string',
+      maxAge: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIngressResponseBodyDataDefaultRule extends $dara.Model {
   /**
    * @remarks
-   * The domain name of the application.
+   * The ID of the application that is specified in the default rule.
    * 
    * @example
    * 395b60e4-0550-458d-9c54-a265d036****
@@ -8396,20 +8727,29 @@ export class DescribeIngressResponseBodyDataDefaultRule extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The container port of the application specified in the forwarding rule.
+   * The name of the application that is specified in the default rule.
    * 
    * @example
    * app1
    */
   appName?: string;
   /**
+   * @remarks
+   * The backend protocol. Valid values:
+   * 
+   * *   **http**: HTTP is suitable for applications that need to identify the transmitted data.
+   * *   **https**: HTTP is suitable for applications that require encrypted data transmission.
+   * *   **grpc**: GRPC is suitable for load balancing scenarios in which you want to deploy services in multi-language frameworks, such as the .NET framework.
+   * 
+   * This parameter is returned only if the**LoadBalanceType** parameter is set to **ALB** and the **ListenerProtocol** parameter **is set to HTTPS**.
+   * 
    * @example
    * HTTP
    */
   backendProtocol?: string;
   /**
    * @remarks
-   * The name of the application specified in the forwarding rule.
+   * The container port of the application that is specified in the default rule.
    * 
    * @example
    * 8080
@@ -8471,10 +8811,7 @@ export class DescribeIngressResponseBodyDataRulesRuleActions extends $dara.Model
 export class DescribeIngressResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The protocol used to forward requests. Valid values:
-   * 
-   * *   **HTTP**: used when the application needs to identify the transmitted data.
-   * *   **HTTPS**: used when the application requires encrypted data transmission.
+   * The ID of the application specified in the forwarding rule.
    * 
    * @example
    * 395b60e4-0550-458d-9c54-a265d036****
@@ -8482,20 +8819,29 @@ export class DescribeIngressResponseBodyDataRules extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The path of the URL.
+   * The name of the application specified in the forwarding rules.
    * 
    * @example
    * app1
    */
   appName?: string;
   /**
+   * @remarks
+   * The backend protocol. Valid values:
+   * 
+   * *   **http**: HTTP is suitable for applications that need to identify the transmitted data.
+   * *   **https**: HTTPS is suitable for applications that require encrypted data transmission.
+   * *   **grpc**: GRPC is suitable for load balancing scenarios in which you want to deploy services in multi-language frameworks, such as the .NET framework.
+   * 
+   * This parameter is returned only if the **LoadBalanceType** parameter is set to **ALB** and the **ListenerProtocol** parameter is set to **HTTPS**.
+   * 
    * @example
    * HTTP
    */
   backendProtocol?: string;
   /**
    * @remarks
-   * The ID of the routing rule.
+   * Tthe container port of the application specified in the forwarding rules.
    * 
    * @example
    * 8080
@@ -8503,10 +8849,7 @@ export class DescribeIngressResponseBodyDataRules extends $dara.Model {
   containerPort?: number;
   /**
    * @remarks
-   * The type of the SLB instance based on the processing capabilities. Valid values:
-   * 
-   * *   **clb**: the Classic Load Balancer (CLB) instance.
-   * *   **alb**: the Application Load Balancer (ALB) instance.
+   * The domain name of the application specified in the forwarding rules.
    * 
    * @example
    * edas.site
@@ -8514,15 +8857,19 @@ export class DescribeIngressResponseBodyDataRules extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The path of a URL.
    * 
    * @example
    * /path1
    */
   path?: string;
+  /**
+   * @remarks
+   * The path that is used to rewrite the original path.
+   * 
+   * @example
+   * /${1}
+   */
   rewritePath?: string;
   ruleActions?: DescribeIngressResponseBodyDataRulesRuleActions[];
   static names(): { [key: string]: string } {
@@ -8566,26 +8913,30 @@ export class DescribeIngressResponseBodyDataRules extends $dara.Model {
 export class DescribeIngressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the application specified in the default rule.
+   * The ID of the certificate that is associated with a Classic Load Balancer (**CLB**) instance.
    * 
    * @example
    * 13623****809_16cad216b32_845_-419427029
    */
   certId?: string;
   /**
+   * @remarks
+   * The ID of the certificate that is associated with an Application Load Balancer **ALB** instance.
+   * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  corsConfig?: DescribeIngressResponseBodyDataCorsConfig;
   createdBySae?: boolean;
   /**
    * @remarks
-   * The forwarding rules.
+   * The default rule.
    */
   defaultRule?: DescribeIngressResponseBodyDataDefaultRule;
   /**
    * @remarks
-   * The name of the routing rule.
+   * The name of a routing rule.
    * 
    * @example
    * ingress-sae-test
@@ -8598,12 +8949,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * The ID of a routing rule.
    * 
    * @example
    * 87
@@ -8616,23 +8962,31 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The default rule.
+   * The listener ports for an SLB instance.
    * 
    * @example
    * 443
    */
   listenerPort?: number;
   /**
+   * @remarks
+   * The protocol used to forward requests. Valid values:
+   * 
+   * *   **HTTP**: HTTP is suitable for applications that need to identify the transmitted data.
+   * *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+   * 
+   * This parameter is optional in the **CreateIngress** and **UpadateIngress** operations. If you do not configure this parameter when you call the CreateIngress or UpdateIngress operation to create or update a gateway routing rule, this parameter is not returned for the corresponding response.
+   * 
    * @example
    * HTTP
    */
   listenerProtocol?: string;
   /**
    * @remarks
-   * Indicates whether the configurations of the routing rule were queried successfully. Valid values:
+   * The type of SLB instances. Valid values:
    * 
-   * *   **true**: indicates that the query was successful.
-   * *   **false**: indicates that the query failed.
+   * *   **clb**: Classic Load Balancer (formerly known as SLB).
+   * *   **alb**: Application Load Balancer.
    * 
    * @example
    * clb
@@ -8640,7 +8994,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   loadBalanceType?: string;
   /**
    * @remarks
-   * The ID of the application specified in the default rule.
+   * The name of a routing rule.
    * 
    * @example
    * lb-uf6jt0nu4z6ior943****-80-f5****
@@ -8648,7 +9002,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The ID of a namespace.
    * 
    * @example
    * cn-beijing:sae-test
@@ -8661,7 +9015,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   requestTimeout?: number;
   /**
    * @remarks
-   * The ID of the application specified in the forwarding rule.
+   * The forwarding rules.
    */
   rules?: DescribeIngressResponseBodyDataRules[];
   /**
@@ -8671,10 +9025,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The type of the SLB instance based on the IP address. Valid values:
-   * 
-   * *   **internet**: the Internet-facing SLB instance.
-   * *   **intranet**: the internal-facing SLB instance.
+   * The ID of a Server Load Balancer (SLB) instance.
    * 
    * @example
    * lb-uf62****6d13tq2u5
@@ -8682,7 +9033,10 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The container port of the application specified in the default rule.
+   * The type of an SLB instance. Valid values:
+   * 
+   * *   **internet**: an Internet-facing SLB instance
+   * *   **intranet**: an Intranet-facing SLB instance
    * 
    * @example
    * internet
@@ -8692,6 +9046,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
     return {
       certId: 'CertId',
       certIds: 'CertIds',
+      corsConfig: 'CorsConfig',
       createdBySae: 'CreatedBySae',
       defaultRule: 'DefaultRule',
       description: 'Description',
@@ -8719,6 +9074,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
     return {
       certId: 'string',
       certIds: 'string',
+      corsConfig: DescribeIngressResponseBodyDataCorsConfig,
       createdBySae: 'boolean',
       defaultRule: DescribeIngressResponseBodyDataDefaultRule,
       description: 'string',
@@ -8743,6 +9099,9 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.corsConfig && typeof (this.corsConfig as any).validate === 'function') {
+      (this.corsConfig as any).validate();
+    }
     if(this.defaultRule && typeof (this.defaultRule as any).validate === 'function') {
       (this.defaultRule as any).validate();
     }
@@ -8864,7 +9223,7 @@ export class DescribeJobResponseBodyDataConfigMapMountDesc extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The path on which the NAS file system is mounted.
+   * The path on which the ConfigMap is mounted.
    * 
    * @example
    * /tmp
@@ -8940,7 +9299,7 @@ export class DescribeJobResponseBodyDataMountDesc extends $dara.Model {
 export class DescribeJobResponseBodyDataOssMountDescs extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The name of the bucket.
    * 
    * @example
    * oss-bucket
@@ -8964,10 +9323,10 @@ export class DescribeJobResponseBodyDataOssMountDescs extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * Indicates whether the application can use the container path to read data from or write data to resources in the directory of the OSS bucket. Valid values:
+   * Indicates whether the job template can use the container directory to read data from or write data to resources in the directory of the OSS bucket. Valid values:
    * 
-   * *   **true**: The application has the read-only permission.
-   * *   **false**: The application has read and write permissions.
+   * *   **true**: The job template has the read-only permissions.
+   * *   **false**: The job template has the read and write permissions.
    * 
    * @example
    * true
@@ -9059,7 +9418,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The description of the application.
+   * The description of the job template.
    * 
    * @example
    * Sample application
@@ -9067,7 +9426,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   appDescription?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the job template.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -9075,7 +9434,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the job template.
    * 
    * @example
    * demo-app
@@ -9163,7 +9522,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   customHostAlias?: string;
   /**
    * @remarks
-   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * The version of the container, such as Ali-Tomcat, in which a job that is developed based on High-speed Service Framework (HSF) is deployed.
    * 
    * @example
    * 3.5.3
@@ -9207,7 +9566,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The arguments in the JAR package. The arguments are used to start the job. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
    * 
    * @example
    * start
@@ -9215,7 +9574,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   jarStartArgs?: string;
   /**
    * @remarks
-   * The option settings in the JAR package. The settings are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The option settings in the JAR package. The settings are used to start the job. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
    * 
    * @example
    * -Dtest=true
@@ -9264,7 +9623,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   mountDesc?: DescribeJobResponseBodyDataMountDesc[];
   /**
    * @remarks
-   * The mount target of the NAS file system in the VPC in which the application is deployed. If you do not need to modify this configuration during the deployment, configure **MountHost** only in the first request. If you need to remove this configuration, leave **MountHost** empty in the request.
+   * The mount target of the Apsara File Storage NAS (NAS) file system in the virtual private cloud (VPC) where the job template is deployed. If you do not need to modify the NAS configurations when you deploy the job template, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use NAS, leave the **MountHost** parameter empty in the request.
    * 
    * @example
    * example.com
@@ -9319,9 +9678,9 @@ export class DescribeJobResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the deployment package. Valid values:
    * 
-   * *   If you deploy the application by using a Java Archive (JAR) package, this parameter is set to **FatJar**, **War**, or **Image**.
+   * *   If you deploy a Java job template, you can set this parameter to **FatJar**, **War**, or **Image**.
    * 
-   * *   If you deploy the application by using a PHP package, this parameter is set to one of the following values:
+   * *   If you deploy a PHP job template, the following types are available:
    * 
    *     *   **PhpZip**
    *     *   **IMAGE_PHP_5_4**
@@ -9339,7 +9698,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
    *     *   **IMAGE_PHP_7_3**
    *     *   **IMAGE_PHP_7_3_ALPINE**
    * 
-   * *   If you deploy the application by using a Pythhon package, this parameter is set to **PythonZip** or **Image**.
+   * *   If you deploy a Python job template, you can set this parameter to **PythonZip** or **Image**.
    * 
    * @example
    * War
@@ -9368,7 +9727,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   phpConfig?: string;
   /**
    * @remarks
-   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * The path on which the PHP configuration file for job startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
    * 
    * @example
    * /usr/local/etc/php/php.ini
@@ -9392,12 +9751,12 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   preStop?: string;
   /**
    * @remarks
-   * The programming language that is used to create the application. Valid values:
+   * The programming language in which the job template is created. Valid values:
    * 
    * *   **java**: Java
    * *   **php**: PHP
    * *   **python**: Python
-   * *   **other**: other programming languages, such as C++, Go, .NET, and Node.js.
+   * *   **other**: other programming languages, such as C++, Go, .NET, and Node.js
    * 
    * @example
    * java
@@ -9447,7 +9806,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of application instances.
+   * The number of job instances.
    * 
    * @example
    * 2
@@ -9521,7 +9880,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   terminationGracePeriodSeconds?: number;
   /**
    * @remarks
-   * The timeout period for the job. Unit: seconds.
+   * The timeout period of the job. Unit: seconds.
    * 
    * @example
    * 3600
@@ -9573,7 +9932,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
   vpcWebHookUrls?: string[];
   /**
    * @remarks
-   * The option settings in the WAR package. The settings are used to start the application container. The default startup command is `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
+   * The option settings in the WAR package. The settings are used to start the job. The default startup command is `java $JAVA_OPTS $CATALINA_OPTS -Options org.apache.catalina.startup.Bootstrap "$@" start`.
    * 
    * @example
    * custom-option
@@ -10469,18 +10828,24 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
 export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   /**
    * @remarks
-   * The ACM-specific AccessKey ID. It can be used to manage data in an Application Configuration Management (ACM) namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](~~~~).
+   * The ACM-specific AccessKey ID. It can be used to manage data in an Application Configuration Management (ACM) namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
    * 
    * @example
    * b34dbe3315c64f9f99b58ea447ec****
    */
   accessKey?: string;
   /**
+   * @remarks
+   * The endpoint of the host.
+   * 
    * @example
    * addr-bj-internal.edas.aliyun.com
    */
   addressServerHost?: string;
   /**
+   * @remarks
+   * The short ID of the namespace.
+   * 
    * @example
    * test
    */
@@ -10495,7 +10860,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   namespaceDescription?: string;
   /**
    * @remarks
-   * The ID of the namespace. The information of the default namespace cannot be queried or modified. The default namespace cannot be deleted.
+   * The ID of the namespace. You cannot query, modify, or delete the default namespace.
    * 
    * @example
    * cn-beijing:test
@@ -10511,7 +10876,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -10519,7 +10884,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ACM-specific AccessKey secret. It can be used to manage data in an ACM namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](~~~~).
+   * The ACM-specific AccessKey secret. It can be used to manage data in an ACM namespace. For more information, see [Differences between Alibaba Cloud AccessKey and ACM-specific AccessKey](https://help.aliyun.com/document_detail/68941.html).
    * 
    * @example
    * G/w6sseK7+nb3S6HBmANDBMD****
@@ -10527,7 +10892,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 838cad95-973f-48fe-830b-2a8546d7****
@@ -10573,7 +10938,7 @@ export class DescribeNamespacesResponseBodyDataNamespaces extends $dara.Model {
 export class DescribeNamespacesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -10581,12 +10946,12 @@ export class DescribeNamespacesResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of namespaces.
+   * The namespaces.
    */
   namespaces?: DescribeNamespacesResponseBodyDataNamespaces[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -10971,27 +11336,7 @@ export class DescribeRegionsResponseBodyRegionsRegionRecommendZones extends $dar
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
   /**
    * @remarks
-   * The list of regions.
-   */
-  localName?: string;
-  /**
-   * @remarks
-   * The ID of the region. Valid values:
-   * 
-   * *   **cn-hangzhou**: the ID of the China (Hangzhou) region
-   * *   **cn-shanghai**: the ID of the China (Shanghai) region
-   * *   **cn-beijing**: the ID of the China (Beijing) region
-   * *   **cn-zhangjiakou**: the ID of the China (Zhangjiakou) region
-   * *   **cn-shenzhen**: the ID of the China (Shenzhen) region
-   * *   **cn-guangzhou**: the ID of the China (Guangzhou) region
-   * *   **cn-hongkong**: the ID of the China (Hong Kong) region
-   * *   **ap-southeast-1**: the ID of the Singapore region
-   * *   **us-west-1**: the ID of the US (Silicon Valley) region
-   */
-  recommendZones?: DescribeRegionsResponseBodyRegionsRegionRecommendZones;
-  /**
-   * @remarks
-   * The name of the region. Valid values:
+   * The region name. Valid values:
    * 
    * *   **China (Hangzhou)**
    * *   **China (Shanghai)**
@@ -11000,16 +11345,18 @@ export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
    * *   **China (Shenzhen)**
    * *   **China (Guangzhou)**
    * *   **China (Hong Kong)**
-   * *   **Singapore (Singapore)**
+   * *   **Singapore**
    * *   **US (Silicon Valley)**
-   * 
-   * @example
-   * sae.cn-shanghai.aliyuncs.com
    */
-  regionEndpoint?: string;
+  localName?: string;
   /**
    * @remarks
-   * The endpoint of the region. Valid values:
+   * The recommended zones.
+   */
+  recommendZones?: DescribeRegionsResponseBodyRegionsRegionRecommendZones;
+  /**
+   * @remarks
+   * The endpoint for the region. Valid values:
    * 
    * *   **sae.cn-hangzhou.aliyuncs.com**
    * *   **sae.cn-shanghai.aliyuncs.com**
@@ -11020,6 +11367,24 @@ export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
    * *   **sae.cn-hongkong.aliyuncs.com**
    * *   **sae.ap-southeast-1.aliyuncs.com**
    * *   **sae.us-west-1.aliyuncs.com**
+   * 
+   * @example
+   * sae.cn-shanghai.aliyuncs.com
+   */
+  regionEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID. Valid values:
+   * 
+   * *   **cn-hangzhou**: the ID of the China (Hangzhou) region
+   * *   **cn-shanghai**: the ID of the China (Shanghai) region
+   * *   **cn-beijing**: the ID of the China (Beijing) region
+   * *   **cn-zhangjiakou**: the ID of the China (Zhangjiakou) region
+   * *   **cn-shenzhen**: the ID of the China (Shenzhen) region
+   * *   **cn-guangzhou**: the ID of the China (Guangzhou) region
+   * *   **cn-hongkong**: the ID of the China (Hong Kong) region
+   * *   **ap-southeast-1**: the ID of the Singapore region
+   * *   **us-west-1**: the ID of the US (Silicon Valley) region
    * 
    * @example
    * cn-shanghai
@@ -11297,68 +11662,145 @@ export class ExecJobResponseBodyData extends $dara.Model {
 }
 
 export class GetApplicationResponseBodyApplication extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the application.
+   */
   appDescription?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 443d638a-ef76-47c4-b707-61197d******
    */
   appId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * The ID of the basic application.
+   * 
    * @example
    * ee99cce6-1c8e-4bfa-96c3-3e2fa9******
    */
   baseAppId?: string;
   /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **12000**
+   * *   **16000**
+   * *   **32000**
+   * 
    * @example
    * 2000
    */
   cpu?: number;
   /**
+   * @remarks
+   * The number of application instances.
+   * 
    * @example
    * i-8ps2o182102o1jv05bys
    */
   instances?: number;
   /**
+   * @remarks
+   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
    * @example
    * 4096
    */
   mem?: number;
   /**
+   * @remarks
+   * Specifies whether to enable WebAssembly Filter. Valid values:
+   * 
+   * *   true: enables this parameter.
+   * *   false: disables this parameter.
+   * 
    * @example
    * true
    */
   mseEnabled?: boolean;
   /**
+   * @remarks
+   * The ID of the namespace to which the MSE instance belongs.
+   * 
    * @example
    * test
    */
   mseNamespaceId?: string;
   /**
+   * @remarks
+   * The namespace ID.
+   * 
    * @example
    * cn-shenzhen
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The programming language that is used to create the application. Valid values:
+   * 
+   * *   **java** :Java.
+   * *   **php**: PHP.
+   * *   **other**: other programming languages, such as Python, C++, Go, .NET, and Node.js
+   * 
    * @example
    * java
    */
   programmingLanguage?: string;
   /**
+   * @remarks
+   * The number of application instances that are running.
+   * 
    * @example
    * 1
    */
   runningInstances?: number;
   /**
+   * @remarks
+   * Indicates whether the auto scaling policy is enabled. Valid values:
+   * 
+   * *   **true**: The auto scaling policy is enabled.
+   * *   **false**: The auto scaling policy is disabled.
+   * 
    * @example
    * true
    */
   scaleRuleEnabled?: string;
   /**
+   * @remarks
+   * The type of the auto scaling policy. Valid values:
+   * 
+   * *   **timing**: a scheduled auto scaling policy.
+   * *   **metric**: a metric-based auto scaling policy.
+   * *   **mix**: a hybrid auto scaling policy.
+   * 
    * @example
    * timing
    */
@@ -11736,7 +12178,7 @@ export class GetScaleAppMetricResponseBodyData extends $dara.Model {
 export class GetWarningEventMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The details of the application.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -11744,7 +12186,7 @@ export class GetWarningEventMetricResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The application ID.
    * 
    * @example
    * test
@@ -11752,7 +12194,7 @@ export class GetWarningEventMetricResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The application name.
    * 
    * @example
    * cn-hangzhou
@@ -11760,7 +12202,7 @@ export class GetWarningEventMetricResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of Warning events.
+   * The namespace ID.
    * 
    * @example
    * 10
@@ -11972,59 +12414,114 @@ export class ListAppEventsResponseBodyData extends $dara.Model {
 
 export class ListAppServicesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
    */
   appId?: string;
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * demo-app
    */
   appName?: string;
   /**
+   * @remarks
+   * The number of instances of the microservice.
+   * 
    * @example
    * 1
    */
   instanceCount?: string;
   /**
+   * @remarks
+   * The ID of the namespace to which the application belongs.
+   * 
    * @example
    * cn-beijing:test
    */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   */
   namespaceName?: string;
   /**
+   * @remarks
+   * The registry type. Valid values:
+   * 
+   * *   **0**：SAE Nacos
+   * *   **1**: SAE built-in Nacos
+   * *   **2**: MSE Nacos
+   * *   **9**: SAE Kubernets service
+   * 
    * @example
    * 0
    */
   registryType?: string;
   /**
+   * @remarks
+   * The IDs of the security groups.
+   * 
    * @example
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The group to which the microservice belongs.
+   * 
    * @example
    * DEFAULT_GROUP
    */
   serviceGroup?: string;
   /**
+   * @remarks
+   * The name of the microservice.
+   * 
    * @example
    * frontend
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The ports and protocols.
+   */
   servicePortAndProtocol?: { [key: string]: string };
+  /**
+   * @remarks
+   * The list of ports.
+   */
   servicePorts?: number[];
   /**
+   * @remarks
+   * The protocol used by the microservice.
+   * 
    * @example
    * HTTP
    */
   serviceProtocol?: string;
   /**
+   * @remarks
+   * The type of the microservice. Valid values:
+   * 
+   * *   **dubbo**
+   * *   **springCloud**
+   * *   **hsf**
+   * *   **k8sService**
+   * 
    * @example
    * springCloud
    */
   serviceType?: string;
   /**
+   * @remarks
+   * The version of the microservice.
+   * 
    * @example
    * 1.0.0
    */
@@ -12085,7 +12582,7 @@ export class ListAppServicesResponseBodyData extends $dara.Model {
 export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The group to which the service belongs. You can create a custom group.
+   * The ID of the application.
    * 
    * @example
    * hc4fs1****@98314c8790b****
@@ -12093,7 +12590,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   edasAppId?: string;
   /**
    * @remarks
-   * The total number of instances.
+   * The name of the application.
    * 
    * @example
    * cn-zhangjiakou-micro-service-******
@@ -12101,12 +12598,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   edasAppName?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * The group to which the service belongs. You can create a custom group.
    * 
    * @example
    * springCloud
@@ -12114,7 +12606,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The number of instances.
    * 
    * @example
    * 1
@@ -12122,10 +12614,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   instanceNum?: number;
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * - If the call is successful, the **ErrorCode** parameter is not returned.
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The service name.
    * 
    * @example
    * edas.service.provider
@@ -12133,7 +12622,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The version of a service. You can create a custom version.
    * 
    * @example
    * 1.0.0
@@ -12173,7 +12662,7 @@ export class ListAppServicesPageResponseBodyDataResult extends $dara.Model {
 export class ListAppServicesPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -12181,7 +12670,7 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The returned result.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -12189,7 +12678,7 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The number of entries returned on each page. Valid values: 0 to 9999.
    * 
    * @example
    * 9999
@@ -12197,12 +12686,12 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The version of the service. You can create a custom version.
+   * The result returned.
    */
   result?: ListAppServicesPageResponseBodyDataResult[];
   /**
    * @remarks
-   * The number of entries returned per page. Valid values: 0 to 9999.
+   * The total number of returned pages.
    * 
    * @example
    * 1
@@ -12243,8 +12732,10 @@ export class ListAppServicesPageResponseBodyData extends $dara.Model {
 export class ListAppVersionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * *   The address of the image. This parameter is returned when the **Type** parameter is set to **image**.
-   * *   The download link of the WAR or JAR package. This parameter is returned when the **Type** parameter is set to **upload**.
+   * The URL of the code package. If you use the SAE console to upload the code package, take note of the following items:
+   * 
+   * *   You cannot download the URL. You must call the GetPackageVersionAccessableUrl operation to obtain the URL. The obtained URL is valid for 10 minutes.
+   * *   SAE can retain the package up to 90 days. After 90 days, the URL cannot be returned or downloaded.
    */
   buildPackageUrl?: string;
   /**
@@ -12268,7 +12759,10 @@ export class ListAppVersionsResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The deployment method of the application. Valid values:
+   * 
+   * *   **image**: indicates that the application is deployed by using an image.
+   * *   **url**: indicates that the application is deployed by using a code package.
    * 
    * @example
    * image
@@ -12276,7 +12770,7 @@ export class ListAppVersionsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the version.
+   * The URL of the image.
    */
   warUrl?: string;
   static names(): { [key: string]: string } {
@@ -12509,6 +13003,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    * 1000
    */
   cpu?: number;
+  enableIdle?: string;
   imageUrl?: string;
   /**
    * @remarks
@@ -12582,6 +13077,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       baseAppId: 'BaseAppId',
       children: 'Children',
       cpu: 'Cpu',
+      enableIdle: 'EnableIdle',
       imageUrl: 'ImageUrl',
       instances: 'Instances',
       mem: 'Mem',
@@ -12608,6 +13104,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       baseAppId: 'string',
       children: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsChildren },
       cpu: 'number',
+      enableIdle: 'string',
       imageUrl: 'string',
       instances: 'number',
       mem: 'number',
@@ -12742,7 +13239,28 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
   coType?: string;
   /**
    * @remarks
-   * The ID of the change order.
+   * The code of the change order. Valid values:
+   * 
+   * *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
+   * *   **CoUnbindSlb**: disassociates an SLB instance from the application.
+   * *   **CoCreateApp**: creates the application.
+   * *   **CoDeleteApp**: deletes the application.
+   * *   **CoDeploy**: deploys the application.
+   * *   **CoRestartApplication**: restarts the application.
+   * *   **CoRollback**: rolls back the application.
+   * *   **CoScaleIn**: scales in the application.
+   * *   **CoScaleOut**: scales out the application.
+   * *   **CoStartApplication**: starts the application.
+   * *   **CoStopApplication**: stops the application.
+   * *   **CoRescaleApplicationVertically**: modifies the instance type.
+   * *   **CoDeployHistroy**: rolls back the application to an earlier version.
+   * *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
+   * *   **CoUnbindNas**: disassociates a NAS file system from the application.
+   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
+   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
+   * *   **CoRestartInstances**: restarts the instance.
+   * *   **CoDeleteInstances**: deletes the instance.
+   * *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
    * 
    * @example
    * CoCreateApp
@@ -12880,18 +13398,7 @@ export class ListChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model
 export class ListChangeOrdersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status of the change order. Valid values:
-   * 
-   * *   **0**: The change order is being prepared.
-   * *   **1**: The change order is being executed.
-   * *   **2**: The change order was executed.
-   * *   **3**: The change order could not be executed.
-   * *   **6**: The change order was terminated.
-   * *   **8**: The execution process is pending. You must manually determine the release batch.
-   * *   **9**: The execution process is pending. SAE will automatically determine the release batch.
-   * *   **10**: The change order could not be executed due to a system exception.
-   * *   **11**: The change order is pending approval.
-   * *   **12**: The change order is approved and is pending execution.
+   * The change orders.
    */
   changeOrderList?: ListChangeOrdersResponseBodyDataChangeOrderList[];
   /**
@@ -12954,7 +13461,7 @@ export class ListChangeOrdersResponseBodyData extends $dara.Model {
 export class ListConsumedServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter.
+   * The ID of the application.
    * 
    * @example
    * b2a8a925-477a-4ed7-b825-d5e22500****
@@ -12962,7 +13469,7 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The subscription address of the service.
+   * This parameter is reserved.
    * 
    * @example
    * {}
@@ -12970,20 +13477,17 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   group2Ip?: string;
   /**
    * @remarks
-   * The version of the published service
+   * The service groups that corresponds to the consumed services.
    */
   groups?: string[];
   /**
    * @remarks
-   * The name of the published service.
+   * The addresses where the services can be subscribed to.
    */
   ips?: string[];
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The name of the published service.
    * 
    * @example
    * com.alibaba.nodejs.ItemService
@@ -12991,7 +13495,7 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service group that corresponds to the published service.
+   * The type of the published service.
    * 
    * @example
    * RPC
@@ -12999,7 +13503,7 @@ export class ListConsumedServicesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The version of the published service.
    * 
    * @example
    * 1.0.0
@@ -13125,6 +13629,10 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $dara.Model 
    */
   ingressId?: string;
   items?: ListGreyTagRouteResponseBodyDataResultAlbRulesItems[];
+  /**
+   * @example
+   * s-6366-e3****-99**
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13649,6 +14157,47 @@ export class ListGreyTagRouteResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListIngressesResponseBodyDataIngressListCorsConfig extends $dara.Model {
+  allowCredentials?: string;
+  allowHeaders?: string;
+  allowMethods?: string;
+  allowOrigin?: string;
+  enable?: string;
+  exposeHeaders?: string;
+  maxAge?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCredentials: 'AllowCredentials',
+      allowHeaders: 'AllowHeaders',
+      allowMethods: 'AllowMethods',
+      allowOrigin: 'AllowOrigin',
+      enable: 'Enable',
+      exposeHeaders: 'ExposeHeaders',
+      maxAge: 'MaxAge',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCredentials: 'string',
+      allowHeaders: 'string',
+      allowMethods: 'string',
+      allowOrigin: 'string',
+      enable: 'string',
+      exposeHeaders: 'string',
+      maxAge: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIngressesResponseBodyDataIngressListDefaultRule extends $dara.Model {
   appId?: string;
   appName?: string;
@@ -13757,25 +14306,26 @@ export class ListIngressesResponseBodyDataIngressListRules extends $dara.Model {
 export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   /**
    * @remarks
-   * The error code. 
-   * 
-   * - The **ErrorCode** parameter is not returned when the request succeeds.
-   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The ID of the certificate that is associated with a Classic Load Balancer (**CLB**) instance.
    * 
    * @example
    * 13624*****73809_16f8e549a20_1175189789_12****3210
    */
   certId?: string;
   /**
+   * @remarks
+   * The ID of the certificate that is associated with an Application Load Balancer **ALB** instance.
+   * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  corsConfig?: ListIngressesResponseBodyDataIngressListCorsConfig;
   createTime?: number;
   defaultRule?: ListIngressesResponseBodyDataIngressListDefaultRule;
   /**
    * @remarks
-   * The ID of the routing rule.
+   * The name of a routing rule.
    * 
    * @example
    * test
@@ -13783,10 +14333,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the list of routing rules was obtained. Valid values:
-   * 
-   * *   **true**: indicates that the list was obtained.
-   * *   **false**: indicates that the list could not be obtained.
+   * The ID of a routing rule.
    * 
    * @example
    * 18
@@ -13795,36 +14342,66 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The type of the SLB instance based on the processing capabilities. Valid values:
-   * 
-   * *   **clb**: the Classic Load Balancer (CLB) instance.
-   * *   **alb**: the Application Load Balancer (ALB) instance.
+   * The listener ports for an SLB instance.
    * 
    * @example
    * 80
    */
   listenerPort?: string;
   /**
+   * @remarks
+   * The protocol that is supported by SLB to forward requests. Valid values:
+   * 
+   * *   **HTTP**: HTTP is suitable for applications that need to identify the transmitted data.
+   * *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+   * 
+   * This parameter is optional in the **CreateIngress** and **UpadateIngress** operations. If you do not configure this parameter when you call the CreateIngress or UpdateIngress operation to create or update a gateway routing rule, this parameter is not returned for the corresponding response.
+   * 
    * @example
    * HTTP
    */
   listenerProtocol?: string;
   /**
+   * @remarks
+   * The type of SLB instances. Valid values:
+   * 
+   * *   **clb**: Classic Load Balancer (formerly known as SLB).
+   * *   **alb**: Application Load Balancer.
+   * 
    * @example
    * clb
    */
   loadBalanceType?: string;
+  /**
+   * @remarks
+   * The ID of an MSE cloud-native gateway.
+   * 
+   * @example
+   * gw-d5df01a1bae748f1a7c4e325d2fd****
+   */
   mseGatewayId?: string;
+  /**
+   * @remarks
+   * The port of a service.
+   * 
+   * @example
+   * 80
+   */
   mseGatewayPort?: string;
+  /**
+   * @remarks
+   * The protocol that is supported by an MSE cloud-native gateway to forward requests. Valid values:
+   * 
+   * *   **HTTP**: HTTP is suitable for applications that need to identify transmitted data.
+   * *   **HTTPS**: HTTPS is suitable for applications that require encrypted data transmission.
+   * 
+   * @example
+   * HTTP
+   */
   mseGatewayProtocol?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * The name of a routing rule.
    * 
    * @example
    * lb-uf6jt0nu4z6ior943****-80-f5****
@@ -13832,7 +14409,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the routing rule.
+   * The ID of a namespace.
    * 
    * @example
    * cn-shanghai
@@ -13842,7 +14419,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   rules?: ListIngressesResponseBodyDataIngressListRules[];
   /**
    * @remarks
-   * The ID of the certificate.
+   * The ID of a Server Load Balancer (SLB) instance.
    * 
    * @example
    * lb-uf62****6d13tq2u5
@@ -13850,10 +14427,10 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The protocol used to forward requests. Valid values:
+   * The type of SLB instances. Valid values:
    * 
-   * *   **HTTP**: used when the application needs to identify the transmitted data.
-   * *   **HTTPS**: used when the application requires encrypted data transmission.
+   * *   **internet**: an Internet-facing SLB instance
+   * *   **intranet**: an Intranet-facing SLB instance
    * 
    * @example
    * internet
@@ -13863,6 +14440,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
     return {
       certId: 'CertId',
       certIds: 'CertIds',
+      corsConfig: 'CorsConfig',
       createTime: 'CreateTime',
       defaultRule: 'DefaultRule',
       description: 'Description',
@@ -13887,6 +14465,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
     return {
       certId: 'string',
       certIds: 'string',
+      corsConfig: ListIngressesResponseBodyDataIngressListCorsConfig,
       createTime: 'number',
       defaultRule: ListIngressesResponseBodyDataIngressListDefaultRule,
       description: 'string',
@@ -13908,6 +14487,9 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   }
 
   validate() {
+    if(this.corsConfig && typeof (this.corsConfig as any).validate === 'function') {
+      (this.corsConfig as any).validate();
+    }
     if(this.defaultRule && typeof (this.defaultRule as any).validate === 'function') {
       (this.defaultRule as any).validate();
     }
@@ -13925,10 +14507,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
 export class ListIngressesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the SLB instance based on the IP address. Valid values:
-   * 
-   * *   **internet**: the Internet-facing SLB instance.
-   * *   **intranet**: the internal-facing SLB instance.
+   * The list of routing rules.
    */
   ingressList?: ListIngressesResponseBodyDataIngressList[];
   static names(): { [key: string]: string } {
@@ -13958,7 +14537,7 @@ export class ListIngressesResponseBodyData extends $dara.Model {
 export class ListJobsResponseBodyDataApplicationsTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key
@@ -13966,7 +14545,7 @@ export class ListJobsResponseBodyDataApplicationsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value
@@ -14036,6 +14615,21 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
    * 1657522839
    */
   completionTime?: number;
+  /**
+   * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **16000**
+   * *   **32000**
+   * 
+   * @example
+   * 500
+   */
   cpu?: number;
   /**
    * @remarks
@@ -14058,7 +14652,7 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
   lastChangeorderState?: string;
   /**
    * @remarks
-   * The running status of the latest job. Valid values:
+   * The status of the latest job. Valid values:
    * 
    * *   **0**: The job is not executed.
    * *   **1**: The job was executed.
@@ -14077,11 +14671,36 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
    * 1657522800
    */
   lastStartTime?: number;
+  /**
+   * @remarks
+   * The size of memory that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
+   * @example
+   * 1024
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:demo
@@ -14113,7 +14732,7 @@ export class ListJobsResponseBodyDataApplications extends $dara.Model {
   suspend?: boolean;
   /**
    * @remarks
-   * The tag of the job template.
+   * The tags of the job template.
    */
   tags?: ListJobsResponseBodyDataApplicationsTags[];
   triggerConfig?: string;
@@ -14254,7 +14873,7 @@ export class ListLogConfigsResponseBodyDataLogConfigs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the Logstore in Log Service.
+   * The path of the log file (log source).
    * 
    * @example
    * /root/logs/hsf/hsf.log
@@ -14346,7 +14965,7 @@ export class ListLogConfigsResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The name of the Log Service configuration.
+   * The details of the logging configuration.
    */
   logConfigs?: ListLogConfigsResponseBodyDataLogConfigs[];
   /**
@@ -14815,7 +15434,7 @@ export class ListNamespacedConfigMapsResponseBodyData extends $dara.Model {
 export class ListPublishedServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The reserved parameter. This parameter does not take effect.
+   * The ID of the application.
    * 
    * @example
    * b2a8a925-477a-4ed7-b825-d5e22500****
@@ -14823,7 +15442,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The subscription address of the service.
+   * The reserved parameter. This parameter does not take effect.
    * 
    * @example
    * {}
@@ -14831,20 +15450,17 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   group2Ip?: string;
   /**
    * @remarks
-   * The version of the published services.
+   * The service group that corresponds to the consumed service.
    */
   groups?: string[];
   /**
    * @remarks
-   * The name of the published service.
+   * The addresses where services can be subscribed to.
    */
   ips?: string[];
   /**
    * @remarks
-   * The returned error code. Valid values:
-   * 
-   * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * The name of the published service.
    * 
    * @example
    * com.alibaba.nodejs.ItemService
@@ -14852,7 +15468,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service group that corresponds to the consumed service.
+   * The type of the published service.
    * 
    * @example
    * RPC
@@ -14860,7 +15476,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The version of the published services.
    * 
    * @example
    * 1.0.0
@@ -15078,7 +15694,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to `application`.
+   * The type of the resource. Valid value: `application`.
    * 
    * @example
    * ALIYUN::SAE::APPLICATION
@@ -15086,7 +15702,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * k1
@@ -15094,7 +15710,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * v1
@@ -15551,13 +16167,40 @@ export class StopApplicationResponseBodyData extends $dara.Model {
   }
 }
 
+export class UnbindNlbResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the change order. The ID can be used to query the status of the change task.
+   * 
+   * @example
+   * ba386059-69b1-4e65-b1e5-0682d9fa****
+   */
+  changeOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'ChangeOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindSlbResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * The ID of the change order. The ID can be used to query the status of the change task.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -15613,9 +16256,25 @@ export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $
    * CPU
    */
   metricType?: string;
+  /**
+   * @example
+   * lb-xxx
+   */
   slbId?: string;
+  /**
+   * @example
+   * test
+   */
   slbLogstore?: string;
+  /**
+   * @example
+   * test
+   */
   slbProject?: string;
+  /**
+   * @example
+   * 80
+   */
   vport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15707,7 +16366,15 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends 
    * 08:00
    */
   atTime?: string;
+  /**
+   * @example
+   * 10
+   */
   maxReplicas?: number;
+  /**
+   * @example
+   * 1
+   */
   minReplicas?: number;
   /**
    * @remarks
@@ -16078,6 +16745,16 @@ export class UpdateJobResponseBodyData extends $dara.Model {
 }
 
 export class UpdateNamespaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to enable SAE built-in registry:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enableMicroRegistration?: boolean;
   /**
    * @remarks
@@ -16153,7 +16830,16 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
 export class UpdateSecretRequestSecretData extends $dara.Model {
   /**
    * @remarks
+   * The information about the key-value pairs of the Secret. This parameter is required. The following formats are supported:
+   * 
+   * {"Data":"{"k1":"v1", "k2":"v2"}"}
+   * 
+   * k specifies a key and v specifies a value. For more information, see [Manage a Kubernetes Secret](https://help.aliyun.com/document_detail/463383.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {".dockerconfigjson":"eyJhdXRocyI6eyJyZWdpc3RyeS12cGMuY24tYmVpamluZy5hbGl5dW5jcy5jb20iOnsidXNlcm5hbWUiOiJ1c2VybmFtZSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJhdXRoIjoiZFhObGNtNWhiV1U2Y0dGemMzZHZjbVE9In0sInJlZ2lzdHJ5LmNuLWJlaWppbmcuYWxpeXVuY3MuY29tIjp7InVzZXJuYW1lIjoidXNlcm5hbWUiLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiYXV0aCI6ImRYTmxjbTVoYldVNmNHRnpjM2R2Y21RPSJ9fX0="}
    */
   secretData?: string;
   static names(): { [key: string]: string } {
@@ -22865,7 +23551,7 @@ export class WebWAFConfig extends $dara.Model {
 export class AbortAndRollbackChangeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the change order.
    * 
    * This parameter is required.
    * 
@@ -22897,10 +23583,12 @@ export class AbortAndRollbackChangeOrderRequest extends $dara.Model {
 export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the change order was terminated or the application was rolled back. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The change order was terminated or the application was rolled back.
-   * *   **false**: The change order could not be terminated or the application could not be rolled back.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -22908,17 +23596,15 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the change order.
+   * The details of the change order.
    */
   data?: AbortAndRollbackChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
    * success
@@ -22926,7 +23612,7 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The returned message.
    * 
    * @example
    * success
@@ -22934,20 +23620,26 @@ export class AbortAndRollbackChangeOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the change order was terminated. Valid values:
+   * 
+   * *   **true**: The change order was terminated.
+   * *   **false**: The change order failed to be terminated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the change order.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -23027,7 +23719,7 @@ export class AbortAndRollbackChangeOrderResponse extends $dara.Model {
 export class AbortChangeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the change order.
    * 
    * This parameter is required.
    * 
@@ -23059,10 +23751,12 @@ export class AbortChangeOrderRequest extends $dara.Model {
 export class AbortChangeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the change order was terminated. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The change order was terminated.
-   * *   **false**: The change order could not be terminated.
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -23070,22 +23764,20 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the change order.
+   * The data returned.
    */
   data?: AbortChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Value values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **ErrorCode** is not returned if a request is successful.
+   * *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace.
+   * The message returned for the operation.
    * 
    * @example
    * success
@@ -23093,20 +23785,26 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the change order was terminated. Valid values:
+   * 
+   * *   **true**: The change order was terminated.
+   * *   **false**: The change order failed to be terminated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned data.
+   * The ID of the trace.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -24143,6 +24841,7 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   microRegistration?: string;
   microRegistrationConfig?: string;
+  microserviceEngineConfig?: string;
   /**
    * @remarks
    * [{mountPath: "/tmp", nasPath: "/"}]
@@ -24180,6 +24879,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * KSAK****
    */
   nasId?: string;
+  newSaeVersion?: string;
   oidcRoleName?: string;
   /**
    * @remarks
@@ -24425,11 +25125,13 @@ export class CreateApplicationRequest extends $dara.Model {
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
+      microserviceEngineConfig: 'MicroserviceEngineConfig',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
       nasConfigs: 'NasConfigs',
       nasId: 'NasId',
+      newSaeVersion: 'NewSaeVersion',
       oidcRoleName: 'OidcRoleName',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
@@ -24500,11 +25202,13 @@ export class CreateApplicationRequest extends $dara.Model {
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',
+      microserviceEngineConfig: 'string',
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
       nasConfigs: 'string',
       nasId: 'string',
+      newSaeVersion: 'string',
       oidcRoleName: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
@@ -24740,6 +25444,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   microRegistration?: string;
   microRegistrationConfig?: string;
+  microserviceEngineConfig?: string;
   /**
    * @remarks
    * [{mountPath: "/tmp", nasPath: "/"}]
@@ -24777,6 +25482,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * KSAK****
    */
   nasId?: string;
+  newSaeVersion?: string;
   oidcRoleName?: string;
   /**
    * @remarks
@@ -25022,11 +25728,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
+      microserviceEngineConfig: 'MicroserviceEngineConfig',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
       nasConfigs: 'NasConfigs',
       nasId: 'NasId',
+      newSaeVersion: 'NewSaeVersion',
       oidcRoleName: 'OidcRoleName',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
@@ -25097,11 +25805,13 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',
+      microserviceEngineConfig: 'string',
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
       nasConfigs: 'string',
       nasId: 'string',
+      newSaeVersion: 'string',
       oidcRoleName: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
@@ -25672,13 +26382,16 @@ export class CreateConfigMapResponse extends $dara.Model {
 
 export class CreateGreyTagRouteRequest extends $dara.Model {
   /**
+   * @remarks
+   * The canary release rule of the application for which Application Load Balancer (ALB) gateway routing is configured.
+   * 
    * @example
    * [{"condition":"AND","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"sourceIp","value":"127.0.0.1"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
    */
   albRules?: string;
   /**
    * @remarks
-   * dubbo-echo
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25688,7 +26401,7 @@ export class CreateGreyTagRouteRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   * The description of the canary release rule. The name must be 1 to 64 characters in length.
    * 
    * @example
    * 灰度发布-地域灰度
@@ -25696,7 +26409,7 @@ export class CreateGreyTagRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The canary release rule that you created for Dubbo applications. If your application uses the Dubbo framework, you must configure this parameter. You do not need to configure the **ScRules** parameter.
    * 
    * @example
    * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
@@ -25704,7 +26417,7 @@ export class CreateGreyTagRouteRequest extends $dara.Model {
   dubboRules?: string;
   /**
    * @remarks
-   * Canary Release - Regions
+   * The name of the canary release rule. The name must start with a lowercase letter and end with a digit or a lowercase letter. The name can contain only lowercase letters, Chinese characters, digits, and hyphens (-). The name must be 1 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -25714,7 +26427,7 @@ export class CreateGreyTagRouteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   * The canary release rule that you created for Spring Cloud application. If your application uses the Spring Cloud framework, you must configure this parameter. You do not need to configure the **DubboRules** parameter.
    * 
    * @example
    * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
@@ -25754,10 +26467,12 @@ export class CreateGreyTagRouteRequest extends $dara.Model {
 export class CreateGreyTagRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the information of the change order was queried. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The information was queried.
-   * *   **false**: The information failed to be queried.
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -25765,22 +26480,20 @@ export class CreateGreyTagRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the canary release rule. The ID is globally unique.
+   * The information about the canary release rule.
    */
   data?: CreateGreyTagRouteResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * *   **ErrorCode** is not returned if a request is successful.
+   * *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The message returned for the operation.
    * 
    * @example
    * success
@@ -25788,20 +26501,26 @@ export class CreateGreyTagRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information.
+   * The ID of the request.
    * 
    * @example
    * 9D29CBD0-45D3-410B-9826-52F86F90****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The information about the canary release rule.
+   * The ID of the trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -25903,6 +26622,7 @@ export class CreateIngressRequest extends $dara.Model {
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  corsConfig?: string;
   /**
    * @remarks
    * Default forwarding rule. Traffic is forwarded to the specified application through a designated port based on the IP address. Parameter descriptions are as follows:
@@ -25930,9 +26650,7 @@ export class CreateIngressRequest extends $dara.Model {
   enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
-   * The timeout period of an idle connection. Unit: seconds. Valid values: 1 to 60.
-   * 
-   * If no request is received within the specified timeout period, ALB closes the current connection. When another request is received, ALB establishes a new connection.
+   * The timeout period of an idle connection. Unit: seconds Valid values: 1 to 60. If no requests are received within the specified timeout period, ALB closes the current connection. When a new request is received, ALB establishes a new connection.
    * 
    * @example
    * 15
@@ -25982,8 +26700,7 @@ export class CreateIngressRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The timeout period of a request. Unit: seconds. Valid values: 1 to 180.
-   * If no response is received from the backend server within the specified timeout period, ALB returns an HTTP 504 error code to the client.
+   * The timeout period of a request. Unit: seconds. Valid values: 1 to 180. If no response is received from the backend server within the specified timeout period, ALB stops waiting for the response and returns an HTTP 504 error code to the client.
    * 
    * @example
    * 3
@@ -26010,7 +26727,7 @@ export class CreateIngressRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The security policy ID.
+   * The ID of a security policy.
    * 
    * @example
    * sp-bp1bpn0kn9****
@@ -26032,6 +26749,7 @@ export class CreateIngressRequest extends $dara.Model {
       addressType: 'AddressType',
       certId: 'CertId',
       certIds: 'CertIds',
+      corsConfig: 'CorsConfig',
       defaultRule: 'DefaultRule',
       description: 'Description',
       enableXForwardedFor: 'EnableXForwardedFor',
@@ -26058,6 +26776,7 @@ export class CreateIngressRequest extends $dara.Model {
       addressType: 'string',
       certId: 'string',
       certIds: 'string',
+      corsConfig: 'string',
       defaultRule: 'string',
       description: 'string',
       enableXForwardedFor: 'boolean',
@@ -26371,6 +27090,10 @@ export class CreateJobRequest extends $dara.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  /**
+   * @example
+   * false
+   */
   enableImageAccl?: boolean;
   /**
    * @remarks
@@ -27034,6 +27757,18 @@ export class CreateJobResponse extends $dara.Model {
 }
 
 export class CreateNamespaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to enable SAE built-in registry:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: true. If you do not use the built-in registry, you can set this parameter to false to accelerate the creation of a namespace.
+   * 
+   * @example
+   * true
+   */
   enableMicroRegistration?: boolean;
   /**
    * @remarks
@@ -27109,7 +27844,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The region where the namespace resides.
+   * The information about a namespace.
    */
   data?: CreateNamespaceResponseBodyData;
   /**
@@ -27442,6 +28177,8 @@ export class CreateSecretResponse extends $dara.Model {
 export class CreateWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27450,6 +28187,8 @@ export class CreateWebApplicationRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The information about the application.
+   * 
    * This parameter is required.
    */
   body?: CreateWebApplicationInput;
@@ -27517,6 +28256,8 @@ export class CreateWebApplicationResponse extends $dara.Model {
 export class CreateWebCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27525,6 +28266,8 @@ export class CreateWebCustomDomainRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The information about custom domain name.
+   * 
    * This parameter is required.
    */
   body?: CreateWebCustomDomainInput;
@@ -27592,7 +28335,7 @@ export class CreateWebCustomDomainResponse extends $dara.Model {
 export class DeleteApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -27624,10 +28367,12 @@ export class DeleteApplicationRequest extends $dara.Model {
 export class DeleteApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the application is deleted. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -27635,22 +28380,23 @@ export class DeleteApplicationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the change order that is used to query the task execution status.
+   * The result returned.
    */
   data?: DeleteApplicationResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: The request is successful.
-   * *   **3xx**: A redirection message is returned.
-   * *   **4xx**: The request is invalid.
-   * *   **5xx**: A server error occurred.
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The trace ID that is used to query details of the request.
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
    * 
    * @example
    * success
@@ -27658,23 +28404,26 @@ export class DeleteApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   If the request is successful, **success** is returned.
-   * *   If an error occurred, the error code is returned.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the application is deleted. Valid values:
+   * 
+   * *   **true**: The applications were deleted
+   * *   **false**: The applications failed to be deleted.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned results.
+   * The ID of the trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -27879,7 +28628,7 @@ export class DeleteApplicationScalingRuleResponse extends $dara.Model {
 export class DeleteConfigMapRequest extends $dara.Model {
   /**
    * @remarks
-   * 1
+   * The ID of the ConfigMap that you want to delete. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID of a ConfigMap.
    * 
    * This parameter is required.
    * 
@@ -27913,10 +28662,10 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -27929,18 +28678,18 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   data?: DeleteConfigMapResponseBodyData;
   /**
    * @remarks
-   * The returned error code. Valid values:
+   * The error code. Valid values:
    * 
    * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
+   * The returned message. Valid values:
    * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -27948,7 +28697,7 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -27956,10 +28705,10 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ConfigMap instance was deleted. Valid values:
+   * Indicates whether the ConfigMap was deleted. Valid values:
    * 
-   * *   **true**: The instance was deleted.
-   * *   **false**: The instance failed to be deleted.
+   * *   **true**: The ConfigMap was deleted.
+   * *   **false**: The ConfigMap failed to be deleted.
    * 
    * @example
    * true
@@ -27967,7 +28716,7 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -28047,7 +28796,7 @@ export class DeleteConfigMapResponse extends $dara.Model {
 export class DeleteGreyTagRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The rule ID.
    * 
    * This parameter is required.
    * 
@@ -28079,10 +28828,12 @@ export class DeleteGreyTagRouteRequest extends $dara.Model {
 export class DeleteGreyTagRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the information of the change order was queried. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The information was queried.
-   * *   **false**: The information failed to be queried.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -28090,22 +28841,23 @@ export class DeleteGreyTagRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the canary release rule. The ID is globally unique.
+   * The information about the canary release rule.
    */
   data?: DeleteGreyTagRouteResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -28113,23 +28865,26 @@ export class DeleteGreyTagRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
-   * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * The request ID.
    * 
    * @example
    * 9D29CBD0-45D3-410B-9826-52F86F90****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the information of the change order was queried. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The information about the canary release rule.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -28266,7 +29021,7 @@ export class DeleteHistoryJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result returned.
    * 
    * @example
    * {msg: "", code: 200, success: true}
@@ -28392,7 +29147,7 @@ export class DeleteHistoryJobResponse extends $dara.Model {
 export class DeleteIngressRequest extends $dara.Model {
   /**
    * @remarks
-   * 87
+   * The ID of the routing rule that you want to delete. You can call the [ListIngresses](https://help.aliyun.com/document_detail/153934.html) operation to obtain the ID of a routing rule.
    * 
    * This parameter is required.
    * 
@@ -28426,10 +29181,10 @@ export class DeleteIngressResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -28437,15 +29192,15 @@ export class DeleteIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DeleteIngressResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
@@ -28458,7 +29213,7 @@ export class DeleteIngressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -28468,8 +29223,8 @@ export class DeleteIngressResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the routing rule was deleted. Valid values:
    * 
-   * *   **true**: indicates that the routing rule was deleted.
-   * *   **false**: indicates that the routing rule could not be deleted.
+   * *   **true**: The routing rule was deleted.
+   * *   **false**: The routing rule failed to be deleted.
    * 
    * @example
    * true
@@ -28477,7 +29232,7 @@ export class DeleteIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -28602,7 +29357,7 @@ export class DeleteJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The result returned.
    * 
    * @example
    * {msg: "", code: 200, success: true}
@@ -29071,6 +29826,8 @@ export class DeleteSecretResponse extends $dara.Model {
 export class DeleteWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29136,6 +29893,8 @@ export class DeleteWebApplicationResponse extends $dara.Model {
 export class DeleteWebApplicationRevisionRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29201,6 +29960,8 @@ export class DeleteWebApplicationRevisionResponse extends $dara.Model {
 export class DeleteWebCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29387,6 +30148,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  /**
+   * @example
+   * internet
+   */
   customImageNetworkType?: string;
   /**
    * @remarks
@@ -29399,6 +30164,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * true
    */
   deploy?: string;
+  /**
+   * @example
+   * .NET 3.1
+   */
   dotnet?: string;
   /**
    * @remarks
@@ -29419,6 +30188,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * false
    */
   enableAhas?: string;
+  /**
+   * @example
+   * true
+   */
   enableCpuBurst?: boolean;
   /**
    * @remarks
@@ -29431,7 +30204,15 @@ export class DeployApplicationRequest extends $dara.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableNewArms?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
@@ -29562,6 +30343,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
    */
   microRegistrationConfig?: string;
+  microserviceEngineConfig?: string;
   /**
    * @remarks
    * The percentage of the minimum number of available instances. Take note of the following rules:
@@ -29626,6 +30408,15 @@ export class DeployApplicationRequest extends $dara.Model {
    * 10d3b4****
    */
   nasId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role used to authenticate the user identity.
+   * 
+   * >  You need to create an OpenID Connect (OIDC) identity provider (IdP) and an identity provider (IdP) for role-based single sign-on (SSO) in advance. For more information, see [Creates an OpenID Connect (OIDC) identity provider (IdP)](https://help.aliyun.com/document_detail/2331022.html) and [Creates an identity provider (IdP) for role-based single sign-on (SSO)](https://help.aliyun.com/document_detail/2331016.html).
+   * 
+   * @example
+   * sae-test
+   */
   oidcRoleName?: string;
   /**
    * @remarks
@@ -29772,6 +30563,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * 1
    */
   replicas?: number;
+  /**
+   * @example
+   * [{“secretId":10,”key":"test","mountPath":"/tmp"}]
+   */
   secretMountDesc?: string;
   /**
    * @example
@@ -29783,6 +30578,10 @@ export class DeployApplicationRequest extends $dara.Model {
    * {\\"alicloud.service.tag\\":\\"g1\\"}
    */
   serviceTags?: string;
+  /**
+   * @remarks
+   * The configuration of the container.
+   */
   sidecarContainersConfig?: SidecarContainerConfig[];
   /**
    * @remarks
@@ -29922,6 +30721,7 @@ export class DeployApplicationRequest extends $dara.Model {
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
+      microserviceEngineConfig: 'MicroserviceEngineConfig',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
@@ -29996,6 +30796,7 @@ export class DeployApplicationRequest extends $dara.Model {
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',
+      microserviceEngineConfig: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
@@ -30172,6 +30973,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  /**
+   * @example
+   * internet
+   */
   customImageNetworkType?: string;
   /**
    * @remarks
@@ -30184,6 +30989,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * true
    */
   deploy?: string;
+  /**
+   * @example
+   * .NET 3.1
+   */
   dotnet?: string;
   /**
    * @remarks
@@ -30204,6 +31013,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * false
    */
   enableAhas?: string;
+  /**
+   * @example
+   * true
+   */
   enableCpuBurst?: boolean;
   /**
    * @remarks
@@ -30216,7 +31029,15 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableNewArms?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
@@ -30347,6 +31168,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
    */
   microRegistrationConfig?: string;
+  microserviceEngineConfig?: string;
   /**
    * @remarks
    * The percentage of the minimum number of available instances. Take note of the following rules:
@@ -30411,6 +31233,15 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * 10d3b4****
    */
   nasId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role used to authenticate the user identity.
+   * 
+   * >  You need to create an OpenID Connect (OIDC) identity provider (IdP) and an identity provider (IdP) for role-based single sign-on (SSO) in advance. For more information, see [Creates an OpenID Connect (OIDC) identity provider (IdP)](https://help.aliyun.com/document_detail/2331022.html) and [Creates an identity provider (IdP) for role-based single sign-on (SSO)](https://help.aliyun.com/document_detail/2331016.html).
+   * 
+   * @example
+   * sae-test
+   */
   oidcRoleName?: string;
   /**
    * @remarks
@@ -30557,6 +31388,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * 1
    */
   replicas?: number;
+  /**
+   * @example
+   * [{“secretId":10,”key":"test","mountPath":"/tmp"}]
+   */
   secretMountDesc?: string;
   /**
    * @example
@@ -30568,6 +31403,10 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * {\\"alicloud.service.tag\\":\\"g1\\"}
    */
   serviceTags?: string;
+  /**
+   * @remarks
+   * The configuration of the container.
+   */
   sidecarContainersConfigShrink?: string;
   /**
    * @remarks
@@ -30707,6 +31546,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
+      microserviceEngineConfig: 'MicroserviceEngineConfig',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
@@ -30781,6 +31621,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',
+      microserviceEngineConfig: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
@@ -30980,7 +31821,21 @@ export class DescribeAppServiceDetailRequest extends $dara.Model {
    * 6dcc8c9e-d3da-478a-a066-86dcf820****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The ID of the MSE Nacos instance.
+   * 
+   * @example
+   * mse-cn-sco3r0u****
+   */
   nacosInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace for the MSE Nacos instance.
+   * 
+   * @example
+   * public
+   */
   nacosNamespaceId?: string;
   /**
    * @remarks
@@ -31063,7 +31918,7 @@ export class DescribeAppServiceDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data that is returned.
    */
   data?: DescribeAppServiceDetailResponseBodyData;
   /**
@@ -31975,6 +32830,10 @@ export class DescribeApplicationScalingRuleRequest extends $dara.Model {
 }
 
 export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
@@ -31982,6 +32841,10 @@ export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
    */
   data?: DescribeApplicationScalingRuleResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
@@ -31991,6 +32854,10 @@ export class DescribeApplicationScalingRuleResponseBody extends $dara.Model {
    * 73404D3D-EE4F-4CB2-B197-5C46F6A1****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   /**
    * @remarks
@@ -32104,13 +32971,21 @@ export class DescribeApplicationScalingRulesRequest extends $dara.Model {
 }
 
 export class DescribeApplicationScalingRulesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: DescribeApplicationScalingRulesResponseBodyData;
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   message?: string;
   /**
    * @remarks
@@ -32120,6 +32995,10 @@ export class DescribeApplicationScalingRulesResponseBody extends $dara.Model {
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   /**
    * @remarks
@@ -32246,7 +33125,7 @@ export class DescribeApplicationSlbsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Configurations of internal-facing SLB instances.
+   * The returned data.
    */
   data?: DescribeApplicationSlbsResponseBodyData;
   /**
@@ -32365,7 +33244,7 @@ export class DescribeApplicationSlbsResponse extends $dara.Model {
 export class DescribeApplicationStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -32399,10 +33278,10 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -32410,23 +33289,23 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DescribeApplicationStatusResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -32434,7 +33313,7 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -32442,10 +33321,10 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether information of the application is successfully obtained. Valid values:
+   * Indicates whether the status of the application was queried. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **true**: The status was queried.
+   * *   **false**: The status failed to be queried.
    * 
    * @example
    * true
@@ -32453,7 +33332,7 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -32533,7 +33412,7 @@ export class DescribeApplicationStatusResponse extends $dara.Model {
 export class DescribeChangeOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * 76fa5c0-9ebb-4bb4-b383-1f885447\\*\\*\\*\\*
+   * The ID of the change order. You can call the [ListChangeOrders](https://help.aliyun.com/document_detail/126615.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -32567,10 +33446,10 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -32583,10 +33462,10 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   data?: DescribeChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
@@ -32599,7 +33478,7 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -32607,10 +33486,10 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the information of a change order was obtained. Valid values:
+   * Indicates whether the information of the change order was queried. Valid values:
    * 
-   * *   **true**: The information was obtained.
-   * *   **false**: The information could not be obtained.
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
    * 
    * @example
    * true
@@ -32618,7 +33497,7 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -32698,7 +33577,7 @@ export class DescribeChangeOrderResponse extends $dara.Model {
 export class DescribeComponentsRequest extends $dara.Model {
   /**
    * @remarks
-   * TOMCAT
+   * The application ID.
    * 
    * @example
    * d700e680-aa4d-4ec1-afc2-6566b5ff****
@@ -32706,7 +33585,10 @@ export class DescribeComponentsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The type of the supported components. Valid values:
+   * 
+   * *   **TOMCAT**
+   * *   **JDK**
    * 
    * This parameter is required.
    * 
@@ -32740,10 +33622,12 @@ export class DescribeComponentsRequest extends $dara.Model {
 export class DescribeComponentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the component version was obtained. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: indicates that the component version was obtained.
-   * *   **false**: indicates that the component version could not be obtained.
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -32751,22 +33635,20 @@ export class DescribeComponentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The component type.
+   * The details of the supported components.
    */
   data?: DescribeComponentsResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The message returned.
    * 
    * @example
    * success
@@ -32774,20 +33656,26 @@ export class DescribeComponentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the component version was obtained. Valid values:
+   * 
+   * *   **true**: The applications were obtained.
+   * *   **false**: The applications failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the component.
+   * The ID of the trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -32867,7 +33755,7 @@ export class DescribeComponentsResponse extends $dara.Model {
 export class DescribeConfigMapRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the ConfigMap whose details you want to query. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID of a ConfigMap.
    * 
    * This parameter is required.
    * 
@@ -32899,10 +33787,12 @@ export class DescribeConfigMapRequest extends $dara.Model {
 export class DescribeConfigMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the details of the ConfigMap instance were obtained. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The details were obtained.
-   * *   **false**: The details failed to be obtained.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -32910,22 +33800,23 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the instance was last modified.
+   * The returned result.
    */
   data?: DescribeConfigMapResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -32933,23 +33824,26 @@ export class DescribeConfigMapResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
-   * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the details of the ConfigMap were queried. Valid values:
+   * 
+   * *   **true**: The details were queried.
+   * *   **false**: The details failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned result.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -33029,6 +33923,17 @@ export class DescribeConfigMapResponse extends $dara.Model {
 export class DescribeConfigurationPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
+   * 
+   * *   **500**
+   * *   **1000**
+   * *   **2000**
+   * *   **4000**
+   * *   **8000**
+   * *   **12000**
+   * *   **16000**
+   * *   **32000**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33037,6 +33942,19 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
+   * The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:
+   * 
+   * *   This parameter is set to **1024** if the Cpu parameter is set to 500 or 1000.
+   * *   This parameter is set to **2048** if the Cpu parameter is set to 500, 1000, or 2000.
+   * *   This parameter is set to **4096** if the Cpu parameter is set to 1000, 2000, or 4000.
+   * *   This parameter is set to **8192** if the Cpu parameter is set to 2000, 4000, or 8,000.
+   * *   This parameter is set to **12288** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **16384** if the Cpu parameter is set to 4000, 8000, or 16000.
+   * *   This parameter is set to **24576** if the Cpu parameter is set to 12000.
+   * *   This parameter is set to **32768** if the Cpu parameter is set to 16000.
+   * *   This parameter is set to **65536** if the Cpu parameter is set to 8000, 16000, or 32000.
+   * *   This parameter is set to **131072** if the Cpu parameter is set to 32000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33045,6 +33963,12 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
   memory?: number;
   resourceType?: string;
   /**
+   * @remarks
+   * Scenarios:
+   * 
+   * *   Web
+   * *   micro_service
+   * 
    * @example
    * Web
    */
@@ -33078,28 +34002,65 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
 
 export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The price.
+   */
   data?: DescribeConfigurationPriceResponseBodyData;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ADCEC067-86AD-19E2-BD43-E83F3841****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the configuration price was obtained.
+   * 
+   * *   **true**: The price was obtained.
+   * *   **false**: The price failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace.
+   * 
    * @example
    * 1a0dcc771722848598056771******
    */
@@ -33180,10 +34141,10 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -33191,15 +34152,15 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of components.
+   * The components.
    */
   data?: DescribeEdasContainersResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   The **ErrorCode** parameter is not returned when the request succeeds.
-   * *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
@@ -33212,7 +34173,7 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -33220,10 +34181,10 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of container components of a microservice application was obtained. Valid values:
+   * Indicates whether the list of container components of a microservices application was obtained. Valid values:
    * 
-   * *   **true**: indicates that the list was obtained.
-   * *   **false**: indicates that the list could not be obtained.
+   * *   **true**: The list was obtained.
+   * *   **false**: The list failed to be obtained.
    * 
    * @example
    * true
@@ -33231,7 +34192,7 @@ export class DescribeEdasContainersResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -33476,7 +34437,7 @@ export class DescribeGreyTagRouteResponse extends $dara.Model {
 export class DescribeIngressRequest extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The ID of the routing rule to be queried.
    * 
    * This parameter is required.
    * 
@@ -33507,19 +34468,37 @@ export class DescribeIngressRequest extends $dara.Model {
 
 export class DescribeIngressResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The port specified for the SLB listener.
+   * The result returned.
    */
   data?: DescribeIngressResponseBodyData;
+  /**
+   * @remarks
+   * The error codes. Valid values:
+   * 
+   * *   **ErrorCode** is not returned if a request is successful.
+   * *   **ErrorCode** is returned if a request failed. For more information, see **Error code** section of this topic.
+   */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The message returned. Valid values:
+   * 
+   * *   **success** is returned when a request is successful.
+   * *   An error code is returned when the request failed.
    * 
    * @example
    * success
@@ -33527,20 +34506,26 @@ export class DescribeIngressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The ID of a request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the configurations of Ingresses were queried successfully. Valid values:
+   * 
+   * *   **true**: The information was queried.
+   * *   **false**: The information failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The name of the routing rule.
+   * The ID of a trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0a981dd515966966104121683d****
@@ -33790,10 +34775,10 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -33801,23 +34786,23 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Information of instance types.
+   * The information about the instance types.
    */
   data?: DescribeInstanceSpecificationsResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * *   success: If the call is successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
    * 
    * @example
    * success
@@ -33825,7 +34810,7 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -33833,10 +34818,10 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether information of the instance types is successfully obtained. Valid values:
+   * Indicates whether the instance types were queried. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **true**: The instance types were queried.
+   * *   **false**: The instance types failed to be queried.
    * 
    * @example
    * true
@@ -33844,7 +34829,7 @@ export class DescribeInstanceSpecificationsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -33924,7 +34909,7 @@ export class DescribeInstanceSpecificationsResponse extends $dara.Model {
 export class DescribeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the job template.
    * 
    * This parameter is required.
    * 
@@ -33979,7 +34964,7 @@ export class DescribeJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the application.
+   * The information of the job template.
    */
   data?: DescribeJobResponseBodyData;
   /**
@@ -34011,10 +34996,10 @@ export class DescribeJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the configurations of an application were obtained. Valid values:
+   * Indicates whether the configurations of the job template were obtained. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **true**: The configurations were obtained.
+   * *   **false**: The configurations failed to be obtained.
    * 
    * @example
    * true
@@ -35026,7 +36011,7 @@ export class DescribeNamespaceResourcesResponse extends $dara.Model {
 export class DescribeNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * 1
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -35036,7 +36021,7 @@ export class DescribeNamespacesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * 10
+   * The number of entries per page. Valid values: 0 to 10000.
    * 
    * This parameter is required.
    * 
@@ -35072,10 +36057,10 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -35088,18 +36073,18 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   data?: DescribeNamespacesResponseBodyData;
   /**
    * @remarks
-   * The error code. 
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned when the request succeeds.
-   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The returned message. Valid values:
    * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error message is returned when the request fails.
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -35107,7 +36092,7 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -35115,10 +36100,10 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the details of namespaces were queried successfully. Valid values:
+   * Indicates whether the list of namespaces was queried. Valid values:
    * 
-   * *   **true**: indicates that the query was successful.
-   * *   **false**: indicates that the query failed.
+   * *   **true**: The list was queried.
+   * *   **false**: The list failed to be queried.
    * 
    * @example
    * true
@@ -35126,7 +36111,7 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a981dd515966966104121683d****
@@ -35376,10 +36361,10 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * - **3xx**: The call was redirected.
-   * - **4xx**: The call failed.
-   * - **5xx**: A server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -35387,7 +36372,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * No request parameters are required.
+   * The returned message.
    * 
    * @example
    * success
@@ -35395,12 +36380,12 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The regions.
    */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks
-   * The returned information.
+   * The request ID.
    * 
    * @example
    * DDE85827-B0B3-4E56-86E8-17C42009****
@@ -35474,7 +36459,7 @@ export class DescribeRegionsResponse extends $dara.Model {
 export class DescribeSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the namespace in which the Secret instance resides. By default, the namespace ID is the same as the region ID.
+   * The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
    * 
    * This parameter is required.
    * 
@@ -35657,6 +36642,8 @@ export class DescribeSecretResponse extends $dara.Model {
 export class DescribeWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35721,12 +36708,17 @@ export class DescribeWebApplicationResponse extends $dara.Model {
 
 export class DescribeWebApplicationResourceStaticsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range during which data was queried.
+   * 
    * @example
    * 1687832980387
    */
   endTime?: number;
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35734,11 +36726,17 @@ export class DescribeWebApplicationResourceStaticsRequest extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 1562831689704
    */
@@ -35808,6 +36806,8 @@ export class DescribeWebApplicationResourceStaticsResponse extends $dara.Model {
 export class DescribeWebApplicationRevisionRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35873,6 +36873,8 @@ export class DescribeWebApplicationRevisionResponse extends $dara.Model {
 export class DescribeWebApplicationScalingConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35938,6 +36940,8 @@ export class DescribeWebApplicationScalingConfigResponse extends $dara.Model {
 export class DescribeWebApplicationTrafficConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36003,6 +37007,8 @@ export class DescribeWebApplicationTrafficConfigResponse extends $dara.Model {
 export class DescribeWebCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36068,6 +37074,8 @@ export class DescribeWebCustomDomainResponse extends $dara.Model {
 export class DescribeWebInstanceLogsRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36586,18 +37594,41 @@ export class ExecJobRequest extends $dara.Model {
    */
   eventId?: string;
   /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the job. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
    * @example
    * custom-args
    */
   jarStartArgs?: string;
   /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the job. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArg`.
+   * 
    * @example
    * -Xms4G -Xmx4G
    */
   jarStartOptions?: string;
+  /**
+   * @remarks
+   * The number of concurrent instances.
+   * 
+   * @example
+   * 3
+   */
   replicas?: string;
+  /**
+   * @remarks
+   * The time at which the job is triggered. Format: `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
+   * 
+   * @example
+   * 2023-09-14T14:25:02Z
+   */
   time?: string;
   /**
+   * @remarks
+   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure a startup command](https://help.aliyun.com/document_detail/96677.html).
+   * 
    * @example
    * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
    */
@@ -36742,16 +37773,25 @@ export class ExecJobResponse extends $dara.Model {
 
 export class GetApplicationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
    */
   appId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test
    */
   appName?: string;
   /**
+   * @remarks
+   * The ID of the namespace.
+   * 
    * @example
    * cn-shenzhen
    */
@@ -36782,18 +37822,34 @@ export class GetApplicationRequest extends $dara.Model {
 }
 
 export class GetApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the application.
+   */
   application?: GetApplicationResponseBodyApplication;
   /**
+   * @remarks
+   * The additional information returned. Valid values:
+   * 
+   * *   When a request is successful, **success**is returned.
+   * *   An error code is returned when a request failed.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
    * @example
    * ac1a0b2215622920113732501e****
    */
@@ -36866,11 +37922,10 @@ export class GetApplicationResponse extends $dara.Model {
 export class GetArmsTopNMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The SAE application type. Valid values:
+   * The CPU allocation policy. Valid values:
    * 
-   * *   **micro_service**
-   * *   **web**
-   * *   **job**
+   * *   **request**: CPU cores are allocated only when a request is initiated.
+   * *   **always**: Fixed CPU cores are always allocated.
    * 
    * @example
    * micro_service
@@ -36878,10 +37933,10 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   appSource?: string;
   /**
    * @remarks
-   * The CPU allocation policy. Valid values:
+   * The additional information that is returned. The following limits are imposed on the ID:
    * 
-   * *   **request**: CPU cores are allocated only when a request is initiated.
-   * *   **always**: Fixed CPU cores are always allocated.
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * always
@@ -36889,7 +37944,11 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   cpuStrategy?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The SAE application type. Valid values:
+   * 
+   * *   **micro_service**
+   * *   **web**
+   * *   **job**
    * 
    * This parameter is required.
    * 
@@ -36899,7 +37958,7 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of entries to return. Valid values: 0 to 100.
+   * The beginning of the time range to query.
    * 
    * This parameter is required.
    * 
@@ -36909,7 +37968,7 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The field based on which you want to sort the returned entries.
+   * The number of entries to return. Valid values: 0 to 100.
    * 
    * This parameter is required.
    * 
@@ -36919,7 +37978,7 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The region ID.
+   * The field based on which you want to sort the returned entries.
    * 
    * This parameter is required.
    * 
@@ -36929,7 +37988,7 @@ export class GetArmsTopNMetricRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The end of the time range to query.
    * 
    * This parameter is required.
    * 
@@ -36991,10 +38050,7 @@ export class GetArmsTopNMetricResponseBody extends $dara.Model {
   data?: GetArmsTopNMetricResponseBodyData[];
   /**
    * @remarks
-   * The additional information that is returned. The following limits are imposed on the ID:
-   * 
-   * *   success: If the call is successful, **success** is returned.
-   * *   An error code: If the call fails, an error code is returned.
+   * The request ID.
    * 
    * @example
    * success
@@ -37002,10 +38058,10 @@ export class GetArmsTopNMetricResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
    * 
    * @example
-   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   * 3B763F98-0BA2-5C23-B6B8-558568D2****
    */
   requestId?: string;
   /**
@@ -37763,12 +38819,7 @@ export class GetWarningEventMetricRequest extends $dara.Model {
 export class GetWarningEventMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. The following limits are imposed on the ID:
-   * 
-   * *   **2xx**: The call was successful.
-   * *   **3xx**: The call was redirected.
-   * *   **4xx**: The call failed.
-   * *   **5xx**: A server error occurred.
+   * The number of Warning events.
    * 
    * @example
    * 200
@@ -37776,7 +38827,7 @@ export class GetWarningEventMetricResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of applications.
+   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
    */
   data?: GetWarningEventMetricResponseBodyData[];
   /**
@@ -37795,15 +38846,17 @@ export class GetWarningEventMetricResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 3B763F98-0BA2-5C23-B6B8-558568D2C1C2
+   * 3B763F98-0BA2-5C23-B6B8-558568D2****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the list of applications was obtained. The following limits are imposed on the ID:
+   * The HTTP status code. The following limits are imposed on the ID:
    * 
-   * *   **true**: The namespaces were obtained.
-   * *   **false**: no
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * true
@@ -37885,6 +38938,26 @@ export class GetWebshellTokenRequest extends $dara.Model {
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the container.
+   * 
+   * Note:
+   * 
+   * *   If this parameter is specified, Cloud Assistant runs the command in the specified container of the instance.
+   * 
+   * *   If this parameter is specified, the command can run only on Linux instances on which Cloud Assistant Agent 2.2.3.344 or later is installed.
+   * 
+   *     *   For information about how to query the version of Cloud Assistant Agent, see [Install Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html).
+   *     *   For information about how to upgrade Cloud Assistant Agent, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
+   * 
+   * *   If this parameter is specified, the `Username` parameter that is specified in a request to call this operation and the `WorkingDir` parameter that is specified in a request to call the [CreateCommand](https://help.aliyun.com/document_detail/64844.html) operation do not take effect. You can run the command only in the default working directory of the container by using the default user of the container. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
+   * 
+   * *   If this parameter is specified, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
+   * 
+   * @example
+   * ad-helper
+   */
   containerName?: string;
   /**
    * @remarks
@@ -38254,46 +39327,83 @@ export class ListAppEventsResponse extends $dara.Model {
 
 export class ListAppServicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the application. You must specify only one of the following parameters: vpcId, namespace ID, and application ID.
+   * 
    * @example
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
    */
   appId?: string;
   /**
+   * @remarks
+   * The ID of the MSE Nacos instance. This parameter is required when the registry type is set to MSE Nacos.
+   * 
    * @example
    * mse-cn-sco3r0u****
    */
   nacosInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the MSE Nacos namespace. This parameter is required when the registry type is set to MSE Nacos.
+   * 
    * @example
    * mse-test
    */
   nacosNamespaceId?: string;
   /**
+   * @remarks
+   * The ID of the namespace. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+   * 
    * @example
    * cn-beijing:test
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The registry type. Valid values:
+   * 
+   * *   **0**: SAE Nacos
+   * *   **1**: SAE built-in Nacos
+   * *   **2** :MSE Nacos
+   * *   **9**: SAE Kubernetes service
+   * 
    * @example
    * 0
    */
   registryType?: string;
   /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   **dubbo**
+   * *   **springCloud**
+   * *   **hsf**
+   * *   **k8sService**
+   * 
    * @example
    * springCloud
    */
   serviceType?: string;
   /**
+   * @remarks
+   * The unique identifier of the VPC. You must specify only one of the following parameters: VPC ID, namespace ID, and application ID.
+   * 
    * @example
    * vpc-2ze0i263cnn311nvj****
    */
@@ -38337,28 +39447,65 @@ export class ListAppServicesRequest extends $dara.Model {
 
 export class ListAppServicesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code that is returned. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The details of the microservice.
+   */
   data?: ListAppServicesResponseBodyData[];
+  /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   If the request was successful, the **ErrorCode** parameter is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error message is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */
@@ -38437,7 +39584,7 @@ export class ListAppServicesResponse extends $dara.Model {
 export class ListAppServicesPageRequest extends $dara.Model {
   /**
    * @remarks
-   * 1
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -38447,7 +39594,7 @@ export class ListAppServicesPageRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -38455,7 +39602,7 @@ export class ListAppServicesPageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The returned information.
+   * The number of entries returned on each page. Valid values: 0 to 9999.
    * 
    * @example
    * 9999
@@ -38463,7 +39610,10 @@ export class ListAppServicesPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 9999
+   * The service type. Valid values:
+   * 
+   * *   **dubbo**
+   * *   **springCloud**
    * 
    * This parameter is required.
    * 
@@ -38500,26 +39650,34 @@ export class ListAppServicesPageRequest extends $dara.Model {
 
 export class ListAppServicesPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The total number of pages returned.
+   * The details of services.
    */
   data?: ListAppServicesPageResponseBodyData[];
   /**
    * @remarks
-   * Indicates whether the microservice list was obtained. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **true**: The list was obtained.
-   * *   **false**: The list failed to be obtained.
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The details of microservices.
+   * The returned message.
    * 
    * @example
    * success
@@ -38527,20 +39685,26 @@ export class ListAppServicesPageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The ID of the request.
    * 
    * @example
    * 2583E089-99C2-562E-8B7E-73512136****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the microservice list was obtained. Valid values:
+   * 
+   * *   **true**: The list was obtained.
+   * *   **false**: The list failed to be obtained.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The page number of the current page.
+   * The ID of the trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0be3e0c816394483660457498e****
@@ -38663,11 +39827,7 @@ export class ListAppVersionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The deployment method of the application. Valid values:
-   * 
-   * *   **image**: indicates that the application was deployed by using an image.
-   * *   **upload**: indicates that the application was deployed by uploading a WAR or JAR package.
-   * *   **url**: indicates that the application was deployed by specifying the URL of a WAR or JAR package.
+   * The information about the versions.
    */
   data?: ListAppVersionsResponseBodyData[];
   /**
@@ -39068,7 +40228,28 @@ export class ListChangeOrdersRequest extends $dara.Model {
   coStatus?: string;
   /**
    * @remarks
-   * 2
+   * The type of the change order. Valid values:
+   * 
+   * *   **CoBindSlb**: associates the Server Load Balancer (SLB) instance with the application.
+   * *   **CoUnbindSlb**: disassociates an SLB instance from the application.
+   * *   **CoCreateApp**: creates the application.
+   * *   **CoDeleteApp**: deletes the application.
+   * *   **CoDeploy**: deploys the application.
+   * *   **CoRestartApplication**: restarts the application.
+   * *   **CoRollback**: rolls back the application.
+   * *   **CoScaleIn**: scales in the application.
+   * *   **CoScaleOut**: scales out the application.
+   * *   **CoStartApplication**: starts the application.
+   * *   **CoStopApplication**: stops the application.
+   * *   **CoRescaleApplicationVertically**: modifies the instance type.
+   * *   **CoDeployHistroy**: rolls back the application to an earlier version.
+   * *   **CoBindNas**: associates a network-attached storage (NAS) file system with the application.
+   * *   **CoUnbindNas**: disassociates a NAS file system from the application.
+   * *   **CoBatchStartApplication**: starts multiple applications concurrently.
+   * *   **CoBatchStopApplication**: stops multiple applications concurrently.
+   * *   **CoRestartInstances**: restarts the instance.
+   * *   **CoDeleteInstances**: deletes the instance.
+   * *   **CoScaleInAppWithInstances**: reduces the specified number of application instances.
    * 
    * @example
    * CoCreateApp
@@ -39143,7 +40324,7 @@ export class ListChangeOrdersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of the returned page.
+   * The information about change orders.
    */
   data?: ListChangeOrdersResponseBodyData;
   /**
@@ -39259,7 +40440,7 @@ export class ListChangeOrdersResponse extends $dara.Model {
 export class ListConsumedServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -39291,10 +40472,12 @@ export class ListConsumedServicesRequest extends $dara.Model {
 export class ListConsumedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the microservice list was obtained. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The list was obtained.
-   * *   **false**: The list failed to be obtained.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -39302,22 +40485,23 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The type of the published service.
+   * The details of the microservices.
    */
   data?: ListConsumedServicesResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -39325,23 +40509,26 @@ export class ListConsumedServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
-   * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of microservices was queried. Valid values:
+   * 
+   * *   **true**: The list was queried.
+   * *   **false**: The list failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the microservices.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -39589,7 +40776,7 @@ export class ListGreyTagRouteResponse extends $dara.Model {
 export class ListIngressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of routing rules.
+   * The ID of an application.
    * 
    * @example
    * bbf3a590-6d13-46fe-8ca9-c947a20b****
@@ -39597,7 +40784,7 @@ export class ListIngressesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The returned data.
+   * The ID of a namespace.
    * 
    * This parameter is required.
    * 
@@ -39630,19 +40817,37 @@ export class ListIngressesRequest extends $dara.Model {
 
 export class ListIngressesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
    * @remarks
-   * The port specified for the SLB listener.
+   * The result returned.
    */
   data?: ListIngressesResponseBodyData;
+  /**
+   * @remarks
+   * The error code returned if the request failed. Valid values:
+   * 
+   * *   **ErrorCode** is not returned if a request is successful.
+   * *   **ErrorCode** is returned if a request failed. For more information, see **Error codes**.
+   */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The message returned. Valid values:
+   * 
+   * *   **success** is returned when a request is successful.
+   * *   An error code is returned when a request failed.
    * 
    * @example
    * success
@@ -39650,20 +40855,26 @@ export class ListIngressesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The ID of a request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of Ingresses was obtained. Valid values:
+   * 
+   * *   **true**: The list were obtained.
+   * *   **false**: The list failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The name of the routing rule.
+   * The ID of a trace. The ID is used to query the details of a request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -40098,7 +41309,7 @@ export class ListLogConfigsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of logging configurations.
+   * The logging configurations.
    */
   data?: ListLogConfigsResponseBodyData;
   /**
@@ -40600,7 +41811,7 @@ export class ListNamespacedConfigMapsResponse extends $dara.Model {
 export class ListPublishedServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -40632,10 +41843,12 @@ export class ListPublishedServicesRequest extends $dara.Model {
 export class ListPublishedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the microservice list was obtained. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The list was obtained.
-   * *   **false**: The list failed to be obtained.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -40643,22 +41856,23 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The type of the published service.
+   * The details of the microservices.
    */
   data?: ListPublishedServicesResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the call was successful.
-   * *   **3xx**: indicates that the call was redirected.
-   * *   **4xx**: indicates that the call failed.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -40666,23 +41880,26 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned information. Valid values:
-   * 
-   * *   If the call is successful, **success** is returned.
-   * *   If the call fails, an error code is returned.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of microservices was queried. Valid values:
+   * 
+   * *   **true**: The list was queried.
+   * *   **false**: The list failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the microservices.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -40933,7 +42150,7 @@ export class ListSecretsResponse extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * A2RN
+   * A maximum of 50 entries can be returned for a query. If a query generates more than 50 entries, the NextToken parameter is returned with the first 50 entries. You can use the NextToken parameter value to retrieve the subsequent entries that are not returned in the current query result.
    * 
    * @example
    * A2RN
@@ -40941,7 +42158,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * cn-beijing
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -40951,7 +42168,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
+   * The resource ID. Separate multiple resource IDs with comma (,). This parameter is required if you do not specify the **Tags** parameter.
    * 
    * @example
    * ["d42921c4-5433-4abd-8075-0e536f8b****"]
@@ -40959,7 +42176,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * application
+   * The type of the resource. Set the value to `application`.
    * 
    * This parameter is required.
    * 
@@ -40969,7 +42186,14 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * [{"key":"k1","value":"v1"}]
+   * The tag in the format of a key-value pair. This parameter is required if you do not specify the **ResourceIds** parameter. The following parameters are involved:
+   * 
+   * *   **key**: the tag key. It cannot exceed 128 characters in length.
+   * *   **value**: the tag value. It cannot exceed 128 characters in length.
+   * 
+   * Tag keys and tag values are case-sensitive. If you specify multiple tags, the system adds all the tags to the specified resources. Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+   * 
+   * Tag keys and tag values cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * [{"key":"k1","value":"v1"}]
@@ -41009,10 +42233,10 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -41025,15 +42249,18 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   data?: ListTagResourcesResponseBodyData;
   /**
    * @remarks
-   * The error code. 
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned when the request succeeds.
-   * - The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -41041,7 +42268,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7414187F-4F59-4585-9BCF-5F0804E4****
@@ -41049,10 +42276,10 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether mapping relationships between applications and tags were queried successfully. Valid values:
+   * Indicates whether the mapping relationships between applications and tags were queried. Valid values:
    * 
-   * *   **true**: The query was successful.
-   * *   **false**: The query failed.
+   * *   **true**: The mapping relationships were queried.
+   * *   **false**: The mapping relationships failed to be queried.
    * 
    * @example
    * true
@@ -41060,7 +42287,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0bc5f84e15916043198032146d****
@@ -41138,28 +42365,57 @@ export class ListTagResourcesResponse extends $dara.Model {
 }
 
 export class ListWebApplicationInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the operation ended.
+   * 
+   * @example
+   * 1715567192
+   */
   endTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-667d143a-17b4e0fa-46d3a2******
    */
   instanceIds?: string[];
   /**
+   * @remarks
+   * The number of application instances returned.
+   * 
    * @example
    * 10
    */
   limit?: string;
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 1562831689704
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the application instance.
+   */
   statuses?: string[];
   /**
+   * @remarks
+   * The ID of the application version.
+   * 
    * @example
    * 001
    */
@@ -41207,28 +42463,57 @@ export class ListWebApplicationInstancesRequest extends $dara.Model {
 }
 
 export class ListWebApplicationInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the operation ended.
+   * 
+   * @example
+   * 1715567192
+   */
   endTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * c-667d143a-17b4e0fa-46d3a2******
    */
   instanceIdsShrink?: string;
   /**
+   * @remarks
+   * The number of application instances returned.
+   * 
    * @example
    * 10
    */
   limit?: string;
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   namespaceId?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 1562831689704
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the application instance.
+   */
   statusesShrink?: string;
   /**
+   * @remarks
+   * The ID of the application version.
+   * 
    * @example
    * 001
    */
@@ -41303,12 +42588,17 @@ export class ListWebApplicationInstancesResponse extends $dara.Model {
 
 export class ListWebApplicationRevisionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of applications returned.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41316,6 +42606,9 @@ export class ListWebApplicationRevisionsRequest extends $dara.Model {
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * A2RN
    */
@@ -41382,21 +42675,33 @@ export class ListWebApplicationRevisionsResponse extends $dara.Model {
 
 export class ListWebApplicationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of applications returned.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
+   * @remarks
+   * The namespace ID.
+   * 
    * @example
    * cn-beijing:test
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * MTIzNCNhYmM
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The prefix of the application name.
+   * 
    * @example
    * my-application
    */
@@ -41465,26 +42770,41 @@ export class ListWebApplicationsResponse extends $dara.Model {
 
 export class ListWebCustomDomainsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * 7e41aff0-9eca-45c9-ac48-675e09******
    */
   applicationId?: string;
   /**
+   * @remarks
+   * The number of custom domain names returned.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
+   * @remarks
+   * The namespace ID.
+   * 
    * @example
    * cn-hangzhou
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The pagination token.
+   * 
    * @example
    * A2RN
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The prefix of the custom domain name that you want to query.
+   * 
    * @example
    * remoteresult
    */
@@ -41631,6 +42951,8 @@ export class OpenSaeServiceResponse extends $dara.Model {
 export class PublishWebApplicationRevisionRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41639,6 +42961,8 @@ export class PublishWebApplicationRevisionRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The configurations of the version.
+   * 
    * This parameter is required.
    */
   body?: PublishWebApplicationRevisionInput;
@@ -43296,6 +44620,8 @@ export class StartApplicationResponse extends $dara.Model {
 export class StartWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43518,6 +44844,8 @@ export class StopApplicationResponse extends $dara.Model {
 export class StopWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43957,10 +45285,210 @@ export class TagResourcesResponse extends $dara.Model {
   }
 }
 
+export class UnbindNlbRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A short description of struct
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The ID of NLB instance.
+   * 
+   * @example
+   * nlb-7z7jjbzz44d82c9***
+   */
+  nlbId?: string;
+  /**
+   * @remarks
+   * The listener port of the instance. Valid values: 0 to 65535.
+   * 
+   * @example
+   * 3306
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **TCP**.
+   * *   **UDP**.
+   * *   **TCPSSL**.
+   * 
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      nlbId: 'NlbId',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      nlbId: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindNlbResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: UnbindNlbResponseBodyData;
+  /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** section of this topic.
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the internal-facing or Internet-facing NLB instance was disassociated. Valid values:
+   * 
+   * *   **true**: The NLB instance was disassociated.
+   * *   **false**: The NLB instance failed to be disassociated.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
+   * @example
+   * 0a981dd515966966104121683d****
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UnbindNlbResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindNlbResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindNlbResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindNlbResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindSlbRequest extends $dara.Model {
   /**
    * @remarks
-   * true
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -43970,7 +45498,10 @@ export class UnbindSlbRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * true
+   * Specifies whether to disassociate the Internet-facing SLB instance. Valid values:
+   * 
+   * *   **true**: dissociates the Internet-facing SLB instance.
+   * *   **false**: does not dissociate the Internet-facing SLB instance.
    * 
    * @example
    * true
@@ -43978,7 +45509,10 @@ export class UnbindSlbRequest extends $dara.Model {
   internet?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * Specifies whether to disassociate the internal-facing SLB instance. Valid values:
+   * 
+   * *   **true**: dissociates the internal-facing SLB instance.
+   * *   **false**: does not dissociate the internal-facing SLB instance.
    * 
    * @example
    * true
@@ -44012,10 +45546,12 @@ export class UnbindSlbRequest extends $dara.Model {
 export class UnbindSlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the internal-facing or Internet-facing SLB instance was disassociated successfully. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**: The SLB instance was disassociated successfully.
-   * *   **false**: The SLB instance could not be disassociated.
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -44023,22 +45559,23 @@ export class UnbindSlbResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the change order. It can be used to query the task status.
+   * The returned result.
    */
   data?: UnbindSlbResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -44046,23 +45583,26 @@ export class UnbindSlbResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the internal-facing or Internet-facing SLB instance was disassociated. Valid values:
+   * 
+   * *   **true**: The SLB instance was disassociated.
+   * *   **false**: The SLB instance failed to be disassociated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The returned data.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -44351,7 +45891,7 @@ export class UntagResourcesResponse extends $dara.Model {
 export class UpdateAppSecurityGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * sg-wz969ngg2e49q5i4\\*\\*\\*\\*
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -44361,7 +45901,7 @@ export class UpdateAppSecurityGroupRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the security group.
    * 
    * This parameter is required.
    * 
@@ -44395,10 +45935,12 @@ export class UpdateAppSecurityGroupRequest extends $dara.Model {
 export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the security group of the application is successfully updated. Valid values:
+   * The HTTP status code. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **2xx**: The call was successful.
+   * *   **3xx**: The call was redirected.
+   * *   **4xx**: The call failed.
+   * *   **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -44406,17 +45948,18 @@ export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The error code. Valid values:
    * 
-   * *   **2xx**: indicates that the request was successful.
-   * *   **3xx**: indicates that the request was redirected.
-   * *   **4xx**: indicates that the request was invalid.
-   * *   **5xx**: indicates that a server error occurred.
+   * *   If the call is successful, the **ErrorCode** parameter is not returned.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query details of a request.
+   * The returned message. Valid values:
+   * 
+   * *   success: If the call is successful, **success** is returned.
+   * *   An error code: If the call fails, an error code is returned.
    * 
    * @example
    * success
@@ -44424,26 +45967,26 @@ export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   If the request is successful, **success** is returned.
-   * *   An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the security group of the application was updated. Valid values:
+   * 
+   * *   **true**: The security group was updated.
+   * *   **false**: The security group failed to be updated.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The error code.
-   * 
-   * *   If the request is successful, this parameter is not returned.****
-   * *   This parameter is returned only if the request failed.**** For more information, see the "**Error codes**" section in this topic.
+   * The trace ID that is used to query the details of the request.
    * 
    * @example
    * 0a98a02315955564772843261e****
@@ -44965,6 +46508,8 @@ export class UpdateApplicationScalingRuleResponse extends $dara.Model {
 export class UpdateApplicationVswitchesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44973,6 +46518,8 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the vSwitch.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45004,27 +46551,60 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
 
 export class UpdateApplicationVswitchesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The error code. Valid values:
+   * 
+   * *   If the request was successful, this parameter is not returned.****
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error code** section of this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The message returned. Valid values:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the list of applications was obtained. Valid values:
+   * 
+   * *   **true**: The applications were obtained.
+   * *   **false**: The applications failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace. The ID is used to query the details of a request.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */
@@ -45273,13 +46853,16 @@ export class UpdateConfigMapResponse extends $dara.Model {
 
 export class UpdateGreyTagRouteRequest extends $dara.Model {
   /**
+   * @remarks
+   * The canary release rule of the application for which ALB gateway routing is configured.
+   * 
    * @example
    * [{"condition":"AND","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"sourceIp","value":"127.0.0.1"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
    */
   albRules?: string;
   /**
    * @remarks
-   * Canary Release - Regions
+   * The description of the canary release rule.
    * 
    * @example
    * 灰度发布-地域灰度
@@ -45287,7 +46870,7 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
+   * The canary release rule of the Dubbo application.
    * 
    * @example
    * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
@@ -45295,7 +46878,7 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   dubboRules?: string;
   /**
    * @remarks
-   * 1
+   * The ID of the canary release rule.
    * 
    * This parameter is required.
    * 
@@ -45305,7 +46888,7 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   greyTagRouteId?: number;
   /**
    * @remarks
-   * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
+   * The canary release rule of the Spring Cloud application.
    * 
    * @example
    * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
@@ -45361,15 +46944,15 @@ export class UpdateGreyTagRouteResponseBody extends $dara.Model {
   data?: UpdateGreyTagRouteResponseBodyData;
   /**
    * @remarks
-   * The returned error code. Valid values:
+   * The error code. Valid values:
    * 
    * *   If the call is successful, the **ErrorCode** parameter is not returned.
-   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned information.
+   * The returned message.
    * 
    * @example
    * success
@@ -45377,7 +46960,7 @@ export class UpdateGreyTagRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9D29CBD0-45D3-410B-9826-52F86F90****
@@ -45497,6 +47080,7 @@ export class UpdateIngressRequest extends $dara.Model {
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  corsConfig?: string;
   /**
    * @remarks
    * The default forwarding rule. You can specify a port and an application in the default forwarding rule to forward traffic based on the IP address. The following list describes the involved parameters:
@@ -45524,8 +47108,13 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedForSlbId?: boolean;
   enableXForwardedForSlbPort?: boolean;
   /**
+   * @remarks
+   * The timeout period of idle connections. Unit: seconds.
+   * 
+   * >  A value of 0 indicates that the default value is used.
+   * 
    * @example
-   * 3
+   * 15
    */
   idleTimeout?: number;
   /**
@@ -45566,6 +47155,9 @@ export class UpdateIngressRequest extends $dara.Model {
    */
   loadBalanceType?: string;
   /**
+   * @remarks
+   * The request timed out. Unit: seconds.
+   * 
    * @example
    * 60
    */
@@ -45584,14 +47176,18 @@ export class UpdateIngressRequest extends $dara.Model {
    */
   rules?: string;
   /**
+   * @remarks
+   * The ID of a security policy.
+   * 
    * @example
-   * tls_cipher_policy_1_0
+   * tls_cipher_policy_1_2_strict_with_1_3
    */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
       certId: 'CertId',
       certIds: 'CertIds',
+      corsConfig: 'CorsConfig',
       defaultRule: 'DefaultRule',
       description: 'Description',
       enableXForwardedFor: 'EnableXForwardedFor',
@@ -45614,6 +47210,7 @@ export class UpdateIngressRequest extends $dara.Model {
     return {
       certId: 'string',
       certIds: 'string',
+      corsConfig: 'string',
       defaultRule: 'string',
       description: 'string',
       enableXForwardedFor: 'boolean',
@@ -46459,6 +48056,18 @@ export class UpdateJobResponse extends $dara.Model {
 }
 
 export class UpdateNamespaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to enable SAE built-in registry:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * If you set this parameter to true, a shared registry is created for the namespace. The registry cannot be disabled after it is created.
+   * 
+   * @example
+   * true
+   */
   enableMicroRegistration?: boolean;
   /**
    * @remarks
@@ -46478,7 +48087,7 @@ export class UpdateNamespaceRequest extends $dara.Model {
   namespaceDescription?: string;
   /**
    * @remarks
-   * The long ID of the namespace. If you configure this parameter, the long ID take effects and the value of the NameSpaceShortId parameter is ignored. To ensure compatibility, we recommend that you specify a short namespace ID. A long namespace ID follows the `<RegionId>:<NamespaceId>` format. The `NamespaceId` variable can contain only lowercase letters and digits. Example: `cn-beijing:test`. The value of the NamespaceId variable cannot exceed 32 characters in length. For more information about **RegionId**, you can call the [DescribeRegions](https://help.aliyun.com/document_detail/126213.html) operation to obtain the IDs of regions supported by SAE.
+   * The long ID of the namespace. If you configure this parameter, the long ID take effects and the value of the NameSpaceShortId parameter is ignored. To ensure compatibility, we recommend that you specify a short namespace ID. A long namespace ID follows the `<RegionId>:<NamespaceId>` format. The `NamespaceId` variable can contain only lowercase letters and digits. Example: `cn-beijing:test`. The value of the Namespaceid variable cannot exceed 32 characters in length. For more information about **RegionId**, you can call the [DescribeRegions](https://help.aliyun.com/document_detail/2834842.html) operation to obtain the IDs of regions supported by SAE.
    * 
    * @example
    * cn-beijing:test
@@ -46539,7 +48148,7 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information of the namespace.
+   * The information about a namespace.
    */
   data?: UpdateNamespaceResponseBodyData;
   /**
@@ -46834,6 +48443,8 @@ export class UpdateNamespaceVpcResponse extends $dara.Model {
 export class UpdateSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46842,6 +48453,8 @@ export class UpdateSecretRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The Secret data.
+   * 
    * This parameter is required.
    */
   secretData?: UpdateSecretRequestSecretData;
@@ -46884,6 +48497,8 @@ export class UpdateSecretRequest extends $dara.Model {
 export class UpdateSecretShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the namespace where the Secret resides. If the namespace is the default namespace, you need to only enter the region ID, such as `cn-beijing`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46892,6 +48507,8 @@ export class UpdateSecretShrinkRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The Secret data.
+   * 
    * This parameter is required.
    */
   secretDataShrink?: string;
@@ -47030,6 +48647,8 @@ export class UpdateSecretResponse extends $dara.Model {
 export class UpdateWebApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47038,6 +48657,8 @@ export class UpdateWebApplicationRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * Updates the information about a web application.
+   * 
    * This parameter is required.
    */
   body?: UpdateWebApplicationInput;
@@ -47105,6 +48726,8 @@ export class UpdateWebApplicationResponse extends $dara.Model {
 export class UpdateWebApplicationScalingConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47113,6 +48736,8 @@ export class UpdateWebApplicationScalingConfigRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The information about scaling configurations.
+   * 
    * This parameter is required.
    */
   body?: UpdateWebApplicationScalingConfigInput;
@@ -47180,6 +48805,8 @@ export class UpdateWebApplicationScalingConfigResponse extends $dara.Model {
 export class UpdateWebApplicationTrafficConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47188,6 +48815,8 @@ export class UpdateWebApplicationTrafficConfigRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The traffic configurations.
+   * 
    * This parameter is required.
    */
   body?: UpdateWebApplicationTrafficConfigInput;
@@ -47255,6 +48884,8 @@ export class UpdateWebApplicationTrafficConfigResponse extends $dara.Model {
 export class UpdateWebCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
+   * The namespace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47263,6 +48894,8 @@ export class UpdateWebCustomDomainRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
+   * The information about the custom domain name.
+   * 
    * This parameter is required.
    */
   body?: UpdateWebCustomDomainInput;
@@ -47480,7 +49113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+   * Terminates a change order and rolls back the corresponding application.
    * 
    * @param request - AbortAndRollbackChangeOrderRequest
    * @param headers - map
@@ -47518,7 +49151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+   * Terminates a change order and rolls back the corresponding application.
    * 
    * @param request - AbortAndRollbackChangeOrderRequest
    * @returns AbortAndRollbackChangeOrderResponse
@@ -47530,6 +49163,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Terminate a change order.
+   * 
    * @param request - AbortChangeOrderRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47566,6 +49201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Terminate a change order.
+   * 
    * @param request - AbortChangeOrderRequest
    * @returns AbortChangeOrderResponse
    */
@@ -47930,6 +49567,10 @@ export default class Client extends OpenApi {
       query["MicroRegistration"] = request.microRegistration;
     }
 
+    if (!$dara.isNull(request.microserviceEngineConfig)) {
+      query["MicroserviceEngineConfig"] = request.microserviceEngineConfig;
+    }
+
     if (!$dara.isNull(request.mountDesc)) {
       query["MountDesc"] = request.mountDesc;
     }
@@ -47948,6 +49589,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nasId)) {
       query["NasId"] = request.nasId;
+    }
+
+    if (!$dara.isNull(request.newSaeVersion)) {
+      query["NewSaeVersion"] = request.newSaeVersion;
     }
 
     if (!$dara.isNull(request.oidcRoleName)) {
@@ -48400,6 +50045,10 @@ export default class Client extends OpenApi {
       query["CertIds"] = request.certIds;
     }
 
+    if (!$dara.isNull(request.corsConfig)) {
+      query["CorsConfig"] = request.corsConfig;
+    }
+
     if (!$dara.isNull(request.defaultRule)) {
       query["DefaultRule"] = request.defaultRule;
     }
@@ -48510,7 +50159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Create a job template.
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -48762,7 +50411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job template.
+   * Create a job template.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -48774,7 +50423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a namespace.
+   * Create a namespace.
    * 
    * @param request - CreateNamespaceRequest
    * @param headers - map
@@ -48828,7 +50477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a namespace.
+   * Create a namespace.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -48908,7 +50557,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Create a web application
+   * 
+   * @remarks
+   * Call the CreateWebApplication operation to create a web application.
    * 
    * @param request - CreateWebApplicationRequest
    * @param headers - map
@@ -48947,7 +50599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Create a web application
+   * 
+   * @remarks
+   * Call the CreateWebApplication operation to create a web application.
    * 
    * @param request - CreateWebApplicationRequest
    * @returns CreateWebApplicationResponse
@@ -48959,7 +50614,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建自定义域名
+   * Create a custom domain name for the web application.
+   * 
+   * @remarks
+   * Create a custom domain name for the web application.
    * 
    * @param request - CreateWebCustomDomainRequest
    * @param headers - map
@@ -48998,7 +50656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建自定义域名
+   * Create a custom domain name for the web application.
+   * 
+   * @remarks
+   * Create a custom domain name for the web application.
    * 
    * @param request - CreateWebCustomDomainRequest
    * @returns CreateWebCustomDomainResponse
@@ -49010,6 +50671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an application.
+   * 
    * @param request - DeleteApplicationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49046,6 +50709,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an application.
+   * 
    * @param request - DeleteApplicationRequest
    * @returns DeleteApplicationResponse
    */
@@ -49110,6 +50775,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a ConfigMap.
+   * 
    * @param request - DeleteConfigMapRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49146,6 +50813,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a ConfigMap.
+   * 
    * @param request - DeleteConfigMapRequest
    * @returns DeleteConfigMapResponse
    */
@@ -49156,7 +50825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1
+   * Deletes a canary release rule based on the specified rule ID.
    * 
    * @param request - DeleteGreyTagRouteRequest
    * @param headers - map
@@ -49194,7 +50863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1
+   * Deletes a canary release rule based on the specified rule ID.
    * 
    * @param request - DeleteGreyTagRouteRequest
    * @returns DeleteGreyTagRouteResponse
@@ -49206,7 +50875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job.
+   * Delete a job.
    * 
    * @param request - DeleteHistoryJobRequest
    * @param headers - map
@@ -49248,7 +50917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job.
+   * Delete a job.
    * 
    * @param request - DeleteHistoryJobRequest
    * @returns DeleteHistoryJobResponse
@@ -49260,6 +50929,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a routing rule.
+   * 
    * @param request - DeleteIngressRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49296,6 +50967,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a routing rule.
+   * 
    * @param request - DeleteIngressRequest
    * @returns DeleteIngressResponse
    */
@@ -49306,7 +50979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job template.
+   * Delete a job template.
    * 
    * @param request - DeleteJobRequest
    * @param headers - map
@@ -49344,7 +51017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a job template.
+   * Delete a job template.
    * 
    * @param request - DeleteJobRequest
    * @returns DeleteJobResponse
@@ -49356,6 +51029,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a namespace.
+   * 
    * @param request - DeleteNamespaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49396,6 +51071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a namespace.
+   * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
    */
@@ -49460,7 +51137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用
+   * Delete a web application.
+   * 
+   * @remarks
+   * Call the DeleteWebApplication operation to delete a web application.
    * 
    * @param request - DeleteWebApplicationRequest
    * @param headers - map
@@ -49498,7 +51178,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用
+   * Delete a web application.
+   * 
+   * @remarks
+   * Call the DeleteWebApplication operation to delete a web application.
    * 
    * @param request - DeleteWebApplicationRequest
    * @returns DeleteWebApplicationResponse
@@ -49510,7 +51193,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用版本
+   * Delete a web application version.
+   * 
+   * @remarks
+   * Delete a web application version.
    * 
    * @param request - DeleteWebApplicationRevisionRequest
    * @param headers - map
@@ -49548,7 +51234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用版本
+   * Delete a web application version.
+   * 
+   * @remarks
+   * Delete a web application version.
    * 
    * @param request - DeleteWebApplicationRevisionRequest
    * @returns DeleteWebApplicationRevisionResponse
@@ -49560,7 +51249,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义域名
+   * Delete a custom domain name.
+   * 
+   * @remarks
+   * Delete a custom domain name.
    * 
    * @param request - DeleteWebCustomDomainRequest
    * @param headers - map
@@ -49598,7 +51290,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义域名
+   * Delete a custom domain name.
+   * 
+   * @remarks
+   * Delete a custom domain name.
    * 
    * @param request - DeleteWebCustomDomainRequest
    * @returns DeleteWebCustomDomainResponse
@@ -49732,6 +51427,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.microRegistration)) {
       query["MicroRegistration"] = request.microRegistration;
+    }
+
+    if (!$dara.isNull(request.microserviceEngineConfig)) {
+      query["MicroserviceEngineConfig"] = request.microserviceEngineConfig;
     }
 
     if (!$dara.isNull(request.minReadyInstanceRatio)) {
@@ -50400,6 +52099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of an application.
+   * 
    * @param request - DescribeApplicationStatusRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50436,6 +52137,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of an application.
+   * 
    * @param request - DescribeApplicationStatusRequest
    * @returns DescribeApplicationStatusResponse
    */
@@ -50446,6 +52149,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information of a change order.
+   * 
    * @param request - DescribeChangeOrderRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50482,6 +52187,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information of a change order.
+   * 
    * @param request - DescribeChangeOrderRequest
    * @returns DescribeChangeOrderResponse
    */
@@ -50492,6 +52199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the version of the component that is required when you create and deploy an application.
+   * 
    * @param request - DescribeComponentsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50532,6 +52241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the version of the component that is required when you create and deploy an application.
+   * 
    * @param request - DescribeComponentsRequest
    * @returns DescribeComponentsResponse
    */
@@ -50542,6 +52253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a ConfigMap.
+   * 
    * @param request - DescribeConfigMapRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50578,6 +52291,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a ConfigMap.
+   * 
    * @param request - DescribeConfigMapRequest
    * @returns DescribeConfigMapResponse
    */
@@ -50588,6 +52303,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query configuration price.
+   * 
    * @param request - DescribeConfigurationPriceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50636,6 +52353,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query configuration price.
+   * 
    * @param request - DescribeConfigurationPriceRequest
    * @returns DescribeConfigurationPriceResponse
    */
@@ -50646,6 +52365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the container components of a microservices application.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEdasContainersResponse
@@ -50674,6 +52395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the container components of a microservices application.
    * @returns DescribeEdasContainersResponse
    */
   async describeEdasContainers(): Promise<DescribeEdasContainersResponse> {
@@ -50733,6 +52455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call the DescribeIngress operation to query the details of an Ingress.
+   * 
    * @param request - DescribeIngressRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50769,6 +52493,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call the DescribeIngress operation to query the details of an Ingress.
+   * 
    * @param request - DescribeIngressRequest
    * @returns DescribeIngressResponse
    */
@@ -50829,6 +52555,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries all instance types.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSpecificationsResponse
@@ -50857,6 +52585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries all instance types.
    * @returns DescribeInstanceSpecificationsResponse
    */
   async describeInstanceSpecifications(): Promise<DescribeInstanceSpecificationsResponse> {
@@ -51194,7 +52923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of namespaces.
+   * Queries a list of namespaces.
    * 
    * @param request - DescribeNamespacesRequest
    * @param headers - map
@@ -51236,7 +52965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of namespaces.
+   * Queries a list of namespaces.
    * 
    * @param request - DescribeNamespacesRequest
    * @returns DescribeNamespacesResponse
@@ -51248,7 +52977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of a batch.
+   * View batch information
    * 
    * @param request - DescribePipelineRequest
    * @param headers - map
@@ -51286,7 +53015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of a batch.
+   * View batch information
    * 
    * @param request - DescribePipelineRequest
    * @returns DescribePipelineResponse
@@ -51338,7 +53067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Secret instance.
+   * Queries the details of a Secret.
    * 
    * @param request - DescribeSecretRequest
    * @param headers - map
@@ -51380,7 +53109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Secret instance.
+   * Queries the details of a Secret.
    * 
    * @param request - DescribeSecretRequest
    * @returns DescribeSecretResponse
@@ -51392,7 +53121,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用信息
+   * Query web applications.
+   * 
+   * @remarks
+   * Call the DescribeWebApplication operation to query web applications.
    * 
    * @param request - DescribeWebApplicationRequest
    * @param headers - map
@@ -51430,7 +53162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用信息
+   * Query web applications.
+   * 
+   * @remarks
+   * Call the DescribeWebApplication operation to query web applications.
    * 
    * @param request - DescribeWebApplicationRequest
    * @returns DescribeWebApplicationResponse
@@ -51442,7 +53177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用资源用量统计
+   * Query the resource usage of a web application.
+   * 
+   * @remarks
+   * Query the resource usage of a web application.
    * 
    * @param request - DescribeWebApplicationResourceStaticsRequest
    * @param headers - map
@@ -51492,7 +53230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用资源用量统计
+   * Query the resource usage of a web application.
+   * 
+   * @remarks
+   * Query the resource usage of a web application.
    * 
    * @param request - DescribeWebApplicationResourceStaticsRequest
    * @returns DescribeWebApplicationResourceStaticsResponse
@@ -51504,7 +53245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用版本
+   * Describe a web application version.
+   * 
+   * @remarks
+   * Describe a web application version.
    * 
    * @param request - DescribeWebApplicationRevisionRequest
    * @param headers - map
@@ -51542,7 +53286,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用版本
+   * Describe a web application version.
+   * 
+   * @remarks
+   * Describe a web application version.
    * 
    * @param request - DescribeWebApplicationRevisionRequest
    * @returns DescribeWebApplicationRevisionResponse
@@ -51554,7 +53301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 弹性配置详情
+   * Describe the scaling configuration of a web application.
+   * 
+   * @remarks
+   * Call the DescribeWebApplicationScalingConfig operation to obtain the scaling configuration of a web application.
    * 
    * @param request - DescribeWebApplicationScalingConfigRequest
    * @param headers - map
@@ -51592,7 +53342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 弹性配置详情
+   * Describe the scaling configuration of a web application.
+   * 
+   * @remarks
+   * Call the DescribeWebApplicationScalingConfig operation to obtain the scaling configuration of a web application.
    * 
    * @param request - DescribeWebApplicationScalingConfigRequest
    * @returns DescribeWebApplicationScalingConfigResponse
@@ -51604,7 +53357,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流量配置详情
+   * Query the traffic configurations of a web application.
+   * 
+   * @remarks
+   * Call the DescribeWebApplicationTrafficConfig operation to query the traffic configurations of a web application.
    * 
    * @param request - DescribeWebApplicationTrafficConfigRequest
    * @param headers - map
@@ -51642,7 +53398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流量配置详情
+   * Query the traffic configurations of a web application.
+   * 
+   * @remarks
+   * Call the DescribeWebApplicationTrafficConfig operation to query the traffic configurations of a web application.
    * 
    * @param request - DescribeWebApplicationTrafficConfigRequest
    * @returns DescribeWebApplicationTrafficConfigResponse
@@ -51654,7 +53413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取域名.
+   * Query the details of a custom domain name for a web application.
+   * 
+   * @remarks
+   * Query the details of a custom domain name for a web application.
    * 
    * @param request - DescribeWebCustomDomainRequest
    * @param headers - map
@@ -51692,7 +53454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取域名.
+   * Query the details of a custom domain name for a web application.
+   * 
+   * @remarks
+   * Query the details of a custom domain name for a web application.
    * 
    * @param request - DescribeWebCustomDomainRequest
    * @returns DescribeWebCustomDomainResponse
@@ -51704,7 +53469,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例日志
+   * Obtain the logs of web application instances.
+   * 
+   * @remarks
+   * Obtain the logs of web application instances.
    * 
    * @param request - DescribeWebInstanceLogsRequest
    * @param headers - map
@@ -51742,7 +53510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例日志
+   * Obtain the logs of web application instances.
+   * 
+   * @remarks
+   * Obtain the logs of web application instances.
    * 
    * @param request - DescribeWebInstanceLogsRequest
    * @returns DescribeWebInstanceLogsResponse
@@ -51804,6 +53575,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * 
    * @param request - DowngradeApplicationApmServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51840,6 +53613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * 
    * @param request - DowngradeApplicationApmServiceRequest
    * @returns DowngradeApplicationApmServiceResponse
    */
@@ -51986,7 +53761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用基本信息
+   * Queries the basic information of an application.
    * 
    * @param request - GetApplicationRequest
    * @param headers - map
@@ -52032,7 +53807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用基本信息
+   * Queries the basic information of an application.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -52044,7 +53819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top N applications in Application Monitoring.
+   * The application name.
    * 
    * @param request - GetArmsTopNMetricRequest
    * @param headers - map
@@ -52106,7 +53881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top N applications in Application Monitoring.
+   * The application name.
    * 
    * @param request - GetArmsTopNMetricRequest
    * @returns GetArmsTopNMetricResponse
@@ -52312,7 +54087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top N applications in which Warning events occur.
+   * The number of Warning events.
    * 
    * @param request - GetWarningEventMetricRequest
    * @param headers - map
@@ -52370,7 +54145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top N applications in which Warning events occur.
+   * The number of Warning events.
    * 
    * @param request - GetWarningEventMetricRequest
    * @returns GetWarningEventMetricResponse
@@ -52382,6 +54157,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the token used to remotely log on to the Webshell of an instance.
+   * 
    * @param request - GetWebshellTokenRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52426,6 +54203,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the token used to remotely log on to the Webshell of an instance.
+   * 
    * @param request - GetWebshellTokenRequest
    * @returns GetWebshellTokenResponse
    */
@@ -52514,7 +54293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询微服务的服务列表
+   * Queries the list of microservices
    * 
    * @param request - ListAppServicesRequest
    * @param headers - map
@@ -52584,7 +54363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询微服务的服务列表
+   * Queries the list of microservices
    * 
    * @param request - ListAppServicesRequest
    * @returns ListAppServicesResponse
@@ -52596,7 +54375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * Queries the services of an application.
    * 
    * @param request - ListAppServicesPageRequest
    * @param headers - map
@@ -52646,7 +54425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+   * Queries the services of an application.
    * 
    * @param request - ListAppServicesPageRequest
    * @returns ListAppServicesPageResponse
@@ -52658,7 +54437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * Queries the deployment versions of an application.
    * 
    * @param request - ListAppVersionsRequest
    * @param headers - map
@@ -52696,7 +54475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+   * Queries the deployment versions of an application.
    * 
    * @param request - ListAppVersionsRequest
    * @returns ListAppVersionsResponse
@@ -52708,7 +54487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the namespace.
+   * Queries a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @param headers - map
@@ -52782,7 +54561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the namespace.
+   * Queries a list of applications.
    * 
    * @param request - ListApplicationsRequest
    * @returns ListApplicationsResponse
@@ -52794,6 +54573,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query a list of change orders.
+   * 
    * @param request - ListChangeOrdersRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52850,6 +54631,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query a list of change orders.
+   * 
    * @param request - ListChangeOrdersRequest
    * @returns ListChangeOrdersResponse
    */
@@ -52860,7 +54643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * Queries a list of microservices that are subscribed.
    * 
    * @param request - ListConsumedServicesRequest
    * @param headers - map
@@ -52898,7 +54681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * Queries a list of microservices that are subscribed.
    * 
    * @param request - ListConsumedServicesRequest
    * @returns ListConsumedServicesResponse
@@ -52966,9 +54749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The returned message.
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * Use ListIngress API call to query Ingress list
    * 
    * @param request - ListIngressesRequest
    * @param headers - map
@@ -53010,9 +54791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The returned message.
-   * *   **success** is returned when the request succeeds.
-   * *   An error code is returned when the request fails.
+   * Use ListIngress API call to query Ingress list
    * 
    * @param request - ListIngressesRequest
    * @returns ListIngressesResponse
@@ -53110,7 +54889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+   * Queries a list of application logs.
    * 
    * @param request - ListLogConfigsRequest
    * @param headers - map
@@ -53156,7 +54935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+   * Queries a list of application logs.
    * 
    * @param request - ListLogConfigsRequest
    * @returns ListLogConfigsResponse
@@ -53168,6 +54947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of change orders in a namespace.
+   * 
    * @param request - ListNamespaceChangeOrdersRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -53224,6 +55005,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of change orders in a namespace.
+   * 
    * @param request - ListNamespaceChangeOrdersRequest
    * @returns ListNamespaceChangeOrdersResponse
    */
@@ -53284,7 +55067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * Queries a list of microservices that are published.
    * 
    * @param request - ListPublishedServicesRequest
    * @param headers - map
@@ -53322,7 +55105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+   * Queries a list of microservices that are published.
    * 
    * @param request - ListPublishedServicesRequest
    * @returns ListPublishedServicesResponse
@@ -53450,7 +55233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例列表
+   * Query the list of web application instances.
+   * 
+   * @remarks
+   * Query the list of web application instances.
    * 
    * @param tmpReq - ListWebApplicationInstancesRequest
    * @param headers - map
@@ -53526,7 +55312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例列表
+   * Query the list of web application instances.
+   * 
+   * @remarks
+   * Query the list of web application instances.
    * 
    * @param request - ListWebApplicationInstancesRequest
    * @returns ListWebApplicationInstancesResponse
@@ -53538,7 +55327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 版本列表
+   * Query the list of web application versions.
+   * 
+   * @remarks
+   * Query the list of web application versions.
    * 
    * @param request - ListWebApplicationRevisionsRequest
    * @param headers - map
@@ -53584,7 +55376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 版本列表
+   * Query the list of web application versions.
+   * 
+   * @remarks
+   * Query the list of web application versions.
    * 
    * @param request - ListWebApplicationRevisionsRequest
    * @returns ListWebApplicationRevisionsResponse
@@ -53596,7 +55391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用列表
+   * Query the list of web applications.
+   * 
+   * @remarks
+   * Call the ListWebApplications operation to query the list of web applications.
    * 
    * @param request - ListWebApplicationsRequest
    * @param headers - map
@@ -53646,7 +55444,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用列表
+   * Query the list of web applications.
+   * 
+   * @remarks
+   * Call the ListWebApplications operation to query the list of web applications.
    * 
    * @param request - ListWebApplicationsRequest
    * @returns ListWebApplicationsResponse
@@ -53658,7 +55459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义域名列表.
+   * Query available custom domain names.
+   * 
+   * @remarks
+   * Query available custom domain names.
    * 
    * @param request - ListWebCustomDomainsRequest
    * @param headers - map
@@ -53712,7 +55516,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 自定义域名列表.
+   * Query available custom domain names.
+   * 
+   * @remarks
+   * Query available custom domain names.
    * 
    * @param request - ListWebCustomDomainsRequest
    * @returns ListWebCustomDomainsResponse
@@ -53770,7 +55577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建版本
+   * Publish a web application version.
+   * 
+   * @remarks
+   * Publish a web application version. You can change the configurations of the version and create a new version.
    * 
    * @param request - PublishWebApplicationRevisionRequest
    * @param headers - map
@@ -53809,7 +55619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建版本
+   * Publish a web application version.
+   * 
+   * @remarks
+   * Publish a web application version. You can change the configurations of the version and create a new version.
    * 
    * @param request - PublishWebApplicationRevisionRequest
    * @returns PublishWebApplicationRevisionResponse
@@ -54301,7 +56114,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动应用
+   * Start a web application.
+   * 
+   * @remarks
+   * Call the StartWebApplication operation to start a web application.
    * 
    * @param request - StartWebApplicationRequest
    * @param headers - map
@@ -54339,7 +56155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动应用
+   * Start a web application.
+   * 
+   * @remarks
+   * Call the StartWebApplication operation to start a web application.
    * 
    * @param request - StartWebApplicationRequest
    * @returns StartWebApplicationResponse
@@ -54401,7 +56220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用
+   * Stop a web application.
+   * 
+   * @remarks
+   * Call the StopWebApplication operation to stop a web application.
    * 
    * @param request - StopWebApplicationRequest
    * @param headers - map
@@ -54439,7 +56261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用
+   * Stop a web application.
+   * 
+   * @remarks
+   * Call the StopWebApplication operation to stop a web application.
    * 
    * @param request - StopWebApplicationRequest
    * @returns StopWebApplicationResponse
@@ -54567,7 +56392,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * Calls the UnbindNlb operation to delete an NLB listener bound for application access
+   * 
+   * @param request - UnbindNlbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindNlbResponse
+   */
+  async unbindNlbWithOptions(request: UnbindNlbRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UnbindNlbResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.nlbId)) {
+      query["NlbId"] = request.nlbId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindNlb",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/nlb`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindNlbResponse>(await this.callApi(params, req, runtime), new UnbindNlbResponse({}));
+    } else {
+      return $dara.cast<UnbindNlbResponse>(await this.execute(params, req, runtime), new UnbindNlbResponse({}));
+    }
+
+  }
+
+  /**
+   * Calls the UnbindNlb operation to delete an NLB listener bound for application access
+   * 
+   * @param request - UnbindNlbRequest
+   * @returns UnbindNlbResponse
+   */
+  async unbindNlb(request: UnbindNlbRequest): Promise<UnbindNlbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unbindNlbWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disassociates an internal-facing or Internet-facing SLB instance from an application.
    * 
    * @param request - UnbindSlbRequest
    * @param headers - map
@@ -54613,7 +56500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+   * Disassociates an internal-facing or Internet-facing SLB instance from an application.
    * 
    * @param request - UnbindSlbRequest
    * @returns UnbindSlbResponse
@@ -54687,7 +56574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * Updates the security group of an application.
    * 
    * @param request - UpdateAppSecurityGroupRequest
    * @param headers - map
@@ -54729,7 +56616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+   * Updates the security group of an application.
    * 
    * @param request - UpdateAppSecurityGroupRequest
    * @returns UpdateAppSecurityGroupResponse
@@ -54741,7 +56628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用描述信息
+   * Updates the description of an application.
    * 
    * @param request - UpdateApplicationDescriptionRequest
    * @param headers - map
@@ -54783,7 +56670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用描述信息
+   * Updates the description of an application.
    * 
    * @param request - UpdateApplicationDescriptionRequest
    * @returns UpdateApplicationDescriptionResponse
@@ -54877,6 +56764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update the configuration of a vSwitch.
+   * 
    * @param request - UpdateApplicationVswitchesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54917,6 +56806,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update the configuration of a vSwitch.
+   * 
    * @param request - UpdateApplicationVswitchesRequest
    * @returns UpdateApplicationVswitchesResponse
    */
@@ -54927,7 +56818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1
+   * Update a ConfigMap.
    * 
    * @param request - UpdateConfigMapRequest
    * @param headers - map
@@ -54975,7 +56866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 1
+   * Update a ConfigMap.
    * 
    * @param request - UpdateConfigMapRequest
    * @returns UpdateConfigMapResponse
@@ -55053,7 +56944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a routing rule.
+   * Update the configurations of an Ingress instance.
    * 
    * @param request - UpdateIngressRequest
    * @param headers - map
@@ -55069,6 +56960,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.certIds)) {
       query["CertIds"] = request.certIds;
+    }
+
+    if (!$dara.isNull(request.corsConfig)) {
+      query["CorsConfig"] = request.corsConfig;
     }
 
     if (!$dara.isNull(request.defaultRule)) {
@@ -55157,7 +57052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configurations of a routing rule.
+   * Update the configurations of an Ingress instance.
    * 
    * @param request - UpdateIngressRequest
    * @returns UpdateIngressResponse
@@ -55593,7 +57488,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用
+   * Updates the configuration at the web application level.
+   * 
+   * @remarks
+   * You can call the UpdateWebApplication operation to update the configuration at the web application level.
    * 
    * @param request - UpdateWebApplicationRequest
    * @param headers - map
@@ -55632,7 +57530,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用
+   * Updates the configuration at the web application level.
+   * 
+   * @remarks
+   * You can call the UpdateWebApplication operation to update the configuration at the web application level.
    * 
    * @param request - UpdateWebApplicationRequest
    * @returns UpdateWebApplicationResponse
@@ -55644,7 +57545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新弹性配置
+   * Update the scaling configuration of a web application.
+   * 
+   * @remarks
+   * You can call the UpdateWebApplicationScalingConfig operation to update the scaling configurations of a web application.
    * 
    * @param request - UpdateWebApplicationScalingConfigRequest
    * @param headers - map
@@ -55683,7 +57587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新弹性配置
+   * Update the scaling configuration of a web application.
+   * 
+   * @remarks
+   * You can call the UpdateWebApplicationScalingConfig operation to update the scaling configurations of a web application.
    * 
    * @param request - UpdateWebApplicationScalingConfigRequest
    * @returns UpdateWebApplicationScalingConfigResponse
@@ -55695,7 +57602,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新流量配置
+   * Update the traffic configurations of a web application.
+   * 
+   * @remarks
+   * Call the UpdateWebApplicationTrafficConfig operation to update the traffic configurations of a web application.
    * 
    * @param request - UpdateWebApplicationTrafficConfigRequest
    * @param headers - map
@@ -55734,7 +57644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新流量配置
+   * Update the traffic configurations of a web application.
+   * 
+   * @remarks
+   * Call the UpdateWebApplicationTrafficConfig operation to update the traffic configurations of a web application.
    * 
    * @param request - UpdateWebApplicationTrafficConfigRequest
    * @returns UpdateWebApplicationTrafficConfigResponse
@@ -55746,7 +57659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义域名.
+   * Update a custom domain name.
+   * 
+   * @remarks
+   * Update a custom domain name.
    * 
    * @param request - UpdateWebCustomDomainRequest
    * @param headers - map
@@ -55785,7 +57701,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义域名.
+   * Update a custom domain name.
+   * 
+   * @remarks
+   * Update a custom domain name.
    * 
    * @param request - UpdateWebCustomDomainRequest
    * @returns UpdateWebCustomDomainResponse
@@ -55797,6 +57716,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * 
+   * @remarks
+   * You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://icms.alibaba-inc.com/content/arms/arms?l=1\\&m=16992\\&n=3183148).
+   * 
    * @param request - UpgradeApplicationApmServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55833,6 +57757,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * 
+   * @remarks
+   * You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://icms.alibaba-inc.com/content/arms/arms?l=1\\&m=16992\\&n=3183148).
+   * 
    * @param request - UpgradeApplicationApmServiceRequest
    * @returns UpgradeApplicationApmServiceResponse
    */
