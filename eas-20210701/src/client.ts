@@ -764,60 +764,11 @@ export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Mod
 }
 
 export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
-  /**
-   * @remarks
-   * The backend access ID, which varies based on the value of the EndpointType parameter.
-   * 
-   * *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
-   * *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
-   * *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
-   * *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
-   * 
-   * @example
-   * gw-26340kjxjx8l3r****
-   */
   backendId?: string;
-  /**
-   * @remarks
-   * The service endpoint type. Valid values:
-   * 
-   * *   DefaultGateway: the shared gateway.
-   * *   PrivateGateway: the dedicated gateway.
-   * *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
-   * *   Nacos: Associate the service with the Nacos instance.
-   * 
-   * @example
-   * PrivateGateway
-   */
   endpointType?: string;
-  /**
-   * @remarks
-   * The public endpoints.
-   */
   internetEndpoints?: string[];
-  /**
-   * @remarks
-   * The internal endpoints.
-   */
   intranetEndpoints?: string[];
-  /**
-   * @remarks
-   * The path type. Valid values:
-   * 
-   * *   Group: the path of the service group.
-   * *   Service: the path of the service.
-   * 
-   * @example
-   * Group
-   */
   pathType?: string;
-  /**
-   * @remarks
-   * The port number. This parameter takes effect only when you associate the service with an NLB or Nacos instance.
-   * 
-   * @example
-   * 9090
-   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1318,60 +1269,11 @@ export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $dara.Mod
 }
 
 export class DescribeServiceEndpointsResponseBodyEndpoints extends $dara.Model {
-  /**
-   * @remarks
-   * The backend access ID, which varies based on the value of the EndpointType parameter.
-   * 
-   * *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
-   * *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
-   * *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
-   * *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
-   * 
-   * @example
-   * nlb-5q4sp7u6oorkha****
-   */
   backendId?: string;
-  /**
-   * @remarks
-   * The service endpoint type. Valid values:
-   * 
-   * *   DefaultGateway: the shared gateway.
-   * *   PrivateGateway: the dedicated gateway.
-   * *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
-   * *   Nacos: Associate the service with the Nacos instance.
-   * 
-   * @example
-   * Nlb
-   */
   endpointType?: string;
-  /**
-   * @remarks
-   * The public endpoints.
-   */
   internetEndpoints?: string[];
-  /**
-   * @remarks
-   * The internal endpoints.
-   */
   intranetEndpoints?: string[];
-  /**
-   * @remarks
-   * The path type. Valid values:
-   * 
-   * *   Group: the path of the service group.
-   * *   Service: the path of the service.
-   * 
-   * @example
-   * Service
-   */
   pathType?: string;
-  /**
-   * @remarks
-   * The port number. This parameter takes effect only when you associate the service with an NLB or Nacos instance.
-   * 
-   * @example
-   * 9090
-   */
   port?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9151,7 +9053,7 @@ export class DescribeGroupEndpointsResponseBody extends $dara.Model {
    * @remarks
    * The endpoints of service groups.
    */
-  endpoints?: DescribeGroupEndpointsResponseBodyEndpoints;
+  endpoints?: DescribeGroupEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
    * The response message.
@@ -9180,15 +9082,15 @@ export class DescribeGroupEndpointsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessToken: 'string',
-      endpoints: DescribeGroupEndpointsResponseBodyEndpoints,
+      endpoints: { 'type': 'array', 'itemType': DescribeGroupEndpointsResponseBodyEndpoints },
       message: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
-      (this.endpoints as any).validate();
+    if(Array.isArray(this.endpoints)) {
+      $dara.Model.validateArray(this.endpoints);
     }
     super.validate();
   }
@@ -10277,7 +10179,7 @@ export class DescribeServiceEndpointsResponseBody extends $dara.Model {
    * @remarks
    * The service endpoints.
    */
-  endpoints?: DescribeServiceEndpointsResponseBodyEndpoints;
+  endpoints?: DescribeServiceEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
    * The returned message.
@@ -10306,15 +10208,15 @@ export class DescribeServiceEndpointsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessToken: 'string',
-      endpoints: DescribeServiceEndpointsResponseBodyEndpoints,
+      endpoints: { 'type': 'array', 'itemType': DescribeServiceEndpointsResponseBodyEndpoints },
       message: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
-    if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
-      (this.endpoints as any).validate();
+    if(Array.isArray(this.endpoints)) {
+      $dara.Model.validateArray(this.endpoints);
     }
     super.validate();
   }
