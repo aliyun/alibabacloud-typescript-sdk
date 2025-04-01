@@ -5785,6 +5785,43 @@ export class SubmitChatQuestionResponseBodyData extends $dara.Model {
   }
 }
 
+export class UpdateDocumentChunkRequestChunks extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1987834755763847
+   */
+  chunkId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  chunkText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunkId: 'chunkId',
+      chunkText: 'chunkText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunkId: 'string',
+      chunkText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLibraryRequestIndexSettingChunkStrategy extends $dara.Model {
   /**
    * @example
@@ -12652,6 +12689,157 @@ export class UpdateDocumentResponse extends $dara.Model {
   }
 }
 
+export class UpdateDocumentChunkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  chunks?: UpdateDocumentChunkRequestChunks[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sjdgdsfg
+   */
+  libraryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunks: 'chunks',
+      libraryId: 'libraryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunks: { 'type': 'array', 'itemType': UpdateDocumentChunkRequestChunks },
+      libraryId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.chunks)) {
+      $dara.Model.validateArray(this.chunks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocumentChunkResponseBody extends $dara.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  data?: string;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 003D019A-1BB3-53EC-A0D2-CE76DA5D73B1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: 'string',
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDocumentChunkResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDocumentChunkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDocumentChunkResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLibraryRequest extends $dara.Model {
   description?: string;
   indexSetting?: UpdateLibraryRequestIndexSetting;
@@ -15698,6 +15886,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDocumentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新文档的chunk
+   * 
+   * @param request - UpdateDocumentChunkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDocumentChunkResponse
+   */
+  async updateDocumentChunkWithOptions(workspaceId: string, request: UpdateDocumentChunkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateDocumentChunkResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunks)) {
+      body["chunks"] = request.chunks;
+    }
+
+    if (!$dara.isNull(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDocumentChunk",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/library/updateDocumentChunk`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDocumentChunkResponse>(await this.callApi(params, req, runtime), new UpdateDocumentChunkResponse({}));
+    } else {
+      return $dara.cast<UpdateDocumentChunkResponse>(await this.execute(params, req, runtime), new UpdateDocumentChunkResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新文档的chunk
+   * 
+   * @param request - UpdateDocumentChunkRequest
+   * @returns UpdateDocumentChunkResponse
+   */
+  async updateDocumentChunk(workspaceId: string, request: UpdateDocumentChunkRequest): Promise<UpdateDocumentChunkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDocumentChunkWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
