@@ -2904,6 +2904,1726 @@ export class CreateProjectModifyRecordsRequestDatabases extends $dara.Model {
   }
 }
 
+export class CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingBlackTableRules extends $dara.Model {
+  objectMapping?: CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping;
+  schemaMapping?: CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping;
+  static names(): { [key: string]: string } {
+    return {
+      objectMapping: 'ObjectMapping',
+      schemaMapping: 'SchemaMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectMapping: CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesObjectMapping,
+      schemaMapping: CreateProjectModifyRecordsRequestTransferMappingBlackTableRulesSchemaMapping,
+    };
+  }
+
+  validate() {
+    if(this.objectMapping && typeof (this.objectMapping as any).validate === 'function') {
+      (this.objectMapping as any).validate();
+    }
+    if(this.schemaMapping && typeof (this.schemaMapping as any).validate === 'function') {
+      (this.schemaMapping as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingBlackViewRules extends $dara.Model {
+  objectMapping?: CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping;
+  schemaMapping?: CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping;
+  static names(): { [key: string]: string } {
+    return {
+      objectMapping: 'ObjectMapping',
+      schemaMapping: 'SchemaMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectMapping: CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesObjectMapping,
+      schemaMapping: CreateProjectModifyRecordsRequestTransferMappingBlackViewRulesSchemaMapping,
+    };
+  }
+
+  validate() {
+    if(this.objectMapping && typeof (this.objectMapping as any).validate === 'function') {
+      (this.objectMapping as any).validate();
+    }
+    if(this.schemaMapping && typeof (this.schemaMapping as any).validate === 'function') {
+      (this.schemaMapping as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig extends $dara.Model {
+  partitionSize?: number;
+  partitionType?: string;
+  virtualColumn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      partitionSize: 'PartitionSize',
+      partitionType: 'PartitionType',
+      virtualColumn: 'VirtualColumn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      partitionSize: 'number',
+      partitionType: 'string',
+      virtualColumn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  obkvPartitionConfig?: CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      obkvPartitionConfig: 'ObkvPartitionConfig',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      obkvPartitionConfig: CreateProjectModifyRecordsRequestTransferMappingDatabasesTablesObkvPartitionConfig,
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(this.obkvPartitionConfig && typeof (this.obkvPartitionConfig as any).validate === 'function') {
+      (this.obkvPartitionConfig as any).validate();
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabases extends $dara.Model {
+  clusterName?: string;
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  specificTables?: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables[];
+  specificViews?: CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews[];
+  tables?: CreateProjectModifyRecordsRequestTransferMappingDatabasesTables[];
+  tenantName?: string;
+  views?: CreateProjectModifyRecordsRequestTransferMappingDatabasesViews[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      specificTables: 'SpecificTables',
+      specificViews: 'SpecificViews',
+      tables: 'Tables',
+      tenantName: 'TenantName',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      specificTables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificTables },
+      specificViews: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesSpecificViews },
+      tables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesTables },
+      tenantName: 'string',
+      views: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesViews },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.specificTables)) {
+      $dara.Model.validateArray(this.specificTables);
+    }
+    if(Array.isArray(this.specificViews)) {
+      $dara.Model.validateArray(this.specificViews);
+    }
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    if(Array.isArray(this.views)) {
+      $dara.Model.validateArray(this.views);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack extends $dara.Model {
+  clusterName?: string;
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  specificTables?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables[];
+  specificViews?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews[];
+  tables?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables[];
+  tenantName?: string;
+  views?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      specificTables: 'SpecificTables',
+      specificViews: 'SpecificViews',
+      tables: 'Tables',
+      tenantName: 'TenantName',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      specificTables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificTables },
+      specificViews: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackSpecificViews },
+      tables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackTables },
+      tenantName: 'string',
+      views: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesBlackViews },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.specificTables)) {
+      $dara.Model.validateArray(this.specificTables);
+    }
+    if(Array.isArray(this.specificViews)) {
+      $dara.Model.validateArray(this.specificViews);
+    }
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    if(Array.isArray(this.views)) {
+      $dara.Model.validateArray(this.views);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig extends $dara.Model {
+  partitionSize?: number;
+  partitionType?: string;
+  virtualColumn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      partitionSize: 'PartitionSize',
+      partitionType: 'PartitionType',
+      virtualColumn: 'VirtualColumn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      partitionSize: 'number',
+      partitionType: 'string',
+      virtualColumn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasTables extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  obkvPartitionConfig?: CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      obkvPartitionConfig: 'ObkvPartitionConfig',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingSchemasTablesAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      obkvPartitionConfig: CreateProjectModifyRecordsRequestTransferMappingSchemasTablesObkvPartitionConfig,
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(this.obkvPartitionConfig && typeof (this.obkvPartitionConfig as any).validate === 'function') {
+      (this.obkvPartitionConfig as any).validate();
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema extends $dara.Model {
+  distributedKeys?: string[];
+  partitionLifeCycle?: string;
+  partitionStatement?: string;
+  primaryKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      distributedKeys: 'DistributedKeys',
+      partitionLifeCycle: 'PartitionLifeCycle',
+      partitionStatement: 'PartitionStatement',
+      primaryKeys: 'PrimaryKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      distributedKeys: { 'type': 'array', 'itemType': 'string' },
+      partitionLifeCycle: 'string',
+      partitionStatement: 'string',
+      primaryKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.distributedKeys)) {
+      $dara.Model.validateArray(this.distributedKeys);
+    }
+    if(Array.isArray(this.primaryKeys)) {
+      $dara.Model.validateArray(this.primaryKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemasViews extends $dara.Model {
+  adbTableSchema?: CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema;
+  filterColumns?: string[];
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  shardColumns?: string[];
+  whereClause?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbTableSchema: 'AdbTableSchema',
+      filterColumns: 'FilterColumns',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      shardColumns: 'ShardColumns',
+      whereClause: 'WhereClause',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbTableSchema: CreateProjectModifyRecordsRequestTransferMappingSchemasViewsAdbTableSchema,
+      filterColumns: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      shardColumns: { 'type': 'array', 'itemType': 'string' },
+      whereClause: 'string',
+    };
+  }
+
+  validate() {
+    if(this.adbTableSchema && typeof (this.adbTableSchema as any).validate === 'function') {
+      (this.adbTableSchema as any).validate();
+    }
+    if(Array.isArray(this.filterColumns)) {
+      $dara.Model.validateArray(this.filterColumns);
+    }
+    if(Array.isArray(this.shardColumns)) {
+      $dara.Model.validateArray(this.shardColumns);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingSchemas extends $dara.Model {
+  clusterName?: string;
+  id?: string;
+  mappedName?: string;
+  name?: string;
+  specificTables?: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables[];
+  specificViews?: CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews[];
+  tables?: CreateProjectModifyRecordsRequestTransferMappingSchemasTables[];
+  tenantName?: string;
+  views?: CreateProjectModifyRecordsRequestTransferMappingSchemasViews[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      id: 'Id',
+      mappedName: 'MappedName',
+      name: 'Name',
+      specificTables: 'SpecificTables',
+      specificViews: 'SpecificViews',
+      tables: 'Tables',
+      tenantName: 'TenantName',
+      views: 'Views',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      id: 'string',
+      mappedName: 'string',
+      name: 'string',
+      specificTables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificTables },
+      specificViews: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingSchemasSpecificViews },
+      tables: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingSchemasTables },
+      tenantName: 'string',
+      views: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingSchemasViews },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.specificTables)) {
+      $dara.Model.validateArray(this.specificTables);
+    }
+    if(Array.isArray(this.specificViews)) {
+      $dara.Model.validateArray(this.specificViews);
+    }
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    if(Array.isArray(this.views)) {
+      $dara.Model.validateArray(this.views);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules extends $dara.Model {
+  objectMapping?: CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping;
+  schemaMapping?: CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping;
+  static names(): { [key: string]: string } {
+    return {
+      objectMapping: 'ObjectMapping',
+      schemaMapping: 'SchemaMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectMapping: CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesObjectMapping,
+      schemaMapping: CreateProjectModifyRecordsRequestTransferMappingWhiteTableRulesSchemaMapping,
+    };
+  }
+
+  validate() {
+    if(this.objectMapping && typeof (this.objectMapping as any).validate === 'function') {
+      (this.objectMapping as any).validate();
+    }
+    if(this.schemaMapping && typeof (this.schemaMapping as any).validate === 'function') {
+      (this.schemaMapping as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping extends $dara.Model {
+  mappedName?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappedName: 'MappedName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappedName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules extends $dara.Model {
+  objectMapping?: CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping;
+  schemaMapping?: CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping;
+  static names(): { [key: string]: string } {
+    return {
+      objectMapping: 'ObjectMapping',
+      schemaMapping: 'SchemaMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      objectMapping: CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesObjectMapping,
+      schemaMapping: CreateProjectModifyRecordsRequestTransferMappingWhiteViewRulesSchemaMapping,
+    };
+  }
+
+  validate() {
+    if(this.objectMapping && typeof (this.objectMapping as any).validate === 'function') {
+      (this.objectMapping as any).validate();
+    }
+    if(this.schemaMapping && typeof (this.schemaMapping as any).validate === 'function') {
+      (this.schemaMapping as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProjectModifyRecordsRequestTransferMapping extends $dara.Model {
+  blackTableRules?: CreateProjectModifyRecordsRequestTransferMappingBlackTableRules[];
+  blackViewRules?: CreateProjectModifyRecordsRequestTransferMappingBlackViewRules[];
+  databases?: CreateProjectModifyRecordsRequestTransferMappingDatabases[];
+  databasesBlack?: CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack[];
+  /**
+   * @example
+   * SPCEIFIC
+   */
+  mode?: string;
+  schemas?: CreateProjectModifyRecordsRequestTransferMappingSchemas[];
+  tableAndViewBlackList?: string[];
+  tableAndViewWhiteList?: string[];
+  whiteTableRules?: CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules[];
+  whiteViewRules?: CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules[];
+  static names(): { [key: string]: string } {
+    return {
+      blackTableRules: 'BlackTableRules',
+      blackViewRules: 'BlackViewRules',
+      databases: 'Databases',
+      databasesBlack: 'DatabasesBlack',
+      mode: 'Mode',
+      schemas: 'Schemas',
+      tableAndViewBlackList: 'TableAndViewBlackList',
+      tableAndViewWhiteList: 'TableAndViewWhiteList',
+      whiteTableRules: 'WhiteTableRules',
+      whiteViewRules: 'WhiteViewRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackTableRules: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingBlackTableRules },
+      blackViewRules: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingBlackViewRules },
+      databases: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabases },
+      databasesBlack: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingDatabasesBlack },
+      mode: 'string',
+      schemas: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingSchemas },
+      tableAndViewBlackList: { 'type': 'array', 'itemType': 'string' },
+      tableAndViewWhiteList: { 'type': 'array', 'itemType': 'string' },
+      whiteTableRules: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingWhiteTableRules },
+      whiteViewRules: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestTransferMappingWhiteViewRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.blackTableRules)) {
+      $dara.Model.validateArray(this.blackTableRules);
+    }
+    if(Array.isArray(this.blackViewRules)) {
+      $dara.Model.validateArray(this.blackViewRules);
+    }
+    if(Array.isArray(this.databases)) {
+      $dara.Model.validateArray(this.databases);
+    }
+    if(Array.isArray(this.databasesBlack)) {
+      $dara.Model.validateArray(this.databasesBlack);
+    }
+    if(Array.isArray(this.schemas)) {
+      $dara.Model.validateArray(this.schemas);
+    }
+    if(Array.isArray(this.tableAndViewBlackList)) {
+      $dara.Model.validateArray(this.tableAndViewBlackList);
+    }
+    if(Array.isArray(this.tableAndViewWhiteList)) {
+      $dara.Model.validateArray(this.tableAndViewWhiteList);
+    }
+    if(Array.isArray(this.whiteTableRules)) {
+      $dara.Model.validateArray(this.whiteTableRules);
+    }
+    if(Array.isArray(this.whiteViewRules)) {
+      $dara.Model.validateArray(this.whiteViewRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectModifyRecordsResponseBodyErrorDetail extends $dara.Model {
   /**
    * @example
@@ -21843,6 +23563,148 @@ export class DescribeSlowSQLListResponseBodySlowSQLList extends $dara.Model {
   }
 }
 
+export class DescribeSqlAuditStatResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  affectRows?: number;
+  /**
+   * @example
+   * test_database_1
+   */
+  databaseName?: string;
+  /**
+   * @example
+   * 142
+   */
+  executeTime?: number;
+  /**
+   * @example
+   * ob317v4uif****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * UPDATE
+   */
+  operatorType?: string;
+  /**
+   * @example
+   * 1
+   */
+  returnRows?: number;
+  /**
+   * @example
+   * 1
+   */
+  scanRows?: number;
+  /**
+   * @remarks
+   * Sql ID
+   * 
+   * @example
+   * 8D6E84****0B8FB1823D199E2CA1****
+   */
+  sqlId?: string;
+  /**
+   * @example
+   * UPDATE `oceanbase_test_table` SET `name` = ? WHERE `key` = ?
+   */
+  sqlStatement?: string;
+  /**
+   * @example
+   * t33h8y08k****
+   */
+  tenantId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalAffectRows?: number;
+  /**
+   * @example
+   * 0
+   */
+  totalFailed?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalReturnRows?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalScanRows?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalSucceed?: number;
+  /**
+   * @example
+   * xx.xx.xx.xx
+   */
+  userClientIp?: string;
+  /**
+   * @example
+   * test_mysql
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      affectRows: 'AffectRows',
+      databaseName: 'DatabaseName',
+      executeTime: 'ExecuteTime',
+      instanceId: 'InstanceId',
+      operatorType: 'OperatorType',
+      returnRows: 'ReturnRows',
+      scanRows: 'ScanRows',
+      sqlId: 'SqlId',
+      sqlStatement: 'SqlStatement',
+      tenantId: 'TenantId',
+      totalAffectRows: 'TotalAffectRows',
+      totalFailed: 'TotalFailed',
+      totalReturnRows: 'TotalReturnRows',
+      totalScanRows: 'TotalScanRows',
+      totalSucceed: 'TotalSucceed',
+      userClientIp: 'UserClientIp',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      affectRows: 'number',
+      databaseName: 'string',
+      executeTime: 'number',
+      instanceId: 'string',
+      operatorType: 'string',
+      returnRows: 'number',
+      scanRows: 'number',
+      sqlId: 'string',
+      sqlStatement: 'string',
+      tenantId: 'string',
+      totalAffectRows: 'number',
+      totalFailed: 'number',
+      totalReturnRows: 'number',
+      totalScanRows: 'number',
+      totalSucceed: 'number',
+      userClientIp: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeStandbyCreateModeResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -33904,10 +35766,6 @@ export class CreateProjectResponse extends $dara.Model {
 }
 
 export class CreateProjectModifyRecordsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   databases?: CreateProjectModifyRecordsRequestDatabases[];
   /**
    * @remarks
@@ -33917,10 +35775,12 @@ export class CreateProjectModifyRecordsRequest extends $dara.Model {
    * np_fe****
    */
   id?: string;
+  transferMapping?: CreateProjectModifyRecordsRequestTransferMapping;
   static names(): { [key: string]: string } {
     return {
       databases: 'Databases',
       id: 'Id',
+      transferMapping: 'TransferMapping',
     };
   }
 
@@ -33928,12 +35788,16 @@ export class CreateProjectModifyRecordsRequest extends $dara.Model {
     return {
       databases: { 'type': 'array', 'itemType': CreateProjectModifyRecordsRequestDatabases },
       id: 'string',
+      transferMapping: CreateProjectModifyRecordsRequestTransferMapping,
     };
   }
 
   validate() {
     if(Array.isArray(this.databases)) {
       $dara.Model.validateArray(this.databases);
+    }
+    if(this.transferMapping && typeof (this.transferMapping as any).validate === 'function') {
+      (this.transferMapping as any).validate();
     }
     super.validate();
   }
@@ -33944,10 +35808,6 @@ export class CreateProjectModifyRecordsRequest extends $dara.Model {
 }
 
 export class CreateProjectModifyRecordsShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   databasesShrink?: string;
   /**
    * @remarks
@@ -33957,10 +35817,12 @@ export class CreateProjectModifyRecordsShrinkRequest extends $dara.Model {
    * np_fe****
    */
   id?: string;
+  transferMappingShrink?: string;
   static names(): { [key: string]: string } {
     return {
       databasesShrink: 'Databases',
       id: 'Id',
+      transferMappingShrink: 'TransferMapping',
     };
   }
 
@@ -33968,6 +35830,7 @@ export class CreateProjectModifyRecordsShrinkRequest extends $dara.Model {
     return {
       databasesShrink: 'string',
       id: 'string',
+      transferMappingShrink: 'string',
     };
   }
 
@@ -45182,6 +47045,139 @@ export class DescribeSlowSQLListResponse extends $dara.Model {
   }
 }
 
+export class DescribeSqlAuditStatRequest extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-14T03:34:49Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * ob317v4uif****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2025-01-14T02:34:49Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * t33h8y08k****
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlAuditStatResponseBody extends $dara.Model {
+  data?: DescribeSqlAuditStatResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSqlAuditStatResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSqlAuditStatResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSqlAuditStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSqlAuditStatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeStandbyCreateModeRequest extends $dara.Model {
   /**
    * @remarks
@@ -54960,6 +56956,10 @@ export default class Client extends OpenApi {
       request.databasesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.databases, "Databases", "json");
     }
 
+    if (!$dara.isNull(tmpReq.transferMapping)) {
+      request.transferMappingShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transferMapping, "TransferMapping", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.databasesShrink)) {
       body["Databases"] = request.databasesShrink;
@@ -54967,6 +56967,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.transferMappingShrink)) {
+      body["TransferMapping"] = request.transferMappingShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -59279,6 +61283,73 @@ export default class Client extends OpenApi {
   async describeSlowSQLList(request: DescribeSlowSQLListRequest): Promise<DescribeSlowSQLListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlowSQLListWithOptions(request, runtime);
+  }
+
+  /**
+   * 按照客户端IP、用户、SQLID的维度统计SQL数据执行情况
+   * 
+   * @param request - DescribeSqlAuditStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSqlAuditStatResponse
+   */
+  async describeSqlAuditStatWithOptions(request: DescribeSqlAuditStatRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSqlAuditStatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSqlAuditStat",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSqlAuditStatResponse>(await this.callApi(params, req, runtime), new DescribeSqlAuditStatResponse({}));
+    } else {
+      return $dara.cast<DescribeSqlAuditStatResponse>(await this.execute(params, req, runtime), new DescribeSqlAuditStatResponse({}));
+    }
+
+  }
+
+  /**
+   * 按照客户端IP、用户、SQLID的维度统计SQL数据执行情况
+   * 
+   * @param request - DescribeSqlAuditStatRequest
+   * @returns DescribeSqlAuditStatResponse
+   */
+  async describeSqlAuditStat(request: DescribeSqlAuditStatRequest): Promise<DescribeSqlAuditStatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSqlAuditStatWithOptions(request, runtime);
   }
 
   /**
