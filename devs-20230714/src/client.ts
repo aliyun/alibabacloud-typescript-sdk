@@ -9045,6 +9045,67 @@ export class CancelTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateArtifactRequest extends $dara.Model {
+  body?: Artifact;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Artifact,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Artifact;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Artifact,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEnvironmentRequest extends $dara.Model {
   body?: Environment;
   static names(): { [key: string]: string } {
@@ -9289,6 +9350,35 @@ export class CreateTaskResponse extends $dara.Model {
   }
 }
 
+export class DeleteArtifactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEnvironmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -9417,6 +9507,111 @@ export class DeployEnvironmentResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: EnvironmentDeployment,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchArtifactDownloadUrlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ArtifactCode;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ArtifactCode,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FetchArtifactTempBucketTokenResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ArtifactTempBucketToken;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ArtifactTempBucketToken,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Artifact;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Artifact,
     };
   }
 
@@ -9592,6 +9787,41 @@ export class GetRepositoryResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Repository,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceDeploymentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ServiceDeployment;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ServiceDeployment,
     };
   }
 
@@ -10075,6 +10305,179 @@ export class ListProjectsResponse extends $dara.Model {
   }
 }
 
+export class ListServiceDeploymentsRequest extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  keyword?: string;
+  labelSelector?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      labelSelector: 'labelSelector',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      labelSelector: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.labelSelector)) {
+      $dara.Model.validateArray(this.labelSelector);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceDeploymentsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  keyword?: string;
+  labelSelectorShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'keyword',
+      labelSelectorShrink: 'labelSelector',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      labelSelectorShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceDeploymentsResponseBody extends $dara.Model {
+  data?: ServiceDeployment[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 50
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ServiceDeployment },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceDeploymentsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceDeploymentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceDeploymentsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTasksRequest extends $dara.Model {
   labelSelector?: string[];
   static names(): { [key: string]: string } {
@@ -10150,6 +10553,109 @@ export class ListTasksResponse extends $dara.Model {
     }
     if(Array.isArray(this.body)) {
       $dara.Model.validateArray(this.body);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewEnvironmentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnvironmentDeploymentSpec;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnvironmentDeploymentSpec,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutArtifactRequest extends $dara.Model {
+  body?: Artifact;
+  /**
+   * @example
+   * false
+   */
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      force: 'force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Artifact,
+      force: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutArtifactResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Artifact;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Artifact,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
@@ -10277,6 +10783,142 @@ export class PutTaskStatusResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: Task,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenderServicesByTemplateRequest extends $dara.Model {
+  /**
+   * @example
+   * {"region":"cn-hangzhou"}
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @example
+   * my-project
+   */
+  projectName?: string;
+  /**
+   * @example
+   * {"svc1":"svc2"}
+   */
+  serviceNameChanges?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * start-springboot
+   */
+  templateName?: string;
+  variableValues?: TemplateVariableValueMap;
+  static names(): { [key: string]: string } {
+    return {
+      parameters: 'parameters',
+      projectName: 'projectName',
+      serviceNameChanges: 'serviceNameChanges',
+      templateName: 'templateName',
+      variableValues: 'variableValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      projectName: 'string',
+      serviceNameChanges: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+      variableValues: TemplateVariableValueMap,
+    };
+  }
+
+  validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    if(this.serviceNameChanges) {
+      $dara.Model.validateMap(this.serviceNameChanges);
+    }
+    if(this.variableValues && typeof (this.variableValues as any).validate === 'function') {
+      (this.variableValues as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenderServicesByTemplateResponseBody extends $dara.Model {
+  changedServiceNames?: { [key: string]: string };
+  services?: { [key: string]: ServiceConfig };
+  variables?: { [key: string]: Variable };
+  static names(): { [key: string]: string } {
+    return {
+      changedServiceNames: 'changedServiceNames',
+      services: 'services',
+      variables: 'variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changedServiceNames: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      services: { 'type': 'map', 'keyType': 'string', 'valueType': ServiceConfig },
+      variables: { 'type': 'map', 'keyType': 'string', 'valueType': Variable },
+    };
+  }
+
+  validate() {
+    if(this.changedServiceNames) {
+      $dara.Model.validateMap(this.changedServiceNames);
+    }
+    if(this.services) {
+      $dara.Model.validateMap(this.services);
+    }
+    if(this.variables) {
+      $dara.Model.validateMap(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenderServicesByTemplateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenderServicesByTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenderServicesByTemplateResponseBody,
     };
   }
 
@@ -10661,6 +11303,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建交付物存储
+   * 
+   * @param request - CreateArtifactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateArtifactResponse
+   */
+  async createArtifactWithOptions(request: CreateArtifactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateArtifactResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateArtifact",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
+    } else {
+      return $dara.cast<CreateArtifactResponse>(await this.execute(params, req, runtime), new CreateArtifactResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建交付物存储
+   * 
+   * @param request - CreateArtifactRequest
+   * @returns CreateArtifactResponse
+   */
+  async createArtifact(request: CreateArtifactRequest): Promise<CreateArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createArtifactWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建环境
    * 
    * @param request - CreateEnvironmentRequest
@@ -10841,6 +11528,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除交付物
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteArtifactResponse
+   */
+  async deleteArtifactWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteArtifactResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteArtifact",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
+    } else {
+      return $dara.cast<DeleteArtifactResponse>(await this.execute(params, req, runtime), new DeleteArtifactResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除交付物
+   * @returns DeleteArtifactResponse
+   */
+  async deleteArtifact(name: string): Promise<DeleteArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteArtifactWithOptions(name, headers, runtime);
+  }
+
+  /**
    * 删除环境
    * 
    * @param headers - map
@@ -10973,6 +11700,126 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deployEnvironmentWithOptions(projectName, name, request, headers, runtime);
+  }
+
+  /**
+   * 获取交付物的zip包临时下载地址url
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchArtifactDownloadUrlResponse
+   */
+  async fetchArtifactDownloadUrlWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<FetchArtifactDownloadUrlResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchArtifactDownloadUrl",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts/${$dara.URL.percentEncode(name)}/fetchCode`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FetchArtifactDownloadUrlResponse>(await this.callApi(params, req, runtime), new FetchArtifactDownloadUrlResponse({}));
+    } else {
+      return $dara.cast<FetchArtifactDownloadUrlResponse>(await this.execute(params, req, runtime), new FetchArtifactDownloadUrlResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取交付物的zip包临时下载地址url
+   * @returns FetchArtifactDownloadUrlResponse
+   */
+  async fetchArtifactDownloadUrl(name: string): Promise<FetchArtifactDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.fetchArtifactDownloadUrlWithOptions(name, headers, runtime);
+  }
+
+  /**
+   * 获取交付物临时上传的bucket、object和临时sts
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchArtifactTempBucketTokenResponse
+   */
+  async fetchArtifactTempBucketTokenWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<FetchArtifactTempBucketTokenResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchArtifactTempBucketToken",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts/action/fetchTempBucketToken`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FetchArtifactTempBucketTokenResponse>(await this.callApi(params, req, runtime), new FetchArtifactTempBucketTokenResponse({}));
+    } else {
+      return $dara.cast<FetchArtifactTempBucketTokenResponse>(await this.execute(params, req, runtime), new FetchArtifactTempBucketTokenResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取交付物临时上传的bucket、object和临时sts
+   * @returns FetchArtifactTempBucketTokenResponse
+   */
+  async fetchArtifactTempBucketToken(): Promise<FetchArtifactTempBucketTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.fetchArtifactTempBucketTokenWithOptions(headers, runtime);
+  }
+
+  /**
+   * 查询交付物
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetArtifactResponse
+   */
+  async getArtifactWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetArtifactResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetArtifact",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts/${$dara.URL.percentEncode(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
+    } else {
+      return $dara.cast<GetArtifactResponse>(await this.execute(params, req, runtime), new GetArtifactResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询交付物
+   * @returns GetArtifactResponse
+   */
+  async getArtifact(name: string): Promise<GetArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getArtifactWithOptions(name, headers, runtime);
   }
 
   /**
@@ -11173,6 +12020,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRepositoryWithOptions(name, headers, runtime);
+  }
+
+  /**
+   * 查询服务部署信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceDeploymentResponse
+   */
+  async getServiceDeploymentWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetServiceDeploymentResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceDeployment",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/servicedeployments/${$dara.URL.percentEncode(name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceDeploymentResponse>(await this.callApi(params, req, runtime), new GetServiceDeploymentResponse({}));
+    } else {
+      return $dara.cast<GetServiceDeploymentResponse>(await this.execute(params, req, runtime), new GetServiceDeploymentResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询服务部署信息
+   * @returns GetServiceDeploymentResponse
+   */
+  async getServiceDeployment(name: string): Promise<GetServiceDeploymentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceDeploymentWithOptions(name, headers, runtime);
   }
 
   /**
@@ -11408,6 +12295,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量查询服务部署信息
+   * 
+   * @param tmpReq - ListServiceDeploymentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceDeploymentsResponse
+   */
+  async listServiceDeploymentsWithOptions(tmpReq: ListServiceDeploymentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServiceDeploymentsResponse> {
+    tmpReq.validate();
+    let request = new ListServiceDeploymentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.labelSelector)) {
+      request.labelSelectorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelector, "labelSelector", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.labelSelectorShrink)) {
+      query["labelSelector"] = request.labelSelectorShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceDeployments",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/servicedeployments`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceDeploymentsResponse>(await this.callApi(params, req, runtime), new ListServiceDeploymentsResponse({}));
+    } else {
+      return $dara.cast<ListServiceDeploymentsResponse>(await this.execute(params, req, runtime), new ListServiceDeploymentsResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量查询服务部署信息
+   * 
+   * @param request - ListServiceDeploymentsRequest
+   * @returns ListServiceDeploymentsResponse
+   */
+  async listServiceDeployments(request: ListServiceDeploymentsRequest): Promise<ListServiceDeploymentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceDeploymentsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 批量查询任务
    * 
    * @param tmpReq - ListTasksRequest
@@ -11461,6 +12416,97 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 预览环境变更信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewEnvironmentResponse
+   */
+  async previewEnvironmentWithOptions(projectName: string, name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PreviewEnvironmentResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewEnvironment",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/projects/${$dara.URL.percentEncode(projectName)}/environments/${$dara.URL.percentEncode(name)}/preview`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PreviewEnvironmentResponse>(await this.callApi(params, req, runtime), new PreviewEnvironmentResponse({}));
+    } else {
+      return $dara.cast<PreviewEnvironmentResponse>(await this.execute(params, req, runtime), new PreviewEnvironmentResponse({}));
+    }
+
+  }
+
+  /**
+   * 预览环境变更信息
+   * @returns PreviewEnvironmentResponse
+   */
+  async previewEnvironment(projectName: string, name: string): Promise<PreviewEnvironmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewEnvironmentWithOptions(projectName, name, headers, runtime);
+  }
+
+  /**
+   * 更新交付物
+   * 
+   * @param request - PutArtifactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutArtifactResponse
+   */
+  async putArtifactWithOptions(name: string, request: PutArtifactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PutArtifactResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutArtifact",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/artifacts/${$dara.URL.percentEncode(name)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutArtifactResponse>(await this.callApi(params, req, runtime), new PutArtifactResponse({}));
+    } else {
+      return $dara.cast<PutArtifactResponse>(await this.execute(params, req, runtime), new PutArtifactResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新交付物
+   * 
+   * @param request - PutArtifactRequest
+   * @returns PutArtifactResponse
+   */
+  async putArtifact(name: string, request: PutArtifactRequest): Promise<PutArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putArtifactWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -11563,6 +12609,72 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putTaskStatusWithOptions(name, request, headers, runtime);
+  }
+
+  /**
+   * 解析模板中的服务、变量配置
+   * 
+   * @param request - RenderServicesByTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenderServicesByTemplateResponse
+   */
+  async renderServicesByTemplateWithOptions(request: RenderServicesByTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RenderServicesByTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      body["projectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.serviceNameChanges)) {
+      body["serviceNameChanges"] = request.serviceNameChanges;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["templateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.variableValues)) {
+      body["variableValues"] = request.variableValues;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenderServicesByTemplate",
+      version: "2023-07-14",
+      protocol: "HTTPS",
+      pathname: `/2023-07-14/templates/action/renderServices`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenderServicesByTemplateResponse>(await this.callApi(params, req, runtime), new RenderServicesByTemplateResponse({}));
+    } else {
+      return $dara.cast<RenderServicesByTemplateResponse>(await this.execute(params, req, runtime), new RenderServicesByTemplateResponse({}));
+    }
+
+  }
+
+  /**
+   * 解析模板中的服务、变量配置
+   * 
+   * @param request - RenderServicesByTemplateRequest
+   * @returns RenderServicesByTemplateResponse
+   */
+  async renderServicesByTemplate(request: RenderServicesByTemplateRequest): Promise<RenderServicesByTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.renderServicesByTemplateWithOptions(request, headers, runtime);
   }
 
   /**
