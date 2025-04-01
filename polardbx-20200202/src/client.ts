@@ -854,6 +854,229 @@ export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   }
 }
 
+export class DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
+  AZone?: string;
+  /**
+   * @example
+   * 204800
+   */
+  disk?: number;
+  /**
+   * @example
+   * polarx.x4.large.2e.cdc
+   */
+  nodeClass?: string;
+  /**
+   * @example
+   * ***
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * pxc-c-***
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
+  status?: string;
+  /**
+   * @example
+   * polarx-cdc-kernel-***
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AZone: 'AZone',
+      disk: 'Disk',
+      nodeClass: 'NodeClass',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AZone: 'string',
+      disk: 'number',
+      nodeClass: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdcInfoResponseBodyDataInstanceTopologyList extends $dara.Model {
+  /**
+   * @example
+   * BINLOG_X
+   */
+  clusterType?: string;
+  /**
+   * @example
+   * ***
+   */
+  comment?: string;
+  /**
+   * @example
+   * test
+   */
+  groupName?: string;
+  /**
+   * @example
+   * RECORD
+   */
+  hashLevel?: string;
+  /**
+   * @example
+   * pxc-***
+   */
+  instanceName?: string;
+  physicalNodes?: DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes[];
+  /**
+   * @example
+   * 2
+   */
+  streamNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterType: 'ClusterType',
+      comment: 'Comment',
+      groupName: 'GroupName',
+      hashLevel: 'HashLevel',
+      instanceName: 'InstanceName',
+      physicalNodes: 'PhysicalNodes',
+      streamNum: 'StreamNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterType: 'string',
+      comment: 'string',
+      groupName: 'string',
+      hashLevel: 'string',
+      instanceName: 'string',
+      physicalNodes: { 'type': 'array', 'itemType': DescribeCdcInfoResponseBodyDataInstanceTopologyListPhysicalNodes },
+      streamNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.physicalNodes)) {
+      $dara.Model.validateArray(this.physicalNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdcInfoResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 15
+   */
+  binlogPersistTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 524288000
+   */
+  binlogSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * polarx-cdc-kernel-***
+   */
+  cdcNewVersion?: string;
+  /**
+   * @example
+   * ON
+   */
+  checkSumSwitch?: string;
+  /**
+   * @example
+   * true
+   */
+  enableCyclicReplication?: boolean;
+  instanceTopologyList?: DescribeCdcInfoResponseBodyDataInstanceTopologyList[];
+  /**
+   * @remarks
+   * server id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3014767486
+   */
+  serverId?: number;
+  /**
+   * @example
+   * true
+   */
+  versionSupportMultiCdc?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      binlogPersistTime: 'BinlogPersistTime',
+      binlogSize: 'BinlogSize',
+      cdcNewVersion: 'CdcNewVersion',
+      checkSumSwitch: 'CheckSumSwitch',
+      enableCyclicReplication: 'EnableCyclicReplication',
+      instanceTopologyList: 'InstanceTopologyList',
+      serverId: 'ServerId',
+      versionSupportMultiCdc: 'VersionSupportMultiCdc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      binlogPersistTime: 'number',
+      binlogSize: 'number',
+      cdcNewVersion: 'string',
+      checkSumSwitch: 'string',
+      enableCyclicReplication: 'boolean',
+      instanceTopologyList: { 'type': 'array', 'itemType': DescribeCdcInfoResponseBodyDataInstanceTopologyList },
+      serverId: 'number',
+      versionSupportMultiCdc: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceTopologyList)) {
+      $dara.Model.validateArray(this.instanceTopologyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCharacterSetResponseBodyData extends $dara.Model {
   characterSet?: string[];
   /**
@@ -4134,6 +4357,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
    * select
    */
   sqlType?: string;
+  templateId?: string;
   /**
    * @example
    * 0
@@ -4181,6 +4405,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
       SQLHash: 'SQLHash',
       SQLText: 'SQLText',
       sqlType: 'SqlType',
+      templateId: 'TemplateId',
       tooLong: 'TooLong',
       traceId: 'TraceId',
       transactionPolicy: 'TransactionPolicy',
@@ -4211,6 +4436,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
       SQLHash: 'string',
       SQLText: 'string',
       sqlType: 'string',
+      templateId: 'string',
       tooLong: 'string',
       traceId: 'string',
       transactionPolicy: 'string',
@@ -5915,7 +6141,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
-  CNNodeCount?: string;
+  CNNodeCount?: number;
   /**
    * @example
    * xxxxxx-xxx
@@ -5932,7 +6158,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 2
    */
   DBNodeCount?: number;
-  DNNodeCount?: string;
+  DNNodeCount?: number;
   dnClass?: string;
   dnStorageSpace?: string;
   /**
@@ -6069,12 +6295,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenew: 'boolean',
-      CNNodeCount: 'string',
+      CNNodeCount: 'number',
       clientToken: 'string',
       cnClass: 'string',
       DBNodeClass: 'string',
       DBNodeCount: 'number',
-      DNNodeCount: 'string',
+      DNNodeCount: 'number',
       dnClass: 'string',
       dnStorageSpace: 'string',
       engineVersion: 'string',
@@ -6117,7 +6343,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
-  CNNodeCount?: string;
+  CNNodeCount?: number;
   /**
    * @example
    * xxxxxx-xxx
@@ -6134,7 +6360,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * 2
    */
   DBNodeCount?: number;
-  DNNodeCount?: string;
+  DNNodeCount?: number;
   dnClass?: string;
   dnStorageSpace?: string;
   /**
@@ -6271,12 +6497,12 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenew: 'boolean',
-      CNNodeCount: 'string',
+      CNNodeCount: 'number',
       clientToken: 'string',
       cnClass: 'string',
       DBNodeClass: 'string',
       DBNodeCount: 'number',
-      DNNodeCount: 'string',
+      DNNodeCount: 'number',
       dnClass: 'string',
       dnStorageSpace: 'string',
       engineVersion: 'string',
@@ -8130,6 +8356,137 @@ export class DescribeBinaryLogListResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeBinaryLogListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdcInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdcInfoResponseBody extends $dara.Model {
+  data?: DescribeCdcInfoResponseBodyData;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeCdcInfoResponseBodyData,
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdcInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCdcInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCdcInfoResponseBody,
     };
   }
 
@@ -14660,7 +15017,7 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
    * @example
    * 2
    */
-  CNNodeCount?: string;
+  CNNodeCount?: number;
   /**
    * @example
    * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
@@ -14678,12 +15035,12 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
    * @example
    * 2
    */
-  DNNodeCount?: string;
+  DNNodeCount?: number;
   /**
    * @example
    * 3
    */
-  dbInstanceNodeCount?: string;
+  dbInstanceNodeCount?: number;
   deleteDNIds?: string;
   /**
    * @remarks
@@ -14711,11 +15068,11 @@ export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addDNSpec: 'string',
-      CNNodeCount: 'string',
+      CNNodeCount: 'number',
       clientToken: 'string',
       DBInstanceName: 'string',
-      DNNodeCount: 'string',
-      dbInstanceNodeCount: 'string',
+      DNNodeCount: 'number',
+      dbInstanceNodeCount: 'number',
       deleteDNIds: 'string',
       regionId: 'string',
       storagePoolName: 'string',
@@ -15551,6 +15908,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例
+   * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBInstanceResponse
@@ -15699,6 +16058,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例
+   * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
    */
@@ -16395,6 +16756,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询CDC信息
+   * 
+   * @param request - DescribeCdcInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdcInfoResponse
+   */
+  async describeCdcInfoWithOptions(request: DescribeCdcInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCdcInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCdcInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCdcInfoResponse>(await this.callApi(params, req, runtime), new DescribeCdcInfoResponse({}));
+    } else {
+      return $dara.cast<DescribeCdcInfoResponse>(await this.execute(params, req, runtime), new DescribeCdcInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询CDC信息
+   * 
+   * @param request - DescribeCdcInfoRequest
+   * @returns DescribeCdcInfoResponse
+   */
+  async describeCdcInfo(request: DescribeCdcInfoRequest): Promise<DescribeCdcInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCdcInfoWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeCharacterSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCharacterSetResponse
@@ -16913,6 +17325,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 性能监控数据接口
+   * 
    * @param request - DescribeDBNodePerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBNodePerformanceResponse
@@ -16975,6 +17389,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 性能监控数据接口
+   * 
    * @param request - DescribeDBNodePerformanceRequest
    * @returns DescribeDBNodePerformanceResponse
    */
@@ -19300,6 +19716,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 扩缩容实例节点数
+   * 
    * @param request - UpdatePolarDBXInstanceNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePolarDBXInstanceNodeResponse
@@ -19366,6 +19784,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 扩缩容实例节点数
+   * 
    * @param request - UpdatePolarDBXInstanceNodeRequest
    * @returns UpdatePolarDBXInstanceNodeResponse
    */
