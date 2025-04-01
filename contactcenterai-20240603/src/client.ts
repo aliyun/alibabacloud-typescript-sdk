@@ -364,6 +364,32 @@ export class AnalyzeConversationRequestUserProfiles extends $dara.Model {
   }
 }
 
+export class CreateTaskRequestCategoryTags extends $dara.Model {
+  tagDesc?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDesc: 'tagDesc',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDesc: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestDialogueSentences extends $dara.Model {
   /**
    * @remarks
@@ -735,6 +761,32 @@ export class CreateTaskRequestTranscription extends $dara.Model {
     if(Array.isArray(this.serviceChannelKeywords)) {
       $dara.Model.validateArray(this.serviceChannelKeywords);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestVariables extends $dara.Model {
+  variableCode?: string;
+  variableValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      variableCode: 'variableCode',
+      variableValue: 'variableValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variableCode: 'string',
+      variableValue: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -1281,6 +1333,32 @@ export class RunCompletionRequestServiceInspection extends $dara.Model {
   }
 }
 
+export class RunCompletionRequestVariables extends $dara.Model {
+  variableCode?: string;
+  variableValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      variableCode: 'variableCode',
+      variableValue: 'variableValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variableCode: 'string',
+      variableValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunCompletionMessageRequestMessages extends $dara.Model {
   /**
    * @remarks
@@ -1694,6 +1772,7 @@ export class AnalyzeImageResponse extends $dara.Model {
 }
 
 export class CreateTaskRequest extends $dara.Model {
+  categoryTags?: CreateTaskRequestCategoryTags[];
   customPrompt?: string;
   dialogue?: CreateTaskRequestDialogue;
   examples?: CreateTaskRequestExamples;
@@ -1718,8 +1797,10 @@ export class CreateTaskRequest extends $dara.Model {
   taskType?: string;
   templateIds?: string[];
   transcription?: CreateTaskRequestTranscription;
+  variables?: CreateTaskRequestVariables[];
   static names(): { [key: string]: string } {
     return {
+      categoryTags: 'categoryTags',
       customPrompt: 'customPrompt',
       dialogue: 'dialogue',
       examples: 'examples',
@@ -1730,11 +1811,13 @@ export class CreateTaskRequest extends $dara.Model {
       taskType: 'taskType',
       templateIds: 'templateIds',
       transcription: 'transcription',
+      variables: 'variables',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      categoryTags: { 'type': 'array', 'itemType': CreateTaskRequestCategoryTags },
       customPrompt: 'string',
       dialogue: CreateTaskRequestDialogue,
       examples: CreateTaskRequestExamples,
@@ -1745,10 +1828,14 @@ export class CreateTaskRequest extends $dara.Model {
       taskType: 'string',
       templateIds: { 'type': 'array', 'itemType': 'string' },
       transcription: CreateTaskRequestTranscription,
+      variables: { 'type': 'array', 'itemType': CreateTaskRequestVariables },
     };
   }
 
   validate() {
+    if(Array.isArray(this.categoryTags)) {
+      $dara.Model.validateArray(this.categoryTags);
+    }
     if(this.dialogue && typeof (this.dialogue as any).validate === 'function') {
       (this.dialogue as any).validate();
     }
@@ -1769,6 +1856,9 @@ export class CreateTaskRequest extends $dara.Model {
     }
     if(this.transcription && typeof (this.transcription as any).validate === 'function') {
       (this.transcription as any).validate();
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
     }
     super.validate();
   }
@@ -2482,6 +2572,7 @@ export class RunCompletionRequest extends $dara.Model {
    * This parameter is required.
    */
   templateIds?: number[];
+  variables?: RunCompletionRequestVariables[];
   static names(): { [key: string]: string } {
     return {
       dialogue: 'Dialogue',
@@ -2490,6 +2581,7 @@ export class RunCompletionRequest extends $dara.Model {
       serviceInspection: 'ServiceInspection',
       stream: 'Stream',
       templateIds: 'TemplateIds',
+      variables: 'variables',
     };
   }
 
@@ -2501,6 +2593,7 @@ export class RunCompletionRequest extends $dara.Model {
       serviceInspection: RunCompletionRequestServiceInspection,
       stream: 'boolean',
       templateIds: { 'type': 'array', 'itemType': 'number' },
+      variables: { 'type': 'array', 'itemType': RunCompletionRequestVariables },
     };
   }
 
@@ -2516,6 +2609,9 @@ export class RunCompletionRequest extends $dara.Model {
     }
     if(Array.isArray(this.templateIds)) {
       $dara.Model.validateArray(this.templateIds);
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
     }
     super.validate();
   }
@@ -3041,6 +3137,10 @@ export default class Client extends OpenApi {
   async createTaskWithOptions(workspaceId: string, appId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTaskResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryTags)) {
+      body["categoryTags"] = request.categoryTags;
+    }
+
     if (!$dara.isNull(request.customPrompt)) {
       body["customPrompt"] = request.customPrompt;
     }
@@ -3079,6 +3179,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.transcription)) {
       body["transcription"] = request.transcription;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3433,6 +3537,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateIds)) {
       body["TemplateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
