@@ -231,21 +231,33 @@ export class LifecyclePreStop extends $dara.Model {
 
 export class CreateJobRequestCodeSource extends $dara.Model {
   /**
+   * @remarks
+   * The branch of the referenced code repository. By default, the branch configured in the code source is used. This parameter is optional.
+   * 
    * @example
    * master
    */
   branch?: string;
   /**
+   * @remarks
+   * The ID of the code source.
+   * 
    * @example
    * code-20210111103721-xxxxxxx
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The commit ID of the code to be downloaded. By default, the commit ID configured in the code source is used. This parameter is optional.
+   * 
    * @example
    * 44da109b5******
    */
   commit?: string;
   /**
+   * @remarks
+   * The path to which the job is mounted. By default, the mount path configured in the data source is used. This parameter is optional.
+   * 
    * @example
    * /root/data
    */
@@ -279,18 +291,39 @@ export class CreateJobRequestCodeSource extends $dara.Model {
 
 export class CreateJobRequestDataSources extends $dara.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * d-cn9dl*******
    */
   dataSourceId?: string;
   dataSourceVersion?: string;
+  mountAccess?: string;
   /**
+   * @remarks
+   * The path to which the job is mounted. By default, the mount path in the data source configuration is used. This parameter is optional.
+   * 
    * @example
    * /root/data
    */
   mountPath?: string;
+  /**
+   * @remarks
+   * The mount attribute of the custom dataset. Set the value to OSS.
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
   options?: string;
   /**
+   * @remarks
+   * The data source path.
+   * 
    * @example
    * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
    */
@@ -299,6 +332,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
     return {
       dataSourceId: 'DataSourceId',
       dataSourceVersion: 'DataSourceVersion',
+      mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       options: 'Options',
       uri: 'Uri',
@@ -309,6 +343,7 @@ export class CreateJobRequestDataSources extends $dara.Model {
     return {
       dataSourceId: 'string',
       dataSourceVersion: 'string',
+      mountAccess: 'string',
       mountPath: 'string',
       options: 'string',
       uri: 'string',
@@ -325,19 +360,48 @@ export class CreateJobRequestDataSources extends $dara.Model {
 }
 
 export class CreateJobRequestUserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The default route. Default value: false. Valid values:
+   * 
+   * *   eth0: The default network interface is used to access the Internet through the public gateway.
+   * *   eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway. For more information about the configuration method, see [Enable Internet access for a DSW instance by using a private Internet NAT gateway](https://help.aliyun.com/document_detail/2525343.html).
+   * 
+   * @example
+   * eth0
+   */
   defaultRoute?: string;
+  /**
+   * @remarks
+   * The extended CIDR block.
+   * 
+   * *   If you leave the SwitchId and ExtendedCIDRs parameters empty, the system automatically obtains all CIDR blocks in a VPC.
+   * *   If you configure the SwitchId and ExtendedCIDRs parameters, we recommend that you specify all CIDR blocks in a VPC.
+   */
   extendedCIDRs?: string[];
   /**
+   * @remarks
+   * The ID of the security group.
+   * 
    * @example
    * sg-abcdef****
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID. This parameter is optional.
+   * 
+   * *   If you leave this parameter empty, the system automatically selects a vSwitch based on the inventory status.
+   * *   You can also specify a vSwitch ID.
+   * 
    * @example
    * vs-abcdef****
    */
   switchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-abcdef****
    */
@@ -376,21 +440,33 @@ export class CreateJobRequestUserVpc extends $dara.Model {
 
 export class GetJobResponseBodyCodeSource extends $dara.Model {
   /**
+   * @remarks
+   * The code branch.
+   * 
    * @example
    * master
    */
   branch?: string;
   /**
+   * @remarks
+   * The code source ID.
+   * 
    * @example
    * code******
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The code commit ID
+   * 
    * @example
    * 44da109b59f8596152987eaa8f3b2487xxxxxx
    */
   commit?: string;
   /**
+   * @remarks
+   * The local mount path.
+   * 
    * @example
    * /mnt/data
    */
@@ -424,16 +500,25 @@ export class GetJobResponseBodyCodeSource extends $dara.Model {
 
 export class GetJobResponseBodyDataSources extends $dara.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * d*******
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The local mount path. This parameter is optional. The default value is empty, which specifies that the mount path in the data source is used.
+   * 
    * @example
    * /mnt/data/
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The data source URL.
+   * 
    * @example
    * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
    */
@@ -465,51 +550,84 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
 
 export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   /**
+   * @remarks
+   * The time when the node was created (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The end time of the node (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtFinishTime?: string;
   /**
+   * @remarks
+   * The start time of the node (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtStartTime?: string;
   /**
+   * @remarks
+   * The IP address of the node.
+   * 
    * @example
    * 10.0.1.3
    */
   ip?: string;
   /**
+   * @remarks
+   * The ID of the node.
+   * 
    * @example
    * Worker
    */
   podId?: string;
   /**
+   * @remarks
+   * The UID of the node.
+   * 
    * @example
    * fe846462-af2c-4521-bd6f-96787a57591d
    */
   podUid?: string;
   /**
+   * @remarks
+   * The resource type of the node.
+   * 
    * @example
    * Normal
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The status of the node.
+   * 
    * @example
    * Failed
    */
   status?: string;
   /**
+   * @remarks
+   * The sub-status of the node, such as its preemption status. Valid values:
+   * 
+   * *   Normal
+   * *   Evicted
+   * 
    * @example
    * Normal
    */
   subStatus?: string;
   /**
+   * @remarks
+   * The type of the node.
+   * 
    * @example
    * Worker
    */
@@ -555,52 +673,95 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
 
 export class GetJobResponseBodyPods extends $dara.Model {
   /**
+   * @remarks
+   * The time when the node was created (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The end time of the node (UTC).
+   * 
    * @example
    * 2021-01-12T15:36:05Z
    */
   gmtFinishTime?: string;
   /**
+   * @remarks
+   * The start time of the node (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtStartTime?: string;
+  /**
+   * @remarks
+   * The historical nodes.
+   */
   historyPods?: GetJobResponseBodyPodsHistoryPods[];
   /**
+   * @remarks
+   * The IP address of the node.
+   * 
    * @example
    * 10.0.1.2
    */
   ip?: string;
   /**
+   * @remarks
+   * The node ID. It can be used in the GetPodLogs and GetPodEvents operations to obtain the detailed logs and events of the node.
+   * 
    * @example
    * Worker
    */
   podId?: string;
   /**
+   * @remarks
+   * The UID of the node.
+   * 
    * @example
    * fe846462-af2c-4521-bd6f-96787a57591d
    */
   podUid?: string;
   /**
+   * @remarks
+   * The resource type of the node.
+   * 
    * @example
    * Normal
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The status of the node. Valid values:
+   * 
+   * *   Pending
+   * *   Running
+   * *   Succeeded
+   * *   Failed
+   * *   Unknown
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The sub-status of the node, such as its preemption status. Valid values:
+   * 
+   * *   Normal
+   * *   Evicted
+   * 
    * @example
    * Normal
    */
   subStatus?: string;
   /**
+   * @remarks
+   * The node type, which corresponds to a specific JobSpec in JobSpecs of the CreateJob operation.
+   * 
    * @example
    * Worker
    */
@@ -650,19 +811,38 @@ export class GetJobResponseBodyPods extends $dara.Model {
 }
 
 export class GetJobResponseBodyUserVpc extends $dara.Model {
+  /**
+   * @remarks
+   * The default router. This parameter is valid only for general-purpose computing resources. Valid values:
+   * 
+   * eth0: The default network interface is used to access the Internet through the public gateway. eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway.
+   */
   defaultRoute?: string;
+  /**
+   * @remarks
+   * The extended CIDR block. Example: 192.168.0.1/24.
+   */
   extendedCidrs?: string[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-abcdef****
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vs-abcdef****
    */
   switchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-abcdef****
    */
@@ -1692,7 +1872,13 @@ export class EventInfo extends $dara.Model {
 export class ExtraPodSpec extends $dara.Model {
   initContainers?: ContainerSpec[];
   lifecycle?: Lifecycle;
+  /**
+   * @deprecated
+   */
   podAnnotations?: { [key: string]: string };
+  /**
+   * @deprecated
+   */
   podLabels?: { [key: string]: string };
   sharedVolumeMountPaths?: string[];
   sideCarContainers?: ContainerSpec[];
@@ -2835,6 +3021,7 @@ export class Lifecycle extends $dara.Model {
 export class LogInfo extends $dara.Model {
   content?: string;
   id?: string;
+  isTruncated?: boolean;
   podId?: string;
   podUid?: string;
   /**
@@ -2847,6 +3034,7 @@ export class LogInfo extends $dara.Model {
     return {
       content: 'Content',
       id: 'Id',
+      isTruncated: 'IsTruncated',
       podId: 'PodId',
       podUid: 'PodUid',
       source: 'Source',
@@ -2858,6 +3046,7 @@ export class LogInfo extends $dara.Model {
     return {
       content: 'string',
       id: 'string',
+      isTruncated: 'boolean',
       podId: 'string',
       podUid: 'string',
       source: 'string',
@@ -2997,6 +3186,7 @@ export class PodItem extends $dara.Model {
    * 10.0.1.2
    */
   ip?: string;
+  nodeName?: string;
   /**
    * @example
    * dlc-20210126170216-mtl37ge7gkvdz-worker-0
@@ -3012,6 +3202,7 @@ export class PodItem extends $dara.Model {
    * Stopped
    */
   status?: string;
+  subStatus?: string;
   /**
    * @example
    * Worker
@@ -3024,9 +3215,11 @@ export class PodItem extends $dara.Model {
       gmtStartTime: 'GmtStartTime',
       historyPods: 'HistoryPods',
       ip: 'Ip',
+      nodeName: 'NodeName',
       podId: 'PodId',
       podUid: 'PodUid',
       status: 'Status',
+      subStatus: 'SubStatus',
       type: 'Type',
     };
   }
@@ -3038,9 +3231,11 @@ export class PodItem extends $dara.Model {
       gmtStartTime: 'string',
       historyPods: { 'type': 'array', 'itemType': PodItem },
       ip: 'string',
+      nodeName: 'string',
       podId: 'string',
       podUid: 'string',
       status: 'string',
+      subStatus: 'string',
       type: 'string',
     };
   }
@@ -3441,6 +3636,80 @@ export class SanityCheckResultItem extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SeccompProfile extends $dara.Model {
+  /**
+   * @example
+   * my-profiles/profile-allow.json
+   */
+  localhostProfile?: string;
+  /**
+   * @example
+   * Unconfined
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localhostProfile: 'LocalhostProfile',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localhostProfile: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SecurityContext extends $dara.Model {
+  /**
+   * @example
+   * 1000
+   */
+  runAsGroup?: number;
+  /**
+   * @example
+   * 1000
+   */
+  runAsUser?: number;
+  seccompProfile?: SeccompProfile;
+  static names(): { [key: string]: string } {
+    return {
+      runAsGroup: 'RunAsGroup',
+      runAsUser: 'RunAsUser',
+      seccompProfile: 'SeccompProfile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      runAsGroup: 'number',
+      runAsUser: 'number',
+      seccompProfile: SeccompProfile,
+    };
+  }
+
+  validate() {
+    if(this.seccompProfile && typeof (this.seccompProfile as any).validate === 'function') {
+      (this.seccompProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -4029,37 +4298,104 @@ export class Workspace extends $dara.Model {
 }
 
 export class CreateJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The job visibility. Valid values:
+   * 
+   * *   PUBLIC: The job is visible to all members in the workspace.
+   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  /**
+   * @remarks
+   * The code source of the job. Before the node of the job runs, DLC automatically downloads the configured code from the code source and mounts the code to the local path of the container.
+   */
   codeSource?: CreateJobRequestCodeSource;
+  /**
+   * @remarks
+   * The access credential configuration.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The data sources for job running.
+   */
   dataSources?: CreateJobRequestDataSources[];
   /**
+   * @remarks
+   * This parameter is not supported.
+   * 
    * @example
    * “”
    */
   debuggerConfigContent?: string;
   /**
    * @remarks
+   * The job name. The name must be in the following format:
+   * 
+   * *   The name must be 1 to 256 characters in length.
+   * *   The name can contain digits, letters, underscores (_), periods (.), and hyphens (-).
+   * 
    * This parameter is required.
    * 
    * @example
    * tf-mnist-test
    */
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is not supported.
+   */
   elasticSpec?: JobElasticSpec;
+  /**
+   * @remarks
+   * The environment variables.
+   */
   envs?: { [key: string]: string };
   /**
+   * @remarks
+   * The maximum running duration of the job. Unit: minutes.
+   * 
    * @example
    * 1024
    */
   jobMaxRunningTimeMinutes?: number;
   /**
    * @remarks
+   * The configurations for job running, such as the image address, startup command, node resource declaration, and number of replicas.****
+   * 
+   * A DLC job consists of different types of nodes. If nodes of the same type have exactly the same configuration, the configuration is called JobSpec. **JobSpecs** specifies the configurations of all types of nodes. The value is of the array type.
+   * 
    * This parameter is required.
    */
   jobSpecs?: JobSpec[];
   /**
    * @remarks
+   * The job type. The value is case-sensitive. Valid values:
+   * 
+   * *   TFJob
+   * *   PyTorchJob
+   * *   MPIJob
+   * *   XGBoostJob
+   * *   OneFlowJob
+   * *   ElasticBatchJob
+   * *   SlurmJob
+   * *   RayJob
+   * 
+   * Valid values for each job type:
+   * 
+   * *   OneFlowJob: OneFlow.
+   * *   PyTorchJob: PyTorch.
+   * *   SlurmJob: Slurm.
+   * *   XGBoostJob: XGBoost.
+   * *   ElasticBatchJob: ElasticBatch.
+   * *   MPIJob: MPIJob.
+   * *   TFJob: Tensorflow.
+   * *   RayJob: Ray.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4067,42 +4403,83 @@ export class CreateJobRequest extends $dara.Model {
    */
   jobType?: string;
   /**
+   * @remarks
+   * The additional configuration of the job. You can use this parameter to adjust the behavior of the attached data source. For example, if the attached data source of the job is of the OSS type, you can use this parameter to add the following configurations to override the default parameters of JindoFS: `fs.oss.download.thread.concurrency=4,fs.oss.download.queue.size=16`.
+   * 
    * @example
    * key1=value1,key2=value2
    */
   options?: string;
   /**
+   * @remarks
+   * The priority of the job. Default value: 1. Valid values: 1 to 9.
+   * 
+   * *   1: the lowest priority.
+   * *   9: the highest priority.
+   * 
    * @example
    * 8
    */
   priority?: number;
   /**
+   * @remarks
+   * The ID of the resource group. This parameter is optional.
+   * 
+   * *   If you leave this parameter empty, the job is submitted to a public resource group.
+   * *   If a resource quota is associated with the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * 
    * @example
    * rs-xxx
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The additional parameter configurations of the job.
+   */
   settings?: JobSettings;
   /**
+   * @remarks
+   * The policy that is used to check whether a distributed multi-node job is successful. Only TensorFlow distributed multi-node jobs are supported.
+   * 
+   * *   ChiefWorker: If you use this policy, the job is considered successful when the pod on the chief node completes operations.
+   * *   AllWorkers (default): If you use this policy, the job is considered successful when all worker nodes complete operations.
+   * 
    * @example
    * AllWorkers
    */
   successPolicy?: string;
   /**
+   * @remarks
+   * The folder in which the third-party Python library file requirements.txt is stored. Before the startup command specified by the UserCommand parameter is run on each node, DLC fetches the requirements.txt file from the folder and runs `pip install -r` to install the required package and library.
+   * 
    * @example
    * /root/code/
    */
   thirdpartyLibDir?: string;
+  /**
+   * @remarks
+   * The third-party Python libraries to be installed.
+   */
   thirdpartyLibs?: string[];
   /**
    * @remarks
+   * The startup command for all nodes of the job.
+   * 
    * This parameter is required.
    * 
    * @example
    * python /root/code/mnist.py
    */
   userCommand?: string;
+  /**
+   * @remarks
+   * The VPC settings.
+   */
   userVpc?: CreateJobRequestUserVpc;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * ws-20210126170216-xxxxxxx
    */
@@ -4197,11 +4574,17 @@ export class CreateJobRequest extends $dara.Model {
 
 export class CreateJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc7*******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID used to troubleshoot issues.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
    */
@@ -4265,74 +4648,168 @@ export class CreateJobResponse extends $dara.Model {
 }
 
 export class CreateTensorboardRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility of the job. Valid values:
+   * 
+   * *   PUBLIC: The configuration is public in the workspace.
+   * *   PRIVATE: The configuration is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The number of vCPU cores.
+   * 
    * @example
    * 1
    */
   cpu?: number;
   /**
+   * @remarks
+   * The dataset ID. 
+   * <props="china">Call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to get the dataset ID.
+   * 
    * @example
    * d-xxxxxxxx
    */
   dataSourceId?: string;
+  /**
+   * @remarks
+   * The dataset type. Valid values:
+   * 
+   * *   OSS
+   * *   NAS
+   * 
+   * @example
+   * OSS
+   */
   dataSourceType?: string;
+  /**
+   * @remarks
+   * The configurations of the data source.
+   */
   dataSources?: DataSourceItem[];
   /**
+   * @remarks
+   * The TensorBoard name
+   * 
    * @example
    * tensorboard
    */
   displayName?: string;
   /**
+   * @remarks
+   * The job ID. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to get the job ID.
+   * 
    * @example
    * dlc-20210126170216-mtl37ge7gkvdz
    */
   jobId?: string;
   /**
+   * @remarks
+   * The maximum running duration. Unit: minutes.
+   * 
    * @example
    * 240
    */
   maxRunningTimeMinutes?: number;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 1000
    */
   memory?: number;
   /**
+   * @remarks
+   * The extended fields of the dataset are in the JSON format. MountPath: the path to mount the dataset.
+   * 
    * @example
    * {"mountpath":"/root/data/"}
    */
   options?: string;
+  /**
+   * @remarks
+   * The priority of the job. Default value: 1. Valid values: 1 to 9.
+   * 
+   * *   1 is the lowest priority.
+   * *   9 is the highest priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The resource quota ID. This parameter is required when you create a TensorBoard job by using a resource quota. <props="china">Call [ListQuotas](https://help.aliyun.com/document_detail/2628071.html) to get the quota ID. 
+   * This feature is currently limited to whitelisted users. If you need to use this feature, contact us.
+   * 
+   * @example
+   * quota12345
+   */
   quotaId?: string;
   /**
+   * @remarks
+   * The source ID.
+   * 
    * @example
    * dlc-xxxxxx
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * job
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The directory of summary.
+   * 
    * @example
    * /root/data/
    */
   summaryPath?: string;
   /**
+   * @remarks
+   * The relative path of summary.
+   * 
    * @example
    * /summary/
    */
   summaryRelativePath?: string;
+  /**
+   * @remarks
+   * The configurations of datasets mounted with the TensorBoard job.
+   */
   tensorboardDataSources?: TensorboardDataSourceSpec[];
+  /**
+   * @remarks
+   * The pay-as-you-go configuration of TensorBoard, which is used to create TensorBoard jobs that use pay-as-you-go resources.
+   */
   tensorboardSpec?: TensorboardSpec;
   /**
+   * @remarks
+   * The dataset URI.
+   * 
+   * *   Value format when DataSourceType is set to OSS: `oss://[oss-bucket].[endpoint]/[path]`.
+   * *   Value format when DataSourceType is set to NAS:`nas://[nas-filesystem-id].[region]/[path]`.
+   * 
    * @example
    * oss://.oss-cn-shanghai-finance-1.aliyuncs.com/
    */
   uri?: string;
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 123***
    */
@@ -4407,21 +4884,33 @@ export class CreateTensorboardRequest extends $dara.Model {
 
 export class CreateTensorboardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * ds-20210126170216-xxxxxxxx
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-xxxxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * TensorBoard ID
+   * 
    * @example
    * tbxxxxxxxx
    */
@@ -4490,11 +4979,17 @@ export class CreateTensorboardResponse extends $dara.Model {
 
 export class DeleteJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc*************
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID. You can troubleshoot issues based on the request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -4559,6 +5054,10 @@ export class DeleteJobResponse extends $dara.Model {
 
 export class DeleteTensorboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 46099
    */
@@ -4586,11 +5085,17 @@ export class DeleteTensorboardRequest extends $dara.Model {
 
 export class DeleteTensorboardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The TensorBoard ID.
+   * 
    * @example
    * tensorboard-20210114104214-vf9lowjt3pso
    */
@@ -4655,6 +5160,9 @@ export class DeleteTensorboardResponse extends $dara.Model {
 
 export class GetJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to return the job details. Default value: true.
+   * 
    * @example
    * true
    */
@@ -4681,155 +5189,314 @@ export class GetJobRequest extends $dara.Model {
 }
 
 export class GetJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility of the job. Valid values:
+   * 
+   * *   PUBLIC: The code is public in the workspace.
+   * *   PRIVATE: The workspace is visible only to you and the administrator of the workspace. This is the default value.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * a*****
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The code source.
+   */
   codeSource?: GetJobResponseBodyCodeSource;
+  /**
+   * @remarks
+   * The access credential configurations.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The data sources.
+   */
   dataSources?: GetJobResponseBodyDataSources[];
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * tf-mnist-test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The duration of the job (seconds).
+   * 
    * @example
    * 3602
    */
   duration?: number;
+  /**
+   * @remarks
+   * The elastic job parameters.
+   */
   elasticSpec?: JobElasticSpec;
   /**
+   * @remarks
+   * Specifies whether to enable the debugger job.
+   * 
    * @example
    * false
    */
   enabledDebugger?: boolean;
+  /**
+   * @remarks
+   * The configurations of environment variables.
+   */
   envs?: { [key: string]: string };
   /**
+   * @remarks
+   * The time when the job was created (UTC).
+   * 
    * @example
    * 2021-01-12T14:35:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time of the job failed (UTC).
+   * 
    * @example
    * 2021-01-12T15:36:08Z
    */
   gmtFailedTime?: string;
   /**
+   * @remarks
+   * The time when the job ended (UTC).
+   * 
    * @example
    * 2021-01-12T15:36:08Z
    */
   gmtFinishTime?: string;
   /**
+   * @remarks
+   * The start time of the job (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:21Z
    */
   gmtRunningTime?: string;
   /**
+   * @remarks
+   * The time when the job stopped (UTC).
+   * 
    * @example
    * 2021-01-12T15:36:08Z
    */
   gmtStoppedTime?: string;
   /**
+   * @remarks
+   * The time when the job was submitted to the cluster (UTC).
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtSubmittedTime?: string;
   /**
+   * @remarks
+   * The time when the job succeeded (UTC).
+   * 
    * @example
    * 2021-01-12T15:36:08Z
    */
   gmtSuccessedTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc*******
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The node configurations of the job, which is **JobSpecs** in the CreateJob operation.
+   */
   jobSpecs?: JobSpec[];
   /**
+   * @remarks
+   * The job type. Specified by the JobType parameter of the [CreateJob](https://help.aliyun.com/document_detail/459672.html) operation.
+   * 
    * @example
    * TFJob
    */
   jobType?: string;
+  /**
+   * @remarks
+   * All running nodes of the job.
+   */
   pods?: GetJobResponseBodyPods[];
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 9.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The status detail code, which is a sub-status under the current status.
+   * 
    * @example
    * JobStoppedByUser
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The description of the status detail code.
+   * 
    * @example
    * Job is stopped by user.
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The request ID, which can be used for troubleshooting.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the job belongs.
+   * 
    * @example
    * r******
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource level that the job uses.
+   * 
    * @example
    * L0
    */
   resourceLevel?: string;
   /**
+   * @remarks
+   * The resource type. Valid values: ECS, Lingjun, and ACS.
+   * 
    * @example
    * ECS
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The number of retries and the maximum number of retries used by the job.
+   * 
    * @example
    * 0/10
    */
   restartTimes?: string;
+  /**
+   * @remarks
+   * The settings of the additional parameters of the job.
+   */
   settings?: JobSettings;
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   Creating
+   * *   Queuing
+   * *   Bidding (Only for Lingjun preemptible jobs)
+   * *   EnvPreparing
+   * *   SanityChecking
+   * *   Running
+   * *   Restarting
+   * *   Stopping
+   * *   SucceededReserving
+   * *   FailedReserving
+   * *   Succeeded
+   * *   Failed
+   * *   Stopped
+   * 
    * @example
    * Stopped
    */
   status?: string;
+  /**
+   * @remarks
+   * The status history.
+   */
   statusHistory?: StatusTransitionItem[];
   /**
+   * @remarks
+   * The sub-status of the job, such as its preemption status.
+   * 
    * @example
    * Restarting
    */
   subStatus?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * GAR***W134
+   */
   tenantId?: string;
   /**
+   * @remarks
+   * The directory that contains requirements.txt.
+   * 
    * @example
    * /root/code/
    */
   thirdpartyLibDir?: string;
+  /**
+   * @remarks
+   * The third-party Python libraries to be installed.
+   */
   thirdpartyLibs?: string[];
   /**
+   * @remarks
+   * The command that is run to start each node.
+   * 
    * @example
    * python /root/code/mnist.py
    */
   userCommand?: string;
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account who submitted the job.
+   * 
    * @example
    * 12*********
    */
   userId?: string;
+  /**
+   * @remarks
+   * The VPC of the user.
+   */
   userVpc?: GetJobResponseBodyUserVpc;
   /**
+   * @remarks
+   * The ID of the workspace to which the job belongs.
+   * 
    * @example
    * 268
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The name of the workspace to which the job belongs.
+   * 
    * @example
    * dlc-workspace
    */
@@ -5005,16 +5672,25 @@ export class GetJobResponse extends $dara.Model {
 
 export class GetJobEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time (UTC) of the time range for querying events. The default value is the current time.
+   * 
    * @example
    * 2020-11-08T18:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The maximum number of events that can be returned. Default value: 2000.
+   * 
    * @example
    * 100
    */
   maxEventsNum?: number;
   /**
+   * @remarks
+   * The start time (UTC) of the time range for querying events. The default value is 7 days ago.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
@@ -5045,13 +5721,23 @@ export class GetJobEventsRequest extends $dara.Model {
 }
 
 export class GetJobEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The events.
+   */
   events?: string[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID, which can be used for troubleshooting.
+   * 
    * @example
    * 78F6FCE2-278F-4C4A-A6B7-DD8ECEA9C456
    */
@@ -5121,12 +5807,26 @@ export class GetJobEventsResponse extends $dara.Model {
 
 export class GetJobMetricsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the time range to query monitoring data. The time is displayed in UTC. The default value is the current time.
+   * 
    * @example
    * 2020-11-09T16:00:00Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The type of the monitoring metrics. Valid values:
+   * 
+   * *   GpuCoreUsage: GPU utilization
+   * *   GpuMemoryUsage: GPU memory utilization
+   * *   CpuCoreUsage: CPU utilization
+   * *   MemoryUsage: memory utilization
+   * *   NetworkInputRate: the network write in rate.
+   * *   NetworkOutputRate: the network write out rate
+   * *   DiskReadRate: the disk read rate
+   * *   DiskWriteRate: the disk write rate
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5134,16 +5834,25 @@ export class GetJobMetricsRequest extends $dara.Model {
    */
   metricType?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query monitoring data. The time is displayed in UTC. The default value is the time 1 hour before the current time.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The interval at which monitoring data is returned. Default value: 5. Unit: minutes.
+   * 
    * @example
    * 5m
    */
   timeStep?: string;
   /**
+   * @remarks
+   * The temporary token used for authentication.
+   * 
    * @example
    * eyXXXX-XXXX.XXXXX
    */
@@ -5179,12 +5888,22 @@ export class GetJobMetricsRequest extends $dara.Model {
 
 export class GetJobMetricsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-*******
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The monitoring metrics of the job.
+   */
   podMetrics?: PodMetric[];
   /**
+   * @remarks
+   * The request ID. You can troubleshoot issues based on the request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -5255,6 +5974,8 @@ export class GetJobMetricsResponse extends $dara.Model {
 export class GetJobSanityCheckResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The nth time for which the job sanity check is performed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5262,10 +5983,26 @@ export class GetJobSanityCheckResultRequest extends $dara.Model {
    */
   sanityCheckNumber?: number;
   /**
+   * @remarks
+   * The phase in which the job sanity check is performed.
+   * 
+   * *   CheckInit
+   * *   DeviceCheck
+   * *   SingleNodeCommCheck
+   * *   TwoNodeCommCheck
+   * *   AllNodeCommCheck
+   * 
    * @example
    * DeviceCheck
    */
   sanityCheckPhase?: string;
+  /**
+   * @remarks
+   * The token information for job sharing. For more information about how to obtain the token information, see [GetToken](https://help.aliyun.com/document_detail/2557812.html).
+   * 
+   * @example
+   * eyJhbG******zI1NiIsInR5cCI6IkpXVCJ9.eyJle****jE3MDk1Mzk0NDIsImlhdCI6MTcwODkzNDY0MiwidXNlcl9pZCI6IjE3NTgwNTQxNjI0Mzg2NTUiLCJ0YXJnZXRfaWQiOiJkbGM1OGh1a2xyYzZwdGMyIiwidGFyZ2V0X3R5cGUiOiJqb2IifQ.GNL7jo6****mgKKv0QeGIYgvBufSU-PH_EQttX****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5294,15 +6031,25 @@ export class GetJobSanityCheckResultRequest extends $dara.Model {
 
 export class GetJobSanityCheckResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-xxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B3789344-F1xxxBE-5xx2-A04D-xxxxx
    */
   requestID?: string;
+  /**
+   * @remarks
+   * The job sanity check result.
+   */
   sanityCheckResult?: SanityCheckResultItem[];
   static names(): { [key: string]: string } {
     return {
@@ -5369,21 +6116,33 @@ export class GetJobSanityCheckResultResponse extends $dara.Model {
 
 export class GetPodEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end time (UTC).
+   * 
    * @example
    * 2020-11-09T16:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The maximum number of events that can be returned.
+   * 
    * @example
    * 100
    */
   maxEventsNum?: number;
   /**
+   * @remarks
+   * The node UID. Call [GetJob](https://help.aliyun.com/document_detail/459677.html) to get the node UID.
+   * 
    * @example
    * dlc-20210126170216-*****-chief-0
    */
   podUid?: string;
   /**
+   * @remarks
+   * The start time (UTC).
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
@@ -5416,14 +6175,23 @@ export class GetPodEventsRequest extends $dara.Model {
 }
 
 export class GetPodEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The events returned.
+   */
   events?: string[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-*****
    */
   jobId?: string;
   /**
    * @remarks
+   * The node ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5431,11 +6199,17 @@ export class GetPodEventsResponseBody extends $dara.Model {
    */
   podId?: string;
   /**
+   * @remarks
+   * The node UID.
+   * 
    * @example
    * 94a7cc7c-0033-48b5-85bd-71c63592c268
    */
   podUid?: string;
   /**
+   * @remarks
+   * The request ID, which can be used for troubleshooting.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -5509,26 +6283,44 @@ export class GetPodEventsResponse extends $dara.Model {
 
 export class GetPodLogsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to download the log file. Default value: false. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
    * @example
    * true
    */
   downloadToFile?: boolean;
   /**
+   * @remarks
+   * The end time of the query. Default value: current time.
+   * 
    * @example
    * 2020-11-08T17:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The maximum number of log entries. Default value: 2000.
+   * 
    * @example
    * 100
    */
   maxLines?: number;
   /**
+   * @remarks
+   * The node UID. For more information about how to obtain a node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
+   * 
    * @example
    * fe846462-af2c-4521-bd6f-96787a57****
    */
   podUid?: string;
   /**
+   * @remarks
+   * The start time of the query. Default value: 7 days ago.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
@@ -5564,22 +6356,38 @@ export class GetPodLogsRequest extends $dara.Model {
 
 export class GetPodLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-******
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The logs.
+   */
   logs?: string[];
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * dlc-20210126170216-****-chief-0
    */
   podId?: string;
   /**
+   * @remarks
+   * The instance UID.
+   * 
    * @example
    * 94a7cc7c-0033-48b5-85bd-71c63592c268
    */
   podUid?: string;
   /**
+   * @remarks
+   * The request ID which is used for diagnostics and Q\\&A.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -5653,12 +6461,29 @@ export class GetPodLogsResponse extends $dara.Model {
 
 export class GetTensorboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * The job ID. For more information about how to query the job ID, see [ListJob](https://help.aliyun.com/document_detail/459676.html).
+   * 
    * @example
    * dlc-xxxxxxxx
    */
   jodId?: string;
+  /**
+   * @remarks
+   * The information about the shared token. You can specify this parameter to obtain the permission to view a TensorBoard job based on the shared token information. You can execute [GetTensorboardSharedUrl](https://help.aliyun.com/document_detail/2557813.html) and extract the shared token from the obtained information.
+   * 
+   * @example
+   * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e
+   * yJleHAiOjE2OTUyODA0NTMsImlhdCI6MTY5NTE5NDA1MywidXNlcl9pZCI6IjExN
+   * Tc3MDMyNzA5OTQ5MDEiLCJ0YXJnZXRfaWQiOiJ0YjRrOGxjNXhmdTM2b3B0Iiw
+   * idGFyZ2V0X3R5cGUiOiJ0ZW5zb3Jib2FyZCJ9.6eT68J-KMBwwfN2d7fj7u6vyPcf0erfqYeizd2N****
+   */
   token?: string;
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">For more information about how to query the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 46099
    */
@@ -5725,6 +6550,9 @@ export class GetTensorboardResponse extends $dara.Model {
 
 export class GetTensorboardSharedUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The validity period of the shareable link. Unit: seconds. Maximum value: 604800.
+   * 
    * @example
    * 86400
    */
@@ -5752,11 +6580,17 @@ export class GetTensorboardSharedUrlRequest extends $dara.Model {
 
 export class GetTensorboardSharedUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID which is used for troubleshooting.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The shareable link of the TensorBoard task.
+   * 
    * @example
    * http://pai-dlc-proxy-xxx.alicyuncs.com/xxx/xxx/token/
    */
@@ -5821,16 +6655,25 @@ export class GetTensorboardSharedUrlResponse extends $dara.Model {
 
 export class GetTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The time when the share link expires. Default value: 604800 seconds. Minimum value: 0.
+   * 
    * @example
    * 60
    */
   expireTime?: number;
   /**
+   * @remarks
+   * The ID of the job that is waiting to be shared.
+   * 
    * @example
    * dlc*******
    */
   targetId?: string;
   /**
+   * @remarks
+   * The type of the job that you want to share. Valid values: job and tensorboard.
+   * 
    * @example
    * job
    */
@@ -5862,11 +6705,17 @@ export class GetTokenRequest extends $dara.Model {
 
 export class GetTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID, which is used to troubleshoot issues.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The token of the shared job, which can be used as the value of the Token parameter in the GetJob API operation to view information about the shared job.
+   * 
    * @example
    * eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9*****
    */
@@ -5930,10 +6779,20 @@ export class GetTokenResponse extends $dara.Model {
 }
 
 export class GetWebTerminalRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to create a shareable link to access the container. Valid values:
+   * 
+   * *   true: returns a shareable link to access the container. The link will expire after 30 seconds and can only be used once. After you access the container by using the link, other requests that use this link to access the container become invalid.
+   * *   false: returns a common shareable link to access the container. If you use a common shareable link to access a container, Alibaba Cloud identity authentication is required. The link will expire after 30 seconds.
+   * 
+   * @example
+   * true
+   */
   isShared?: boolean;
   /**
    * @remarks
-   * Pod UID。
+   * The pod UID.
    * 
    * @example
    * 94a7cc7c-0033-48b5-85bd-71c63592c268
@@ -5963,7 +6822,59 @@ export class GetWebTerminalRequest extends $dara.Model {
 }
 
 export class GetWebTerminalResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID which is used for diagnostics and Q\\&A.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The WebSocket URI for accessing the container. You must build a WebSocket client. For more information about the communication format, see the following code:
+   * 
+   *     ws = new WebSocket(
+   *       `wss://xxxxx`,
+   *     );
+   *     ws.onopen = function open() {
+   *       console.warn(\\"connected\\");
+   *       term.write(\\"\\r\\");
+   *     };
+   * 
+   *     ws.onclose = function close() {
+   *       console.warn(\\"disconnected\\");
+   *       term.write(\\"Connection closed\\");
+   *     };
+   * 
+   *     // Return the following information in the backend.
+   *     ws.onmessage = function incoming(event) {
+   *       const msg = JSON.parse(event.data);
+   *       console.warn(msg);
+   *       if (msg.operation === \\"stdout\\") {
+   *         term.write(msg.data);
+   *       } else {
+   *         console.warn(\\"invalid msg operation: \\" + msg);
+   *       }
+   *     };
+   * 
+   *     // Enter the following code in the console.
+   *     term.onData(data => {
+   *       const msg = { operation: \\"stdin\\", data: data };
+   *       ws.send(JSON.stringify(msg));
+   *     });
+   * 
+   *     term.onResize(size => {
+   *       const msg = { operation: \\"resize\\", cols: size.cols, rows: size.rows };
+   *       ws.send(JSON.stringify(msg));
+   *     });
+   * 
+   *     fitAddon.fit();
+   *     };
+   * 
+   * @example
+   * wss://*****
+   */
   webTerminalUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6025,36 +6936,71 @@ export class GetWebTerminalResponse extends $dara.Model {
 
 export class ListEcsSpecsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filter by accelerator type. Valid values:
+   * 
+   * *   CPU
+   * *   GPU
+   * 
    * @example
    * GPU
    */
   acceleratorType?: string;
   /**
+   * @remarks
+   * The instance types to query. Separate the types with commas (,).
+   * 
    * @example
    * ecs.g6.large,ecs.g6.xlarge
    */
   instanceTypes?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   desc: descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The number of the page to query. The start value is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   ECS
+   * *   Lingjun
+   * 
    * @example
    * ECS
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The field based on which the results are sorted. Valid values:
+   * 
+   * *   CPU
+   * *   GPU
+   * *   Memory
+   * *   GmtCreateTime
+   * 
    * @example
    * Gpu
    */
@@ -6093,13 +7039,23 @@ export class ListEcsSpecsRequest extends $dara.Model {
 }
 
 export class ListEcsSpecsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of ECS specifications.
+   */
   ecsSpecs?: EcsSpec[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of types that meet the filter conditions.
+   * 
    * @example
    * 10
    */
@@ -6169,6 +7125,12 @@ export class ListEcsSpecsResponse extends $dara.Model {
 
 export class ListJobSanityCheckResultsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The sorting order:
+   * 
+   * *   desc: descending order
+   * *   asc: ascending order
+   * 
    * @example
    * desc
    */
@@ -6196,12 +7158,22 @@ export class ListJobSanityCheckResultsRequest extends $dara.Model {
 
 export class ListJobSanityCheckResultsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AC9xxx-3xxx-5xxx2-xxxx-FA5
    */
   requestID?: string;
+  /**
+   * @remarks
+   * The sanity check results.
+   */
   sanityCheckResults?: SanityCheckResultItem[][];
   /**
+   * @remarks
+   * The total number of results that meet the filter conditions.
+   * 
    * @example
    * 10
    */
@@ -6270,94 +7242,221 @@ export class ListJobSanityCheckResultsResponse extends $dara.Model {
 }
 
 export class ListJobsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The job visibility. Valid values:
+   * 
+   * *   PUBLIC: The job is visible to all members in the workspace.
+   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The ID of the user associated with the job.
+   * 
    * @example
    * 16****
    */
   businessUserId?: string;
   /**
+   * @remarks
+   * The caller.
+   * 
    * @example
    * local
    */
   caller?: string;
   /**
+   * @remarks
+   * The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
+   * 
    * @example
    * tf-mnist-test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The end time of the query. Use the job creation time to filter data. The default value is the current time.
+   * 
    * @example
    * 2020-11-09T14:45:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies whether to query a list of jobs across workspaces. This parameter must be used together with `ShowOwn=true`. You can use this parameter to query a list of jobs recently submitted by the current user.
+   * 
    * @example
    * false
    */
   fromAllWorkspaces?: boolean;
   /**
+   * @remarks
+   * The job ID. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. The default value null indicates any job ID.
+   * 
    * @example
    * dlc********
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job type. You can query any job type. The default value null indicates any job type. Valid values:
+   * 
+   * *   TFJob
+   * *   PyTorchJob
+   * *   XGBoostJob
+   * *   OneFlowJob
+   * *   ElasticBatchJob
+   * 
    * @example
    * TFJob
    */
   jobType?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   desc (default)
+   * *   asc
+   * 
    * @example
    * desc
    */
   order?: string;
+  /**
+   * @remarks
+   * The Idle resource information. Valid values:
+   * 
+   * *   ForbiddenQuotaOverSold
+   * *   ForceQuotaOverSold
+   * *   AcceptQuotaOverSold-true (true indicates that the job uses idle resources.)
+   * *   AcceptQuotaOverSold-false (false indicates that the job uses guaranteed resources.)
+   * 
+   * @example
+   * ForbiddenQuotaOverSold
+   */
   oversoldInfo?: string;
   /**
+   * @remarks
+   * The number of the page to return for the current query. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   paymentType?: string;
   /**
+   * @remarks
+   * The specific pipeline ID used to filter jobs.
+   * 
    * @example
    * flow-*******
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The resource group ID. For information about how to obtain the ID of a dedicated resource group, see [Manage resource quota](https://help.aliyun.com/document_detail/2651299.html).
+   * 
    * @example
    * r*****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource quota name used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by resource quota name.
+   * 
+   * @example
+   * quota***
+   */
   resourceQuotaName?: string;
   /**
+   * @remarks
+   * Specifies whether to query only the jobs submitted by the current user.
+   * 
    * @example
    * true
    */
   showOwn?: boolean;
   /**
+   * @remarks
+   * The sorting field in the returned job list. Valid values:
+   * 
+   * *   DisplayName
+   * *   JobType
+   * *   Status
+   * *   GmtCreateTime
+   * *   GmtFinishTime
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The start time of the query. Use the job creation time to filter data. The default value is the current time minus seven days. In other words, if you do not configure the StartTime and EndTime parameters, the system queries the job list in the last seven days.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   Creating
+   * *   Queuing
+   * *   Bidding (only available for spot jobs that use Lingjun resources)
+   * *   EnvPreparing
+   * *   SanityChecking
+   * *   Running
+   * *   Restarting
+   * *   Stopping
+   * *   SucceededReserving
+   * *   FailedReserving
+   * *   Succeeded
+   * *   Failed
+   * *   Stopped
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The user ID used to filter jobs.
+   * 
+   * @example
+   * 20**************
+   */
   userIdForFilter?: string;
+  /**
+   * @remarks
+   * The username used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by username.
+   * 
+   * @example
+   * test***
+   */
   username?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1****
    */
@@ -6433,94 +7532,221 @@ export class ListJobsRequest extends $dara.Model {
 }
 
 export class ListJobsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The job visibility. Valid values:
+   * 
+   * *   PUBLIC: The job is visible to all members in the workspace.
+   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The ID of the user associated with the job.
+   * 
    * @example
    * 16****
    */
   businessUserId?: string;
   /**
+   * @remarks
+   * The caller.
+   * 
    * @example
    * local
    */
   caller?: string;
   /**
+   * @remarks
+   * The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
+   * 
    * @example
    * tf-mnist-test
    */
   displayName?: string;
   /**
+   * @remarks
+   * The end time of the query. Use the job creation time to filter data. The default value is the current time.
+   * 
    * @example
    * 2020-11-09T14:45:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies whether to query a list of jobs across workspaces. This parameter must be used together with `ShowOwn=true`. You can use this parameter to query a list of jobs recently submitted by the current user.
+   * 
    * @example
    * false
    */
   fromAllWorkspaces?: boolean;
   /**
+   * @remarks
+   * The job ID. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. The default value null indicates any job ID.
+   * 
    * @example
    * dlc********
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job type. You can query any job type. The default value null indicates any job type. Valid values:
+   * 
+   * *   TFJob
+   * *   PyTorchJob
+   * *   XGBoostJob
+   * *   OneFlowJob
+   * *   ElasticBatchJob
+   * 
    * @example
    * TFJob
    */
   jobType?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   desc (default)
+   * *   asc
+   * 
    * @example
    * desc
    */
   order?: string;
+  /**
+   * @remarks
+   * The Idle resource information. Valid values:
+   * 
+   * *   ForbiddenQuotaOverSold
+   * *   ForceQuotaOverSold
+   * *   AcceptQuotaOverSold-true (true indicates that the job uses idle resources.)
+   * *   AcceptQuotaOverSold-false (false indicates that the job uses guaranteed resources.)
+   * 
+   * @example
+   * ForbiddenQuotaOverSold
+   */
   oversoldInfo?: string;
   /**
+   * @remarks
+   * The number of the page to return for the current query. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   paymentType?: string;
   /**
+   * @remarks
+   * The specific pipeline ID used to filter jobs.
+   * 
    * @example
    * flow-*******
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The resource group ID. For information about how to obtain the ID of a dedicated resource group, see [Manage resource quota](https://help.aliyun.com/document_detail/2651299.html).
+   * 
    * @example
    * r*****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource quota name used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by resource quota name.
+   * 
+   * @example
+   * quota***
+   */
   resourceQuotaName?: string;
   /**
+   * @remarks
+   * Specifies whether to query only the jobs submitted by the current user.
+   * 
    * @example
    * true
    */
   showOwn?: boolean;
   /**
+   * @remarks
+   * The sorting field in the returned job list. Valid values:
+   * 
+   * *   DisplayName
+   * *   JobType
+   * *   Status
+   * *   GmtCreateTime
+   * *   GmtFinishTime
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The start time of the query. Use the job creation time to filter data. The default value is the current time minus seven days. In other words, if you do not configure the StartTime and EndTime parameters, the system queries the job list in the last seven days.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   Creating
+   * *   Queuing
+   * *   Bidding (only available for spot jobs that use Lingjun resources)
+   * *   EnvPreparing
+   * *   SanityChecking
+   * *   Running
+   * *   Restarting
+   * *   Stopping
+   * *   SucceededReserving
+   * *   FailedReserving
+   * *   Succeeded
+   * *   Failed
+   * *   Stopped
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The user ID used to filter jobs.
+   * 
+   * @example
+   * 20**************
+   */
   userIdForFilter?: string;
+  /**
+   * @remarks
+   * The username used to filter jobs. Fuzzy search is supported. Wildcards are not supported. The default value null indicates that jobs are not filtered by username.
+   * 
+   * @example
+   * test***
+   */
   username?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1****
    */
@@ -6593,13 +7819,23 @@ export class ListJobsShrinkRequest extends $dara.Model {
 }
 
 export class ListJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The jobs.
+   */
   jobs?: JobItem[];
   /**
+   * @remarks
+   * The request ID used to troubleshoot issues.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of jobs that meet the filter conditions.
+   * 
    * @example
    * 2
    */
@@ -6668,78 +7904,190 @@ export class ListJobsResponse extends $dara.Model {
 }
 
 export class ListTensorboardsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The instance visibility.
+   * 
+   * *   PUBLIC: TensorBoard instances are visible to all members in the workspace.
+   * *   PRIVATE: TensorBoard instances are visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The TensorBoard instance name.
+   * 
    * @example
    * TestTensorboard
    */
   displayName?: string;
   /**
+   * @remarks
+   * The end time of the query. Use the UTC time when the TensorBoard instance is created to filter data. If you leave this parameter empty, the default value is the current time.
+   * 
    * @example
    * 2020-11-09T14:45:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The job ID used to filter TensorBoard instances. For more information about how to obtain the ID of a job, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
+   * 
    * @example
    * dlc-xxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * *   desc
+   * *   asc
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Minimum value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of TensorBoard instances per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The billing method of TensorBoard instances.
+   * 
+   * *   Free: the TensorBoard instance that uses free resources.
+   * *   Postpaid: the TensorBoard instance that uses pay-as-you-go resources.
+   * 
+   * @example
+   * Postpaid
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The resource quota ID.
+   * 
+   * > 
+   * 
+   * *   Only whitelisted users can use resource quotas to create TensorBoard instances. If you want to use this feature, contact us.
+   * 
+   * *   This parameter takes effect only when TensorBoard instances use resource quotas.
+   * 
+   * @example
+   * quota12***
+   */
   quotaId?: string;
+  /**
+   * @remarks
+   * Specifies whether to return only the TensorBoard instances created by the current logon account.
+   * 
+   * @example
+   * false
+   */
   showOwn?: boolean;
   /**
+   * @remarks
+   * The returned field used to sort TensorBoard instances.
+   * 
+   * *   DisplayName: the name of the TensorBoard instance.
+   * *   GmtCreateTime: the time when the TensorBoard instance is created.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The data source ID. For more information about how to obtain the ID of a job, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
+   * 
    * @example
    * dlc-xxxxxx
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The data source associated with the TensorBoard instance. This parameter is no longer used. Only Deep Learning Containers (DLC) training jobs are supported.
+   * 
    * @example
    * job
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The start time of the query. Use the UTC time when the TensorBoard instance is created to filter data. If you leave this parameter empty, the default value is seven days before the current time.
+   * 
    * @example
    * 2020-11-08T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The TensorBoard instance status. Valid values:
+   * 
+   * *   Creating
+   * *   Running
+   * *   Stopped
+   * *   Succeeded
+   * *   Failed
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The TensorBoard instance ID used to filter TensorBoard instances.
+   * 
    * @example
    * tensorboard-xxx
    */
   tensorboardId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 161****3000
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * she****mo
+   */
   username?: string;
   /**
+   * @remarks
+   * Specifies whether to return the information about the TensorBoard instance.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   verbose?: boolean;
   /**
+   * @remarks
+   * The workspace ID. Obtain a list of TensorBoard instances based on the workspace ID. 
+   * <props="china">For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 380
    */
@@ -6805,12 +8153,22 @@ export class ListTensorboardsRequest extends $dara.Model {
 
 export class ListTensorboardsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The TensorBoard instances.
+   */
   tensorboards?: Tensorboard[];
   /**
+   * @remarks
+   * The total number of data sources that meet the conditions.
+   * 
    * @example
    * 100
    */
@@ -6880,6 +8238,10 @@ export class ListTensorboardsResponse extends $dara.Model {
 
 export class StartTensorboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 380
    */
@@ -6907,11 +8269,17 @@ export class StartTensorboardRequest extends $dara.Model {
 
 export class StartTensorboardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The TensorBoard instance ID.
+   * 
    * @example
    * tensorboard-20210114104214-vf9lowjt3pso
    */
@@ -6976,11 +8344,17 @@ export class StartTensorboardResponse extends $dara.Model {
 
 export class StopJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc-20210126170216-xxxxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID. You can troubleshoot issues based on the request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxx
    */
@@ -7045,6 +8419,10 @@ export class StopJobResponse extends $dara.Model {
 
 export class StopTensorboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">For more information about how to query the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 380
    */
@@ -7072,11 +8450,17 @@ export class StopTensorboardRequest extends $dara.Model {
 
 export class StopTensorboardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the TensorBoard instance.
+   * 
    * @example
    * tensorboard-20210114104214-xxxxxxxx
    */
@@ -7140,8 +8524,24 @@ export class StopTensorboardResponse extends $dara.Model {
 }
 
 export class UpdateJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The job visibility. Valid values:
+   * 
+   * *   PUBLIC: The job is visible to all members in the workspace.
+   * *   PRIVATE: The job is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The job priority. Valid values: 1 to 9.
+   * 
+   * *   1: the lowest priority.
+   * *   9: the highest priority.
+   * 
    * @example
    * 5
    */
@@ -7171,11 +8571,17 @@ export class UpdateJobRequest extends $dara.Model {
 
 export class UpdateJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * dlc*************
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID, which is used for diagnostics and Q\\&A.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -7239,14 +8645,31 @@ export class UpdateJobResponse extends $dara.Model {
 }
 
 export class UpdateTensorboardRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility of the jobs. Valid values:
+   * 
+   * *   PUBLIC: The jobs are public in the workspace.
+   * *   PRIVATE: The jobs are visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   /**
+   * @remarks
+   * The maximum running time. Unit: minutes.
+   * 
    * @example
-   * MaxRunningTimeMinutes
+   * 300
    */
   maxRunningTimeMinutes?: number;
   priority?: string;
   /**
+   * @remarks
+   * The workspace ID. 
+   * <props="china">For more information about how to query the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * 
    * @example
    * 380
    */
@@ -7280,11 +8703,17 @@ export class UpdateTensorboardRequest extends $dara.Model {
 
 export class UpdateTensorboardResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the TensorBoard instance.
+   * 
    * @example
    * tensorboard-20210114104214-xxxxxxxx
    */
@@ -7354,12 +8783,9 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'ap-northeast-1': "pai-dlc.aliyuncs.com",
       'ap-northeast-2-pop': "pai-dlc.aliyuncs.com",
       'ap-south-1': "pai-dlc.aliyuncs.com",
       'ap-southeast-2': "pai-dlc.aliyuncs.com",
-      'ap-southeast-3': "pai-dlc.aliyuncs.com",
-      'ap-southeast-5': "pai-dlc.aliyuncs.com",
       'cn-beijing-finance-1': "pai-dlc.aliyuncs.com",
       'cn-beijing-finance-pop': "pai-dlc.aliyuncs.com",
       'cn-beijing-gov-1': "pai-dlc.aliyuncs.com",
@@ -7390,7 +8816,6 @@ export default class Client extends OpenApi {
       'cn-shenzhen-st4-d01': "pai-dlc.aliyuncs.com",
       'cn-shenzhen-su18-b01': "pai-dlc.aliyuncs.com",
       'cn-wuhan': "pai-dlc.aliyuncs.com",
-      'cn-wulanchabu': "pai-dlc.aliyuncs.com",
       'cn-yushanfang': "pai-dlc.aliyuncs.com",
       'cn-zhangbei': "pai-dlc.aliyuncs.com",
       'cn-zhangbei-na61-b01': "pai-dlc.aliyuncs.com",
@@ -7401,8 +8826,6 @@ export default class Client extends OpenApi {
       'eu-west-1-oxs': "pai-dlc.aliyuncs.com",
       'me-east-1': "pai-dlc.aliyuncs.com",
       'rus-west-1-pop': "pai-dlc.aliyuncs.com",
-      'us-east-1': "pai-dlc.aliyuncs.com",
-      'us-west-1': "pai-dlc.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("pai-dlc", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -7422,7 +8845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个DLC作业
+   * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
    * 
    * @param request - CreateJobRequest
    * @param headers - map
@@ -7540,7 +8966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个DLC作业
+   * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -7552,7 +8981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个Tensorboard
+   * Creates a TensorBoard by using a job or specifying a data source configuration.
    * 
    * @param request - CreateTensorboardRequest
    * @param headers - map
@@ -7666,7 +9095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个Tensorboard
+   * Creates a TensorBoard by using a job or specifying a data source configuration.
    * 
    * @param request - CreateTensorboardRequest
    * @returns CreateTensorboardResponse
@@ -7678,7 +9107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个DLC作业
+   * Deletes a completed or stopped job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7708,7 +9137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个DLC作业
+   * Deletes a completed or stopped job.
    * @returns DeleteJobResponse
    */
   async deleteJob(JobId: string): Promise<DeleteJobResponse> {
@@ -7718,7 +9147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个数据源配置
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @param headers - map
@@ -7756,7 +9185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个数据源配置
+   * Deletes a stopped TensorBoard.
    * 
    * @param request - DeleteTensorboardRequest
    * @returns DeleteTensorboardResponse
@@ -7768,7 +9197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个DLC作业详情
+   * Obtains the configuration and runtime information of a job.
    * 
    * @param request - GetJobRequest
    * @param headers - map
@@ -7806,7 +9235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个DLC作业详情
+   * Obtains the configuration and runtime information of a job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -7818,7 +9247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业的事件
+   * Obtains the system events of a job.
    * 
    * @param request - GetJobEventsRequest
    * @param headers - map
@@ -7864,7 +9293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业的事件
+   * Obtains the system events of a job.
    * 
    * @param request - GetJobEventsRequest
    * @returns GetJobEventsResponse
@@ -7876,7 +9305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个作业的资源监控指标
+   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
    * 
    * @param request - GetJobMetricsRequest
    * @param headers - map
@@ -7930,7 +9359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个作业的资源监控指标
+   * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
    * 
    * @param request - GetJobMetricsRequest
    * @returns GetJobMetricsResponse
@@ -7942,7 +9371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DLC作业某次算力健康检测结果
+   * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @param headers - map
@@ -7988,7 +9417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DLC作业某次算力健康检测结果
+   * Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
    * 
    * @param request - GetJobSanityCheckResultRequest
    * @returns GetJobSanityCheckResultResponse
@@ -8000,7 +9429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业中一个运行实例的系统事件
+   * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
    * 
    * @param request - GetPodEventsRequest
    * @param headers - map
@@ -8050,7 +9479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业中一个运行实例的系统事件
+   * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
    * 
    * @param request - GetPodEventsRequest
    * @returns GetPodEventsResponse
@@ -8062,7 +9491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业中一个运行实例的日志
+   * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
    * 
    * @param request - GetPodLogsRequest
    * @param headers - map
@@ -8116,7 +9545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业中一个运行实例的日志
+   * Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
    * 
    * @param request - GetPodLogsRequest
    * @returns GetPodLogsResponse
@@ -8128,7 +9557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个Tensorboard
+   * Queries the information of a TensorBoard instance.
    * 
    * @param request - GetTensorboardRequest
    * @param headers - map
@@ -8174,7 +9603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个Tensorboard
+   * Queries the information of a TensorBoard instance.
    * 
    * @param request - GetTensorboardRequest
    * @returns GetTensorboardResponse
@@ -8186,7 +9615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the shared url for tensorboard
+   * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
    * 
    * @param request - GetTensorboardSharedUrlRequest
    * @param headers - map
@@ -8224,7 +9653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the shared url for tensorboard
+   * Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
    * 
    * @param request - GetTensorboardSharedUrlRequest
    * @returns GetTensorboardSharedUrlResponse
@@ -8236,7 +9665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户Token
+   * Queries a user token.
    * 
    * @param request - GetTokenRequest
    * @param headers - map
@@ -8282,7 +9711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户Token
+   * Queries a user token.
    * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
@@ -8294,7 +9723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the url for accessing pod's terminal in k8s
+   * Provides methods and steps to obtain a HTTP link for accessing a container.
    * 
    * @param request - GetWebTerminalRequest
    * @param headers - map
@@ -8336,7 +9765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the url for accessing pod's terminal in k8s
+   * Provides methods and steps to obtain a HTTP link for accessing a container.
    * 
    * @param request - GetWebTerminalRequest
    * @returns GetWebTerminalResponse
@@ -8348,7 +9777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListEcsSpecs
+   * Queries the list of supported instance types.
    * 
    * @param request - ListEcsSpecsRequest
    * @param headers - map
@@ -8410,7 +9839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListEcsSpecs
+   * Queries the list of supported instance types.
    * 
    * @param request - ListEcsSpecsRequest
    * @returns ListEcsSpecsResponse
@@ -8422,7 +9851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个DLC作业的多次算力健康检测结果
+   * Obtains the results of all sanity checks for a DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @param headers - map
@@ -8460,7 +9889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个DLC作业的多次算力健康检测结果
+   * Obtains the results of all sanity checks for a DLC job.
    * 
    * @param request - ListJobSanityCheckResultsRequest
    * @returns ListJobSanityCheckResultsResponse
@@ -8472,7 +9901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据过滤条件获取DLC作业列表
+   * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
    * 
    * @param tmpReq - ListJobsRequest
    * @param headers - map
@@ -8608,7 +10037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据过滤条件获取DLC作业列表
+   * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -8620,7 +10049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Tensorboard
+   * Queries a list of TensorBoard instances.
    * 
    * @param request - ListTensorboardsRequest
    * @param headers - map
@@ -8734,7 +10163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Tensorboard
+   * Queries a list of TensorBoard instances.
    * 
    * @param request - ListTensorboardsRequest
    * @returns ListTensorboardsResponse
@@ -8746,7 +10175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始运行tensorboard
+   * Starts a TensorBoard instance.
    * 
    * @param request - StartTensorboardRequest
    * @param headers - map
@@ -8784,7 +10213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始运行tensorboard
+   * Starts a TensorBoard instance.
    * 
    * @param request - StartTensorboardRequest
    * @returns StartTensorboardResponse
@@ -8796,7 +10225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个DLC作业
+   * Stops a running job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8826,7 +10255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个DLC作业
+   * Stops a running job.
    * @returns StopJobResponse
    */
   async stopJob(JobId: string): Promise<StopJobResponse> {
@@ -8836,7 +10265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运行tensorboard
+   * Stops a TensorBoard instance.
    * 
    * @param request - StopTensorboardRequest
    * @param headers - map
@@ -8874,7 +10303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运行tensorboard
+   * Stops a TensorBoard instance.
    * 
    * @param request - StopTensorboardRequest
    * @returns StopTensorboardResponse
@@ -8886,7 +10315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个Job
+   * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
    * 
    * @param request - UpdateJobRequest
    * @param headers - map
@@ -8928,7 +10357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新一个Job
+   * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse
@@ -8940,7 +10369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新tensorboard
+   * Updates a TensorBoard instance.
    * 
    * @param request - UpdateTensorboardRequest
    * @param headers - map
@@ -8990,7 +10419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新tensorboard
+   * Updates a TensorBoard instance.
    * 
    * @param request - UpdateTensorboardRequest
    * @returns UpdateTensorboardResponse
