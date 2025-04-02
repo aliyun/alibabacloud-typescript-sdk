@@ -658,6 +658,7 @@ export class DescribeAdvisorChecksFoPagesResponseBodyDataResult extends $dara.Mo
    * ECS
    */
   product?: string;
+  riskLevel?: number;
   /**
    * @example
    * Advisor
@@ -685,6 +686,7 @@ export class DescribeAdvisorChecksFoPagesResponseBodyDataResult extends $dara.Mo
       name: 'Name',
       operateColumn: 'OperateColumn',
       product: 'Product',
+      riskLevel: 'RiskLevel',
       source: 'Source',
       status: 'Status',
       subCategory: 'SubCategory',
@@ -703,6 +705,7 @@ export class DescribeAdvisorChecksFoPagesResponseBodyDataResult extends $dara.Mo
       name: 'string',
       operateColumn: 'string',
       product: 'string',
+      riskLevel: 'number',
       source: 'string',
       status: 'string',
       subCategory: { 'type': 'array', 'itemType': 'number' },
