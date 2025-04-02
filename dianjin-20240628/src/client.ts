@@ -1110,12 +1110,16 @@ export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalys
 export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisResp extends $dara.Model {
   dialogExecPlan?: string;
   dialogLabels?: GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels[];
+  dialogOpenAnalysis?: { [key: string]: any };
+  dialogProcessAnalysis?: { [key: string]: any };
   dialogSop?: string;
   dialogSummary?: string;
   static names(): { [key: string]: string } {
     return {
       dialogExecPlan: 'dialogExecPlan',
       dialogLabels: 'dialogLabels',
+      dialogOpenAnalysis: 'dialogOpenAnalysis',
+      dialogProcessAnalysis: 'dialogProcessAnalysis',
       dialogSop: 'dialogSop',
       dialogSummary: 'dialogSummary',
     };
@@ -1125,6 +1129,8 @@ export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalys
     return {
       dialogExecPlan: 'string',
       dialogLabels: { 'type': 'array', 'itemType': GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalysisRespDialogLabels },
+      dialogOpenAnalysis: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      dialogProcessAnalysis: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       dialogSop: 'string',
       dialogSummary: 'string',
     };
@@ -1133,6 +1139,12 @@ export class GetDialogAnalysisResultResponseBodyDataDialogAnalysisRespListAnalys
   validate() {
     if(Array.isArray(this.dialogLabels)) {
       $dara.Model.validateArray(this.dialogLabels);
+    }
+    if(this.dialogOpenAnalysis) {
+      $dara.Model.validateMap(this.dialogOpenAnalysis);
+    }
+    if(this.dialogProcessAnalysis) {
+      $dara.Model.validateMap(this.dialogProcessAnalysis);
     }
     super.validate();
   }
