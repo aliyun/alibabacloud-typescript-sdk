@@ -1950,6 +1950,221 @@ export class GetIssuesResponseBodyModel extends $dara.Model {
   }
 }
 
+export class GetSymbolicFilesResponseBodyModelItems extends $dara.Model {
+  /**
+   * @example
+   * 1.0.0
+   */
+  appVersion?: string;
+  /**
+   * @example
+   * e8a1a2b9ab653780b34383a942ac91b2
+   */
+  buildId?: string;
+  /**
+   * @example
+   * EXPORT_SUCCESS
+   */
+  exportStatus?: string;
+  /**
+   * @example
+   * app_so.zip
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 24781204@android/1743506690915-app_so.zip
+   */
+  filePath?: string;
+  /**
+   * @example
+   * APP_SO
+   */
+  fileType?: string;
+  /**
+   * @example
+   * 1655962713000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 392522
+   */
+  id?: number;
+  /**
+   * @example
+   * NORMAL
+   */
+  status?: string;
+  /**
+   * @remarks
+   * uuid
+   * 
+   * @example
+   * 9634758587856312DEV
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appVersion: 'AppVersion',
+      buildId: 'BuildId',
+      exportStatus: 'ExportStatus',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      fileType: 'FileType',
+      gmtCreate: 'GmtCreate',
+      id: 'Id',
+      status: 'Status',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersion: 'string',
+      buildId: 'string',
+      exportStatus: 'string',
+      fileName: 'string',
+      filePath: 'string',
+      fileType: 'string',
+      gmtCreate: 'number',
+      id: 'number',
+      status: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSymbolicFilesResponseBodyModel extends $dara.Model {
+  items?: GetSymbolicFilesResponseBodyModelItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 3
+   */
+  pages?: number;
+  /**
+   * @example
+   * 30
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      pages: 'Pages',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetSymbolicFilesResponseBodyModelItems },
+      pageNum: 'number',
+      pageSize: 'number',
+      pages: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestUploadTokenResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * OSS AccessKeyId
+   * 
+   * @example
+   * STS.NXEGHKdjkdnINNgLiDE
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * OSS AccessKeySecret
+   * 
+   * @example
+   * ikKgkNDGedInGEIngL
+   */
+  accessKeySecret?: string;
+  /**
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @example
+   * Szi9v92mHNikdknfe
+   */
+  securityToken?: string;
+  /**
+   * @example
+   * symbolic-prod
+   */
+  uploadBucket?: string;
+  /**
+   * @example
+   * /335374903@iphoneos/
+   */
+  uploadDir?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      endpoint: 'Endpoint',
+      securityToken: 'SecurityToken',
+      uploadBucket: 'UploadBucket',
+      uploadDir: 'UploadDir',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      endpoint: 'string',
+      securityToken: 'string',
+      uploadBucket: 'string',
+      uploadDir: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConditionalRule extends $dara.Model {
   filter?: EventFilter;
   modifyTime?: string;
@@ -3200,6 +3415,555 @@ export class GetIssuesResponse extends $dara.Model {
   }
 }
 
+export class GetSymbolicFilesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @example
+   * 1.0
+   */
+  appVersion?: string;
+  /**
+   * @example
+   * 1743523199999
+   */
+  endTime?: number;
+  /**
+   * @example
+   * NORMAL
+   */
+  exportStatus?: string;
+  /**
+   * @example
+   * app_so.zip
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_SO
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * android
+   */
+  os?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1742918400000
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * uuid
+   * 
+   * @example
+   * abcf4a4b-158c-4a0b-b81c-262785d84c4f
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appVersion: 'AppVersion',
+      endTime: 'EndTime',
+      exportStatus: 'ExportStatus',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      os: 'Os',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      appVersion: 'string',
+      endTime: 'number',
+      exportStatus: 'string',
+      fileName: 'string',
+      fileType: 'string',
+      os: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSymbolicFilesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  model?: GetSymbolicFilesResponseBodyModel;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * B3AD0FE4-36EF-1641-90B1-77618166F2ff
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      model: GetSymbolicFilesResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSymbolicFilesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSymbolicFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSymbolicFilesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestUploadTokenRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * android
+   */
+  os?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      os: 'Os',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      os: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestUploadTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  model?: RequestUploadTokenResponseBodyModel;
+  /**
+   * @example
+   * AB8AB5EC-9636-421D-AE7C-BB227DFC95B0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      model: RequestUploadTokenResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestUploadTokenResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RequestUploadTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RequestUploadTokenResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSymbolicRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 24781204
+   */
+  appKey?: number;
+  /**
+   * @example
+   * 1.0
+   */
+  appVersion?: string;
+  /**
+   * @example
+   * ab6b81d800968f2
+   */
+  buildId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app_so.zip
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24781204@android/1743506690915-app_so.zip
+   */
+  filePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APP_SO
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * android
+   */
+  os?: string;
+  /**
+   * @remarks
+   * uuid
+   * 
+   * @example
+   * abcf4a4b-158c-4a0b-b81c-262785d84c4f
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appVersion: 'AppVersion',
+      buildId: 'BuildId',
+      fileName: 'FileName',
+      filePath: 'FilePath',
+      fileType: 'FileType',
+      os: 'Os',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      appVersion: 'string',
+      buildId: 'string',
+      fileName: 'string',
+      filePath: 'string',
+      fileType: 'string',
+      os: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSymbolicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 500
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * B3AD0FE4-36EF-1641-90B1-77618166F2ff
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSymbolicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSymbolicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitSymbolicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3558,6 +4322,207 @@ export default class Client extends OpenApi {
   async getIssues(request: GetIssuesRequest): Promise<GetIssuesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getIssuesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetSymbolicFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSymbolicFilesResponse
+   */
+  async getSymbolicFilesWithOptions(request: GetSymbolicFilesRequest, runtime: $dara.RuntimeOptions): Promise<GetSymbolicFilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.exportStatus)) {
+      body["ExportStatus"] = request.exportStatus;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSymbolicFiles",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSymbolicFilesResponse>(await this.callApi(params, req, runtime), new GetSymbolicFilesResponse({}));
+    } else {
+      return $dara.cast<GetSymbolicFilesResponse>(await this.execute(params, req, runtime), new GetSymbolicFilesResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - GetSymbolicFilesRequest
+   * @returns GetSymbolicFilesResponse
+   */
+  async getSymbolicFiles(request: GetSymbolicFilesRequest): Promise<GetSymbolicFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSymbolicFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - RequestUploadTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RequestUploadTokenResponse
+   */
+  async requestUploadTokenWithOptions(request: RequestUploadTokenRequest, runtime: $dara.RuntimeOptions): Promise<RequestUploadTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RequestUploadToken",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RequestUploadTokenResponse>(await this.callApi(params, req, runtime), new RequestUploadTokenResponse({}));
+    } else {
+      return $dara.cast<RequestUploadTokenResponse>(await this.execute(params, req, runtime), new RequestUploadTokenResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - RequestUploadTokenRequest
+   * @returns RequestUploadTokenResponse
+   */
+  async requestUploadToken(request: RequestUploadTokenRequest): Promise<RequestUploadTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.requestUploadTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - SubmitSymbolicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSymbolicResponse
+   */
+  async submitSymbolicWithOptions(request: SubmitSymbolicRequest, runtime: $dara.RuntimeOptions): Promise<SubmitSymbolicResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.buildId)) {
+      body["BuildId"] = request.buildId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSymbolic",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitSymbolicResponse>(await this.callApi(params, req, runtime), new SubmitSymbolicResponse({}));
+    } else {
+      return $dara.cast<SubmitSymbolicResponse>(await this.execute(params, req, runtime), new SubmitSymbolicResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - SubmitSymbolicRequest
+   * @returns SubmitSymbolicResponse
+   */
+  async submitSymbolic(request: SubmitSymbolicRequest): Promise<SubmitSymbolicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSymbolicWithOptions(request, runtime);
   }
 
 }
