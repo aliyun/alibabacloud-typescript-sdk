@@ -719,12 +719,14 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
 export class LivePackagingConfigDrmConfig extends $dara.Model {
   encryptionMethod?: string;
   IV?: string;
+  rotatePeriod?: number;
   systemIds?: string[];
   url?: string;
   static names(): { [key: string]: string } {
     return {
       encryptionMethod: 'EncryptionMethod',
       IV: 'IV',
+      rotatePeriod: 'RotatePeriod',
       systemIds: 'SystemIds',
       url: 'Url',
     };
@@ -734,6 +736,7 @@ export class LivePackagingConfigDrmConfig extends $dara.Model {
     return {
       encryptionMethod: 'string',
       IV: 'string',
+      rotatePeriod: 'number',
       systemIds: { 'type': 'array', 'itemType': 'string' },
       url: 'string',
     };
@@ -32665,6 +32668,7 @@ export class QueryIProductionJobResponseBodyInput extends $dara.Model {
 }
 
 export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
+  biz?: string;
   /**
    * @remarks
    * The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
@@ -32676,6 +32680,7 @@ export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
    * oss://bucket/object
    */
   media?: string;
+  outputUrl?: string;
   /**
    * @remarks
    * The media type. Valid values:
@@ -32689,14 +32694,18 @@ export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      biz: 'Biz',
       media: 'Media',
+      outputUrl: 'OutputUrl',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      biz: 'string',
       media: 'string',
+      outputUrl: 'string',
       type: 'string',
     };
   }
@@ -39047,6 +39056,7 @@ export class SubmitIProductionJobRequestInput extends $dara.Model {
 }
 
 export class SubmitIProductionJobRequestOutput extends $dara.Model {
+  biz?: string;
   /**
    * @remarks
    * The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
@@ -39060,6 +39070,7 @@ export class SubmitIProductionJobRequestOutput extends $dara.Model {
    * oss://bucket/object
    */
   media?: string;
+  outputUrl?: string;
   /**
    * @remarks
    * The media type. Valid values:
@@ -39075,14 +39086,18 @@ export class SubmitIProductionJobRequestOutput extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      biz: 'Biz',
       media: 'Media',
+      outputUrl: 'OutputUrl',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      biz: 'string',
       media: 'string',
+      outputUrl: 'string',
       type: 'string',
     };
   }
@@ -51343,26 +51358,22 @@ export class LicenseInstanceAppDTO extends $dara.Model {
 export class LiveManifestConfig extends $dara.Model {
   adMarkers?: string;
   dateTimeInterval?: number;
-  manifestName?: string;
   maxVideoBitrate?: number;
   minBufferTime?: number;
+  minUpdatePeriod?: number;
   minVideoBitrate?: number;
-  protocol?: string;
-  segmentNum?: number;
+  segmentCount?: number;
   streamOrder?: string;
-  useAudioRenditionGroups?: boolean;
   static names(): { [key: string]: string } {
     return {
       adMarkers: 'AdMarkers',
       dateTimeInterval: 'DateTimeInterval',
-      manifestName: 'ManifestName',
       maxVideoBitrate: 'MaxVideoBitrate',
       minBufferTime: 'MinBufferTime',
+      minUpdatePeriod: 'MinUpdatePeriod',
       minVideoBitrate: 'MinVideoBitrate',
-      protocol: 'Protocol',
-      segmentNum: 'SegmentNum',
+      segmentCount: 'SegmentCount',
       streamOrder: 'StreamOrder',
-      useAudioRenditionGroups: 'UseAudioRenditionGroups',
     };
   }
 
@@ -51370,14 +51381,12 @@ export class LiveManifestConfig extends $dara.Model {
     return {
       adMarkers: 'string',
       dateTimeInterval: 'number',
-      manifestName: 'string',
       maxVideoBitrate: 'number',
       minBufferTime: 'number',
+      minUpdatePeriod: 'number',
       minVideoBitrate: 'number',
-      protocol: 'string',
-      segmentNum: 'number',
+      segmentCount: 'number',
       streamOrder: 'string',
-      useAudioRenditionGroups: 'boolean',
     };
   }
 
@@ -83463,6 +83472,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
    * The output files.
    */
   outputFiles?: string[];
+  outputMediaIds?: string[];
   /**
    * @remarks
    * The URLs of the output files.
@@ -83526,6 +83536,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
       name: 'Name',
       output: 'Output',
       outputFiles: 'OutputFiles',
+      outputMediaIds: 'OutputMediaIds',
       outputUrls: 'OutputUrls',
       requestId: 'RequestId',
       result: 'Result',
@@ -83547,6 +83558,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
       name: 'string',
       output: QueryIProductionJobResponseBodyOutput,
       outputFiles: { 'type': 'array', 'itemType': 'string' },
+      outputMediaIds: { 'type': 'array', 'itemType': 'string' },
       outputUrls: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       result: 'string',
@@ -83566,6 +83578,9 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.outputFiles)) {
       $dara.Model.validateArray(this.outputFiles);
+    }
+    if(Array.isArray(this.outputMediaIds)) {
+      $dara.Model.validateArray(this.outputMediaIds);
     }
     if(Array.isArray(this.outputUrls)) {
       $dara.Model.validateArray(this.outputUrls);
