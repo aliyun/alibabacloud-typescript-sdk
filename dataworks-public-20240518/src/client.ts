@@ -6706,36 +6706,57 @@ export class GetAlertRuleResponseBodyAlertRule extends $dara.Model {
 
 export class GetCertificateResponseBodyCertificate extends $dara.Model {
   /**
+   * @remarks
+   * The time when the certificate file was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1730217600000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the certificate file.
+   * 
    * @example
    * 1107550004253538
    */
   createUser?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * This is a file
    */
   description?: string;
   /**
+   * @remarks
+   * The size of the certificate file, in bytes.
+   * 
    * @example
    * 77549
    */
   fileSizeInBytes?: number;
   /**
+   * @remarks
+   * The ID of the certificate file.
+   * 
    * @example
    * 676303114031776
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the certificate file.
+   * 
    * @example
    * ca1.crt
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the certificate file belongs.
+   * 
    * @example
    * 177161
    */
@@ -7720,6 +7741,17 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * Running
    */
   jobStatus?: string;
+  /**
+   * @remarks
+   * DatabaseRealtimeMigration (Full Database Real-Time): Perform stream synchronization of multiple tables from multiple source databases. Supports full data only, incremental only, or full + incremental.
+   * 
+   * DatabaseOfflineMigration (Full Database Offline): Perform batch synchronization of multiple tables from multiple source databases. Supports full data only, incremental only, or full + incremental.
+   * 
+   * SingleTableRealtimeMigration (Single Table Real-Time): Perform stream synchronization of a single table from the source.
+   * 
+   * @example
+   * DatabaseRealtimeMigration
+   */
   jobType?: string;
   /**
    * @remarks
@@ -8696,7 +8728,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
    * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
    * 
    * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -8863,7 +8895,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
    * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
    * 
    * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -15694,31 +15726,49 @@ export class ListAlertRulesResponseBodyPagingInfo extends $dara.Model {
 
 export class ListCertificatesResponseBodyPagingInfoCertificates extends $dara.Model {
   /**
+   * @remarks
+   * The time when the certificate file was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1730217600000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the certificate file.
+   * 
    * @example
    * 1107550004253538
    */
   createUser?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * This is a file
    */
   description?: string;
   /**
+   * @remarks
+   * The size of the certificate file, in bytes.
+   * 
    * @example
    * 1024
    */
   fileSizeInBytes?: number;
   /**
+   * @remarks
+   * The ID of the certificate file.
+   * 
    * @example
    * 676303114031776
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the certificate file.
+   * 
    * @example
    * ca1.crt
    */
@@ -15755,18 +15805,31 @@ export class ListCertificatesResponseBodyPagingInfoCertificates extends $dara.Mo
 }
 
 export class ListCertificatesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate files.
+   */
   certificates?: ListCertificatesResponseBodyPagingInfoCertificates[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -21411,8 +21474,8 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * @remarks
    * The scheduling dependency type. Valid values:
    * 
-   * *   Normal: same-cycle scheduling dependency
-   * *   CrossCycle: cross-cycle scheduling dependency
+   * *   Normal
+   * *   CrossCycle
    * 
    * @example
    * Normal
@@ -25276,6 +25339,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
 }
 
 export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.Model {
+  resourceGroup?: string;
   /**
    * @remarks
    * The resource group ID.
@@ -25286,12 +25350,14 @@ export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.M
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      resourceGroup: 'ResourceGroup',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      resourceGroup: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -30957,9 +31023,6 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
 
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extends $dara.Model {
   /**
-   * @remarks
-   * 业务日期。
-   * 
    * @example
    * 1710239005403
    */
@@ -31065,14 +31128,6 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    */
   status?: string;
   /**
-   * @remarks
-   * 工作流实例的类型。
-   * - Normal：周期调度
-   * - Manual：手动任务
-   * - SmokeTest：测试
-   * - SupplementData：补数据
-   * - ManualWorkflow：手动工作流
-   * 
    * @example
    * Normal
    */
@@ -31485,7 +31540,7 @@ export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
 export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dara.Model {
   /**
    * @remarks
-   * The failover interval. Unit: minutes.
+   * This parameter is deprecated. Use advanced parameters for failover settings when you create a task.
    * 
    * @example
    * 10
@@ -31495,7 +31550,7 @@ export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dar
   interval?: number;
   /**
    * @remarks
-   * The maximum number of failovers allowed.
+   * This parameter is deprecated. Use advanced parameters for failover settings when you create a task.
    * 
    * @example
    * 30
@@ -31529,7 +31584,7 @@ export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dar
 export class StartDIJobRequestRealtimeStartSettings extends $dara.Model {
   /**
    * @remarks
-   * The failover settings.
+   * This parameter is deprecated. Use advanced parameters for failover settings when you create a task.
    * 
    * @deprecated
    */
@@ -32880,7 +32935,7 @@ export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * The name of the resource group for Data Integration used for batch synchronization.
    * 
    * @example
    * S_res_group_111_222
@@ -32920,7 +32975,7 @@ export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * The name of the resource group for Data Integration used for real-time synchronization.
    * 
    * @example
    * S_res_group_111_222
@@ -32960,7 +33015,7 @@ export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends 
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for scheduling used for batch synchronization.
+   * The name of the resource group for scheduling used for batch synchronization.
    * 
    * @example
    * S_res_group_235454102432001_1721021993437
@@ -35144,7 +35199,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -35164,7 +35219,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -35174,8 +35229,8 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
    * 
    * This parameter is required.
    * 
@@ -36199,7 +36254,7 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -36207,7 +36262,7 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -36217,8 +36272,8 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
    * 
    * This parameter is required.
    * 
@@ -37937,16 +37992,29 @@ export class CreateDIJobRequest extends $dara.Model {
    * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
    */
   jobSettings?: CreateDIJobRequestJobSettings;
+  /**
+   * @remarks
+   * 任务类型，可选
+   * 
+   *  - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
+   * 
+   *  - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
+   * 
+   *  - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步
+   * 
+   * @example
+   * DatabaseRealtimeMigration
+   */
   jobType?: string;
   /**
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-   * *   RealtimeIncremental: real-time incremental synchronization
-   * *   Full: full synchronization
-   * *   OfflineIncremental: batch incremental synchronization
-   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * *   FullAndRealtimeIncremental: full synchronization and real-time incremental synchronization of data in an entire database
+   * *   RealtimeIncremental: real-time incremental synchronization of data in a single table
+   * *   Full: full batch synchronization of data in an entire database
+   * *   OfflineIncremental: batch incremental synchronization of data in an entire database
+   * *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
    * 
    * This parameter is required.
    * 
@@ -38118,16 +38186,29 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
    */
   jobSettingsShrink?: string;
+  /**
+   * @remarks
+   * 任务类型，可选
+   * 
+   *  - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
+   * 
+   *  - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
+   * 
+   *  - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步
+   * 
+   * @example
+   * DatabaseRealtimeMigration
+   */
   jobType?: string;
   /**
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-   * *   RealtimeIncremental: real-time incremental synchronization
-   * *   Full: full synchronization
-   * *   OfflineIncremental: batch incremental synchronization
-   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * *   FullAndRealtimeIncremental: full synchronization and real-time incremental synchronization of data in an entire database
+   * *   RealtimeIncremental: real-time incremental synchronization of data in a single table
+   * *   Full: full batch synchronization of data in an entire database
+   * *   OfflineIncremental: batch incremental synchronization of data in an entire database
+   * *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
    * 
    * This parameter is required.
    * 
@@ -45698,6 +45779,8 @@ export class GetAlertRuleResponse extends $dara.Model {
 export class GetCertificateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the certificate file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45705,6 +45788,9 @@ export class GetCertificateRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the workspace to which the certificate file belongs.
+   * 
    * @example
    * 1065601
    */
@@ -45733,8 +45819,15 @@ export class GetCertificateRequest extends $dara.Model {
 }
 
 export class GetCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the certificate file.
+   */
   certificate?: GetCertificateResponseBodyCertificate;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
@@ -49606,37 +49699,57 @@ export class ListAlertRulesResponse extends $dara.Model {
 
 export class ListCertificatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the user who created the certificate files.
+   * 
    * @example
    * 1107550004253538
    */
   createUser?: string;
   /**
+   * @remarks
+   * The time when the certificate file was created. You can call this operation to query the files that are created before the time. Unit: milliseconds.
+   * 
    * @example
    * 1593877765000
    */
   endCreateTime?: number;
   /**
+   * @remarks
+   * The name of the certificate file. Fuzzy match by file name is supported.
+   * 
    * @example
    * xm_create_test
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the certificate files. Valid values: Desc: descending order ASC: ascending order Default value: Asc
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the workspace to which the certificate file belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49644,11 +49757,17 @@ export class ListCertificatesRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The field used to sort the certificate files. Valid values: CreateTime Id Name Default value: Id
+   * 
    * @example
    * Id
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The time when the certificate file was created. You can call this operation to query the files that are created after the time. Unit: milliseconds.
+   * 
    * @example
    * 1730217600000
    */
@@ -49691,8 +49810,15 @@ export class ListCertificatesRequest extends $dara.Model {
 }
 
 export class ListCertificatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListCertificatesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ecb967ec-c137-48****
    */
@@ -50613,9 +50739,7 @@ export class ListDIJobsResponse extends $dara.Model {
 export class ListDataAssetTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the tag.
-   * 
-   * Valid values:
+   * The type of the tag. Valid values:
    * 
    * *   Normal
    * *   System
@@ -54275,7 +54399,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * *   Status (Desc/Asc): the status of the resource group
    * *   Spec (Desc/Asc): the specifications of the resource group
    * *   CreateUser (Desc/Asc): the creator of the resource group
-   * *   CreateTime (Desc/Asc): the time when the route is created
+   * *   CreateTime (Desc/Asc): the time when the resource group is created
    * 
    * Default value: CreateTime Asc
    * 
@@ -54409,7 +54533,7 @@ export class ListResourceGroupsShrinkRequest extends $dara.Model {
    * *   Status (Desc/Asc): the status of the resource group
    * *   Spec (Desc/Asc): the specifications of the resource group
    * *   CreateUser (Desc/Asc): the creator of the resource group
-   * *   CreateTime (Desc/Asc): the time when the route is created
+   * *   CreateTime (Desc/Asc): the time when the resource group is created
    * 
    * Default value: CreateTime Asc
    * 
@@ -54868,7 +54992,7 @@ export class ListRoutesResponse extends $dara.Model {
 export class ListTaskInstanceOperationLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days.
+   * The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days. This value is a UNIX timestamp.
    * 
    * @example
    * 1710239005403
@@ -55142,7 +55266,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The trigger type. Valid values:
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -55384,7 +55508,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The trigger type. Valid values:
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -56595,8 +56719,6 @@ export class ListWorkflowDefinitionsResponse extends $dara.Model {
 export class ListWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务日期。
-   * 
    * This parameter is required.
    * 
    * @example
@@ -56668,12 +56790,13 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * 工作流实例的类型。
-   * - Normal：周期调度
-   * - Manual：手动任务
-   * - SmokeTest：测试
-   * - SupplementData：补数据
-   * - ManualWorkflow：手动工作流
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   Normal
+   * *   Manual
+   * *   SmokeTest
+   * *   SupplementData
+   * *   ManualWorkflow
    * 
    * @example
    * Normal
@@ -56732,8 +56855,6 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
 export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务日期。
-   * 
    * This parameter is required.
    * 
    * @example
@@ -56805,12 +56926,13 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * 工作流实例的类型。
-   * - Normal：周期调度
-   * - Manual：手动任务
-   * - SmokeTest：测试
-   * - SupplementData：补数据
-   * - ManualWorkflow：手动工作流
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   Normal
+   * *   Manual
+   * *   SmokeTest
+   * *   SupplementData
+   * *   ManualWorkflow
    * 
    * @example
    * Normal
@@ -59169,7 +59291,10 @@ export class StartDIJobRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * Deprecated
+   * Specifies whether to forcefully rerun all synchronization steps. If you do not configure this parameter, the system does not perform the forcible rerun operation.
+   * 
+   * *   If the system does not perform the forcible rerun operation, only the steps that are not run start to run.
+   * *   If the system performs the forcible rerun operation, all steps start to rerun.
    * 
    * @example
    * false
@@ -59186,6 +59311,10 @@ export class StartDIJobRequest extends $dara.Model {
   /**
    * @remarks
    * The settings for starting real-time synchronization.
+   * 
+   *     {
+   *       "StartTime":1663765058
+   *     }
    */
   realtimeStartSettings?: StartDIJobRequestRealtimeStartSettings;
   static names(): { [key: string]: string } {
@@ -59231,7 +59360,10 @@ export class StartDIJobShrinkRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * Deprecated
+   * Specifies whether to forcefully rerun all synchronization steps. If you do not configure this parameter, the system does not perform the forcible rerun operation.
+   * 
+   * *   If the system does not perform the forcible rerun operation, only the steps that are not run start to run.
+   * *   If the system performs the forcible rerun operation, all steps start to rerun.
    * 
    * @example
    * false
@@ -59248,6 +59380,10 @@ export class StartDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The settings for starting real-time synchronization.
+   * 
+   *     {
+   *       "StartTime":1663765058
+   *     }
    */
   realtimeStartSettingsShrink?: string;
   static names(): { [key: string]: string } {
@@ -60512,7 +60648,7 @@ export class TriggerSchedulerTaskInstanceRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The time defined by the HTTP Trigger node.
+   * The time defined by the HTTP Trigger node. This value is a UNIX timestamp.
    * 
    * This parameter is required.
    * 
@@ -63932,7 +64068,7 @@ export class UpdateTaskRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -64164,7 +64300,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -68394,7 +68530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom alert monitoring rules.
+   * Queries a custom alert monitoring rule.
    * 
    * @param request - GetAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68426,7 +68562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom alert monitoring rules.
+   * Queries a custom alert monitoring rule.
    * 
    * @param request - GetAlertRuleRequest
    * @returns GetAlertRuleResponse
@@ -68437,7 +68573,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看认证文件
+   * Queries a certificate file.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
    * 
    * @param request - GetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68469,7 +68609,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看认证文件
+   * Queries a certificate file.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Workspace Owner, and O\\&M.
    * 
    * @param request - GetCertificateRequest
    * @returns GetCertificateResponse
@@ -69933,7 +70077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom monitoring alert rule by page.
+   * Queries a list of custom monitoring alert rules.
    * 
    * @param tmpReq - ListAlertRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70003,7 +70147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom monitoring alert rule by page.
+   * Queries a list of custom monitoring alert rules.
    * 
    * @param request - ListAlertRulesRequest
    * @returns ListAlertRulesResponse
@@ -70014,7 +70158,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证文件列表
+   * Queries a list of certificate files.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70046,7 +70194,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证文件列表
+   * Queries a list of certificate files.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -73341,7 +73493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the network connectivity between a resource group and a data source.
+   * Tests the connectivity between a data source and a resource group.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -73389,7 +73541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the network connectivity between a resource group and a data source.
+   * Tests the connectivity between a data source and a resource group.
    * 
    * @remarks
    * 1.  This API operation is available for all DataWorks editions.
@@ -73546,7 +73698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom alert monitoring rule.
+   * Updates the information about a custom alert monitoring rule.
    * 
    * @param tmpReq - UpdateAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73612,7 +73764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom alert monitoring rule.
+   * Updates the information about a custom alert monitoring rule.
    * 
    * @param request - UpdateAlertRuleRequest
    * @returns UpdateAlertRuleResponse
