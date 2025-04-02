@@ -15096,6 +15096,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
    * EUREKA_1_9_3
    */
   versionCode?: string;
+  versionLifecycle?: string;
   /**
    * @example
    * vpc-bp1hcg467ekqsv0zr****
@@ -15123,6 +15124,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       versionCode: 'VersionCode',
+      versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
     };
   }
@@ -15149,6 +15151,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
       resourceGroupId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       versionCode: 'string',
+      versionLifecycle: 'string',
       vpcId: 'string',
     };
   }
@@ -16285,6 +16288,58 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $dara.Model 
   }
 }
 
+export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
+  /**
+   * @example
+   * gw-*****5c2cd6144f4bfa1c32289f45ea8.cn-hangzhou.alicloudapi.com
+   */
+  entryDomain?: string;
+  httpPorts?: number[];
+  httpsPorts?: number[];
+  ipList?: string[];
+  /**
+   * @example
+   * PUB_NET
+   */
+  netType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entryDomain: 'EntryDomain',
+      httpPorts: 'HttpPorts',
+      httpsPorts: 'HttpsPorts',
+      ipList: 'IpList',
+      netType: 'NetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entryDomain: 'string',
+      httpPorts: { 'type': 'array', 'itemType': 'number' },
+      httpsPorts: { 'type': 'array', 'itemType': 'number' },
+      ipList: { 'type': 'array', 'itemType': 'string' },
+      netType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.httpPorts)) {
+      $dara.Model.validateArray(this.httpPorts);
+    }
+    if(Array.isArray(this.httpsPorts)) {
+      $dara.Model.validateArray(this.httpsPorts);
+    }
+    if(Array.isArray(this.ipList)) {
+      $dara.Model.validateArray(this.ipList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewayResponseBodyDataResultInitConfig extends $dara.Model {
   /**
    * @remarks
@@ -16655,6 +16710,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
    * 4792060800000
    */
   endDate?: string;
+  gatewayEntry?: ListGatewayResponseBodyDataResultGatewayEntry[];
   /**
    * @remarks
    * The gateway type.
@@ -16869,6 +16925,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
    * false
    */
   upgrade?: boolean;
+  versionLifecycle?: string;
   /**
    * @remarks
    * The ID of the virtual private cloud (VPC) to which the gateway belongs.
@@ -16898,6 +16955,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
       elasticReplica: 'ElasticReplica',
       elasticType: 'ElasticType',
       endDate: 'EndDate',
+      gatewayEntry: 'GatewayEntry',
       gatewayType: 'GatewayType',
       gatewayUniqueId: 'GatewayUniqueId',
       gatewayVersion: 'GatewayVersion',
@@ -16926,6 +16984,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
       tag: 'Tag',
       totalReplica: 'TotalReplica',
       upgrade: 'Upgrade',
+      versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
       vswitch2: 'Vswitch2',
     };
@@ -16944,6 +17003,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
       elasticReplica: 'number',
       elasticType: 'string',
       endDate: 'string',
+      gatewayEntry: { 'type': 'array', 'itemType': ListGatewayResponseBodyDataResultGatewayEntry },
       gatewayType: 'string',
       gatewayUniqueId: 'string',
       gatewayVersion: 'string',
@@ -16972,6 +17032,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
       tag: 'string',
       totalReplica: 'number',
       upgrade: 'boolean',
+      versionLifecycle: 'string',
       vpcId: 'string',
       vswitch2: 'string',
     };
@@ -16980,6 +17041,9 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   validate() {
     if(this.elasticPolicy && typeof (this.elasticPolicy as any).validate === 'function') {
       (this.elasticPolicy as any).validate();
+    }
+    if(Array.isArray(this.gatewayEntry)) {
+      $dara.Model.validateArray(this.gatewayEntry);
     }
     if(this.initConfig && typeof (this.initConfig as any).validate === 'function') {
       (this.initConfig as any).validate();
@@ -24218,6 +24282,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
    * vsw-xxx-xxxx
    */
   vSwitchId?: string;
+  versionLifecycle?: string;
   /**
    * @remarks
    * The ID of the virtual private cloud (VPC).
@@ -24264,6 +24329,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
     };
   }
@@ -24306,6 +24372,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
       resourceGroupId: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitchId: 'string',
+      versionLifecycle: 'string',
       vpcId: 'string',
     };
   }
@@ -24827,6 +24894,7 @@ export class QueryClusterInfoResponseBodyData extends $dara.Model {
    */
   vSwitchId?: string;
   versionCode?: string;
+  versionLifecycle?: string;
   /**
    * @remarks
    * The ID of the VPC where the instance resides.
@@ -24879,6 +24947,7 @@ export class QueryClusterInfoResponseBodyData extends $dara.Model {
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       versionCode: 'VersionCode',
+      versionLifecycle: 'VersionLifecycle',
       vpcId: 'VpcId',
     };
   }
@@ -24927,6 +24996,7 @@ export class QueryClusterInfoResponseBodyData extends $dara.Model {
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       vSwitchId: 'string',
       versionCode: 'string',
+      versionLifecycle: 'string',
       vpcId: 'string',
     };
   }
