@@ -5612,6 +5612,282 @@ export class DescribePurgeTasksResponseBodyTasks extends $dara.Model {
   }
 }
 
+export class DescribeSiteTimeSeriesDataRequestFields extends $dara.Model {
+  dimension?: string[];
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'Dimension',
+      fieldName: 'FieldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: { 'type': 'array', 'itemType': 'string' },
+      fieldName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dimension)) {
+      $dara.Model.validateArray(this.dimension);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.Model {
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  timeStamp?: string;
+  /**
+   * @example
+   * 123
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
+  detailData?: DescribeSiteTimeSeriesDataResponseBodyDataDetailData[];
+  /**
+   * @example
+   * ALL
+   */
+  dimensionName?: string;
+  /**
+   * @example
+   * ALL
+   */
+  dimensionValue?: string;
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailData: 'DetailData',
+      dimensionName: 'DimensionName',
+      dimensionValue: 'DimensionValue',
+      fieldName: 'FieldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailData: { 'type': 'array', 'itemType': DescribeSiteTimeSeriesDataResponseBodyDataDetailData },
+      dimensionName: 'string',
+      dimensionValue: 'string',
+      fieldName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detailData)) {
+      $dara.Model.validateArray(this.detailData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.Model {
+  /**
+   * @example
+   * sum
+   */
+  aggMethod?: string;
+  /**
+   * @example
+   * ALL
+   */
+  dimensionName?: string;
+  /**
+   * @example
+   * ALL
+   */
+  dimensionValue?: string;
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  /**
+   * @example
+   * 12345
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      aggMethod: 'AggMethod',
+      dimensionName: 'DimensionName',
+      dimensionValue: 'DimensionValue',
+      fieldName: 'FieldName',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggMethod: 'string',
+      dimensionName: 'string',
+      dimensionValue: 'string',
+      fieldName: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataRequestFields extends $dara.Model {
+  dimension?: string[];
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dimension: 'Dimension',
+      fieldName: 'FieldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimension: { 'type': 'array', 'itemType': 'string' },
+      fieldName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dimension)) {
+      $dara.Model.validateArray(this.dimension);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataResponseBodyDataDetailData extends $dara.Model {
+  /**
+   * @example
+   * ALL
+   */
+  dimensionValue?: string;
+  /**
+   * @example
+   * 123
+   */
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      dimensionValue: 'DimensionValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dimensionValue: 'string',
+      value: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataResponseBodyData extends $dara.Model {
+  detailData?: DescribeSiteTopDataResponseBodyDataDetailData[];
+  /**
+   * @example
+   * ALL
+   */
+  dimensionName?: string;
+  /**
+   * @example
+   * Traffic
+   */
+  fieldName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailData: 'DetailData',
+      dimensionName: 'DimensionName',
+      fieldName: 'FieldName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailData: { 'type': 'array', 'itemType': DescribeSiteTopDataResponseBodyDataDetailData },
+      dimensionName: 'string',
+      fieldName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detailData)) {
+      $dara.Model.validateArray(this.detailData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCertificateResponseBodyResultDCV extends $dara.Model {
   /**
    * @remarks
@@ -6593,6 +6869,54 @@ export class GetEdgeContainerAppResourceReserveResponseBodyReserveSet extends $d
       isp: 'string',
       region: 'string',
       replicas: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceStatusResponseBodyRegions extends $dara.Model {
+  /**
+   * @example
+   * unicom
+   */
+  isp?: string;
+  /**
+   * @example
+   * 1
+   */
+  ready?: number;
+  /**
+   * @example
+   * huadong
+   */
+  region?: string;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isp: 'Isp',
+      ready: 'Ready',
+      region: 'Region',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isp: 'string',
+      ready: 'number',
+      region: 'string',
+      total: 'number',
     };
   }
 
@@ -15923,6 +16247,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
    * on
    */
   originMtls?: string;
+  originReadTimeout?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Value range:
@@ -16017,6 +16342,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
       originMtls: 'OriginMtls',
+      originReadTimeout: 'OriginReadTimeout',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
@@ -16039,6 +16365,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originHttpPort: 'string',
       originHttpsPort: 'string',
       originMtls: 'string',
+      originReadTimeout: 'string',
       originScheme: 'string',
       originSni: 'string',
       originVerify: 'string',
@@ -21921,7 +22248,7 @@ export class BatchCreateWafRulesShrinkRequest extends $dara.Model {
 export class BatchCreateWafRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    */
   ids?: number[];
   /**
@@ -21934,7 +22261,7 @@ export class BatchCreateWafRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
    * 
    * @example
    * 10000001
@@ -22883,7 +23210,7 @@ export class BatchUpdateWafRulesRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -22892,6 +23219,9 @@ export class BatchUpdateWafRulesRequest extends $dara.Model {
   /**
    * @remarks
    * The configurations shared by multiple rules.
+   * 
+   * @example
+   * 10000001
    */
   shared?: WafBatchRuleShared;
   /**
@@ -22963,7 +23293,7 @@ export class BatchUpdateWafRulesShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -22972,6 +23302,9 @@ export class BatchUpdateWafRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The configurations shared by multiple rules.
+   * 
+   * @example
+   * 10000001
    */
   sharedShrink?: string;
   /**
@@ -28220,6 +28553,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * on
    */
   originMtls?: string;
+  originReadTimeout?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Possible values:
@@ -28315,6 +28649,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
       originMtls: 'OriginMtls',
+      originReadTimeout: 'OriginReadTimeout',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
@@ -28336,6 +28671,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originHttpPort: 'string',
       originHttpsPort: 'string',
       originMtls: 'string',
+      originReadTimeout: 'string',
       originScheme: 'string',
       originSni: 'string',
       originVerify: 'string',
@@ -31652,7 +31988,7 @@ export class CreateWafRuleShrinkRequest extends $dara.Model {
 export class CreateWafRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) API.
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) API.
    * 
    * @example
    * 20000001
@@ -31668,7 +32004,7 @@ export class CreateWafRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
    * 
    * @example
    * 10000001
@@ -37320,7 +37656,7 @@ export class DeleteUserDeliveryTaskResponse extends $dara.Model {
 export class DeleteWafRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * This parameter is required.
    * 
@@ -39678,6 +40014,429 @@ export class DescribeRatePlanInstanceStatusResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRatePlanInstanceStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataRequest extends $dara.Model {
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fields?: DescribeSiteTimeSeriesDataRequestFields[];
+  /**
+   * @example
+   * 300
+   */
+  interval?: string;
+  /**
+   * @example
+   * 1150376036*****
+   */
+  siteId?: string;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fields: 'Fields',
+      interval: 'Interval',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fields: { 'type': 'array', 'itemType': DescribeSiteTimeSeriesDataRequestFields },
+      interval: 'string',
+      siteId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fieldsShrink?: string;
+  /**
+   * @example
+   * 300
+   */
+  interval?: string;
+  /**
+   * @example
+   * 1150376036*****
+   */
+  siteId?: string;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fieldsShrink: 'Fields',
+      interval: 'Interval',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fieldsShrink: 'string',
+      interval: 'string',
+      siteId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
+  data?: DescribeSiteTimeSeriesDataResponseBodyData[];
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 300
+   */
+  interval?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  samplingRate?: number;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  summarizedData?: DescribeSiteTimeSeriesDataResponseBodySummarizedData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      requestId: 'RequestId',
+      samplingRate: 'SamplingRate',
+      startTime: 'StartTime',
+      summarizedData: 'SummarizedData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSiteTimeSeriesDataResponseBodyData },
+      endTime: 'string',
+      interval: 'number',
+      requestId: 'string',
+      samplingRate: 'number',
+      startTime: 'string',
+      summarizedData: { 'type': 'array', 'itemType': DescribeSiteTimeSeriesDataResponseBodySummarizedData },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(Array.isArray(this.summarizedData)) {
+      $dara.Model.validateArray(this.summarizedData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTimeSeriesDataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSiteTimeSeriesDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSiteTimeSeriesDataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataRequest extends $dara.Model {
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fields?: DescribeSiteTopDataRequestFields[];
+  /**
+   * @example
+   * 300
+   */
+  interval?: string;
+  limit?: string;
+  /**
+   * @example
+   * 1150376036*****
+   */
+  siteId?: string;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fields: 'Fields',
+      interval: 'Interval',
+      limit: 'Limit',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fields: { 'type': 'array', 'itemType': DescribeSiteTopDataRequestFields },
+      interval: 'string',
+      limit: 'string',
+      siteId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  fieldsShrink?: string;
+  /**
+   * @example
+   * 300
+   */
+  interval?: string;
+  limit?: string;
+  /**
+   * @example
+   * 1150376036*****
+   */
+  siteId?: string;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fieldsShrink: 'Fields',
+      interval: 'Interval',
+      limit: 'Limit',
+      siteId: 'SiteId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fieldsShrink: 'string',
+      interval: 'string',
+      limit: 'string',
+      siteId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataResponseBody extends $dara.Model {
+  data?: DescribeSiteTopDataResponseBodyData[];
+  /**
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 35C66C7B-671H-4297-9187-2C447724****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  samplingRate?: number;
+  /**
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      endTime: 'EndTime',
+      requestId: 'RequestId',
+      samplingRate: 'SamplingRate',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSiteTopDataResponseBodyData },
+      endTime: 'string',
+      requestId: 'string',
+      samplingRate: 'number',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSiteTopDataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSiteTopDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSiteTopDataResponseBody,
     };
   }
 
@@ -42461,6 +43220,104 @@ export class GetEdgeContainerAppResourceReserveResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetEdgeContainerAppResourceReserveResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-96253477062511****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceStatusResponseBody extends $dara.Model {
+  regions?: GetEdgeContainerAppResourceStatusResponseBodyRegions[];
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': GetEdgeContainerAppResourceStatusResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppResourceStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppResourceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppResourceStatusResponseBody,
     };
   }
 
@@ -46829,6 +47686,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * on
    */
   originMtls?: string;
+  originReadTimeout?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Value range:
@@ -46933,6 +47791,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
       originMtls: 'OriginMtls',
+      originReadTimeout: 'OriginReadTimeout',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
@@ -46956,6 +47815,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originHttpPort: 'string',
       originHttpsPort: 'string',
       originMtls: 'string',
+      originReadTimeout: 'string',
       originScheme: 'string',
       originSni: 'string',
       originVerify: 'string',
@@ -50919,7 +51779,7 @@ export class GetWafQuotaResponse extends $dara.Model {
 export class GetWafRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * This parameter is required.
    * 
@@ -50968,7 +51828,7 @@ export class GetWafRuleResponseBody extends $dara.Model {
   config?: WafRuleConfig;
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * @example
    * 2000001
@@ -51102,7 +51962,7 @@ export class GetWafRuleResponse extends $dara.Model {
 export class GetWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
    * 
    * @example
    * 10000001
@@ -58601,7 +59461,7 @@ export class ListSitesRequest extends $dara.Model {
    * @remarks
    * Sorting field. By default, it sorts by creation time, supporting the following options:
    * - gmtCreate: website creation time
-   * - visitTime：website visit time
+   * - visitTime: website visit time
    * 
    * @example
    * visitTime
@@ -58760,7 +59620,7 @@ export class ListSitesShrinkRequest extends $dara.Model {
    * @remarks
    * Sorting field. By default, it sorts by creation time, supporting the following options:
    * - gmtCreate: website creation time
-   * - visitTime：website visit time
+   * - visitTime: website visit time
    * 
    * @example
    * visitTime
@@ -69553,6 +70413,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
    * on
    */
   originMtls?: string;
+  originReadTimeout?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Valid values:
@@ -69641,6 +70502,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
       originMtls: 'OriginMtls',
+      originReadTimeout: 'OriginReadTimeout',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
       originVerify: 'OriginVerify',
@@ -69662,6 +70524,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originHttpPort: 'string',
       originHttpsPort: 'string',
       originMtls: 'string',
+      originReadTimeout: 'string',
       originScheme: 'string',
       originSni: 'string',
       originVerify: 'string',
@@ -72501,7 +73364,7 @@ export class UpdateWafRuleRequest extends $dara.Model {
   config?: WafRuleConfig;
   /**
    * @remarks
-   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * This parameter is required.
    * 
@@ -72585,7 +73448,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
   configShrink?: string;
   /**
    * @remarks
-   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * This parameter is required.
    * 
@@ -72661,7 +73524,7 @@ export class UpdateWafRuleShrinkRequest extends $dara.Model {
 export class UpdateWafRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) interface.
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * @example
    * 20000001
@@ -77826,6 +78689,10 @@ export default class Client extends OpenApi {
       query["OriginMtls"] = request.originMtls;
     }
 
+    if (!$dara.isNull(request.originReadTimeout)) {
+      query["OriginReadTimeout"] = request.originReadTimeout;
+    }
+
     if (!$dara.isNull(request.originScheme)) {
       query["OriginScheme"] = request.originScheme;
     }
@@ -82134,6 +83001,148 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取时序数据
+   * 
+   * @param tmpReq - DescribeSiteTimeSeriesDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSiteTimeSeriesDataResponse
+   */
+  async describeSiteTimeSeriesDataWithOptions(tmpReq: DescribeSiteTimeSeriesDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSiteTimeSeriesDataResponse> {
+    tmpReq.validate();
+    let request = new DescribeSiteTimeSeriesDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fields)) {
+      request.fieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fields, "Fields", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fieldsShrink)) {
+      query["Fields"] = request.fieldsShrink;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSiteTimeSeriesData",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSiteTimeSeriesDataResponse>(await this.callApi(params, req, runtime), new DescribeSiteTimeSeriesDataResponse({}));
+    } else {
+      return $dara.cast<DescribeSiteTimeSeriesDataResponse>(await this.execute(params, req, runtime), new DescribeSiteTimeSeriesDataResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取时序数据
+   * 
+   * @param request - DescribeSiteTimeSeriesDataRequest
+   * @returns DescribeSiteTimeSeriesDataResponse
+   */
+  async describeSiteTimeSeriesData(request: DescribeSiteTimeSeriesDataRequest): Promise<DescribeSiteTimeSeriesDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSiteTimeSeriesDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Top数据
+   * 
+   * @param tmpReq - DescribeSiteTopDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSiteTopDataResponse
+   */
+  async describeSiteTopDataWithOptions(tmpReq: DescribeSiteTopDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSiteTopDataResponse> {
+    tmpReq.validate();
+    let request = new DescribeSiteTopDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fields)) {
+      request.fieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fields, "Fields", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.fieldsShrink)) {
+      query["Fields"] = request.fieldsShrink;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSiteTopData",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSiteTopDataResponse>(await this.callApi(params, req, runtime), new DescribeSiteTopDataResponse({}));
+    } else {
+      return $dara.cast<DescribeSiteTopDataResponse>(await this.execute(params, req, runtime), new DescribeSiteTopDataResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取Top数据
+   * 
+   * @param request - DescribeSiteTopDataRequest
+   * @returns DescribeSiteTopDataResponse
+   */
+  async describeSiteTopData(request: DescribeSiteTopDataRequest): Promise<DescribeSiteTopDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSiteTopDataWithOptions(request, runtime);
+  }
+
+  /**
    * Disables a scenario-specific policy.
    * 
    * @param request - DisableCustomScenePolicyRequest
@@ -82978,6 +83987,53 @@ export default class Client extends OpenApi {
   async getEdgeContainerAppResourceReserve(request: GetEdgeContainerAppResourceReserveRequest): Promise<GetEdgeContainerAppResourceReserveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEdgeContainerAppResourceReserveWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用资源分布
+   * 
+   * @param request - GetEdgeContainerAppResourceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppResourceStatusResponse
+   */
+  async getEdgeContainerAppResourceStatusWithOptions(request: GetEdgeContainerAppResourceStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetEdgeContainerAppResourceStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEdgeContainerAppResourceStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEdgeContainerAppResourceStatusResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppResourceStatusResponse({}));
+    } else {
+      return $dara.cast<GetEdgeContainerAppResourceStatusResponse>(await this.execute(params, req, runtime), new GetEdgeContainerAppResourceStatusResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取边缘容器应用资源分布
+   * 
+   * @param request - GetEdgeContainerAppResourceStatusRequest
+   * @returns GetEdgeContainerAppResourceStatusResponse
+   */
+  async getEdgeContainerAppResourceStatus(request: GetEdgeContainerAppResourceStatusRequest): Promise<GetEdgeContainerAppResourceStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEdgeContainerAppResourceStatusWithOptions(request, runtime);
   }
 
   /**
@@ -91181,6 +92237,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.originMtls)) {
       query["OriginMtls"] = request.originMtls;
+    }
+
+    if (!$dara.isNull(request.originReadTimeout)) {
+      query["OriginReadTimeout"] = request.originReadTimeout;
     }
 
     if (!$dara.isNull(request.originScheme)) {
