@@ -2853,6 +2853,9 @@ export class GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig extend
    * ["科技","经济","时政","娱乐"]
    */
   categories?: string[];
+  /**
+   * @deprecated
+   */
   customHotValueWeights?: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights[];
   /**
    * @example
@@ -3198,6 +3201,7 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
    * 29
    */
   inputToken?: number;
+  locations?: string[];
   news?: GetHotTopicBroadcastResponseBodyDataDataNews[];
   /**
    * @example
@@ -3222,6 +3226,7 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
       id: 'Id',
       images: 'Images',
       inputToken: 'InputToken',
+      locations: 'Locations',
       news: 'News',
       outputToken: 'OutputToken',
       summary: 'Summary',
@@ -3241,6 +3246,7 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
       id: 'string',
       images: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataImages },
       inputToken: 'number',
+      locations: { 'type': 'array', 'itemType': 'string' },
       news: { 'type': 'array', 'itemType': GetHotTopicBroadcastResponseBodyDataDataNews },
       outputToken: 'number',
       summary: GetHotTopicBroadcastResponseBodyDataDataSummary,
@@ -3251,6 +3257,9 @@ export class GetHotTopicBroadcastResponseBodyDataData extends $dara.Model {
   validate() {
     if(Array.isArray(this.images)) {
       $dara.Model.validateArray(this.images);
+    }
+    if(Array.isArray(this.locations)) {
+      $dara.Model.validateArray(this.locations);
     }
     if(Array.isArray(this.news)) {
       $dara.Model.validateArray(this.news);
@@ -15356,6 +15365,131 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   }
 }
 
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-11-25 14:25:59
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * xxx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResult extends $dara.Model {
+  current?: number;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult[];
+  size?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchResult: 'SearchResult',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResultSearchResult },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.searchResult)) {
+      $dara.Model.validateArray(this.searchResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate extends $dara.Model {
   /**
    * @example
@@ -16232,6 +16366,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult;
   newsElementResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult;
   textGenerateResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult;
+  textSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResult;
   timelineResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult;
   videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult;
   static names(): { [key: string]: string } {
@@ -16241,6 +16376,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       imageSearchResult: 'ImageSearchResult',
       newsElementResult: 'NewsElementResult',
       textGenerateResult: 'TextGenerateResult',
+      textSearchResult: 'TextSearchResult',
       timelineResult: 'TimelineResult',
       videoSearchResult: 'VideoSearchResult',
     };
@@ -16253,6 +16389,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       imageSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult,
       newsElementResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult,
       textGenerateResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult,
+      textSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextSearchResult,
       timelineResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult,
       videoSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult,
     };
@@ -16273,6 +16410,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
     }
     if(this.textGenerateResult && typeof (this.textGenerateResult as any).validate === 'function') {
       (this.textGenerateResult as any).validate();
+    }
+    if(this.textSearchResult && typeof (this.textSearchResult as any).validate === 'function') {
+      (this.textSearchResult as any).validate();
     }
     if(this.timelineResult && typeof (this.timelineResult as any).validate === 'function') {
       (this.timelineResult as any).validate();
@@ -27393,6 +27533,9 @@ export class GetHotTopicBroadcastRequest extends $dara.Model {
    * 2024-10-11_13
    */
   hotTopicVersion?: string;
+  locationQuery?: string;
+  locations?: string[];
+  query?: string;
   /**
    * @example
    * 5
@@ -27419,6 +27562,9 @@ export class GetHotTopicBroadcastRequest extends $dara.Model {
       category: 'Category',
       current: 'Current',
       hotTopicVersion: 'HotTopicVersion',
+      locationQuery: 'LocationQuery',
+      locations: 'Locations',
+      query: 'Query',
       size: 'Size',
       stepForCustomSummaryStyleConfig: 'StepForCustomSummaryStyleConfig',
       stepForNewsBroadcastContentConfig: 'StepForNewsBroadcastContentConfig',
@@ -27433,6 +27579,9 @@ export class GetHotTopicBroadcastRequest extends $dara.Model {
       category: 'string',
       current: 'number',
       hotTopicVersion: 'string',
+      locationQuery: 'string',
+      locations: { 'type': 'array', 'itemType': 'string' },
+      query: 'string',
       size: 'number',
       stepForCustomSummaryStyleConfig: GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig,
       stepForNewsBroadcastContentConfig: GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfig,
@@ -27442,6 +27591,9 @@ export class GetHotTopicBroadcastRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.locations)) {
+      $dara.Model.validateArray(this.locations);
+    }
     if(this.stepForCustomSummaryStyleConfig && typeof (this.stepForCustomSummaryStyleConfig as any).validate === 'function') {
       (this.stepForCustomSummaryStyleConfig as any).validate();
     }
@@ -27480,6 +27632,9 @@ export class GetHotTopicBroadcastShrinkRequest extends $dara.Model {
    * 2024-10-11_13
    */
   hotTopicVersion?: string;
+  locationQuery?: string;
+  locationsShrink?: string;
+  query?: string;
   /**
    * @example
    * 5
@@ -27506,6 +27661,9 @@ export class GetHotTopicBroadcastShrinkRequest extends $dara.Model {
       category: 'Category',
       current: 'Current',
       hotTopicVersion: 'HotTopicVersion',
+      locationQuery: 'LocationQuery',
+      locationsShrink: 'Locations',
+      query: 'Query',
       size: 'Size',
       stepForCustomSummaryStyleConfigShrink: 'StepForCustomSummaryStyleConfig',
       stepForNewsBroadcastContentConfigShrink: 'StepForNewsBroadcastContentConfig',
@@ -27520,6 +27678,9 @@ export class GetHotTopicBroadcastShrinkRequest extends $dara.Model {
       category: 'string',
       current: 'number',
       hotTopicVersion: 'string',
+      locationQuery: 'string',
+      locationsShrink: 'string',
+      query: 'string',
       size: 'number',
       stepForCustomSummaryStyleConfigShrink: 'string',
       stepForNewsBroadcastContentConfigShrink: 'string',
@@ -39570,6 +39731,7 @@ export class RunTextPolishingResponse extends $dara.Model {
 }
 
 export class RunTitleGenerationRequest extends $dara.Model {
+  deduplicatedTitles?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -39580,6 +39742,7 @@ export class RunTitleGenerationRequest extends $dara.Model {
    * xxxx
    */
   taskId?: string;
+  titleCount?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -39590,21 +39753,28 @@ export class RunTitleGenerationRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      deduplicatedTitles: 'DeduplicatedTitles',
       referenceData: 'ReferenceData',
       taskId: 'TaskId',
+      titleCount: 'TitleCount',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deduplicatedTitles: { 'type': 'array', 'itemType': 'string' },
       referenceData: RunTitleGenerationRequestReferenceData,
       taskId: 'string',
+      titleCount: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.deduplicatedTitles)) {
+      $dara.Model.validateArray(this.deduplicatedTitles);
+    }
     if(this.referenceData && typeof (this.referenceData as any).validate === 'function') {
       (this.referenceData as any).validate();
     }
@@ -39617,6 +39787,7 @@ export class RunTitleGenerationRequest extends $dara.Model {
 }
 
 export class RunTitleGenerationShrinkRequest extends $dara.Model {
+  deduplicatedTitlesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -39627,6 +39798,7 @@ export class RunTitleGenerationShrinkRequest extends $dara.Model {
    * xxxx
    */
   taskId?: string;
+  titleCount?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -39637,16 +39809,20 @@ export class RunTitleGenerationShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      deduplicatedTitlesShrink: 'DeduplicatedTitles',
       referenceDataShrink: 'ReferenceData',
       taskId: 'TaskId',
+      titleCount: 'TitleCount',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deduplicatedTitlesShrink: 'string',
       referenceDataShrink: 'string',
       taskId: 'string',
+      titleCount: 'string',
       workspaceId: 'string',
     };
   }
@@ -46661,6 +46837,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new GetHotTopicBroadcastShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.locations)) {
+      request.locationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.locations, "Locations", "json");
+    }
+
     if (!$dara.isNull(tmpReq.stepForCustomSummaryStyleConfig)) {
       request.stepForCustomSummaryStyleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForCustomSummaryStyleConfig, "StepForCustomSummaryStyleConfig", "json");
     }
@@ -46688,6 +46868,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.hotTopicVersion)) {
       body["HotTopicVersion"] = request.hotTopicVersion;
+    }
+
+    if (!$dara.isNull(request.locationQuery)) {
+      body["LocationQuery"] = request.locationQuery;
+    }
+
+    if (!$dara.isNull(request.locationsShrink)) {
+      body["Locations"] = request.locationsShrink;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
     }
 
     if (!$dara.isNull(request.size)) {
@@ -51331,17 +51523,29 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new RunTitleGenerationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deduplicatedTitles)) {
+      request.deduplicatedTitlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deduplicatedTitles, "DeduplicatedTitles", "json");
+    }
+
     if (!$dara.isNull(tmpReq.referenceData)) {
       request.referenceDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.referenceData, "ReferenceData", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deduplicatedTitlesShrink)) {
+      body["DeduplicatedTitles"] = request.deduplicatedTitlesShrink;
+    }
+
     if (!$dara.isNull(request.referenceDataShrink)) {
       body["ReferenceData"] = request.referenceDataShrink;
     }
 
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.titleCount)) {
+      body["TitleCount"] = request.titleCount;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
