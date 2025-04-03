@@ -68,7 +68,7 @@ export class AttachKeyPairResponseBodyData extends $dara.Model {
 export class BackupFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Instance id.
+   * The ID of the cloud phone instance.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -76,7 +76,7 @@ export class BackupFileResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * Backup file id.
+   * The ID of the backup file.
    * 
    * @example
    * bf-b0qbg3pbpjkn7****
@@ -84,7 +84,7 @@ export class BackupFileResponseBodyData extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * Backup file name.
+   * The name of the backup file.
    * 
    * @example
    * a-58ftsoo90p0qa****.ab
@@ -366,11 +366,53 @@ export class CreateAndroidInstanceGroupResponseBodyInstanceGroupInfos extends $d
 }
 
 export class CreateAppRequestCustomAppInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the .apk file. Unit: MB.
+   * 
+   * @example
+   * 10
+   */
   apkSize?: string;
+  /**
+   * @remarks
+   * The download URL of the app.
+   * 
+   * @example
+   * http://testApp.apk
+   */
   downloadUrl?: string;
+  /**
+   * @remarks
+   * The MD5 value of the .apk file.
+   * 
+   * @example
+   * df3f46ce5844ddb278f14c5a9cd2****
+   */
   md5?: string;
+  /**
+   * @remarks
+   * The name of the app package.
+   * 
+   * @example
+   * com.example.demo
+   */
   packageName?: string;
+  /**
+   * @remarks
+   * The version of the app.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
+  /**
+   * @remarks
+   * The code of the app version.
+   * 
+   * @example
+   * 10000
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -403,7 +445,70 @@ export class CreateAppRequestCustomAppInfo extends $dara.Model {
   }
 }
 
+export class CreateCloudPhoneNodeRequestDisplayConfig extends $dara.Model {
+  dpi?: number;
+  fps?: number;
+  lockResolution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dpi: 'Dpi',
+      fps: 'Fps',
+      lockResolution: 'LockResolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dpi: 'number',
+      fps: 'number',
+      lockResolution: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCloudPhoneNodeRequestTag extends $dara.Model {
+  /**
+   * @example
+   * keyname
+   */
+  key?: string;
+  /**
+   * @example
+   * valuename
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeShrinkRequestTag extends $dara.Model {
   /**
    * @example
    * keyname
@@ -828,7 +933,9 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   architectureType?: string;
   /**
    * @remarks
-   * Number of instances.
+   * The number of available instances.
+   * 
+   * >  Available instances are those not in the Deleting or Deleted state.
    * 
    * @example
    * 5
@@ -855,10 +962,14 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * The disks.
    */
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
+  /**
+   * @example
+   * true
+   */
   enableIpv6?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The cause of the creation failure.
    * 
    * @example
    * 0
@@ -944,6 +1055,10 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * RUNNING
    */
   instanceGroupStatus?: string;
+  /**
+   * @example
+   * 50
+   */
   ipv6Bandwidth?: number;
   /**
    * @remarks
@@ -987,7 +1102,13 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   regionId?: string;
   /**
    * @remarks
-   * The rendering type.
+   * The rendering mode of the instance group.
+   * 
+   * Valid values:
+   * 
+   * *   GPURemote: GPU remote rendering.
+   * *   CPU: CPU rendering.
+   * *   GPUocal: GPU local rendering.
    * 
    * @example
    * CPU
@@ -1158,7 +1279,7 @@ export class DescribeAndroidInstancesRequestTag extends $dara.Model {
 export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $dara.Model {
   /**
    * @remarks
-   * The size of the disk. Unit: GB.
+   * The disk size. Unit: GB.
    * 
    * @example
    * 32
@@ -1183,6 +1304,41 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $dar
     return {
       diskSize: 'number',
       diskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig extends $dara.Model {
+  dpi?: number;
+  fps?: number;
+  lockResolution?: string;
+  resolutionHeight?: number;
+  resolutionWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dpi: 'Dpi',
+      fps: 'Fps',
+      lockResolution: 'LockResolution',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dpi: 'number',
+      fps: 'number',
+      lockResolution: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
     };
   }
 
@@ -1329,6 +1485,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * The disks.
    */
   disks?: DescribeAndroidInstancesResponseBodyInstanceModelDisks[];
+  displayConfig?: DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig;
   /**
    * @remarks
    * The cause of the instance data backup failure or restoration failure.
@@ -1402,10 +1559,17 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * 192.168.22.48
    */
   networkInterfaceIp?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   networkInterfaceIpv6Address?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The office network ID.
    * 
    * @example
    * cn-shenzhen+dir-211620****
@@ -1435,6 +1599,13 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * 10.32.1.41
    */
   publicIpAddress?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   publicIpv6Address?: string;
   /**
    * @remarks
@@ -1462,10 +1633,12 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   renderingType?: string;
   /**
    * @remarks
-   * The status of the session connection.
+   * The session status.
    * 
-   * *   connect
-   * *   disConnect
+   * Valid values:
+   * 
+   * *   disConnect: The session is disconnected.
+   * *   connect: The session is connected.
    * 
    * @example
    * connect
@@ -1490,6 +1663,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
+      displayConfig: 'DisplayConfig',
       errorCode: 'ErrorCode',
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
@@ -1528,6 +1702,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelDisks },
+      displayConfig: DescribeAndroidInstancesResponseBodyInstanceModelDisplayConfig,
       errorCode: 'string',
       gmtCreate: 'string',
       gmtExpired: 'string',
@@ -1555,6 +1730,9 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
   validate() {
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
+    }
+    if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
+      (this.displayConfig as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
@@ -1761,7 +1939,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Is all data to be backed up.
+   * Indicates whether the whole instance is backed up.
    * 
    * @example
    * true
@@ -1849,7 +2027,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of apps to be backed up.
+   * The names of the application packages that are backed up.
    */
   sourceAppInfoList?: string[];
   /**
@@ -1987,6 +2165,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * 2025-02-13 02:03:14
    */
   gmtModified?: string;
+  instanceType?: string;
   /**
    * @example
    * 32
@@ -2054,6 +2233,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       gmtCreate: 'GmtCreate',
       gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
+      instanceType: 'InstanceType',
       memory: 'Memory',
       networkId: 'NetworkId',
       nodeId: 'NodeId',
@@ -2076,6 +2256,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       gmtCreate: 'string',
       gmtExpired: 'string',
       gmtModified: 'string',
+      instanceType: 'string',
       memory: 'number',
       networkId: 'string',
       nodeId: 'string',
@@ -2313,11 +2494,11 @@ export class DescribeInvocationsResponseBodyData extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   SUCCESS: The command is successfully executed.
-   * *   FAILED: The command failed to be executed.
-   * *   RUNNING: The command is being executed.
-   * *   PENDING: The command is pending execution.
-   * *   TIMEOUT: The command execution timed out.
+   * *   Failed: The execution of the command failed.
+   * *   Timeout: The execution of the command timed out.
+   * *   Running: The command is being executed.
+   * *   Success: The execution of the command is successful.
+   * *   Pending: The command is waiting to be executed.
    * 
    * @example
    * RUNNING
@@ -2469,6 +2650,13 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
    * 8
    */
   core?: number;
+  /**
+   * @remarks
+   * The maximum number of cloud phone instances.
+   * 
+   * @example
+   * 40
+   */
   maxPhoneCount?: string;
   /**
    * @remarks
@@ -2478,8 +2666,23 @@ export class DescribeSpecResponseBodySpecInfoModel extends $dara.Model {
    * 16
    */
   memory?: number;
+  /**
+   * @remarks
+   * The minimum number of cloud phone instances.
+   * 
+   * @example
+   * 4
+   */
   minPhoneCount?: string;
+  /**
+   * @example
+   * 2
+   */
   phoneCount?: string;
+  /**
+   * @example
+   * 1920*1080
+   */
   resolution?: string;
   /**
    * @remarks
@@ -3756,7 +3959,7 @@ export class BackupFileRequest extends $dara.Model {
   androidInstanceIdList?: string[];
   /**
    * @remarks
-   * Whether all data is to be backed up.
+   * Specifies whether to back up the whole instance.
    * 
    * @example
    * true
@@ -3764,7 +3967,7 @@ export class BackupFileRequest extends $dara.Model {
   backupAll?: boolean;
   /**
    * @remarks
-   * Backup file name.
+   * The name of the backup file.
    * 
    * @example
    * defaultBackupFile
@@ -3789,7 +3992,7 @@ export class BackupFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * List of apps to be backed up.
+   * The names of the application packages that you want to back up.
    */
   sourceAppList?: string[];
   /**
@@ -3868,7 +4071,7 @@ export class BackupFileRequest extends $dara.Model {
 export class BackupFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of instances that are backed up.
    * 
    * @example
    * 100
@@ -3876,7 +4079,7 @@ export class BackupFileResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The objects that are returned.
+   * The object that is returned.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
@@ -3892,7 +4095,7 @@ export class BackupFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The batch task ID.
+   * The ID of the batch task.
    * 
    * @example
    * t-22ex666a5mco5****
@@ -4620,6 +4823,16 @@ export class CreateAppRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The information about the custom app.
+   * 
+   * > 
+   * 
+   * *   If you want to pass in a custom app, configure the `CustomAppInfo` parameter. Take note that the six fields within it are mandatory.
+   * 
+   * *   A custom app has a higher priority than an app from the Alibaba Cloud Workspace Application Center. If you configure the `CustomAppInfo` parameter, the `FileName` and `FilePath` pair or the `OssAppUrl` will not take effect.
+   */
   customAppInfo?: CreateAppRequestCustomAppInfo;
   /**
    * @remarks
@@ -4631,13 +4844,13 @@ export class CreateAppRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name used by the application file in OSS. This parameter, combined with `FilePath`, uniquely identifies the OSS path of the application file.
+   * The name used by the app file in Object Storage Service (OSS). This parameter, combined with `FilePath`, uniquely identifies the OSS path of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `OssAppUrl`, you must specify `FileName` and `FilePath`.
+   * *   Log on to the [Elastic Desktop Service (EDS) Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    * 
    * @example
    * testApp.apk
@@ -4645,13 +4858,13 @@ export class CreateAppRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The OSS bucket path to the application file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the application file.
+   * The OSS bucket path to the app file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `OssAppUrl`, you must specify `FileName` and `FilePath`.
+   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    */
   filePath?: string;
   /**
@@ -4672,13 +4885,13 @@ export class CreateAppRequest extends $dara.Model {
   installParam?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket to which you want to upload the application file.
+   * The OSS bucket endpoint of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `FileName` or `FilePath`, you must specify this parameter.
+   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    * 
    * @example
    * http://testApp.apk
@@ -4741,6 +4954,16 @@ export class CreateAppShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The information about the custom app.
+   * 
+   * > 
+   * 
+   * *   If you want to pass in a custom app, configure the `CustomAppInfo` parameter. Take note that the six fields within it are mandatory.
+   * 
+   * *   A custom app has a higher priority than an app from the Alibaba Cloud Workspace Application Center. If you configure the `CustomAppInfo` parameter, the `FileName` and `FilePath` pair or the `OssAppUrl` will not take effect.
+   */
   customAppInfoShrink?: string;
   /**
    * @remarks
@@ -4752,13 +4975,13 @@ export class CreateAppShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name used by the application file in OSS. This parameter, combined with `FilePath`, uniquely identifies the OSS path of the application file.
+   * The name used by the app file in Object Storage Service (OSS). This parameter, combined with `FilePath`, uniquely identifies the OSS path of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `OssAppUrl`, you must specify `FileName` and `FilePath`.
+   * *   Log on to the [Elastic Desktop Service (EDS) Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    * 
    * @example
    * testApp.apk
@@ -4766,13 +4989,13 @@ export class CreateAppShrinkRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The OSS bucket path to the application file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the application file.
+   * The OSS bucket path to the app file. This parameter, combined with `FileName`, uniquely identifies the OSS path of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `OssAppUrl`, you must specify `FileName` and `FilePath`.
+   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    */
   filePath?: string;
   /**
@@ -4793,13 +5016,13 @@ export class CreateAppShrinkRequest extends $dara.Model {
   installParam?: string;
   /**
    * @remarks
-   * The endpoint of the OSS bucket to which you want to upload the application file.
+   * The OSS bucket endpoint of the app file.
    * 
    * > 
    * 
-   * *   Log on to the [Cloud Phone console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the value of this parameter.
+   * *   If you want to pass in an app from the Alibaba Cloud Workspace Application Center, configure the `FileName` and `FilePath` parameters. Alternatively, configure the `OssAppUrl` parameter. The FileName and FilePath parameters takes precedence over the OssAppUrl parameter.
    * 
-   * *   If you do not specify `FileName` or `FilePath`, you must specify this parameter.
+   * *   Log on to the [EDS Enterprise](https://eds.console.aliyun.com/osshelp) console, upload the app file to the Application Center according to the on-screen instructions, and then retrieve the parameter value.
    * 
    * @example
    * http://testApp.apk
@@ -4946,6 +5169,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * 1
    */
   count?: string;
+  displayConfig?: CreateCloudPhoneNodeRequestDisplayConfig;
   /**
    * @example
    * imgc-075cllfeuazh0****
@@ -5017,6 +5241,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       count: 'Count',
+      displayConfig: 'DisplayConfig',
       imageId: 'ImageId',
       instanceType: 'InstanceType',
       networkId: 'NetworkId',
@@ -5040,6 +5265,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       bizRegionId: 'string',
       chargeType: 'string',
       count: 'string',
+      displayConfig: CreateCloudPhoneNodeRequestDisplayConfig,
       imageId: 'string',
       instanceType: 'string',
       networkId: 'string',
@@ -5052,6 +5278,163 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       serverShareDataVolume: 'number',
       serverType: 'string',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.displayConfig && typeof (this.displayConfig as any).validate === 'function') {
+      (this.displayConfig as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  count?: string;
+  displayConfigShrink?: string;
+  /**
+   * @example
+   * imgc-075cllfeuazh0****
+   */
+  imageId?: string;
+  /**
+   * @example
+   * ac.max
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * cn-hangzhou+dir-5mwr9azebliva****
+   */
+  networkId?: string;
+  /**
+   * @example
+   * node_name
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * 25
+   */
+  phoneCount?: number;
+  /**
+   * @example
+   * 1280
+   */
+  resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
+  resolutionWidth?: number;
+  /**
+   * @example
+   * 200
+   */
+  serverShareDataVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cpm.gn6.gx1
+   */
+  serverType?: string;
+  tag?: CreateCloudPhoneNodeShrinkRequestTag[];
+  /**
+   * @example
+   * vsw-2zeekryyc1q3sm72l****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
+      count: 'Count',
+      displayConfigShrink: 'DisplayConfig',
+      imageId: 'ImageId',
+      instanceType: 'InstanceType',
+      networkId: 'NetworkId',
+      nodeName: 'NodeName',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      phoneCount: 'PhoneCount',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+      serverShareDataVolume: 'ServerShareDataVolume',
+      serverType: 'ServerType',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bizRegionId: 'string',
+      chargeType: 'string',
+      count: 'string',
+      displayConfigShrink: 'string',
+      imageId: 'string',
+      instanceType: 'string',
+      networkId: 'string',
+      nodeName: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      phoneCount: 'number',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+      serverShareDataVolume: 'number',
+      serverType: 'string',
+      tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeShrinkRequestTag },
       vSwitchId: 'string',
     };
   }
@@ -5146,7 +5529,7 @@ export class CreateCloudPhoneNodeResponse extends $dara.Model {
 export class CreateCustomImageRequest extends $dara.Model {
   /**
    * @remarks
-   * Idempotent parameter. Default is empty, with a maximum length of 100 characters.
+   * The client token that is used to ensure the idempotence of the request. By default, this parameter is left empty. The token cannot exceed 64 characters in length.
    * 
    * @example
    * 20393E53-8FF1-524C-B494-B478A5369733
@@ -5154,7 +5537,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Image description.
+   * The description of the custom image.
    * 
    * @example
    * create for cc5g group auth rules test
@@ -5162,7 +5545,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Image name.
+   * The name of the custom image.
    * 
    * This parameter is required.
    * 
@@ -5172,7 +5555,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The ID of the cloud phone instance.
    * 
    * This parameter is required.
    * 
@@ -5210,7 +5593,7 @@ export class CreateCustomImageRequest extends $dara.Model {
 export class CreateCustomImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Image ID.
+   * The ID of the custom image.
    * 
    * @example
    * imgc-075cllfeuazh0****
@@ -5218,7 +5601,7 @@ export class CreateCustomImageResponseBody extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 20393E53-8FF1-524C-B494-B478A5369733
@@ -5472,6 +5855,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * defaultPolicy
    */
   policyGroupName?: string;
+  policyType?: string;
   /**
    * @remarks
    * The height of the resolution. Unit: pixels.
@@ -5497,6 +5881,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
       lockResolution: 'LockResolution',
       netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupName: 'PolicyGroupName',
+      policyType: 'PolicyType',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
     };
@@ -5511,6 +5896,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
       lockResolution: 'string',
       netRedirectPolicy: CreatePolicyGroupRequestNetRedirectPolicy,
       policyGroupName: 'string',
+      policyType: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
     };
@@ -5611,6 +5997,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
    * defaultPolicy
    */
   policyGroupName?: string;
+  policyType?: string;
   /**
    * @remarks
    * The height of the resolution. Unit: pixels.
@@ -5636,6 +6023,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
       lockResolution: 'LockResolution',
       netRedirectPolicyShrink: 'NetRedirectPolicy',
       policyGroupName: 'PolicyGroupName',
+      policyType: 'PolicyType',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
     };
@@ -5650,6 +6038,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
       lockResolution: 'string',
       netRedirectPolicyShrink: 'string',
       policyGroupName: 'string',
+      policyType: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
     };
@@ -6057,6 +6446,10 @@ export class DeleteAppsResponse extends $dara.Model {
 }
 
 export class DeleteCloudPhoneNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud phone matrix IDs.
+   */
   nodeIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6084,6 +6477,9 @@ export class DeleteCloudPhoneNodesRequest extends $dara.Model {
 
 export class DeleteCloudPhoneNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC****
    */
@@ -6541,11 +6937,12 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The sales mode.
+   * The purchase mode of cloud phone instances.
    * 
    * Valid values:
    * 
-   * *   standard
+   * *   Instance (default): the instance group mode.
+   * *   Node: the matrix mode [whitelisted].
    * 
    * @example
    * standard
@@ -6615,7 +7012,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
 export class DescribeAndroidInstanceGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance group.
+   * The instance group.
    */
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
   /**
@@ -6723,7 +7120,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the DescribeRegions operation to query the regions where Cloud Phone is supported.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the regions where Cloud Phone is supported.
    * 
    * @example
    * cn-shanghai
@@ -6731,10 +7128,12 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method.
    * 
-   * *   PrePaid: subscription.
+   * Valid values:
+   * 
    * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
    * 
    * @example
    * PostPaid
@@ -6906,7 +7305,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
 export class DescribeAndroidInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances.
+   * The cloud phone instances.
    */
   instanceModel?: DescribeAndroidInstancesResponseBodyInstanceModel[];
   /**
@@ -7219,7 +7618,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The name of the instance. Instances support fuzzy search by name.
+   * The name of the instance. Fuzzy match is supported.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -7227,7 +7626,12 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   androidInstanceName?: string;
   /**
    * @remarks
-   * Is all data to be backed up.
+   * Specifies whether the whole instance is backed up.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -7243,7 +7647,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The name of the backup file. Backup files support fuzzy search by name.
+   * The name of the backup file. Fuzzy match is supported.
    * 
    * @example
    * defaulBackupFile
@@ -7251,7 +7655,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The description of the backup file. Backup files support fuzzy search by description.
+   * The description of the backup file. Fuzzy match is supported.
    * 
    * @example
    * default description.
@@ -7283,7 +7687,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   instanceGroupId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -7307,7 +7711,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The list of backup file status.
+   * The status of the backup files.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {
@@ -7665,7 +8069,7 @@ export class DescribeImageListRequest extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Value range: 1 to 100. Default value: 20.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -7734,7 +8138,7 @@ export class DescribeImageListRequest extends $dara.Model {
 export class DescribeImageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The objects that are returned.
+   * The images.
    */
   data?: DescribeImageListResponseBodyData[];
   /**
@@ -8234,7 +8638,22 @@ export class DescribeRegionsResponse extends $dara.Model {
 }
 
 export class DescribeSpecRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * The matrix specification.
+   * 
+   * Valid values:
+   * 
+   * *   cpm.gn6.gx1
+   * 
+   * @example
+   * cpm.gn6.gx1
+   */
   matrixSpec?: string;
   /**
    * @remarks
@@ -8252,6 +8671,18 @@ export class DescribeSpecRequest extends $dara.Model {
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The purchase mode of cloud mobile phones.
+   * 
+   * Valid values:
+   * 
+   * *   Instance (default): the instance group mode.
+   * *   Node: the matrix mode [whitelisted].
+   * 
+   * @example
+   * Instance
+   */
   saleMode?: string;
   /**
    * @remarks
@@ -8331,7 +8762,7 @@ export class DescribeSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specification information.
+   * The specifications.
    */
   specInfoModel?: DescribeSpecResponseBodySpecInfoModel[];
   /**
@@ -9416,11 +9847,17 @@ export class FetchFileResponse extends $dara.Model {
 
 export class GenerateCoordinationCodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * acp-2zecay9ponatdc4m****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the user to whom the current instance is assigned.
+   * 
    * @example
    * xiaoming
    */
@@ -9450,11 +9887,17 @@ export class GenerateCoordinationCodeRequest extends $dara.Model {
 
 export class GenerateCoordinationCodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The collaboration code.
+   * 
    * @example
    * CSHGDK
    */
   coordinatorCode?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1A923337-44D9-5CAD-9A53-95084BD4****
    */
@@ -9791,12 +10234,14 @@ export class ListPolicyGroupsRequest extends $dara.Model {
    * defaultPolicyGroup
    */
   policyGroupName?: string;
+  policyType?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       policyGroupIds: 'PolicyGroupIds',
       policyGroupName: 'PolicyGroupName',
+      policyType: 'PolicyType',
     };
   }
 
@@ -9806,6 +10251,7 @@ export class ListPolicyGroupsRequest extends $dara.Model {
       nextToken: 'string',
       policyGroupIds: { 'type': 'array', 'itemType': 'string' },
       policyGroupName: 'string',
+      policyType: 'string',
     };
   }
 
@@ -10269,11 +10715,17 @@ export class ModifyAppResponse extends $dara.Model {
 
 export class ModifyCloudPhoneNodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name that you want to assign to the cloud phone matrix.
+   * 
    * @example
    * node_name_new
    */
   newNodeName?: string;
   /**
+   * @remarks
+   * The ID of the cloud phone matrix.
+   * 
    * @example
    * cpn-0ugbptfu473fy****
    */
@@ -10303,6 +10755,9 @@ export class ModifyCloudPhoneNodeRequest extends $dara.Model {
 
 export class ModifyCloudPhoneNodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
    */
@@ -11257,7 +11712,7 @@ export class RecoveryFileRequest extends $dara.Model {
   androidInstanceIdList?: string[];
   /**
    * @remarks
-   * Whether all data is to be backed up.
+   * Specifies whether to back up the whole instance.
    * 
    * @example
    * true
@@ -11337,7 +11792,7 @@ export class RecoveryFileRequest extends $dara.Model {
 export class RecoveryFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries.
+   * The number of restored instances.
    * 
    * @example
    * 97
@@ -11361,7 +11816,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the batch task.
    * 
    * @example
    * t-5prhfo7wv1gjx****
@@ -11579,17 +12034,43 @@ export class RenewAndroidInstanceGroupsResponse extends $dara.Model {
 
 export class RenewCloudPhoneNodesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the auto-renewal feature.
+   * 
+   * Valid values:
+   * 
+   * *   true: enables the auto-renewal feature. In this case, the system automatically renews the instance upon expiration.
+   * *   false (default): disables the auto-renewal feature. In this case, you need to manually renew the instance upon expiration.
+   * 
    * @example
    * true
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The cloud phone matrix IDs.
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
+   * 
+   * *   When `PeriodUnit` is set to **year**: 1.
+   * *   When `PeriodUnit` is set to **month**: 1, 2, 3, and 6.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the subscription duration.
+   * 
+   * Valid values:
+   * 
+   * *   Month (default)
+   * *   Year
+   * 
    * @example
    * Month
    */
@@ -11626,11 +12107,17 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
 
 export class RenewCloudPhoneNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 22365781890****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC****
    */
@@ -11948,6 +12435,15 @@ export class SendFileRequest extends $dara.Model {
    * /data
    */
   sourceFilePath?: string;
+  /**
+   * @remarks
+   * The name of the file uploaded from the Object Storage Service (OSS) to the cloud phone instance.
+   * 
+   * >  If UploadType is set to OSS, you must specify TargetFileName. If TargetFileName is empty, the file uploaded from the OSS bucket to the cloud phone instance retains its original name. If TargetFileName is provided with a value, the uploaded file in the SourceFilePath directory uses the specified name (TargetFileName). If UploadType is set to DOWNLOAD_URL, TargetFileName does not take effect.
+   * 
+   * @example
+   * test.txt
+   */
   targetFileName?: string;
   /**
    * @remarks
@@ -13135,7 +13631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves connection tickets in bulk.
+   * Retrieves connection tickets in batch.
    * 
    * @param request - BatchGetAcpConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13183,7 +13679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves connection tickets in bulk.
+   * Retrieves connection tickets in batch.
    * 
    * @param request - BatchGetAcpConnectionTicketRequest
    * @returns BatchGetAcpConnectionTicketResponse
@@ -13393,8 +13889,17 @@ export default class Client extends OpenApi {
    * Creates an Android application.
    * 
    * @remarks
-   * ### [](#)Preparations
-   * Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the values of request parameters `FileName`, `FilePath`, and `OssAppUrl`.
+   * When creating an app, you can provide app information to the system in one of the following ways:
+   * *   Way 1: Apps from the Application Center
+   *     *   You can use one of the following methods:
+   *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
+   *         *   Method 2: Pass in the `OssAppUrl` parameter
+   *     *   Rule: If your app is from the Alibaba Cloud Workspace Application Center, you must use either Method 1 or Method 2. If both are used, Method 1 takes priority.
+   *     *   Condition: Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the app file to the Application Center to obtain the values of the `FileName`, `FilePath`, and `OssAppUrl` parameters.
+   * *   Way 2: Custom apps
+   *     *   Pass in the `CustomAppInfo` parameter.
+   *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
+   * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
    * 
    * @param tmpReq - CreateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13471,8 +13976,17 @@ export default class Client extends OpenApi {
    * Creates an Android application.
    * 
    * @remarks
-   * ### [](#)Preparations
-   * Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the application file to Application Center to obtain the values of request parameters `FileName`, `FilePath`, and `OssAppUrl`.
+   * When creating an app, you can provide app information to the system in one of the following ways:
+   * *   Way 1: Apps from the Application Center
+   *     *   You can use one of the following methods:
+   *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
+   *         *   Method 2: Pass in the `OssAppUrl` parameter
+   *     *   Rule: If your app is from the Alibaba Cloud Workspace Application Center, you must use either Method 1 or Method 2. If both are used, Method 1 takes priority.
+   *     *   Condition: Before you proceed, log on to the [Elastic Desktop Service (EDS) Enterprise console](https://eds.console.aliyun.com/osshelp) and follow the on-screen instructions to upload the app file to the Application Center to obtain the values of the `FileName`, `FilePath`, and `OssAppUrl` parameters.
+   * *   Way 2: Custom apps
+   *     *   Pass in the `CustomAppInfo` parameter.
+   *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
+   * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
    * 
    * @param request - CreateAppRequest
    * @returns CreateAppResponse
@@ -13485,12 +13999,18 @@ export default class Client extends OpenApi {
   /**
    * 创建云机节点
    * 
-   * @param request - CreateCloudPhoneNodeRequest
+   * @param tmpReq - CreateCloudPhoneNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudPhoneNodeResponse
    */
-  async createCloudPhoneNodeWithOptions(request: CreateCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<CreateCloudPhoneNodeResponse> {
-    request.validate();
+  async createCloudPhoneNodeWithOptions(tmpReq: CreateCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<CreateCloudPhoneNodeResponse> {
+    tmpReq.validate();
+    let request = new CreateCloudPhoneNodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.displayConfig)) {
+      request.displayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.displayConfig, "DisplayConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
@@ -13564,8 +14084,14 @@ export default class Client extends OpenApi {
       query["VSwitchId"] = request.vSwitchId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayConfigShrink)) {
+      body["DisplayConfig"] = request.displayConfigShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateCloudPhoneNode",
@@ -13598,7 +14124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Custom Image
+   * Creates a custom image from a cloud phone instance.
    * 
    * @param request - CreateCustomImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13646,7 +14172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Custom Image
+   * Creates a custom image from a cloud phone instance.
    * 
    * @param request - CreateCustomImageRequest
    * @returns CreateCustomImageResponse
@@ -13753,6 +14279,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupName)) {
       body["PolicyGroupName"] = request.policyGroupName;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
     }
 
     if (!$dara.isNull(request.resolutionHeight)) {
@@ -13960,7 +14490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放服务器
+   * Deletes a cloud phone matrix.
+   * 
+   * @remarks
+   * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
    * 
    * @param request - DeleteCloudPhoneNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13996,7 +14529,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放服务器
+   * Deletes a cloud phone matrix.
+   * 
+   * @remarks
+   * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
    * 
    * @param request - DeleteCloudPhoneNodesRequest
    * @returns DeleteCloudPhoneNodesResponse
@@ -15373,7 +15909,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取协同码
+   * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
+   * 
+   * @remarks
+   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
    * 
    * @param request - GenerateCoordinationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15413,7 +15952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取协同码
+   * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
+   * 
+   * @remarks
+   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
    * 
    * @param request - GenerateCoordinationCodeRequest
    * @returns GenerateCoordinationCodeResponse
@@ -15484,7 +16026,7 @@ export default class Client extends OpenApi {
    * Installs an app on multiple cloud phone instances at the same time.
    * 
    * @remarks
-   * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
+   * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
    * 
    * @param request - InstallAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15531,7 +16073,7 @@ export default class Client extends OpenApi {
    * Installs an app on multiple cloud phone instances at the same time.
    * 
    * @remarks
-   * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
+   * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
    * 
    * @param request - InstallAppRequest
    * @returns InstallAppResponse
@@ -15565,6 +16107,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupName)) {
       body["PolicyGroupName"] = request.policyGroupName;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      body["PolicyType"] = request.policyType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -15766,7 +16312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云机节点信息
+   * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
    * 
    * @param request - ModifyCloudPhoneNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15798,7 +16344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云机节点信息
+   * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
    * 
    * @param request - ModifyCloudPhoneNodeRequest
    * @returns ModifyCloudPhoneNodeResponse
@@ -16018,6 +16564,9 @@ export default class Client extends OpenApi {
   /**
    * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
    * 
+   * @remarks
+   * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+   * 
    * @param request - OperateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateAppResponse
@@ -16061,6 +16610,9 @@ export default class Client extends OpenApi {
 
   /**
    * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
+   * 
+   * @remarks
+   * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
    * 
    * @param request - OperateAppRequest
    * @returns OperateAppResponse
@@ -16260,7 +16812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续费服务器
+   * Renews a cloud mobile matrix.
    * 
    * @param request - RenewCloudPhoneNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16308,7 +16860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续费服务器
+   * Renews a cloud mobile matrix.
    * 
    * @param request - RenewCloudPhoneNodesRequest
    * @returns RenewCloudPhoneNodesResponse
@@ -16671,7 +17223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
+   * Uninstalls an app from multiple cloud phone instances.
+   * 
+   * @remarks
+   * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
    * 
    * @param request - UninstallAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16715,7 +17270,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
+   * Uninstalls an app from multiple cloud phone instances.
+   * 
+   * @remarks
+   * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
    * 
    * @param request - UninstallAppRequest
    * @returns UninstallAppResponse
