@@ -3453,6 +3453,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
    * Bond information
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
+  hostname?: string;
   /**
    * @remarks
    * Node ID
@@ -3464,6 +3465,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       bonds: 'Bonds',
+      hostname: 'Hostname',
       nodeId: 'NodeId',
     };
   }
@@ -3471,6 +3473,7 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       bonds: { 'type': 'array', 'itemType': ExtendClusterRequestIpAllocationPolicyNodePolicyBonds },
+      hostname: 'string',
       nodeId: 'string',
     };
   }
@@ -3529,6 +3532,32 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
     if(Array.isArray(this.nodePolicy)) {
       $dara.Model.validateArray(this.nodePolicy);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3608,6 +3637,11 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroups extends $dara.Model {
+  amount?: number;
+  autoRenew?: boolean;
+  chargeType?: string;
+  hostnames?: string[];
+  loginPassword?: string;
   /**
    * @remarks
    * Node Group ID
@@ -3616,11 +3650,13 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
    * i16d4883a46cbadeb4bc9
    */
   nodeGroupId?: string;
+  nodeTag?: ExtendClusterRequestNodeGroupsNodeTag[];
   /**
    * @remarks
    * List of Nodes
    */
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
+  period?: number;
   /**
    * @remarks
    * Custom Data
@@ -3630,6 +3666,8 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
    * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
    */
   userData?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   /**
    * @remarks
    * Zone ID
@@ -3640,23 +3678,47 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      amount: 'Amount',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      hostnames: 'Hostnames',
+      loginPassword: 'LoginPassword',
       nodeGroupId: 'NodeGroupId',
+      nodeTag: 'NodeTag',
       nodes: 'Nodes',
+      period: 'Period',
       userData: 'UserData',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      amount: 'number',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      loginPassword: 'string',
       nodeGroupId: 'string',
+      nodeTag: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodeTag },
       nodes: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodes },
+      period: 'number',
       userData: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
       zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    if(Array.isArray(this.nodeTag)) {
+      $dara.Model.validateArray(this.nodeTag);
+    }
     if(Array.isArray(this.nodes)) {
       $dara.Model.validateArray(this.nodes);
     }
