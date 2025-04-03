@@ -519,7 +519,25 @@ export class CreateAggregateCompliancePackRequestExcludeTagsScope extends $dara.
 }
 
 export class CreateAggregateCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag keys to a resource.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the resource.
+   * 
+   * You can add up to 20 tag values to a resource.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -705,7 +723,29 @@ export class CreateAggregateConfigRuleRequestExcludeTagsScope extends $dara.Mode
 }
 
 export class CreateAggregateConfigRuleRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -901,7 +941,27 @@ export class CreateAggregatorRequestAggregatorAccounts extends $dara.Model {
 }
 
 export class CreateAggregatorRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1099,7 +1159,29 @@ export class CreateCompliancePackRequestExcludeTagsScope extends $dara.Model {
 }
 
 export class CreateCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2925,7 +3007,27 @@ export class GetAggregateAdvancedSearchFileResponseBodyResourceSearch extends $d
 }
 
 export class GetAggregateCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3298,7 +3400,21 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
 }
 
 export class GetAggregateCompliancePackResponseBodyCompliancePackTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys of the resource.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag values of the resource.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3413,6 +3529,10 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetAggregateCompliancePackResponseBodyCompliancePackTags[];
   /**
    * @remarks
@@ -4861,6 +4981,17 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
+   * The names of the resource groups to which the rule applies.
+   * 
+   * @example
+   * i-xxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
+   * @remarks
    * The type of the resource evaluated by the rule.
    * 
    * @example
@@ -4886,29 +5017,41 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
   source?: GetAggregateConfigRuleResponseBodyConfigRuleSource;
   /**
    * @remarks
-   * The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if the `TagKeyScope` parameter is set to `ECS,OSS` and the TagKeyLogicScope parameter is set to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
    * 
-   * *   AND: the logical relationship of AND
-   * *   OR: the logical relationship of OR
+   * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+   * 
+   * *   AND
+   * *   OR
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
    * 
    * @example
    * RAM
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
    * 
    * @example
    * MFA
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -4950,6 +5093,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       source: 'Source',
@@ -4990,6 +5134,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: 'string',
       riskLevel: 'number',
       source: GetAggregateConfigRuleResponseBodyConfigRuleSource,
@@ -5243,8 +5388,8 @@ export class GetAggregateConfigRulesReportResponseBodyConfigRulesReport extends 
    * @remarks
    * The status of the compliance evaluation report. Valid values:
    * 
-   * *   NONE: The compliance evaluation report was not generated.
-   * *   CREATING: The compliance evaluation report was being generated.
+   * *   NONE: The compliance evaluation report is not generated.
+   * *   CREATING: The compliance evaluation report is being generated.
    * *   COMPLETE: The compliance evaluation report was generated.
    * 
    * @example
@@ -5253,7 +5398,7 @@ export class GetAggregateConfigRulesReportResponseBodyConfigRulesReport extends 
   reportStatus?: string;
   /**
    * @remarks
-   * The URL that is used to download the compliance evaluation report.
+   * The URL used to download the compliance evaluation report.
    */
   reportUrl?: string;
   static names(): { [key: string]: string } {
@@ -6374,7 +6519,29 @@ export class GetAggregateResourceInventoryResponseBodyResourceInventory extends 
 }
 
 export class GetAggregatorRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6468,7 +6635,21 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $dara
 }
 
 export class GetAggregatorResponseBodyAggregatorTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6580,6 +6761,10 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
    * fd-brHdgv****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * tags
+   */
   tags?: GetAggregatorResponseBodyAggregatorTags[];
   static names(): { [key: string]: string } {
     return {
@@ -6629,7 +6814,25 @@ export class GetAggregatorResponseBodyAggregator extends $dara.Model {
 }
 
 export class GetCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 256 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6804,7 +7007,7 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $dar
 export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key-2
@@ -6812,7 +7015,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope ex
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value-2
@@ -6844,7 +7047,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope ex
 export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key-1
@@ -6852,7 +7055,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value-1
@@ -6884,7 +7087,7 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
 export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Model {
   /**
    * @remarks
-   * Excluded region scope, multiple regions should be separated by commas.
+   * The IDs of regions that are excluded. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -6892,7 +7095,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * Excluded resourceGroup scope, multiple resourceGroup should be separated by commas.
+   * The IDs of the resource groups whose resources you do not want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -6908,7 +7111,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * Exclude tag scope.
+   * The scope of the tag that is excluded.
    * 
    * This parameter is required.
    */
@@ -6931,7 +7134,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * Include ResourceId scope, multiple resourceIds should be separated by commas.
+   * The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -6955,7 +7158,7 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
   tagValueScope?: string;
   /**
    * @remarks
-   * Include tag scope.
+   * The tag scope.
    * 
    * This parameter is required.
    */
@@ -7006,7 +7209,21 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $dara.Mode
 }
 
 export class GetCompliancePackResponseBodyCompliancePackTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys of the resource.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag values of the resource.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7113,6 +7330,10 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: GetCompliancePackResponseBodyCompliancePackTags[];
   /**
    * @remarks
@@ -7120,35 +7341,55 @@ export class GetCompliancePackResponseBodyCompliancePack extends $dara.Model {
    * 
    * @example
    * {
-   *       "configRuleTemplates": [
+   *     "configRuleTemplates": [
    *         {
-   *           "configRuleName": "弹性IP实例带宽满足最低要求",
-   *           "scope": {
-   *             "complianceResourceTypes": [
-   *               "ACS::EIP::EipAddress"
-   *             ]
-   *           },
-   *           "description": "弹性IP实例可用带宽大于等于指定参数值，视为“合规”。默认值：10MB",
-   *           "source": {
-   *             "owner": "ALIYUN",
-   *             "identifier": "eip-bandwidth-limit",
-   *             "sourceDetails": [
-   *               {
-   *                 "messageType": "ConfigurationItemChangeNotification"
-   *               }
-   *             ]
-   *           },
-   *           "inputParameters": {
-   *             "bandwidth": "10"
-   *           }
+   *             "configRuleName": "rule-example",
+   *             "scope": {
+   *                 "complianceResourceTypes": [
+   *                     "ACS::ECS::Instance"
+   *                 ]
+   *             },
+   *             "description": "",
+   *             "source": {
+   *                 "owner": "CUSTOM_CONFIGURATION",
+   *                 "identifier": "acs-config-configuration",
+   *                 "sourceDetails": [
+   *                     {
+   *                         "messageType": "ScheduledNotification",
+   *                         "maximumExecutionFrequency": "Twelve_Hours"
+   *                     },
+   *                     {
+   *                         "messageType": "ConfigurationItemChangeNotification"
+   *                     }
+   *                 ],
+   *                 "conditions": "{\\"ComplianceConditions\\":\\"{\\\\\\"operator\\\\\\":\\\\\\"and\\\\\\",\\\\\\"children\\\\\\":[{\\\\\\"operator\\\\\\":\\\\\\"GreaterOrEquals\\\\\\",\\\\\\"featurePath\\\\\\":\\\\\\"$.Cpu\\\\\\",\\\\\\"featureSource\\\\\\":\\\\\\"CONFIGURATION\\\\\\",\\\\\\"desired\\\\\\":\\\\\\"2\\\\\\"}]}\\"}"
+   *             },
+   *             "inputParameters": {}
+   *         },
+   *         {
+   *             "configRuleName": "name",
+   *             "scope": {
+   *                 "complianceResourceTypes": [
+   *                     "ACS::OSS::Bucket"
+   *                 ]
+   *             },
+   *             "description": "description-1",
+   *             "source": {
+   *                 "owner": "ALIYUN",
+   *                 "identifier": "oss-bucket-referer-limit",
+   *                 "sourceDetails": [
+   *                     {
+   *                         "messageType": "ConfigurationItemChangeNotification"
+   *                     }
+   *                 ]
+   *             },
+   *             "inputParameters": {
+   *                 "allowEmptyReferer": "true",
+   *                 "allowReferers": "http://www.aliyun.com"
+   *             }
    *         }
-   *       ],
-   *       "compliancePackTemplate": {
-   *         "riskLevel": 2,
-   *         "compliancePackName": "gy-test",
-   *         "description": ""
-   *       }
-   *     }
+   *     ]
+   * }
    */
   templateContent?: string;
   static names(): { [key: string]: string } {
@@ -8514,6 +8755,11 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource to be evaluated by the rule.
    * 
@@ -8551,6 +8797,8 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
    * 
    * @example
    * 120886317861****
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
@@ -8561,6 +8809,8 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
    * 
    * @example
    * RAM
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
@@ -8571,6 +8821,8 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
    * 
    * @example
    * MFA
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -8608,6 +8860,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       scope: 'Scope',
@@ -8645,6 +8898,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: 'string',
       riskLevel: 'number',
       scope: GetConfigRuleResponseBodyConfigRuleScope,
@@ -10545,7 +10799,27 @@ export class IgnoreEvaluationResultsRequestResources extends $dara.Model {
 }
 
 export class ListAggregateCompliancePacksRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10571,7 +10845,21 @@ export class ListAggregateCompliancePacksRequestTag extends $dara.Model {
 }
 
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10676,6 +10964,10 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags[];
   static names(): { [key: string]: string } {
     return {
@@ -10722,7 +11014,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance package.
+   * The compliance packages.
    */
   compliancePacks?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
   /**
@@ -11419,7 +11711,27 @@ export class ListAggregateConfigRuleEvaluationStatisticsResponseBodyEvaluationRe
 }
 
 export class ListAggregateConfigRulesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12879,7 +13191,27 @@ export class ListAggregateResourcesByAdvancedSearchResponseBodyQueryResults exte
 }
 
 export class ListAggregatorsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12905,7 +13237,21 @@ export class ListAggregatorsRequestTag extends $dara.Model {
 }
 
 export class ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys of the resource.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag values of the resource.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13010,6 +13356,10 @@ export class ListAggregatorsResponseBodyAggregatorsResultAggregators extends $da
    * r-BU****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * tags
+   */
   tags?: ListAggregatorsResponseBodyAggregatorsResultAggregatorsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -13420,7 +13770,27 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 }
 
 export class ListCompliancePacksRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13446,7 +13816,21 @@ export class ListCompliancePacksRequestTag extends $dara.Model {
 }
 
 export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags extends $dara.Model {
+  /**
+   * @remarks
+   * tag key
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * tag value
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13543,6 +13927,10 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacksTags[];
   static names(): { [key: string]: string } {
     return {
@@ -14067,6 +14455,7 @@ export class ListConfigRuleEvaluationResultsResponseBodyEvaluationResultsEvaluat
    * 
    * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
    * *   ScheduledNotification: The rule is periodically triggered.
+   * *   Manual: The rule is manually triggered.
    * 
    * @example
    * ConfigurationItemChangeNotification
@@ -15832,6 +16221,7 @@ export class ListResourceEvaluationResultsResponseBodyEvaluationResultsEvaluatio
    * 
    * *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
    * *   ScheduledNotification: The managed rule is periodically triggered.
+   * *   Manual: The rule is manually triggered.
    * 
    * @example
    * ScheduledNotification
@@ -17257,7 +17647,27 @@ export class UpdateAggregatorRequestAggregatorAccounts extends $dara.Model {
 }
 
 export class UpdateAggregatorRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys.
+   * 
+   * The tag key cannot be an empty string. The tag key must be 1 to 64 characters in length and cannot start with `aliyun` or `acs`:. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17455,7 +17865,29 @@ export class UpdateCompliancePackRequestExcludeTagsScope extends $dara.Model {
 }
 
 export class UpdateCompliancePackRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   * 
+   * The tag keys cannot be an empty string. The tag keys can be up to 64 characters in length. The tag keys cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * You can specify at most 20 tag keys in each call.
+   * 
+   * @example
+   * key-1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   * 
+   * The tag values can be an empty string or up to 128 characters in length. The tag values cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * 
+   * Each key-value must be unique. You can specify at most 20 tag values in each call.
+   * 
+   * @example
+   * value-1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19004,6 +19436,12 @@ export class CreateAggregateCompliancePackRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: CreateAggregateCompliancePackRequestTag[];
   /**
    * @remarks
@@ -19241,6 +19679,12 @@ export class CreateAggregateCompliancePackShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -19892,6 +20336,14 @@ export class CreateAggregateConfigRuleRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * @example
+   * i-xxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -19943,9 +20395,15 @@ export class CreateAggregateConfigRuleRequest extends $dara.Model {
    * ALIYUN
    */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateAggregateConfigRuleRequestTag[];
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
    * 
    * *   AND
@@ -19953,26 +20411,36 @@ export class CreateAggregateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
    * 
-   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
    * 
-   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -20001,6 +20469,7 @@ export class CreateAggregateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -20034,6 +20503,7 @@ export class CreateAggregateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -20260,6 +20730,14 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * @example
+   * i-xxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -20311,9 +20789,15 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
    * ALIYUN
    */
   sourceOwner?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
    * 
    * *   AND
@@ -20321,26 +20805,36 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
    * 
-   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
    * 
-   * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
+   * 
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -20369,6 +20863,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -20402,6 +20897,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -20775,12 +21271,18 @@ export class CreateAggregatorRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
+   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`. Multiple resource folder IDs should be separated by commas (,).
    * 
    * @example
-   * fd-brHdgv****
+   * fd-brHdgv****,fd-brHdgk****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: CreateAggregatorRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -20884,12 +21386,18 @@ export class CreateAggregatorShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`.
+   * The ID of the folder to which the account group is attached. You must specify this parameter if `AggregatorType` is set to `FOLDER`. Multiple resource folder IDs should be separated by commas (,).
    * 
    * @example
-   * fd-brHdgv****
+   * fd-brHdgv****,fd-brHdgk****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21120,6 +21628,12 @@ export class CreateCompliancePackRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: CreateCompliancePackRequestTag[];
   /**
    * @remarks
@@ -21342,6 +21856,12 @@ export class CreateCompliancePackShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -21560,25 +22080,34 @@ export class CreateConfigDeliveryChannelRequest extends $dara.Model {
   configurationSnapshot?: boolean;
   /**
    * @remarks
-   * The rule that you want to attach to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
+   * The rule that you want to attach to the delivery channel, used to specify subscription content filtering conditions.
    * 
-   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
+   * *   If you specify the minimum risk level and resource types for compliance events, it should be as follows:
    * 
    *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
    * 
    *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
    * 
+   *         The `multiple` field indicates whether multiple values are supported for this group of filters. Risk levels only support single-value filtering, so the multiple field for compliance event type content can only be set to `false`.
+   * 
    *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
    * 
-   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. 
    * 
-   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   *         The `multiple` field indicates whether multiple values are supported for this group of filters. Resource types support multi-value filtering; when selecting multiple resource types, the multiple field can be set to true.
+   * The value of the field is a JSON array. Examples:
    * 
-   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   *         `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * 
+   *     *   You can also simultaneously specify both risk levels and resource types, such as:
+   * 
+   *         `[{"filterType":"RuleRiskLevel","value":"2","multiple":false},{"filterType":"ResourceType","values":["ACS::CDN::Domain","ACS::ActionTrail::Trail"],"multiple":true}]`
+   * 
+   * *   If you specify the resource types for delivering configurations, the resource types are specified by: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
    * 
    *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
    * 
-   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   *       `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
    * 
    * @example
    * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
@@ -21919,6 +22448,11 @@ export class CreateConfigRuleRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -21984,6 +22518,8 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
@@ -21994,6 +22530,8 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
@@ -22004,6 +22542,8 @@ export class CreateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -22027,6 +22567,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -22055,6 +22596,7 @@ export class CreateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -22225,6 +22767,11 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -22290,6 +22837,8 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
@@ -22300,6 +22849,8 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
@@ -22310,6 +22861,8 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -22333,6 +22886,7 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       sourceIdentifier: 'SourceIdentifier',
@@ -22361,6 +22915,7 @@ export class CreateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       sourceIdentifier: 'string',
@@ -25916,6 +26471,12 @@ export class GetAggregateCompliancePackRequest extends $dara.Model {
    * cp-fdc8626622af00f9****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: GetAggregateCompliancePackRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -25970,6 +26531,12 @@ export class GetAggregateCompliancePackShrinkRequest extends $dara.Model {
    * cp-fdc8626622af00f9****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26547,7 +27114,7 @@ export class GetAggregateConfigRuleShrinkRequest extends $dara.Model {
 export class GetAggregateConfigRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rules.
+   * The information about the rules.
    */
   configRule?: GetAggregateConfigRuleResponseBodyConfigRule;
   /**
@@ -26898,7 +27465,7 @@ export class GetAggregateConfigRulesReportRequest extends $dara.Model {
 export class GetAggregateConfigRulesReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the compliance evaluation report.
+   * The compliance evaluation report.
    */
   configRulesReport?: GetAggregateConfigRulesReportResponseBodyConfigRulesReport;
   /**
@@ -28497,6 +29064,12 @@ export class GetAggregatorRequest extends $dara.Model {
    * ca-88ea626622af0055****
    */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: GetAggregatorRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -28535,6 +29108,12 @@ export class GetAggregatorShrinkRequest extends $dara.Model {
    * ca-88ea626622af0055****
    */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28647,6 +29226,12 @@ export class GetCompliancePackRequest extends $dara.Model {
    * cp-a8a8626622af0082****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: GetCompliancePackRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -28687,6 +29272,12 @@ export class GetCompliancePackShrinkRequest extends $dara.Model {
    * cp-a8a8626622af0082****
    */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31766,6 +32357,10 @@ export class ListAggregateCompliancePacksRequest extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListAggregateCompliancePacksRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -31843,6 +32438,10 @@ export class ListAggregateCompliancePacksShrinkRequest extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31876,7 +32475,7 @@ export class ListAggregateCompliancePacksShrinkRequest extends $dara.Model {
 export class ListAggregateCompliancePacksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the compliance packages.
+   * The compliance packages returned.
    */
   compliancePacksResult?: ListAggregateCompliancePacksResponseBodyCompliancePacksResult;
   /**
@@ -32496,6 +33095,12 @@ export class ListAggregateConfigRulesRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: ListAggregateConfigRulesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -32646,6 +33251,12 @@ export class ListAggregateConfigRulesShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33785,6 +34396,12 @@ export class ListAggregatorsRequest extends $dara.Model {
    * TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: ListAggregatorsRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -33833,6 +34450,12 @@ export class ListAggregatorsShrinkRequest extends $dara.Model {
    * TGlzdFJlc291cmNlU2hhcmVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34105,6 +34728,12 @@ export class ListCompliancePacksRequest extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: ListCompliancePacksRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -34168,6 +34797,12 @@ export class ListCompliancePacksShrinkRequest extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34416,7 +35051,7 @@ export class ListConfigRuleEvaluationResultsRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
+   * The maximum number of entries to return in a request. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -35251,6 +35886,7 @@ export class ListIntegratedServiceResponse extends $dara.Model {
 }
 
 export class ListManagedRulesRequest extends $dara.Model {
+  filterType?: string;
   /**
    * @remarks
    * The keyword of the managed rule.
@@ -35301,6 +35937,7 @@ export class ListManagedRulesRequest extends $dara.Model {
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      filterType: 'FilterType',
       keyword: 'Keyword',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -35311,6 +35948,7 @@ export class ListManagedRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      filterType: 'string',
       keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -39421,13 +40059,13 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   inputParameters?: { [key: string]: any };
   /**
    * @remarks
-   * The intervals at which the rule is triggered. Valid values:
+   * The interval at which the rule is triggered. Valid values:
    * 
-   * *   One_Hour: 1 hour
-   * *   Three_Hours: 3 hours
-   * *   Six_Hours: 6 hours
-   * *   Twelve_Hours: 12 hours
-   * *   TwentyFour_Hours: 24 hours
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
    * 
    * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
    * 
@@ -39465,6 +40103,17 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
+   * The names of the resource groups to which the rule applies.
+   * 
+   * @example
+   * i-xxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
+   * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
    * @example
@@ -39473,11 +40122,11 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   resourceTypesScope?: string[];
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * The risk level of the resources that do not comply with the rule. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 3
@@ -39492,6 +40141,8 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
   tag?: UpdateAggregateConfigRuleRequestTag[];
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
    * 
    * *   AND
@@ -39499,26 +40150,36 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
    * 
    * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
    * 
    * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -39547,6 +40208,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tag: 'Tag',
@@ -39578,6 +40240,7 @@ export class UpdateAggregateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       tag: { 'type': 'array', 'itemType': UpdateAggregateConfigRuleRequestTag },
@@ -39763,13 +40426,13 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
   inputParametersShrink?: string;
   /**
    * @remarks
-   * The intervals at which the rule is triggered. Valid values:
+   * The interval at which the rule is triggered. Valid values:
    * 
-   * *   One_Hour: 1 hour
-   * *   Three_Hours: 3 hours
-   * *   Six_Hours: 6 hours
-   * *   Twelve_Hours: 12 hours
-   * *   TwentyFour_Hours: 24 hours
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours
    * 
    * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
    * 
@@ -39807,6 +40470,17 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
+   * The names of the resource groups to which the rule applies.
+   * 
+   * @example
+   * i-xxx
+   * 
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
+   * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
    * @example
@@ -39815,11 +40489,11 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceTypesScopeShrink?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rule. Valid values:
+   * The risk level of the resources that do not comply with the rule. Valid values:
    * 
-   * *   1: high risk level
-   * *   2: medium risk level
-   * *   3: low risk level
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 3
@@ -39834,6 +40508,8 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
    * 
    * *   AND
@@ -39841,26 +40517,36 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
    * 
    * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
    * @remarks
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
+   * 
    * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
    * 
    * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -39889,6 +40575,7 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagShrink: 'Tag',
@@ -39920,6 +40607,7 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       tagShrink: 'string',
@@ -40258,6 +40946,13 @@ export class UpdateAggregatorRequest extends $dara.Model {
    * Test_Aggregator_Description
    */
   description?: string;
+  folderId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: UpdateAggregatorRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -40266,6 +40961,7 @@ export class UpdateAggregatorRequest extends $dara.Model {
       aggregatorName: 'AggregatorName',
       clientToken: 'ClientToken',
       description: 'Description',
+      folderId: 'FolderId',
       tag: 'Tag',
     };
   }
@@ -40277,6 +40973,7 @@ export class UpdateAggregatorRequest extends $dara.Model {
       aggregatorName: 'string',
       clientToken: 'string',
       description: 'string',
+      folderId: 'string',
       tag: { 'type': 'array', 'itemType': UpdateAggregatorRequestTag },
     };
   }
@@ -40347,6 +41044,13 @@ export class UpdateAggregatorShrinkRequest extends $dara.Model {
    * Test_Aggregator_Description
    */
   description?: string;
+  folderId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40355,6 +41059,7 @@ export class UpdateAggregatorShrinkRequest extends $dara.Model {
       aggregatorName: 'AggregatorName',
       clientToken: 'ClientToken',
       description: 'Description',
+      folderId: 'FolderId',
       tagShrink: 'Tag',
     };
   }
@@ -40366,6 +41071,7 @@ export class UpdateAggregatorShrinkRequest extends $dara.Model {
       aggregatorName: 'string',
       clientToken: 'string',
       description: 'string',
+      folderId: 'string',
       tagShrink: 'string',
     };
   }
@@ -40565,6 +41271,12 @@ export class UpdateCompliancePackRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tag?: UpdateCompliancePackRequestTag[];
   /**
    * @remarks
@@ -40765,6 +41477,12 @@ export class UpdateCompliancePackShrinkRequest extends $dara.Model {
    * 1
    */
   riskLevel?: number;
+  /**
+   * @remarks
+   * The tags of the resource.
+   * 
+   * You can add up to 20 tags to a resource.
+   */
   tagShrink?: string;
   /**
    * @remarks
@@ -41362,6 +42080,11 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -41397,6 +42120,8 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
@@ -41407,6 +42132,8 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
@@ -41417,6 +42144,8 @@ export class UpdateConfigRuleRequest extends $dara.Model {
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -41441,6 +42170,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScope: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tag: 'Tag',
@@ -41468,6 +42198,7 @@ export class UpdateConfigRuleRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScope: { 'type': 'array', 'itemType': 'string' },
       riskLevel: 'number',
       tag: { 'type': 'array', 'itemType': UpdateConfigRuleRequestTag },
@@ -41649,6 +42380,11 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    */
   resourceIdsScope?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  resourceNameScope?: string;
+  /**
    * @remarks
    * The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
    * 
@@ -41684,6 +42420,8 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * AND
+   * 
+   * @deprecated
    */
   tagKeyLogicScope?: string;
   /**
@@ -41694,6 +42432,8 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * ECS
+   * 
+   * @deprecated
    */
   tagKeyScope?: string;
   /**
@@ -41704,6 +42444,8 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
    * 
    * @example
    * test
+   * 
+   * @deprecated
    */
   tagValueScope?: string;
   /**
@@ -41728,6 +42470,7 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'RegionIdsScope',
       resourceGroupIdsScope: 'ResourceGroupIdsScope',
       resourceIdsScope: 'ResourceIdsScope',
+      resourceNameScope: 'ResourceNameScope',
       resourceTypesScopeShrink: 'ResourceTypesScope',
       riskLevel: 'RiskLevel',
       tagShrink: 'Tag',
@@ -41755,6 +42498,7 @@ export class UpdateConfigRuleShrinkRequest extends $dara.Model {
       regionIdsScope: 'string',
       resourceGroupIdsScope: 'string',
       resourceIdsScope: 'string',
+      resourceNameScope: 'string',
       resourceTypesScopeShrink: 'string',
       riskLevel: 'number',
       tagShrink: 'string',
@@ -43303,6 +44047,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.resourceNameScope)) {
+      query["ResourceNameScope"] = request.resourceNameScope;
+    }
+
     if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
@@ -43972,6 +44720,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceIdsScope)) {
       body["ResourceIdsScope"] = request.resourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceNameScope)) {
+      body["ResourceNameScope"] = request.resourceNameScope;
     }
 
     if (!$dara.isNull(request.resourceTypesScopeShrink)) {
@@ -49444,6 +50196,10 @@ export default class Client extends OpenApi {
   async listManagedRulesWithOptions(request: ListManagedRulesRequest, runtime: $dara.RuntimeOptions): Promise<ListManagedRulesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.filterType)) {
+      query["FilterType"] = request.filterType;
+    }
+
     if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
@@ -51117,6 +51873,10 @@ export default class Client extends OpenApi {
       body["ResourceIdsScope"] = request.resourceIdsScope;
     }
 
+    if (!$dara.isNull(request.resourceNameScope)) {
+      body["ResourceNameScope"] = request.resourceNameScope;
+    }
+
     if (!$dara.isNull(request.resourceTypesScopeShrink)) {
       body["ResourceTypesScope"] = request.resourceTypesScopeShrink;
     }
@@ -51305,6 +52065,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -51670,6 +52434,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceIdsScope)) {
       body["ResourceIdsScope"] = request.resourceIdsScope;
+    }
+
+    if (!$dara.isNull(request.resourceNameScope)) {
+      body["ResourceNameScope"] = request.resourceNameScope;
     }
 
     if (!$dara.isNull(request.resourceTypesScopeShrink)) {
