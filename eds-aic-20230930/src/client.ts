@@ -11611,10 +11611,12 @@ export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
    * false
    */
   forceStop?: boolean;
+  saleMode?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       forceStop: 'ForceStop',
+      saleMode: 'SaleMode',
     };
   }
 
@@ -11622,6 +11624,7 @@ export class RebootAndroidInstancesInGroupRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       forceStop: 'boolean',
+      saleMode: 'string',
     };
   }
 
@@ -12186,15 +12189,18 @@ export class ResetAndroidInstancesInGroupRequest extends $dara.Model {
    * The IDs of the cloud phone instances.
    */
   androidInstanceIds?: string[];
+  saleMode?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
+      saleMode: 'SaleMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      saleMode: 'string',
     };
   }
 
@@ -12726,15 +12732,18 @@ export class StartAndroidInstanceRequest extends $dara.Model {
    * List of instances.
    */
   androidInstanceIds?: string[];
+  saleMode?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
+      saleMode: 'SaleMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      saleMode: 'string',
     };
   }
 
@@ -12829,10 +12838,12 @@ export class StopAndroidInstanceRequest extends $dara.Model {
    * false
    */
   forceStop?: boolean;
+  saleMode?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       forceStop: 'ForceStop',
+      saleMode: 'SaleMode',
     };
   }
 
@@ -12840,6 +12851,7 @@ export class StopAndroidInstanceRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       forceStop: 'boolean',
+      saleMode: 'string',
     };
   }
 
@@ -16643,6 +16655,10 @@ export default class Client extends OpenApi {
       query["ForceStop"] = request.forceStop;
     }
 
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16887,6 +16903,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
     }
 
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17129,6 +17149,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceIds"] = request.androidInstanceIds;
     }
 
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17184,6 +17208,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.forceStop)) {
       query["ForceStop"] = request.forceStop;
+    }
+
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
