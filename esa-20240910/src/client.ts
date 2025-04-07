@@ -17283,6 +17283,110 @@ export class ListRoutineOptionalSpecsResponseBodySpecs extends $dara.Model {
   }
 }
 
+export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  bypass?: string;
+  /**
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * simple
+   */
+  mode?: string;
+  /**
+   * @example
+   * on
+   */
+  routeEnable?: string;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 554889455535696
+   */
+  siteId?: string;
+  /**
+   * @example
+   * test.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bypass: 'Bypass',
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      mode: 'Mode',
+      routeEnable: 'RouteEnable',
+      routeName: 'RouteName',
+      routineName: 'RoutineName',
+      rule: 'Rule',
+      sequence: 'Sequence',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bypass: 'string',
+      configId: 'number',
+      configType: 'string',
+      mode: 'string',
+      routeEnable: 'string',
+      routeName: 'string',
+      routineName: 'string',
+      rule: 'string',
+      sequence: 'number',
+      siteId: 'string',
+      siteName: 'string',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $dara.Model {
   /**
    * @remarks
@@ -17628,6 +17732,96 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
       deliveryType: 'string',
       status: 'string',
       taskName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  bypass?: string;
+  /**
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * simple
+   */
+  mode?: string;
+  /**
+   * @example
+   * on
+   */
+  routeEnable?: string;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bypass: 'Bypass',
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      mode: 'Mode',
+      routeEnable: 'RouteEnable',
+      routeName: 'RouteName',
+      routineName: 'RoutineName',
+      rule: 'Rule',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bypass: 'string',
+      configId: 'number',
+      configType: 'string',
+      mode: 'string',
+      routeEnable: 'string',
+      routeName: 'string',
+      routineName: 'string',
+      rule: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
     };
   }
 
@@ -30115,6 +30309,150 @@ export class CreateRoutineRelatedRouteResponse extends $dara.Model {
   }
 }
 
+export class CreateRoutineRouteRequest extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  bypass?: string;
+  /**
+   * @example
+   * on
+   */
+  routeEnable?: string;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bypass: 'Bypass',
+      routeEnable: 'RouteEnable',
+      routeName: 'RouteName',
+      routineName: 'RoutineName',
+      rule: 'Rule',
+      sequence: 'Sequence',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bypass: 'string',
+      routeEnable: 'string',
+      routeName: 'string',
+      routineName: 'string',
+      rule: 'string',
+      sequence: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRoutineRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRoutineRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRoutineRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScheduledPreloadExecutionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -36995,6 +37333,108 @@ export class DeleteRoutineRelatedRouteResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRoutineRelatedRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3528160969****
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11223***
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRoutineRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRoutineRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRoutineRouteResponseBody,
     };
   }
 
@@ -48998,6 +49438,178 @@ export class GetRoutineResponse extends $dara.Model {
   }
 }
 
+export class GetRoutineRouteRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  bypass?: string;
+  /**
+   * @example
+   * 352816******
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * simple
+   */
+  mode?: string;
+  /**
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
+   */
+  requestId?: string;
+  /**
+   * @example
+   * on
+   */
+  routeEnable?: string;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bypass: 'Bypass',
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      mode: 'Mode',
+      requestId: 'RequestId',
+      routeEnable: 'RouteEnable',
+      routeName: 'RouteName',
+      routineName: 'RoutineName',
+      rule: 'Rule',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bypass: 'string',
+      configId: 'number',
+      configType: 'string',
+      mode: 'string',
+      requestId: 'string',
+      routeEnable: 'string',
+      routeName: 'string',
+      routineName: 'string',
+      rule: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRoutineRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRoutineRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRoutineStagingCodeUploadInfoRequest extends $dara.Model {
   /**
    * @remarks
@@ -51962,7 +52574,7 @@ export class GetWafRuleResponse extends $dara.Model {
 export class GetWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
+   * The ID of the WAF ruleset, which can be obtained by calling the ListWafRulesets interface.
    * 
    * @example
    * 10000001
@@ -58979,6 +59591,146 @@ export class ListRoutineOptionalSpecsResponse extends $dara.Model {
   }
 }
 
+export class ListRoutineRoutesRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      routineName: 'RoutineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      routineName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineRoutesResponseBody extends $dara.Model {
+  configs?: ListRoutineRoutesResponseBodyConfigs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 83
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListRoutineRoutesResponseBodyConfigs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineRoutesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRoutineRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRoutineRoutesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScheduledPreloadExecutionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -59407,6 +60159,167 @@ export class ListSiteDeliveryTasksResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSiteDeliveryTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteRoutesRequest extends $dara.Model {
+  /**
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      routeName: 'RouteName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      routeName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteRoutesResponseBody extends $dara.Model {
+  configs?: ListSiteRoutesResponseBodyConfigs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 16
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListSiteRoutesResponseBodyConfigs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteRoutesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSiteRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSiteRoutesResponseBody,
     };
   }
 
@@ -71633,6 +72546,150 @@ export class UpdateRewriteUrlRuleResponse extends $dara.Model {
   }
 }
 
+export class UpdateRoutineRouteRequest extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  bypass?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * on
+   */
+  routeEnable?: string;
+  /**
+   * @example
+   * test_route
+   */
+  routeName?: string;
+  /**
+   * @example
+   * test-routine1
+   */
+  routineName?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456******
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bypass: 'Bypass',
+      configId: 'ConfigId',
+      routeEnable: 'RouteEnable',
+      routeName: 'RouteName',
+      routineName: 'RoutineName',
+      rule: 'Rule',
+      sequence: 'Sequence',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bypass: 'string',
+      configId: 'number',
+      routeEnable: 'string',
+      routeName: 'string',
+      routineName: 'string',
+      rule: 'string',
+      sequence: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoutineRouteResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 34DCBC8A-****-****-****-6DAA11D7DDBD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRoutineRouteResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRoutineRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRoutineRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateScheduledPreloadExecutionRequest extends $dara.Model {
   /**
    * @remarks
@@ -73599,7 +74656,7 @@ export class UpdateWafRuleResponse extends $dara.Model {
 export class UpdateWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) interface.
+   * ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
    * 
    * This parameter is required.
    * 
@@ -79262,6 +80319,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增边缘函数路由配置
+   * 
+   * @param request - CreateRoutineRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineRouteResponse
+   */
+  async createRoutineRouteWithOptions(request: CreateRoutineRouteRequest, runtime: $dara.RuntimeOptions): Promise<CreateRoutineRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bypass)) {
+      query["Bypass"] = request.bypass;
+    }
+
+    if (!$dara.isNull(request.routeEnable)) {
+      query["RouteEnable"] = request.routeEnable;
+    }
+
+    if (!$dara.isNull(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRoutineRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateRoutineRouteResponse>(await this.callApi(params, req, runtime), new CreateRoutineRouteResponse({}));
+    } else {
+      return $dara.cast<CreateRoutineRouteResponse>(await this.execute(params, req, runtime), new CreateRoutineRouteResponse({}));
+    }
+
+  }
+
+  /**
+   * 新增边缘函数路由配置
+   * 
+   * @param request - CreateRoutineRouteRequest
+   * @returns CreateRoutineRouteResponse
+   */
+  async createRoutineRoute(request: CreateRoutineRouteRequest): Promise<CreateRoutineRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRoutineRouteWithOptions(request, runtime);
+  }
+
+  /**
    * Creates scheduled prefetch plans.
    * 
    * @param tmpReq - CreateScheduledPreloadExecutionsRequest
@@ -81888,6 +83016,57 @@ export default class Client extends OpenApi {
   async deleteRoutineRelatedRoute(request: DeleteRoutineRelatedRouteRequest): Promise<DeleteRoutineRelatedRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRoutineRelatedRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除边缘函数路由配置
+   * 
+   * @param request - DeleteRoutineRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoutineRouteResponse
+   */
+  async deleteRoutineRouteWithOptions(request: DeleteRoutineRouteRequest, runtime: $dara.RuntimeOptions): Promise<DeleteRoutineRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRoutineRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteRoutineRouteResponse>(await this.callApi(params, req, runtime), new DeleteRoutineRouteResponse({}));
+    } else {
+      return $dara.cast<DeleteRoutineRouteResponse>(await this.execute(params, req, runtime), new DeleteRoutineRouteResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除边缘函数路由配置
+   * 
+   * @param request - DeleteRoutineRouteRequest
+   * @returns DeleteRoutineRouteResponse
+   */
+  async deleteRoutineRoute(request: DeleteRoutineRouteRequest): Promise<DeleteRoutineRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRoutineRouteWithOptions(request, runtime);
   }
 
   /**
@@ -85437,6 +86616,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询单条边缘函数路由配置
+   * 
+   * @param request - GetRoutineRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineRouteResponse
+   */
+  async getRoutineRouteWithOptions(request: GetRoutineRouteRequest, runtime: $dara.RuntimeOptions): Promise<GetRoutineRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRoutineRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetRoutineRouteResponse>(await this.callApi(params, req, runtime), new GetRoutineRouteResponse({}));
+    } else {
+      return $dara.cast<GetRoutineRouteResponse>(await this.execute(params, req, runtime), new GetRoutineRouteResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询单条边缘函数路由配置
+   * 
+   * @param request - GetRoutineRouteRequest
+   * @returns GetRoutineRouteResponse
+   */
+  async getRoutineRoute(request: GetRoutineRouteRequest): Promise<GetRoutineRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRoutineRouteWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
    * 
    * @remarks
@@ -88199,6 +89429,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询边缘程序的函数路由列表
+   * 
+   * @param request - ListRoutineRoutesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRoutineRoutesResponse
+   */
+  async listRoutineRoutesWithOptions(request: ListRoutineRoutesRequest, runtime: $dara.RuntimeOptions): Promise<ListRoutineRoutesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRoutineRoutes",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRoutineRoutesResponse>(await this.callApi(params, req, runtime), new ListRoutineRoutesResponse({}));
+    } else {
+      return $dara.cast<ListRoutineRoutesResponse>(await this.execute(params, req, runtime), new ListRoutineRoutesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询边缘程序的函数路由列表
+   * 
+   * @param request - ListRoutineRoutesRequest
+   * @returns ListRoutineRoutesResponse
+   */
+  async listRoutineRoutes(request: ListRoutineRoutesRequest): Promise<ListRoutineRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRoutineRoutesWithOptions(request, runtime);
+  }
+
+  /**
    * Lists the plans in a scheduled prefetch task by task ID.
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
@@ -88325,6 +89610,73 @@ export default class Client extends OpenApi {
   async listSiteDeliveryTasks(request: ListSiteDeliveryTasksRequest): Promise<ListSiteDeliveryTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSiteDeliveryTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点的函数路由列表
+   * 
+   * @param request - ListSiteRoutesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSiteRoutesResponse
+   */
+  async listSiteRoutesWithOptions(request: ListSiteRoutesRequest, runtime: $dara.RuntimeOptions): Promise<ListSiteRoutesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSiteRoutes",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSiteRoutesResponse>(await this.callApi(params, req, runtime), new ListSiteRoutesResponse({}));
+    } else {
+      return $dara.cast<ListSiteRoutesResponse>(await this.execute(params, req, runtime), new ListSiteRoutesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询站点的函数路由列表
+   * 
+   * @param request - ListSiteRoutesRequest
+   * @returns ListSiteRoutesResponse
+   */
+  async listSiteRoutes(request: ListSiteRoutesRequest): Promise<ListSiteRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSiteRoutesWithOptions(request, runtime);
   }
 
   /**
@@ -92717,6 +94069,81 @@ export default class Client extends OpenApi {
   async updateRewriteUrlRule(request: UpdateRewriteUrlRuleRequest): Promise<UpdateRewriteUrlRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRewriteUrlRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改边缘函数路由配置
+   * 
+   * @param request - UpdateRoutineRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRoutineRouteResponse
+   */
+  async updateRoutineRouteWithOptions(request: UpdateRoutineRouteRequest, runtime: $dara.RuntimeOptions): Promise<UpdateRoutineRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bypass)) {
+      query["Bypass"] = request.bypass;
+    }
+
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.routeEnable)) {
+      query["RouteEnable"] = request.routeEnable;
+    }
+
+    if (!$dara.isNull(request.routeName)) {
+      query["RouteName"] = request.routeName;
+    }
+
+    if (!$dara.isNull(request.routineName)) {
+      query["RoutineName"] = request.routineName;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRoutineRoute",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateRoutineRouteResponse>(await this.callApi(params, req, runtime), new UpdateRoutineRouteResponse({}));
+    } else {
+      return $dara.cast<UpdateRoutineRouteResponse>(await this.execute(params, req, runtime), new UpdateRoutineRouteResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改边缘函数路由配置
+   * 
+   * @param request - UpdateRoutineRouteRequest
+   * @returns UpdateRoutineRouteResponse
+   */
+  async updateRoutineRoute(request: UpdateRoutineRouteRequest): Promise<UpdateRoutineRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRoutineRouteWithOptions(request, runtime);
   }
 
   /**
