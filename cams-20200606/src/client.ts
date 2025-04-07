@@ -5200,7 +5200,7 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
    * The response code.
    * 
    * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -5780,7 +5780,7 @@ export class GetWhatsappHealthStatusResponseBody extends $tea.Model {
    * The response code.
    * 
    * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -8218,6 +8218,9 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
    * aksik93kdkkxmwol93939
    */
   isvCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The state of the phone number.
@@ -8230,6 +8233,9 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
     return {
       custSpaceId: 'CustSpaceId',
       isvCode: 'IsvCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
     };
   }
@@ -8238,6 +8244,9 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
     return {
       custSpaceId: 'string',
       isvCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       status: 'string',
     };
   }
@@ -8288,6 +8297,11 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -8295,6 +8309,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
       message: 'Message',
       phoneNumbers: 'PhoneNumbers',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -8305,6 +8320,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
       message: 'string',
       phoneNumbers: { 'type': 'array', 'itemType': QueryChatappPhoneNumbersResponseBodyPhoneNumbers },
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -12234,6 +12250,11 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
    */
   codeVerificationStatus?: string;
   /**
+   * @example
+   * N
+   */
+  isOfficial?: string;
+  /**
    * @remarks
    * The number of phone numbers to which messages can be sent in a day.
    * 
@@ -12324,6 +12345,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       codeVerificationStatus: 'CodeVerificationStatus',
+      isOfficial: 'IsOfficial',
       messagingLimitTier: 'MessagingLimitTier',
       nameStatus: 'NameStatus',
       newNameStatus: 'NewNameStatus',
@@ -12341,6 +12363,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       codeVerificationStatus: 'string',
+      isOfficial: 'string',
       messagingLimitTier: 'string',
       nameStatus: 'string',
       newNameStatus: 'string',
@@ -16190,6 +16213,11 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
    */
   codeVerificationStatus?: string;
   /**
+   * @example
+   * N
+   */
+  isOfficial?: string;
+  /**
    * @remarks
    * The number of phone numbers to which messages can be sent in a day.
    * 
@@ -16310,6 +16338,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       codeVerificationStatus: 'CodeVerificationStatus',
+      isOfficial: 'IsOfficial',
       messagingLimitTier: 'MessagingLimitTier',
       nameStatus: 'NameStatus',
       newNameStatus: 'NewNameStatus',
@@ -16327,6 +16356,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       codeVerificationStatus: 'string',
+      isOfficial: 'string',
       messagingLimitTier: 'string',
       nameStatus: 'string',
       newNameStatus: 'string',
@@ -16460,6 +16490,8 @@ export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
    * 
    * @example
    * Retail
+   * 
+   * @deprecated
    */
   vertical?: string;
   static names(): { [key: string]: string } {
@@ -17008,7 +17040,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
+    } else {
+      return $tea.cast<AddChatappPhoneNumberResponse>(await this.execute(params, req, runtime), new AddChatappPhoneNumberResponse({}));
+    }
+
   }
 
   /**
@@ -17083,7 +17120,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
+    } else {
+      return $tea.cast<BeeBotAssociateResponse>(await this.execute(params, req, runtime), new BeeBotAssociateResponse({}));
+    }
+
   }
 
   /**
@@ -17181,7 +17223,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
+    } else {
+      return $tea.cast<BeeBotChatResponse>(await this.execute(params, req, runtime), new BeeBotChatResponse({}));
+    }
+
   }
 
   /**
@@ -17241,7 +17288,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
+    } else {
+      return $tea.cast<ChatappBindWabaResponse>(await this.execute(params, req, runtime), new ChatappBindWabaResponse({}));
+    }
+
   }
 
   /**
@@ -17289,7 +17341,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
+    } else {
+      return $tea.cast<ChatappEmbedSignUpResponse>(await this.execute(params, req, runtime), new ChatappEmbedSignUpResponse({}));
+    }
+
   }
 
   /**
@@ -17341,7 +17398,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
+    } else {
+      return $tea.cast<ChatappMigrationRegisterResponse>(await this.execute(params, req, runtime), new ChatappMigrationRegisterResponse({}));
+    }
+
   }
 
   /**
@@ -17397,7 +17459,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
+    } else {
+      return $tea.cast<ChatappMigrationVerifiedResponse>(await this.execute(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
+    }
+
   }
 
   /**
@@ -17449,7 +17516,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
+    } else {
+      return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.execute(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
+    }
+
   }
 
   /**
@@ -17513,7 +17585,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
+    } else {
+      return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.execute(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
+    }
+
   }
 
   /**
@@ -17573,7 +17650,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
+    } else {
+      return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.execute(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
+    }
+
   }
 
   /**
@@ -17641,7 +17723,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
+    } else {
+      return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.execute(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
+    }
+
   }
 
   /**
@@ -17697,7 +17784,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
+    } else {
+      return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.execute(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
+    }
+
   }
 
   /**
@@ -17798,7 +17890,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateChatappTemplateResponse>(await this.callApi(params, req, runtime), new CreateChatappTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateChatappTemplateResponse>(await this.callApi(params, req, runtime), new CreateChatappTemplateResponse({}));
+    } else {
+      return $tea.cast<CreateChatappTemplateResponse>(await this.execute(params, req, runtime), new CreateChatappTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -17863,7 +17960,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
+    } else {
+      return $tea.cast<CreateFlowResponse>(await this.execute(params, req, runtime), new CreateFlowResponse({}));
+    }
+
   }
 
   /**
@@ -17920,7 +18022,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
+    } else {
+      return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
+    }
+
   }
 
   /**
@@ -18002,7 +18109,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteChatappTemplateResponse>(await this.callApi(params, req, runtime), new DeleteChatappTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteChatappTemplateResponse>(await this.callApi(params, req, runtime), new DeleteChatappTemplateResponse({}));
+    } else {
+      return $tea.cast<DeleteChatappTemplateResponse>(await this.execute(params, req, runtime), new DeleteChatappTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -18055,7 +18167,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
+    } else {
+      return $tea.cast<DeleteFlowResponse>(await this.execute(params, req, runtime), new DeleteFlowResponse({}));
+    }
+
   }
 
   /**
@@ -18108,7 +18225,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
+    } else {
+      return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
+    }
+
   }
 
   /**
@@ -18154,7 +18276,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeprecateFlowResponse>(await this.callApi(params, req, runtime), new DeprecateFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeprecateFlowResponse>(await this.callApi(params, req, runtime), new DeprecateFlowResponse({}));
+    } else {
+      return $tea.cast<DeprecateFlowResponse>(await this.execute(params, req, runtime), new DeprecateFlowResponse({}));
+    }
+
   }
 
   /**
@@ -18203,7 +18330,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
+    } else {
+      return $tea.cast<EnableWhatsappROIMetricResponse>(await this.execute(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
+    }
+
   }
 
   /**
@@ -18271,7 +18403,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
+    } else {
+      return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.execute(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
+    }
+
   }
 
   /**
@@ -18344,7 +18481,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
+    } else {
+      return $tea.cast<GetChatappTemplateDetailResponse>(await this.execute(params, req, runtime), new GetChatappTemplateDetailResponse({}));
+    }
+
   }
 
   /**
@@ -18421,7 +18563,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
+    } else {
+      return $tea.cast<GetChatappTemplateMetricResponse>(await this.execute(params, req, runtime), new GetChatappTemplateMetricResponse({}));
+    }
+
   }
 
   /**
@@ -18469,7 +18616,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
+    } else {
+      return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.execute(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
+    }
+
   }
 
   /**
@@ -18541,7 +18693,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
+    } else {
+      return $tea.cast<GetChatappVerifyCodeResponse>(await this.execute(params, req, runtime), new GetChatappVerifyCodeResponse({}));
+    }
+
   }
 
   /**
@@ -18605,7 +18762,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
+    } else {
+      return $tea.cast<GetCommerceSettingResponse>(await this.execute(params, req, runtime), new GetCommerceSettingResponse({}));
+    }
+
   }
 
   /**
@@ -18671,7 +18833,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetConversationalAutomationResponse>(await this.callApi(params, req, runtime), new GetConversationalAutomationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetConversationalAutomationResponse>(await this.callApi(params, req, runtime), new GetConversationalAutomationResponse({}));
+    } else {
+      return $tea.cast<GetConversationalAutomationResponse>(await this.execute(params, req, runtime), new GetConversationalAutomationResponse({}));
+    }
+
   }
 
   /**
@@ -18725,7 +18892,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
+    } else {
+      return $tea.cast<GetFlowResponse>(await this.execute(params, req, runtime), new GetFlowResponse({}));
+    }
+
   }
 
   /**
@@ -18774,7 +18946,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFlowJSONAssestResponse>(await this.callApi(params, req, runtime), new GetFlowJSONAssestResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetFlowJSONAssestResponse>(await this.callApi(params, req, runtime), new GetFlowJSONAssestResponse({}));
+    } else {
+      return $tea.cast<GetFlowJSONAssestResponse>(await this.execute(params, req, runtime), new GetFlowJSONAssestResponse({}));
+    }
+
   }
 
   /**
@@ -18823,7 +19000,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
+    } else {
+      return $tea.cast<GetFlowPreviewUrlResponse>(await this.execute(params, req, runtime), new GetFlowPreviewUrlResponse({}));
+    }
+
   }
 
   /**
@@ -18883,7 +19065,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
+    } else {
+      return $tea.cast<GetMigrationVerifyCodeResponse>(await this.execute(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
+    }
+
   }
 
   /**
@@ -18942,7 +19129,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPermissionByCodeResponse>(await this.callApi(params, req, runtime), new GetPermissionByCodeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPermissionByCodeResponse>(await this.callApi(params, req, runtime), new GetPermissionByCodeResponse({}));
+    } else {
+      return $tea.cast<GetPermissionByCodeResponse>(await this.execute(params, req, runtime), new GetPermissionByCodeResponse({}));
+    }
+
   }
 
   /**
@@ -18988,7 +19180,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
+    } else {
+      return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.execute(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
+    }
+
   }
 
   /**
@@ -19037,7 +19234,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
+    } else {
+      return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.execute(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
+    }
+
   }
 
   /**
@@ -19089,7 +19291,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
+    } else {
+      return $tea.cast<GetPreValidatePhoneIdResponse>(await this.execute(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
+    }
+
   }
 
   /**
@@ -19153,7 +19360,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
+    } else {
+      return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.execute(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
+    }
+
   }
 
   /**
@@ -19235,7 +19447,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetWhatsappHealthStatusResponse>(await this.callApi(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetWhatsappHealthStatusResponse>(await this.callApi(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
+    } else {
+      return $tea.cast<GetWhatsappHealthStatusResponse>(await this.execute(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
+    }
+
   }
 
   /**
@@ -19289,7 +19506,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
+    } else {
+      return $tea.cast<IsvGetAppIdResponse>(await this.execute(params, req, runtime), new IsvGetAppIdResponse({}));
+    }
+
   }
 
   /**
@@ -19376,7 +19598,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
+    } else {
+      return $tea.cast<ListChatappTemplateResponse>(await this.execute(params, req, runtime), new ListChatappTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -19439,7 +19666,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
+    } else {
+      return $tea.cast<ListFlowResponse>(await this.execute(params, req, runtime), new ListFlowResponse({}));
+    }
+
   }
 
   /**
@@ -19488,7 +19720,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListPhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
+    } else {
+      return $tea.cast<ListPhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
+    }
+
   }
 
   /**
@@ -19569,7 +19806,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
+    } else {
+      return $tea.cast<ListProductResponse>(await this.execute(params, req, runtime), new ListProductResponse({}));
+    }
+
   }
 
   /**
@@ -19649,7 +19891,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
+    } else {
+      return $tea.cast<ListProductCatalogResponse>(await this.execute(params, req, runtime), new ListProductCatalogResponse({}));
+    }
+
   }
 
   /**
@@ -19747,7 +19994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
+    } else {
+      return $tea.cast<ModifyChatappTemplateResponse>(await this.execute(params, req, runtime), new ModifyChatappTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -19813,7 +20065,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
+    } else {
+      return $tea.cast<ModifyFlowResponse>(await this.execute(params, req, runtime), new ModifyFlowResponse({}));
+    }
+
   }
 
   /**
@@ -19911,7 +20168,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
+    } else {
+      return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.execute(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
+    }
+
   }
 
   /**
@@ -19963,7 +20225,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
+    } else {
+      return $tea.cast<PublishFlowResponse>(await this.execute(params, req, runtime), new PublishFlowResponse({}));
+    }
+
   }
 
   /**
@@ -20027,7 +20294,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
+    } else {
+      return $tea.cast<QueryChatappBindWabaResponse>(await this.execute(params, req, runtime), new QueryChatappBindWabaResponse({}));
+    }
+
   }
 
   /**
@@ -20065,6 +20337,18 @@ export default class Client extends OpenApi {
       query["IsvCode"] = request.isvCode;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -20083,7 +20367,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
+    } else {
+      return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.execute(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
+    }
+
   }
 
   /**
@@ -20147,7 +20436,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
+    } else {
+      return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.execute(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
+    }
+
   }
 
   /**
@@ -20211,7 +20505,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
+    } else {
+      return $tea.cast<QueryWabaBusinessInfoResponse>(await this.execute(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
+    }
+
   }
 
   /**
@@ -20330,7 +20629,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
+    } else {
+      return $tea.cast<SendChatappMassMessageResponse>(await this.execute(params, req, runtime), new SendChatappMassMessageResponse({}));
+    }
+
   }
 
   /**
@@ -20499,7 +20803,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
+    } else {
+      return $tea.cast<SendChatappMessageResponse>(await this.execute(params, req, runtime), new SendChatappMessageResponse({}));
+    }
+
   }
 
   /**
@@ -20572,7 +20881,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
+    } else {
+      return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.execute(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
+    }
+
   }
 
   /**
@@ -20659,7 +20973,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TriggerChatFlowResponse>(await this.callApi(params, req, runtime), new TriggerChatFlowResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TriggerChatFlowResponse>(await this.callApi(params, req, runtime), new TriggerChatFlowResponse({}));
+    } else {
+      return $tea.cast<TriggerChatFlowResponse>(await this.execute(params, req, runtime), new TriggerChatFlowResponse({}));
+    }
+
   }
 
   /**
@@ -20719,7 +21038,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
+    } else {
+      return $tea.cast<UpdateAccountWebhookResponse>(await this.execute(params, req, runtime), new UpdateAccountWebhookResponse({}));
+    }
+
   }
 
   /**
@@ -20791,7 +21115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
+    } else {
+      return $tea.cast<UpdateCommerceSettingResponse>(await this.execute(params, req, runtime), new UpdateCommerceSettingResponse({}));
+    }
+
   }
 
   /**
@@ -20879,7 +21208,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateConversationalAutomationResponse>(await this.callApi(params, req, runtime), new UpdateConversationalAutomationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateConversationalAutomationResponse>(await this.callApi(params, req, runtime), new UpdateConversationalAutomationResponse({}));
+    } else {
+      return $tea.cast<UpdateConversationalAutomationResponse>(await this.execute(params, req, runtime), new UpdateConversationalAutomationResponse({}));
+    }
+
   }
 
   /**
@@ -20934,7 +21268,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFlowJSONAssetResponse>(await this.callApi(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateFlowJSONAssetResponse>(await this.callApi(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
+    } else {
+      return $tea.cast<UpdateFlowJSONAssetResponse>(await this.execute(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
+    }
+
   }
 
   /**
@@ -20984,7 +21323,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
+    } else {
+      return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.execute(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
+    }
+
   }
 
   /**
@@ -21042,7 +21386,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
+    } else {
+      return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
+    }
+
   }
 
   /**
@@ -21109,7 +21458,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
+    } else {
+      return $tea.cast<UpdatePhoneWebhookResponse>(await this.execute(params, req, runtime), new UpdatePhoneWebhookResponse({}));
+    }
+
   }
 
   /**
