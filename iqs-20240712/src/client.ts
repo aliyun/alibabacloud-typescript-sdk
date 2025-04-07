@@ -3341,19 +3341,25 @@ export class AgentBaseQuery extends $dara.Model {
 }
 
 export class CommonAgentQuery extends $dara.Model {
+  limit?: number;
   query?: string;
   querySceneEnumCode?: string;
+  searchModel?: string;
   static names(): { [key: string]: string } {
     return {
+      limit: 'limit',
       query: 'query',
       querySceneEnumCode: 'querySceneEnumCode',
+      searchModel: 'searchModel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      limit: 'number',
       query: 'string',
       querySceneEnumCode: 'string',
+      searchModel: 'string',
     };
   }
 
