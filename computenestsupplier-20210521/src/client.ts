@@ -1,9301 +1,13 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
-import * as $dara from '@darabonba/typescript';
-
-export class AddServiceSharedAccountsRequestSharedAccounts extends $dara.Model {
-  /**
-   * @remarks
-   * The permissions on the service. Valid values:
-   * 
-   * *   Deployable: Permissions to deploy the service.
-   * *   Accessible: Permissions to access the service.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Accessible
-   */
-  permission?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the user.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 123456
-   */
-  userAliUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      permission: 'Permission',
-      userAliUid: 'UserAliUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permission: 'string',
-      userAliUid: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $dara.Model {
-  /**
-   * @remarks
-   * The parameters that can be modified. The operation that is performed to modify the parameters does not cause a validation error.
-   * 
-   * >  This parameter is returned only if DryRun is set to true.
-   */
-  parametersAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that can be modified under specific conditions. The new values of the parameters determine whether the operation that is performed to modify the parameters causes a validation error.
-   * 
-   * >  This parameter is returned only if DryRun is set to true.
-   */
-  parametersConditionallyAllowedToBeModified?: string[];
-  /**
-   * @remarks
-   * The parameters that cannot be modified. The operation that is performed to modify the parameters causes a validation error.
-   * 
-   * >  This parameter is returned only if DryRun is set to true.
-   */
-  parametersNotAllowedToBeModified?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
-      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
-      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.parametersAllowedToBeModified)) {
-      $dara.Model.validateArray(this.parametersAllowedToBeModified);
-    }
-    if(Array.isArray(this.parametersConditionallyAllowedToBeModified)) {
-      $dara.Model.validateArray(this.parametersConditionallyAllowedToBeModified);
-    }
-    if(Array.isArray(this.parametersNotAllowedToBeModified)) {
-      $dara.Model.validateArray(this.parametersNotAllowedToBeModified);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.Model {
-  /**
-   * @remarks
-   * The name of a specific build argument.
-   * 
-   * @example
-   * ENV
-   */
-  argumentName?: string;
-  /**
-   * @remarks
-   * The value of a specific build argument.
-   * 
-   * @example
-   * nginx:latest
-   */
-  argumentValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      argumentName: 'ArgumentName',
-      argumentValue: 'ArgumentValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      argumentName: 'string',
-      argumentValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the branch in the code repository.
-   * 
-   * @example
-   * main
-   */
-  branch?: string;
-  /**
-   * @remarks
-   * The endpoint. 
-   * The URL address used to access the privately deployed GitLab instance.
-   * 
-   * @example
-   * http://121.40.25.0
-   */
-  endpoint?: string;
-  /**
-   * @remarks
-   * The organization ID.
-   * 
-   * @example
-   * 455231
-   */
-  orgId?: string;
-  /**
-   * @remarks
-   * The owner of the code repository.
-   * 
-   * >  This parameter is available only if the git repository is private.
-   * 
-   * @example
-   * aliyun-computenest
-   */
-  owner?: string;
-  /**
-   * @remarks
-   * The platform type. Valid values: 
-   * 
-   * - github
-   * 
-   * - gitee
-   * - gitlab
-   * - codeup
-   * 
-   * @example
-   * github
-   */
-  platform?: string;
-  /**
-   * @remarks
-   * The repository ID.
-   * 
-   * @example
-   * 103
-   */
-  repoId?: number;
-  /**
-   * @remarks
-   * The name of the repository.
-   * 
-   * @example
-   * aliyun-computenest/quickstart-Lobexxx
-   */
-  repoName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      branch: 'Branch',
-      endpoint: 'Endpoint',
-      orgId: 'OrgId',
-      owner: 'Owner',
-      platform: 'Platform',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      branch: 'string',
-      endpoint: 'string',
-      orgId: 'string',
-      owner: 'string',
-      platform: 'string',
-      repoId: 'number',
-      repoName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactRequestArtifactBuildProperty extends $dara.Model {
-  /**
-   * @remarks
-   * The build arguments used during the image build process.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
-   */
-  buildArgs?: CreateArtifactRequestArtifactBuildPropertyBuildArgs[];
-  /**
-   * @remarks
-   * The address of the code repository.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
-   */
-  codeRepo?: CreateArtifactRequestArtifactBuildPropertyCodeRepo;
-  /**
-   * @remarks
-   * The command content.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * echo "start run command"
-   */
-  commandContent?: string;
-  /**
-   * @remarks
-   * The command type. Valid values:
-   * 
-   * *   RunBatScript: batch command, applicable to Windows instances.
-   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-   * *   RunShellScript: shell command, applicable to Linux instances.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * RunShellScript
-   */
-  commandType?: string;
-  /**
-   * @remarks
-   * The relative path to the Dockerfile within the code repository.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
-   * 
-   * @example
-   * ./file/Dockerfile
-   */
-  dockerfilePath?: string;
-  /**
-   * @remarks
-   * The region ID where the source mirror image is located.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
-   * 
-   * @example
-   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
-   */
-  sourceContainerImage?: string;
-  /**
-   * @remarks
-   * The source image id. Supported Types:
-   * 
-   * - Image ID: Pass the Image ID of the Ecs image directly.
-   * 
-   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * Image ID：m-t4nhenrdc38pe4*****
-   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
-   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
-   */
-  sourceImageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buildArgs: 'BuildArgs',
-      codeRepo: 'CodeRepo',
-      commandContent: 'CommandContent',
-      commandType: 'CommandType',
-      dockerfilePath: 'DockerfilePath',
-      regionId: 'RegionId',
-      sourceContainerImage: 'SourceContainerImage',
-      sourceImageId: 'SourceImageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buildArgs: { 'type': 'array', 'itemType': CreateArtifactRequestArtifactBuildPropertyBuildArgs },
-      codeRepo: CreateArtifactRequestArtifactBuildPropertyCodeRepo,
-      commandContent: 'string',
-      commandType: 'string',
-      dockerfilePath: 'string',
-      regionId: 'string',
-      sourceContainerImage: 'string',
-      sourceImageId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.buildArgs)) {
-      $dara.Model.validateArray(this.buildArgs);
-    }
-    if(this.codeRepo && typeof (this.codeRepo as any).validate === 'function') {
-      (this.codeRepo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactRequestArtifactProperty extends $dara.Model {
-  /**
-   * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The commodity version of the service in Alibaba Cloud Marketplace.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * V1.0
-   */
-  commodityVersion?: string;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * m-0xij191j9cuev6xxxxxx
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the image repository.
-   * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * crr-d8o1nponyc2t1gcg
-   */
-  repoId?: string;
-  /**
-   * @remarks
-   * The name of the image repository.
-   * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * wordpress
-   */
-  repoName?: string;
-  /**
-   * @remarks
-   * The default repository type. Valid values:
-   * 
-   * *   `Public`: a public repository.
-   * *   `Private`: a private repository.
-   * 
-   * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
-   * 
-   * @example
-   * Public
-   */
-  repoType?: string;
-  /**
-   * @remarks
-   * The version tag of the image repository.
-   * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * v1
-   */
-  tag?: string;
-  /**
-   * @remarks
-   * The object URL of the deployment package.
-   * 
-   * @example
-   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      commodityVersion: 'CommodityVersion',
-      imageId: 'ImageId',
-      regionId: 'RegionId',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-      repoType: 'RepoType',
-      tag: 'Tag',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      commodityVersion: 'string',
-      imageId: 'string',
-      regionId: 'string',
-      repoId: 'string',
-      repoName: 'string',
-      repoType: 'string',
-      tag: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateArtifactShrinkRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceRequestComplianceMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The compliance package selected.
-   */
-  compliancePacks?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      compliancePacks: 'CompliancePacks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compliancePacks: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.compliancePacks)) {
-      $dara.Model.validateArray(this.compliancePacks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceRequestServiceInfoAgreements extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceRequestServiceInfoSoftwares extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the software.
-   * 
-   * @example
-   * MySQL
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software.
-   * 
-   * @example
-   * 5.7
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceRequestServiceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
-  agreements?: CreateServiceRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
-  longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TiDB Database
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
-   */
-  shortDescription?: string;
-  /**
-   * @remarks
-   * The list of the software in the service.
-   */
-  softwares?: CreateServiceRequestServiceInfoSoftwares[];
-  static names(): { [key: string]: string } {
-    return {
-      agreements: 'Agreements',
-      image: 'Image',
-      locale: 'Locale',
-      longDescriptionUrl: 'LongDescriptionUrl',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-      softwares: 'Softwares',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agreements: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoAgreements },
-      image: 'string',
-      locale: 'string',
-      longDescriptionUrl: 'string',
-      name: 'string',
-      shortDescription: 'string',
-      softwares: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoSoftwares },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.agreements)) {
-      $dara.Model.validateArray(this.agreements);
-    }
-    if(Array.isArray(this.softwares)) {
-      $dara.Model.validateArray(this.softwares);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Web
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceShrinkRequestServiceInfoAgreements extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceShrinkRequestServiceInfoSoftwares extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the software.
-   * 
-   * @example
-   * MySQL
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software.
-   * 
-   * @example
-   * 5.7
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceShrinkRequestServiceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
-  agreements?: CreateServiceShrinkRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
-  longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TiDB Database
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
-   */
-  shortDescription?: string;
-  /**
-   * @remarks
-   * The list of the software in the service.
-   */
-  softwares?: CreateServiceShrinkRequestServiceInfoSoftwares[];
-  static names(): { [key: string]: string } {
-    return {
-      agreements: 'Agreements',
-      image: 'Image',
-      locale: 'Locale',
-      longDescriptionUrl: 'LongDescriptionUrl',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-      softwares: 'Softwares',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agreements: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoAgreements },
-      image: 'string',
-      locale: 'string',
-      longDescriptionUrl: 'string',
-      name: 'string',
-      shortDescription: 'string',
-      softwares: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoSoftwares },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.agreements)) {
-      $dara.Model.validateArray(this.agreements);
-    }
-    if(Array.isArray(this.softwares)) {
-      $dara.Model.validateArray(this.softwares);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceShrinkRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Web
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The Actions.
-   */
-  action?: string[];
-  /**
-   * @remarks
-   * Resource in ram policy.
-   * 
-   * @example
-   * *
-   */
-  resource?: string;
-  /**
-   * @remarks
-   * The service name in ram policy.
-   * 
-   * @example
-   * ecs
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      resource: 'Resource',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: { 'type': 'array', 'itemType': 'string' },
-      resource: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.action)) {
-      $dara.Model.validateArray(this.action);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The missing ram policy for deploying role.
-   */
-  missingPolicy?: CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
-  /**
-   * @remarks
-   * The required ram policy for deploying role.
-   * 
-   * @example
-   * {
-   * 	"Statement": [{
-   * 		"Action": ["oos:CancelExecutions", "oos:DeleteExecutions", "oos:GetTemplate", "oos:ListExecutions", "oos:ListTemplates", "oos:NotifyExecution", "oos:StartExecution"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}, {
-   * 		"Action": ["ram:PassRole"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}, {
-   * 		"Action": ["ros:CreateStack", "ros:GetStack", "ros:UpdateStack", "ros:ListStackEvents", "ros:ListStackResources", "ros:ListStackResources", "ros:DeleteStack", "ram:GetRole"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}],
-   * 	"Version": "1"
-   * }
-   */
-  policy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      missingPolicy: 'MissingPolicy',
-      policy: 'Policy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      missingPolicy: { 'type': 'array', 'itemType': CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
-      policy: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.missingPolicy)) {
-      $dara.Model.validateArray(this.missingPolicy);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceResponseBodyDryRunResult extends $dara.Model {
-  /**
-   * @remarks
-   * The required ram policy for deploying role.
-   */
-  rolePolicy?: CreateServiceResponseBodyDryRunResultRolePolicy;
-  static names(): { [key: string]: string } {
-    return {
-      rolePolicy: 'RolePolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rolePolicy: CreateServiceResponseBodyDryRunResultRolePolicy,
-    };
-  }
-
-  validate() {
-    if(this.rolePolicy && typeof (this.rolePolicy as any).validate === 'function') {
-      (this.rolePolicy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceInstanceShrinkRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * Operations on specific resources.
-   */
-  action?: string[];
-  /**
-   * @remarks
-   * The specific objects authorized. An asterisk (*) denotes all resources.
-   * 
-   * @example
-   * *
-   */
-  resource?: string;
-  /**
-   * @remarks
-   * The name of the service.
-   * 
-   * @example
-   * ecs
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      resource: 'Resource',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: { 'type': 'array', 'itemType': 'string' },
-      resource: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.action)) {
-      $dara.Model.validateArray(this.action);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetArtifactResponseBodyTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the deployment package.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value of the deployment package.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetArtifactRepositoryCredentialsResponseBodyAvailableResources extends $dara.Model {
-  /**
-   * @remarks
-   * The path.
-   * 
-   * @example
-   * "/xxx/"
-   */
-  path?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * oss-cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The repository name.
-   * 
-   * @example
-   * computenest-artifacts-draft-cn-hangzhou
-   */
-  repositoryName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      path: 'Path',
-      regionId: 'RegionId',
-      repositoryName: 'RepositoryName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      path: 'string',
-      regionId: 'string',
-      repositoryName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * STS.xxx
-   */
-  accessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret.
-   * 
-   * @example
-   * xxx
-   */
-  accessKeySecret?: string;
-  /**
-   * @remarks
-   * The password.
-   * 
-   * @example
-   * eyJ0aW1lIjoiMTUyNjU0OTc5:0705733****
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The Security Token Service (STS) token.
-   * 
-   * @example
-   * xxx
-   */
-  securityToken?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * @example
-   * xxx
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      accessKeySecret: 'AccessKeySecret',
-      password: 'Password',
-      securityToken: 'SecurityToken',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      accessKeySecret: 'string',
-      password: 'string',
-      securityToken: 'string',
-      username: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The mappings.
-   */
-  mappings?: { [key: string]: string };
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * Template 1
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mappings: 'Mappings',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.mappings) {
-      $dara.Model.validateMap(this.mappings);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the entity.
-   * 
-   * @example
-   * cmgj0048****-Frequency-1
-   */
-  entityId?: string;
-  /**
-   * @remarks
-   * Name of a measurement indicator.
-   * 
-   * @example
-   * AvgMemory
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * Custom PromQL.
-   * 
-   * @example
-   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
-   */
-  promql?: string;
-  /**
-   * @remarks
-   * Measurement indicators.
-   * 
-   * @example
-   * ComputeNestPrometheus
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityId: 'EntityId',
-      metricName: 'MetricName',
-      promql: 'Promql',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityId: 'string',
-      metricName: 'string',
-      promql: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the entity.
-   * 
-   * @example
-   * cmgj0015****-Frequency-1
-   */
-  entityIds?: string;
-  /**
-   * @remarks
-   * The package name.
-   * 
-   * @example
-   * 按量付费套餐
-   */
-  specificationName?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * 模板1
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityIds: 'EntityIds',
-      specificationName: 'SpecificationName',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityIds: 'string',
-      specificationName: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityCssMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The mapping information about the billing items.
-   */
-  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
-  /**
-   * @remarks
-   * Metering item configuration information.
-   */
-  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos[];
-  /**
-   * @remarks
-   * The binding relationship between package and measurement dimension.
-   */
-  meteringEntityMappings?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings[];
-  static names(): { [key: string]: string } {
-    return {
-      componentsMappings: 'ComponentsMappings',
-      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
-      meteringEntityMappings: 'MeteringEntityMappings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
-      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos },
-      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.componentsMappings)) {
-      $dara.Model.validateArray(this.componentsMappings);
-    }
-    if(Array.isArray(this.meteringEntityExtraInfos)) {
-      $dara.Model.validateArray(this.meteringEntityExtraInfos);
-    }
-    if(Array.isArray(this.meteringEntityMappings)) {
-      $dara.Model.validateArray(this.meteringEntityMappings);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the billable item.
-   * 
-   * @example
-   * cmgjxxxxxxxx-NetworkOut-2
-   */
-  entityId?: string;
-  /**
-   * @remarks
-   * The metric name.
-   * 
-   * @example
-   * NetworkLantency
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The custom prometheus statement.
-   * 
-   * @example
-   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
-   */
-  promql?: string;
-  /**
-   * @remarks
-   * The metric.
-   * 
-   * @example
-   * AvgPod
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityId: 'EntityId',
-      metricName: 'MetricName',
-      promql: 'Promql',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityId: 'string',
-      metricName: 'string',
-      promql: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the billable item.
-   * 
-   * @example
-   * cmgjxxxxxxxx-NetworkOut-2
-   */
-  entityIds?: string;
-  /**
-   * @remarks
-   * The name of the specification package.
-   * 
-   * @example
-   * Pay-as-you-go Package
-   */
-  specificationName?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * Template 1
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityIds: 'EntityIds',
-      specificationName: 'SpecificationName',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityIds: 'string',
-      specificationName: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The specification code of the service in Alibaba Cloud Marketplace.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  specificationCode?: string;
-  /**
-   * @remarks
-   * The name of the specification package.
-   * 
-   * @example
-   * Pay-as-you-go
-   */
-  specificationName?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * Template 1
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The trial policy. Valid values:
-   * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
-   * 
-   * @example
-   * NotTrial
-   */
-  trialType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      specificationCode: 'SpecificationCode',
-      specificationName: 'SpecificationName',
-      templateName: 'TemplateName',
-      trialType: 'TrialType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      specificationCode: 'string',
-      specificationName: 'string',
-      templateName: 'string',
-      trialType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the billable items.
-   */
-  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos[];
-  /**
-   * @remarks
-   * The billable items that are associated with the package.
-   */
-  meteringEntityMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings[];
-  /**
-   * @remarks
-   * The mappings between the service specifications and the template or package.
-   */
-  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
-  static names(): { [key: string]: string } {
-    return {
-      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
-      meteringEntityMappings: 'MeteringEntityMappings',
-      specificationMappings: 'SpecificationMappings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos },
-      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings },
-      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.meteringEntityExtraInfos)) {
-      $dara.Model.validateArray(this.meteringEntityExtraInfos);
-    }
-    if(Array.isArray(this.meteringEntityMappings)) {
-      $dara.Model.validateArray(this.meteringEntityMappings);
-    }
-    if(Array.isArray(this.specificationMappings)) {
-      $dara.Model.validateArray(this.specificationMappings);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodityMeteringEntities extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the billable item.
-   * 
-   * @example
-   * cmgjxxxxxxxx-NetworkOut
-   */
-  entityId?: string;
-  /**
-   * @remarks
-   * The name of the billable item.
-   * 
-   * @example
-   * spring-boot-demo
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityId: 'EntityId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityId: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommoditySpecifications extends $dara.Model {
-  /**
-   * @remarks
-   * The commodity code.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The specification name.
-   * 
-   * @example
-   * specifications1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The subscription duration. Unit: week or year.
-   */
-  times?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-      times: 'Times',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-      times: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.times)) {
-      $dara.Model.validateArray(this.times);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyCommodity extends $dara.Model {
-  /**
-   * @remarks
-   * The billing method of the service. Valid values:
-   * 
-   * *   **PREPAY** (default): subscription.
-   * *   **POSTPAY**: pay-as-you-go.
-   * 
-   * @example
-   * PREPAY
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The commodity modules.
-   */
-  components?: string[];
-  /**
-   * @remarks
-   * The configuration metadata related to Lingxiao.
-   */
-  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
-  /**
-   * @remarks
-   * The metadata of Alibaba Cloud Marketplace.
-   */
-  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
-  /**
-   * @remarks
-   * The information about the billable item.
-   */
-  meteringEntities?: GetServiceResponseBodyCommodityMeteringEntities[];
-  /**
-   * @remarks
-   * The configuration metadata related to Saas Boost.
-   * 
-   * @example
-   * { "Enabled":false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
-   */
-  saasBoostMetadata?: string;
-  /**
-   * @remarks
-   * The specification details of the service in Alibaba Cloud Marketplace.
-   */
-  specifications?: GetServiceResponseBodyCommoditySpecifications[];
-  /**
-   * @remarks
-   * The service type. Valid values:
-   * 
-   * *   marketplace: Alibaba Cloud Marketplace.
-   * *   Css: Lingxiao.
-   * 
-   * @example
-   * Marketplace
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'ChargeType',
-      commodityCode: 'CommodityCode',
-      components: 'Components',
-      cssMetadata: 'CssMetadata',
-      marketplaceMetadata: 'MarketplaceMetadata',
-      meteringEntities: 'MeteringEntities',
-      saasBoostMetadata: 'SaasBoostMetadata',
-      specifications: 'Specifications',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      commodityCode: 'string',
-      components: { 'type': 'array', 'itemType': 'string' },
-      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
-      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
-      meteringEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMeteringEntities },
-      saasBoostMetadata: 'string',
-      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
-      type: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.components)) {
-      $dara.Model.validateArray(this.components);
-    }
-    if(this.cssMetadata && typeof (this.cssMetadata as any).validate === 'function') {
-      (this.cssMetadata as any).validate();
-    }
-    if(this.marketplaceMetadata && typeof (this.marketplaceMetadata as any).validate === 'function') {
-      (this.marketplaceMetadata as any).validate();
-    }
-    if(Array.isArray(this.meteringEntities)) {
-      $dara.Model.validateArray(this.meteringEntities);
-    }
-    if(Array.isArray(this.specifications)) {
-      $dara.Model.validateArray(this.specifications);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyComplianceMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The compliance package is selected.
-   */
-  compliancePacks?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      compliancePacks: 'CompliancePacks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compliancePacks: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.compliancePacks)) {
-      $dara.Model.validateArray(this.compliancePacks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The URL that is used to access the document.
-   * 
-   * @example
-   * http://docurl
-   */
-  documentUrl?: string;
-  /**
-   * @remarks
-   * The language of the return data. Valid values: zh-CN and en-US.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * Default Template.
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      documentUrl: 'DocumentUrl',
-      locale: 'Locale',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      documentUrl: 'string',
-      locale: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyServiceInfosAgreements extends $dara.Model {
-  /**
-   * @remarks
-   * The agreement name.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The agreement URL.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the software
-   * 
-   * @example
-   * MySQL
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software.
-   * 
-   * @example
-   * 5.7
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyServiceInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The agreement information about the service.
-   */
-  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * https://example.com
-   */
-  longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * WordPress
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
-  shortDescription?: string;
-  /**
-   * @remarks
-   * The list of the information about the software in the service.
-   */
-  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
-  static names(): { [key: string]: string } {
-    return {
-      agreements: 'Agreements',
-      image: 'Image',
-      locale: 'Locale',
-      longDescriptionUrl: 'LongDescriptionUrl',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-      softwares: 'Softwares',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
-      image: 'string',
-      locale: 'string',
-      longDescriptionUrl: 'string',
-      name: 'string',
-      shortDescription: 'string',
-      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.agreements)) {
-      $dara.Model.validateArray(this.agreements);
-    }
-    if(Array.isArray(this.softwares)) {
-      $dara.Model.validateArray(this.softwares);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyStatistic extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of service instances that belong to the service. The service instances that are deleted are counted.
-   * 
-   * @example
-   * 75
-   */
-  accumulativeInstanceCount?: number;
-  /**
-   * @remarks
-   * The total amount consumed for trial service instances. Unit: CNY.
-   * 
-   * @example
-   * 80.35
-   */
-  accumulativePocAmount?: number;
-  /**
-   * @remarks
-   * The total number of users who use the service. The historical users are counted.
-   * 
-   * @example
-   * 60
-   */
-  accumulativeUserCount?: number;
-  /**
-   * @remarks
-   * The average amount consumed for trial service instances per instance. Unit: CNY.
-   * 
-   * @example
-   * 40.17
-   */
-  averagePocAmount?: number;
-  /**
-   * @remarks
-   * The average duration for which trial service instances are in use. Unit: Hour.
-   * 
-   * @example
-   * 1
-   */
-  averagePocDuration?: number;
-  /**
-   * @remarks
-   * The average amount consumed for trial service instances per a period of time. Unit: CNY.
-   * 
-   * @example
-   * 167.9
-   */
-  averagePocUnitAmount?: number;
-  /**
-   * @remarks
-   * The number of online service instances. It means the number of service instances that are successfully deployed.
-   * 
-   * @example
-   * 20
-   */
-  deployedServiceInstanceCount?: number;
-  /**
-   * @remarks
-   * The number of online users. It means the number of users who successfully deployed the service instances.
-   * 
-   * @example
-   * 10
-   */
-  deployedUserCount?: number;
-  /**
-   * @remarks
-   * The number of service applications that are in the Submitted state.
-   * 
-   * @example
-   * 10
-   */
-  submittedUsageCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accumulativeInstanceCount: 'AccumulativeInstanceCount',
-      accumulativePocAmount: 'AccumulativePocAmount',
-      accumulativeUserCount: 'AccumulativeUserCount',
-      averagePocAmount: 'AveragePocAmount',
-      averagePocDuration: 'AveragePocDuration',
-      averagePocUnitAmount: 'AveragePocUnitAmount',
-      deployedServiceInstanceCount: 'DeployedServiceInstanceCount',
-      deployedUserCount: 'DeployedUserCount',
-      submittedUsageCount: 'SubmittedUsageCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accumulativeInstanceCount: 'number',
-      accumulativePocAmount: 'number',
-      accumulativeUserCount: 'number',
-      averagePocAmount: 'number',
-      averagePocDuration: 'number',
-      averagePocUnitAmount: 'number',
-      deployedServiceInstanceCount: 'number',
-      deployedUserCount: 'number',
-      submittedUsageCount: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceResponseBodyTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
-  /**
-   * @remarks
-   * The subscription duration.
-   * 
-   * @example
-   * 1
-   */
-  payPeriod?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration. Valid values:
-   * 
-   * *   Year
-   * *   Month
-   * *   Day
-   * 
-   * @example
-   * Month
-   */
-  payPeriodUnit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      payPeriod: 'PayPeriod',
-      payPeriodUnit: 'PayPeriodUnit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      payPeriod: 'number',
-      payPeriodUnit: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
-   * 
-   * @example
-   * 1536Mbps
-   */
-  connectBandwidth?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The IP addresses of the endpoints for private connections.
-   */
-  endpointIps?: string[];
-  /**
-   * @remarks
-   * The status of the Ingress endpoint. Valid values:
-   * 
-   * *   Ready: The Ingress endpoint is connected.
-   * *   Pending: The Ingress endpoint is being connected.
-   * *   Failed: The Ingress endpoint fails to be connected.
-   * *   Deleted: The Ingress endpoint is deleted.
-   * *   Deleting: The Ingress endpoint is being deleted.
-   * 
-   * @example
-   * Ready
-   */
-  ingressEndpointStatus?: string;
-  /**
-   * @remarks
-   * The status of the network service. Valid values:
-   * 
-   * *   Ready: The network service is connected.
-   * *   Pending: The network service is being connected.
-   * *   Failed: The network service fails to be connected.
-   * *   Deleted: The network service is deleted.
-   * *   Deleting: The network service is being deleted.
-   * 
-   * @example
-   * Ready
-   */
-  networkServiceStatus?: string;
-  /**
-   * @remarks
-   * The names of the security groups.
-   */
-  securityGroups?: string[];
-  /**
-   * @remarks
-   * The names of the vSwitches.
-   */
-  vSwitches?: string[];
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-bp1vwnn14rqpyiczj****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectBandwidth: 'ConnectBandwidth',
-      domainName: 'DomainName',
-      endpointIps: 'EndpointIps',
-      ingressEndpointStatus: 'IngressEndpointStatus',
-      networkServiceStatus: 'NetworkServiceStatus',
-      securityGroups: 'SecurityGroups',
-      vSwitches: 'VSwitches',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectBandwidth: 'number',
-      domainName: 'string',
-      endpointIps: { 'type': 'array', 'itemType': 'string' },
-      ingressEndpointStatus: 'string',
-      networkServiceStatus: 'string',
-      securityGroups: { 'type': 'array', 'itemType': 'string' },
-      vSwitches: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.endpointIps)) {
-      $dara.Model.validateArray(this.endpointIps);
-    }
-    if(Array.isArray(this.securityGroups)) {
-      $dara.Model.validateArray(this.securityGroups);
-    }
-    if(Array.isArray(this.vSwitches)) {
-      $dara.Model.validateArray(this.vSwitches);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections extends $dara.Model {
-  /**
-   * @remarks
-   * The network configurations, which are mainly used for the private connection.
-   */
-  connectionConfigs?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs[];
-  /**
-   * @remarks
-   * The ID of the endpoint for the private connection.
-   * 
-   * @example
-   * ep-m5ei37240541816b****
-   */
-  endpointId?: string;
-  /**
-   * @remarks
-   * The ID of the endpoint service for the private connection.
-   * 
-   * @example
-   * epsrv-5ei07324541816bxxxx
-   */
-  endpointServiceId?: string;
-  /**
-   * @remarks
-   * The custom domain name.
-   * 
-   * @example
-   * test.computenest.aliyuncs.com
-   */
-  privateZoneName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionConfigs: 'ConnectionConfigs',
-      endpointId: 'EndpointId',
-      endpointServiceId: 'EndpointServiceId',
-      privateZoneName: 'PrivateZoneName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionConfigs: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs },
-      endpointId: 'string',
-      endpointServiceId: 'string',
-      privateZoneName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.connectionConfigs)) {
-      $dara.Model.validateArray(this.connectionConfigs);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the endpoint for the reverse private connection.
-   * 
-   * @example
-   * ep-m5ei42370541816b****
-   */
-  endpointId?: string;
-  /**
-   * @remarks
-   * The ID of the endpoint service for the reverse private connection.
-   * 
-   * @example
-   * epsrv-5ei07324541816bxxxx
-   */
-  endpointServiceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpointId: 'EndpointId',
-      endpointServiceId: 'EndpointServiceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpointId: 'string',
-      endpointServiceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyNetworkConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the endpoint for the private connection.
-   * 
-   * >  This parameter is discontinued.
-   * 
-   * @example
-   * ep-m5ei37240541816b****
-   */
-  endpointId?: string;
-  /**
-   * @remarks
-   * The ID of the endpoint service for the private connection.
-   * 
-   * >  This parameter is discontinued.
-   * 
-   * @example
-   * epsrv-5ei07324541816bxxxx
-   */
-  endpointServiceId?: string;
-  /**
-   * @remarks
-   * The information about private connections.
-   */
-  privateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections[];
-  /**
-   * @remarks
-   * The information about the reverse private connection.
-   */
-  reversePrivateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections[];
-  static names(): { [key: string]: string } {
-    return {
-      endpointId: 'EndpointId',
-      endpointServiceId: 'EndpointServiceId',
-      privateVpcConnections: 'PrivateVpcConnections',
-      reversePrivateVpcConnections: 'ReversePrivateVpcConnections',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpointId: 'string',
-      endpointServiceId: 'string',
-      privateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections },
-      reversePrivateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.privateVpcConnections)) {
-      $dara.Model.validateArray(this.privateVpcConnections);
-    }
-    if(Array.isArray(this.reversePrivateVpcConnections)) {
-      $dara.Model.validateArray(this.reversePrivateVpcConnections);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyServiceServiceInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service instance.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * WordPress
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
-  shortDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      image: 'Image',
-      locale: 'Locale',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      image: 'string',
-      locale: 'string',
-      name: 'string',
-      shortDescription: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The upgradable service version.
-   * 
-   * @example
-   * 4
-   */
-  version?: string;
-  /**
-   * @remarks
-   * The version name of an upgradable service version.
-   * 
-   * @example
-   * Init version
-   */
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      version: 'Version',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      version: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyService extends $dara.Model {
-  /**
-   * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
-   */
-  deployMetadata?: string;
-  /**
-   * @remarks
-   * The deployment type of the service. Valid values:
-   * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-   * *   spi: The service is deployed by calling a service provider interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
-   * 
-   * @example
-   * ros
-   */
-  deployType?: string;
-  /**
-   * @remarks
-   * The time when the service was published.
-   * 
-   * @example
-   * 2021-05-21T00:00:00Z
-   */
-  publishTime?: string;
-  /**
-   * @remarks
-   * The URL of the service documentation.
-   * 
-   * @example
-   * http://example.com
-   */
-  serviceDocUrl?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-9c8a3522528b4fe8****
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The information about the service.
-   */
-  serviceInfos?: GetServiceInstanceResponseBodyServiceServiceInfos[];
-  /**
-   * @remarks
-   * The URL of the service page.
-   * 
-   * @example
-   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com
-   */
-  serviceProductUrl?: string;
-  /**
-   * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The status of the service. Valid values:
-   * 
-   * Draft: The registration request of the service is pending to be submitted.
-   * 
-   * Submitted: The registration request of the service is submitted.
-   * 
-   * Approved: The registration request of the service is approved.
-   * 
-   * Online: The service is published.
-   * 
-   * Offline: The service is unpublished.
-   * 
-   * Deleted: The service is deleted.
-   * 
-   * Launching: The service is being published.
-   * 
-   * @example
-   * Online
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The name of the service provider.
-   * 
-   * @example
-   * Alibaba Cloud
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The URL of the service provider.
-   * 
-   * @example
-   * http://example.com
-   */
-  supplierUrl?: string;
-  /**
-   * @remarks
-   * The upgradable service Info.
-   */
-  upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
-  /**
-   * @remarks
-   * The service versions that can be updated.
-   */
-  upgradableServiceVersions?: string[];
-  /**
-   * @remarks
-   * The service version.
-   * 
-   * @example
-   * 1
-   */
-  version?: string;
-  /**
-   * @remarks
-   * The custom version name defined by the service provider.
-   * 
-   * @example
-   * 20231127020225
-   */
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deployMetadata: 'DeployMetadata',
-      deployType: 'DeployType',
-      publishTime: 'PublishTime',
-      serviceDocUrl: 'ServiceDocUrl',
-      serviceId: 'ServiceId',
-      serviceInfos: 'ServiceInfos',
-      serviceProductUrl: 'ServiceProductUrl',
-      serviceType: 'ServiceType',
-      status: 'Status',
-      supplierName: 'SupplierName',
-      supplierUrl: 'SupplierUrl',
-      upgradableServiceInfos: 'UpgradableServiceInfos',
-      upgradableServiceVersions: 'UpgradableServiceVersions',
-      version: 'Version',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deployMetadata: 'string',
-      deployType: 'string',
-      publishTime: 'string',
-      serviceDocUrl: 'string',
-      serviceId: 'string',
-      serviceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceServiceInfos },
-      serviceProductUrl: 'string',
-      serviceType: 'string',
-      status: 'string',
-      supplierName: 'string',
-      supplierUrl: 'string',
-      upgradableServiceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceUpgradableServiceInfos },
-      upgradableServiceVersions: { 'type': 'array', 'itemType': 'string' },
-      version: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.serviceInfos)) {
-      $dara.Model.validateArray(this.serviceInfos);
-    }
-    if(Array.isArray(this.upgradableServiceInfos)) {
-      $dara.Model.validateArray(this.upgradableServiceInfos);
-    }
-    if(Array.isArray(this.upgradableServiceVersions)) {
-      $dara.Model.validateArray(this.upgradableServiceVersions);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceInstanceResponseBodyTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the API operation.
-   * 
-   * @example
-   * GetServiceProvisions
-   */
-  apiName?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud service to which the API operation belongs.
-   * 
-   * @example
-   * ComputeNest
-   */
-  apiProductId?: string;
-  /**
-   * @remarks
-   * The type of the API operation. Valid values:
-   * 
-   * *   Open: public
-   * *   Inner: private
-   * 
-   * @example
-   * Open
-   */
-  apiType?: string;
-  /**
-   * @remarks
-   * The parameters of the API operation. ${Variable name} indicates a dynamic parameter.
-   * 
-   * @example
-   * { "ServiceLinkedRole": "AliyunServiceRoleForRdsPgsqlOnEcs", "RegionId": "${RegionId}" }
-   */
-  parameters?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      apiName: 'ApiName',
-      apiProductId: 'ApiProductId',
-      apiType: 'ApiType',
-      parameters: 'Parameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiName: 'string',
-      apiProductId: 'string',
-      apiType: 'string',
-      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the API operation that is used to create the RAM role.
-   */
-  apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
-  /**
-   * @remarks
-   * Indicates whether the RAM role is created. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  created?: boolean;
-  /**
-   * @remarks
-   * The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
-   * 
-   * @example
-   * Default
-   */
-  function?: string;
-  /**
-   * @remarks
-   * The name of the role.
-   * 
-   * @example
-   * AliyunServiceRole
-   */
-  roleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiForCreation: 'ApiForCreation',
-      created: 'Created',
-      function: 'Function',
-      roleName: 'RoleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiForCreation: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation,
-      created: 'boolean',
-      function: 'string',
-      roleName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.apiForCreation && typeof (this.apiForCreation as any).validate === 'function') {
-      (this.apiForCreation as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $dara.Model {
-  /**
-   * @remarks
-   * The authorization URL of the RAM role.
-   * 
-   * > This parameter is returned if Created is set to false.
-   * 
-   * @example
-   * https://ram.console.aliyun.com/role/authorization?request={"Services":[{"Service":"CS","Roles":[{"RoleName":"AliyunCSManagedVKRole","TemplateId":"AliyunCSManagedVKRole"},{"RoleName":"AliyunCSDefaultRole","TemplateId":"Default"}]}],"ReturnUrl":"https://cs.console.aliyun.com/"}
-   */
-  authorizationURL?: string;
-  /**
-   * @remarks
-   * The RAM roles.
-   */
-  roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
-  static names(): { [key: string]: string } {
-    return {
-      authorizationURL: 'AuthorizationURL',
-      roles: 'Roles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationURL: 'string',
-      roles: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.roles)) {
-      $dara.Model.validateArray(this.roles);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether automatic activation for the service is defined in the template. Valid values:
-   * 
-   * *   true: Automatic activation for the service is defined in the template.
-   * *   false: Manual activation for the service is defined in the template.
-   * 
-   * @example
-   * true
-   */
-  autoEnableService?: boolean;
-  /**
-   * @remarks
-   * The URL that points to the activation page of the service.
-   * 
-   * > This parameter is returned if Status is set to Disabled.
-   * 
-   * @example
-   * https://common-buy.aliyun.com/?commodityCode=sls
-   */
-  enableURL?: string;
-  /**
-   * @remarks
-   * The information about the RAM roles of the cloud service. If this parameter is empty, no RAM roles is associated with the service.
-   */
-  roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
-  /**
-   * @remarks
-   * The name of the cloud service.
-   * 
-   * @example
-   * db
-   */
-  serviceName?: string;
-  /**
-   * @remarks
-   * The activation status of the cloud service. Valid values:
-   * 
-   * - Enabled: The cloud service is activated.
-   * - EnabledByDefault: The cloud service is activated by default.
-   * - Disabled: The cloud service is not activated.
-   * - Unknown: The activation status of the cloud service is unknown.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The reason why the service is in the Disabled or Unknown state.
-   * 
-   * > This parameter is returned if Status is set to Disabled or Unknown.
-   * 
-   * @example
-   * resource(Eip) import info missing
-   */
-  statusReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoEnableService: 'AutoEnableService',
-      enableURL: 'EnableURL',
-      roleProvision: 'RoleProvision',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      statusReason: 'StatusReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoEnableService: 'boolean',
-      enableURL: 'string',
-      roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
-      serviceName: 'string',
-      status: 'string',
-      statusReason: 'string',
-    };
-  }
-
-  validate() {
-    if(this.roleProvision && typeof (this.roleProvision as any).validate === 'function') {
-      (this.roleProvision as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
-  /**
-   * @remarks
-   * Whether risk exists.
-   * 
-   * @example
-   * true
-   */
-  atRisk?: boolean;
-  /**
-   * @remarks
-   * Whether service is associated with artifact.
-   * 
-   * @example
-   * true
-   */
-  hasRelatedArtifact?: boolean;
-  /**
-   * @remarks
-   * The reports.
-   * 
-   * @example
-   * { "template1":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
-   */
-  reports?: string;
-  /**
-   * @remarks
-   * The url of template diff file.
-   * 
-   * @example
-   * https://compute-nest-template-diff-bucket.oss-cn-hangzhou.aliyuncs.com/service-abc/diff
-   */
-  templateDiffUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      atRisk: 'AtRisk',
-      hasRelatedArtifact: 'HasRelatedArtifact',
-      reports: 'Reports',
-      templateDiffUrl: 'TemplateDiffUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      atRisk: 'boolean',
-      hasRelatedArtifact: 'boolean',
-      reports: 'string',
-      templateDiffUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The trial policy. Valid values:
-   * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
-   * 
-   * @example
-   * Trial
-   */
-  trialType?: string;
-  /**
-   * @remarks
-   * The version name.
-   * 
-   * @example
-   * v1.0
-   */
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceType: 'ServiceType',
-      trialType: 'TrialType',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceType: 'string',
-      trialType: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceTemplateParameterConstraintsRequestParameters extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * PayType
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * @example
-   * PostPaid
-   */
-  parameterValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      parameterKey: 'string',
-      parameterValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   */
-  allowedValues?: string[];
-  /**
-   * @remarks
-   * The property name.
-   * 
-   * @example
-   * lnch_Source
-   */
-  propertyName?: string;
-  /**
-   * @remarks
-   * The resource name.
-   * 
-   * @example
-   * i-8vb0smn1lf6g77md****
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * serviceinstance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowedValues: 'AllowedValues',
-      propertyName: 'PropertyName',
-      resourceName: 'ResourceName',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowedValues: { 'type': 'array', 'itemType': 'string' },
-      propertyName: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.allowedValues)) {
-      $dara.Model.validateArray(this.allowedValues);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   */
-  allowedValues?: string[];
-  /**
-   * @remarks
-   * The names of the associated parameters.
-   */
-  associationParameterNames?: string[];
-  /**
-   * @remarks
-   * The behavior of the parameter. Valid values:
-   * 
-   * *   NoLimit: The value of this parameter is not limited.
-   * *   NotSupport: The value of this parameter cannot be queried.
-   * *   QueryError: The query failed.
-   * 
-   * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned.
-   * 
-   * @example
-   * NoLimit
-   */
-  behavior?: string;
-  /**
-   * @remarks
-   * The reason why the behavior of the parameter is returned.
-   * 
-   * @example
-   * none
-   */
-  behaviorReason?: string;
-  /**
-   * @remarks
-   * The original constraint information.
-   */
-  originalConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * PayType
-   */
-  parameterKey?: string;
-  /**
-   * @remarks
-   * The type of the parameter.
-   * 
-   * @example
-   * String
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowedValues: 'AllowedValues',
-      associationParameterNames: 'AssociationParameterNames',
-      behavior: 'Behavior',
-      behaviorReason: 'BehaviorReason',
-      originalConstraints: 'OriginalConstraints',
-      parameterKey: 'ParameterKey',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowedValues: { 'type': 'array', 'itemType': 'string' },
-      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
-      behavior: 'string',
-      behaviorReason: 'string',
-      originalConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
-      parameterKey: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.allowedValues)) {
-      $dara.Model.validateArray(this.allowedValues);
-    }
-    if(Array.isArray(this.associationParameterNames)) {
-      $dara.Model.validateArray(this.associationParameterNames);
-    }
-    if(Array.isArray(this.originalConstraints)) {
-      $dara.Model.validateArray(this.originalConstraints);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model {
-  /**
-   * @remarks
-   * The service test case name.
-   * 
-   * @example
-   * case1
-   */
-  caseName?: string;
-  /**
-   * @remarks
-   * The execution report
-   * 
-   * @example
-   * -----------------------------------------------------------------------------
-   * Region: cn-qingdao
-   * StackName: iact3-default-cn-qingd
-   * StackId: 009d2991-f494-d
-   * *****************************************************************************
-   */
-  executionReport?: string;
-  /**
-   * @remarks
-   * The sub task status.
-   * 
-   * @example
-   * Runing
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The sub task id.
-   * 
-   * @example
-   * stt-xxxx
-   */
-  subTaskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseName: 'CaseName',
-      executionReport: 'ExecutionReport',
-      status: 'Status',
-      subTaskId: 'SubTaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseName: 'string',
-      executionReport: 'string',
-      status: 'string',
-      subTaskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSupplierInformationResponseBodyDeliverySettings extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the OSS bucket.
-   * 
-   * @example
-   * mybucket
-   */
-  ossBucketName?: string;
-  /**
-   * @remarks
-   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  ossEnabled?: boolean;
-  /**
-   * @remarks
-   * The number of days for which the screencasts are saved.
-   * 
-   * @example
-   * 7
-   */
-  ossExpirationDays?: number;
-  /**
-   * @remarks
-   * The OSS path.
-   * 
-   * @example
-   * path1/path2/
-   */
-  ossPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ossBucketName: 'OssBucketName',
-      ossEnabled: 'OssEnabled',
-      ossExpirationDays: 'OssExpirationDays',
-      ossPath: 'OssPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ossBucketName: 'string',
-      ossEnabled: 'boolean',
-      ossExpirationDays: 'number',
-      ossPath: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUploadCredentialsResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * STS.NUCe19W1FKaHAYAhe********
-   */
-  accessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret.
-   * 
-   * @example
-   * 8LQGp59mY23pcXeTdcvSA1cUQZBeD92sFrXi********
-   */
-  accessKeySecret?: string;
-  /**
-   * @remarks
-   * The bucket name.
-   * 
-   * @example
-   * service-info-private
-   */
-  bucketName?: string;
-  /**
-   * @remarks
-   * The time when the AccessKey pair expires.
-   * 
-   * @example
-   * 2023-05-18T12:27:59Z
-   */
-  expireDate?: string;
-  /**
-   * @remarks
-   * The name of the key.
-   * 
-   * @example
-   * 221514575922756034/cn-hangzhou/d57c62fbd508xxxxxxxx.json
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The security token.
-   * 
-   * @example
-   * CAISzQN1q6Ft5B2yfSjIr5b2LouNuu5n/KOjQ3/wjGUHYdlagYGdmzz2IH1Le3NrBO8esfgymGFU6v8dlo1dYLQeHhadQI5cs80HtFqLSNaE65LswPlZ2M2ISETPJzfV9pCK
-   */
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      accessKeySecret: 'AccessKeySecret',
-      bucketName: 'BucketName',
-      expireDate: 'ExpireDate',
-      key: 'Key',
-      regionId: 'RegionId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      accessKeySecret: 'string',
-      bucketName: 'string',
-      expireDate: 'string',
-      key: 'string',
-      regionId: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAcrImageRepositoriesResponseBodyRepositories extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the image was created.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the image was modified.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  modifiedTime?: string;
-  namespace?: string;
-  /**
-   * @remarks
-   * The image repo ID.
-   * 
-   * @example
-   * crr-3gqhkza0wbxxxxxx
-   */
-  repoId?: string;
-  /**
-   * @remarks
-   * The image repo name.
-   * 
-   * @example
-   * wordpress
-   */
-  repoName?: string;
-  /**
-   * @remarks
-   * The type of the repository. Valid values:
-   * 
-   * *   `Private`: a private repository
-   * *   `Public`: a public repository
-   * 
-   * @example
-   * Private
-   */
-  repoType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      modifiedTime: 'ModifiedTime',
-      namespace: 'Namespace',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-      repoType: 'RepoType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      modifiedTime: 'string',
-      namespace: 'string',
-      repoId: 'string',
-      repoName: 'string',
-      repoType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAcrImageTagsResponseBodyImages extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the image was created.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The image size. Unit: bytes.
-   * 
-   * @example
-   * 188394616
-   */
-  imageSize?: string;
-  /**
-   * @remarks
-   * The time when the image was modified.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  modifiedTime?: string;
-  /**
-   * @remarks
-   * The image version.
-   * 
-   * @example
-   * 5.7.2
-   */
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      imageSize: 'ImageSize',
-      modifiedTime: 'ModifiedTime',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      imageSize: 'string',
-      modifiedTime: 'string',
-      tag: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
-  /**
-   * @remarks
-   * CVE numbers
-   * 
-   * @example
-   * CVE-2023-4911
-   */
-  cveNos?: string;
-  /**
-   * @remarks
-   * Extended information, in JSON format, to be parsed according to the risk category
-   * 
-   * @example
-   * {
-   *   "feature": "ntpdate", 
-   *   "version": "4.2.6", 
-   *   "cveLocation": "/usr/lib" 
-   * }
-   */
-  extendInfo?: string;
-  /**
-   * @remarks
-   * Risk level:
-   * 
-   * - high represents high
-   * 
-   * @example
-   * high
-   */
-  level?: string;
-  /**
-   * @remarks
-   * Risk name.
-   * 
-   * @example
-   * USN-3686-1: file vulnerabilities
-   */
-  riskName?: string;
-  /**
-   * @remarks
-   * Risk type. Values:
-   * - AcrCve  Container image system vulnerability
-   * - AcrSca  Container image application vulnerability
-   * - EcsVulnerability  ECS image vulnerability information
-   * - EcsAlarm  ECS image security alarm
-   * - EcsBaseline  ECS image baseline check
-   * 
-   * @example
-   * AcrCve
-   */
-  riskType?: string;
-  /**
-   * @remarks
-   * Risk Type name
-   * 
-   * @example
-   * Container System Vulner
-   */
-  riskTypeName?: string;
-  /**
-   * @remarks
-   * Solution for the risk item.
-   * 
-   * @example
-   * apt-get update && apt-get install ntpdate --only-upgrade
-   */
-  solution?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cveNos: 'CveNos',
-      extendInfo: 'ExtendInfo',
-      level: 'Level',
-      riskName: 'RiskName',
-      riskType: 'RiskType',
-      riskTypeName: 'RiskTypeName',
-      solution: 'Solution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cveNos: 'string',
-      extendInfo: 'string',
-      level: 'string',
-      riskName: 'string',
-      riskType: 'string',
-      riskTypeName: 'string',
-      solution: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactVersionsRequestFilters extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * **Status**：The artifact status
-   * 
-   * @example
-   * Status
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter values of the filter.
-   */
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.values)) {
-      $dara.Model.validateArray(this.values);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactVersionsResponseBodyArtifacts extends $dara.Model {
-  /**
-   * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
-   * 
-   * @example
-   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
-   */
-  artifactBuildProperty?: string;
-  /**
-   * @remarks
-   * The type of the deployment package to be built.
-   * 
-   * @example
-   * Dockerfile
-   */
-  artifactBuildType?: string;
-  /**
-   * @remarks
-   * The ID of the deployment package.
-   * 
-   * @example
-   * artifact-eea08d1e2d3a43aexxxx
-   */
-  artifactId?: string;
-  /**
-   * @remarks
-   * The properties of the deployment package.
-   * 
-   * @example
-   * {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
-   */
-  artifactProperty?: string;
-  /**
-   * @remarks
-   * The type of the deployment package.
-   * 
-   * @example
-   * EcsImage
-   */
-  artifactType?: string;
-  /**
-   * @remarks
-   * The version of the deployment package.
-   * 
-   * @example
-   * 2
-   */
-  artifactVersion?: string;
-  /**
-   * @remarks
-   * The time when the certificate was created.
-   * 
-   * @example
-   * 2022-10-20T02:19:53Z
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the deployment package was modified.
-   * 
-   * @example
-   * 2022-10-20T02:19:55Z
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The distribution result of the image.
-   */
-  imageDelivery?: { [key: string]: string };
-  /**
-   * @remarks
-   * The distribution progress of the deployment package.
-   * 
-   * @example
-   * 100
-   */
-  progress?: string;
-  /**
-   * @remarks
-   * The result file of the security scan.
-   * 
-   * @example
-   * https://compute-nest-security-audit-bucket-ap-southeast-1.oss-ap-southeast-1.aliyuncs.com/51416747xxxx/xxxx
-   */
-  resultFile?: string;
-  /**
-   * @remarks
-   * The result of the security scan. Valid values:
-   * 
-   * *   Normal: No risks exist on the deployment package.
-   * *   AtRisk: Risks exist on the deployment package.
-   * *   Processing: The deployment package is being scanned.
-   * 
-   * @example
-   * Normal
-   */
-  securityAuditResult?: string;
-  /**
-   * @remarks
-   * The status of the deployment package. Valid values:
-   * 
-   * *   Created: The deployment package is created.
-   * *   Scanning: The deployment package is being scanned.
-   * *   ScanFailed: The deployment package failed to be scanned.
-   * *   Delivering: The deployment package is being distributed.
-   * *   Available: The deployment package is available.
-   * *   Deleted: The deployment package is deleted.
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The description of the deployment package.
-   * 
-   * @example
-   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
-   */
-  statusDetail?: string;
-  /**
-   * @remarks
-   * The ID of the region that supports the deployment package.
-   * 
-   * @example
-   * [
-   * 					"cn-beijing",
-   * 					"cn-hangzhou",
-   * 					"cn-shanghai"
-   * 				]
-   */
-  supportRegionIds?: string;
-  /**
-   * @remarks
-   * The version name of the deployment package.
-   * 
-   * @example
-   * v1
-   */
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      artifactBuildProperty: 'ArtifactBuildProperty',
-      artifactBuildType: 'ArtifactBuildType',
-      artifactId: 'ArtifactId',
-      artifactProperty: 'ArtifactProperty',
-      artifactType: 'ArtifactType',
-      artifactVersion: 'ArtifactVersion',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      imageDelivery: 'ImageDelivery',
-      progress: 'Progress',
-      resultFile: 'ResultFile',
-      securityAuditResult: 'SecurityAuditResult',
-      status: 'Status',
-      statusDetail: 'StatusDetail',
-      supportRegionIds: 'SupportRegionIds',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifactBuildProperty: 'string',
-      artifactBuildType: 'string',
-      artifactId: 'string',
-      artifactProperty: 'string',
-      artifactType: 'string',
-      artifactVersion: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      imageDelivery: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      progress: 'string',
-      resultFile: 'string',
-      securityAuditResult: 'string',
-      status: 'string',
-      statusDetail: 'string',
-      supportRegionIds: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.imageDelivery) {
-      $dara.Model.validateMap(this.imageDelivery);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * *   *Name*: The name of the deployment package. Fuzzy match is used.
-   * *   ArtifactId: The ID of the deployment package.
-   * *   ArtifactType: The type of the deployment package.
-   * 
-   * @example
-   * ArtifactType
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter values of the filter.
-   */
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.values)) {
-      $dara.Model.validateArray(this.values);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactsRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactsResponseBodyArtifactsTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
-  /**
-   * @remarks
-   * The build properties of the artifact, utilized for hosting and building the deployment package.
-   * 
-   * @example
-   * {\\"CodeRepo\\":{\\"Owner\\":\\"wenle\\",\\"Platform\\":\\"github\\",\\"Branch\\":\\"main\\",\\"RepoName\\":\\"aliyun-computenest/java-springboot-demo\\"}}
-   */
-  artifactBuildProperty?: string;
-  /**
-   * @remarks
-   * The ID of the deployment package.
-   * 
-   * @example
-   * artifact-eea08d1e2d3a43aexxxx
-   */
-  artifactId?: string;
-  /**
-   * @remarks
-   * The type of the deployment package.
-   * 
-   * @example
-   * EcsImage
-   */
-  artifactType?: string;
-  /**
-   * @remarks
-   * The description of the deployment package.
-   * 
-   * @example
-   * Description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the deployment package was modified.
-   * 
-   * @example
-   * 2022-10-20T02:19:55Z
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The latest version of the deployment package.
-   * 
-   * @example
-   * 2
-   */
-  maxVersion?: string;
-  /**
-   * @remarks
-   * The name of the deployment package.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek25rexxxxxxxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The status of the deployment package. Valid values:
-   * 
-   * *   Created: The deployment package is created.
-   * *   Scanning: The deployment package is being scanned.
-   * *   ScanFailed: The deployment package failed to be scanned.
-   * *   Delivering: The deployment package is being distributed.
-   * *   Available: The deployment package is available.
-   * *   Deleted: The deployment package is deleted.
-   * 
-   * @example
-   * Created
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tags?: ListArtifactsResponseBodyArtifactsTags[];
-  static names(): { [key: string]: string } {
-    return {
-      artifactBuildProperty: 'ArtifactBuildProperty',
-      artifactId: 'ArtifactId',
-      artifactType: 'ArtifactType',
-      description: 'Description',
-      gmtModified: 'GmtModified',
-      maxVersion: 'MaxVersion',
-      name: 'Name',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifactBuildProperty: 'string',
-      artifactId: 'string',
-      artifactType: 'string',
-      description: 'string',
-      gmtModified: 'string',
-      maxVersion: 'string',
-      name: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': ListArtifactsResponseBodyArtifactsTags },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResellersRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-   * 
-   * *   ResellerUid: the uid of the distributor.
-   * *   Name: the name of the distributor.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Filter value array.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResellersResponseBodySupplierInformation extends $dara.Model {
-  /**
-   * @remarks
-   * The description of distributor.
-   * 
-   * @example
-   * It is a XXXX  company
-   */
-  supplierDesc?: string;
-  /**
-   * @remarks
-   * The Logo of distributor
-   * 
-   * @example
-   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/31978070/service-image/d5c3b585-ff6b-4e4e-8885-xxxx.png
-   */
-  supplierLogo?: string;
-  /**
-   * @remarks
-   * The name of the distributor
-   * 
-   * @example
-   * Distributor A
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the distributor.
-   * 
-   * @example
-   * 152xxxxxxxxxxx
-   */
-  supplierUid?: number;
-  /**
-   * @remarks
-   * The URL of the distributor.
-   * 
-   * @example
-   * http://www.aliyun.com
-   */
-  supplierUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      supplierDesc: 'SupplierDesc',
-      supplierLogo: 'SupplierLogo',
-      supplierName: 'SupplierName',
-      supplierUid: 'SupplierUid',
-      supplierUrl: 'SupplierUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supplierDesc: 'string',
-      supplierLogo: 'string',
-      supplierName: 'string',
-      supplierUid: 'number',
-      supplierUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceDeployDetailsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * Filter Value Names (Equivalent to SQL\\"s WHERE Clause)
-   * 
-   * Available Options:
-   * 
-   * - UserId
-   * - ServiceId
-   * - ServiceVersion
-   * - ServiceInstanceId
-   * - DeploySucceeded (Accepts True or False and case-insensitive)
-   * - ErrorType
-   * - ErrorCode
-   * 
-   * @example
-   * ServiceId
-   */
-  name?: string;
-  /**
-   * @remarks
-   * A value of the filter condition.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceDeployDetailsResponseBodyDeployDetails extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of entries that meet the specified conditions.
-   * 
-   * @example
-   * 4
-   */
-  count?: string;
-  /**
-   * @remarks
-   * The time when the service instance was created.
-   * 
-   * @example
-   * 2024-04-10T01:58:20Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The period over which data is aggregated.
-   * 
-   * @example
-   * Month
-   */
-  cycle?: string;
-  /**
-   * @remarks
-   * The indicates whether the deployment was successful.
-   * 
-   * @example
-   * False
-   */
-  deploySucceeded?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * StackValidationFailed
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error description.
-   * 
-   * @example
-   * {code: StackValidationFailed, message: \\"Failed to continue create ROS stack 89e724e2-84e6-4517-a372-30a545ab4145: Resource [LinuxInstanceRunCommand]: i-wz91nfbh1fxtmfb0try4 are not running. Command invocation only support running instances. ErrorCode: StackValidationFailed\\", requestId: null}
-   */
-  errorDetail?: string;
-  /**
-   * @remarks
-   * The type of error that caused the deployment to fail.
-   * 
-   * @example
-   * ValidationError
-   */
-  errorType?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-c751ed91f2074af39779
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The service instance ID.
-   * 
-   * @example
-   * si-273e8cee11d349e1803c
-   */
-  serviceInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the service in Chinese.
-   * 
-   * @example
-   * 测试服务(Test Service)
-   */
-  serviceNameChn?: string;
-  /**
-   * @remarks
-   * The name of the service in English.
-   * 
-   * @example
-   * Test Service
-   */
-  serviceNameEng?: string;
-  /**
-   * @remarks
-   * The type of service. 
-   * 
-   * Possible values:
-   * 
-   * - private: Deployed under the user\\"s account.
-   * - managed: Hosted under the service provider\\"s account.
-   * - operation: Managed operation service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The service version.
-   * 
-   * @example
-   * 42
-   */
-  serviceVersion?: string;
-  /**
-   * @remarks
-   * The timestamp when the response is returned.
-   * 
-   * @example
-   * 1723946641994
-   */
-  timestamp?: string;
-  /**
-   * @remarks
-   * The aliuid of user.
-   * 
-   * @example
-   * 1591457835436382
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      createTime: 'CreateTime',
-      cycle: 'Cycle',
-      deploySucceeded: 'DeploySucceeded',
-      errorCode: 'ErrorCode',
-      errorDetail: 'ErrorDetail',
-      errorType: 'ErrorType',
-      serviceId: 'ServiceId',
-      serviceInstanceId: 'ServiceInstanceId',
-      serviceNameChn: 'ServiceNameChn',
-      serviceNameEng: 'ServiceNameEng',
-      serviceType: 'ServiceType',
-      serviceVersion: 'ServiceVersion',
-      timestamp: 'Timestamp',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'string',
-      createTime: 'string',
-      cycle: 'string',
-      deploySucceeded: 'string',
-      errorCode: 'string',
-      errorDetail: 'string',
-      errorType: 'string',
-      serviceId: 'string',
-      serviceInstanceId: 'string',
-      serviceNameChn: 'string',
-      serviceNameEng: 'string',
-      serviceType: 'string',
-      serviceVersion: 'string',
-      timestamp: 'string',
-      userId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceLogsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * *   StartTime: the start time of the log event.
-   * *   EndTime: the end time of the ActionTrail event.
-   * *   EventName: the name of the ActionTrail event.
-   * *   ResourceName: the name of the ActionTrail resource.
-   * *   ApplicationGroupName: the name of the application group.
-   * 
-   * @example
-   * StartTime
-   */
-  name?: string;
-  /**
-   * @remarks
-   * A value of the filter condition.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $dara.Model {
-  /**
-   * @remarks
-   * Compliance package risk types. This only applies when the source is CompliancePack. . For example, data security checks within a VPC, such as VpcDataRisk
-   * 
-   * @example
-   * VpcDataRisk
-   */
-  compliancePackType?: string;
-  /**
-   * @remarks
-   * Specific risk rule names for the compliance package. This only applies when the source is CompliancePack. . For example, ECS instance migration out of VPC - ecs-move-out-vpc.
-   * 
-   * @example
-   * vpc-ecs-move-out-vpc
-   */
-  complianceRuleName?: string;
-  /**
-   * @remarks
-   * The log content.
-   * 
-   * @example
-   * Start creating service instance
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The log type. Valid values:
-   * 
-   * *   serviceInstance: log generated by the service instance.
-   * *   resource: log generated by ROS resources.
-   * 
-   * @example
-   * serviceInstance
-   */
-  logType?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * si-5c6525c0589545c3****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The Resouce Type.
-   * 
-   * @example
-   * ROS.Stack
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The log source. 
-   * Valid values:
-   * 
-   * *   computeNest : logs of the deployment and upgrade of the service instance.
-   * *   application: logs generated by the application.
-   * *   actionTrail: logs generated by ActionTrail.
-   * *  compliancePack:  Logs originating from the compliance package.
-   * *  ros: Logs originating from ROS.
-   * *  meteringData：Logs originating from the pay-as-you-go model.
-   * 
-   * @example
-   * computeNest
-   */
-  source?: string;
-  /**
-   * @remarks
-   * The deployment state of the service instance. Valid values:
-   * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * *   DeletedFailed
-   * 
-   * @example
-   * Deployed
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The timestamp of the service instance log.
-   * 
-   * @example
-   * 2022-05-21T00:00:00Z
-   */
-  timestamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      compliancePackType: 'CompliancePackType',
-      complianceRuleName: 'ComplianceRuleName',
-      content: 'Content',
-      logType: 'LogType',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      source: 'Source',
-      status: 'Status',
-      timestamp: 'Timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compliancePackType: 'string',
-      complianceRuleName: 'string',
-      content: 'string',
-      logType: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      source: 'string',
-      status: 'string',
-      timestamp: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
-  /**
-   * @remarks
-   * Vaild values:
-   * - ExpireTimeStart
-   * - ExpireTimeEnd
-   * - PayType
-   * - ResourceARN
-   * 
-   * @example
-   * ResourceARN
-   */
-  name?: string;
-  /**
-   * @remarks
-   * A value of the filter condition.
-   */
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.values)) {
-      $dara.Model.validateArray(this.values);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the service instance was created.
-   * 
-   * @example
-   * 2022-01-01T12:00:00
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the resource expires.
-   * 
-   * @example
-   * 2022-03-01T12:00:00
-   */
-  expireTime?: string;
-  /**
-   * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   Subscription
-   * *   PayAsYouGo
-   * 
-   * @example
-   * Subscription
-   */
-  payType?: string;
-  /**
-   * @remarks
-   * The code of the cloud service.
-   * 
-   * @example
-   * rds
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The type of the cloud service.
-   * 
-   * @example
-   * RDS
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The renewal state. Valid values:
-   * 
-   * *   AutoRenewal
-   * *   ManualRenewal
-   * *   NotRenewal
-   * 
-   * @example
-   * AutoRenewal
-   */
-  renewStatus?: string;
-  /**
-   * @remarks
-   * The renewal period.
-   * 
-   * @example
-   * 1
-   */
-  renewalPeriod?: number;
-  /**
-   * @remarks
-   * The unit of the renewal period. Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  renewalPeriodUnit?: string;
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:sag:cn-hangzhou:130920852836****:ccn/ccn-b3qf0q439sq2de****
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The status of the service instance. Valid values:
-   * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * *   DeletedFailed
-   * 
-   * @example
-   * CREATE_COMPLETE
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      expireTime: 'ExpireTime',
-      payType: 'PayType',
-      productCode: 'ProductCode',
-      productType: 'ProductType',
-      renewStatus: 'RenewStatus',
-      renewalPeriod: 'RenewalPeriod',
-      renewalPeriodUnit: 'RenewalPeriodUnit',
-      resourceARN: 'ResourceARN',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      expireTime: 'string',
-      payType: 'string',
-      productCode: 'string',
-      productType: 'string',
-      renewStatus: 'string',
-      renewalPeriod: 'number',
-      renewalPeriodUnit: 'string',
-      resourceARN: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $dara.Model {
-  /**
-   * @remarks
-   * End time of the upgrade.
-   * 
-   * @example
-   * 2022-04-26T09:09:51Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * Version before the upgrade.
-   * 
-   * @example
-   * 1
-   */
-  fromVersion?: string;
-  /**
-   * @remarks
-   * Upgrade result.
-   * 
-   * @example
-   * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
-   */
-  results?: string;
-  /**
-   * @remarks
-   * Start time of the upgrade.
-   * 
-   * @example
-   * 2022-04-26T08:09:51Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * Upgrade status. Possible values:
-   * 
-   * - upgrading: In progress.
-   * 
-   * - UpgradeSuccessful: Upgrade successful.
-   * 
-   * - UpgradeFailed: Upgrade failed.
-   * 
-   * @example
-   * UpgradeFailed
-   */
-  status?: string;
-  /**
-   * @remarks
-   * Version after the upgrade.
-   * 
-   * @example
-   * 3
-   */
-  toVersion?: string;
-  /**
-   * @remarks
-   * Upgrade type.
-   * - Upgrade
-   * - Rollback
-   * 
-   * @example
-   * Upgrade
-   */
-  type?: string;
-  /**
-   * @remarks
-   * Upgrade history ID.
-   * 
-   * @example
-   * uh-1b21d65f75e94fa09745
-   */
-  upgradeHistoryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      fromVersion: 'FromVersion',
-      results: 'Results',
-      startTime: 'StartTime',
-      status: 'Status',
-      toVersion: 'ToVersion',
-      type: 'Type',
-      upgradeHistoryId: 'UpgradeHistoryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      fromVersion: 'string',
-      results: 'string',
-      startTime: 'string',
-      status: 'string',
-      toVersion: 'string',
-      type: 'string',
-      upgradeHistoryId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * *   Name: The service name. If you want to perform a fuzzy match, specify the service name in the *xxx* format. For example, if the service name is My Service, you can set the filter value to *My* or *Service*.
-   * *   ServiceInstanceId: The ID of the service instance.
-   * *   ServiceId: The service ID.
-   * *   UserId: The user ID.
-   * *   Version: The service version.
-   * *   Status: The status of the service instance.
-   * *   DeployType: The deployment type of the service.
-   * *   ServiceType: The service type.
-   * *   OperationStartTimeBefore: The time before the hosted O\\&M starts.
-   * *   OperationStartTimeAfter: The time after the hosted O\\&M starts.
-   * *   OperationEndTimeBefore: The time before the hosted O\\&M ends.
-   * *   OperationEndTimeAfter: The time after the hosted O\\&M ends.
-   * *   OperatedServiceInstanceId: The ID of the hosted O\\&M instance that belongs to a private service.
-   * *   OperationServiceInstanceId: The ID of the hosted O\\&M service instance that belongs to a hosted O\\&M service.
-   * *   EnableInstanceOps: Whether the hosted O\\&M feature is enabled for service instances.
-   * 
-   * @example
-   * ServiceInstanceId
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter values of the filter.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service instance.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * WordPress
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
-  shortDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      image: 'Image',
-      locale: 'Locale',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      image: 'string',
-      locale: 'string',
-      name: 'string',
-      shortDescription: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesResponseBodyServiceInstancesService extends $dara.Model {
-  /**
-   * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
-   */
-  deployMetadata?: string;
-  /**
-   * @remarks
-   * The deployment type of the service. Valid values:
-   * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-   * *   spi: The service is deployed by calling a service provider interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
-   * 
-   * @example
-   * ros
-   */
-  deployType?: string;
-  /**
-   * @remarks
-   * Indicates whether the private connection feature is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  enablePrivateVpcConnection?: boolean;
-  /**
-   * @remarks
-   * The time when the service was published.
-   * 
-   * @example
-   * 2021-05-21T00:00:00Z
-   */
-  publishTime?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-0e6fca6a51a54420****
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The information about the service.
-   */
-  serviceInfos?: ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos[];
-  /**
-   * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The name of the distribution source service provider.
-   * 
-   * @example
-   * Company A
-   */
-  sourceSupplierName?: string;
-  /**
-   * @remarks
-   * The status of the service.
-   * 
-   * @example
-   * Online
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The name of the service provider.
-   * 
-   * @example
-   * Alibaba Cloud
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The URL of the service provider.
-   * 
-   * @example
-   * http://example.com
-   */
-  supplierUrl?: string;
-  /**
-   * @remarks
-   * The service version.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  /**
-   * @remarks
-   * The custom version name defined by the service provider.
-   * 
-   * @example
-   * 版本A
-   */
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deployMetadata: 'DeployMetadata',
-      deployType: 'DeployType',
-      enablePrivateVpcConnection: 'EnablePrivateVpcConnection',
-      publishTime: 'PublishTime',
-      serviceId: 'ServiceId',
-      serviceInfos: 'ServiceInfos',
-      serviceType: 'ServiceType',
-      sourceSupplierName: 'SourceSupplierName',
-      status: 'Status',
-      supplierName: 'SupplierName',
-      supplierUrl: 'SupplierUrl',
-      version: 'Version',
-      versionName: 'VersionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deployMetadata: 'string',
-      deployType: 'string',
-      enablePrivateVpcConnection: 'boolean',
-      publishTime: 'string',
-      serviceId: 'string',
-      serviceInfos: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos },
-      serviceType: 'string',
-      sourceSupplierName: 'string',
-      status: 'string',
-      supplierName: 'string',
-      supplierUrl: 'string',
-      version: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.serviceInfos)) {
-      $dara.Model.validateArray(this.serviceInfos);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesResponseBodyServiceInstancesTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Model {
-  /**
-   * @remarks
-   * The business status of the service instance. Valid values:
-   * 
-   * *   Normal: The service instance is normal.
-   * *   Renewing: The service instance is being renewed.
-   * *   RenewFailed: The service instance failed to be renewed.
-   * *   Expired: The service instance expired.
-   * 
-   * @example
-   * Normal
-   */
-  bizStatus?: string;
-  /**
-   * @remarks
-   * The time when the service instance was created.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableInstanceOps?: boolean;
-  /**
-   * @remarks
-   * The time when the service instance expires.
-   * 
-   * @example
-   * 2022-01-01T12:00:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  isOperated?: boolean;
-  /**
-   * @remarks
-   * The name of the service instance.
-   * 
-   * @example
-   * TestName
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The ID of the service instance that is used to implement hosted O\\&M.
-   * 
-   * @example
-   * si-d6ab3a63ccbb4b17****
-   */
-  operatedServiceInstanceId?: string;
-  /**
-   * @remarks
-   * The end of the time range during which hosted O\\&M is implemented.
-   * 
-   * @example
-   * 2021-12-29T06:48:56Z
-   */
-  operationEndTime?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which hosted O\\&M is implemented.
-   * 
-   * @example
-   * 2021-12-29T06:48:56Z
-   */
-  operationStartTime?: string;
-  /**
-   * @remarks
-   * The parameters of the service instance.
-   * 
-   * @example
-   * {"param":"value"}
-   */
-  parameters?: string;
-  /**
-   * @remarks
-   * The billing method of the service. Valid values:
-   * 
-   * *   Permanent: Once you purchase the service, you can use it permanently.
-   * *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
-   * *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
-   * *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
-   * 
-   * @example
-   * Subscription
-   */
-  payType?: string;
-  /**
-   * @remarks
-   * The deployment progress of the service instance. Unit: percentage.
-   * 
-   * @example
-   * 90
-   */
-  progress?: number;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * si-d6ab3a63ccxxxxxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The information about the service.
-   */
-  service?: ListServiceInstancesResponseBodyServiceInstancesService;
-  /**
-   * @remarks
-   * The ID of the service instance.
-   * 
-   * @example
-   * si-d6ab3a63ccbb4b17****
-   */
-  serviceInstanceId?: string;
-  /**
-   * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The source from which the service instance is created.
-   * 
-   * @example
-   * Supplier
-   */
-  source?: string;
-  /**
-   * @remarks
-   * The status of the service instance. Valid values:
-   * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * 
-   * @example
-   * Deployed
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The description of the deployment of the service instance.
-   * 
-   * @example
-   * deploy successfully
-   */
-  statusDetail?: string;
-  /**
-   * @remarks
-   * The custom tags.
-   */
-  tags?: ListServiceInstancesResponseBodyServiceInstancesTags[];
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * 模板1
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The time when the service instance was updated.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the user.
-   * 
-   * @example
-   * 1234567
-   */
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizStatus: 'BizStatus',
-      createTime: 'CreateTime',
-      enableInstanceOps: 'EnableInstanceOps',
-      endTime: 'EndTime',
-      isOperated: 'IsOperated',
-      name: 'Name',
-      operatedServiceInstanceId: 'OperatedServiceInstanceId',
-      operationEndTime: 'OperationEndTime',
-      operationStartTime: 'OperationStartTime',
-      parameters: 'Parameters',
-      payType: 'PayType',
-      progress: 'Progress',
-      resourceGroupId: 'ResourceGroupId',
-      service: 'Service',
-      serviceInstanceId: 'ServiceInstanceId',
-      serviceType: 'ServiceType',
-      source: 'Source',
-      status: 'Status',
-      statusDetail: 'StatusDetail',
-      tags: 'Tags',
-      templateName: 'TemplateName',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizStatus: 'string',
-      createTime: 'string',
-      enableInstanceOps: 'boolean',
-      endTime: 'string',
-      isOperated: 'boolean',
-      name: 'string',
-      operatedServiceInstanceId: 'string',
-      operationEndTime: 'string',
-      operationStartTime: 'string',
-      parameters: 'string',
-      payType: 'string',
-      progress: 'number',
-      resourceGroupId: 'string',
-      service: ListServiceInstancesResponseBodyServiceInstancesService,
-      serviceInstanceId: 'string',
-      serviceType: 'string',
-      source: 'string',
-      status: 'string',
-      statusDetail: 'string',
-      tags: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesTags },
-      templateName: 'string',
-      updateTime: 'string',
-      userId: 'number',
-    };
-  }
-
-  validate() {
-    if(this.service && typeof (this.service as any).validate === 'function') {
-      (this.service as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceRegistrationsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * Name of the filter field. Allowed values:
-   * 
-   * - ServiceId: Service ID.
-   * 
-   * - RegistrationId: Registration ID.
-   * 
-   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
-   * 
-   * @example
-   * Canceled
-   */
-  name?: string;
-  /**
-   * @remarks
-   * List of filter values.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $dara.Model {
-  /**
-   * @remarks
-   * Comment.
-   * 
-   * @example
-   * some info is missing
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * Finish time.
-   * 
-   * @example
-   * 2021-05-23T00:00:00Z
-   */
-  finishTime?: string;
-  /**
-   * @remarks
-   * Registration ID.
-   * 
-   * @example
-   * sr-001
-   */
-  registrationId?: string;
-  /**
-   * @remarks
-   * Service ID.
-   * 
-   * @example
-   * service-f4c0026a254bxxxxxxxx
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * Registration status. Allowed values:
-   * 
-   * - Submitted
-   * 
-   * - Approved
-   * 
-   * - Rejected
-   * 
-   * - Canceled
-   * 
-   * - Executed
-   * 
-   * - Executed: Executed.
-   * 
-   * @example
-   * Rejected
-   */
-  status?: string;
-  /**
-   * @remarks
-   * Submit time.
-   * 
-   * @example
-   * 2021-05-22T00:00:00Z
-   */
-  submitTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      finishTime: 'FinishTime',
-      registrationId: 'RegistrationId',
-      serviceId: 'ServiceId',
-      status: 'Status',
-      submitTime: 'SubmitTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      finishTime: 'string',
-      registrationId: 'string',
-      serviceId: 'string',
-      status: 'string',
-      submitTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceSharedAccountsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-   * 
-   * *   Name: the name of the service.
-   * 
-   * @example
-   * UserAliUid
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the service was created.
-   * 
-   * @example
-   * 2021-12-28T02:47:46.000
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Service logo.
-   * 
-   * @example
-   * logo
-   */
-  logo?: string;
-  /**
-   * @remarks
-   * The name of the service instance. The value must meet the following requirements:
-   * 
-   * *   The name cannot exceed 64 characters in length.
-   * *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
-   * 
-   * @example
-   * name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The permissions on the service. Valid values:
-   * 
-   * *   Deployable: Permissions to deploy the service.
-   * *   Accessible: Permissions to access the service.
-   * 
-   * @example
-   * Deployable
-   */
-  permission?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-e10349089de34exxxxxx
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The time when the service was updated.
-   * 
-   * @example
-   * 2023-02-13T02:16:03.756Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The user aliUid.
-   * 
-   * @example
-   * 127383705xxxxxx
-   */
-  userAliUid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      logo: 'Logo',
-      name: 'Name',
-      permission: 'Permission',
-      serviceId: 'ServiceId',
-      updateTime: 'UpdateTime',
-      userAliUid: 'UserAliUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      logo: 'string',
-      name: 'string',
-      permission: 'string',
-      serviceId: 'string',
-      updateTime: 'string',
-      userAliUid: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceTestCasesRequestFilters extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * **Status**
-   * 
-   * **TaskId**
-   * 
-   * @example
-   * Status
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The value of the filter condition.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceTestCasesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * test-1
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The service test case id.
-   * 
-   * @example
-   * stc-83fcee1383354e35b151
-   */
-  testCaseId?: string;
-  /**
-   * @remarks
-   * The service test case name.
-   * 
-   * @example
-   * case1
-   */
-  testCaseName?: string;
-  /**
-   * @remarks
-   * The service test config.
-   * 
-   * @example
-   * ---
-   * parameters:
-   *   PayType: "PostPaid"
-   *   EcsInstanceType: "$[iact3-auto]"
-   *   InstancePassword: "$[iact3-auto]"
-   */
-  testConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateName: 'TemplateName',
-      testCaseId: 'TestCaseId',
-      testCaseName: 'TestCaseName',
-      testConfig: 'TestConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateName: 'string',
-      testCaseId: 'string',
-      testCaseName: 'string',
-      testConfig: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceTestTaskLogsResponseBodyTaskLogs extends $dara.Model {
-  /**
-   * @remarks
-   * The log content.
-   * 
-   * @example
-   * log content
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The UTC timestamp when the response is returned.
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-   * 
-   * @example
-   * 2022-12-12T20:00:09Z
-   */
-  timestamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      timestamp: 'Timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      timestamp: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceTestTasksRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-   * 
-   * *   Status: the status of the task.
-   * *   TaskId: the task id.
-   * 
-   * @example
-   * Status
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the task was created.
-   * 
-   * @example
-   * 2024-02-26T02:16:35Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * the status of service task.
-   * 
-   * @example
-   * Success
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * sttt-000h5nd4yrg59ucurzy1
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The name of the task.
-   * 
-   * @example
-   * dadadad
-   */
-  taskName?: string;
-  /**
-   * @remarks
-   * The task region id.
-   * 
-   * @example
-   * cn-beijing
-   */
-  taskRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      status: 'Status',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      taskRegionId: 'TaskRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      status: 'string',
-      taskId: 'string',
-      taskName: 'string',
-      taskRegionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceUsagesRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more filters. Valid values:
-   * 
-   * *   ServiceId: the ID of the service.
-   * *   ServiceName: the service name.
-   * *   Status: the state of the service.
-   * *   SupplierName: the name of the service provider.
-   * 
-   * @example
-   * ServiceId
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter value N of the filter. Valid values of N: 1 to 10.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
-  /**
-   * @remarks
-   * The comment on the approval.
-   * 
-   * @example
-   * Reject
-   */
-  comments?: string;
-  /**
-   * @remarks
-   * The time when the application was created.
-   * 
-   * @example
-   * 2022-05-25T02:02:02Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-c9f36ec6d19b4exxxxxx
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * ServiceTest
-   */
-  serviceName?: string;
-  /**
-   * @remarks
-   * The status of the service application. Valid values:
-   * 
-   * *   Submitted: The application is submitted or is to be approved.
-   * *   Approved: The application is approved.
-   * *   Rejected: The application is rejected.
-   * *   Canceled: The application is canceled.
-   * 
-   * @example
-   * Submitted
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The name of the service provider.
-   * 
-   * @example
-   * SupplierAAA
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The time when the application was updated.
-   * 
-   * @example
-   * 2022-05-25T02:02:02Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 127383705958xxxx
-   */
-  userAliUid?: number;
-  /**
-   * @remarks
-   * The user information.
-   */
-  userInformation?: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      comments: 'Comments',
-      createTime: 'CreateTime',
-      serviceId: 'ServiceId',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      supplierName: 'SupplierName',
-      updateTime: 'UpdateTime',
-      userAliUid: 'UserAliUid',
-      userInformation: 'UserInformation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comments: 'string',
-      createTime: 'string',
-      serviceId: 'string',
-      serviceName: 'string',
-      status: 'string',
-      supplierName: 'string',
-      updateTime: 'string',
-      userAliUid: 'number',
-      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  validate() {
-    if(this.userInformation) {
-      $dara.Model.validateMap(this.userInformation);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-   * 
-   * *   ServiceId: the ID of the service.
-   * *   Name: the name of the service.
-   * *   Status: the state of the service.
-   * *   SupplierName: the name of the service provider.
-   * 
-   * @example
-   * Status
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter values of the filter.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesResponseBodyServicesCommodity extends $dara.Model {
-  /**
-   * @remarks
-   * The commodity code.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The configuration metadata related to Saas Boost.
-   * 
-   * @example
-   * { // Specifies whether to associate the service with the SaaS Boost commodity. Default value: false. "Enabled":true/false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
-   */
-  saasBoostMetadata?: string;
-  /**
-   * @remarks
-   * The platform type. Valid values:
-   * 
-   * *   marketplace: Alibaba Cloud Marketplace.
-   * *   Css: Lingxiao.
-   * *   SaasBoost: Saas Boost.
-   * 
-   * @example
-   * Marketplace
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      saasBoostMetadata: 'SaasBoostMetadata',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      saasBoostMetadata: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese.
-   * *   en-US: English.
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The name of the service.
-   * 
-   * @example
-   * SpringBoot-ECS容器版
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
-   */
-  shortDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      image: 'Image',
-      locale: 'Locale',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      image: 'string',
-      locale: 'string',
-      name: 'string',
-      shortDescription: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesResponseBodyServicesTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServicesResponseBodyServices extends $dara.Model {
-  /**
-   * @remarks
-   * The approval type for applications for using the service. Valid values:
-   * 
-   * *   Manual: The applications are manual reviewed.
-   * *   AutoPass: The applications are automatically approved.
-   * 
-   * @example
-   * AutoPass
-   */
-  approvalType?: string;
-  /**
-   * @remarks
-   * The ID of the artifact.
-   * 
-   * @example
-   * artifact-21ca53ac16a643xxxxxx
-   */
-  artifactId?: string;
-  /**
-   * @remarks
-   * The version of the artifact.
-   * 
-   * @example
-   * draft
-   */
-  artifactVersion?: string;
-  /**
-   * @remarks
-   * The informathon for build service.
-   * 
-   * @example
-   * { "RepoUrl": "https://github.com/user/repo.git", "Brancn": "main"}
-   */
-  buildInfo?: string;
-  /**
-   * @remarks
-   * The category of the service.
-   * 
-   * @example
-   * OpenSource
-   */
-  categories?: string;
-  /**
-   * @remarks
-   * The commodity details.
-   */
-  commodity?: ListServicesResponseBodyServicesCommodity;
-  /**
-   * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The time when the service was created.
-   * 
-   * @example
-   * 2021-05-20T00:00:00Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the version is the default version. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * true
-   */
-  defaultVersion?: boolean;
-  /**
-   * @remarks
-   * The deployment type of the service. Valid values:
-   * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   spi: The service is deployed by calling the Service Provider Interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
-   * *   container: The service is deployed by using a container.
-   * *
-   * 
-   * @example
-   * ros
-   */
-  deployType?: string;
-  /**
-   * @remarks
-   * Indicates whether the service has a beta version. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  hasBeta?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the service has a draft version. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  hasDraft?: boolean;
-  /**
-   * @remarks
-   * The latest version of the distribution source service.
-   * 
-   * @example
-   * 1
-   */
-  latestResellSourceServiceVersion?: string;
-  /**
-   * @remarks
-   * The time when the service was published.
-   * 
-   * @example
-   * 2021-05-21T00:00:00Z
-   */
-  publishTime?: string;
-  /**
-   * @remarks
-   * The purpose of the artifact. Valid values:
-   * 
-   * *   ServiceDeployment: The artifact is used to create service instances.
-   * *   ServiceUpgrade: The artifact is used to upgrade service instances.
-   * 
-   * @example
-   * ServiceDeployment
-   */
-  relationType?: string;
-  /**
-   * @remarks
-   * The state of distribution authorization of the service. Valid values:
-   * 
-   * *   CanApply: Distributors can apply for distribution permissions.
-   * *   Applied: The application for distribution permissions is submitted.
-   * *   Approved: The application for distribution permissions is approved.
-   * 
-   * @example
-   * CanApply
-   */
-  resellApplyStatus?: string;
-  /**
-   * @remarks
-   * The ID of the distribution service.
-   * 
-   * @example
-   * service-70a3b15bb62643xxxxxx
-   */
-  resellServiceId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-aekz5b555xxxxxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * Indicates whether the service is visible. Valid values:
-   * 
-   * *   INVISIBLE
-   * *   DISCOVERABLE
-   * 
-   * @example
-   * INVISIBLE
-   */
-  serviceDiscoverable?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * service-70a3b15bb62643xxxxxx
-   */
-  serviceId?: string;
-  /**
-   * @remarks
-   * The information about the service.
-   */
-  serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
-  /**
-   * @remarks
-   * The type of the service. Valid values:
-   * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * 
-   * @example
-   * private
-   */
-  serviceType?: string;
-  /**
-   * @remarks
-   * The permission type of the deployment URL. Valid values:
-   * 
-   * *   Public: All users can go to the URL to create a formal service instance or a trial service instance.
-   * *   Restricted: Only users in the whitelist can go to the URL to create a formal service instance or a trial service instance.
-   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a formal service instance.
-   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
-   * 
-   * @example
-   * Public
-   */
-  shareType?: string;
-  /**
-   * @remarks
-   * The source image.
-   * 
-   * @example
-   * centos_7
-   */
-  sourceImage?: string;
-  /**
-   * @remarks
-   * The ID of the distribution source service.
-   * 
-   * @example
-   * service-70a3b15bb62643xxxxxx
-   */
-  sourceServiceId?: string;
-  /**
-   * @remarks
-   * The version of the distribution source service.
-   * 
-   * @example
-   * 1
-   */
-  sourceServiceVersion?: string;
-  /**
-   * @remarks
-   * The name of the distribution source service provider.
-   * 
-   * @example
-   * SourceSupplier
-   */
-  sourceSupplierName?: string;
-  /**
-   * @remarks
-   * The state of the service. Valid values:
-   * 
-   * *   Draft: The service is a draft.
-   * *   Submitted: The service is submitted for review. You cannot modify services in this state.
-   * *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
-   * *   Launching: The service is being published.
-   * *   Online: The service is published.
-   * *   Offline: The service is unpublished.
-   * 
-   * @example
-   * Online
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The name of the service provider.
-   * 
-   * @example
-   * Alibaba Cloud
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The URL of the service provider.
-   * 
-   * @example
-   * http://example.com
-   */
-  supplierUrl?: string;
-  /**
-   * @remarks
-   * The service tags.
-   */
-  tags?: ListServicesResponseBodyServicesTags[];
-  /**
-   * @remarks
-   * The tenant type of the managed service. Valid values:
-   * 
-   * *   SingleTenant
-   * *   MultiTenant
-   * 
-   * @example
-   * SingleTenant
-   */
-  tenantType?: string;
-  /**
-   * @remarks
-   * The trial policy. Valid values:
-   * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
-   * 
-   * @example
-   * Trial
-   */
-  trialType?: string;
-  /**
-   * @remarks
-   * The time when the service was modified.
-   * 
-   * @example
-   * 2021-05-21T00:00:00Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The version of the service.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  /**
-   * @remarks
-   * The custom version name defined by the service provider.
-   * 
-   * @example
-   * v2.0.0
-   */
-  versionName?: string;
-  /**
-   * @remarks
-   * Indicates whether the service is a virtual Internet service. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
-  virtualInternetService?: string;
-  static names(): { [key: string]: string } {
-    return {
-      approvalType: 'ApprovalType',
-      artifactId: 'ArtifactId',
-      artifactVersion: 'ArtifactVersion',
-      buildInfo: 'BuildInfo',
-      categories: 'Categories',
-      commodity: 'Commodity',
-      commodityCode: 'CommodityCode',
-      createTime: 'CreateTime',
-      defaultVersion: 'DefaultVersion',
-      deployType: 'DeployType',
-      hasBeta: 'HasBeta',
-      hasDraft: 'HasDraft',
-      latestResellSourceServiceVersion: 'LatestResellSourceServiceVersion',
-      publishTime: 'PublishTime',
-      relationType: 'RelationType',
-      resellApplyStatus: 'ResellApplyStatus',
-      resellServiceId: 'ResellServiceId',
-      resourceGroupId: 'ResourceGroupId',
-      serviceDiscoverable: 'ServiceDiscoverable',
-      serviceId: 'ServiceId',
-      serviceInfos: 'ServiceInfos',
-      serviceType: 'ServiceType',
-      shareType: 'ShareType',
-      sourceImage: 'SourceImage',
-      sourceServiceId: 'SourceServiceId',
-      sourceServiceVersion: 'SourceServiceVersion',
-      sourceSupplierName: 'SourceSupplierName',
-      status: 'Status',
-      supplierName: 'SupplierName',
-      supplierUrl: 'SupplierUrl',
-      tags: 'Tags',
-      tenantType: 'TenantType',
-      trialType: 'TrialType',
-      updateTime: 'UpdateTime',
-      version: 'Version',
-      versionName: 'VersionName',
-      virtualInternetService: 'VirtualInternetService',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      approvalType: 'string',
-      artifactId: 'string',
-      artifactVersion: 'string',
-      buildInfo: 'string',
-      categories: 'string',
-      commodity: ListServicesResponseBodyServicesCommodity,
-      commodityCode: 'string',
-      createTime: 'string',
-      defaultVersion: 'boolean',
-      deployType: 'string',
-      hasBeta: 'boolean',
-      hasDraft: 'boolean',
-      latestResellSourceServiceVersion: 'string',
-      publishTime: 'string',
-      relationType: 'string',
-      resellApplyStatus: 'string',
-      resellServiceId: 'string',
-      resourceGroupId: 'string',
-      serviceDiscoverable: 'string',
-      serviceId: 'string',
-      serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
-      serviceType: 'string',
-      shareType: 'string',
-      sourceImage: 'string',
-      sourceServiceId: 'string',
-      sourceServiceVersion: 'string',
-      sourceSupplierName: 'string',
-      status: 'string',
-      supplierName: 'string',
-      supplierUrl: 'string',
-      tags: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesTags },
-      tenantType: 'string',
-      trialType: 'string',
-      updateTime: 'string',
-      version: 'string',
-      versionName: 'string',
-      virtualInternetService: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commodity && typeof (this.commodity as any).validate === 'function') {
-      (this.commodity as any).validate();
-    }
-    if(Array.isArray(this.serviceInfos)) {
-      $dara.Model.validateArray(this.serviceInfos);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupplierRegistrationsRequestFilter extends $dara.Model {
-  /**
-   * @remarks
-   * Name of the filter field. Allowed values:
-   * 
-   * - SupplierUid: The aliUid of supplier.
-   * - SupplierName: The name of supplier.
-   * - RegistrationId: Registration ID.
-   * 
-   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected.
-   * 
-   * @example
-   * SupplierUid
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Filter value.
-   */
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.value)) {
-      $dara.Model.validateArray(this.value);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends $dara.Model {
-  /**
-   * @remarks
-   * The comment of this registration.
-   * 
-   * @example
-   * empty
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * Contact email
-   * 
-   * @example
-   * test@163.com
-   */
-  contactEmail?: string;
-  /**
-   * @remarks
-   * Contact number
-   * 
-   * @example
-   * 135xxxxxxxx
-   */
-  contactNumber?: string;
-  /**
-   * @remarks
-   * Contact person
-   * 
-   * @example
-   * Mike
-   */
-  contactPerson?: string;
-  /**
-   * @remarks
-   * Contact person tiltle.
-   * 
-   * @example
-   * CTO
-   */
-  contactPersonTitle?: string;
-  /**
-   * @remarks
-   * Whether to enable the resell mode.
-   * 
-   * @example
-   * false
-   */
-  enableResellerMode?: boolean;
-  /**
-   * @remarks
-   * Annual product revenue
-   * 
-   * @example
-   * empty
-   */
-  productAnnualRevenue?: string;
-  /**
-   * @remarks
-   * The business of product.
-   * 
-   * @example
-   * AI
-   */
-  productBusiness?: string;
-  /**
-   * @remarks
-   * Product delivery type，Valid values:
-   * 
-   * SaaS
-   * License
-   * API
-   * DesktopSoftware
-   * Others
-   * 
-   * @example
-   * SaaS
-   */
-  productDeliveryTypes?: string;
-  /**
-   * @remarks
-   * The publish time of product.
-   * 
-   * @example
-   * 2024.10.24
-   */
-  productPublishTime?: string;
-  /**
-   * @remarks
-   * Product sell type, Valid values:
-   * 
-   * - Direct
-   * - Channel
-   * 
-   * @example
-   * Direct
-   */
-  productSellTypes?: string;
-  /**
-   * @remarks
-   * The registration ID.
-   * 
-   * @example
-   * sr-xxx
-   */
-  registrationId?: string;
-  /**
-   * @remarks
-   * The description of resell business.
-   * 
-   * @example
-   * empty
-   */
-  resellBusinessDesc?: string;
-  /**
-   * @remarks
-   * The deployment state of the registration. Valid values:
-   * 
-   * - Submitted
-   * - Approved
-   * - Rejected
-   * 
-   * @example
-   * Submitted
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The submit time of this registration.
-   * 
-   * @example
-   * 2025-01-22 09:47:58
-   */
-  submitTime?: string;
-  /**
-   * @remarks
-   * The description of service provider.
-   * 
-   * @example
-   * Test supplier
-   */
-  supplierDesc?: string;
-  /**
-   * @remarks
-   * The Logo of service provider.
-   * 
-   * @example
-   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-xxx/xxx.png
-   */
-  supplierLogo?: string;
-  /**
-   * @remarks
-   * The name of the service provider.
-   * 
-   * @example
-   * Aliibaba Cloud
-   */
-  supplierName?: string;
-  /**
-   * @remarks
-   * The english name of the service provider.
-   * 
-   * @example
-   * Alibaba Cloud ComputeNest
-   */
-  supplierNameEn?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud account ID of the service provider.
-   * 
-   * @example
-   * 1256xxx23434
-   */
-  supplierUid?: string;
-  /**
-   * @remarks
-   * The URL of the service provider.
-   * 
-   * @example
-   * https://www.guangbao-uni.com
-   */
-  supplierUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      contactEmail: 'ContactEmail',
-      contactNumber: 'ContactNumber',
-      contactPerson: 'ContactPerson',
-      contactPersonTitle: 'ContactPersonTitle',
-      enableResellerMode: 'EnableResellerMode',
-      productAnnualRevenue: 'ProductAnnualRevenue',
-      productBusiness: 'ProductBusiness',
-      productDeliveryTypes: 'ProductDeliveryTypes',
-      productPublishTime: 'ProductPublishTime',
-      productSellTypes: 'ProductSellTypes',
-      registrationId: 'RegistrationId',
-      resellBusinessDesc: 'ResellBusinessDesc',
-      status: 'Status',
-      submitTime: 'SubmitTime',
-      supplierDesc: 'SupplierDesc',
-      supplierLogo: 'SupplierLogo',
-      supplierName: 'SupplierName',
-      supplierNameEn: 'SupplierNameEn',
-      supplierUid: 'SupplierUid',
-      supplierUrl: 'SupplierUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      contactEmail: 'string',
-      contactNumber: 'string',
-      contactPerson: 'string',
-      contactPersonTitle: 'string',
-      enableResellerMode: 'boolean',
-      productAnnualRevenue: 'string',
-      productBusiness: 'string',
-      productDeliveryTypes: 'string',
-      productPublishTime: 'string',
-      productSellTypes: 'string',
-      registrationId: 'string',
-      resellBusinessDesc: 'string',
-      status: 'string',
-      submitTime: 'string',
-      supplierDesc: 'string',
-      supplierLogo: 'string',
-      supplierName: 'string',
-      supplierNameEn: 'string',
-      supplierUid: 'string',
-      supplierUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
-  /**
-   * @remarks
-   * Resource ID
-   * 
-   * @example
-   * service-xxx
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The resource type. Valid value:
-   * - service
-   * - serviceinstance
-   * - artifact
-   * 
-   * @example
-   * service
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * usage
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * test
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * Key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * Value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $dara.Model {
-  /**
-   * @remarks
-   * The name of a specific build argument.
-   * 
-   * @example
-   * ENV
-   */
-  argumentName?: string;
-  /**
-   * @remarks
-   * The value of a specific build argument.
-   * 
-   * @example
-   * nginx:latest
-   */
-  argumentValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      argumentName: 'ArgumentName',
-      argumentValue: 'ArgumentValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      argumentName: 'string',
-      argumentValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the branch in the code repository.
-   * 
-   * @example
-   * main
-   */
-  branch?: string;
-  /**
-   * @remarks
-   * The endpoint. 
-   * The URL address used to access the privately deployed GitLab instance.
-   * 
-   * @example
-   * http://121.40.25.0
-   */
-  endpoint?: string;
-  /**
-   * @remarks
-   * The organization ID.
-   * 
-   * @example
-   * 455231
-   */
-  orgId?: string;
-  /**
-   * @remarks
-   * The owner of the code repository.
-   * 
-   * >  This parameter is available only if the git repository is private.
-   * 
-   * @example
-   * aliyun-computenest
-   */
-  owner?: string;
-  /**
-   * @remarks
-   * The platform type. Valid values:
-   * 
-   * - github
-   * 
-   * - gitee
-   * 
-   * - gitlab
-   * 
-   * - codeup
-   * 
-   * @example
-   * github
-   */
-  platform?: string;
-  /**
-   * @remarks
-   * The repository ID.
-   * 
-   * @example
-   * 103
-   */
-  repoId?: number;
-  /**
-   * @remarks
-   * The name of the repository.
-   * 
-   * @example
-   * aliyun-computenest/quickstart-Lobexxx
-   */
-  repoName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      branch: 'Branch',
-      endpoint: 'Endpoint',
-      orgId: 'OrgId',
-      owner: 'Owner',
-      platform: 'Platform',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      branch: 'string',
-      endpoint: 'string',
-      orgId: 'string',
-      owner: 'string',
-      platform: 'string',
-      repoId: 'number',
-      repoName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateArtifactRequestArtifactBuildProperty extends $dara.Model {
-  /**
-   * @remarks
-   * The build arguments used during the image build process.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
-   */
-  buildArgs?: UpdateArtifactRequestArtifactBuildPropertyBuildArgs[];
-  /**
-   * @remarks
-   * The address of the code repository.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
-   */
-  codeRepo?: UpdateArtifactRequestArtifactBuildPropertyCodeRepo;
-  /**
-   * @remarks
-   * The command content.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * echo "start run command"
-   */
-  commandContent?: string;
-  /**
-   * @remarks
-   * The command type. Valid values:
-   * 
-   * *   RunBatScript: batch command, applicable to Windows instances.
-   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-   * *   RunShellScript: shell command, applicable to Linux instances.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * RunShellScript
-   */
-  commandType?: string;
-  /**
-   * @remarks
-   * The relative path to the Dockerfile within the code repository.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
-   * 
-   * @example
-   * ./file/Dockerfile
-   */
-  dockerfilePath?: string;
-  /**
-   * @remarks
-   * The region ID where the source mirror image is located.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
-   * 
-   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
-   * 
-   * @example
-   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
-   */
-  sourceContainerImage?: string;
-  /**
-   * @remarks
-   * The source image id. Supported Types:
-   * 
-   * - Image ID: Pass the Image ID of the Ecs image directly.
-   * 
-   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
-   * 
-   * >  This parameter is available only if the deployment package is a ecs image type.
-   * 
-   * @example
-   * Image ID：m-t4nhenrdc38pe4*****
-   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
-   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
-   */
-  sourceImageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buildArgs: 'BuildArgs',
-      codeRepo: 'CodeRepo',
-      commandContent: 'CommandContent',
-      commandType: 'CommandType',
-      dockerfilePath: 'DockerfilePath',
-      regionId: 'RegionId',
-      sourceContainerImage: 'SourceContainerImage',
-      sourceImageId: 'SourceImageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buildArgs: { 'type': 'array', 'itemType': UpdateArtifactRequestArtifactBuildPropertyBuildArgs },
-      codeRepo: UpdateArtifactRequestArtifactBuildPropertyCodeRepo,
-      commandContent: 'string',
-      commandType: 'string',
-      dockerfilePath: 'string',
-      regionId: 'string',
-      sourceContainerImage: 'string',
-      sourceImageId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.buildArgs)) {
-      $dara.Model.validateArray(this.buildArgs);
-    }
-    if(this.codeRepo && typeof (this.codeRepo as any).validate === 'function') {
-      (this.codeRepo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateArtifactRequestArtifactProperty extends $dara.Model {
-  /**
-   * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The commodity version of the service in Alibaba Cloud Marketplace.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * V1.0
-   */
-  commodityVersion?: string;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * m-0xij191j9cuev6ucxxxx
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * >  This parameter is available only if the deployment package is an image.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the Container Registry  repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * crr-yy4g68uhi39ttkm8
-   */
-  repoId?: string;
-  /**
-   * @remarks
-   * The name of the Container Registry repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * volcanosh/vc-webhook-manager
-   */
-  repoName?: string;
-  /**
-   * @remarks
-   * The type of the repository.Valid values:
-   * 
-   * *   `Public`: a public repository.
-   * *   `Private`: a private repository.
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * Public
-   */
-  repoType?: string;
-  /**
-   * @remarks
-   * The version tag of the image repository.
-   * 
-   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
-   * 
-   * @example
-   * v1
-   */
-  tag?: string;
-  /**
-   * @remarks
-   * The URL of the deployment package object.
-   * 
-   * 
-   * > Note This parameter is available only if the deployment package is an file.
-   * 
-   * @example
-   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      commodityVersion: 'CommodityVersion',
-      imageId: 'ImageId',
-      regionId: 'RegionId',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-      repoType: 'RepoType',
-      tag: 'Tag',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      commodityVersion: 'string',
-      imageId: 'string',
-      regionId: 'string',
-      repoId: 'string',
-      repoName: 'string',
-      repoType: 'string',
-      tag: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestCommodityComponentsMappings extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is not available to the public.
-   */
-  mappings?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is not available to the public.
-   * 
-   * @example
-   * This parameter is not available to the public.
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mappings: 'Mappings',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.mappings) {
-      $dara.Model.validateMap(this.mappings);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara.Model {
-  /**
-   * @remarks
-   * Metering entity ID.
-   * 
-   * @example
-   * cmgj0006xxxx-Memory-1
-   */
-  entityId?: string;
-  /**
-   * @remarks
-   * Metric name, required when type is ComputeNestBill or ComputeNestPrometheus.
-   * 
-   * @example
-   * VirtualCpu/ecs.InstanceType
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * Promql statement.
-   * 
-   * @example
-   * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
-   */
-  promql?: string;
-  /**
-   * @remarks
-   * Type. Valid values:
-   * 
-   * - Custom
-   * - ComputeNestBill
-   * - ComputeNestPrometheus
-   * - ComputeNestTime
-   * 
-   * @example
-   * Custom
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityId: 'EntityId',
-      metricName: 'MetricName',
-      promql: 'Promql',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityId: 'string',
-      metricName: 'string',
-      promql: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestCommodityMeteringEntityMappings extends $dara.Model {
-  /**
-   * @remarks
-   * Metering entity IDs.
-   */
-  entityIds?: string[];
-  /**
-   * @remarks
-   * The specification name.
-   * 
-   * @example
-   * This parameter is not publicly accessible.
-   */
-  specificationName?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * The service ID.
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      entityIds: 'EntityIds',
-      specificationName: 'SpecificationName',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entityIds: { 'type': 'array', 'itemType': 'string' },
-      specificationName: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.entityIds)) {
-      $dara.Model.validateArray(this.entityIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Model {
-  /**
-   * @remarks
-   * Specification code.
-   * 
-   * @example
-   * yuncode5767800001
-   */
-  specificationCode?: string;
-  /**
-   * @remarks
-   * The name of the package specification.
-   * 
-   * @example
-   * Type, value：
-   * 
-   * * **Custom**
-   * * **ComputeNestBill**
-   * * **ComputeNestPrometheus**
-   * * **ComputeNestTime**
-   */
-  specificationName?: string;
-  /**
-   * @remarks
-   * The template name.
-   * 
-   * @example
-   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      specificationCode: 'SpecificationCode',
-      specificationName: 'SpecificationName',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      specificationCode: 'string',
-      specificationName: 'string',
-      templateName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestCommodity extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is not available to the public.
-   */
-  componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
-  /**
-   * @remarks
-   * Metering entity extra information.
-   */
-  meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
-  /**
-   * @remarks
-   * Binding relationship between templates/specifications and metering dimensions (marketplace - PayAsYouGo)
-   */
-  meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
-  /**
-   * @remarks
-   * SaaS Boost configuration.
-   * 
-   * @example
-   * {}
-   */
-  saasBoostConfig?: string;
-  /**
-   * @remarks
-   * Product specifications and template/package mappings (Used in marketplace - subscription scenario)
-   */
-  specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
-  static names(): { [key: string]: string } {
-    return {
-      componentsMappings: 'ComponentsMappings',
-      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
-      meteringEntityMappings: 'MeteringEntityMappings',
-      saasBoostConfig: 'SaasBoostConfig',
-      specificationMappings: 'SpecificationMappings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      componentsMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityComponentsMappings },
-      meteringEntityExtraInfos: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityExtraInfos },
-      meteringEntityMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityMappings },
-      saasBoostConfig: 'string',
-      specificationMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommoditySpecificationMappings },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.componentsMappings)) {
-      $dara.Model.validateArray(this.componentsMappings);
-    }
-    if(Array.isArray(this.meteringEntityExtraInfos)) {
-      $dara.Model.validateArray(this.meteringEntityExtraInfos);
-    }
-    if(Array.isArray(this.meteringEntityMappings)) {
-      $dara.Model.validateArray(this.meteringEntityMappings);
-    }
-    if(Array.isArray(this.specificationMappings)) {
-      $dara.Model.validateArray(this.specificationMappings);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestComplianceMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * The compliance pack.
-   */
-  compliancePacks?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      compliancePacks: 'CompliancePacks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      compliancePacks: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.compliancePacks)) {
-      $dara.Model.validateArray(this.compliancePacks);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestServiceInfoAgreements extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestServiceInfoSoftwares extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the software.
-   * 
-   * @example
-   * MySQL
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software.
-   * 
-   * @example
-   * 5.7
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestServiceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
-  agreements?: UpdateServiceRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
-  longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * The URL of the detailed description of the service.
-   */
-  shortDescription?: string;
-  /**
-   * @remarks
-   * The list of the software in the service.
-   */
-  softwares?: UpdateServiceRequestServiceInfoSoftwares[];
-  static names(): { [key: string]: string } {
-    return {
-      agreements: 'Agreements',
-      image: 'Image',
-      locale: 'Locale',
-      longDescriptionUrl: 'LongDescriptionUrl',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-      softwares: 'Softwares',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agreements: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoAgreements },
-      image: 'string',
-      locale: 'string',
-      longDescriptionUrl: 'string',
-      name: 'string',
-      shortDescription: 'string',
-      softwares: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoSoftwares },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.agreements)) {
-      $dara.Model.validateArray(this.agreements);
-    }
-    if(Array.isArray(this.softwares)) {
-      $dara.Model.validateArray(this.softwares);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceRequestUpdateOption extends $dara.Model {
-  /**
-   * @remarks
-   * Whether to update artifact.
-   * 
-   * @example
-   * true
-   */
-  updateArtifact?: boolean;
-  /**
-   * @remarks
-   * Update from. Valid values:
-   * 
-   * - CODE
-   * - PARAMETERS
-   * 
-   * @example
-   * PARAMETERS
-   */
-  updateFrom?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateArtifact: 'UpdateArtifact',
-      updateFrom: 'UpdateFrom',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateArtifact: 'boolean',
-      updateFrom: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceShrinkRequestServiceInfoAgreements extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol name.
-   * 
-   * @example
-   * Name
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Protocol url.
-   * 
-   * @example
-   * https://aliyun.com/xxxxxxxx.html
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceShrinkRequestServiceInfoSoftwares extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the software.
-   * 
-   * @example
-   * MySQL
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software.
-   * 
-   * @example
-   * 5.7
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceShrinkRequestServiceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Protocol document information about the service.
-   */
-  agreements?: UpdateServiceShrinkRequestServiceInfoAgreements[];
-  /**
-   * @remarks
-   * The URL of the service icon.
-   * 
-   * @example
-   * http://img.tidb.oss.url
-   */
-  image?: string;
-  /**
-   * @remarks
-   * The language of the service. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * 
-   * @example
-   * zh-CN
-   */
-  locale?: string;
-  /**
-   * @remarks
-   * The URL of the detailed description of the service.
-   * 
-   * @example
-   * http://description.tidb.oss.url
-   */
-  longDescriptionUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The description of the service.
-   * 
-   * @example
-   * The URL of the detailed description of the service.
-   */
-  shortDescription?: string;
-  /**
-   * @remarks
-   * The list of the software in the service.
-   */
-  softwares?: UpdateServiceShrinkRequestServiceInfoSoftwares[];
-  static names(): { [key: string]: string } {
-    return {
-      agreements: 'Agreements',
-      image: 'Image',
-      locale: 'Locale',
-      longDescriptionUrl: 'LongDescriptionUrl',
-      name: 'Name',
-      shortDescription: 'ShortDescription',
-      softwares: 'Softwares',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agreements: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoAgreements },
-      image: 'string',
-      locale: 'string',
-      longDescriptionUrl: 'string',
-      name: 'string',
-      shortDescription: 'string',
-      softwares: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoSoftwares },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.agreements)) {
-      $dara.Model.validateArray(this.agreements);
-    }
-    if(Array.isArray(this.softwares)) {
-      $dara.Model.validateArray(this.softwares);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The Actions.
-   */
-  action?: string[];
-  /**
-   * @remarks
-   * The responses.
-   * 
-   * @example
-   * *
-   */
-  resource?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * @example
-   * ecs
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      resource: 'Resource',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: { 'type': 'array', 'itemType': 'string' },
-      resource: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.action)) {
-      $dara.Model.validateArray(this.action);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceResponseBodyDryRunResultRolePolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The missing  ram policy for deploying role.
-   */
-  missingPolicy?: UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
-  /**
-   * @remarks
-   * The required ram policy for deploying role.
-   * 
-   * @example
-   * {
-   * 	"Statement": [{
-   * 		"Action": ["oos:CancelExecutions", "oos:DeleteExecutions", "oos:GetTemplate", "oos:ListExecutions", "oos:ListTemplates", "oos:NotifyExecution", "oos:StartExecution"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}, {
-   * 		"Action": ["ram:PassRole"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}, {
-   * 		"Action": ["ros:CreateStack", "ros:GetStack", "ros:UpdateStack", "ros:ListStackEvents", "ros:ListStackResources", "ros:ListStackResources", "ros:DeleteStack", "ram:GetRole"],
-   * 		"Effect": "Allow",
-   * 		"Resource": "*"
-   * 	}],
-   * 	"Version": "1"
-   * }
-   */
-  policy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      missingPolicy: 'MissingPolicy',
-      policy: 'Policy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      missingPolicy: { 'type': 'array', 'itemType': UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
-      policy: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.missingPolicy)) {
-      $dara.Model.validateArray(this.missingPolicy);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceResponseBodyDryRunResult extends $dara.Model {
-  /**
-   * @remarks
-   * The required ram policy for deploying role.
-   */
-  rolePolicy?: UpdateServiceResponseBodyDryRunResultRolePolicy;
-  static names(): { [key: string]: string } {
-    return {
-      rolePolicy: 'RolePolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rolePolicy: UpdateServiceResponseBodyDryRunResultRolePolicy,
-    };
-  }
-
-  validate() {
-    if(this.rolePolicy && typeof (this.rolePolicy as any).validate === 'function') {
-      (this.rolePolicy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceInstanceAttributeRequestLicenseData extends $dara.Model {
-  /**
-   * @remarks
-   * The Custom Data
-   * 
-   * @example
-   * {"Test"}
-   */
-  customData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customData: 'CustomData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customData: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the OSS bucket.
-   * 
-   * @example
-   * mybucket
-   */
-  ossBucketName?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  ossEnabled?: boolean;
-  /**
-   * @remarks
-   * The number of days for which the screencasts are saved.
-   * 
-   * @example
-   * 7
-   */
-  ossExpirationDays?: number;
-  /**
-   * @remarks
-   * The OSS path.
-   * 
-   * @example
-   * path1/path2/
-   */
-  ossPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ossBucketName: 'OssBucketName',
-      ossEnabled: 'OssEnabled',
-      ossExpirationDays: 'OssExpirationDays',
-      ossPath: 'OssPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ossBucketName: 'string',
-      ossEnabled: 'boolean',
-      ossExpirationDays: 'number',
-      ossPath: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddServiceSharedAccountsRequest extends $dara.Model {
+import Util, * as $Util from '@alicloud/tea-util';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
+import * as $tea from '@alicloud/tea-typescript';
+
+export class AddServiceSharedAccountsRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -9362,19 +74,12 @@ export class AddServiceSharedAccountsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.sharedAccounts)) {
-      $dara.Model.validateArray(this.sharedAccounts);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddServiceSharedAccountsResponseBody extends $dara.Model {
+export class AddServiceSharedAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -9395,16 +100,12 @@ export class AddServiceSharedAccountsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddServiceSharedAccountsResponse extends $dara.Model {
+export class AddServiceSharedAccountsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddServiceSharedAccountsResponseBody;
@@ -9424,22 +125,12 @@ export class AddServiceSharedAccountsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApproveServiceUsageRequest extends $dara.Model {
+export class ApproveServiceUsageRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
@@ -9514,16 +205,12 @@ export class ApproveServiceUsageRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApproveServiceUsageResponseBody extends $dara.Model {
+export class ApproveServiceUsageResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -9544,16 +231,12 @@ export class ApproveServiceUsageResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ApproveServiceUsageResponse extends $dara.Model {
+export class ApproveServiceUsageResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ApproveServiceUsageResponseBody;
@@ -9573,22 +256,12 @@ export class ApproveServiceUsageResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelServiceRegistrationRequest extends $dara.Model {
+export class CancelServiceRegistrationRequest extends $tea.Model {
   /**
    * @remarks
    * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
@@ -9633,16 +306,12 @@ export class CancelServiceRegistrationRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelServiceRegistrationResponseBody extends $dara.Model {
+export class CancelServiceRegistrationResponseBody extends $tea.Model {
   /**
    * @remarks
    * Request ID.
@@ -9663,16 +332,12 @@ export class CancelServiceRegistrationResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelServiceRegistrationResponse extends $dara.Model {
+export class CancelServiceRegistrationResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelServiceRegistrationResponseBody;
@@ -9692,22 +357,12 @@ export class CancelServiceRegistrationResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueDeployServiceInstanceRequest extends $dara.Model {
+export class ContinueDeployServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -9775,16 +430,12 @@ export class ContinueDeployServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueDeployServiceInstanceResponseBody extends $dara.Model {
+export class ContinueDeployServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The dry run result.
@@ -9822,19 +473,12 @@ export class ContinueDeployServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.dryRunResult && typeof (this.dryRunResult as any).validate === 'function') {
-      (this.dryRunResult as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContinueDeployServiceInstanceResponse extends $dara.Model {
+export class ContinueDeployServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ContinueDeployServiceInstanceResponseBody;
@@ -9854,22 +498,12 @@ export class ContinueDeployServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateArtifactRequest extends $dara.Model {
+export class CreateArtifactRequest extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -10007,28 +641,12 @@ export class CreateArtifactRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.artifactBuildProperty && typeof (this.artifactBuildProperty as any).validate === 'function') {
-      (this.artifactBuildProperty as any).validate();
-    }
-    if(this.artifactProperty && typeof (this.artifactProperty as any).validate === 'function') {
-      (this.artifactProperty as any).validate();
-    }
-    if(Array.isArray(this.supportRegionIds)) {
-      $dara.Model.validateArray(this.supportRegionIds);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateArtifactShrinkRequest extends $dara.Model {
+export class CreateArtifactShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -10166,22 +784,12 @@ export class CreateArtifactShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.supportRegionIds)) {
-      $dara.Model.validateArray(this.supportRegionIds);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateArtifactResponseBody extends $dara.Model {
+export class CreateArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -10346,16 +954,12 @@ export class CreateArtifactResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateArtifactResponse extends $dara.Model {
+export class CreateArtifactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateArtifactResponseBody;
@@ -10375,22 +979,12 @@ export class CreateArtifactResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceRequest extends $dara.Model {
+export class CreateServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The alert configurations of the service.
@@ -10725,25 +1319,12 @@ export class CreateServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.complianceMetadata && typeof (this.complianceMetadata as any).validate === 'function') {
-      (this.complianceMetadata as any).validate();
-    }
-    if(Array.isArray(this.serviceInfo)) {
-      $dara.Model.validateArray(this.serviceInfo);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceShrinkRequest extends $dara.Model {
+export class CreateServiceShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The alert configurations of the service.
@@ -11078,22 +1659,12 @@ export class CreateServiceShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceInfo)) {
-      $dara.Model.validateArray(this.serviceInfo);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceResponseBody extends $dara.Model {
+export class CreateServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The dry run result.
@@ -11151,19 +1722,12 @@ export class CreateServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.dryRunResult && typeof (this.dryRunResult as any).validate === 'function') {
-      (this.dryRunResult as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceResponse extends $dara.Model {
+export class CreateServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceResponseBody;
@@ -11183,22 +1747,12 @@ export class CreateServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceInstanceRequest extends $dara.Model {
+export class CreateServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -11355,22 +1909,12 @@ export class CreateServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceInstanceShrinkRequest extends $dara.Model {
+export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -11527,19 +2071,12 @@ export class CreateServiceInstanceShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceInstanceResponseBody extends $dara.Model {
+export class CreateServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -11589,16 +2126,12 @@ export class CreateServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceInstanceResponse extends $dara.Model {
+export class CreateServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceInstanceResponseBody;
@@ -11618,22 +2151,12 @@ export class CreateServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestCaseRequest extends $dara.Model {
+export class CreateServiceTestCaseRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -11718,16 +2241,12 @@ export class CreateServiceTestCaseRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestCaseResponseBody extends $dara.Model {
+export class CreateServiceTestCaseResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -11758,16 +2277,12 @@ export class CreateServiceTestCaseResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestCaseResponse extends $dara.Model {
+export class CreateServiceTestCaseResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceTestCaseResponseBody;
@@ -11787,22 +2302,12 @@ export class CreateServiceTestCaseResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestTaskRequest extends $dara.Model {
+export class CreateServiceTestTaskRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -11854,19 +2359,12 @@ export class CreateServiceTestTaskRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.testCaseIds)) {
-      $dara.Model.validateArray(this.testCaseIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestTaskResponseBody extends $dara.Model {
+export class CreateServiceTestTaskResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -11897,16 +2395,12 @@ export class CreateServiceTestTaskResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceTestTaskResponse extends $dara.Model {
+export class CreateServiceTestTaskResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceTestTaskResponseBody;
@@ -11926,22 +2420,12 @@ export class CreateServiceTestTaskResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceUsageRequest extends $dara.Model {
+export class CreateServiceUsageRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -11984,16 +2468,12 @@ export class CreateServiceUsageRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceUsageResponseBody extends $dara.Model {
+export class CreateServiceUsageResponseBody extends $tea.Model {
   /**
    * @remarks
    * Id of the request
@@ -12014,16 +2494,12 @@ export class CreateServiceUsageResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceUsageResponse extends $dara.Model {
+export class CreateServiceUsageResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceUsageResponseBody;
@@ -12043,22 +2519,12 @@ export class CreateServiceUsageResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSupplierRegistrationRequest extends $dara.Model {
+export class CreateSupplierRegistrationRequest extends $tea.Model {
   /**
    * @remarks
    * Contact email
@@ -12265,22 +2731,12 @@ export class CreateSupplierRegistrationRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.productDeliveryTypes)) {
-      $dara.Model.validateArray(this.productDeliveryTypes);
-    }
-    if(Array.isArray(this.productSellTypes)) {
-      $dara.Model.validateArray(this.productSellTypes);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSupplierRegistrationResponseBody extends $dara.Model {
+export class CreateSupplierRegistrationResponseBody extends $tea.Model {
   /**
    * @remarks
    * Id of the request
@@ -12301,16 +2757,12 @@ export class CreateSupplierRegistrationResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSupplierRegistrationResponse extends $dara.Model {
+export class CreateSupplierRegistrationResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSupplierRegistrationResponseBody;
@@ -12330,22 +2782,12 @@ export class CreateSupplierRegistrationResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteArtifactRequest extends $dara.Model {
+export class DeleteArtifactRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the artifact.
@@ -12390,16 +2832,12 @@ export class DeleteArtifactRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteArtifactResponseBody extends $dara.Model {
+export class DeleteArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -12420,16 +2858,12 @@ export class DeleteArtifactResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteArtifactResponse extends $dara.Model {
+export class DeleteArtifactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteArtifactResponseBody;
@@ -12449,22 +2883,12 @@ export class DeleteArtifactResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceRequest extends $dara.Model {
+export class DeleteServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -12521,16 +2945,12 @@ export class DeleteServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceResponseBody extends $dara.Model {
+export class DeleteServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -12551,16 +2971,12 @@ export class DeleteServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceResponse extends $dara.Model {
+export class DeleteServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceResponseBody;
@@ -12580,22 +2996,12 @@ export class DeleteServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesRequest extends $dara.Model {
+export class DeleteServiceInstancesRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -12637,19 +3043,12 @@ export class DeleteServiceInstancesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceInstanceId)) {
-      $dara.Model.validateArray(this.serviceInstanceId);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesResponseBody extends $dara.Model {
+export class DeleteServiceInstancesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -12670,16 +3069,12 @@ export class DeleteServiceInstancesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesResponse extends $dara.Model {
+export class DeleteServiceInstancesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceInstancesResponseBody;
@@ -12699,22 +3094,12 @@ export class DeleteServiceInstancesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceTestCaseRequest extends $dara.Model {
+export class DeleteServiceTestCaseRequest extends $tea.Model {
   /**
    * @remarks
    * Region ID.
@@ -12747,16 +3132,12 @@ export class DeleteServiceTestCaseRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceTestCaseResponseBody extends $dara.Model {
+export class DeleteServiceTestCaseResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -12777,16 +3158,12 @@ export class DeleteServiceTestCaseResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceTestCaseResponse extends $dara.Model {
+export class DeleteServiceTestCaseResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceTestCaseResponseBody;
@@ -12806,22 +3183,12 @@ export class DeleteServiceTestCaseResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeployServiceInstanceRequest extends $dara.Model {
+export class DeployServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -12866,16 +3233,12 @@ export class DeployServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeployServiceInstanceResponseBody extends $dara.Model {
+export class DeployServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -12896,16 +3259,12 @@ export class DeployServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeployServiceInstanceResponse extends $dara.Model {
+export class DeployServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeployServiceInstanceResponseBody;
@@ -12925,22 +3284,12 @@ export class DeployServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
+export class GenerateDefaultServiceTestConfigRequest extends $tea.Model {
   /**
    * @remarks
    * The service ID.
@@ -12985,16 +3334,12 @@ export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateDefaultServiceTestConfigResponseBody extends $dara.Model {
+export class GenerateDefaultServiceTestConfigResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -13029,16 +3374,12 @@ export class GenerateDefaultServiceTestConfigResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateDefaultServiceTestConfigResponse extends $dara.Model {
+export class GenerateDefaultServiceTestConfigResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateDefaultServiceTestConfigResponseBody;
@@ -13058,22 +3399,12 @@ export class GenerateDefaultServiceTestConfigResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateServicePolicyRequest extends $dara.Model {
+export class GenerateServicePolicyRequest extends $tea.Model {
   /**
    * @remarks
    * The type of operation N for which you want to generate the policy information.
@@ -13148,19 +3479,12 @@ export class GenerateServicePolicyRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.operationTypes)) {
-      $dara.Model.validateArray(this.operationTypes);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateServicePolicyResponseBody extends $dara.Model {
+export class GenerateServicePolicyResponseBody extends $tea.Model {
   /**
    * @remarks
    * The policies that are missing.
@@ -13198,19 +3522,12 @@ export class GenerateServicePolicyResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.missingPolicy)) {
-      $dara.Model.validateArray(this.missingPolicy);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateServicePolicyResponse extends $dara.Model {
+export class GenerateServicePolicyResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateServicePolicyResponseBody;
@@ -13230,22 +3547,12 @@ export class GenerateServicePolicyResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactRequest extends $dara.Model {
+export class GetArtifactRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the deployment package.
@@ -13286,16 +3593,12 @@ export class GetArtifactRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactResponseBody extends $dara.Model {
+export class GetArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -13495,19 +3798,12 @@ export class GetArtifactResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactResponse extends $dara.Model {
+export class GetArtifactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetArtifactResponseBody;
@@ -13527,22 +3823,12 @@ export class GetArtifactResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactRepositoryCredentialsRequest extends $dara.Model {
+export class GetArtifactRepositoryCredentialsRequest extends $tea.Model {
   /**
    * @remarks
    * The type of the deployment package. Valid values:
@@ -13578,16 +3864,12 @@ export class GetArtifactRepositoryCredentialsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactRepositoryCredentialsResponseBody extends $dara.Model {
+export class GetArtifactRepositoryCredentialsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The information about the resources that can be uploaded.
@@ -13632,22 +3914,12 @@ export class GetArtifactRepositoryCredentialsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.availableResources)) {
-      $dara.Model.validateArray(this.availableResources);
-    }
-    if(this.credentials && typeof (this.credentials as any).validate === 'function') {
-      (this.credentials as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetArtifactRepositoryCredentialsResponse extends $dara.Model {
+export class GetArtifactRepositoryCredentialsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetArtifactRepositoryCredentialsResponseBody;
@@ -13667,22 +3939,12 @@ export class GetArtifactRepositoryCredentialsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceRequest extends $dara.Model {
+export class GetServiceRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to filter information based on Alibaba Cloud account IDs.
@@ -13773,19 +4035,12 @@ export class GetServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.showDetail)) {
-      $dara.Model.validateArray(this.showDetail);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceResponseBody extends $dara.Model {
+export class GetServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The alert configurations of the service.
@@ -13828,6 +4083,7 @@ export class GetServiceResponseBody extends $dara.Model {
    * { "RepoUrl": "https://github.com/user/repo.git", "Brancn": "main"}
    */
   buildInfo?: string;
+  buildParameters?: string;
   /**
    * @remarks
    * The category of the service.
@@ -14272,6 +4528,7 @@ export class GetServiceResponseBody extends $dara.Model {
       alarmMetadata: 'AlarmMetadata',
       approvalType: 'ApprovalType',
       buildInfo: 'BuildInfo',
+      buildParameters: 'BuildParameters',
       categories: 'Categories',
       commodity: 'Commodity',
       complianceMetadata: 'ComplianceMetadata',
@@ -14330,6 +4587,7 @@ export class GetServiceResponseBody extends $dara.Model {
       alarmMetadata: 'string',
       approvalType: 'string',
       buildInfo: 'string',
+      buildParameters: 'string',
       categories: 'string',
       commodity: GetServiceResponseBodyCommodity,
       complianceMetadata: GetServiceResponseBodyComplianceMetadata,
@@ -14383,37 +4641,12 @@ export class GetServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.commodity && typeof (this.commodity as any).validate === 'function') {
-      (this.commodity as any).validate();
-    }
-    if(this.complianceMetadata && typeof (this.complianceMetadata as any).validate === 'function') {
-      (this.complianceMetadata as any).validate();
-    }
-    if(this.entitySource) {
-      $dara.Model.validateMap(this.entitySource);
-    }
-    if(Array.isArray(this.serviceDocumentInfos)) {
-      $dara.Model.validateArray(this.serviceDocumentInfos);
-    }
-    if(Array.isArray(this.serviceInfos)) {
-      $dara.Model.validateArray(this.serviceInfos);
-    }
-    if(this.statistic && typeof (this.statistic as any).validate === 'function') {
-      (this.statistic as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceResponse extends $dara.Model {
+export class GetServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceResponseBody;
@@ -14433,22 +4666,12 @@ export class GetServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceEstimateCostRequest extends $dara.Model {
+export class GetServiceEstimateCostRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -14548,22 +4771,12 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.commodity && typeof (this.commodity as any).validate === 'function') {
-      (this.commodity as any).validate();
-    }
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceEstimateCostShrinkRequest extends $dara.Model {
+export class GetServiceEstimateCostShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -14663,16 +4876,12 @@ export class GetServiceEstimateCostShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceEstimateCostResponseBody extends $dara.Model {
+export class GetServiceEstimateCostResponseBody extends $tea.Model {
   /**
    * @remarks
    * The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
@@ -14761,22 +4970,12 @@ export class GetServiceEstimateCostResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.commodity) {
-      $dara.Model.validateMap(this.commodity);
-    }
-    if(this.resources) {
-      $dara.Model.validateMap(this.resources);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceEstimateCostResponse extends $dara.Model {
+export class GetServiceEstimateCostResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceEstimateCostResponseBody;
@@ -14796,22 +4995,12 @@ export class GetServiceEstimateCostResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceInstanceRequest extends $dara.Model {
+export class GetServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -14846,16 +5035,12 @@ export class GetServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceInstanceResponseBody extends $dara.Model {
+export class GetServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The business status of the service instance. Valid values:
@@ -15246,25 +5431,12 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
-      (this.networkConfig as any).validate();
-    }
-    if(this.service && typeof (this.service as any).validate === 'function') {
-      (this.service as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceInstanceResponse extends $dara.Model {
+export class GetServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceInstanceResponseBody;
@@ -15284,22 +5456,12 @@ export class GetServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsRequest extends $dara.Model {
+export class GetServiceProvisionsRequest extends $tea.Model {
   /**
    * @remarks
    * The parameters that are specified to deploy the service instance.
@@ -15362,19 +5524,12 @@ export class GetServiceProvisionsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsShrinkRequest extends $dara.Model {
+export class GetServiceProvisionsShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The parameters that are specified to deploy the service instance.
@@ -15437,16 +5592,12 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsResponseBody extends $dara.Model {
+export class GetServiceProvisionsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -15474,19 +5625,12 @@ export class GetServiceProvisionsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceProvisions)) {
-      $dara.Model.validateArray(this.serviceProvisions);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceProvisionsResponse extends $dara.Model {
+export class GetServiceProvisionsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceProvisionsResponseBody;
@@ -15506,22 +5650,12 @@ export class GetServiceProvisionsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceRegistrationRequest extends $dara.Model {
+export class GetServiceRegistrationRequest extends $tea.Model {
   /**
    * @remarks
    * Region ID.
@@ -15554,16 +5688,12 @@ export class GetServiceRegistrationRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceRegistrationResponseBody extends $dara.Model {
+export class GetServiceRegistrationResponseBody extends $tea.Model {
   /**
    * @remarks
    * Comment from reviewer.
@@ -15674,22 +5804,12 @@ export class GetServiceRegistrationResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.detail && typeof (this.detail as any).validate === 'function') {
-      (this.detail as any).validate();
-    }
-    if(this.serviceInfo && typeof (this.serviceInfo as any).validate === 'function') {
-      (this.serviceInfo as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceRegistrationResponse extends $dara.Model {
+export class GetServiceRegistrationResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceRegistrationResponseBody;
@@ -15709,22 +5829,12 @@ export class GetServiceRegistrationResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
+export class GetServiceTemplateParameterConstraintsRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
@@ -15833,19 +5943,12 @@ export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.parameters)) {
-      $dara.Model.validateArray(this.parameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTemplateParameterConstraintsResponseBody extends $dara.Model {
+export class GetServiceTemplateParameterConstraintsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The constraint families.
@@ -15880,22 +5983,12 @@ export class GetServiceTemplateParameterConstraintsResponseBody extends $dara.Mo
     };
   }
 
-  validate() {
-    if(Array.isArray(this.familyConstraints)) {
-      $dara.Model.validateArray(this.familyConstraints);
-    }
-    if(Array.isArray(this.parameterConstraints)) {
-      $dara.Model.validateArray(this.parameterConstraints);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTemplateParameterConstraintsResponse extends $dara.Model {
+export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceTemplateParameterConstraintsResponseBody;
@@ -15915,22 +6008,12 @@ export class GetServiceTemplateParameterConstraintsResponse extends $dara.Model 
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTestTaskRequest extends $dara.Model {
+export class GetServiceTestTaskRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -15961,16 +6044,12 @@ export class GetServiceTestTaskRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTestTaskResponseBody extends $dara.Model {
+export class GetServiceTestTaskResponseBody extends $tea.Model {
   /**
    * @remarks
    * The execution details.
@@ -16032,19 +6111,12 @@ export class GetServiceTestTaskResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.executionDetails)) {
-      $dara.Model.validateArray(this.executionDetails);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetServiceTestTaskResponse extends $dara.Model {
+export class GetServiceTestTaskResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetServiceTestTaskResponseBody;
@@ -16064,22 +6136,12 @@ export class GetServiceTestTaskResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSupplierInformationRequest extends $dara.Model {
+export class GetSupplierInformationRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -16102,16 +6164,12 @@ export class GetSupplierInformationRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSupplierInformationResponseBody extends $dara.Model {
+export class GetSupplierInformationResponseBody extends $tea.Model {
   /**
    * @remarks
    * Acr container namespace
@@ -16219,19 +6277,12 @@ export class GetSupplierInformationResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.deliverySettings && typeof (this.deliverySettings as any).validate === 'function') {
-      (this.deliverySettings as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSupplierInformationResponse extends $dara.Model {
+export class GetSupplierInformationResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSupplierInformationResponseBody;
@@ -16251,22 +6302,12 @@ export class GetSupplierInformationResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUploadCredentialsRequest extends $dara.Model {
+export class GetUploadCredentialsRequest extends $tea.Model {
   /**
    * @remarks
    * The file name to upload.
@@ -16299,16 +6340,12 @@ export class GetUploadCredentialsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUploadCredentialsResponseBody extends $dara.Model {
+export class GetUploadCredentialsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The response code.
@@ -16376,19 +6413,12 @@ export class GetUploadCredentialsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetUploadCredentialsResponse extends $dara.Model {
+export class GetUploadCredentialsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetUploadCredentialsResponseBody;
@@ -16408,22 +6438,12 @@ export class GetUploadCredentialsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LaunchServiceRequest extends $dara.Model {
+export class LaunchServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The categories of the service.
@@ -16497,19 +6517,12 @@ export class LaunchServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.categories)) {
-      $dara.Model.validateArray(this.categories);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LaunchServiceResponseBody extends $dara.Model {
+export class LaunchServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -16554,16 +6567,12 @@ export class LaunchServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LaunchServiceResponse extends $dara.Model {
+export class LaunchServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: LaunchServiceResponseBody;
@@ -16583,22 +6592,12 @@ export class LaunchServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageRepositoriesRequest extends $dara.Model {
+export class ListAcrImageRepositoriesRequest extends $tea.Model {
   /**
    * @remarks
    * The type of the artifact. Default value: AcrImage. Valid values:
@@ -16652,16 +6651,12 @@ export class ListAcrImageRepositoriesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
+export class ListAcrImageRepositoriesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -16719,19 +6714,12 @@ export class ListAcrImageRepositoriesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.repositories)) {
-      $dara.Model.validateArray(this.repositories);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageRepositoriesResponse extends $dara.Model {
+export class ListAcrImageRepositoriesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAcrImageRepositoriesResponseBody;
@@ -16751,22 +6739,12 @@ export class ListAcrImageRepositoriesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageTagsRequest extends $dara.Model {
+export class ListAcrImageTagsRequest extends $tea.Model {
   /**
    * @remarks
    * The type of the deployment package. Default value: AcrImage. Valid values:
@@ -16820,16 +6798,12 @@ export class ListAcrImageTagsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageTagsResponseBody extends $dara.Model {
+export class ListAcrImageTagsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The list of images.
@@ -16887,19 +6861,12 @@ export class ListAcrImageTagsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.images)) {
-      $dara.Model.validateArray(this.images);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAcrImageTagsResponse extends $dara.Model {
+export class ListAcrImageTagsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAcrImageTagsResponseBody;
@@ -16919,22 +6886,12 @@ export class ListAcrImageTagsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactRisksRequest extends $dara.Model {
+export class ListArtifactRisksRequest extends $tea.Model {
   /**
    * @remarks
    * Artifact ID.
@@ -16965,16 +6922,12 @@ export class ListArtifactRisksRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactRisksResponseBody extends $dara.Model {
+export class ListArtifactRisksResponseBody extends $tea.Model {
   /**
    * @remarks
    * List of artifact risks
@@ -17002,19 +6955,12 @@ export class ListArtifactRisksResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.artifactRiskList)) {
-      $dara.Model.validateArray(this.artifactRiskList);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactRisksResponse extends $dara.Model {
+export class ListArtifactRisksResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListArtifactRisksResponseBody;
@@ -17034,22 +6980,12 @@ export class ListArtifactRisksResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactVersionsRequest extends $dara.Model {
+export class ListArtifactVersionsRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the deployment package.
@@ -17099,19 +7035,12 @@ export class ListArtifactVersionsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filters)) {
-      $dara.Model.validateArray(this.filters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactVersionsShrinkRequest extends $dara.Model {
+export class ListArtifactVersionsShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the deployment package.
@@ -17161,16 +7090,12 @@ export class ListArtifactVersionsShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactVersionsResponseBody extends $dara.Model {
+export class ListArtifactVersionsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The version information about the deployment package.
@@ -17228,19 +7153,12 @@ export class ListArtifactVersionsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.artifacts)) {
-      $dara.Model.validateArray(this.artifacts);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactVersionsResponse extends $dara.Model {
+export class ListArtifactVersionsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListArtifactVersionsResponseBody;
@@ -17260,22 +7178,12 @@ export class ListArtifactVersionsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactsRequest extends $dara.Model {
+export class ListArtifactsRequest extends $tea.Model {
   /**
    * @remarks
    * The filter.
@@ -17330,22 +7238,12 @@ export class ListArtifactsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactsResponseBody extends $dara.Model {
+export class ListArtifactsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The information about deployment packages.
@@ -17403,19 +7301,12 @@ export class ListArtifactsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.artifacts)) {
-      $dara.Model.validateArray(this.artifacts);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListArtifactsResponse extends $dara.Model {
+export class ListArtifactsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListArtifactsResponseBody;
@@ -17435,22 +7326,12 @@ export class ListArtifactsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResellersRequest extends $dara.Model {
+export class ListResellersRequest extends $tea.Model {
   /**
    * @remarks
    * The filters.
@@ -17500,19 +7381,12 @@ export class ListResellersRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResellersResponseBody extends $dara.Model {
+export class ListResellersResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -17570,19 +7444,12 @@ export class ListResellersResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.supplierInformation)) {
-      $dara.Model.validateArray(this.supplierInformation);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResellersResponse extends $dara.Model {
+export class ListResellersResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResellersResponseBody;
@@ -17602,22 +7469,12 @@ export class ListResellersResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
+export class ListServiceInstanceDeployDetailsRequest extends $tea.Model {
   /**
    * @remarks
    * The time zone.
@@ -17734,22 +7591,12 @@ export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.dimension)) {
-      $dara.Model.validateArray(this.dimension);
-    }
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceDeployDetailsResponseBody extends $dara.Model {
+export class ListServiceInstanceDeployDetailsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The details of the service instance deployment.
@@ -17807,19 +7654,12 @@ export class ListServiceInstanceDeployDetailsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.deployDetails)) {
-      $dara.Model.validateArray(this.deployDetails);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceDeployDetailsResponse extends $dara.Model {
+export class ListServiceInstanceDeployDetailsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstanceDeployDetailsResponseBody;
@@ -17839,22 +7679,12 @@ export class ListServiceInstanceDeployDetailsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceLogsRequest extends $dara.Model {
+export class ListServiceInstanceLogsRequest extends $tea.Model {
   /**
    * @remarks
    * The filters.
@@ -17963,19 +7793,12 @@ export class ListServiceInstanceLogsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceLogsResponseBody extends $dara.Model {
+export class ListServiceInstanceLogsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
@@ -18023,19 +7846,12 @@ export class ListServiceInstanceLogsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceInstancesLogs)) {
-      $dara.Model.validateArray(this.serviceInstancesLogs);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceLogsResponse extends $dara.Model {
+export class ListServiceInstanceLogsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstanceLogsResponseBody;
@@ -18055,22 +7871,12 @@ export class ListServiceInstanceLogsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceResourcesRequest extends $dara.Model {
+export class ListServiceInstanceResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * The filter.
@@ -18151,22 +7957,12 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filters)) {
-      $dara.Model.validateArray(this.filters);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
+export class ListServiceInstanceResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -18214,19 +8010,12 @@ export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resources)) {
-      $dara.Model.validateArray(this.resources);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceResourcesResponse extends $dara.Model {
+export class ListServiceInstanceResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstanceResourcesResponseBody;
@@ -18246,22 +8035,12 @@ export class ListServiceInstanceResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
+export class ListServiceInstanceUpgradeHistoryRequest extends $tea.Model {
   /**
    * @remarks
    * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
@@ -18316,16 +8095,12 @@ export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
+export class ListServiceInstanceUpgradeHistoryResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
@@ -18383,19 +8158,12 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.upgradeHistory)) {
-      $dara.Model.validateArray(this.upgradeHistory);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstanceUpgradeHistoryResponse extends $dara.Model {
+export class ListServiceInstanceUpgradeHistoryResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstanceUpgradeHistoryResponseBody;
@@ -18415,22 +8183,12 @@ export class ListServiceInstanceUpgradeHistoryResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesRequest extends $dara.Model {
+export class ListServiceInstancesRequest extends $tea.Model {
   /**
    * @remarks
    * The filter.
@@ -18508,22 +8266,12 @@ export class ListServiceInstancesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesResponseBody extends $dara.Model {
+export class ListServiceInstancesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -18581,19 +8329,12 @@ export class ListServiceInstancesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceInstances)) {
-      $dara.Model.validateArray(this.serviceInstances);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesResponse extends $dara.Model {
+export class ListServiceInstancesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstancesResponseBody;
@@ -18613,22 +8354,12 @@ export class ListServiceInstancesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceRegistrationsRequest extends $dara.Model {
+export class ListServiceRegistrationsRequest extends $tea.Model {
   /**
    * @remarks
    * Filter.
@@ -18678,19 +8409,12 @@ export class ListServiceRegistrationsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceRegistrationsResponseBody extends $dara.Model {
+export class ListServiceRegistrationsResponseBody extends $tea.Model {
   /**
    * @remarks
    * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
@@ -18748,19 +8472,12 @@ export class ListServiceRegistrationsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceRegistrations)) {
-      $dara.Model.validateArray(this.serviceRegistrations);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceRegistrationsResponse extends $dara.Model {
+export class ListServiceRegistrationsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceRegistrationsResponseBody;
@@ -18780,22 +8497,12 @@ export class ListServiceRegistrationsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceSharedAccountsRequest extends $dara.Model {
+export class ListServiceSharedAccountsRequest extends $tea.Model {
   /**
    * @remarks
    * The filters.
@@ -18868,19 +8575,12 @@ export class ListServiceSharedAccountsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceSharedAccountsResponseBody extends $dara.Model {
+export class ListServiceSharedAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -18938,19 +8638,12 @@ export class ListServiceSharedAccountsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.shareAccount)) {
-      $dara.Model.validateArray(this.shareAccount);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceSharedAccountsResponse extends $dara.Model {
+export class ListServiceSharedAccountsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceSharedAccountsResponseBody;
@@ -18970,22 +8663,12 @@ export class ListServiceSharedAccountsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestCasesRequest extends $dara.Model {
+export class ListServiceTestCasesRequest extends $tea.Model {
   /**
    * @remarks
    * The filters.
@@ -19053,19 +8736,12 @@ export class ListServiceTestCasesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filters)) {
-      $dara.Model.validateArray(this.filters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestCasesResponseBody extends $dara.Model {
+export class ListServiceTestCasesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The data returned.
@@ -19123,19 +8799,12 @@ export class ListServiceTestCasesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestCasesResponse extends $dara.Model {
+export class ListServiceTestCasesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceTestCasesResponseBody;
@@ -19155,22 +8824,12 @@ export class ListServiceTestCasesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTaskLogsRequest extends $dara.Model {
+export class ListServiceTestTaskLogsRequest extends $tea.Model {
   /**
    * @remarks
    * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
@@ -19225,16 +8884,12 @@ export class ListServiceTestTaskLogsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTaskLogsResponseBody extends $dara.Model {
+export class ListServiceTestTaskLogsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
@@ -19282,19 +8937,12 @@ export class ListServiceTestTaskLogsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.taskLogs)) {
-      $dara.Model.validateArray(this.taskLogs);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTaskLogsResponse extends $dara.Model {
+export class ListServiceTestTaskLogsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceTestTaskLogsResponseBody;
@@ -19314,22 +8962,12 @@ export class ListServiceTestTaskLogsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTasksRequest extends $dara.Model {
+export class ListServiceTestTasksRequest extends $tea.Model {
   /**
    * @remarks
    * The filters.
@@ -19397,19 +9035,12 @@ export class ListServiceTestTasksRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTasksResponseBody extends $dara.Model {
+export class ListServiceTestTasksResponseBody extends $tea.Model {
   /**
    * @remarks
    * The total number of entries returned.
@@ -19467,19 +9098,12 @@ export class ListServiceTestTasksResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceTestTasks)) {
-      $dara.Model.validateArray(this.serviceTestTasks);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceTestTasksResponse extends $dara.Model {
+export class ListServiceTestTasksResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceTestTasksResponseBody;
@@ -19499,22 +9123,12 @@ export class ListServiceTestTasksResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceUsagesRequest extends $dara.Model {
+export class ListServiceUsagesRequest extends $tea.Model {
   /**
    * @remarks
    * The filter.
@@ -19562,19 +9176,12 @@ export class ListServiceUsagesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceUsagesResponseBody extends $dara.Model {
+export class ListServiceUsagesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -19632,19 +9239,12 @@ export class ListServiceUsagesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceUsages)) {
-      $dara.Model.validateArray(this.serviceUsages);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceUsagesResponse extends $dara.Model {
+export class ListServiceUsagesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceUsagesResponseBody;
@@ -19664,22 +9264,12 @@ export class ListServiceUsagesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesRequest extends $dara.Model {
+export class ListServicesRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to return all versions of a service. Default value: false, which specifies that only the default version of a service is returned.
@@ -19756,22 +9346,12 @@ export class ListServicesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesResponseBody extends $dara.Model {
+export class ListServicesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -19829,19 +9409,12 @@ export class ListServicesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.services)) {
-      $dara.Model.validateArray(this.services);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesResponse extends $dara.Model {
+export class ListServicesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServicesResponseBody;
@@ -19861,22 +9434,12 @@ export class ListServicesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupplierRegistrationsRequest extends $dara.Model {
+export class ListSupplierRegistrationsRequest extends $tea.Model {
   /**
    * @remarks
    * The filter.
@@ -19926,19 +9489,12 @@ export class ListSupplierRegistrationsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.filter)) {
-      $dara.Model.validateArray(this.filter);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupplierRegistrationsResponseBody extends $dara.Model {
+export class ListSupplierRegistrationsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
@@ -19996,19 +9552,12 @@ export class ListSupplierRegistrationsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.supplierRegistrations)) {
-      $dara.Model.validateArray(this.supplierRegistrations);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupplierRegistrationsResponse extends $dara.Model {
+export class ListSupplierRegistrationsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSupplierRegistrationsResponseBody;
@@ -20028,22 +9577,12 @@ export class ListSupplierRegistrationsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysRequest extends $dara.Model {
+export class ListTagKeysRequest extends $tea.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
@@ -20092,16 +9631,12 @@ export class ListTagKeysRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponseBody extends $dara.Model {
+export class ListTagKeysResponseBody extends $tea.Model {
   /**
    * @remarks
    * The tag keys.
@@ -20139,19 +9674,12 @@ export class ListTagKeysResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.keys)) {
-      $dara.Model.validateArray(this.keys);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponse extends $dara.Model {
+export class ListTagKeysResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagKeysResponseBody;
@@ -20171,22 +9699,12 @@ export class ListTagKeysResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $dara.Model {
+export class ListTagResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -20248,22 +9766,12 @@ export class ListTagResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $dara.Model {
+export class ListTagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
@@ -20301,19 +9809,12 @@ export class ListTagResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.tagResources)) {
-      $dara.Model.validateArray(this.tagResources);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $dara.Model {
+export class ListTagResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -20333,22 +9834,12 @@ export class ListTagResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesRequest extends $dara.Model {
+export class ListTagValuesRequest extends $tea.Model {
   /**
    * @remarks
    * The tag key.
@@ -20408,16 +9899,12 @@ export class ListTagValuesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponseBody extends $dara.Model {
+export class ListTagValuesResponseBody extends $tea.Model {
   /**
    * @remarks
    * A pagination token.
@@ -20455,19 +9942,12 @@ export class ListTagValuesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.values)) {
-      $dara.Model.validateArray(this.values);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponse extends $dara.Model {
+export class ListTagValuesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagValuesResponseBody;
@@ -20487,22 +9967,12 @@ export class ListTagValuesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyServiceInstanceResourcesRequest extends $dara.Model {
+export class ModifyServiceInstanceResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * The imported resources.
@@ -20557,16 +10027,12 @@ export class ModifyServiceInstanceResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyServiceInstanceResourcesResponseBody extends $dara.Model {
+export class ModifyServiceInstanceResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -20587,16 +10053,12 @@ export class ModifyServiceInstanceResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyServiceInstanceResourcesResponse extends $dara.Model {
+export class ModifyServiceInstanceResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyServiceInstanceResourcesResponseBody;
@@ -20616,22 +10078,12 @@ export class ModifyServiceInstanceResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreLaunchServiceRequest extends $dara.Model {
+export class PreLaunchServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -20678,16 +10130,12 @@ export class PreLaunchServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreLaunchServiceResponseBody extends $dara.Model {
+export class PreLaunchServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -20708,16 +10156,12 @@ export class PreLaunchServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PreLaunchServiceResponse extends $dara.Model {
+export class PreLaunchServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PreLaunchServiceResponseBody;
@@ -20737,22 +10181,12 @@ export class PreLaunchServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataRequest extends $dara.Model {
+export class PushMeteringDataRequest extends $tea.Model {
   /**
    * @remarks
    * The metering data. Parameters in the example value:
@@ -20817,16 +10251,12 @@ export class PushMeteringDataRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataResponseBody extends $dara.Model {
+export class PushMeteringDataResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -20847,16 +10277,12 @@ export class PushMeteringDataResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataResponse extends $dara.Model {
+export class PushMeteringDataResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PushMeteringDataResponseBody;
@@ -20876,22 +10302,12 @@ export class PushMeteringDataResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterServiceRequest extends $dara.Model {
+export class RegisterServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -20936,16 +10352,12 @@ export class RegisterServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterServiceResponseBody extends $dara.Model {
+export class RegisterServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The registration ID.
@@ -20976,16 +10388,12 @@ export class RegisterServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegisterServiceResponse extends $dara.Model {
+export class RegisterServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RegisterServiceResponseBody;
@@ -21005,22 +10413,12 @@ export class RegisterServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RejectServiceUsageRequest extends $dara.Model {
+export class RejectServiceUsageRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -21088,16 +10486,12 @@ export class RejectServiceUsageRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RejectServiceUsageResponseBody extends $dara.Model {
+export class RejectServiceUsageResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -21118,16 +10512,12 @@ export class RejectServiceUsageResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RejectServiceUsageResponse extends $dara.Model {
+export class RejectServiceUsageResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RejectServiceUsageResponseBody;
@@ -21147,22 +10537,12 @@ export class RejectServiceUsageResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseArtifactRequest extends $dara.Model {
+export class ReleaseArtifactRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the artifact.
@@ -21197,16 +10577,12 @@ export class ReleaseArtifactRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseArtifactResponseBody extends $dara.Model {
+export class ReleaseArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
    * The ID of the artifact.
@@ -21314,16 +10690,12 @@ export class ReleaseArtifactResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseArtifactResponse extends $dara.Model {
+export class ReleaseArtifactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReleaseArtifactResponseBody;
@@ -21343,22 +10715,12 @@ export class ReleaseArtifactResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveServiceSharedAccountsRequest extends $dara.Model {
+export class RemoveServiceSharedAccountsRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -21427,19 +10789,12 @@ export class RemoveServiceSharedAccountsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.userAliUids)) {
-      $dara.Model.validateArray(this.userAliUids);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveServiceSharedAccountsResponseBody extends $dara.Model {
+export class RemoveServiceSharedAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -21460,16 +10815,12 @@ export class RemoveServiceSharedAccountsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveServiceSharedAccountsResponse extends $dara.Model {
+export class RemoveServiceSharedAccountsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RemoveServiceSharedAccountsResponseBody;
@@ -21489,22 +10840,12 @@ export class RemoveServiceSharedAccountsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartServiceInstanceRequest extends $dara.Model {
+export class RestartServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -21551,16 +10892,12 @@ export class RestartServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartServiceInstanceResponseBody extends $dara.Model {
+export class RestartServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -21581,16 +10918,12 @@ export class RestartServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartServiceInstanceResponse extends $dara.Model {
+export class RestartServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RestartServiceInstanceResponseBody;
@@ -21610,22 +10943,12 @@ export class RestartServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackServiceInstanceRequest extends $dara.Model {
+export class RollbackServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * Ensures idempotence of the request. Generate a value from your client to ensure it is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
@@ -21668,16 +10991,12 @@ export class RollbackServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackServiceInstanceResponseBody extends $dara.Model {
+export class RollbackServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * Request ID.
@@ -21736,16 +11055,12 @@ export class RollbackServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackServiceInstanceResponse extends $dara.Model {
+export class RollbackServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RollbackServiceInstanceResponseBody;
@@ -21765,22 +11080,12 @@ export class RollbackServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartServiceInstanceRequest extends $dara.Model {
+export class StartServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -21827,16 +11132,12 @@ export class StartServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartServiceInstanceResponseBody extends $dara.Model {
+export class StartServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -21857,16 +11158,12 @@ export class StartServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartServiceInstanceResponse extends $dara.Model {
+export class StartServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartServiceInstanceResponseBody;
@@ -21886,22 +11183,12 @@ export class StartServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopServiceInstanceRequest extends $dara.Model {
+export class StopServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -21948,16 +11235,12 @@ export class StopServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopServiceInstanceResponseBody extends $dara.Model {
+export class StopServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -21978,16 +11261,12 @@ export class StopServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopServiceInstanceResponse extends $dara.Model {
+export class StopServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopServiceInstanceResponseBody;
@@ -22007,22 +11286,12 @@ export class StopServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $dara.Model {
+export class TagResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -22076,22 +11345,12 @@ export class TagResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $dara.Model {
+export class TagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -22112,16 +11371,12 @@ export class TagResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $dara.Model {
+export class TagResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -22141,22 +11396,12 @@ export class TagResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnTagResourcesRequest extends $dara.Model {
+export class UnTagResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to remove all tags from the resource. Valid values:
@@ -22226,22 +11471,12 @@ export class UnTagResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tagKey)) {
-      $dara.Model.validateArray(this.tagKey);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnTagResourcesResponseBody extends $dara.Model {
+export class UnTagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -22262,16 +11497,12 @@ export class UnTagResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnTagResourcesResponse extends $dara.Model {
+export class UnTagResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnTagResourcesResponseBody;
@@ -22291,22 +11522,12 @@ export class UnTagResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateArtifactRequest extends $dara.Model {
+export class UpdateArtifactRequest extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -22394,25 +11615,12 @@ export class UpdateArtifactRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.artifactBuildProperty && typeof (this.artifactBuildProperty as any).validate === 'function') {
-      (this.artifactBuildProperty as any).validate();
-    }
-    if(this.artifactProperty && typeof (this.artifactProperty as any).validate === 'function') {
-      (this.artifactProperty as any).validate();
-    }
-    if(Array.isArray(this.supportRegionIds)) {
-      $dara.Model.validateArray(this.supportRegionIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateArtifactShrinkRequest extends $dara.Model {
+export class UpdateArtifactShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -22500,19 +11708,12 @@ export class UpdateArtifactShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.supportRegionIds)) {
-      $dara.Model.validateArray(this.supportRegionIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateArtifactResponseBody extends $dara.Model {
+export class UpdateArtifactResponseBody extends $tea.Model {
   /**
    * @remarks
    * The build properties of the artifact, utilized for hosting and building the deployment package.
@@ -22664,16 +11865,12 @@ export class UpdateArtifactResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateArtifactResponse extends $dara.Model {
+export class UpdateArtifactResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateArtifactResponseBody;
@@ -22693,22 +11890,12 @@ export class UpdateArtifactResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceRequest extends $dara.Model {
+export class UpdateServiceRequest extends $tea.Model {
   /**
    * @remarks
    * The alert configurations of the service.
@@ -23006,28 +12193,12 @@ export class UpdateServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.commodity && typeof (this.commodity as any).validate === 'function') {
-      (this.commodity as any).validate();
-    }
-    if(this.complianceMetadata && typeof (this.complianceMetadata as any).validate === 'function') {
-      (this.complianceMetadata as any).validate();
-    }
-    if(Array.isArray(this.serviceInfo)) {
-      $dara.Model.validateArray(this.serviceInfo);
-    }
-    if(this.updateOption && typeof (this.updateOption as any).validate === 'function') {
-      (this.updateOption as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceShrinkRequest extends $dara.Model {
+export class UpdateServiceShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The alert configurations of the service.
@@ -23325,19 +12496,12 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.serviceInfo)) {
-      $dara.Model.validateArray(this.serviceInfo);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceResponseBody extends $dara.Model {
+export class UpdateServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The dry run result.
@@ -23365,19 +12529,12 @@ export class UpdateServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.dryRunResult && typeof (this.dryRunResult as any).validate === 'function') {
-      (this.dryRunResult as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceResponse extends $dara.Model {
+export class UpdateServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceResponseBody;
@@ -23397,22 +12554,12 @@ export class UpdateServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceAttributeRequest extends $dara.Model {
+export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
   /**
    * @remarks
    * The time when the service instance expires.
@@ -23476,19 +12623,12 @@ export class UpdateServiceInstanceAttributeRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.licenseData && typeof (this.licenseData as any).validate === 'function') {
-      (this.licenseData as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceAttributeShrinkRequest extends $dara.Model {
+export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The time when the service instance expires.
@@ -23552,16 +12692,12 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceAttributeResponseBody extends $dara.Model {
+export class UpdateServiceInstanceAttributeResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -23582,16 +12718,12 @@ export class UpdateServiceInstanceAttributeResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceAttributeResponse extends $dara.Model {
+export class UpdateServiceInstanceAttributeResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceInstanceAttributeResponseBody;
@@ -23611,22 +12743,12 @@ export class UpdateServiceInstanceAttributeResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceSpecRequest extends $dara.Model {
+export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -23700,19 +12822,12 @@ export class UpdateServiceInstanceSpecRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
+export class UpdateServiceInstanceSpecShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -23786,16 +12901,12 @@ export class UpdateServiceInstanceSpecShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceSpecResponseBody extends $dara.Model {
+export class UpdateServiceInstanceSpecResponseBody extends $tea.Model {
   /**
    * @remarks
    * The order ID.
@@ -23826,16 +12937,12 @@ export class UpdateServiceInstanceSpecResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceSpecResponse extends $dara.Model {
+export class UpdateServiceInstanceSpecResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceInstanceSpecResponseBody;
@@ -23855,22 +12962,12 @@ export class UpdateServiceInstanceSpecResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceTestCaseRequest extends $dara.Model {
+export class UpdateServiceTestCaseRequest extends $tea.Model {
   /**
    * @remarks
    * The region ID.
@@ -23931,16 +13028,12 @@ export class UpdateServiceTestCaseRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceTestCaseResponseBody extends $dara.Model {
+export class UpdateServiceTestCaseResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -23961,16 +13054,12 @@ export class UpdateServiceTestCaseResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceTestCaseResponse extends $dara.Model {
+export class UpdateServiceTestCaseResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceTestCaseResponseBody;
@@ -23990,22 +13079,12 @@ export class UpdateServiceTestCaseResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSharedAccountPermissionRequest extends $dara.Model {
+export class UpdateSharedAccountPermissionRequest extends $tea.Model {
   /**
    * @remarks
    * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
@@ -24094,16 +13173,12 @@ export class UpdateSharedAccountPermissionRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSharedAccountPermissionResponseBody extends $dara.Model {
+export class UpdateSharedAccountPermissionResponseBody extends $tea.Model {
   /**
    * @remarks
    * RequestId
@@ -24124,16 +13199,12 @@ export class UpdateSharedAccountPermissionResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSharedAccountPermissionResponse extends $dara.Model {
+export class UpdateSharedAccountPermissionResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSharedAccountPermissionResponseBody;
@@ -24153,22 +13224,12 @@ export class UpdateSharedAccountPermissionResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSupplierInformationRequest extends $dara.Model {
+export class UpdateSupplierInformationRequest extends $tea.Model {
   /**
    * @remarks
    * The delivery settings.
@@ -24248,19 +13309,12 @@ export class UpdateSupplierInformationRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.deliverySettings && typeof (this.deliverySettings as any).validate === 'function') {
-      (this.deliverySettings as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSupplierInformationResponseBody extends $dara.Model {
+export class UpdateSupplierInformationResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -24311,16 +13365,12 @@ export class UpdateSupplierInformationResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSupplierInformationResponse extends $dara.Model {
+export class UpdateSupplierInformationResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSupplierInformationResponseBody;
@@ -24340,22 +13390,12 @@ export class UpdateSupplierInformationResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpgradeServiceInstanceRequest extends $dara.Model {
+export class UpgradeServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -24431,19 +13471,12 @@ export class UpgradeServiceInstanceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.parameters) {
-      $dara.Model.validateMap(this.parameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpgradeServiceInstanceShrinkRequest extends $dara.Model {
+export class UpgradeServiceInstanceShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -24519,16 +13552,12 @@ export class UpgradeServiceInstanceShrinkRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpgradeServiceInstanceResponseBody extends $dara.Model {
+export class UpgradeServiceInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
    * The request ID.
@@ -24585,19 +13614,12 @@ export class UpgradeServiceInstanceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.upgradeRequiredParameters)) {
-      $dara.Model.validateArray(this.upgradeRequiredParameters);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpgradeServiceInstanceResponse extends $dara.Model {
+export class UpgradeServiceInstanceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpgradeServiceInstanceResponseBody;
@@ -24617,22 +13639,12 @@ export class UpgradeServiceInstanceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WithdrawServiceRequest extends $dara.Model {
+export class WithdrawServiceRequest extends $tea.Model {
   /**
    * @remarks
    * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
@@ -24689,16 +13701,12 @@ export class WithdrawServiceRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WithdrawServiceResponseBody extends $dara.Model {
+export class WithdrawServiceResponseBody extends $tea.Model {
   /**
    * @remarks
    * Request ID.
@@ -24719,16 +13727,12 @@ export class WithdrawServiceResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WithdrawServiceResponse extends $dara.Model {
+export class WithdrawServiceResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: WithdrawServiceResponseBody;
@@ -24748,14 +13752,8507 @@ export class WithdrawServiceResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddServiceSharedAccountsRequestSharedAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The permissions on the service. Valid values:
+   * 
+   * *   Deployable: Permissions to deploy the service.
+   * *   Accessible: Permissions to access the service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Accessible
+   */
+  permission?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
+  userAliUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      permission: 'Permission',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      permission: 'string',
+      userAliUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that can be modified. The operation that is performed to modify the parameters does not cause a validation error.
+   * 
+   * >  This parameter is returned only if DryRun is set to true.
+   */
+  parametersAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that can be modified under specific conditions. The new values of the parameters determine whether the operation that is performed to modify the parameters causes a validation error.
+   * 
+   * >  This parameter is returned only if DryRun is set to true.
+   */
+  parametersConditionallyAllowedToBeModified?: string[];
+  /**
+   * @remarks
+   * The parameters that cannot be modified. The operation that is performed to modify the parameters causes a validation error.
+   * 
+   * >  This parameter is returned only if DryRun is set to true.
+   */
+  parametersNotAllowedToBeModified?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      parametersAllowedToBeModified: 'ParametersAllowedToBeModified',
+      parametersConditionallyAllowedToBeModified: 'ParametersConditionallyAllowedToBeModified',
+      parametersNotAllowedToBeModified: 'ParametersNotAllowedToBeModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parametersAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersConditionallyAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+      parametersNotAllowedToBeModified: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of a specific build argument.
+   * 
+   * @example
+   * ENV
+   */
+  argumentName?: string;
+  /**
+   * @remarks
+   * The value of a specific build argument.
+   * 
+   * @example
+   * nginx:latest
+   */
+  argumentValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argumentName: 'ArgumentName',
+      argumentValue: 'ArgumentValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argumentName: 'string',
+      argumentValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the branch in the code repository.
+   * 
+   * @example
+   * main
+   */
+  branch?: string;
+  /**
+   * @remarks
+   * The endpoint. 
+   * The URL address used to access the privately deployed GitLab instance.
+   * 
+   * @example
+   * http://121.40.25.0
+   */
+  endpoint?: string;
+  /**
+   * @remarks
+   * The organization ID.
+   * 
+   * @example
+   * 455231
+   */
+  orgId?: string;
+  /**
+   * @remarks
+   * The owner of the code repository.
+   * 
+   * >  This parameter is available only if the git repository is private.
+   * 
+   * @example
+   * aliyun-computenest
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * The platform type. Valid values: 
+   * 
+   * - github
+   * 
+   * - gitee
+   * - gitlab
+   * - codeup
+   * 
+   * @example
+   * github
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * The repository ID.
+   * 
+   * @example
+   * 103
+   */
+  repoId?: number;
+  /**
+   * @remarks
+   * The name of the repository.
+   * 
+   * @example
+   * aliyun-computenest/quickstart-Lobexxx
+   */
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      endpoint: 'Endpoint',
+      orgId: 'OrgId',
+      owner: 'Owner',
+      platform: 'Platform',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      endpoint: 'string',
+      orgId: 'string',
+      owner: 'string',
+      platform: 'string',
+      repoId: 'number',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The build arguments used during the image build process.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   */
+  buildArgs?: CreateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  /**
+   * @remarks
+   * The address of the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   */
+  codeRepo?: CreateArtifactRequestArtifactBuildPropertyCodeRepo;
+  /**
+   * @remarks
+   * The command content.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * echo "start run command"
+   */
+  commandContent?: string;
+  /**
+   * @remarks
+   * The command type. Valid values:
+   * 
+   * *   RunBatScript: batch command, applicable to Windows instances.
+   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+   * *   RunShellScript: shell command, applicable to Linux instances.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * RunShellScript
+   */
+  commandType?: string;
+  /**
+   * @remarks
+   * The relative path to the Dockerfile within the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * 
+   * @example
+   * ./file/Dockerfile
+   */
+  dockerfilePath?: string;
+  /**
+   * @remarks
+   * The region ID where the source mirror image is located.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * 
+   * @example
+   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+   */
+  sourceContainerImage?: string;
+  /**
+   * @remarks
+   * The source image id. Supported Types:
+   * 
+   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * 
+   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * Image ID：m-t4nhenrdc38pe4*****
+   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
+   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   */
+  sourceImageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildArgs: 'BuildArgs',
+      codeRepo: 'CodeRepo',
+      commandContent: 'CommandContent',
+      commandType: 'CommandType',
+      dockerfilePath: 'DockerfilePath',
+      regionId: 'RegionId',
+      sourceContainerImage: 'SourceContainerImage',
+      sourceImageId: 'SourceImageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildArgs: { 'type': 'array', 'itemType': CreateArtifactRequestArtifactBuildPropertyBuildArgs },
+      codeRepo: CreateArtifactRequestArtifactBuildPropertyCodeRepo,
+      commandContent: 'string',
+      commandType: 'string',
+      dockerfilePath: 'string',
+      regionId: 'string',
+      sourceContainerImage: 'string',
+      sourceImageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestArtifactProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The commodity version of the service in Alibaba Cloud Marketplace.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * V1.0
+   */
+  commodityVersion?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * m-0xij191j9cuev6xxxxxx
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the image repository.
+   * 
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * crr-d8o1nponyc2t1gcg
+   */
+  repoId?: string;
+  /**
+   * @remarks
+   * The name of the image repository.
+   * 
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * wordpress
+   */
+  repoName?: string;
+  /**
+   * @remarks
+   * The default repository type. Valid values:
+   * 
+   * *   `Public`: a public repository.
+   * *   `Private`: a private repository.
+   * 
+   * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+   * 
+   * @example
+   * Public
+   */
+  repoType?: string;
+  /**
+   * @remarks
+   * The version tag of the image repository.
+   * 
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * v1
+   */
+  tag?: string;
+  /**
+   * @remarks
+   * The object URL of the deployment package.
+   * 
+   * @example
+   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      commodityVersion: 'CommodityVersion',
+      imageId: 'ImageId',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoType: 'RepoType',
+      tag: 'Tag',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityVersion: 'string',
+      imageId: 'string',
+      regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoType: 'string',
+      tag: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestComplianceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package selected.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestServiceInfoAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestServiceInfoSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software.
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: CreateServiceRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TiDB Database
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: CreateServiceRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': CreateServiceRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Web
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfoAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfoSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software.
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: CreateServiceShrinkRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TiDB Database
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * TiDB是A公司自主设计、研发的开源分布式关系型数据库。
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: CreateServiceShrinkRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': CreateServiceShrinkRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Web
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The Actions.
+   */
+  action?: string[];
+  /**
+   * @remarks
+   * Resource in ram policy.
+   * 
+   * @example
+   * *
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The service name in ram policy.
+   * 
+   * @example
+   * ecs
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      resource: 'Resource',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      resource: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResultRolePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The missing ram policy for deploying role.
+   */
+  missingPolicy?: CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
+  /**
+   * @remarks
+   * The required ram policy for deploying role.
+   * 
+   * @example
+   * {
+   * 	"Statement": [{
+   * 		"Action": ["oos:CancelExecutions", "oos:DeleteExecutions", "oos:GetTemplate", "oos:ListExecutions", "oos:ListTemplates", "oos:NotifyExecution", "oos:StartExecution"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}, {
+   * 		"Action": ["ram:PassRole"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}, {
+   * 		"Action": ["ros:CreateStack", "ros:GetStack", "ros:UpdateStack", "ros:ListStackEvents", "ros:ListStackResources", "ros:ListStackResources", "ros:DeleteStack", "ram:GetRole"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}],
+   * 	"Version": "1"
+   * }
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      missingPolicy: 'MissingPolicy',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      missingPolicy: { 'type': 'array', 'itemType': CreateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyDryRunResult extends $tea.Model {
+  /**
+   * @remarks
+   * The required ram policy for deploying role.
+   */
+  rolePolicy?: CreateServiceResponseBodyDryRunResultRolePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      rolePolicy: 'RolePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rolePolicy: CreateServiceResponseBodyDryRunResultRolePolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceInstanceShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateServicePolicyResponseBodyMissingPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Operations on specific resources.
+   */
+  action?: string[];
+  /**
+   * @remarks
+   * The specific objects authorized. An asterisk (*) denotes all resources.
+   * 
+   * @example
+   * *
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The name of the service.
+   * 
+   * @example
+   * ecs
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      resource: 'Resource',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      resource: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key of the deployment package.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value of the deployment package.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactRepositoryCredentialsResponseBodyAvailableResources extends $tea.Model {
+  /**
+   * @remarks
+   * The path.
+   * 
+   * @example
+   * "/xxx/"
+   */
+  path?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The repository name.
+   * 
+   * @example
+   * computenest-artifacts-draft-cn-hangzhou
+   */
+  repositoryName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      regionId: 'RegionId',
+      repositoryName: 'RepositoryName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      regionId: 'string',
+      repositoryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactRepositoryCredentialsResponseBodyCredentials extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * STS.xxx
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret.
+   * 
+   * @example
+   * xxx
+   */
+  accessKeySecret?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * eyJ0aW1lIjoiMTUyNjU0OTc5:0705733****
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The Security Token Service (STS) token.
+   * 
+   * @example
+   * xxx
+   */
+  securityToken?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      password: 'Password',
+      securityToken: 'SecurityToken',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      password: 'string',
+      securityToken: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The mappings.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * cmgj0048****-Frequency-1
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * Name of a measurement indicator.
+   * 
+   * @example
+   * AvgMemory
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * Custom PromQL.
+   * 
+   * @example
+   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * Measurement indicators.
+   * 
+   * @example
+   * ComputeNestPrometheus
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * cmgj0015****-Frequency-1
+   */
+  entityIds?: string;
+  /**
+   * @remarks
+   * The package name.
+   * 
+   * @example
+   * 按量付费套餐
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * 模板1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The mapping information about the billing items.
+   */
+  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
+  /**
+   * @remarks
+   * Metering item configuration information.
+   */
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * The binding relationship between package and measurement dimension.
+   */
+  meteringEntityMappings?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut-2
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * The metric name.
+   * 
+   * @example
+   * NetworkLantency
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The custom prometheus statement.
+   * 
+   * @example
+   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * The metric.
+   * 
+   * @example
+   * AvgPod
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut-2
+   */
+  entityIds?: string;
+  /**
+   * @remarks
+   * The name of the specification package.
+   * 
+   * @example
+   * Pay-as-you-go Package
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The specification code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The name of the specification package.
+   * 
+   * @example
+   * Pay-as-you-go
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * NotTrial
+   */
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the billable items.
+   */
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * The billable items that are associated with the package.
+   */
+  meteringEntityMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings[];
+  /**
+   * @remarks
+   * The mappings between the service specifications and the template or package.
+   */
+  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings },
+      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMeteringEntities extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * The name of the billable item.
+   * 
+   * @example
+   * spring-boot-demo
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommoditySpecifications extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * specifications1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The subscription duration. Unit: week or year.
+   */
+  times?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      times: 'Times',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      times: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method of the service. Valid values:
+   * 
+   * *   **PREPAY** (default): subscription.
+   * *   **POSTPAY**: pay-as-you-go.
+   * 
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The commodity modules.
+   */
+  components?: string[];
+  /**
+   * @remarks
+   * The configuration metadata related to Lingxiao.
+   */
+  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
+  /**
+   * @remarks
+   * The metadata of Alibaba Cloud Marketplace.
+   */
+  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
+  /**
+   * @remarks
+   * The information about the billable item.
+   */
+  meteringEntities?: GetServiceResponseBodyCommodityMeteringEntities[];
+  /**
+   * @remarks
+   * The configuration metadata related to Saas Boost.
+   * 
+   * @example
+   * { "Enabled":false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+   */
+  saasBoostMetadata?: string;
+  /**
+   * @remarks
+   * The specification details of the service in Alibaba Cloud Marketplace.
+   */
+  specifications?: GetServiceResponseBodyCommoditySpecifications[];
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   marketplace: Alibaba Cloud Marketplace.
+   * *   Css: Lingxiao.
+   * 
+   * @example
+   * Marketplace
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      components: 'Components',
+      cssMetadata: 'CssMetadata',
+      marketplaceMetadata: 'MarketplaceMetadata',
+      meteringEntities: 'MeteringEntities',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      specifications: 'Specifications',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      components: { 'type': 'array', 'itemType': 'string' },
+      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
+      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
+      meteringEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMeteringEntities },
+      saasBoostMetadata: 'string',
+      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyComplianceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package is selected.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceDocumentInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL that is used to access the document.
+   * 
+   * @example
+   * http://docurl
+   */
+  documentUrl?: string;
+  /**
+   * @remarks
+   * The language of the return data. Valid values: zh-CN and en-US.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Default Template.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentUrl: 'DocumentUrl',
+      locale: 'Locale',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentUrl: 'string',
+      locale: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * The agreement name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The agreement URL.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The agreement information about the service.
+   */
+  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * https://example.com
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * WordPress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the information about the software in the service.
+   */
+  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyStatistic extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of service instances that belong to the service. The service instances that are deleted are counted.
+   * 
+   * @example
+   * 75
+   */
+  accumulativeInstanceCount?: number;
+  /**
+   * @remarks
+   * The total amount consumed for trial service instances. Unit: CNY.
+   * 
+   * @example
+   * 80.35
+   */
+  accumulativePocAmount?: number;
+  /**
+   * @remarks
+   * The total number of users who use the service. The historical users are counted.
+   * 
+   * @example
+   * 60
+   */
+  accumulativeUserCount?: number;
+  /**
+   * @remarks
+   * The average amount consumed for trial service instances per instance. Unit: CNY.
+   * 
+   * @example
+   * 40.17
+   */
+  averagePocAmount?: number;
+  /**
+   * @remarks
+   * The average duration for which trial service instances are in use. Unit: Hour.
+   * 
+   * @example
+   * 1
+   */
+  averagePocDuration?: number;
+  /**
+   * @remarks
+   * The average amount consumed for trial service instances per a period of time. Unit: CNY.
+   * 
+   * @example
+   * 167.9
+   */
+  averagePocUnitAmount?: number;
+  /**
+   * @remarks
+   * The number of online service instances. It means the number of service instances that are successfully deployed.
+   * 
+   * @example
+   * 20
+   */
+  deployedServiceInstanceCount?: number;
+  /**
+   * @remarks
+   * The number of online users. It means the number of users who successfully deployed the service instances.
+   * 
+   * @example
+   * 10
+   */
+  deployedUserCount?: number;
+  /**
+   * @remarks
+   * The number of service applications that are in the Submitted state.
+   * 
+   * @example
+   * 10
+   */
+  submittedUsageCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accumulativeInstanceCount: 'AccumulativeInstanceCount',
+      accumulativePocAmount: 'AccumulativePocAmount',
+      accumulativeUserCount: 'AccumulativeUserCount',
+      averagePocAmount: 'AveragePocAmount',
+      averagePocDuration: 'AveragePocDuration',
+      averagePocUnitAmount: 'AveragePocUnitAmount',
+      deployedServiceInstanceCount: 'DeployedServiceInstanceCount',
+      deployedUserCount: 'DeployedUserCount',
+      submittedUsageCount: 'SubmittedUsageCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accumulativeInstanceCount: 'number',
+      accumulativePocAmount: 'number',
+      accumulativeUserCount: 'number',
+      averagePocAmount: 'number',
+      averagePocDuration: 'number',
+      averagePocUnitAmount: 'number',
+      deployedServiceInstanceCount: 'number',
+      deployedUserCount: 'number',
+      submittedUsageCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceEstimateCostRequestCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * The subscription duration.
+   * 
+   * @example
+   * 1
+   */
+  payPeriod?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   Year
+   * *   Month
+   * *   Day
+   * 
+   * @example
+   * Month
+   */
+  payPeriodUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payPeriod: 'PayPeriod',
+      payPeriodUnit: 'PayPeriodUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payPeriod: 'number',
+      payPeriodUnit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
+   * 
+   * @example
+   * 1536Mbps
+   */
+  connectBandwidth?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  /**
+   * @remarks
+   * The IP addresses of the endpoints for private connections.
+   */
+  endpointIps?: string[];
+  /**
+   * @remarks
+   * The status of the Ingress endpoint. Valid values:
+   * 
+   * *   Ready: The Ingress endpoint is connected.
+   * *   Pending: The Ingress endpoint is being connected.
+   * *   Failed: The Ingress endpoint fails to be connected.
+   * *   Deleted: The Ingress endpoint is deleted.
+   * *   Deleting: The Ingress endpoint is being deleted.
+   * 
+   * @example
+   * Ready
+   */
+  ingressEndpointStatus?: string;
+  /**
+   * @remarks
+   * The status of the network service. Valid values:
+   * 
+   * *   Ready: The network service is connected.
+   * *   Pending: The network service is being connected.
+   * *   Failed: The network service fails to be connected.
+   * *   Deleted: The network service is deleted.
+   * *   Deleting: The network service is being deleted.
+   * 
+   * @example
+   * Ready
+   */
+  networkServiceStatus?: string;
+  /**
+   * @remarks
+   * The names of the security groups.
+   */
+  securityGroups?: string[];
+  /**
+   * @remarks
+   * The names of the vSwitches.
+   */
+  vSwitches?: string[];
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-bp1vwnn14rqpyiczj****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectBandwidth: 'ConnectBandwidth',
+      domainName: 'DomainName',
+      endpointIps: 'EndpointIps',
+      ingressEndpointStatus: 'IngressEndpointStatus',
+      networkServiceStatus: 'NetworkServiceStatus',
+      securityGroups: 'SecurityGroups',
+      vSwitches: 'VSwitches',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectBandwidth: 'number',
+      domainName: 'string',
+      endpointIps: { 'type': 'array', 'itemType': 'string' },
+      ingressEndpointStatus: 'string',
+      networkServiceStatus: 'string',
+      securityGroups: { 'type': 'array', 'itemType': 'string' },
+      vSwitches: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections extends $tea.Model {
+  /**
+   * @remarks
+   * The network configurations, which are mainly used for the private connection.
+   */
+  connectionConfigs?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs[];
+  /**
+   * @remarks
+   * The ID of the endpoint for the private connection.
+   * 
+   * @example
+   * ep-m5ei37240541816b****
+   */
+  endpointId?: string;
+  /**
+   * @remarks
+   * The ID of the endpoint service for the private connection.
+   * 
+   * @example
+   * epsrv-5ei07324541816bxxxx
+   */
+  endpointServiceId?: string;
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * @example
+   * test.computenest.aliyuncs.com
+   */
+  privateZoneName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionConfigs: 'ConnectionConfigs',
+      endpointId: 'EndpointId',
+      endpointServiceId: 'EndpointServiceId',
+      privateZoneName: 'PrivateZoneName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionConfigs: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs },
+      endpointId: 'string',
+      endpointServiceId: 'string',
+      privateZoneName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the endpoint for the reverse private connection.
+   * 
+   * @example
+   * ep-m5ei42370541816b****
+   */
+  endpointId?: string;
+  /**
+   * @remarks
+   * The ID of the endpoint service for the reverse private connection.
+   * 
+   * @example
+   * epsrv-5ei07324541816bxxxx
+   */
+  endpointServiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      endpointServiceId: 'EndpointServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      endpointServiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyNetworkConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the endpoint for the private connection.
+   * 
+   * >  This parameter is discontinued.
+   * 
+   * @example
+   * ep-m5ei37240541816b****
+   */
+  endpointId?: string;
+  /**
+   * @remarks
+   * The ID of the endpoint service for the private connection.
+   * 
+   * >  This parameter is discontinued.
+   * 
+   * @example
+   * epsrv-5ei07324541816bxxxx
+   */
+  endpointServiceId?: string;
+  /**
+   * @remarks
+   * The information about private connections.
+   */
+  privateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections[];
+  /**
+   * @remarks
+   * The information about the reverse private connection.
+   */
+  reversePrivateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections[];
+  static names(): { [key: string]: string } {
+    return {
+      endpointId: 'EndpointId',
+      endpointServiceId: 'EndpointServiceId',
+      privateVpcConnections: 'PrivateVpcConnections',
+      reversePrivateVpcConnections: 'ReversePrivateVpcConnections',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointId: 'string',
+      endpointServiceId: 'string',
+      privateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections },
+      reversePrivateVpcConnections: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service instance.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * WordPress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   */
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The upgradable service version.
+   * 
+   * @example
+   * 4
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The version name of an upgradable service version.
+   * 
+   * @example
+   * Init version
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyService extends $tea.Model {
+  /**
+   * @remarks
+   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   */
+  deployMetadata?: string;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
+   * *   spi: The service is deployed by calling a service provider interface (SPI).
+   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * The time when the service was published.
+   * 
+   * @example
+   * 2021-05-21T00:00:00Z
+   */
+  publishTime?: string;
+  /**
+   * @remarks
+   * The URL of the service documentation.
+   * 
+   * @example
+   * http://example.com
+   */
+  serviceDocUrl?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-9c8a3522528b4fe8****
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  serviceInfos?: GetServiceInstanceResponseBodyServiceServiceInfos[];
+  /**
+   * @remarks
+   * The URL of the service page.
+   * 
+   * @example
+   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com
+   */
+  serviceProductUrl?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The status of the service. Valid values:
+   * 
+   * Draft: The registration request of the service is pending to be submitted.
+   * 
+   * Submitted: The registration request of the service is submitted.
+   * 
+   * Approved: The registration request of the service is approved.
+   * 
+   * Online: The service is published.
+   * 
+   * Offline: The service is unpublished.
+   * 
+   * Deleted: The service is deleted.
+   * 
+   * Launching: The service is being published.
+   * 
+   * @example
+   * Online
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://example.com
+   */
+  supplierUrl?: string;
+  /**
+   * @remarks
+   * The upgradable service Info.
+   */
+  upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
+  /**
+   * @remarks
+   * The service versions that can be updated.
+   */
+  upgradableServiceVersions?: string[];
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * 1
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The custom version name defined by the service provider.
+   * 
+   * @example
+   * 20231127020225
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      publishTime: 'PublishTime',
+      serviceDocUrl: 'ServiceDocUrl',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceProductUrl: 'ServiceProductUrl',
+      serviceType: 'ServiceType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      upgradableServiceInfos: 'UpgradableServiceInfos',
+      upgradableServiceVersions: 'UpgradableServiceVersions',
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployMetadata: 'string',
+      deployType: 'string',
+      publishTime: 'string',
+      serviceDocUrl: 'string',
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceServiceInfos },
+      serviceProductUrl: 'string',
+      serviceType: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      upgradableServiceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceUpgradableServiceInfos },
+      upgradableServiceVersions: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the API operation.
+   * 
+   * @example
+   * GetServiceProvisions
+   */
+  apiName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud service to which the API operation belongs.
+   * 
+   * @example
+   * ComputeNest
+   */
+  apiProductId?: string;
+  /**
+   * @remarks
+   * The type of the API operation. Valid values:
+   * 
+   * *   Open: public
+   * *   Inner: private
+   * 
+   * @example
+   * Open
+   */
+  apiType?: string;
+  /**
+   * @remarks
+   * The parameters of the API operation. ${Variable name} indicates a dynamic parameter.
+   * 
+   * @example
+   * { "ServiceLinkedRole": "AliyunServiceRoleForRdsPgsqlOnEcs", "RegionId": "${RegionId}" }
+   */
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      apiProductId: 'ApiProductId',
+      apiType: 'ApiType',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      apiProductId: 'string',
+      apiType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the API operation that is used to create the RAM role.
+   */
+  apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
+  /**
+   * @remarks
+   * Indicates whether the RAM role is created. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  created?: boolean;
+  /**
+   * @remarks
+   * The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
+   * 
+   * @example
+   * Default
+   */
+  function?: string;
+  /**
+   * @remarks
+   * The name of the role.
+   * 
+   * @example
+   * AliyunServiceRole
+   */
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiForCreation: 'ApiForCreation',
+      created: 'Created',
+      function: 'Function',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiForCreation: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation,
+      created: 'boolean',
+      function: 'string',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $tea.Model {
+  /**
+   * @remarks
+   * The authorization URL of the RAM role.
+   * 
+   * > This parameter is returned if Created is set to false.
+   * 
+   * @example
+   * https://ram.console.aliyun.com/role/authorization?request={"Services":[{"Service":"CS","Roles":[{"RoleName":"AliyunCSManagedVKRole","TemplateId":"AliyunCSManagedVKRole"},{"RoleName":"AliyunCSDefaultRole","TemplateId":"Default"}]}],"ReturnUrl":"https://cs.console.aliyun.com/"}
+   */
+  authorizationURL?: string;
+  /**
+   * @remarks
+   * The RAM roles.
+   */
+  roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationURL: 'AuthorizationURL',
+      roles: 'Roles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationURL: 'string',
+      roles: { 'type': 'array', 'itemType': GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether automatic activation for the service is defined in the template. Valid values:
+   * 
+   * *   true: Automatic activation for the service is defined in the template.
+   * *   false: Manual activation for the service is defined in the template.
+   * 
+   * @example
+   * true
+   */
+  autoEnableService?: boolean;
+  /**
+   * @remarks
+   * The URL that points to the activation page of the service.
+   * 
+   * > This parameter is returned if Status is set to Disabled.
+   * 
+   * @example
+   * https://common-buy.aliyun.com/?commodityCode=sls
+   */
+  enableURL?: string;
+  /**
+   * @remarks
+   * The information about the RAM roles of the cloud service. If this parameter is empty, no RAM roles is associated with the service.
+   */
+  roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
+  /**
+   * @remarks
+   * The name of the cloud service.
+   * 
+   * @example
+   * db
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The activation status of the cloud service. Valid values:
+   * 
+   * - Enabled: The cloud service is activated.
+   * - EnabledByDefault: The cloud service is activated by default.
+   * - Disabled: The cloud service is not activated.
+   * - Unknown: The activation status of the cloud service is unknown.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The reason why the service is in the Disabled or Unknown state.
+   * 
+   * > This parameter is returned if Status is set to Disabled or Unknown.
+   * 
+   * @example
+   * resource(Eip) import info missing
+   */
+  statusReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoEnableService: 'AutoEnableService',
+      enableURL: 'EnableURL',
+      roleProvision: 'RoleProvision',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      statusReason: 'StatusReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoEnableService: 'boolean',
+      enableURL: 'string',
+      roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
+      serviceName: 'string',
+      status: 'string',
+      statusReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponseBodyDetail extends $tea.Model {
+  /**
+   * @remarks
+   * Whether risk exists.
+   * 
+   * @example
+   * true
+   */
+  atRisk?: boolean;
+  /**
+   * @remarks
+   * Whether service is associated with artifact.
+   * 
+   * @example
+   * true
+   */
+  hasRelatedArtifact?: boolean;
+  /**
+   * @remarks
+   * The reports.
+   * 
+   * @example
+   * { "template1":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
+   */
+  reports?: string;
+  /**
+   * @remarks
+   * The url of template diff file.
+   * 
+   * @example
+   * https://compute-nest-template-diff-bucket.oss-cn-hangzhou.aliyuncs.com/service-abc/diff
+   */
+  templateDiffUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      atRisk: 'AtRisk',
+      hasRelatedArtifact: 'HasRelatedArtifact',
+      reports: 'Reports',
+      templateDiffUrl: 'TemplateDiffUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      atRisk: 'boolean',
+      hasRelatedArtifact: 'boolean',
+      reports: 'string',
+      templateDiffUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponseBodyServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v1.0
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceType: 'ServiceType',
+      trialType: 'TrialType',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceType: 'string',
+      trialType: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsRequestParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * PayType
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * PostPaid
+   */
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * The valid values of the parameter.
+   */
+  allowedValues?: string[];
+  /**
+   * @remarks
+   * The property name.
+   * 
+   * @example
+   * lnch_Source
+   */
+  propertyName?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * i-8vb0smn1lf6g77md****
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * serviceinstance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      propertyName: 'PropertyName',
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      propertyName: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints extends $tea.Model {
+  /**
+   * @remarks
+   * The valid values of the parameter.
+   */
+  allowedValues?: string[];
+  /**
+   * @remarks
+   * The names of the associated parameters.
+   */
+  associationParameterNames?: string[];
+  /**
+   * @remarks
+   * The behavior of the parameter. Valid values:
+   * 
+   * *   NoLimit: The value of this parameter is not limited.
+   * *   NotSupport: The value of this parameter cannot be queried.
+   * *   QueryError: The query failed.
+   * 
+   * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+   * 
+   * @example
+   * NoLimit
+   */
+  behavior?: string;
+  /**
+   * @remarks
+   * The reason why the behavior of the parameter is returned.
+   * 
+   * @example
+   * none
+   */
+  behaviorReason?: string;
+  /**
+   * @remarks
+   * The original constraint information.
+   */
+  originalConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * PayType
+   */
+  parameterKey?: string;
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * String
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedValues: 'AllowedValues',
+      associationParameterNames: 'AssociationParameterNames',
+      behavior: 'Behavior',
+      behaviorReason: 'BehaviorReason',
+      originalConstraints: 'OriginalConstraints',
+      parameterKey: 'ParameterKey',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedValues: { 'type': 'array', 'itemType': 'string' },
+      associationParameterNames: { 'type': 'array', 'itemType': 'string' },
+      behavior: 'string',
+      behaviorReason: 'string',
+      originalConstraints: { 'type': 'array', 'itemType': GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints },
+      parameterKey: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTestTaskResponseBodyExecutionDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The service test case name.
+   * 
+   * @example
+   * case1
+   */
+  caseName?: string;
+  /**
+   * @remarks
+   * The execution report
+   * 
+   * @example
+   * -----------------------------------------------------------------------------
+   * Region: cn-qingdao
+   * StackName: iact3-default-cn-qingd
+   * StackId: 009d2991-f494-d
+   * *****************************************************************************
+   */
+  executionReport?: string;
+  /**
+   * @remarks
+   * The sub task status.
+   * 
+   * @example
+   * Runing
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The sub task id.
+   * 
+   * @example
+   * stt-xxxx
+   */
+  subTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseName: 'CaseName',
+      executionReport: 'ExecutionReport',
+      status: 'Status',
+      subTaskId: 'SubTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseName: 'string',
+      executionReport: 'string',
+      status: 'string',
+      subTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupplierInformationResponseBodyDeliverySettings extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * mybucket
+   */
+  ossBucketName?: string;
+  /**
+   * @remarks
+   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  ossEnabled?: boolean;
+  /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @remarks
+   * The OSS path.
+   * 
+   * @example
+   * path1/path2/
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUploadCredentialsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID.
+   * 
+   * @example
+   * STS.NUCe19W1FKaHAYAhe********
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret.
+   * 
+   * @example
+   * 8LQGp59mY23pcXeTdcvSA1cUQZBeD92sFrXi********
+   */
+  accessKeySecret?: string;
+  /**
+   * @remarks
+   * The bucket name.
+   * 
+   * @example
+   * service-info-private
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * The time when the AccessKey pair expires.
+   * 
+   * @example
+   * 2023-05-18T12:27:59Z
+   */
+  expireDate?: string;
+  /**
+   * @remarks
+   * The name of the key.
+   * 
+   * @example
+   * 221514575922756034/cn-hangzhou/d57c62fbd508xxxxxxxx.json
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The security token.
+   * 
+   * @example
+   * CAISzQN1q6Ft5B2yfSjIr5b2LouNuu5n/KOjQ3/wjGUHYdlagYGdmzz2IH1Le3NrBO8esfgymGFU6v8dlo1dYLQeHhadQI5cs80HtFqLSNaE65LswPlZ2M2ISETPJzfV9pCK
+   */
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      bucketName: 'BucketName',
+      expireDate: 'ExpireDate',
+      key: 'Key',
+      regionId: 'RegionId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      bucketName: 'string',
+      expireDate: 'string',
+      key: 'string',
+      regionId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageRepositoriesResponseBodyRepositories extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the image was created.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the image was modified.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @remarks
+   * The namespace of the repository
+   * 
+   * @example
+   * computenest
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * The image repo ID.
+   * 
+   * @example
+   * crr-3gqhkza0wbxxxxxx
+   */
+  repoId?: string;
+  /**
+   * @remarks
+   * The image repo name.
+   * 
+   * @example
+   * wordpress
+   */
+  repoName?: string;
+  /**
+   * @remarks
+   * The type of the repository. Valid values:
+   * 
+   * *   `Private`: a private repository
+   * *   `Public`: a public repository
+   * 
+   * @example
+   * Private
+   */
+  repoType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      namespace: 'Namespace',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoType: 'RepoType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      modifiedTime: 'string',
+      namespace: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAcrImageTagsResponseBodyImages extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the image was created.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The image size. Unit: bytes.
+   * 
+   * @example
+   * 188394616
+   */
+  imageSize?: string;
+  /**
+   * @remarks
+   * The time when the image was modified.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @remarks
+   * The image version.
+   * 
+   * @example
+   * 5.7.2
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      imageSize: 'ImageSize',
+      modifiedTime: 'ModifiedTime',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      imageSize: 'string',
+      modifiedTime: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactRisksResponseBodyArtifactRiskList extends $tea.Model {
+  /**
+   * @remarks
+   * CVE numbers
+   * 
+   * @example
+   * CVE-2023-4911
+   */
+  cveNos?: string;
+  /**
+   * @remarks
+   * Extended information, in JSON format, to be parsed according to the risk category
+   * 
+   * @example
+   * {
+   *   "feature": "ntpdate", 
+   *   "version": "4.2.6", 
+   *   "cveLocation": "/usr/lib" 
+   * }
+   */
+  extendInfo?: string;
+  /**
+   * @remarks
+   * Risk level:
+   * 
+   * - high represents high
+   * 
+   * @example
+   * high
+   */
+  level?: string;
+  /**
+   * @remarks
+   * Risk name.
+   * 
+   * @example
+   * USN-3686-1: file vulnerabilities
+   */
+  riskName?: string;
+  /**
+   * @remarks
+   * Risk type. Values:
+   * - AcrCve  Container image system vulnerability
+   * - AcrSca  Container image application vulnerability
+   * - EcsVulnerability  ECS image vulnerability information
+   * - EcsAlarm  ECS image security alarm
+   * - EcsBaseline  ECS image baseline check
+   * 
+   * @example
+   * AcrCve
+   */
+  riskType?: string;
+  /**
+   * @remarks
+   * Risk Type name
+   * 
+   * @example
+   * Container System Vulner
+   */
+  riskTypeName?: string;
+  /**
+   * @remarks
+   * Solution for the risk item.
+   * 
+   * @example
+   * apt-get update && apt-get install ntpdate --only-upgrade
+   */
+  solution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cveNos: 'CveNos',
+      extendInfo: 'ExtendInfo',
+      level: 'Level',
+      riskName: 'RiskName',
+      riskType: 'RiskType',
+      riskTypeName: 'RiskTypeName',
+      solution: 'Solution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cveNos: 'string',
+      extendInfo: 'string',
+      level: 'string',
+      riskName: 'string',
+      riskType: 'string',
+      riskTypeName: 'string',
+      solution: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactVersionsRequestFilters extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * **Status**：The artifact status
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
+   */
+  artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package to be built.
+   * 
+   * @example
+   * Dockerfile
+   */
+  artifactBuildType?: string;
+  /**
+   * @remarks
+   * The ID of the deployment package.
+   * 
+   * @example
+   * artifact-eea08d1e2d3a43aexxxx
+   */
+  artifactId?: string;
+  /**
+   * @remarks
+   * The properties of the deployment package.
+   * 
+   * @example
+   * {\\"CommodityCode\\":\\"cmjj0005xxxx\\",\\"CommodityVersion\\":\\"V2022xxxx\\"}
+   */
+  artifactProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package.
+   * 
+   * @example
+   * EcsImage
+   */
+  artifactType?: string;
+  /**
+   * @remarks
+   * The version of the deployment package.
+   * 
+   * @example
+   * 2
+   */
+  artifactVersion?: string;
+  /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
+   * @example
+   * 2022-10-20T02:19:53Z
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the deployment package was modified.
+   * 
+   * @example
+   * 2022-10-20T02:19:55Z
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The distribution result of the image.
+   */
+  imageDelivery?: { [key: string]: string };
+  /**
+   * @remarks
+   * The distribution progress of the deployment package.
+   * 
+   * @example
+   * 100
+   */
+  progress?: string;
+  /**
+   * @remarks
+   * The result file of the security scan.
+   * 
+   * @example
+   * https://compute-nest-security-audit-bucket-ap-southeast-1.oss-ap-southeast-1.aliyuncs.com/51416747xxxx/xxxx
+   */
+  resultFile?: string;
+  /**
+   * @remarks
+   * The result of the security scan. Valid values:
+   * 
+   * *   Normal: No risks exist on the deployment package.
+   * *   AtRisk: Risks exist on the deployment package.
+   * *   Processing: The deployment package is being scanned.
+   * 
+   * @example
+   * Normal
+   */
+  securityAuditResult?: string;
+  /**
+   * @remarks
+   * The status of the deployment package. Valid values:
+   * 
+   * *   Created: The deployment package is created.
+   * *   Scanning: The deployment package is being scanned.
+   * *   ScanFailed: The deployment package failed to be scanned.
+   * *   Delivering: The deployment package is being distributed.
+   * *   Available: The deployment package is available.
+   * *   Deleted: The deployment package is deleted.
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The description of the deployment package.
+   * 
+   * @example
+   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+   */
+  statusDetail?: string;
+  /**
+   * @remarks
+   * The ID of the region that supports the deployment package.
+   * 
+   * @example
+   * [
+   * 					"cn-beijing",
+   * 					"cn-hangzhou",
+   * 					"cn-shanghai"
+   * 				]
+   */
+  supportRegionIds?: string;
+  /**
+   * @remarks
+   * The version name of the deployment package.
+   * 
+   * @example
+   * v1
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
+      artifactId: 'ArtifactId',
+      artifactProperty: 'ArtifactProperty',
+      artifactType: 'ArtifactType',
+      artifactVersion: 'ArtifactVersion',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      imageDelivery: 'ImageDelivery',
+      progress: 'Progress',
+      resultFile: 'ResultFile',
+      securityAuditResult: 'SecurityAuditResult',
+      status: 'Status',
+      statusDetail: 'StatusDetail',
+      supportRegionIds: 'SupportRegionIds',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactBuildProperty: 'string',
+      artifactBuildType: 'string',
+      artifactId: 'string',
+      artifactProperty: 'string',
+      artifactType: 'string',
+      artifactVersion: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      imageDelivery: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      progress: 'string',
+      resultFile: 'string',
+      securityAuditResult: 'string',
+      status: 'string',
+      statusDetail: 'string',
+      supportRegionIds: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   *Name*: The name of the deployment package. Fuzzy match is used.
+   * *   ArtifactId: The ID of the deployment package.
+   * *   ArtifactType: The type of the deployment package.
+   * 
+   * @example
+   * ArtifactType
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsResponseBodyArtifactsTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsResponseBodyArtifacts extends $tea.Model {
+  /**
+   * @remarks
+   * The build properties of the artifact, utilized for hosting and building the deployment package.
+   * 
+   * @example
+   * {\\"CodeRepo\\":{\\"Owner\\":\\"wenle\\",\\"Platform\\":\\"github\\",\\"Branch\\":\\"main\\",\\"RepoName\\":\\"aliyun-computenest/java-springboot-demo\\"}}
+   */
+  artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The ID of the deployment package.
+   * 
+   * @example
+   * artifact-eea08d1e2d3a43aexxxx
+   */
+  artifactId?: string;
+  /**
+   * @remarks
+   * The type of the deployment package.
+   * 
+   * @example
+   * EcsImage
+   */
+  artifactType?: string;
+  /**
+   * @remarks
+   * The description of the deployment package.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the deployment package was modified.
+   * 
+   * @example
+   * 2022-10-20T02:19:55Z
+   */
+  gmtModified?: string;
+  /**
+   * @remarks
+   * The latest version of the deployment package.
+   * 
+   * @example
+   * 2
+   */
+  maxVersion?: string;
+  /**
+   * @remarks
+   * The name of the deployment package.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek25rexxxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the deployment package. Valid values:
+   * 
+   * *   Created: The deployment package is created.
+   * *   Scanning: The deployment package is being scanned.
+   * *   ScanFailed: The deployment package failed to be scanned.
+   * *   Delivering: The deployment package is being distributed.
+   * *   Available: The deployment package is available.
+   * *   Deleted: The deployment package is deleted.
+   * 
+   * @example
+   * Created
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tags?: ListArtifactsResponseBodyArtifactsTags[];
+  static names(): { [key: string]: string } {
+    return {
+      artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactId: 'ArtifactId',
+      artifactType: 'ArtifactType',
+      description: 'Description',
+      gmtModified: 'GmtModified',
+      maxVersion: 'MaxVersion',
+      name: 'Name',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactBuildProperty: 'string',
+      artifactId: 'string',
+      artifactType: 'string',
+      description: 'string',
+      gmtModified: 'string',
+      maxVersion: 'string',
+      name: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': ListArtifactsResponseBodyArtifactsTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResellersRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   ResellerUid: the uid of the distributor.
+   * *   Name: the name of the distributor.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Filter value array.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResellersResponseBodySupplierInformation extends $tea.Model {
+  /**
+   * @remarks
+   * The description of distributor.
+   * 
+   * @example
+   * It is a XXXX  company
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of distributor
+   * 
+   * @example
+   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/31978070/service-image/d5c3b585-ff6b-4e4e-8885-xxxx.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the distributor
+   * 
+   * @example
+   * Distributor A
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the distributor.
+   * 
+   * @example
+   * 152xxxxxxxxxxx
+   */
+  supplierUid?: number;
+  /**
+   * @remarks
+   * The URL of the distributor.
+   * 
+   * @example
+   * http://www.aliyun.com
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierUid: 'number',
+      supplierUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceDeployDetailsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * Filter Value Names (Equivalent to SQL\\"s WHERE Clause)
+   * 
+   * Available Options:
+   * 
+   * - UserId
+   * - ServiceId
+   * - ServiceVersion
+   * - ServiceInstanceId
+   * - DeploySucceeded (Accepts True or False and case-insensitive)
+   * - ErrorType
+   * - ErrorCode
+   * 
+   * @example
+   * ServiceId
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceDeployDetailsResponseBodyDeployDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of entries that meet the specified conditions.
+   * 
+   * @example
+   * 4
+   */
+  count?: string;
+  /**
+   * @remarks
+   * The time when the service instance was created.
+   * 
+   * @example
+   * 2024-04-10T01:58:20Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The period over which data is aggregated.
+   * 
+   * @example
+   * Month
+   */
+  cycle?: string;
+  /**
+   * @remarks
+   * The indicates whether the deployment was successful.
+   * 
+   * @example
+   * False
+   */
+  deploySucceeded?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * StackValidationFailed
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error description.
+   * 
+   * @example
+   * {code: StackValidationFailed, message: \\"Failed to continue create ROS stack 89e724e2-84e6-4517-a372-30a545ab4145: Resource [LinuxInstanceRunCommand]: i-wz91nfbh1fxtmfb0try4 are not running. Command invocation only support running instances. ErrorCode: StackValidationFailed\\", requestId: null}
+   */
+  errorDetail?: string;
+  /**
+   * @remarks
+   * The type of error that caused the deployment to fail.
+   * 
+   * @example
+   * ValidationError
+   */
+  errorType?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-c751ed91f2074af39779
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service instance ID.
+   * 
+   * @example
+   * si-273e8cee11d349e1803c
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the service in Chinese.
+   * 
+   * @example
+   * 测试服务(Test Service)
+   */
+  serviceNameChn?: string;
+  /**
+   * @remarks
+   * The name of the service in English.
+   * 
+   * @example
+   * Test Service
+   */
+  serviceNameEng?: string;
+  /**
+   * @remarks
+   * The type of service. 
+   * 
+   * Possible values:
+   * 
+   * - private: Deployed under the user\\"s account.
+   * - managed: Hosted under the service provider\\"s account.
+   * - operation: Managed operation service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * 42
+   */
+  serviceVersion?: string;
+  /**
+   * @remarks
+   * The timestamp when the response is returned.
+   * 
+   * @example
+   * 1723946641994
+   */
+  timestamp?: string;
+  /**
+   * @remarks
+   * The aliuid of user.
+   * 
+   * @example
+   * 1591457835436382
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      createTime: 'CreateTime',
+      cycle: 'Cycle',
+      deploySucceeded: 'DeploySucceeded',
+      errorCode: 'ErrorCode',
+      errorDetail: 'ErrorDetail',
+      errorType: 'ErrorType',
+      serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceNameChn: 'ServiceNameChn',
+      serviceNameEng: 'ServiceNameEng',
+      serviceType: 'ServiceType',
+      serviceVersion: 'ServiceVersion',
+      timestamp: 'Timestamp',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'string',
+      createTime: 'string',
+      cycle: 'string',
+      deploySucceeded: 'string',
+      errorCode: 'string',
+      errorDetail: 'string',
+      errorType: 'string',
+      serviceId: 'string',
+      serviceInstanceId: 'string',
+      serviceNameChn: 'string',
+      serviceNameEng: 'string',
+      serviceType: 'string',
+      serviceVersion: 'string',
+      timestamp: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   StartTime: the start time of the log event.
+   * *   EndTime: the end time of the ActionTrail event.
+   * *   EventName: the name of the ActionTrail event.
+   * *   ResourceName: the name of the ActionTrail resource.
+   * *   ApplicationGroupName: the name of the application group.
+   * 
+   * @example
+   * StartTime
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $tea.Model {
+  /**
+   * @remarks
+   * Compliance package risk types. This only applies when the source is CompliancePack. . For example, data security checks within a VPC, such as VpcDataRisk
+   * 
+   * @example
+   * VpcDataRisk
+   */
+  compliancePackType?: string;
+  /**
+   * @remarks
+   * Specific risk rule names for the compliance package. This only applies when the source is CompliancePack. . For example, ECS instance migration out of VPC - ecs-move-out-vpc.
+   * 
+   * @example
+   * vpc-ecs-move-out-vpc
+   */
+  complianceRuleName?: string;
+  /**
+   * @remarks
+   * The log content.
+   * 
+   * @example
+   * Start creating service instance
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The log type. Valid values:
+   * 
+   * *   serviceInstance: log generated by the service instance.
+   * *   resource: log generated by ROS resources.
+   * 
+   * @example
+   * serviceInstance
+   */
+  logType?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * si-5c6525c0589545c3****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The Resouce Type.
+   * 
+   * @example
+   * ROS.Stack
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The log source. 
+   * Valid values:
+   * 
+   * *   computeNest : logs of the deployment and upgrade of the service instance.
+   * *   application: logs generated by the application.
+   * *   actionTrail: logs generated by ActionTrail.
+   * *  compliancePack:  Logs originating from the compliance package.
+   * *  ros: Logs originating from ROS.
+   * *  meteringData：Logs originating from the pay-as-you-go model.
+   * 
+   * @example
+   * computeNest
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The deployment state of the service instance. Valid values:
+   * 
+   * *   Created
+   * *   Deploying
+   * *   DeployedFailed
+   * *   Deployed
+   * *   Upgrading
+   * *   Deleting
+   * *   Deleted
+   * *   DeletedFailed
+   * 
+   * @example
+   * Deployed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The timestamp of the service instance log.
+   * 
+   * @example
+   * 2022-05-21T00:00:00Z
+   */
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackType: 'CompliancePackType',
+      complianceRuleName: 'ComplianceRuleName',
+      content: 'Content',
+      logType: 'LogType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      source: 'Source',
+      status: 'Status',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackType: 'string',
+      complianceRuleName: 'string',
+      content: 'string',
+      logType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      source: 'string',
+      status: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequestFilters extends $tea.Model {
+  /**
+   * @remarks
+   * Vaild values:
+   * - ExpireTimeStart
+   * - ExpireTimeEnd
+   * - PayType
+   * - ResourceARN
+   * 
+   * @example
+   * ResourceARN
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesResponseBodyResources extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the service instance was created.
+   * 
+   * @example
+   * 2022-01-01T12:00:00
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the resource expires.
+   * 
+   * @example
+   * 2022-03-01T12:00:00
+   */
+  expireTime?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   Subscription
+   * *   PayAsYouGo
+   * 
+   * @example
+   * Subscription
+   */
+  payType?: string;
+  /**
+   * @remarks
+   * The code of the cloud service.
+   * 
+   * @example
+   * rds
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The type of the cloud service.
+   * 
+   * @example
+   * RDS
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The renewal state. Valid values:
+   * 
+   * *   AutoRenewal
+   * *   ManualRenewal
+   * *   NotRenewal
+   * 
+   * @example
+   * AutoRenewal
+   */
+  renewStatus?: string;
+  /**
+   * @remarks
+   * The renewal period.
+   * 
+   * @example
+   * 1
+   */
+  renewalPeriod?: number;
+  /**
+   * @remarks
+   * The unit of the renewal period. Valid values:
+   * 
+   * *   Month
+   * *   Year
+   * 
+   * @example
+   * Month
+   */
+  renewalPeriodUnit?: string;
+  /**
+   * @remarks
+   * The ARN of the resource.
+   * 
+   * @example
+   * arn:acs:sag:cn-hangzhou:130920852836****:ccn/ccn-b3qf0q439sq2de****
+   */
+  resourceARN?: string;
+  /**
+   * @remarks
+   * The status of the service instance. Valid values:
+   * 
+   * *   Created
+   * *   Deploying
+   * *   DeployedFailed
+   * *   Deployed
+   * *   Upgrading
+   * *   Deleting
+   * *   Deleted
+   * *   DeletedFailed
+   * 
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      payType: 'PayType',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewStatus: 'RenewStatus',
+      renewalPeriod: 'RenewalPeriod',
+      renewalPeriodUnit: 'RenewalPeriodUnit',
+      resourceARN: 'ResourceARN',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      expireTime: 'string',
+      payType: 'string',
+      productCode: 'string',
+      productType: 'string',
+      renewStatus: 'string',
+      renewalPeriod: 'number',
+      renewalPeriodUnit: 'string',
+      resourceARN: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $tea.Model {
+  /**
+   * @remarks
+   * End time of the upgrade.
+   * 
+   * @example
+   * 2022-04-26T09:09:51Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Version before the upgrade.
+   * 
+   * @example
+   * 1
+   */
+  fromVersion?: string;
+  /**
+   * @remarks
+   * Upgrade result.
+   * 
+   * @example
+   * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
+   */
+  results?: string;
+  /**
+   * @remarks
+   * Start time of the upgrade.
+   * 
+   * @example
+   * 2022-04-26T08:09:51Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * Upgrade status. Possible values:
+   * 
+   * - upgrading: In progress.
+   * 
+   * - UpgradeSuccessful: Upgrade successful.
+   * 
+   * - UpgradeFailed: Upgrade failed.
+   * 
+   * @example
+   * UpgradeFailed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Version after the upgrade.
+   * 
+   * @example
+   * 3
+   */
+  toVersion?: string;
+  /**
+   * @remarks
+   * Upgrade type.
+   * - Upgrade
+   * - Rollback
+   * 
+   * @example
+   * Upgrade
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Upgrade history ID.
+   * 
+   * @example
+   * uh-1b21d65f75e94fa09745
+   */
+  upgradeHistoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fromVersion: 'FromVersion',
+      results: 'Results',
+      startTime: 'StartTime',
+      status: 'Status',
+      toVersion: 'ToVersion',
+      type: 'Type',
+      upgradeHistoryId: 'UpgradeHistoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fromVersion: 'string',
+      results: 'string',
+      startTime: 'string',
+      status: 'string',
+      toVersion: 'string',
+      type: 'string',
+      upgradeHistoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   Name: The service name. If you want to perform a fuzzy match, specify the service name in the *xxx* format. For example, if the service name is My Service, you can set the filter value to *My* or *Service*.
+   * *   ServiceInstanceId: The ID of the service instance.
+   * *   ServiceId: The service ID.
+   * *   UserId: The user ID.
+   * *   Version: The service version.
+   * *   Status: The status of the service instance.
+   * *   DeployType: The deployment type of the service.
+   * *   ServiceType: The service type.
+   * *   OperationStartTimeBefore: The time before the hosted O\\&M starts.
+   * *   OperationStartTimeAfter: The time after the hosted O\\&M starts.
+   * *   OperationEndTimeBefore: The time before the hosted O\\&M ends.
+   * *   OperationEndTimeAfter: The time after the hosted O\\&M ends.
+   * *   OperatedServiceInstanceId: The ID of the hosted O\\&M instance that belongs to a private service.
+   * *   OperationServiceInstanceId: The ID of the hosted O\\&M service instance that belongs to a hosted O\\&M service.
+   * *   EnableInstanceOps: Whether the hosted O\\&M feature is enabled for service instances.
+   * 
+   * @example
+   * ServiceInstanceId
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service instance.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * WordPress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   */
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesResponseBodyServiceInstancesService extends $tea.Model {
+  /**
+   * @remarks
+   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   */
+  deployMetadata?: string;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
+   * *   spi: The service is deployed by calling a service provider interface (SPI).
+   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * Indicates whether the private connection feature is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  enablePrivateVpcConnection?: boolean;
+  /**
+   * @remarks
+   * The time when the service was published.
+   * 
+   * @example
+   * 2021-05-21T00:00:00Z
+   */
+  publishTime?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-0e6fca6a51a54420****
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  serviceInfos?: ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos[];
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * *   poc: The service is a trial service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The name of the distribution source service provider.
+   * 
+   * @example
+   * Company A
+   */
+  sourceSupplierName?: string;
+  /**
+   * @remarks
+   * The status of the service.
+   * 
+   * @example
+   * Online
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://example.com
+   */
+  supplierUrl?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The custom version name defined by the service provider.
+   * 
+   * @example
+   * 版本A
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      enablePrivateVpcConnection: 'EnablePrivateVpcConnection',
+      publishTime: 'PublishTime',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceType: 'ServiceType',
+      sourceSupplierName: 'SourceSupplierName',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployMetadata: 'string',
+      deployType: 'string',
+      enablePrivateVpcConnection: 'boolean',
+      publishTime: 'string',
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos },
+      serviceType: 'string',
+      sourceSupplierName: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesResponseBodyServiceInstancesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The business status of the service instance. Valid values:
+   * 
+   * *   Normal: The service instance is normal.
+   * *   Renewing: The service instance is being renewed.
+   * *   RenewFailed: The service instance failed to be renewed.
+   * *   Expired: The service instance expired.
+   * 
+   * @example
+   * Normal
+   */
+  bizStatus?: string;
+  /**
+   * @remarks
+   * The time when the service instance was created.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableInstanceOps?: boolean;
+  /**
+   * @remarks
+   * The time when the service instance expires.
+   * 
+   * @example
+   * 2022-01-01T12:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  isOperated?: boolean;
+  /**
+   * @remarks
+   * The name of the service instance.
+   * 
+   * @example
+   * TestName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the service instance that is used to implement hosted O\\&M.
+   * 
+   * @example
+   * si-d6ab3a63ccbb4b17****
+   */
+  operatedServiceInstanceId?: string;
+  /**
+   * @remarks
+   * The end of the time range during which hosted O\\&M is implemented.
+   * 
+   * @example
+   * 2021-12-29T06:48:56Z
+   */
+  operationEndTime?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which hosted O\\&M is implemented.
+   * 
+   * @example
+   * 2021-12-29T06:48:56Z
+   */
+  operationStartTime?: string;
+  /**
+   * @remarks
+   * The parameters of the service instance.
+   * 
+   * @example
+   * {"param":"value"}
+   */
+  parameters?: string;
+  /**
+   * @remarks
+   * The billing method of the service. Valid values:
+   * 
+   * *   Permanent: Once you purchase the service, you can use it permanently.
+   * *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
+   * *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
+   * *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
+   * 
+   * @example
+   * Subscription
+   */
+  payType?: string;
+  /**
+   * @remarks
+   * The deployment progress of the service instance. Unit: percentage.
+   * 
+   * @example
+   * 90
+   */
+  progress?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * si-d6ab3a63ccxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  service?: ListServiceInstancesResponseBodyServiceInstancesService;
+  /**
+   * @remarks
+   * The ID of the service instance.
+   * 
+   * @example
+   * si-d6ab3a63ccbb4b17****
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * *   poc: The service is a trial service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The source from which the service instance is created.
+   * 
+   * @example
+   * Supplier
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The status of the service instance. Valid values:
+   * 
+   * *   Created
+   * *   Deploying
+   * *   DeployedFailed
+   * *   Deployed
+   * *   Upgrading
+   * *   Deleting
+   * *   Deleted
+   * 
+   * @example
+   * Deployed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The description of the deployment of the service instance.
+   * 
+   * @example
+   * deploy successfully
+   */
+  statusDetail?: string;
+  /**
+   * @remarks
+   * The custom tags.
+   */
+  tags?: ListServiceInstancesResponseBodyServiceInstancesTags[];
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * 模板1
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The time when the service instance was updated.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the user.
+   * 
+   * @example
+   * 1234567
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizStatus: 'BizStatus',
+      createTime: 'CreateTime',
+      enableInstanceOps: 'EnableInstanceOps',
+      endTime: 'EndTime',
+      isOperated: 'IsOperated',
+      name: 'Name',
+      operatedServiceInstanceId: 'OperatedServiceInstanceId',
+      operationEndTime: 'OperationEndTime',
+      operationStartTime: 'OperationStartTime',
+      parameters: 'Parameters',
+      payType: 'PayType',
+      progress: 'Progress',
+      resourceGroupId: 'ResourceGroupId',
+      service: 'Service',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+      status: 'Status',
+      statusDetail: 'StatusDetail',
+      tags: 'Tags',
+      templateName: 'TemplateName',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizStatus: 'string',
+      createTime: 'string',
+      enableInstanceOps: 'boolean',
+      endTime: 'string',
+      isOperated: 'boolean',
+      name: 'string',
+      operatedServiceInstanceId: 'string',
+      operationEndTime: 'string',
+      operationStartTime: 'string',
+      parameters: 'string',
+      payType: 'string',
+      progress: 'number',
+      resourceGroupId: 'string',
+      service: ListServiceInstancesResponseBodyServiceInstancesService,
+      serviceInstanceId: 'string',
+      serviceType: 'string',
+      source: 'string',
+      status: 'string',
+      statusDetail: 'string',
+      tags: { 'type': 'array', 'itemType': ListServiceInstancesResponseBodyServiceInstancesTags },
+      templateName: 'string',
+      updateTime: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceRegistrationsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * Name of the filter field. Allowed values:
+   * 
+   * - ServiceId: Service ID.
+   * 
+   * - RegistrationId: Registration ID.
+   * 
+   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
+   * 
+   * @example
+   * Canceled
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of filter values.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $tea.Model {
+  /**
+   * @remarks
+   * Comment.
+   * 
+   * @example
+   * some info is missing
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * Finish time.
+   * 
+   * @example
+   * 2021-05-23T00:00:00Z
+   */
+  finishTime?: string;
+  /**
+   * @remarks
+   * Registration ID.
+   * 
+   * @example
+   * sr-001
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * Service ID.
+   * 
+   * @example
+   * service-f4c0026a254bxxxxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * Registration status. Allowed values:
+   * 
+   * - Submitted
+   * 
+   * - Approved
+   * 
+   * - Rejected
+   * 
+   * - Canceled
+   * 
+   * - Executed
+   * 
+   * - Executed: Executed.
+   * 
+   * @example
+   * Rejected
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Submit time.
+   * 
+   * @example
+   * 2021-05-22T00:00:00Z
+   */
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      finishTime: 'FinishTime',
+      registrationId: 'RegistrationId',
+      serviceId: 'ServiceId',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      finishTime: 'string',
+      registrationId: 'string',
+      serviceId: 'string',
+      status: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceSharedAccountsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   Name: the name of the service.
+   * 
+   * @example
+   * UserAliUid
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceSharedAccountsResponseBodyShareAccount extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the service was created.
+   * 
+   * @example
+   * 2021-12-28T02:47:46.000
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Service logo.
+   * 
+   * @example
+   * logo
+   */
+  logo?: string;
+  /**
+   * @remarks
+   * The name of the service instance. The value must meet the following requirements:
+   * 
+   * *   The name cannot exceed 64 characters in length.
+   * *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+   * 
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The permissions on the service. Valid values:
+   * 
+   * *   Deployable: Permissions to deploy the service.
+   * *   Accessible: Permissions to access the service.
+   * 
+   * @example
+   * Deployable
+   */
+  permission?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-e10349089de34exxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The time when the service was updated.
+   * 
+   * @example
+   * 2023-02-13T02:16:03.756Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The user aliUid.
+   * 
+   * @example
+   * 127383705xxxxxx
+   */
+  userAliUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      logo: 'Logo',
+      name: 'Name',
+      permission: 'Permission',
+      serviceId: 'ServiceId',
+      updateTime: 'UpdateTime',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      logo: 'string',
+      name: 'string',
+      permission: 'string',
+      serviceId: 'string',
+      updateTime: 'string',
+      userAliUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestCasesRequestFilters extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * **Status**
+   * 
+   * **TaskId**
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestCasesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * test-1
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The service test case id.
+   * 
+   * @example
+   * stc-83fcee1383354e35b151
+   */
+  testCaseId?: string;
+  /**
+   * @remarks
+   * The service test case name.
+   * 
+   * @example
+   * case1
+   */
+  testCaseName?: string;
+  /**
+   * @remarks
+   * The service test config.
+   * 
+   * @example
+   * ---
+   * parameters:
+   *   PayType: "PostPaid"
+   *   EcsInstanceType: "$[iact3-auto]"
+   *   InstancePassword: "$[iact3-auto]"
+   */
+  testConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateName: 'TemplateName',
+      testCaseId: 'TestCaseId',
+      testCaseName: 'TestCaseName',
+      testConfig: 'TestConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateName: 'string',
+      testCaseId: 'string',
+      testCaseName: 'string',
+      testConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTaskLogsResponseBodyTaskLogs extends $tea.Model {
+  /**
+   * @remarks
+   * The log content.
+   * 
+   * @example
+   * log content
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The UTC timestamp when the response is returned.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-12-12T20:00:09Z
+   */
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   Status: the status of the task.
+   * *   TaskId: the task id.
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksResponseBodyServiceTestTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2024-02-26T02:16:35Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * the status of service task.
+   * 
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * sttt-000h5nd4yrg59ucurzy1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * dadadad
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The task region id.
+   * 
+   * @example
+   * cn-beijing
+   */
+  taskRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskRegionId: 'TaskRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      taskRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   ServiceId: the ID of the service.
+   * *   ServiceName: the service name.
+   * *   Status: the state of the service.
+   * *   SupplierName: the name of the service provider.
+   * 
+   * @example
+   * ServiceId
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
+  /**
+   * @remarks
+   * The comment on the approval.
+   * 
+   * @example
+   * Reject
+   */
+  comments?: string;
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 2022-05-25T02:02:02Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-c9f36ec6d19b4exxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * ServiceTest
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The status of the service application. Valid values:
+   * 
+   * *   Submitted: The application is submitted or is to be approved.
+   * *   Approved: The application is approved.
+   * *   Rejected: The application is rejected.
+   * *   Canceled: The application is canceled.
+   * 
+   * @example
+   * Submitted
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * SupplierAAA
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The time when the application was updated.
+   * 
+   * @example
+   * 2022-05-25T02:02:02Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 127383705958xxxx
+   */
+  userAliUid?: number;
+  /**
+   * @remarks
+   * The user information.
+   */
+  userInformation?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      createTime: 'CreateTime',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      updateTime: 'UpdateTime',
+      userAliUid: 'UserAliUid',
+      userInformation: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      createTime: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      status: 'string',
+      supplierName: 'string',
+      updateTime: 'string',
+      userAliUid: 'number',
+      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   ServiceId: the ID of the service.
+   * *   Name: the name of the service.
+   * *   Status: the state of the service.
+   * *   SupplierName: the name of the service provider.
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The configuration metadata related to Saas Boost.
+   * 
+   * @example
+   * { // Specifies whether to associate the service with the SaaS Boost commodity. Default value: false. "Enabled":true/false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+   */
+  saasBoostMetadata?: string;
+  /**
+   * @remarks
+   * The platform type. Valid values:
+   * 
+   * *   marketplace: Alibaba Cloud Marketplace.
+   * *   Css: Lingxiao.
+   * *   SaasBoost: Saas Boost.
+   * 
+   * @example
+   * Marketplace
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      saasBoostMetadata: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese.
+   * *   en-US: English.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The name of the service.
+   * 
+   * @example
+   * SpringBoot-ECS容器版
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   */
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServices extends $tea.Model {
+  /**
+   * @remarks
+   * The approval type for applications for using the service. Valid values:
+   * 
+   * *   Manual: The applications are manual reviewed.
+   * *   AutoPass: The applications are automatically approved.
+   * 
+   * @example
+   * AutoPass
+   */
+  approvalType?: string;
+  /**
+   * @remarks
+   * The ID of the artifact.
+   * 
+   * @example
+   * artifact-21ca53ac16a643xxxxxx
+   */
+  artifactId?: string;
+  /**
+   * @remarks
+   * The version of the artifact.
+   * 
+   * @example
+   * draft
+   */
+  artifactVersion?: string;
+  /**
+   * @remarks
+   * The informathon for build service.
+   * 
+   * @example
+   * { "RepoUrl": "https://github.com/user/repo.git", "Brancn": "main"}
+   */
+  buildInfo?: string;
+  /**
+   * @remarks
+   * The category of the service.
+   * 
+   * @example
+   * OpenSource
+   */
+  categories?: string;
+  /**
+   * @remarks
+   * The commodity details.
+   */
+  commodity?: ListServicesResponseBodyServicesCommodity;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The time when the service was created.
+   * 
+   * @example
+   * 2021-05-20T00:00:00Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the version is the default version. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * true
+   */
+  defaultVersion?: boolean;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * *   spi: The service is deployed by calling the Service Provider Interface (SPI).
+   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * *   container: The service is deployed by using a container.
+   * *
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * Indicates whether the service has a beta version. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  hasBeta?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the service has a draft version. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  hasDraft?: boolean;
+  /**
+   * @remarks
+   * The latest version of the distribution source service.
+   * 
+   * @example
+   * 1
+   */
+  latestResellSourceServiceVersion?: string;
+  /**
+   * @remarks
+   * The time when the service was published.
+   * 
+   * @example
+   * 2021-05-21T00:00:00Z
+   */
+  publishTime?: string;
+  /**
+   * @remarks
+   * The purpose of the artifact. Valid values:
+   * 
+   * *   ServiceDeployment: The artifact is used to create service instances.
+   * *   ServiceUpgrade: The artifact is used to upgrade service instances.
+   * 
+   * @example
+   * ServiceDeployment
+   */
+  relationType?: string;
+  /**
+   * @remarks
+   * The state of distribution authorization of the service. Valid values:
+   * 
+   * *   CanApply: Distributors can apply for distribution permissions.
+   * *   Applied: The application for distribution permissions is submitted.
+   * *   Approved: The application for distribution permissions is approved.
+   * 
+   * @example
+   * CanApply
+   */
+  resellApplyStatus?: string;
+  /**
+   * @remarks
+   * The ID of the distribution service.
+   * 
+   * @example
+   * service-70a3b15bb62643xxxxxx
+   */
+  resellServiceId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aekz5b555xxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether the service is visible. Valid values:
+   * 
+   * *   INVISIBLE
+   * *   DISCOVERABLE
+   * 
+   * @example
+   * INVISIBLE
+   */
+  serviceDiscoverable?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-70a3b15bb62643xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The permission type of the deployment URL. Valid values:
+   * 
+   * *   Public: All users can go to the URL to create a formal service instance or a trial service instance.
+   * *   Restricted: Only users in the whitelist can go to the URL to create a formal service instance or a trial service instance.
+   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a formal service instance.
+   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * 
+   * @example
+   * Public
+   */
+  shareType?: string;
+  /**
+   * @remarks
+   * The source image.
+   * 
+   * @example
+   * centos_7
+   */
+  sourceImage?: string;
+  /**
+   * @remarks
+   * The ID of the distribution source service.
+   * 
+   * @example
+   * service-70a3b15bb62643xxxxxx
+   */
+  sourceServiceId?: string;
+  /**
+   * @remarks
+   * The version of the distribution source service.
+   * 
+   * @example
+   * 1
+   */
+  sourceServiceVersion?: string;
+  /**
+   * @remarks
+   * The name of the distribution source service provider.
+   * 
+   * @example
+   * SourceSupplier
+   */
+  sourceSupplierName?: string;
+  /**
+   * @remarks
+   * The state of the service. Valid values:
+   * 
+   * *   Draft: The service is a draft.
+   * *   Submitted: The service is submitted for review. You cannot modify services in this state.
+   * *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
+   * *   Launching: The service is being published.
+   * *   Online: The service is published.
+   * *   Offline: The service is unpublished.
+   * 
+   * @example
+   * Online
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://example.com
+   */
+  supplierUrl?: string;
+  /**
+   * @remarks
+   * The service tags.
+   */
+  tags?: ListServicesResponseBodyServicesTags[];
+  /**
+   * @remarks
+   * The tenant type of the managed service. Valid values:
+   * 
+   * *   SingleTenant
+   * *   MultiTenant
+   * 
+   * @example
+   * SingleTenant
+   */
+  tenantType?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The time when the service was modified.
+   * 
+   * @example
+   * 2021-05-21T00:00:00Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The version of the service.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The custom version name defined by the service provider.
+   * 
+   * @example
+   * v2.0.0
+   */
+  versionName?: string;
+  /**
+   * @remarks
+   * Indicates whether the service is a virtual Internet service. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  virtualInternetService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      approvalType: 'ApprovalType',
+      artifactId: 'ArtifactId',
+      artifactVersion: 'ArtifactVersion',
+      buildInfo: 'BuildInfo',
+      categories: 'Categories',
+      commodity: 'Commodity',
+      commodityCode: 'CommodityCode',
+      createTime: 'CreateTime',
+      defaultVersion: 'DefaultVersion',
+      deployType: 'DeployType',
+      hasBeta: 'HasBeta',
+      hasDraft: 'HasDraft',
+      latestResellSourceServiceVersion: 'LatestResellSourceServiceVersion',
+      publishTime: 'PublishTime',
+      relationType: 'RelationType',
+      resellApplyStatus: 'ResellApplyStatus',
+      resellServiceId: 'ResellServiceId',
+      resourceGroupId: 'ResourceGroupId',
+      serviceDiscoverable: 'ServiceDiscoverable',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceType: 'ServiceType',
+      shareType: 'ShareType',
+      sourceImage: 'SourceImage',
+      sourceServiceId: 'SourceServiceId',
+      sourceServiceVersion: 'SourceServiceVersion',
+      sourceSupplierName: 'SourceSupplierName',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+      tags: 'Tags',
+      tenantType: 'TenantType',
+      trialType: 'TrialType',
+      updateTime: 'UpdateTime',
+      version: 'Version',
+      versionName: 'VersionName',
+      virtualInternetService: 'VirtualInternetService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      approvalType: 'string',
+      artifactId: 'string',
+      artifactVersion: 'string',
+      buildInfo: 'string',
+      categories: 'string',
+      commodity: ListServicesResponseBodyServicesCommodity,
+      commodityCode: 'string',
+      createTime: 'string',
+      defaultVersion: 'boolean',
+      deployType: 'string',
+      hasBeta: 'boolean',
+      hasDraft: 'boolean',
+      latestResellSourceServiceVersion: 'string',
+      publishTime: 'string',
+      relationType: 'string',
+      resellApplyStatus: 'string',
+      resellServiceId: 'string',
+      resourceGroupId: 'string',
+      serviceDiscoverable: 'string',
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
+      serviceType: 'string',
+      shareType: 'string',
+      sourceImage: 'string',
+      sourceServiceId: 'string',
+      sourceServiceVersion: 'string',
+      sourceSupplierName: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+      tags: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesTags },
+      tenantType: 'string',
+      trialType: 'string',
+      updateTime: 'string',
+      version: 'string',
+      versionName: 'string',
+      virtualInternetService: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * Name of the filter field. Allowed values:
+   * 
+   * - SupplierUid: The aliUid of supplier.
+   * - SupplierName: The name of supplier.
+   * - RegistrationId: Registration ID.
+   * 
+   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected.
+   * 
+   * @example
+   * SupplierUid
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Filter value.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends $tea.Model {
+  /**
+   * @remarks
+   * The comment of this registration.
+   * 
+   * @example
+   * empty
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * Contact email
+   * 
+   * @example
+   * test@163.com
+   */
+  contactEmail?: string;
+  /**
+   * @remarks
+   * Contact number
+   * 
+   * @example
+   * 135xxxxxxxx
+   */
+  contactNumber?: string;
+  /**
+   * @remarks
+   * Contact person
+   * 
+   * @example
+   * Mike
+   */
+  contactPerson?: string;
+  /**
+   * @remarks
+   * Contact person tiltle.
+   * 
+   * @example
+   * CTO
+   */
+  contactPersonTitle?: string;
+  /**
+   * @remarks
+   * Whether to enable the resell mode.
+   * 
+   * @example
+   * false
+   */
+  enableResellerMode?: boolean;
+  /**
+   * @remarks
+   * Annual product revenue
+   * 
+   * @example
+   * empty
+   */
+  productAnnualRevenue?: string;
+  /**
+   * @remarks
+   * The business of product.
+   * 
+   * @example
+   * AI
+   */
+  productBusiness?: string;
+  /**
+   * @remarks
+   * Product delivery type，Valid values:
+   * 
+   * SaaS
+   * License
+   * API
+   * DesktopSoftware
+   * Others
+   * 
+   * @example
+   * SaaS
+   */
+  productDeliveryTypes?: string;
+  /**
+   * @remarks
+   * The publish time of product.
+   * 
+   * @example
+   * 2024.10.24
+   */
+  productPublishTime?: string;
+  /**
+   * @remarks
+   * Product sell type, Valid values:
+   * 
+   * - Direct
+   * - Channel
+   * 
+   * @example
+   * Direct
+   */
+  productSellTypes?: string;
+  /**
+   * @remarks
+   * The registration ID.
+   * 
+   * @example
+   * sr-xxx
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * The description of resell business.
+   * 
+   * @example
+   * empty
+   */
+  resellBusinessDesc?: string;
+  /**
+   * @remarks
+   * The deployment state of the registration. Valid values:
+   * 
+   * - Submitted
+   * - Approved
+   * - Rejected
+   * 
+   * @example
+   * Submitted
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The submit time of this registration.
+   * 
+   * @example
+   * 2025-01-22 09:47:58
+   */
+  submitTime?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-xxx/xxx.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Aliibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The english name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud ComputeNest
+   */
+  supplierNameEn?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the service provider.
+   * 
+   * @example
+   * 1256xxx23434
+   */
+  supplierUid?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * https://www.guangbao-uni.com
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      contactEmail: 'ContactEmail',
+      contactNumber: 'ContactNumber',
+      contactPerson: 'ContactPerson',
+      contactPersonTitle: 'ContactPersonTitle',
+      enableResellerMode: 'EnableResellerMode',
+      productAnnualRevenue: 'ProductAnnualRevenue',
+      productBusiness: 'ProductBusiness',
+      productDeliveryTypes: 'ProductDeliveryTypes',
+      productPublishTime: 'ProductPublishTime',
+      productSellTypes: 'ProductSellTypes',
+      registrationId: 'RegistrationId',
+      resellBusinessDesc: 'ResellBusinessDesc',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierNameEn: 'SupplierNameEn',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      contactEmail: 'string',
+      contactNumber: 'string',
+      contactPerson: 'string',
+      contactPersonTitle: 'string',
+      enableResellerMode: 'boolean',
+      productAnnualRevenue: 'string',
+      productBusiness: 'string',
+      productDeliveryTypes: 'string',
+      productPublishTime: 'string',
+      productSellTypes: 'string',
+      registrationId: 'string',
+      resellBusinessDesc: 'string',
+      status: 'string',
+      submitTime: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierNameEn: 'string',
+      supplierUid: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * Resource ID
+   * 
+   * @example
+   * service-xxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type. Valid value:
+   * - service
+   * - serviceinstance
+   * - artifact
+   * 
+   * @example
+   * service
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * usage
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * Value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of a specific build argument.
+   * 
+   * @example
+   * ENV
+   */
+  argumentName?: string;
+  /**
+   * @remarks
+   * The value of a specific build argument.
+   * 
+   * @example
+   * nginx:latest
+   */
+  argumentValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argumentName: 'ArgumentName',
+      argumentValue: 'ArgumentValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argumentName: 'string',
+      argumentValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the branch in the code repository.
+   * 
+   * @example
+   * main
+   */
+  branch?: string;
+  /**
+   * @remarks
+   * The endpoint. 
+   * The URL address used to access the privately deployed GitLab instance.
+   * 
+   * @example
+   * http://121.40.25.0
+   */
+  endpoint?: string;
+  /**
+   * @remarks
+   * The organization ID.
+   * 
+   * @example
+   * 455231
+   */
+  orgId?: string;
+  /**
+   * @remarks
+   * The owner of the code repository.
+   * 
+   * >  This parameter is available only if the git repository is private.
+   * 
+   * @example
+   * aliyun-computenest
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * The platform type. Valid values:
+   * 
+   * - github
+   * 
+   * - gitee
+   * 
+   * - gitlab
+   * 
+   * - codeup
+   * 
+   * @example
+   * github
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * The repository ID.
+   * 
+   * @example
+   * 103
+   */
+  repoId?: number;
+  /**
+   * @remarks
+   * The name of the repository.
+   * 
+   * @example
+   * aliyun-computenest/quickstart-Lobexxx
+   */
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      endpoint: 'Endpoint',
+      orgId: 'OrgId',
+      owner: 'Owner',
+      platform: 'Platform',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      endpoint: 'string',
+      orgId: 'string',
+      owner: 'string',
+      platform: 'string',
+      repoId: 'number',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The build arguments used during the image build process.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   */
+  buildArgs?: UpdateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  /**
+   * @remarks
+   * The address of the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   */
+  codeRepo?: UpdateArtifactRequestArtifactBuildPropertyCodeRepo;
+  /**
+   * @remarks
+   * The command content.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * echo "start run command"
+   */
+  commandContent?: string;
+  /**
+   * @remarks
+   * The command type. Valid values:
+   * 
+   * *   RunBatScript: batch command, applicable to Windows instances.
+   * *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+   * *   RunShellScript: shell command, applicable to Linux instances.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * RunShellScript
+   */
+  commandType?: string;
+  /**
+   * @remarks
+   * The relative path to the Dockerfile within the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * 
+   * @example
+   * ./file/Dockerfile
+   */
+  dockerfilePath?: string;
+  /**
+   * @remarks
+   * The region ID where the source mirror image is located.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * 
+   * @example
+   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+   */
+  sourceContainerImage?: string;
+  /**
+   * @remarks
+   * The source image id. Supported Types:
+   * 
+   * - Image ID: Pass the Image ID of the Ecs image directly.
+   * 
+   * - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+   * 
+   * >  This parameter is available only if the deployment package is a ecs image type.
+   * 
+   * @example
+   * Image ID：m-t4nhenrdc38pe4*****
+   * ubuntu_22_04_x64_20G_alibase_20240926.vhd
+   * OOS Common Parameter Name：aliyun/services/computenest/images/aliyun_3_2104_python_3_11
+   */
+  sourceImageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildArgs: 'BuildArgs',
+      codeRepo: 'CodeRepo',
+      commandContent: 'CommandContent',
+      commandType: 'CommandType',
+      dockerfilePath: 'DockerfilePath',
+      regionId: 'RegionId',
+      sourceContainerImage: 'SourceContainerImage',
+      sourceImageId: 'SourceImageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildArgs: { 'type': 'array', 'itemType': UpdateArtifactRequestArtifactBuildPropertyBuildArgs },
+      codeRepo: UpdateArtifactRequestArtifactBuildPropertyCodeRepo,
+      commandContent: 'string',
+      commandType: 'string',
+      dockerfilePath: 'string',
+      regionId: 'string',
+      sourceContainerImage: 'string',
+      sourceImageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The commodity version of the service in Alibaba Cloud Marketplace.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * V1.0
+   */
+  commodityVersion?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * m-0xij191j9cuev6ucxxxx
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  This parameter is available only if the deployment package is an image.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Container Registry  repository.
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * crr-yy4g68uhi39ttkm8
+   */
+  repoId?: string;
+  /**
+   * @remarks
+   * The name of the Container Registry repository.
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * volcanosh/vc-webhook-manager
+   */
+  repoName?: string;
+  /**
+   * @remarks
+   * The type of the repository.Valid values:
+   * 
+   * *   `Public`: a public repository.
+   * *   `Private`: a private repository.
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * Public
+   */
+  repoType?: string;
+  /**
+   * @remarks
+   * The version tag of the image repository.
+   * 
+   * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+   * 
+   * @example
+   * v1
+   */
+  tag?: string;
+  /**
+   * @remarks
+   * The URL of the deployment package object.
+   * 
+   * 
+   * > Note This parameter is available only if the deployment package is an file.
+   * 
+   * @example
+   * https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      commodityVersion: 'CommodityVersion',
+      imageId: 'ImageId',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoType: 'RepoType',
+      tag: 'Tag',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      commodityVersion: 'string',
+      imageId: 'string',
+      regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoType: 'string',
+      tag: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   * 
+   * @example
+   * This parameter is not available to the public.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.Model {
+  /**
+   * @remarks
+   * Metering entity ID.
+   * 
+   * @example
+   * cmgj0006xxxx-Memory-1
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * Metric name, required when type is ComputeNestBill or ComputeNestPrometheus.
+   * 
+   * @example
+   * VirtualCpu/ecs.InstanceType
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * Promql statement.
+   * 
+   * @example
+   * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * Type. Valid values:
+   * 
+   * - Custom
+   * - ComputeNestBill
+   * - ComputeNestPrometheus
+   * - ComputeNestTime
+   * 
+   * @example
+   * Custom
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityMappings extends $tea.Model {
+  /**
+   * @remarks
+   * Metering entity IDs.
+   */
+  entityIds?: string[];
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * This parameter is not publicly accessible.
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * The service ID.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: { 'type': 'array', 'itemType': 'string' },
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommoditySpecificationMappings extends $tea.Model {
+  /**
+   * @remarks
+   * Specification code.
+   * 
+   * @example
+   * yuncode5767800001
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The name of the package specification.
+   * 
+   * @example
+   * Type, value：
+   * 
+   * * **Custom**
+   * * **ComputeNestBill**
+   * * **ComputeNestPrometheus**
+   * * **ComputeNestTime**
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   */
+  componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
+  /**
+   * @remarks
+   * Metering entity extra information.
+   */
+  meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * Binding relationship between templates/specifications and metering dimensions (marketplace - PayAsYouGo)
+   */
+  meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
+  /**
+   * @remarks
+   * SaaS Boost configuration.
+   * 
+   * @example
+   * {}
+   */
+  saasBoostConfig?: string;
+  /**
+   * @remarks
+   * Product specifications and template/package mappings (Used in marketplace - subscription scenario)
+   */
+  specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      saasBoostConfig: 'SaasBoostConfig',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityMappings },
+      saasBoostConfig: 'string',
+      specificationMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommoditySpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestComplianceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance pack.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfoAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfoSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software.
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: UpdateServiceRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * The URL of the detailed description of the service.
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: UpdateServiceRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestUpdateOption extends $tea.Model {
+  /**
+   * @remarks
+   * Whether to update artifact.
+   * 
+   * @example
+   * true
+   */
+  updateArtifact?: boolean;
+  /**
+   * @remarks
+   * Update from. Valid values:
+   * 
+   * - CODE
+   * - PARAMETERS
+   * 
+   * @example
+   * PARAMETERS
+   */
+  updateFrom?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateArtifact: 'UpdateArtifact',
+      updateFrom: 'UpdateFrom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateArtifact: 'boolean',
+      updateFrom: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequestServiceInfoAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequestServiceInfoSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software.
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: UpdateServiceShrinkRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * The URL of the detailed description of the service.
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: UpdateServiceShrinkRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfoSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The Actions.
+   */
+  action?: string[];
+  /**
+   * @remarks
+   * The responses.
+   * 
+   * @example
+   * *
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * ecs
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      resource: 'Resource',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: { 'type': 'array', 'itemType': 'string' },
+      resource: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResultRolePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * The missing  ram policy for deploying role.
+   */
+  missingPolicy?: UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy[];
+  /**
+   * @remarks
+   * The required ram policy for deploying role.
+   * 
+   * @example
+   * {
+   * 	"Statement": [{
+   * 		"Action": ["oos:CancelExecutions", "oos:DeleteExecutions", "oos:GetTemplate", "oos:ListExecutions", "oos:ListTemplates", "oos:NotifyExecution", "oos:StartExecution"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}, {
+   * 		"Action": ["ram:PassRole"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}, {
+   * 		"Action": ["ros:CreateStack", "ros:GetStack", "ros:UpdateStack", "ros:ListStackEvents", "ros:ListStackResources", "ros:ListStackResources", "ros:DeleteStack", "ram:GetRole"],
+   * 		"Effect": "Allow",
+   * 		"Resource": "*"
+   * 	}],
+   * 	"Version": "1"
+   * }
+   */
+  policy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      missingPolicy: 'MissingPolicy',
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      missingPolicy: { 'type': 'array', 'itemType': UpdateServiceResponseBodyDryRunResultRolePolicyMissingPolicy },
+      policy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceResponseBodyDryRunResult extends $tea.Model {
+  /**
+   * @remarks
+   * The required ram policy for deploying role.
+   */
+  rolePolicy?: UpdateServiceResponseBodyDryRunResultRolePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      rolePolicy: 'RolePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rolePolicy: UpdateServiceResponseBodyDryRunResultRolePolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributeRequestLicenseData extends $tea.Model {
+  /**
+   * @remarks
+   * The Custom Data
+   * 
+   * @example
+   * {"Test"}
+   */
+  customData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customData: 'CustomData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationRequestDeliverySettings extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * mybucket
+   */
+  ossBucketName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  ossEnabled?: boolean;
+  /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @remarks
+   * The OSS path.
+   * 
+   * @example
+   * path1/path2/
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
+    };
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -24766,7 +22263,7 @@ export class WithdrawServiceResponse extends $dara.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApiUtil.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -24775,15 +22272,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!$dara.isNull(endpoint)) {
+    if (!Util.empty(endpoint)) {
       return endpoint;
     }
 
-    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -24793,33 +22290,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddServiceSharedAccountsResponse
    */
-  async addServiceSharedAccountsWithOptions(request: AddServiceSharedAccountsRequest, runtime: $dara.RuntimeOptions): Promise<AddServiceSharedAccountsResponse> {
-    request.validate();
+  async addServiceSharedAccountsWithOptions(request: AddServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<AddServiceSharedAccountsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.sharedAccounts)) {
+    if (!Util.isUnset(request.sharedAccounts)) {
       query["SharedAccounts"] = request.sharedAccounts;
     }
 
-    if (!$dara.isNull(request.type)) {
+    if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "AddServiceSharedAccounts",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -24830,10 +22327,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AddServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new AddServiceSharedAccountsResponse({}));
     } else {
-      return $dara.cast<AddServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+      return $tea.cast<AddServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new AddServiceSharedAccountsResponse({}));
     }
 
   }
@@ -24845,7 +22342,7 @@ export default class Client extends OpenApi {
    * @returns AddServiceSharedAccountsResponse
    */
   async addServiceSharedAccounts(request: AddServiceSharedAccountsRequest): Promise<AddServiceSharedAccountsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.addServiceSharedAccountsWithOptions(request, runtime);
   }
 
@@ -24856,37 +22353,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApproveServiceUsageResponse
    */
-  async approveServiceUsageWithOptions(request: ApproveServiceUsageRequest, runtime: $dara.RuntimeOptions): Promise<ApproveServiceUsageResponse> {
-    request.validate();
+  async approveServiceUsageWithOptions(request: ApproveServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<ApproveServiceUsageResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.comments)) {
+    if (!Util.isUnset(request.comments)) {
       query["Comments"] = request.comments;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.type)) {
+    if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
 
-    if (!$dara.isNull(request.userAliUid)) {
+    if (!Util.isUnset(request.userAliUid)) {
       query["UserAliUid"] = request.userAliUid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ApproveServiceUsage",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -24897,10 +22394,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ApproveServiceUsageResponse>(await this.callApi(params, req, runtime), new ApproveServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ApproveServiceUsageResponse>(await this.callApi(params, req, runtime), new ApproveServiceUsageResponse({}));
     } else {
-      return $dara.cast<ApproveServiceUsageResponse>(await this.execute(params, req, runtime), new ApproveServiceUsageResponse({}));
+      return $tea.cast<ApproveServiceUsageResponse>(await this.execute(params, req, runtime), new ApproveServiceUsageResponse({}));
     }
 
   }
@@ -24912,7 +22409,7 @@ export default class Client extends OpenApi {
    * @returns ApproveServiceUsageResponse
    */
   async approveServiceUsage(request: ApproveServiceUsageRequest): Promise<ApproveServiceUsageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.approveServiceUsageWithOptions(request, runtime);
   }
 
@@ -24926,25 +22423,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelServiceRegistrationResponse
    */
-  async cancelServiceRegistrationWithOptions(request: CancelServiceRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<CancelServiceRegistrationResponse> {
-    request.validate();
+  async cancelServiceRegistrationWithOptions(request: CancelServiceRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<CancelServiceRegistrationResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.registrationId)) {
+    if (!Util.isUnset(request.registrationId)) {
       query["RegistrationId"] = request.registrationId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CancelServiceRegistration",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -24955,10 +22452,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CancelServiceRegistrationResponse>(await this.callApi(params, req, runtime), new CancelServiceRegistrationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CancelServiceRegistrationResponse>(await this.callApi(params, req, runtime), new CancelServiceRegistrationResponse({}));
     } else {
-      return $dara.cast<CancelServiceRegistrationResponse>(await this.execute(params, req, runtime), new CancelServiceRegistrationResponse({}));
+      return $tea.cast<CancelServiceRegistrationResponse>(await this.execute(params, req, runtime), new CancelServiceRegistrationResponse({}));
     }
 
   }
@@ -24973,7 +22470,7 @@ export default class Client extends OpenApi {
    * @returns CancelServiceRegistrationResponse
    */
   async cancelServiceRegistration(request: CancelServiceRegistrationRequest): Promise<CancelServiceRegistrationResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelServiceRegistrationWithOptions(request, runtime);
   }
 
@@ -24984,33 +22481,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinueDeployServiceInstanceResponse
    */
-  async continueDeployServiceInstanceWithOptions(request: ContinueDeployServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ContinueDeployServiceInstanceResponse> {
-    request.validate();
+  async continueDeployServiceInstanceWithOptions(request: ContinueDeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.dryRun)) {
+    if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!$dara.isNull(request.parameters)) {
+    if (!Util.isUnset(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ContinueDeployServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25021,10 +22518,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
     } else {
-      return $dara.cast<ContinueDeployServiceInstanceResponse>(await this.execute(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+      return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.execute(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
     }
 
   }
@@ -25036,7 +22533,7 @@ export default class Client extends OpenApi {
    * @returns ContinueDeployServiceInstanceResponse
    */
   async continueDeployServiceInstance(request: ContinueDeployServiceInstanceRequest): Promise<ContinueDeployServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.continueDeployServiceInstanceWithOptions(request, runtime);
   }
 
@@ -25047,71 +22544,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateArtifactResponse
    */
-  async createArtifactWithOptions(tmpReq: CreateArtifactRequest, runtime: $dara.RuntimeOptions): Promise<CreateArtifactResponse> {
-    tmpReq.validate();
+  async createArtifactWithOptions(tmpReq: CreateArtifactRequest, runtime: $Util.RuntimeOptions): Promise<CreateArtifactResponse> {
+    Util.validateModel(tmpReq);
     let request = new CreateArtifactShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.artifactBuildProperty)) {
+    if (!Util.isUnset(tmpReq.artifactBuildProperty)) {
       request.artifactBuildPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactBuildProperty, "ArtifactBuildProperty", "json");
     }
 
-    if (!$dara.isNull(tmpReq.artifactProperty)) {
+    if (!Util.isUnset(tmpReq.artifactProperty)) {
       request.artifactPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactProperty, "ArtifactProperty", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.artifactBuildPropertyShrink)) {
+    if (!Util.isUnset(request.artifactBuildPropertyShrink)) {
       query["ArtifactBuildProperty"] = request.artifactBuildPropertyShrink;
     }
 
-    if (!$dara.isNull(request.artifactBuildType)) {
+    if (!Util.isUnset(request.artifactBuildType)) {
       query["ArtifactBuildType"] = request.artifactBuildType;
     }
 
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.artifactPropertyShrink)) {
+    if (!Util.isUnset(request.artifactPropertyShrink)) {
       query["ArtifactProperty"] = request.artifactPropertyShrink;
     }
 
-    if (!$dara.isNull(request.artifactType)) {
+    if (!Util.isUnset(request.artifactType)) {
       query["ArtifactType"] = request.artifactType;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.description)) {
+    if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!$dara.isNull(request.name)) {
+    if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.supportRegionIds)) {
+    if (!Util.isUnset(request.supportRegionIds)) {
       query["SupportRegionIds"] = request.supportRegionIds;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!$dara.isNull(request.versionName)) {
+    if (!Util.isUnset(request.versionName)) {
       query["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateArtifact",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25122,10 +22619,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
     } else {
-      return $dara.cast<CreateArtifactResponse>(await this.execute(params, req, runtime), new CreateArtifactResponse({}));
+      return $tea.cast<CreateArtifactResponse>(await this.execute(params, req, runtime), new CreateArtifactResponse({}));
     }
 
   }
@@ -25137,7 +22634,7 @@ export default class Client extends OpenApi {
    * @returns CreateArtifactResponse
    */
   async createArtifact(request: CreateArtifactRequest): Promise<CreateArtifactResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createArtifactWithOptions(request, runtime);
   }
 
@@ -25148,131 +22645,131 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceResponse
    */
-  async createServiceWithOptions(tmpReq: CreateServiceRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceResponse> {
-    tmpReq.validate();
+  async createServiceWithOptions(tmpReq: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
+    Util.validateModel(tmpReq);
     let request = new CreateServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.complianceMetadata)) {
+    if (!Util.isUnset(tmpReq.complianceMetadata)) {
       request.complianceMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.complianceMetadata, "ComplianceMetadata", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.alarmMetadata)) {
+    if (!Util.isUnset(request.alarmMetadata)) {
       query["AlarmMetadata"] = request.alarmMetadata;
     }
 
-    if (!$dara.isNull(request.approvalType)) {
+    if (!Util.isUnset(request.approvalType)) {
       query["ApprovalType"] = request.approvalType;
     }
 
-    if (!$dara.isNull(request.buildParameters)) {
+    if (!Util.isUnset(request.buildParameters)) {
       query["BuildParameters"] = request.buildParameters;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.complianceMetadataShrink)) {
+    if (!Util.isUnset(request.complianceMetadataShrink)) {
       query["ComplianceMetadata"] = request.complianceMetadataShrink;
     }
 
-    if (!$dara.isNull(request.deployMetadata)) {
+    if (!Util.isUnset(request.deployMetadata)) {
       query["DeployMetadata"] = request.deployMetadata;
     }
 
-    if (!$dara.isNull(request.deployType)) {
+    if (!Util.isUnset(request.deployType)) {
       query["DeployType"] = request.deployType;
     }
 
-    if (!$dara.isNull(request.dryRun)) {
+    if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!$dara.isNull(request.duration)) {
+    if (!Util.isUnset(request.duration)) {
       query["Duration"] = request.duration;
     }
 
-    if (!$dara.isNull(request.isSupportOperated)) {
+    if (!Util.isUnset(request.isSupportOperated)) {
       query["IsSupportOperated"] = request.isSupportOperated;
     }
 
-    if (!$dara.isNull(request.licenseMetadata)) {
+    if (!Util.isUnset(request.licenseMetadata)) {
       query["LicenseMetadata"] = request.licenseMetadata;
     }
 
-    if (!$dara.isNull(request.logMetadata)) {
+    if (!Util.isUnset(request.logMetadata)) {
       query["LogMetadata"] = request.logMetadata;
     }
 
-    if (!$dara.isNull(request.operationMetadata)) {
+    if (!Util.isUnset(request.operationMetadata)) {
       query["OperationMetadata"] = request.operationMetadata;
     }
 
-    if (!$dara.isNull(request.policyNames)) {
+    if (!Util.isUnset(request.policyNames)) {
       query["PolicyNames"] = request.policyNames;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resellable)) {
+    if (!Util.isUnset(request.resellable)) {
       query["Resellable"] = request.resellable;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceInfo)) {
+    if (!Util.isUnset(request.serviceInfo)) {
       query["ServiceInfo"] = request.serviceInfo;
     }
 
-    if (!$dara.isNull(request.serviceType)) {
+    if (!Util.isUnset(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
     }
 
-    if (!$dara.isNull(request.shareType)) {
+    if (!Util.isUnset(request.shareType)) {
       query["ShareType"] = request.shareType;
     }
 
-    if (!$dara.isNull(request.sourceServiceId)) {
+    if (!Util.isUnset(request.sourceServiceId)) {
       query["SourceServiceId"] = request.sourceServiceId;
     }
 
-    if (!$dara.isNull(request.sourceServiceVersion)) {
+    if (!Util.isUnset(request.sourceServiceVersion)) {
       query["SourceServiceVersion"] = request.sourceServiceVersion;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!$dara.isNull(request.tenantType)) {
+    if (!Util.isUnset(request.tenantType)) {
       query["TenantType"] = request.tenantType;
     }
 
-    if (!$dara.isNull(request.trialDuration)) {
+    if (!Util.isUnset(request.trialDuration)) {
       query["TrialDuration"] = request.trialDuration;
     }
 
-    if (!$dara.isNull(request.upgradeMetadata)) {
+    if (!Util.isUnset(request.upgradeMetadata)) {
       query["UpgradeMetadata"] = request.upgradeMetadata;
     }
 
-    if (!$dara.isNull(request.versionName)) {
+    if (!Util.isUnset(request.versionName)) {
       query["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25283,10 +22780,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
     } else {
-      return $dara.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
+      return $tea.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
     }
 
   }
@@ -25298,7 +22795,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceResponse
    */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceWithOptions(request, runtime);
   }
 
@@ -25309,71 +22806,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceInstanceResponse
    */
-  async createServiceInstanceWithOptions(tmpReq: CreateServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceInstanceResponse> {
-    tmpReq.validate();
+  async createServiceInstanceWithOptions(tmpReq: CreateServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceInstanceResponse> {
+    Util.validateModel(tmpReq);
     let request = new CreateServiceInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.parameters)) {
+    if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.dryRun)) {
+    if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!$dara.isNull(request.endTime)) {
+    if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!$dara.isNull(request.name)) {
+    if (!Util.isUnset(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!$dara.isNull(request.parametersShrink)) {
+    if (!Util.isUnset(request.parametersShrink)) {
       query["Parameters"] = request.parametersShrink;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.specificationName)) {
+    if (!Util.isUnset(request.specificationName)) {
       query["SpecificationName"] = request.specificationName;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!$dara.isNull(request.userId)) {
+    if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25384,10 +22881,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
     } else {
-      return $dara.cast<CreateServiceInstanceResponse>(await this.execute(params, req, runtime), new CreateServiceInstanceResponse({}));
+      return $tea.cast<CreateServiceInstanceResponse>(await this.execute(params, req, runtime), new CreateServiceInstanceResponse({}));
     }
 
   }
@@ -25399,7 +22896,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceInstanceResponse
    */
   async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceInstanceWithOptions(request, runtime);
   }
 
@@ -25410,37 +22907,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceTestCaseResponse
    */
-  async createServiceTestCaseWithOptions(request: CreateServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceTestCaseResponse> {
-    request.validate();
+  async createServiceTestCaseWithOptions(request: CreateServiceTestCaseRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceTestCaseResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!$dara.isNull(request.testCaseName)) {
+    if (!Util.isUnset(request.testCaseName)) {
       query["TestCaseName"] = request.testCaseName;
     }
 
-    if (!$dara.isNull(request.testConfig)) {
+    if (!Util.isUnset(request.testConfig)) {
       query["TestConfig"] = request.testConfig;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateServiceTestCase",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25451,10 +22948,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new CreateServiceTestCaseResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new CreateServiceTestCaseResponse({}));
     } else {
-      return $dara.cast<CreateServiceTestCaseResponse>(await this.execute(params, req, runtime), new CreateServiceTestCaseResponse({}));
+      return $tea.cast<CreateServiceTestCaseResponse>(await this.execute(params, req, runtime), new CreateServiceTestCaseResponse({}));
     }
 
   }
@@ -25466,7 +22963,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceTestCaseResponse
    */
   async createServiceTestCase(request: CreateServiceTestCaseRequest): Promise<CreateServiceTestCaseResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceTestCaseWithOptions(request, runtime);
   }
 
@@ -25477,29 +22974,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceTestTaskResponse
    */
-  async createServiceTestTaskWithOptions(request: CreateServiceTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceTestTaskResponse> {
-    request.validate();
+  async createServiceTestTaskWithOptions(request: CreateServiceTestTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceTestTaskResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.taskName)) {
+    if (!Util.isUnset(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    if (!$dara.isNull(request.taskRegionId)) {
+    if (!Util.isUnset(request.taskRegionId)) {
       query["TaskRegionId"] = request.taskRegionId;
     }
 
-    if (!$dara.isNull(request.testCaseIds)) {
+    if (!Util.isUnset(request.testCaseIds)) {
       query["TestCaseIds"] = request.testCaseIds;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateServiceTestTask",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25510,10 +23007,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceTestTaskResponse>(await this.callApi(params, req, runtime), new CreateServiceTestTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceTestTaskResponse>(await this.callApi(params, req, runtime), new CreateServiceTestTaskResponse({}));
     } else {
-      return $dara.cast<CreateServiceTestTaskResponse>(await this.execute(params, req, runtime), new CreateServiceTestTaskResponse({}));
+      return $tea.cast<CreateServiceTestTaskResponse>(await this.execute(params, req, runtime), new CreateServiceTestTaskResponse({}));
     }
 
   }
@@ -25525,7 +23022,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceTestTaskResponse
    */
   async createServiceTestTask(request: CreateServiceTestTaskRequest): Promise<CreateServiceTestTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceTestTaskWithOptions(request, runtime);
   }
 
@@ -25536,25 +23033,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceUsageResponse
    */
-  async createServiceUsageWithOptions(request: CreateServiceUsageRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceUsageResponse> {
-    request.validate();
+  async createServiceUsageWithOptions(request: CreateServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceUsageResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateServiceUsage",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25565,10 +23062,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
     } else {
-      return $dara.cast<CreateServiceUsageResponse>(await this.execute(params, req, runtime), new CreateServiceUsageResponse({}));
+      return $tea.cast<CreateServiceUsageResponse>(await this.execute(params, req, runtime), new CreateServiceUsageResponse({}));
     }
 
   }
@@ -25580,7 +23077,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceUsageResponse
    */
   async createServiceUsage(request: CreateServiceUsageRequest): Promise<CreateServiceUsageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceUsageWithOptions(request, runtime);
   }
 
@@ -25591,85 +23088,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSupplierRegistrationResponse
    */
-  async createSupplierRegistrationWithOptions(request: CreateSupplierRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<CreateSupplierRegistrationResponse> {
-    request.validate();
+  async createSupplierRegistrationWithOptions(request: CreateSupplierRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateSupplierRegistrationResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.contactEmail)) {
+    if (!Util.isUnset(request.contactEmail)) {
       query["ContactEmail"] = request.contactEmail;
     }
 
-    if (!$dara.isNull(request.contactNumber)) {
+    if (!Util.isUnset(request.contactNumber)) {
       query["ContactNumber"] = request.contactNumber;
     }
 
-    if (!$dara.isNull(request.contactPerson)) {
+    if (!Util.isUnset(request.contactPerson)) {
       query["ContactPerson"] = request.contactPerson;
     }
 
-    if (!$dara.isNull(request.contactPersonTitle)) {
+    if (!Util.isUnset(request.contactPersonTitle)) {
       query["ContactPersonTitle"] = request.contactPersonTitle;
     }
 
-    if (!$dara.isNull(request.enableResellerMode)) {
+    if (!Util.isUnset(request.enableResellerMode)) {
       query["EnableResellerMode"] = request.enableResellerMode;
     }
 
-    if (!$dara.isNull(request.productAnnualRevenue)) {
+    if (!Util.isUnset(request.productAnnualRevenue)) {
       query["ProductAnnualRevenue"] = request.productAnnualRevenue;
     }
 
-    if (!$dara.isNull(request.productBusiness)) {
+    if (!Util.isUnset(request.productBusiness)) {
       query["ProductBusiness"] = request.productBusiness;
     }
 
-    if (!$dara.isNull(request.productDeliveryTypes)) {
+    if (!Util.isUnset(request.productDeliveryTypes)) {
       query["ProductDeliveryTypes"] = request.productDeliveryTypes;
     }
 
-    if (!$dara.isNull(request.productPublishTime)) {
+    if (!Util.isUnset(request.productPublishTime)) {
       query["ProductPublishTime"] = request.productPublishTime;
     }
 
-    if (!$dara.isNull(request.productSellTypes)) {
+    if (!Util.isUnset(request.productSellTypes)) {
       query["ProductSellTypes"] = request.productSellTypes;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resellBusinessDesc)) {
+    if (!Util.isUnset(request.resellBusinessDesc)) {
       query["ResellBusinessDesc"] = request.resellBusinessDesc;
     }
 
-    if (!$dara.isNull(request.suggestion)) {
+    if (!Util.isUnset(request.suggestion)) {
       query["Suggestion"] = request.suggestion;
     }
 
-    if (!$dara.isNull(request.supplierDesc)) {
+    if (!Util.isUnset(request.supplierDesc)) {
       query["SupplierDesc"] = request.supplierDesc;
     }
 
-    if (!$dara.isNull(request.supplierLogo)) {
+    if (!Util.isUnset(request.supplierLogo)) {
       query["SupplierLogo"] = request.supplierLogo;
     }
 
-    if (!$dara.isNull(request.supplierName)) {
+    if (!Util.isUnset(request.supplierName)) {
       query["SupplierName"] = request.supplierName;
     }
 
-    if (!$dara.isNull(request.supplierNameEn)) {
+    if (!Util.isUnset(request.supplierNameEn)) {
       query["SupplierNameEn"] = request.supplierNameEn;
     }
 
-    if (!$dara.isNull(request.supplierUrl)) {
+    if (!Util.isUnset(request.supplierUrl)) {
       query["SupplierUrl"] = request.supplierUrl;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "CreateSupplierRegistration",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25680,10 +23177,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateSupplierRegistrationResponse>(await this.callApi(params, req, runtime), new CreateSupplierRegistrationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateSupplierRegistrationResponse>(await this.callApi(params, req, runtime), new CreateSupplierRegistrationResponse({}));
     } else {
-      return $dara.cast<CreateSupplierRegistrationResponse>(await this.execute(params, req, runtime), new CreateSupplierRegistrationResponse({}));
+      return $tea.cast<CreateSupplierRegistrationResponse>(await this.execute(params, req, runtime), new CreateSupplierRegistrationResponse({}));
     }
 
   }
@@ -25695,7 +23192,7 @@ export default class Client extends OpenApi {
    * @returns CreateSupplierRegistrationResponse
    */
   async createSupplierRegistration(request: CreateSupplierRegistrationRequest): Promise<CreateSupplierRegistrationResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.createSupplierRegistrationWithOptions(request, runtime);
   }
 
@@ -25706,25 +23203,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteArtifactResponse
    */
-  async deleteArtifactWithOptions(request: DeleteArtifactRequest, runtime: $dara.RuntimeOptions): Promise<DeleteArtifactResponse> {
-    request.validate();
+  async deleteArtifactWithOptions(request: DeleteArtifactRequest, runtime: $Util.RuntimeOptions): Promise<DeleteArtifactResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.artifactVersion)) {
+    if (!Util.isUnset(request.artifactVersion)) {
       query["ArtifactVersion"] = request.artifactVersion;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "DeleteArtifact",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25735,10 +23232,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
     } else {
-      return $dara.cast<DeleteArtifactResponse>(await this.execute(params, req, runtime), new DeleteArtifactResponse({}));
+      return $tea.cast<DeleteArtifactResponse>(await this.execute(params, req, runtime), new DeleteArtifactResponse({}));
     }
 
   }
@@ -25750,7 +23247,7 @@ export default class Client extends OpenApi {
    * @returns DeleteArtifactResponse
    */
   async deleteArtifact(request: DeleteArtifactRequest): Promise<DeleteArtifactResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteArtifactWithOptions(request, runtime);
   }
 
@@ -25761,29 +23258,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceResponse
    */
-  async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteServiceResponse> {
-    request.validate();
+  async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "DeleteService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25794,10 +23291,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
     } else {
-      return $dara.cast<DeleteServiceResponse>(await this.execute(params, req, runtime), new DeleteServiceResponse({}));
+      return $tea.cast<DeleteServiceResponse>(await this.execute(params, req, runtime), new DeleteServiceResponse({}));
     }
 
   }
@@ -25809,7 +23306,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceResponse
    */
   async deleteService(request: DeleteServiceRequest): Promise<DeleteServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceWithOptions(request, runtime);
   }
 
@@ -25820,25 +23317,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceInstancesResponse
    */
-  async deleteServiceInstancesWithOptions(request: DeleteServiceInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
-    request.validate();
+  async deleteServiceInstancesWithOptions(request: DeleteServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "DeleteServiceInstances",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25849,10 +23346,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
     } else {
-      return $dara.cast<DeleteServiceInstancesResponse>(await this.execute(params, req, runtime), new DeleteServiceInstancesResponse({}));
+      return $tea.cast<DeleteServiceInstancesResponse>(await this.execute(params, req, runtime), new DeleteServiceInstancesResponse({}));
     }
 
   }
@@ -25864,7 +23361,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceInstancesResponse
    */
   async deleteServiceInstances(request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceInstancesWithOptions(request, runtime);
   }
 
@@ -25875,21 +23372,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceTestCaseResponse
    */
-  async deleteServiceTestCaseWithOptions(request: DeleteServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<DeleteServiceTestCaseResponse> {
-    request.validate();
+  async deleteServiceTestCaseWithOptions(request: DeleteServiceTestCaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceTestCaseResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.testCaseId)) {
+    if (!Util.isUnset(request.testCaseId)) {
       query["TestCaseId"] = request.testCaseId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "DeleteServiceTestCase",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25900,10 +23397,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteServiceTestCaseResponse>(await this.callApi(params, req, runtime), new DeleteServiceTestCaseResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteServiceTestCaseResponse>(await this.callApi(params, req, runtime), new DeleteServiceTestCaseResponse({}));
     } else {
-      return $dara.cast<DeleteServiceTestCaseResponse>(await this.execute(params, req, runtime), new DeleteServiceTestCaseResponse({}));
+      return $tea.cast<DeleteServiceTestCaseResponse>(await this.execute(params, req, runtime), new DeleteServiceTestCaseResponse({}));
     }
 
   }
@@ -25915,7 +23412,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceTestCaseResponse
    */
   async deleteServiceTestCase(request: DeleteServiceTestCaseRequest): Promise<DeleteServiceTestCaseResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteServiceTestCaseWithOptions(request, runtime);
   }
 
@@ -25926,25 +23423,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeployServiceInstanceResponse
    */
-  async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
-    request.validate();
+  async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "DeployServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -25955,10 +23452,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
     } else {
-      return $dara.cast<DeployServiceInstanceResponse>(await this.execute(params, req, runtime), new DeployServiceInstanceResponse({}));
+      return $tea.cast<DeployServiceInstanceResponse>(await this.execute(params, req, runtime), new DeployServiceInstanceResponse({}));
     }
 
   }
@@ -25970,7 +23467,7 @@ export default class Client extends OpenApi {
    * @returns DeployServiceInstanceResponse
    */
   async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.deployServiceInstanceWithOptions(request, runtime);
   }
 
@@ -25981,25 +23478,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateDefaultServiceTestConfigResponse
    */
-  async generateDefaultServiceTestConfigWithOptions(request: GenerateDefaultServiceTestConfigRequest, runtime: $dara.RuntimeOptions): Promise<GenerateDefaultServiceTestConfigResponse> {
-    request.validate();
+  async generateDefaultServiceTestConfigWithOptions(request: GenerateDefaultServiceTestConfigRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDefaultServiceTestConfigResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GenerateDefaultServiceTestConfig",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26010,10 +23507,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateDefaultServiceTestConfigResponse>(await this.callApi(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateDefaultServiceTestConfigResponse>(await this.callApi(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
     } else {
-      return $dara.cast<GenerateDefaultServiceTestConfigResponse>(await this.execute(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
+      return $tea.cast<GenerateDefaultServiceTestConfigResponse>(await this.execute(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
     }
 
   }
@@ -26025,7 +23522,7 @@ export default class Client extends OpenApi {
    * @returns GenerateDefaultServiceTestConfigResponse
    */
   async generateDefaultServiceTestConfig(request: GenerateDefaultServiceTestConfigRequest): Promise<GenerateDefaultServiceTestConfigResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.generateDefaultServiceTestConfigWithOptions(request, runtime);
   }
 
@@ -26036,37 +23533,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateServicePolicyResponse
    */
-  async generateServicePolicyWithOptions(request: GenerateServicePolicyRequest, runtime: $dara.RuntimeOptions): Promise<GenerateServicePolicyResponse> {
-    request.validate();
+  async generateServicePolicyWithOptions(request: GenerateServicePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateServicePolicyResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.operationTypes)) {
+    if (!Util.isUnset(request.operationTypes)) {
       query["OperationTypes"] = request.operationTypes;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!$dara.isNull(request.trialType)) {
+    if (!Util.isUnset(request.trialType)) {
       query["TrialType"] = request.trialType;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GenerateServicePolicy",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26077,10 +23574,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateServicePolicyResponse>(await this.callApi(params, req, runtime), new GenerateServicePolicyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateServicePolicyResponse>(await this.callApi(params, req, runtime), new GenerateServicePolicyResponse({}));
     } else {
-      return $dara.cast<GenerateServicePolicyResponse>(await this.execute(params, req, runtime), new GenerateServicePolicyResponse({}));
+      return $tea.cast<GenerateServicePolicyResponse>(await this.execute(params, req, runtime), new GenerateServicePolicyResponse({}));
     }
 
   }
@@ -26092,7 +23589,7 @@ export default class Client extends OpenApi {
    * @returns GenerateServicePolicyResponse
    */
   async generateServicePolicy(request: GenerateServicePolicyRequest): Promise<GenerateServicePolicyResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.generateServicePolicyWithOptions(request, runtime);
   }
 
@@ -26103,25 +23600,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetArtifactResponse
    */
-  async getArtifactWithOptions(request: GetArtifactRequest, runtime: $dara.RuntimeOptions): Promise<GetArtifactResponse> {
-    request.validate();
+  async getArtifactWithOptions(request: GetArtifactRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.artifactName)) {
+    if (!Util.isUnset(request.artifactName)) {
       query["ArtifactName"] = request.artifactName;
     }
 
-    if (!$dara.isNull(request.artifactVersion)) {
+    if (!Util.isUnset(request.artifactVersion)) {
       query["ArtifactVersion"] = request.artifactVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetArtifact",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26132,10 +23629,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
     } else {
-      return $dara.cast<GetArtifactResponse>(await this.execute(params, req, runtime), new GetArtifactResponse({}));
+      return $tea.cast<GetArtifactResponse>(await this.execute(params, req, runtime), new GetArtifactResponse({}));
     }
 
   }
@@ -26147,7 +23644,7 @@ export default class Client extends OpenApi {
    * @returns GetArtifactResponse
    */
   async getArtifact(request: GetArtifactRequest): Promise<GetArtifactResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactWithOptions(request, runtime);
   }
 
@@ -26158,21 +23655,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetArtifactRepositoryCredentialsResponse
    */
-  async getArtifactRepositoryCredentialsWithOptions(request: GetArtifactRepositoryCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<GetArtifactRepositoryCredentialsResponse> {
-    request.validate();
+  async getArtifactRepositoryCredentialsWithOptions(request: GetArtifactRepositoryCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactRepositoryCredentialsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactType)) {
+    if (!Util.isUnset(request.artifactType)) {
       query["ArtifactType"] = request.artifactType;
     }
 
-    if (!$dara.isNull(request.deployRegionId)) {
+    if (!Util.isUnset(request.deployRegionId)) {
       query["DeployRegionId"] = request.deployRegionId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetArtifactRepositoryCredentials",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26183,10 +23680,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetArtifactRepositoryCredentialsResponse>(await this.callApi(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.callApi(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
     } else {
-      return $dara.cast<GetArtifactRepositoryCredentialsResponse>(await this.execute(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
+      return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.execute(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
     }
 
   }
@@ -26198,7 +23695,7 @@ export default class Client extends OpenApi {
    * @returns GetArtifactRepositoryCredentialsResponse
    */
   async getArtifactRepositoryCredentials(request: GetArtifactRepositoryCredentialsRequest): Promise<GetArtifactRepositoryCredentialsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getArtifactRepositoryCredentialsWithOptions(request, runtime);
   }
 
@@ -26209,45 +23706,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceResponse
    */
-  async getServiceWithOptions(request: GetServiceRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceResponse> {
-    request.validate();
+  async getServiceWithOptions(request: GetServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filterAliUid)) {
+    if (!Util.isUnset(request.filterAliUid)) {
       query["FilterAliUid"] = request.filterAliUid;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceName)) {
+    if (!Util.isUnset(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.sharedAccountType)) {
+    if (!Util.isUnset(request.sharedAccountType)) {
       query["SharedAccountType"] = request.sharedAccountType;
     }
 
-    if (!$dara.isNull(request.showDetail)) {
+    if (!Util.isUnset(request.showDetail)) {
       query["ShowDetail"] = request.showDetail;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26258,10 +23755,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
     } else {
-      return $dara.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
+      return $tea.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
     }
 
   }
@@ -26273,7 +23770,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceResponse
    */
   async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceWithOptions(request, runtime);
   }
 
@@ -26284,59 +23781,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceEstimateCostResponse
    */
-  async getServiceEstimateCostWithOptions(tmpReq: GetServiceEstimateCostRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceEstimateCostResponse> {
-    tmpReq.validate();
+  async getServiceEstimateCostWithOptions(tmpReq: GetServiceEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceEstimateCostResponse> {
+    Util.validateModel(tmpReq);
     let request = new GetServiceEstimateCostShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.commodity)) {
+    if (!Util.isUnset(tmpReq.commodity)) {
       request.commodityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commodity, "Commodity", "json");
     }
 
-    if (!$dara.isNull(tmpReq.parameters)) {
+    if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.commodityShrink)) {
+    if (!Util.isUnset(request.commodityShrink)) {
       query["Commodity"] = request.commodityShrink;
     }
 
-    if (!$dara.isNull(request.parametersShrink)) {
+    if (!Util.isUnset(request.parametersShrink)) {
       query["Parameters"] = request.parametersShrink;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.specificationName)) {
+    if (!Util.isUnset(request.specificationName)) {
       query["SpecificationName"] = request.specificationName;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceEstimateCost",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26347,10 +23844,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
     } else {
-      return $dara.cast<GetServiceEstimateCostResponse>(await this.execute(params, req, runtime), new GetServiceEstimateCostResponse({}));
+      return $tea.cast<GetServiceEstimateCostResponse>(await this.execute(params, req, runtime), new GetServiceEstimateCostResponse({}));
     }
 
   }
@@ -26362,7 +23859,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceEstimateCostResponse
    */
   async getServiceEstimateCost(request: GetServiceEstimateCostRequest): Promise<GetServiceEstimateCostResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceEstimateCostWithOptions(request, runtime);
   }
 
@@ -26373,21 +23870,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceInstanceResponse
    */
-  async getServiceInstanceWithOptions(request: GetServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceInstanceResponse> {
-    request.validate();
+  async getServiceInstanceWithOptions(request: GetServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26398,10 +23895,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
     } else {
-      return $dara.cast<GetServiceInstanceResponse>(await this.execute(params, req, runtime), new GetServiceInstanceResponse({}));
+      return $tea.cast<GetServiceInstanceResponse>(await this.execute(params, req, runtime), new GetServiceInstanceResponse({}));
     }
 
   }
@@ -26413,7 +23910,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceInstanceResponse
    */
   async getServiceInstance(request: GetServiceInstanceRequest): Promise<GetServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceInstanceWithOptions(request, runtime);
   }
 
@@ -26424,39 +23921,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceProvisionsResponse
    */
-  async getServiceProvisionsWithOptions(tmpReq: GetServiceProvisionsRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
-    tmpReq.validate();
+  async getServiceProvisionsWithOptions(tmpReq: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
+    Util.validateModel(tmpReq);
     let request = new GetServiceProvisionsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.parameters)) {
+    if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.parametersShrink)) {
+    if (!Util.isUnset(request.parametersShrink)) {
       query["Parameters"] = request.parametersShrink;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceProvisions",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26467,10 +23964,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
     } else {
-      return $dara.cast<GetServiceProvisionsResponse>(await this.execute(params, req, runtime), new GetServiceProvisionsResponse({}));
+      return $tea.cast<GetServiceProvisionsResponse>(await this.execute(params, req, runtime), new GetServiceProvisionsResponse({}));
     }
 
   }
@@ -26482,7 +23979,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceProvisionsResponse
    */
   async getServiceProvisions(request: GetServiceProvisionsRequest): Promise<GetServiceProvisionsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceProvisionsWithOptions(request, runtime);
   }
 
@@ -26493,21 +23990,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceRegistrationResponse
    */
-  async getServiceRegistrationWithOptions(request: GetServiceRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceRegistrationResponse> {
-    request.validate();
+  async getServiceRegistrationWithOptions(request: GetServiceRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceRegistrationResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.registrationId)) {
+    if (!Util.isUnset(request.registrationId)) {
       query["RegistrationId"] = request.registrationId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceRegistration",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26518,10 +24015,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceRegistrationResponse>(await this.callApi(params, req, runtime), new GetServiceRegistrationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceRegistrationResponse>(await this.callApi(params, req, runtime), new GetServiceRegistrationResponse({}));
     } else {
-      return $dara.cast<GetServiceRegistrationResponse>(await this.execute(params, req, runtime), new GetServiceRegistrationResponse({}));
+      return $tea.cast<GetServiceRegistrationResponse>(await this.execute(params, req, runtime), new GetServiceRegistrationResponse({}));
     }
 
   }
@@ -26533,7 +24030,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceRegistrationResponse
    */
   async getServiceRegistration(request: GetServiceRegistrationRequest): Promise<GetServiceRegistrationResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceRegistrationWithOptions(request, runtime);
   }
 
@@ -26544,49 +24041,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceTemplateParameterConstraintsResponse
    */
-  async getServiceTemplateParameterConstraintsWithOptions(request: GetServiceTemplateParameterConstraintsRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceTemplateParameterConstraintsResponse> {
-    request.validate();
+  async getServiceTemplateParameterConstraintsWithOptions(request: GetServiceTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTemplateParameterConstraintsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.deployRegionId)) {
+    if (!Util.isUnset(request.deployRegionId)) {
       query["DeployRegionId"] = request.deployRegionId;
     }
 
-    if (!$dara.isNull(request.enablePrivateVpcConnection)) {
+    if (!Util.isUnset(request.enablePrivateVpcConnection)) {
       query["EnablePrivateVpcConnection"] = request.enablePrivateVpcConnection;
     }
 
-    if (!$dara.isNull(request.parameters)) {
+    if (!Util.isUnset(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.templateName)) {
+    if (!Util.isUnset(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceTemplateParameterConstraints",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26597,10 +24094,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
     } else {
-      return $dara.cast<GetServiceTemplateParameterConstraintsResponse>(await this.execute(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+      return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.execute(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
     }
 
   }
@@ -26612,7 +24109,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceTemplateParameterConstraintsResponse
    */
   async getServiceTemplateParameterConstraints(request: GetServiceTemplateParameterConstraintsRequest): Promise<GetServiceTemplateParameterConstraintsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceTemplateParameterConstraintsWithOptions(request, runtime);
   }
 
@@ -26623,21 +24120,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceTestTaskResponse
    */
-  async getServiceTestTaskWithOptions(request: GetServiceTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceTestTaskResponse> {
-    request.validate();
+  async getServiceTestTaskWithOptions(request: GetServiceTestTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceTestTaskResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.taskId)) {
+    if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetServiceTestTask",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26648,10 +24145,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetServiceTestTaskResponse>(await this.callApi(params, req, runtime), new GetServiceTestTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceTestTaskResponse>(await this.callApi(params, req, runtime), new GetServiceTestTaskResponse({}));
     } else {
-      return $dara.cast<GetServiceTestTaskResponse>(await this.execute(params, req, runtime), new GetServiceTestTaskResponse({}));
+      return $tea.cast<GetServiceTestTaskResponse>(await this.execute(params, req, runtime), new GetServiceTestTaskResponse({}));
     }
 
   }
@@ -26663,7 +24160,7 @@ export default class Client extends OpenApi {
    * @returns GetServiceTestTaskResponse
    */
   async getServiceTestTask(request: GetServiceTestTaskRequest): Promise<GetServiceTestTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceTestTaskWithOptions(request, runtime);
   }
 
@@ -26674,17 +24171,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSupplierInformationResponse
    */
-  async getSupplierInformationWithOptions(request: GetSupplierInformationRequest, runtime: $dara.RuntimeOptions): Promise<GetSupplierInformationResponse> {
-    request.validate();
+  async getSupplierInformationWithOptions(request: GetSupplierInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetSupplierInformationResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetSupplierInformation",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26695,10 +24192,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSupplierInformationResponse>(await this.callApi(params, req, runtime), new GetSupplierInformationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetSupplierInformationResponse>(await this.callApi(params, req, runtime), new GetSupplierInformationResponse({}));
     } else {
-      return $dara.cast<GetSupplierInformationResponse>(await this.execute(params, req, runtime), new GetSupplierInformationResponse({}));
+      return $tea.cast<GetSupplierInformationResponse>(await this.execute(params, req, runtime), new GetSupplierInformationResponse({}));
     }
 
   }
@@ -26710,7 +24207,7 @@ export default class Client extends OpenApi {
    * @returns GetSupplierInformationResponse
    */
   async getSupplierInformation(request: GetSupplierInformationRequest): Promise<GetSupplierInformationResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getSupplierInformationWithOptions(request, runtime);
   }
 
@@ -26721,21 +24218,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUploadCredentialsResponse
    */
-  async getUploadCredentialsWithOptions(request: GetUploadCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<GetUploadCredentialsResponse> {
-    request.validate();
+  async getUploadCredentialsWithOptions(request: GetUploadCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadCredentialsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.fileName)) {
+    if (!Util.isUnset(request.fileName)) {
       query["FileName"] = request.fileName;
     }
 
-    if (!$dara.isNull(request.visibility)) {
+    if (!Util.isUnset(request.visibility)) {
       query["Visibility"] = request.visibility;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetUploadCredentials",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26746,10 +24243,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
     } else {
-      return $dara.cast<GetUploadCredentialsResponse>(await this.execute(params, req, runtime), new GetUploadCredentialsResponse({}));
+      return $tea.cast<GetUploadCredentialsResponse>(await this.execute(params, req, runtime), new GetUploadCredentialsResponse({}));
     }
 
   }
@@ -26761,7 +24258,7 @@ export default class Client extends OpenApi {
    * @returns GetUploadCredentialsResponse
    */
   async getUploadCredentials(request: GetUploadCredentialsRequest): Promise<GetUploadCredentialsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getUploadCredentialsWithOptions(request, runtime);
   }
 
@@ -26772,37 +24269,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LaunchServiceResponse
    */
-  async launchServiceWithOptions(request: LaunchServiceRequest, runtime: $dara.RuntimeOptions): Promise<LaunchServiceResponse> {
-    request.validate();
+  async launchServiceWithOptions(request: LaunchServiceRequest, runtime: $Util.RuntimeOptions): Promise<LaunchServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.categories)) {
+    if (!Util.isUnset(request.categories)) {
       query["Categories"] = request.categories;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.recommend)) {
+    if (!Util.isUnset(request.recommend)) {
       query["Recommend"] = request.recommend;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "LaunchService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26813,10 +24310,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<LaunchServiceResponse>(await this.callApi(params, req, runtime), new LaunchServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<LaunchServiceResponse>(await this.callApi(params, req, runtime), new LaunchServiceResponse({}));
     } else {
-      return $dara.cast<LaunchServiceResponse>(await this.execute(params, req, runtime), new LaunchServiceResponse({}));
+      return $tea.cast<LaunchServiceResponse>(await this.execute(params, req, runtime), new LaunchServiceResponse({}));
     }
 
   }
@@ -26828,7 +24325,7 @@ export default class Client extends OpenApi {
    * @returns LaunchServiceResponse
    */
   async launchService(request: LaunchServiceRequest): Promise<LaunchServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.launchServiceWithOptions(request, runtime);
   }
 
@@ -26839,29 +24336,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAcrImageRepositoriesResponse
    */
-  async listAcrImageRepositoriesWithOptions(request: ListAcrImageRepositoriesRequest, runtime: $dara.RuntimeOptions): Promise<ListAcrImageRepositoriesResponse> {
-    request.validate();
+  async listAcrImageRepositoriesWithOptions(request: ListAcrImageRepositoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageRepositoriesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactType)) {
+    if (!Util.isUnset(request.artifactType)) {
       query["ArtifactType"] = request.artifactType;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.repoName)) {
+    if (!Util.isUnset(request.repoName)) {
       query["RepoName"] = request.repoName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListAcrImageRepositories",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26872,10 +24369,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
     } else {
-      return $dara.cast<ListAcrImageRepositoriesResponse>(await this.execute(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+      return $tea.cast<ListAcrImageRepositoriesResponse>(await this.execute(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
     }
 
   }
@@ -26887,7 +24384,7 @@ export default class Client extends OpenApi {
    * @returns ListAcrImageRepositoriesResponse
    */
   async listAcrImageRepositories(request: ListAcrImageRepositoriesRequest): Promise<ListAcrImageRepositoriesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listAcrImageRepositoriesWithOptions(request, runtime);
   }
 
@@ -26898,29 +24395,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAcrImageTagsResponse
    */
-  async listAcrImageTagsWithOptions(request: ListAcrImageTagsRequest, runtime: $dara.RuntimeOptions): Promise<ListAcrImageTagsResponse> {
-    request.validate();
+  async listAcrImageTagsWithOptions(request: ListAcrImageTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcrImageTagsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactType)) {
+    if (!Util.isUnset(request.artifactType)) {
       query["ArtifactType"] = request.artifactType;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.repoId)) {
+    if (!Util.isUnset(request.repoId)) {
       query["RepoId"] = request.repoId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListAcrImageTags",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26931,10 +24428,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
     } else {
-      return $dara.cast<ListAcrImageTagsResponse>(await this.execute(params, req, runtime), new ListAcrImageTagsResponse({}));
+      return $tea.cast<ListAcrImageTagsResponse>(await this.execute(params, req, runtime), new ListAcrImageTagsResponse({}));
     }
 
   }
@@ -26946,7 +24443,7 @@ export default class Client extends OpenApi {
    * @returns ListAcrImageTagsResponse
    */
   async listAcrImageTags(request: ListAcrImageTagsRequest): Promise<ListAcrImageTagsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listAcrImageTagsWithOptions(request, runtime);
   }
 
@@ -26957,21 +24454,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListArtifactRisksResponse
    */
-  async listArtifactRisksWithOptions(request: ListArtifactRisksRequest, runtime: $dara.RuntimeOptions): Promise<ListArtifactRisksResponse> {
-    request.validate();
+  async listArtifactRisksWithOptions(request: ListArtifactRisksRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactRisksResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.artifactVersion)) {
+    if (!Util.isUnset(request.artifactVersion)) {
       query["ArtifactVersion"] = request.artifactVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListArtifactRisks",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -26982,10 +24479,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListArtifactRisksResponse>(await this.callApi(params, req, runtime), new ListArtifactRisksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListArtifactRisksResponse>(await this.callApi(params, req, runtime), new ListArtifactRisksResponse({}));
     } else {
-      return $dara.cast<ListArtifactRisksResponse>(await this.execute(params, req, runtime), new ListArtifactRisksResponse({}));
+      return $tea.cast<ListArtifactRisksResponse>(await this.execute(params, req, runtime), new ListArtifactRisksResponse({}));
     }
 
   }
@@ -26997,7 +24494,7 @@ export default class Client extends OpenApi {
    * @returns ListArtifactRisksResponse
    */
   async listArtifactRisks(request: ListArtifactRisksRequest): Promise<ListArtifactRisksResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactRisksWithOptions(request, runtime);
   }
 
@@ -27008,35 +24505,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListArtifactVersionsResponse
    */
-  async listArtifactVersionsWithOptions(tmpReq: ListArtifactVersionsRequest, runtime: $dara.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
-    tmpReq.validate();
+  async listArtifactVersionsWithOptions(tmpReq: ListArtifactVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactVersionsResponse> {
+    Util.validateModel(tmpReq);
     let request = new ListArtifactVersionsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.filters)) {
+    if (!Util.isUnset(tmpReq.filters)) {
       request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.filtersShrink)) {
+    if (!Util.isUnset(request.filtersShrink)) {
       query["Filters"] = request.filtersShrink;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListArtifactVersions",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27047,10 +24544,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListArtifactVersionsResponse>(await this.callApi(params, req, runtime), new ListArtifactVersionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListArtifactVersionsResponse>(await this.callApi(params, req, runtime), new ListArtifactVersionsResponse({}));
     } else {
-      return $dara.cast<ListArtifactVersionsResponse>(await this.execute(params, req, runtime), new ListArtifactVersionsResponse({}));
+      return $tea.cast<ListArtifactVersionsResponse>(await this.execute(params, req, runtime), new ListArtifactVersionsResponse({}));
     }
 
   }
@@ -27062,7 +24559,7 @@ export default class Client extends OpenApi {
    * @returns ListArtifactVersionsResponse
    */
   async listArtifactVersions(request: ListArtifactVersionsRequest): Promise<ListArtifactVersionsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactVersionsWithOptions(request, runtime);
   }
 
@@ -27073,33 +24570,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListArtifactsResponse
    */
-  async listArtifactsWithOptions(request: ListArtifactsRequest, runtime: $dara.RuntimeOptions): Promise<ListArtifactsResponse> {
-    request.validate();
+  async listArtifactsWithOptions(request: ListArtifactsRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListArtifacts",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27110,10 +24607,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListArtifactsResponse>(await this.callApi(params, req, runtime), new ListArtifactsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListArtifactsResponse>(await this.callApi(params, req, runtime), new ListArtifactsResponse({}));
     } else {
-      return $dara.cast<ListArtifactsResponse>(await this.execute(params, req, runtime), new ListArtifactsResponse({}));
+      return $tea.cast<ListArtifactsResponse>(await this.execute(params, req, runtime), new ListArtifactsResponse({}));
     }
 
   }
@@ -27125,7 +24622,7 @@ export default class Client extends OpenApi {
    * @returns ListArtifactsResponse
    */
   async listArtifacts(request: ListArtifactsRequest): Promise<ListArtifactsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listArtifactsWithOptions(request, runtime);
   }
 
@@ -27136,29 +24633,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResellersResponse
    */
-  async listResellersWithOptions(request: ListResellersRequest, runtime: $dara.RuntimeOptions): Promise<ListResellersResponse> {
-    request.validate();
+  async listResellersWithOptions(request: ListResellersRequest, runtime: $Util.RuntimeOptions): Promise<ListResellersResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListResellers",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27169,10 +24666,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListResellersResponse>(await this.callApi(params, req, runtime), new ListResellersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListResellersResponse>(await this.callApi(params, req, runtime), new ListResellersResponse({}));
     } else {
-      return $dara.cast<ListResellersResponse>(await this.execute(params, req, runtime), new ListResellersResponse({}));
+      return $tea.cast<ListResellersResponse>(await this.execute(params, req, runtime), new ListResellersResponse({}));
     }
 
   }
@@ -27184,7 +24681,7 @@ export default class Client extends OpenApi {
    * @returns ListResellersResponse
    */
   async listResellers(request: ListResellersRequest): Promise<ListResellersResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listResellersWithOptions(request, runtime);
   }
 
@@ -27195,49 +24692,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstanceDeployDetailsResponse
    */
-  async listServiceInstanceDeployDetailsWithOptions(request: ListServiceInstanceDeployDetailsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceDeployDetailsResponse> {
-    request.validate();
+  async listServiceInstanceDeployDetailsWithOptions(request: ListServiceInstanceDeployDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceDeployDetailsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.cycleTimeZone)) {
+    if (!Util.isUnset(request.cycleTimeZone)) {
       query["CycleTimeZone"] = request.cycleTimeZone;
     }
 
-    if (!$dara.isNull(request.cycleType)) {
+    if (!Util.isUnset(request.cycleType)) {
       query["CycleType"] = request.cycleType;
     }
 
-    if (!$dara.isNull(request.dimension)) {
+    if (!Util.isUnset(request.dimension)) {
       query["Dimension"] = request.dimension;
     }
 
-    if (!$dara.isNull(request.endTime)) {
+    if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.startTime)) {
+    if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceInstanceDeployDetails",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27248,10 +24745,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceInstanceDeployDetailsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceDeployDetailsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstanceDeployDetailsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceDeployDetailsResponse({}));
     } else {
-      return $dara.cast<ListServiceInstanceDeployDetailsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceDeployDetailsResponse({}));
+      return $tea.cast<ListServiceInstanceDeployDetailsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceDeployDetailsResponse({}));
     }
 
   }
@@ -27263,7 +24760,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstanceDeployDetailsResponse
    */
   async listServiceInstanceDeployDetails(request: ListServiceInstanceDeployDetailsRequest): Promise<ListServiceInstanceDeployDetailsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstanceDeployDetailsWithOptions(request, runtime);
   }
 
@@ -27274,45 +24771,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstanceLogsResponse
    */
-  async listServiceInstanceLogsWithOptions(request: ListServiceInstanceLogsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceLogsResponse> {
-    request.validate();
+  async listServiceInstanceLogsWithOptions(request: ListServiceInstanceLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceLogsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.logSource)) {
+    if (!Util.isUnset(request.logSource)) {
       query["LogSource"] = request.logSource;
     }
 
-    if (!$dara.isNull(request.logstore)) {
+    if (!Util.isUnset(request.logstore)) {
       query["Logstore"] = request.logstore;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.sortOrder)) {
+    if (!Util.isUnset(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceInstanceLogs",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27323,10 +24820,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
     } else {
-      return $dara.cast<ListServiceInstanceLogsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+      return $tea.cast<ListServiceInstanceLogsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceLogsResponse({}));
     }
 
   }
@@ -27338,7 +24835,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstanceLogsResponse
    */
   async listServiceInstanceLogs(request: ListServiceInstanceLogsRequest): Promise<ListServiceInstanceLogsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstanceLogsWithOptions(request, runtime);
   }
 
@@ -27349,41 +24846,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstanceResourcesResponse
    */
-  async listServiceInstanceResourcesWithOptions(request: ListServiceInstanceResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceResourcesResponse> {
-    request.validate();
+  async listServiceInstanceResourcesWithOptions(request: ListServiceInstanceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceResourcesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filters)) {
+    if (!Util.isUnset(request.filters)) {
       query["Filters"] = request.filters;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceResourceType)) {
+    if (!Util.isUnset(request.serviceInstanceResourceType)) {
       query["ServiceInstanceResourceType"] = request.serviceInstanceResourceType;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceInstanceResources",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27394,10 +24891,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
     } else {
-      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+      return $tea.cast<ListServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
     }
 
   }
@@ -27409,7 +24906,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstanceResourcesResponse
    */
   async listServiceInstanceResources(request: ListServiceInstanceResourcesRequest): Promise<ListServiceInstanceResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstanceResourcesWithOptions(request, runtime);
   }
 
@@ -27420,29 +24917,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstanceUpgradeHistoryResponse
    */
-  async listServiceInstanceUpgradeHistoryWithOptions(request: ListServiceInstanceUpgradeHistoryRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceUpgradeHistoryResponse> {
-    request.validate();
+  async listServiceInstanceUpgradeHistoryWithOptions(request: ListServiceInstanceUpgradeHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceUpgradeHistoryResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceInstanceUpgradeHistory",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27453,10 +24950,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
     } else {
-      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.execute(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+      return $tea.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.execute(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
     }
 
   }
@@ -27468,7 +24965,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstanceUpgradeHistoryResponse
    */
   async listServiceInstanceUpgradeHistory(request: ListServiceInstanceUpgradeHistoryRequest): Promise<ListServiceInstanceUpgradeHistoryResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstanceUpgradeHistoryWithOptions(request, runtime);
   }
 
@@ -27479,41 +24976,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstancesResponse
    */
-  async listServiceInstancesWithOptions(request: ListServiceInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstancesResponse> {
-    request.validate();
+  async listServiceInstancesWithOptions(request: ListServiceInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.showDeleted)) {
+    if (!Util.isUnset(request.showDeleted)) {
       query["ShowDeleted"] = request.showDeleted;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceInstances",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27524,10 +25021,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
     } else {
-      return $dara.cast<ListServiceInstancesResponse>(await this.execute(params, req, runtime), new ListServiceInstancesResponse({}));
+      return $tea.cast<ListServiceInstancesResponse>(await this.execute(params, req, runtime), new ListServiceInstancesResponse({}));
     }
 
   }
@@ -27539,7 +25036,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstancesResponse
    */
   async listServiceInstances(request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstancesWithOptions(request, runtime);
   }
 
@@ -27550,29 +25047,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceRegistrationsResponse
    */
-  async listServiceRegistrationsWithOptions(request: ListServiceRegistrationsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceRegistrationsResponse> {
-    request.validate();
+  async listServiceRegistrationsWithOptions(request: ListServiceRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceRegistrationsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceRegistrations",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27583,10 +25080,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceRegistrationsResponse>(await this.callApi(params, req, runtime), new ListServiceRegistrationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceRegistrationsResponse>(await this.callApi(params, req, runtime), new ListServiceRegistrationsResponse({}));
     } else {
-      return $dara.cast<ListServiceRegistrationsResponse>(await this.execute(params, req, runtime), new ListServiceRegistrationsResponse({}));
+      return $tea.cast<ListServiceRegistrationsResponse>(await this.execute(params, req, runtime), new ListServiceRegistrationsResponse({}));
     }
 
   }
@@ -27598,7 +25095,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceRegistrationsResponse
    */
   async listServiceRegistrations(request: ListServiceRegistrationsRequest): Promise<ListServiceRegistrationsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceRegistrationsWithOptions(request, runtime);
   }
 
@@ -27609,37 +25106,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceSharedAccountsResponse
    */
-  async listServiceSharedAccountsWithOptions(request: ListServiceSharedAccountsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceSharedAccountsResponse> {
-    request.validate();
+  async listServiceSharedAccountsWithOptions(request: ListServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceSharedAccountsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.permission)) {
+    if (!Util.isUnset(request.permission)) {
       query["Permission"] = request.permission;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceSharedAccounts",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27650,10 +25147,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceSharedAccountsResponse({}));
     } else {
-      return $dara.cast<ListServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+      return $tea.cast<ListServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new ListServiceSharedAccountsResponse({}));
     }
 
   }
@@ -27665,7 +25162,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceSharedAccountsResponse
    */
   async listServiceSharedAccounts(request: ListServiceSharedAccountsRequest): Promise<ListServiceSharedAccountsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceSharedAccountsWithOptions(request, runtime);
   }
 
@@ -27676,37 +25173,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceTestCasesResponse
    */
-  async listServiceTestCasesWithOptions(request: ListServiceTestCasesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestCasesResponse> {
-    request.validate();
+  async listServiceTestCasesWithOptions(request: ListServiceTestCasesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceTestCasesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filters)) {
+    if (!Util.isUnset(request.filters)) {
       query["Filters"] = request.filters;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceTestCases",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27717,10 +25214,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceTestCasesResponse>(await this.callApi(params, req, runtime), new ListServiceTestCasesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceTestCasesResponse>(await this.callApi(params, req, runtime), new ListServiceTestCasesResponse({}));
     } else {
-      return $dara.cast<ListServiceTestCasesResponse>(await this.execute(params, req, runtime), new ListServiceTestCasesResponse({}));
+      return $tea.cast<ListServiceTestCasesResponse>(await this.execute(params, req, runtime), new ListServiceTestCasesResponse({}));
     }
 
   }
@@ -27732,7 +25229,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceTestCasesResponse
    */
   async listServiceTestCases(request: ListServiceTestCasesRequest): Promise<ListServiceTestCasesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceTestCasesWithOptions(request, runtime);
   }
 
@@ -27743,29 +25240,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceTestTaskLogsResponse
    */
-  async listServiceTestTaskLogsWithOptions(request: ListServiceTestTaskLogsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestTaskLogsResponse> {
-    request.validate();
+  async listServiceTestTaskLogsWithOptions(request: ListServiceTestTaskLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceTestTaskLogsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.sortOrder)) {
+    if (!Util.isUnset(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
     }
 
-    if (!$dara.isNull(request.taskId)) {
+    if (!Util.isUnset(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceTestTaskLogs",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27776,10 +25273,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceTestTaskLogsResponse>(await this.callApi(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceTestTaskLogsResponse>(await this.callApi(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
     } else {
-      return $dara.cast<ListServiceTestTaskLogsResponse>(await this.execute(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
+      return $tea.cast<ListServiceTestTaskLogsResponse>(await this.execute(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
     }
 
   }
@@ -27791,7 +25288,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceTestTaskLogsResponse
    */
   async listServiceTestTaskLogs(request: ListServiceTestTaskLogsRequest): Promise<ListServiceTestTaskLogsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceTestTaskLogsWithOptions(request, runtime);
   }
 
@@ -27802,37 +25299,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceTestTasksResponse
    */
-  async listServiceTestTasksWithOptions(request: ListServiceTestTasksRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestTasksResponse> {
-    request.validate();
+  async listServiceTestTasksWithOptions(request: ListServiceTestTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceTestTasksResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceTestTasks",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27843,10 +25340,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceTestTasksResponse>(await this.callApi(params, req, runtime), new ListServiceTestTasksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceTestTasksResponse>(await this.callApi(params, req, runtime), new ListServiceTestTasksResponse({}));
     } else {
-      return $dara.cast<ListServiceTestTasksResponse>(await this.execute(params, req, runtime), new ListServiceTestTasksResponse({}));
+      return $tea.cast<ListServiceTestTasksResponse>(await this.execute(params, req, runtime), new ListServiceTestTasksResponse({}));
     }
 
   }
@@ -27858,7 +25355,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceTestTasksResponse
    */
   async listServiceTestTasks(request: ListServiceTestTasksRequest): Promise<ListServiceTestTasksResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceTestTasksWithOptions(request, runtime);
   }
 
@@ -27869,43 +25366,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceUsagesResponse
    */
-  async listServiceUsagesWithOptions(request: ListServiceUsagesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceUsagesResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.filter)) {
-      query["Filter"] = request.filter;
-    }
-
-    if (!$dara.isNull(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!$dara.isNull(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.supplierRole)) {
-      query["SupplierRole"] = request.supplierRole;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
+  async listServiceUsagesWithOptions(request: ListServiceUsagesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceUsagesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServiceUsages",
       version: "2021-05-21",
       protocol: "HTTPS",
       pathname: "/",
-      method: "POST",
+      method: "GET",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
     } else {
-      return $dara.cast<ListServiceUsagesResponse>(await this.execute(params, req, runtime), new ListServiceUsagesResponse({}));
+      return $tea.cast<ListServiceUsagesResponse>(await this.execute(params, req, runtime), new ListServiceUsagesResponse({}));
     }
 
   }
@@ -27917,7 +25398,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceUsagesResponse
    */
   async listServiceUsages(request: ListServiceUsagesRequest): Promise<ListServiceUsagesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceUsagesWithOptions(request, runtime);
   }
 
@@ -27928,41 +25409,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServicesResponse
    */
-  async listServicesWithOptions(request: ListServicesRequest, runtime: $dara.RuntimeOptions): Promise<ListServicesResponse> {
-    request.validate();
+  async listServicesWithOptions(request: ListServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.allVersions)) {
+    if (!Util.isUnset(request.allVersions)) {
       query["AllVersions"] = request.allVersions;
     }
 
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceGroupId)) {
+    if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListServices",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -27973,10 +25454,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
     } else {
-      return $dara.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+      return $tea.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
     }
 
   }
@@ -27988,7 +25469,7 @@ export default class Client extends OpenApi {
    * @returns ListServicesResponse
    */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listServicesWithOptions(request, runtime);
   }
 
@@ -27999,29 +25480,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSupplierRegistrationsResponse
    */
-  async listSupplierRegistrationsWithOptions(request: ListSupplierRegistrationsRequest, runtime: $dara.RuntimeOptions): Promise<ListSupplierRegistrationsResponse> {
-    request.validate();
+  async listSupplierRegistrationsWithOptions(request: ListSupplierRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListSupplierRegistrationsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.filter)) {
+    if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!$dara.isNull(request.maxResults)) {
+    if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListSupplierRegistrations",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28032,10 +25513,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSupplierRegistrationsResponse>(await this.callApi(params, req, runtime), new ListSupplierRegistrationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListSupplierRegistrationsResponse>(await this.callApi(params, req, runtime), new ListSupplierRegistrationsResponse({}));
     } else {
-      return $dara.cast<ListSupplierRegistrationsResponse>(await this.execute(params, req, runtime), new ListSupplierRegistrationsResponse({}));
+      return $tea.cast<ListSupplierRegistrationsResponse>(await this.execute(params, req, runtime), new ListSupplierRegistrationsResponse({}));
     }
 
   }
@@ -28047,7 +25528,7 @@ export default class Client extends OpenApi {
    * @returns ListSupplierRegistrationsResponse
    */
   async listSupplierRegistrations(request: ListSupplierRegistrationsRequest): Promise<ListSupplierRegistrationsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listSupplierRegistrationsWithOptions(request, runtime);
   }
 
@@ -28058,25 +25539,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
-    request.validate();
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceType)) {
+    if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListTagKeys",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28087,10 +25568,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
     } else {
-      return $dara.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
+      return $tea.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
     }
 
   }
@@ -28102,7 +25583,7 @@ export default class Client extends OpenApi {
    * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
@@ -28113,33 +25594,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    request.validate();
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceId)) {
+    if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!$dara.isNull(request.resourceType)) {
+    if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListTagResources",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28150,10 +25631,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
     } else {
-      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
     }
 
   }
@@ -28165,7 +25646,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -28176,29 +25657,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
    */
-  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagValuesResponse> {
-    request.validate();
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.key)) {
+    if (!Util.isUnset(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!$dara.isNull(request.nextToken)) {
+    if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceType)) {
+    if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListTagValues",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28209,10 +25690,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
     } else {
-      return $dara.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
+      return $tea.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
     }
 
   }
@@ -28224,7 +25705,7 @@ export default class Client extends OpenApi {
    * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
@@ -28235,25 +25716,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyServiceInstanceResourcesResponse
    */
-  async modifyServiceInstanceResourcesWithOptions(request: ModifyServiceInstanceResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ModifyServiceInstanceResourcesResponse> {
-    request.validate();
+  async modifyServiceInstanceResourcesWithOptions(request: ModifyServiceInstanceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyServiceInstanceResourcesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.resources)) {
+    if (!Util.isUnset(request.resources)) {
       query["Resources"] = request.resources;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceResourcesAction)) {
+    if (!Util.isUnset(request.serviceInstanceResourcesAction)) {
       query["ServiceInstanceResourcesAction"] = request.serviceInstanceResourcesAction;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ModifyServiceInstanceResources",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28264,10 +25745,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
     } else {
-      return $dara.cast<ModifyServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
+      return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
     }
 
   }
@@ -28279,7 +25760,7 @@ export default class Client extends OpenApi {
    * @returns ModifyServiceInstanceResourcesResponse
    */
   async modifyServiceInstanceResources(request: ModifyServiceInstanceResourcesRequest): Promise<ModifyServiceInstanceResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyServiceInstanceResourcesWithOptions(request, runtime);
   }
 
@@ -28290,25 +25771,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PreLaunchServiceResponse
    */
-  async preLaunchServiceWithOptions(request: PreLaunchServiceRequest, runtime: $dara.RuntimeOptions): Promise<PreLaunchServiceResponse> {
-    request.validate();
+  async preLaunchServiceWithOptions(request: PreLaunchServiceRequest, runtime: $Util.RuntimeOptions): Promise<PreLaunchServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "PreLaunchService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28319,10 +25800,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PreLaunchServiceResponse>(await this.callApi(params, req, runtime), new PreLaunchServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PreLaunchServiceResponse>(await this.callApi(params, req, runtime), new PreLaunchServiceResponse({}));
     } else {
-      return $dara.cast<PreLaunchServiceResponse>(await this.execute(params, req, runtime), new PreLaunchServiceResponse({}));
+      return $tea.cast<PreLaunchServiceResponse>(await this.execute(params, req, runtime), new PreLaunchServiceResponse({}));
     }
 
   }
@@ -28334,7 +25815,7 @@ export default class Client extends OpenApi {
    * @returns PreLaunchServiceResponse
    */
   async preLaunchService(request: PreLaunchServiceRequest): Promise<PreLaunchServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.preLaunchServiceWithOptions(request, runtime);
   }
 
@@ -28345,21 +25826,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMeteringDataResponse
    */
-  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $dara.RuntimeOptions): Promise<PushMeteringDataResponse> {
-    request.validate();
+  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.metering)) {
+    if (!Util.isUnset(request.metering)) {
       query["Metering"] = request.metering;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "PushMeteringData",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28370,10 +25851,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
     } else {
-      return $dara.cast<PushMeteringDataResponse>(await this.execute(params, req, runtime), new PushMeteringDataResponse({}));
+      return $tea.cast<PushMeteringDataResponse>(await this.execute(params, req, runtime), new PushMeteringDataResponse({}));
     }
 
   }
@@ -28385,7 +25866,7 @@ export default class Client extends OpenApi {
    * @returns PushMeteringDataResponse
    */
   async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMeteringDataWithOptions(request, runtime);
   }
 
@@ -28396,25 +25877,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterServiceResponse
    */
-  async registerServiceWithOptions(request: RegisterServiceRequest, runtime: $dara.RuntimeOptions): Promise<RegisterServiceResponse> {
-    request.validate();
+  async registerServiceWithOptions(request: RegisterServiceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RegisterService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28425,10 +25906,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
     } else {
-      return $dara.cast<RegisterServiceResponse>(await this.execute(params, req, runtime), new RegisterServiceResponse({}));
+      return $tea.cast<RegisterServiceResponse>(await this.execute(params, req, runtime), new RegisterServiceResponse({}));
     }
 
   }
@@ -28440,7 +25921,7 @@ export default class Client extends OpenApi {
    * @returns RegisterServiceResponse
    */
   async registerService(request: RegisterServiceRequest): Promise<RegisterServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.registerServiceWithOptions(request, runtime);
   }
 
@@ -28451,33 +25932,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RejectServiceUsageResponse
    */
-  async rejectServiceUsageWithOptions(request: RejectServiceUsageRequest, runtime: $dara.RuntimeOptions): Promise<RejectServiceUsageResponse> {
-    request.validate();
+  async rejectServiceUsageWithOptions(request: RejectServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<RejectServiceUsageResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.comments)) {
+    if (!Util.isUnset(request.comments)) {
       query["Comments"] = request.comments;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.type)) {
+    if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
 
-    if (!$dara.isNull(request.userAliUid)) {
+    if (!Util.isUnset(request.userAliUid)) {
       query["UserAliUid"] = request.userAliUid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RejectServiceUsage",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28488,10 +25969,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RejectServiceUsageResponse>(await this.callApi(params, req, runtime), new RejectServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RejectServiceUsageResponse>(await this.callApi(params, req, runtime), new RejectServiceUsageResponse({}));
     } else {
-      return $dara.cast<RejectServiceUsageResponse>(await this.execute(params, req, runtime), new RejectServiceUsageResponse({}));
+      return $tea.cast<RejectServiceUsageResponse>(await this.execute(params, req, runtime), new RejectServiceUsageResponse({}));
     }
 
   }
@@ -28503,7 +25984,7 @@ export default class Client extends OpenApi {
    * @returns RejectServiceUsageResponse
    */
   async rejectServiceUsage(request: RejectServiceUsageRequest): Promise<RejectServiceUsageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.rejectServiceUsageWithOptions(request, runtime);
   }
 
@@ -28514,21 +25995,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseArtifactResponse
    */
-  async releaseArtifactWithOptions(request: ReleaseArtifactRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseArtifactResponse> {
-    request.validate();
+  async releaseArtifactWithOptions(request: ReleaseArtifactRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseArtifactResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ReleaseArtifact",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28539,10 +26020,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReleaseArtifactResponse>(await this.callApi(params, req, runtime), new ReleaseArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReleaseArtifactResponse>(await this.callApi(params, req, runtime), new ReleaseArtifactResponse({}));
     } else {
-      return $dara.cast<ReleaseArtifactResponse>(await this.execute(params, req, runtime), new ReleaseArtifactResponse({}));
+      return $tea.cast<ReleaseArtifactResponse>(await this.execute(params, req, runtime), new ReleaseArtifactResponse({}));
     }
 
   }
@@ -28554,7 +26035,7 @@ export default class Client extends OpenApi {
    * @returns ReleaseArtifactResponse
    */
   async releaseArtifact(request: ReleaseArtifactRequest): Promise<ReleaseArtifactResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseArtifactWithOptions(request, runtime);
   }
 
@@ -28565,33 +26046,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveServiceSharedAccountsResponse
    */
-  async removeServiceSharedAccountsWithOptions(request: RemoveServiceSharedAccountsRequest, runtime: $dara.RuntimeOptions): Promise<RemoveServiceSharedAccountsResponse> {
-    request.validate();
+  async removeServiceSharedAccountsWithOptions(request: RemoveServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveServiceSharedAccountsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.type)) {
+    if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
 
-    if (!$dara.isNull(request.userAliUids)) {
+    if (!Util.isUnset(request.userAliUids)) {
       query["UserAliUids"] = request.userAliUids;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RemoveServiceSharedAccounts",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28602,10 +26083,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RemoveServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
     } else {
-      return $dara.cast<RemoveServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+      return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
     }
 
   }
@@ -28617,7 +26098,7 @@ export default class Client extends OpenApi {
    * @returns RemoveServiceSharedAccountsResponse
    */
   async removeServiceSharedAccounts(request: RemoveServiceSharedAccountsRequest): Promise<RemoveServiceSharedAccountsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.removeServiceSharedAccountsWithOptions(request, runtime);
   }
 
@@ -28628,25 +26109,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartServiceInstanceResponse
    */
-  async restartServiceInstanceWithOptions(request: RestartServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RestartServiceInstanceResponse> {
-    request.validate();
+  async restartServiceInstanceWithOptions(request: RestartServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RestartServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28657,10 +26138,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
     } else {
-      return $dara.cast<RestartServiceInstanceResponse>(await this.execute(params, req, runtime), new RestartServiceInstanceResponse({}));
+      return $tea.cast<RestartServiceInstanceResponse>(await this.execute(params, req, runtime), new RestartServiceInstanceResponse({}));
     }
 
   }
@@ -28672,7 +26153,7 @@ export default class Client extends OpenApi {
    * @returns RestartServiceInstanceResponse
    */
   async restartServiceInstance(request: RestartServiceInstanceRequest): Promise<RestartServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.restartServiceInstanceWithOptions(request, runtime);
   }
 
@@ -28683,25 +26164,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RollbackServiceInstanceResponse
    */
-  async rollbackServiceInstanceWithOptions(request: RollbackServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RollbackServiceInstanceResponse> {
-    request.validate();
+  async rollbackServiceInstanceWithOptions(request: RollbackServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RollbackServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RollbackServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28712,10 +26193,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
     } else {
-      return $dara.cast<RollbackServiceInstanceResponse>(await this.execute(params, req, runtime), new RollbackServiceInstanceResponse({}));
+      return $tea.cast<RollbackServiceInstanceResponse>(await this.execute(params, req, runtime), new RollbackServiceInstanceResponse({}));
     }
 
   }
@@ -28727,7 +26208,7 @@ export default class Client extends OpenApi {
    * @returns RollbackServiceInstanceResponse
    */
   async rollbackServiceInstance(request: RollbackServiceInstanceRequest): Promise<RollbackServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackServiceInstanceWithOptions(request, runtime);
   }
 
@@ -28738,25 +26219,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartServiceInstanceResponse
    */
-  async startServiceInstanceWithOptions(request: StartServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StartServiceInstanceResponse> {
-    request.validate();
+  async startServiceInstanceWithOptions(request: StartServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "StartServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28767,10 +26248,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
     } else {
-      return $dara.cast<StartServiceInstanceResponse>(await this.execute(params, req, runtime), new StartServiceInstanceResponse({}));
+      return $tea.cast<StartServiceInstanceResponse>(await this.execute(params, req, runtime), new StartServiceInstanceResponse({}));
     }
 
   }
@@ -28782,7 +26263,7 @@ export default class Client extends OpenApi {
    * @returns StartServiceInstanceResponse
    */
   async startServiceInstance(request: StartServiceInstanceRequest): Promise<StartServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.startServiceInstanceWithOptions(request, runtime);
   }
 
@@ -28793,25 +26274,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopServiceInstanceResponse
    */
-  async stopServiceInstanceWithOptions(request: StopServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<StopServiceInstanceResponse> {
-    request.validate();
+  async stopServiceInstanceWithOptions(request: StopServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopServiceInstanceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "StopServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28822,10 +26303,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
     } else {
-      return $dara.cast<StopServiceInstanceResponse>(await this.execute(params, req, runtime), new StopServiceInstanceResponse({}));
+      return $tea.cast<StopServiceInstanceResponse>(await this.execute(params, req, runtime), new StopServiceInstanceResponse({}));
     }
 
   }
@@ -28837,7 +26318,7 @@ export default class Client extends OpenApi {
    * @returns StopServiceInstanceResponse
    */
   async stopServiceInstance(request: StopServiceInstanceRequest): Promise<StopServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.stopServiceInstanceWithOptions(request, runtime);
   }
 
@@ -28848,29 +26329,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
-    request.validate();
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceId)) {
+    if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!$dara.isNull(request.resourceType)) {
+    if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!$dara.isNull(request.tag)) {
+    if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "TagResources",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28881,10 +26362,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
     } else {
-      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
     }
 
   }
@@ -28896,7 +26377,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -28907,33 +26388,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnTagResourcesResponse
    */
-  async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UnTagResourcesResponse> {
-    request.validate();
+  async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.all)) {
+    if (!Util.isUnset(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resourceId)) {
+    if (!Util.isUnset(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!$dara.isNull(request.resourceType)) {
+    if (!Util.isUnset(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!$dara.isNull(request.tagKey)) {
+    if (!Util.isUnset(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UnTagResources",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -28944,10 +26425,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
     } else {
-      return $dara.cast<UnTagResourcesResponse>(await this.execute(params, req, runtime), new UnTagResourcesResponse({}));
+      return $tea.cast<UnTagResourcesResponse>(await this.execute(params, req, runtime), new UnTagResourcesResponse({}));
     }
 
   }
@@ -28959,7 +26440,7 @@ export default class Client extends OpenApi {
    * @returns UnTagResourcesResponse
    */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
   }
 
@@ -28970,55 +26451,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateArtifactResponse
    */
-  async updateArtifactWithOptions(tmpReq: UpdateArtifactRequest, runtime: $dara.RuntimeOptions): Promise<UpdateArtifactResponse> {
-    tmpReq.validate();
+  async updateArtifactWithOptions(tmpReq: UpdateArtifactRequest, runtime: $Util.RuntimeOptions): Promise<UpdateArtifactResponse> {
+    Util.validateModel(tmpReq);
     let request = new UpdateArtifactShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.artifactBuildProperty)) {
+    if (!Util.isUnset(tmpReq.artifactBuildProperty)) {
       request.artifactBuildPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactBuildProperty, "ArtifactBuildProperty", "json");
     }
 
-    if (!$dara.isNull(tmpReq.artifactProperty)) {
+    if (!Util.isUnset(tmpReq.artifactProperty)) {
       request.artifactPropertyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.artifactProperty, "ArtifactProperty", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.artifactBuildPropertyShrink)) {
+    if (!Util.isUnset(request.artifactBuildPropertyShrink)) {
       query["ArtifactBuildProperty"] = request.artifactBuildPropertyShrink;
     }
 
-    if (!$dara.isNull(request.artifactId)) {
+    if (!Util.isUnset(request.artifactId)) {
       query["ArtifactId"] = request.artifactId;
     }
 
-    if (!$dara.isNull(request.artifactPropertyShrink)) {
+    if (!Util.isUnset(request.artifactPropertyShrink)) {
       query["ArtifactProperty"] = request.artifactPropertyShrink;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.description)) {
+    if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!$dara.isNull(request.permissionType)) {
+    if (!Util.isUnset(request.permissionType)) {
       query["PermissionType"] = request.permissionType;
     }
 
-    if (!$dara.isNull(request.supportRegionIds)) {
+    if (!Util.isUnset(request.supportRegionIds)) {
       query["SupportRegionIds"] = request.supportRegionIds;
     }
 
-    if (!$dara.isNull(request.versionName)) {
+    if (!Util.isUnset(request.versionName)) {
       query["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateArtifact",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29029,10 +26510,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateArtifactResponse>(await this.callApi(params, req, runtime), new UpdateArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateArtifactResponse>(await this.callApi(params, req, runtime), new UpdateArtifactResponse({}));
     } else {
-      return $dara.cast<UpdateArtifactResponse>(await this.execute(params, req, runtime), new UpdateArtifactResponse({}));
+      return $tea.cast<UpdateArtifactResponse>(await this.execute(params, req, runtime), new UpdateArtifactResponse({}));
     }
 
   }
@@ -29044,7 +26525,7 @@ export default class Client extends OpenApi {
    * @returns UpdateArtifactResponse
    */
   async updateArtifact(request: UpdateArtifactRequest): Promise<UpdateArtifactResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateArtifactWithOptions(request, runtime);
   }
 
@@ -29055,131 +26536,131 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceResponse
    */
-  async updateServiceWithOptions(tmpReq: UpdateServiceRequest, runtime: $dara.RuntimeOptions): Promise<UpdateServiceResponse> {
-    tmpReq.validate();
+  async updateServiceWithOptions(tmpReq: UpdateServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
+    Util.validateModel(tmpReq);
     let request = new UpdateServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.commodity)) {
+    if (!Util.isUnset(tmpReq.commodity)) {
       request.commodityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commodity, "Commodity", "json");
     }
 
-    if (!$dara.isNull(tmpReq.complianceMetadata)) {
+    if (!Util.isUnset(tmpReq.complianceMetadata)) {
       request.complianceMetadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.complianceMetadata, "ComplianceMetadata", "json");
     }
 
-    if (!$dara.isNull(tmpReq.updateOption)) {
+    if (!Util.isUnset(tmpReq.updateOption)) {
       request.updateOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateOption, "UpdateOption", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.alarmMetadata)) {
+    if (!Util.isUnset(request.alarmMetadata)) {
       query["AlarmMetadata"] = request.alarmMetadata;
     }
 
-    if (!$dara.isNull(request.approvalType)) {
+    if (!Util.isUnset(request.approvalType)) {
       query["ApprovalType"] = request.approvalType;
     }
 
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.commodityShrink)) {
+    if (!Util.isUnset(request.commodityShrink)) {
       query["Commodity"] = request.commodityShrink;
     }
 
-    if (!$dara.isNull(request.complianceMetadataShrink)) {
+    if (!Util.isUnset(request.complianceMetadataShrink)) {
       query["ComplianceMetadata"] = request.complianceMetadataShrink;
     }
 
-    if (!$dara.isNull(request.deployMetadata)) {
+    if (!Util.isUnset(request.deployMetadata)) {
       query["DeployMetadata"] = request.deployMetadata;
     }
 
-    if (!$dara.isNull(request.deployType)) {
+    if (!Util.isUnset(request.deployType)) {
       query["DeployType"] = request.deployType;
     }
 
-    if (!$dara.isNull(request.dryRun)) {
+    if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!$dara.isNull(request.duration)) {
+    if (!Util.isUnset(request.duration)) {
       query["Duration"] = request.duration;
     }
 
-    if (!$dara.isNull(request.isSupportOperated)) {
+    if (!Util.isUnset(request.isSupportOperated)) {
       query["IsSupportOperated"] = request.isSupportOperated;
     }
 
-    if (!$dara.isNull(request.licenseMetadata)) {
+    if (!Util.isUnset(request.licenseMetadata)) {
       query["LicenseMetadata"] = request.licenseMetadata;
     }
 
-    if (!$dara.isNull(request.logMetadata)) {
+    if (!Util.isUnset(request.logMetadata)) {
       query["LogMetadata"] = request.logMetadata;
     }
 
-    if (!$dara.isNull(request.operationMetadata)) {
+    if (!Util.isUnset(request.operationMetadata)) {
       query["OperationMetadata"] = request.operationMetadata;
     }
 
-    if (!$dara.isNull(request.policyNames)) {
+    if (!Util.isUnset(request.policyNames)) {
       query["PolicyNames"] = request.policyNames;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.resellable)) {
+    if (!Util.isUnset(request.resellable)) {
       query["Resellable"] = request.resellable;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceInfo)) {
+    if (!Util.isUnset(request.serviceInfo)) {
       query["ServiceInfo"] = request.serviceInfo;
     }
 
-    if (!$dara.isNull(request.serviceType)) {
+    if (!Util.isUnset(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    if (!$dara.isNull(request.shareType)) {
+    if (!Util.isUnset(request.shareType)) {
       query["ShareType"] = request.shareType;
     }
 
-    if (!$dara.isNull(request.tenantType)) {
+    if (!Util.isUnset(request.tenantType)) {
       query["TenantType"] = request.tenantType;
     }
 
-    if (!$dara.isNull(request.trialDuration)) {
+    if (!Util.isUnset(request.trialDuration)) {
       query["TrialDuration"] = request.trialDuration;
     }
 
-    if (!$dara.isNull(request.updateOptionShrink)) {
+    if (!Util.isUnset(request.updateOptionShrink)) {
       query["UpdateOption"] = request.updateOptionShrink;
     }
 
-    if (!$dara.isNull(request.upgradeMetadata)) {
+    if (!Util.isUnset(request.upgradeMetadata)) {
       query["UpgradeMetadata"] = request.upgradeMetadata;
     }
 
-    if (!$dara.isNull(request.versionName)) {
+    if (!Util.isUnset(request.versionName)) {
       query["VersionName"] = request.versionName;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29190,10 +26671,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
     } else {
-      return $dara.cast<UpdateServiceResponse>(await this.execute(params, req, runtime), new UpdateServiceResponse({}));
+      return $tea.cast<UpdateServiceResponse>(await this.execute(params, req, runtime), new UpdateServiceResponse({}));
     }
 
   }
@@ -29205,7 +26686,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceResponse
    */
   async updateService(request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceWithOptions(request, runtime);
   }
 
@@ -29216,39 +26697,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceInstanceAttributeResponse
    */
-  async updateServiceInstanceAttributeWithOptions(tmpReq: UpdateServiceInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<UpdateServiceInstanceAttributeResponse> {
-    tmpReq.validate();
+  async updateServiceInstanceAttributeWithOptions(tmpReq: UpdateServiceInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceAttributeResponse> {
+    Util.validateModel(tmpReq);
     let request = new UpdateServiceInstanceAttributeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.licenseData)) {
+    if (!Util.isUnset(tmpReq.licenseData)) {
       request.licenseDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.licenseData, "LicenseData", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.endTime)) {
+    if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!$dara.isNull(request.licenseDataShrink)) {
+    if (!Util.isUnset(request.licenseDataShrink)) {
       query["LicenseData"] = request.licenseDataShrink;
     }
 
-    if (!$dara.isNull(request.reason)) {
+    if (!Util.isUnset(request.reason)) {
       query["Reason"] = request.reason;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateServiceInstanceAttribute",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29259,10 +26740,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateServiceInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
     } else {
-      return $dara.cast<UpdateServiceInstanceAttributeResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+      return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
     }
 
   }
@@ -29274,7 +26755,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceInstanceAttributeResponse
    */
   async updateServiceInstanceAttribute(request: UpdateServiceInstanceAttributeRequest): Promise<UpdateServiceInstanceAttributeResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceInstanceAttributeWithOptions(request, runtime);
   }
 
@@ -29285,43 +26766,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceInstanceSpecResponse
    */
-  async updateServiceInstanceSpecWithOptions(tmpReq: UpdateServiceInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<UpdateServiceInstanceSpecResponse> {
-    tmpReq.validate();
+  async updateServiceInstanceSpecWithOptions(tmpReq: UpdateServiceInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceSpecResponse> {
+    Util.validateModel(tmpReq);
     let request = new UpdateServiceInstanceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.parameters)) {
+    if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.enableUserPrometheus)) {
+    if (!Util.isUnset(request.enableUserPrometheus)) {
       query["EnableUserPrometheus"] = request.enableUserPrometheus;
     }
 
-    if (!$dara.isNull(request.operationName)) {
+    if (!Util.isUnset(request.operationName)) {
       query["OperationName"] = request.operationName;
     }
 
-    if (!$dara.isNull(request.parametersShrink)) {
+    if (!Util.isUnset(request.parametersShrink)) {
       query["Parameters"] = request.parametersShrink;
     }
 
-    if (!$dara.isNull(request.predefinedParametersName)) {
+    if (!Util.isUnset(request.predefinedParametersName)) {
       query["PredefinedParametersName"] = request.predefinedParametersName;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateServiceInstanceSpec",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29332,10 +26813,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
     } else {
-      return $dara.cast<UpdateServiceInstanceSpecResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+      return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
     }
 
   }
@@ -29347,7 +26828,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceInstanceSpecResponse
    */
   async updateServiceInstanceSpec(request: UpdateServiceInstanceSpecRequest): Promise<UpdateServiceInstanceSpecResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceInstanceSpecWithOptions(request, runtime);
   }
 
@@ -29358,29 +26839,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceTestCaseResponse
    */
-  async updateServiceTestCaseWithOptions(request: UpdateServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<UpdateServiceTestCaseResponse> {
-    request.validate();
+  async updateServiceTestCaseWithOptions(request: UpdateServiceTestCaseRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceTestCaseResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.testCaseId)) {
+    if (!Util.isUnset(request.testCaseId)) {
       query["TestCaseId"] = request.testCaseId;
     }
 
-    if (!$dara.isNull(request.testCaseName)) {
+    if (!Util.isUnset(request.testCaseName)) {
       query["TestCaseName"] = request.testCaseName;
     }
 
-    if (!$dara.isNull(request.testConfig)) {
+    if (!Util.isUnset(request.testConfig)) {
       query["TestConfig"] = request.testConfig;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateServiceTestCase",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29391,10 +26872,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new UpdateServiceTestCaseResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new UpdateServiceTestCaseResponse({}));
     } else {
-      return $dara.cast<UpdateServiceTestCaseResponse>(await this.execute(params, req, runtime), new UpdateServiceTestCaseResponse({}));
+      return $tea.cast<UpdateServiceTestCaseResponse>(await this.execute(params, req, runtime), new UpdateServiceTestCaseResponse({}));
     }
 
   }
@@ -29406,7 +26887,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceTestCaseResponse
    */
   async updateServiceTestCase(request: UpdateServiceTestCaseRequest): Promise<UpdateServiceTestCaseResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceTestCaseWithOptions(request, runtime);
   }
 
@@ -29417,37 +26898,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSharedAccountPermissionResponse
    */
-  async updateSharedAccountPermissionWithOptions(request: UpdateSharedAccountPermissionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSharedAccountPermissionResponse> {
-    request.validate();
+  async updateSharedAccountPermissionWithOptions(request: UpdateSharedAccountPermissionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSharedAccountPermissionResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.permission)) {
+    if (!Util.isUnset(request.permission)) {
       query["Permission"] = request.permission;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.type)) {
+    if (!Util.isUnset(request.type)) {
       query["Type"] = request.type;
     }
 
-    if (!$dara.isNull(request.userAliUid)) {
+    if (!Util.isUnset(request.userAliUid)) {
       query["UserAliUid"] = request.userAliUid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateSharedAccountPermission",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29458,10 +26939,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateSharedAccountPermissionResponse>(await this.callApi(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSharedAccountPermissionResponse>(await this.callApi(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
     } else {
-      return $dara.cast<UpdateSharedAccountPermissionResponse>(await this.execute(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
+      return $tea.cast<UpdateSharedAccountPermissionResponse>(await this.execute(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
     }
 
   }
@@ -29473,7 +26954,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSharedAccountPermissionResponse
    */
   async updateSharedAccountPermission(request: UpdateSharedAccountPermissionRequest): Promise<UpdateSharedAccountPermissionResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSharedAccountPermissionWithOptions(request, runtime);
   }
 
@@ -29484,41 +26965,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSupplierInformationResponse
    */
-  async updateSupplierInformationWithOptions(request: UpdateSupplierInformationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSupplierInformationResponse> {
-    request.validate();
+  async updateSupplierInformationWithOptions(request: UpdateSupplierInformationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSupplierInformationResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.deliverySettings)) {
+    if (!Util.isUnset(request.deliverySettings)) {
       query["DeliverySettings"] = request.deliverySettings;
     }
 
-    if (!$dara.isNull(request.operationIp)) {
+    if (!Util.isUnset(request.operationIp)) {
       query["OperationIp"] = request.operationIp;
     }
 
-    if (!$dara.isNull(request.operationMfaPresent)) {
+    if (!Util.isUnset(request.operationMfaPresent)) {
       query["OperationMfaPresent"] = request.operationMfaPresent;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.supplierDesc)) {
+    if (!Util.isUnset(request.supplierDesc)) {
       query["SupplierDesc"] = request.supplierDesc;
     }
 
-    if (!$dara.isNull(request.supplierLogo)) {
+    if (!Util.isUnset(request.supplierLogo)) {
       query["SupplierLogo"] = request.supplierLogo;
     }
 
-    if (!$dara.isNull(request.supplierUrl)) {
+    if (!Util.isUnset(request.supplierUrl)) {
       query["SupplierUrl"] = request.supplierUrl;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpdateSupplierInformation",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29529,10 +27010,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateSupplierInformationResponse>(await this.callApi(params, req, runtime), new UpdateSupplierInformationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSupplierInformationResponse>(await this.callApi(params, req, runtime), new UpdateSupplierInformationResponse({}));
     } else {
-      return $dara.cast<UpdateSupplierInformationResponse>(await this.execute(params, req, runtime), new UpdateSupplierInformationResponse({}));
+      return $tea.cast<UpdateSupplierInformationResponse>(await this.execute(params, req, runtime), new UpdateSupplierInformationResponse({}));
     }
 
   }
@@ -29544,7 +27025,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSupplierInformationResponse
    */
   async updateSupplierInformation(request: UpdateSupplierInformationRequest): Promise<UpdateSupplierInformationResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSupplierInformationWithOptions(request, runtime);
   }
 
@@ -29555,43 +27036,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeServiceInstanceResponse
    */
-  async upgradeServiceInstanceWithOptions(tmpReq: UpgradeServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<UpgradeServiceInstanceResponse> {
-    tmpReq.validate();
+  async upgradeServiceInstanceWithOptions(tmpReq: UpgradeServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeServiceInstanceResponse> {
+    Util.validateModel(tmpReq);
     let request = new UpgradeServiceInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.parameters)) {
+    if (!Util.isUnset(tmpReq.parameters)) {
       request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.dryRun)) {
+    if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!$dara.isNull(request.parametersShrink)) {
+    if (!Util.isUnset(request.parametersShrink)) {
       query["Parameters"] = request.parametersShrink;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceInstanceId)) {
+    if (!Util.isUnset(request.serviceInstanceId)) {
       query["ServiceInstanceId"] = request.serviceInstanceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "UpgradeServiceInstance",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29602,10 +27083,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
     } else {
-      return $dara.cast<UpgradeServiceInstanceResponse>(await this.execute(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+      return $tea.cast<UpgradeServiceInstanceResponse>(await this.execute(params, req, runtime), new UpgradeServiceInstanceResponse({}));
     }
 
   }
@@ -29617,7 +27098,7 @@ export default class Client extends OpenApi {
    * @returns UpgradeServiceInstanceResponse
    */
   async upgradeServiceInstance(request: UpgradeServiceInstanceRequest): Promise<UpgradeServiceInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.upgradeServiceInstanceWithOptions(request, runtime);
   }
 
@@ -29628,29 +27109,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns WithdrawServiceResponse
    */
-  async withdrawServiceWithOptions(request: WithdrawServiceRequest, runtime: $dara.RuntimeOptions): Promise<WithdrawServiceResponse> {
-    request.validate();
+  async withdrawServiceWithOptions(request: WithdrawServiceRequest, runtime: $Util.RuntimeOptions): Promise<WithdrawServiceResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.clientToken)) {
+    if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.serviceId)) {
+    if (!Util.isUnset(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
 
-    if (!$dara.isNull(request.serviceVersion)) {
+    if (!Util.isUnset(request.serviceVersion)) {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "WithdrawService",
       version: "2021-05-21",
       protocol: "HTTPS",
@@ -29661,10 +27142,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<WithdrawServiceResponse>(await this.callApi(params, req, runtime), new WithdrawServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<WithdrawServiceResponse>(await this.callApi(params, req, runtime), new WithdrawServiceResponse({}));
     } else {
-      return $dara.cast<WithdrawServiceResponse>(await this.execute(params, req, runtime), new WithdrawServiceResponse({}));
+      return $tea.cast<WithdrawServiceResponse>(await this.execute(params, req, runtime), new WithdrawServiceResponse({}));
     }
 
   }
@@ -29676,7 +27157,7 @@ export default class Client extends OpenApi {
    * @returns WithdrawServiceResponse
    */
   async withdrawService(request: WithdrawServiceRequest): Promise<WithdrawServiceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.withdrawServiceWithOptions(request, runtime);
   }
 
