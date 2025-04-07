@@ -1,274 +1,21 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
-import * as $dara from '@darabonba/typescript';
+import Util, * as $Util from '@alicloud/tea-util';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
+import * as $tea from '@alicloud/tea-typescript';
 
-export class GetConnectionTicketResponseBodyBindQueueInfo extends $dara.Model {
-  queueStatus?: string;
-  rank?: number;
-  readyTimeout?: number;
-  remainingTime?: number;
-  requestKey?: string;
-  targetId?: string;
-  waitTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      queueStatus: 'QueueStatus',
-      rank: 'Rank',
-      readyTimeout: 'ReadyTimeout',
-      remainingTime: 'RemainingTime',
-      requestKey: 'RequestKey',
-      targetId: 'TargetId',
-      waitTime: 'WaitTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queueStatus: 'string',
-      rank: 'number',
-      readyTimeout: 'number',
-      remainingTime: 'number',
-      requestKey: 'string',
-      targetId: 'string',
-      waitTime: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionTicketResponseBodyPolicy extends $dara.Model {
-  resolutionAdaptive?: string;
-  resolutionHeight?: number;
-  resolutionWidth?: number;
-  static names(): { [key: string]: string } {
-    return {
-      resolutionAdaptive: 'ResolutionAdaptive',
-      resolutionHeight: 'ResolutionHeight',
-      resolutionWidth: 'ResolutionWidth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resolutionAdaptive: 'string',
-      resolutionHeight: 'number',
-      resolutionWidth: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPublishedAppInfoResponseBodyAppModels extends $dara.Model {
+export class GetConnectionTicketRequest extends $tea.Model {
   /**
    * @example
-   * img-f37nddbjc1lje14st
+   * INTERNET
+   * 
+   * **if can be null:**
+   * true
    */
-  appCenterImageId?: string;
-  /**
-   * @example
-   * ca-fxwp4koyr5y2sp4mz
-   */
-  appId?: string;
-  /**
-   * @example
-   * Microsoft Word
-   */
-  appName?: string;
-  appThemeColor?: string;
-  /**
-   * @example
-   * R2021a
-   */
-  appVersion?: string;
-  /**
-   * @example
-   * v1.0
-   */
-  appVersionName?: string;
-  authTime?: string;
-  /**
-   * @example
-   * 2
-   */
-  categoryId?: number;
-  /**
-   * @example
-   * 1
-   */
-  categoryType?: number;
-  /**
-   * @example
-   * https://app-streaming-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1973619010349344/1634523814270_Matlab.png
-   */
-  iconUrl?: string;
-  /**
-   * @example
-   * True
-   */
-  isAuth?: boolean;
-  /**
-   * @example
-   * True
-   */
-  usedInSession?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageId: 'AppCenterImageId',
-      appId: 'AppId',
-      appName: 'AppName',
-      appThemeColor: 'AppThemeColor',
-      appVersion: 'AppVersion',
-      appVersionName: 'AppVersionName',
-      authTime: 'AuthTime',
-      categoryId: 'CategoryId',
-      categoryType: 'CategoryType',
-      iconUrl: 'IconUrl',
-      isAuth: 'IsAuth',
-      usedInSession: 'UsedInSession',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageId: 'string',
-      appId: 'string',
-      appName: 'string',
-      appThemeColor: 'string',
-      appVersion: 'string',
-      appVersionName: 'string',
-      authTime: 'string',
-      categoryId: 'number',
-      categoryType: 'number',
-      iconUrl: 'string',
-      isAuth: 'boolean',
-      usedInSession: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRunningAppsResponseBodyRunningCloudApps extends $dara.Model {
-  /**
-   * @example
-   * ca-dln05y44ze6esfl8x
-   */
-  appId?: string;
-  /**
-   * @example
-   * aig-dk8p95irk9xs5xi6a
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @example
-   * ai-gc1gemx6vpa6vlync
-   */
-  appInstanceId?: string;
-  /**
-   * @example
-   * alihealth-keeper
-   */
-  appName?: string;
-  /**
-   * @example
-   * 11.1
-   */
-  appVersion?: string;
-  /**
-   * @example
-   * test1.0
-   */
-  appVersionName?: string;
-  /**
-   * @example
-   * 87
-   */
-  duration?: number;
-  /**
-   * @example
-   * https://app-icon-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/187465/18_bf1.jpg
-   */
-  iconUrl?: string;
-  /**
-   * @example
-   * Windows
-   */
-  osType?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 1642748400
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      appName: 'AppName',
-      appVersion: 'AppVersion',
-      appVersionName: 'AppVersionName',
-      duration: 'Duration',
-      iconUrl: 'IconUrl',
-      osType: 'OsType',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      appName: 'string',
-      appVersion: 'string',
-      appVersionName: 'string',
-      duration: 'number',
-      iconUrl: 'string',
-      osType: 'string',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionTicketRequest extends $dara.Model {
+  accessType?: string;
   /**
    * @example
    * ca-etn4zizgaezo9gis9
@@ -365,6 +112,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       appId: 'AppId',
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
@@ -393,6 +141,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessType: 'string',
       appId: 'string',
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
@@ -419,16 +168,12 @@ export class GetConnectionTicketRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConnectionTicketResponseBody extends $dara.Model {
+export class GetConnectionTicketResponseBody extends $tea.Model {
   /**
    * @example
    * aig-53fvrq1oanz6cxzi3
@@ -538,22 +283,12 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.bindQueueInfo && typeof (this.bindQueueInfo as any).validate === 'function') {
-      (this.bindQueueInfo as any).validate();
-    }
-    if(this.policy && typeof (this.policy as any).validate === 'function') {
-      (this.policy as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConnectionTicketResponse extends $dara.Model {
+export class GetConnectionTicketResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetConnectionTicketResponseBody;
@@ -573,22 +308,12 @@ export class GetConnectionTicketResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPublishedAppInfoRequest extends $dara.Model {
+export class ListPublishedAppInfoRequest extends $tea.Model {
   /**
    * @example
    * Microsoft Word
@@ -696,16 +421,12 @@ export class ListPublishedAppInfoRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPublishedAppInfoResponseBody extends $dara.Model {
+export class ListPublishedAppInfoResponseBody extends $tea.Model {
   /**
    * @remarks
    * appModels
@@ -740,19 +461,12 @@ export class ListPublishedAppInfoResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.appModels)) {
-      $dara.Model.validateArray(this.appModels);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPublishedAppInfoResponse extends $dara.Model {
+export class ListPublishedAppInfoResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPublishedAppInfoResponseBody;
@@ -772,22 +486,12 @@ export class ListPublishedAppInfoResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRunningAppsRequest extends $dara.Model {
+export class ListRunningAppsRequest extends $tea.Model {
   /**
    * @example
    * cn-hangzhou
@@ -882,16 +586,12 @@ export class ListRunningAppsRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRunningAppsResponseBody extends $dara.Model {
+export class ListRunningAppsResponseBody extends $tea.Model {
   /**
    * @remarks
    * Id of the request
@@ -915,19 +615,12 @@ export class ListRunningAppsResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.runningCloudApps)) {
-      $dara.Model.validateArray(this.runningCloudApps);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRunningAppsResponse extends $dara.Model {
+export class ListRunningAppsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListRunningAppsResponseBody;
@@ -947,22 +640,12 @@ export class ListRunningAppsResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetAppResourcesRequest extends $dara.Model {
+export class ResetAppResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1079,19 +762,12 @@ export class ResetAppResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceIds)) {
-      $dara.Model.validateArray(this.resourceIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetAppResourcesResponseBody extends $dara.Model {
+export class ResetAppResourcesResponseBody extends $tea.Model {
   /**
    * @example
    * InvalidAppInstanceGroup.NotFound
@@ -1130,16 +806,12 @@ export class ResetAppResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetAppResourcesResponse extends $dara.Model {
+export class ResetAppResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ResetAppResourcesResponseBody;
@@ -1159,22 +831,12 @@ export class ResetAppResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartAppResourcesRequest extends $dara.Model {
+export class RestartAppResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1291,19 +953,12 @@ export class RestartAppResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceIds)) {
-      $dara.Model.validateArray(this.resourceIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartAppResourcesResponseBody extends $dara.Model {
+export class RestartAppResourcesResponseBody extends $tea.Model {
   /**
    * @example
    * InvalidAppInstanceGroup.NotFound
@@ -1342,16 +997,12 @@ export class RestartAppResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartAppResourcesResponse extends $dara.Model {
+export class RestartAppResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RestartAppResourcesResponseBody;
@@ -1371,22 +1022,12 @@ export class RestartAppResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAppResourcesRequest extends $dara.Model {
+export class StartAppResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1503,19 +1144,12 @@ export class StartAppResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceIds)) {
-      $dara.Model.validateArray(this.resourceIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAppResourcesResponseBody extends $dara.Model {
+export class StartAppResourcesResponseBody extends $tea.Model {
   /**
    * @example
    * InvalidAppInstanceGroup.NotFound
@@ -1554,16 +1188,12 @@ export class StartAppResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAppResourcesResponse extends $dara.Model {
+export class StartAppResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartAppResourcesResponseBody;
@@ -1583,22 +1213,12 @@ export class StartAppResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppRequest extends $dara.Model {
+export class StopAppRequest extends $tea.Model {
   /**
    * @example
    * 1924794279035094
@@ -1756,16 +1376,12 @@ export class StopAppRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppResponseBody extends $dara.Model {
+export class StopAppResponseBody extends $tea.Model {
   /**
    * @example
    * 83A9075B-C646-59A9-8232-CAE41AF4B9E3
@@ -1783,16 +1399,12 @@ export class StopAppResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppResponse extends $dara.Model {
+export class StopAppResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopAppResponseBody;
@@ -1812,22 +1424,12 @@ export class StopAppResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppResourcesRequest extends $dara.Model {
+export class StopAppResourcesRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1944,19 +1546,12 @@ export class StopAppResourcesRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    if(Array.isArray(this.resourceIds)) {
-      $dara.Model.validateArray(this.resourceIds);
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppResourcesResponseBody extends $dara.Model {
+export class StopAppResourcesResponseBody extends $tea.Model {
   /**
    * @example
    * InvalidAppInstanceGroup.NotFound
@@ -1995,16 +1590,12 @@ export class StopAppResourcesResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAppResourcesResponse extends $dara.Model {
+export class StopAppResourcesResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopAppResourcesResponseBody;
@@ -2024,22 +1615,12 @@ export class StopAppResourcesResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindRequest extends $dara.Model {
+export class UnbindRequest extends $tea.Model {
   /**
    * @example
    * ca-fxwp4koxs8hopi94e
@@ -2149,16 +1730,12 @@ export class UnbindRequest extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindResponseBody extends $dara.Model {
+export class UnbindResponseBody extends $tea.Model {
   /**
    * @remarks
    * Id of the request
@@ -2179,16 +1756,12 @@ export class UnbindResponseBody extends $dara.Model {
     };
   }
 
-  validate() {
-    super.validate();
-  }
-
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindResponse extends $dara.Model {
+export class UnbindResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnbindResponseBody;
@@ -2208,14 +1781,251 @@ export class UnbindResponse extends $dara.Model {
     };
   }
 
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBodyBindQueueInfo extends $tea.Model {
+  queueStatus?: string;
+  rank?: number;
+  readyTimeout?: number;
+  remainingTime?: number;
+  requestKey?: string;
+  targetId?: string;
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      queueStatus: 'QueueStatus',
+      rank: 'Rank',
+      readyTimeout: 'ReadyTimeout',
+      remainingTime: 'RemainingTime',
+      requestKey: 'RequestKey',
+      targetId: 'TargetId',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueStatus: 'string',
+      rank: 'number',
+      readyTimeout: 'number',
+      remainingTime: 'number',
+      requestKey: 'string',
+      targetId: 'string',
+      waitTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBodyPolicy extends $tea.Model {
+  resolutionAdaptive?: string;
+  resolutionHeight?: number;
+  resolutionWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resolutionAdaptive: 'ResolutionAdaptive',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resolutionAdaptive: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAppInfoResponseBodyAppModels extends $tea.Model {
+  /**
+   * @example
+   * img-f37nddbjc1lje14st
+   */
+  appCenterImageId?: string;
+  /**
+   * @example
+   * ca-fxwp4koyr5y2sp4mz
+   */
+  appId?: string;
+  /**
+   * @example
+   * Microsoft Word
+   */
+  appName?: string;
+  appThemeColor?: string;
+  /**
+   * @example
+   * R2021a
+   */
+  appVersion?: string;
+  /**
+   * @example
+   * v1.0
+   */
+  appVersionName?: string;
+  authTime?: string;
+  /**
+   * @example
+   * 2
+   */
+  categoryId?: number;
+  /**
+   * @example
+   * 1
+   */
+  categoryType?: number;
+  /**
+   * @example
+   * https://app-streaming-icon-prod-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/1973619010349344/1634523814270_Matlab.png
+   */
+  iconUrl?: string;
+  /**
+   * @example
+   * True
+   */
+  isAuth?: boolean;
+  /**
+   * @example
+   * True
+   */
+  usedInSession?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageId: 'AppCenterImageId',
+      appId: 'AppId',
+      appName: 'AppName',
+      appThemeColor: 'AppThemeColor',
+      appVersion: 'AppVersion',
+      appVersionName: 'AppVersionName',
+      authTime: 'AuthTime',
+      categoryId: 'CategoryId',
+      categoryType: 'CategoryType',
+      iconUrl: 'IconUrl',
+      isAuth: 'IsAuth',
+      usedInSession: 'UsedInSession',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageId: 'string',
+      appId: 'string',
+      appName: 'string',
+      appThemeColor: 'string',
+      appVersion: 'string',
+      appVersionName: 'string',
+      authTime: 'string',
+      categoryId: 'number',
+      categoryType: 'number',
+      iconUrl: 'string',
+      isAuth: 'boolean',
+      usedInSession: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRunningAppsResponseBodyRunningCloudApps extends $tea.Model {
+  /**
+   * @example
+   * ca-dln05y44ze6esfl8x
+   */
+  appId?: string;
+  /**
+   * @example
+   * aig-dk8p95irk9xs5xi6a
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-gc1gemx6vpa6vlync
+   */
+  appInstanceId?: string;
+  /**
+   * @example
+   * alihealth-keeper
+   */
+  appName?: string;
+  /**
+   * @example
+   * 11.1
+   */
+  appVersion?: string;
+  /**
+   * @example
+   * test1.0
+   */
+  appVersionName?: string;
+  /**
+   * @example
+   * 87
+   */
+  duration?: number;
+  /**
+   * @example
+   * https://app-icon-shanghai.oss-cn-shanghai.aliyuncs.com/tenant/187465/18_bf1.jpg
+   */
+  iconUrl?: string;
+  /**
+   * @example
+   * Windows
+   */
+  osType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 1642748400
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appName: 'AppName',
+      appVersion: 'AppVersion',
+      appVersionName: 'AppVersionName',
+      duration: 'Duration',
+      iconUrl: 'IconUrl',
+      osType: 'OsType',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appName: 'string',
+      appVersion: 'string',
+      appVersionName: 'string',
+      duration: 'number',
+      iconUrl: 'string',
+      osType: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2226,7 +2036,7 @@ export class UnbindResponse extends $dara.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApiUtil.Config) {
+  constructor(config: $OpenApi.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "";
@@ -2236,15 +2046,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!$dara.isNull(endpoint)) {
+    if (!Util.empty(endpoint)) {
       return endpoint;
     }
 
-    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -2254,105 +2064,109 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConnectionTicketResponse
    */
-  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<GetConnectionTicketResponse> {
-    request.validate();
+  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appId)) {
+    if (!Util.isUnset(request.accessType)) {
+      body["AccessType"] = request.accessType;
+    }
+
+    if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.appInstanceId)) {
+    if (!Util.isUnset(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!$dara.isNull(request.appVersion)) {
+    if (!Util.isUnset(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!$dara.isNull(request.autoConnectInQueue)) {
+    if (!Util.isUnset(request.autoConnectInQueue)) {
       body["AutoConnectInQueue"] = request.autoConnectInQueue;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientType)) {
+    if (!Util.isUnset(request.clientType)) {
       body["ClientType"] = request.clientType;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.connectionProperties)) {
+    if (!Util.isUnset(request.connectionProperties)) {
       body["ConnectionProperties"] = request.connectionProperties;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.environmentConfig)) {
+    if (!Util.isUnset(request.environmentConfig)) {
       body["EnvironmentConfig"] = request.environmentConfig;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.param)) {
+    if (!Util.isUnset(request.param)) {
       body["Param"] = request.param;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.resourceId)) {
+    if (!Util.isUnset(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.taskId)) {
+    if (!Util.isUnset(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!$dara.isNull(request.tenantId)) {
+    if (!Util.isUnset(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "GetConnectionTicket",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2363,10 +2177,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
     } else {
-      return $dara.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
+      return $tea.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
     }
 
   }
@@ -2378,7 +2192,7 @@ export default class Client extends OpenApi {
    * @returns GetConnectionTicketResponse
    */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
   }
 
@@ -2389,73 +2203,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPublishedAppInfoResponse
    */
-  async listPublishedAppInfoWithOptions(request: ListPublishedAppInfoRequest, runtime: $dara.RuntimeOptions): Promise<ListPublishedAppInfoResponse> {
-    request.validate();
+  async listPublishedAppInfoWithOptions(request: ListPublishedAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListPublishedAppInfoResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.appName)) {
+    if (!Util.isUnset(request.appName)) {
       query["AppName"] = request.appName;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.categoryId)) {
+    if (!Util.isUnset(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
     }
 
-    if (!$dara.isNull(request.categoryType)) {
+    if (!Util.isUnset(request.categoryType)) {
       query["CategoryType"] = request.categoryType;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       query["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       query["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       query["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       query["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.orderParam)) {
+    if (!Util.isUnset(request.orderParam)) {
       query["OrderParam"] = request.orderParam;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.sortType)) {
+    if (!Util.isUnset(request.sortType)) {
       query["SortType"] = request.sortType;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListPublishedAppInfo",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2466,10 +2280,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPublishedAppInfoResponse>(await this.callApi(params, req, runtime), new ListPublishedAppInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListPublishedAppInfoResponse>(await this.callApi(params, req, runtime), new ListPublishedAppInfoResponse({}));
     } else {
-      return $dara.cast<ListPublishedAppInfoResponse>(await this.execute(params, req, runtime), new ListPublishedAppInfoResponse({}));
+      return $tea.cast<ListPublishedAppInfoResponse>(await this.execute(params, req, runtime), new ListPublishedAppInfoResponse({}));
     }
 
   }
@@ -2481,7 +2295,7 @@ export default class Client extends OpenApi {
    * @returns ListPublishedAppInfoResponse
    */
   async listPublishedAppInfo(request: ListPublishedAppInfoRequest): Promise<ListPublishedAppInfoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublishedAppInfoWithOptions(request, runtime);
   }
 
@@ -2492,61 +2306,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRunningAppsResponse
    */
-  async listRunningAppsWithOptions(request: ListRunningAppsRequest, runtime: $dara.RuntimeOptions): Promise<ListRunningAppsResponse> {
-    request.validate();
+  async listRunningAppsWithOptions(request: ListRunningAppsRequest, runtime: $Util.RuntimeOptions): Promise<ListRunningAppsResponse> {
+    Util.validateModel(request);
     let query = { };
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       query["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       query["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       query["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       query["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.tenantId)) {
+    if (!Util.isUnset(request.tenantId)) {
       query["TenantId"] = request.tenantId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ListRunningApps",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2557,10 +2371,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListRunningAppsResponse>(await this.callApi(params, req, runtime), new ListRunningAppsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListRunningAppsResponse>(await this.callApi(params, req, runtime), new ListRunningAppsResponse({}));
     } else {
-      return $dara.cast<ListRunningAppsResponse>(await this.execute(params, req, runtime), new ListRunningAppsResponse({}));
+      return $tea.cast<ListRunningAppsResponse>(await this.execute(params, req, runtime), new ListRunningAppsResponse({}));
     }
 
   }
@@ -2572,7 +2386,7 @@ export default class Client extends OpenApi {
    * @returns ListRunningAppsResponse
    */
   async listRunningApps(request: ListRunningAppsRequest): Promise<ListRunningAppsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.listRunningAppsWithOptions(request, runtime);
   }
 
@@ -2583,65 +2397,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetAppResourcesResponse
    */
-  async resetAppResourcesWithOptions(request: ResetAppResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ResetAppResourcesResponse> {
-    request.validate();
+  async resetAppResourcesWithOptions(request: ResetAppResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppResourcesResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.resourceIds)) {
+    if (!Util.isUnset(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "ResetAppResources",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2652,10 +2466,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetAppResourcesResponse>(await this.callApi(params, req, runtime), new ResetAppResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ResetAppResourcesResponse>(await this.callApi(params, req, runtime), new ResetAppResourcesResponse({}));
     } else {
-      return $dara.cast<ResetAppResourcesResponse>(await this.execute(params, req, runtime), new ResetAppResourcesResponse({}));
+      return $tea.cast<ResetAppResourcesResponse>(await this.execute(params, req, runtime), new ResetAppResourcesResponse({}));
     }
 
   }
@@ -2667,7 +2481,7 @@ export default class Client extends OpenApi {
    * @returns ResetAppResourcesResponse
    */
   async resetAppResources(request: ResetAppResourcesRequest): Promise<ResetAppResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAppResourcesWithOptions(request, runtime);
   }
 
@@ -2678,65 +2492,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartAppResourcesResponse
    */
-  async restartAppResourcesWithOptions(request: RestartAppResourcesRequest, runtime: $dara.RuntimeOptions): Promise<RestartAppResourcesResponse> {
-    request.validate();
+  async restartAppResourcesWithOptions(request: RestartAppResourcesRequest, runtime: $Util.RuntimeOptions): Promise<RestartAppResourcesResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.resourceIds)) {
+    if (!Util.isUnset(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "RestartAppResources",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2747,10 +2561,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RestartAppResourcesResponse>(await this.callApi(params, req, runtime), new RestartAppResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestartAppResourcesResponse>(await this.callApi(params, req, runtime), new RestartAppResourcesResponse({}));
     } else {
-      return $dara.cast<RestartAppResourcesResponse>(await this.execute(params, req, runtime), new RestartAppResourcesResponse({}));
+      return $tea.cast<RestartAppResourcesResponse>(await this.execute(params, req, runtime), new RestartAppResourcesResponse({}));
     }
 
   }
@@ -2762,7 +2576,7 @@ export default class Client extends OpenApi {
    * @returns RestartAppResourcesResponse
    */
   async restartAppResources(request: RestartAppResourcesRequest): Promise<RestartAppResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.restartAppResourcesWithOptions(request, runtime);
   }
 
@@ -2773,65 +2587,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartAppResourcesResponse
    */
-  async startAppResourcesWithOptions(request: StartAppResourcesRequest, runtime: $dara.RuntimeOptions): Promise<StartAppResourcesResponse> {
-    request.validate();
+  async startAppResourcesWithOptions(request: StartAppResourcesRequest, runtime: $Util.RuntimeOptions): Promise<StartAppResourcesResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.resourceIds)) {
+    if (!Util.isUnset(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "StartAppResources",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2842,10 +2656,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartAppResourcesResponse>(await this.callApi(params, req, runtime), new StartAppResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartAppResourcesResponse>(await this.callApi(params, req, runtime), new StartAppResourcesResponse({}));
     } else {
-      return $dara.cast<StartAppResourcesResponse>(await this.execute(params, req, runtime), new StartAppResourcesResponse({}));
+      return $tea.cast<StartAppResourcesResponse>(await this.execute(params, req, runtime), new StartAppResourcesResponse({}));
     }
 
   }
@@ -2857,7 +2671,7 @@ export default class Client extends OpenApi {
    * @returns StartAppResourcesResponse
    */
   async startAppResources(request: StartAppResourcesRequest): Promise<StartAppResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.startAppResourcesWithOptions(request, runtime);
   }
 
@@ -2868,97 +2682,97 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopAppResponse
    */
-  async stopAppWithOptions(request: StopAppRequest, runtime: $dara.RuntimeOptions): Promise<StopAppResponse> {
-    request.validate();
+  async stopAppWithOptions(request: StopAppRequest, runtime: $Util.RuntimeOptions): Promise<StopAppResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.aliUid)) {
+    if (!Util.isUnset(request.aliUid)) {
       body["AliUid"] = request.aliUid;
     }
 
-    if (!$dara.isNull(request.apiType)) {
+    if (!Util.isUnset(request.apiType)) {
       body["ApiType"] = request.apiType;
     }
 
-    if (!$dara.isNull(request.appId)) {
+    if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.appInstanceId)) {
+    if (!Util.isUnset(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientChannel)) {
+    if (!Util.isUnset(request.clientChannel)) {
       body["ClientChannel"] = request.clientChannel;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.forceStop)) {
+    if (!Util.isUnset(request.forceStop)) {
       body["ForceStop"] = request.forceStop;
     }
 
-    if (!$dara.isNull(request.idpId)) {
+    if (!Util.isUnset(request.idpId)) {
       body["IdpId"] = request.idpId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.regionId)) {
+    if (!Util.isUnset(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    if (!$dara.isNull(request.wyId)) {
+    if (!Util.isUnset(request.wyId)) {
       body["WyId"] = request.wyId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "StopApp",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -2969,10 +2783,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopAppResponse>(await this.callApi(params, req, runtime), new StopAppResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopAppResponse>(await this.callApi(params, req, runtime), new StopAppResponse({}));
     } else {
-      return $dara.cast<StopAppResponse>(await this.execute(params, req, runtime), new StopAppResponse({}));
+      return $tea.cast<StopAppResponse>(await this.execute(params, req, runtime), new StopAppResponse({}));
     }
 
   }
@@ -2984,7 +2798,7 @@ export default class Client extends OpenApi {
    * @returns StopAppResponse
    */
   async stopApp(request: StopAppRequest): Promise<StopAppResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAppWithOptions(request, runtime);
   }
 
@@ -2995,65 +2809,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopAppResourcesResponse
    */
-  async stopAppResourcesWithOptions(request: StopAppResourcesRequest, runtime: $dara.RuntimeOptions): Promise<StopAppResourcesResponse> {
-    request.validate();
+  async stopAppResourcesWithOptions(request: StopAppResourcesRequest, runtime: $Util.RuntimeOptions): Promise<StopAppResourcesResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.bizRegionId)) {
+    if (!Util.isUnset(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.resourceIds)) {
+    if (!Util.isUnset(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.uuid)) {
+    if (!Util.isUnset(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "StopAppResources",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -3064,10 +2878,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopAppResourcesResponse>(await this.callApi(params, req, runtime), new StopAppResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopAppResourcesResponse>(await this.callApi(params, req, runtime), new StopAppResourcesResponse({}));
     } else {
-      return $dara.cast<StopAppResourcesResponse>(await this.execute(params, req, runtime), new StopAppResourcesResponse({}));
+      return $tea.cast<StopAppResourcesResponse>(await this.execute(params, req, runtime), new StopAppResourcesResponse({}));
     }
 
   }
@@ -3079,7 +2893,7 @@ export default class Client extends OpenApi {
    * @returns StopAppResourcesResponse
    */
   async stopAppResources(request: StopAppResourcesRequest): Promise<StopAppResourcesResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAppResourcesWithOptions(request, runtime);
   }
 
@@ -3090,65 +2904,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindResponse
    */
-  async unbindWithOptions(request: UnbindRequest, runtime: $dara.RuntimeOptions): Promise<UnbindResponse> {
-    request.validate();
+  async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
+    Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.appId)) {
+    if (!Util.isUnset(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!$dara.isNull(request.appInstanceGroupId)) {
+    if (!Util.isUnset(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!$dara.isNull(request.appInstanceId)) {
+    if (!Util.isUnset(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!$dara.isNull(request.clientId)) {
+    if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!$dara.isNull(request.clientIp)) {
+    if (!Util.isUnset(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!$dara.isNull(request.clientOS)) {
+    if (!Util.isUnset(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!$dara.isNull(request.clientVersion)) {
+    if (!Util.isUnset(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!$dara.isNull(request.endUserId)) {
+    if (!Util.isUnset(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!$dara.isNull(request.loginRegionId)) {
+    if (!Util.isUnset(request.loginRegionId)) {
       body["LoginRegionId"] = request.loginRegionId;
     }
 
-    if (!$dara.isNull(request.loginToken)) {
+    if (!Util.isUnset(request.loginToken)) {
       body["LoginToken"] = request.loginToken;
     }
 
-    if (!$dara.isNull(request.productType)) {
+    if (!Util.isUnset(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!$dara.isNull(request.sessionId)) {
+    if (!Util.isUnset(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!$dara.isNull(request.tenantId)) {
+    if (!Util.isUnset(request.tenantId)) {
       body["TenantId"] = request.tenantId;
     }
 
-    let req = new $OpenApiUtil.OpenApiRequest({
+    let req = new $OpenApi.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApiUtil.Params({
+    let params = new $OpenApi.Params({
       action: "Unbind",
       version: "2021-09-03",
       protocol: "HTTPS",
@@ -3159,10 +2973,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
     } else {
-      return $dara.cast<UnbindResponse>(await this.execute(params, req, runtime), new UnbindResponse({}));
+      return $tea.cast<UnbindResponse>(await this.execute(params, req, runtime), new UnbindResponse({}));
     }
 
   }
@@ -3174,7 +2988,7 @@ export default class Client extends OpenApi {
    * @returns UnbindResponse
    */
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
+    let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindWithOptions(request, runtime);
   }
 
