@@ -46,11 +46,12 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
    * 201792301
    */
   categoryId?: number;
+  isLeaf?: boolean;
   /**
    * @example
    * 1
    */
-  level?: boolean;
+  level?: number;
   name?: string;
   /**
    * @example
@@ -60,6 +61,7 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
   static names(): { [key: string]: string } {
     return {
       categoryId: 'categoryId',
+      isLeaf: 'isLeaf',
       level: 'level',
       name: 'name',
       parentId: 'parentId',
@@ -69,7 +71,8 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       categoryId: 'number',
-      level: 'boolean',
+      isLeaf: 'boolean',
+      level: 'number',
       name: 'string',
       parentId: 'number',
     };
