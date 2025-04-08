@@ -14345,6 +14345,7 @@ export class ListServicesRequest extends $dara.Model {
    * foo
    */
   groupName?: string;
+  includeNoWorkspace?: boolean;
   /**
    * @remarks
    * The tag that is used to filter services.
@@ -14660,6 +14661,7 @@ export class ListServicesRequest extends $dara.Model {
       filter: 'Filter',
       gateway: 'Gateway',
       groupName: 'GroupName',
+      includeNoWorkspace: 'IncludeNoWorkspace',
       label: 'Label',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -14683,6 +14685,7 @@ export class ListServicesRequest extends $dara.Model {
       filter: 'string',
       gateway: 'string',
       groupName: 'string',
+      includeNoWorkspace: 'boolean',
       label: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       order: 'string',
       pageNumber: 'number',
@@ -14738,6 +14741,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
    * foo
    */
   groupName?: string;
+  includeNoWorkspace?: boolean;
   /**
    * @remarks
    * The tag that is used to filter services.
@@ -15053,6 +15057,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       filter: 'Filter',
       gateway: 'Gateway',
       groupName: 'GroupName',
+      includeNoWorkspace: 'IncludeNoWorkspace',
       labelShrink: 'Label',
       order: 'Order',
       pageNumber: 'PageNumber',
@@ -15076,6 +15081,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
       filter: 'string',
       gateway: 'string',
       groupName: 'string',
+      includeNoWorkspace: 'boolean',
       labelShrink: 'string',
       order: 'string',
       pageNumber: 'number',
@@ -22051,6 +22057,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.includeNoWorkspace)) {
+      query["IncludeNoWorkspace"] = request.includeNoWorkspace;
     }
 
     if (!$dara.isNull(request.labelShrink)) {
