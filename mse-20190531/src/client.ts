@@ -7731,6 +7731,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
    * false
    */
   enableGzip?: boolean;
+  enableGzipHardwareAccelerate?: boolean;
   /**
    * @example
    * true
@@ -7839,6 +7840,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       enableCustomAuthConfigPush: 'EnableCustomAuthConfigPush',
       enableGenerateRequestId: 'EnableGenerateRequestId',
       enableGzip: 'EnableGzip',
+      enableGzipHardwareAccelerate: 'EnableGzipHardwareAccelerate',
       enableHardwareAccelerate: 'EnableHardwareAccelerate',
       enableHttp2: 'EnableHttp2',
       enableHttp3: 'EnableHttp3',
@@ -7874,6 +7876,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       enableCustomAuthConfigPush: 'string',
       enableGenerateRequestId: 'boolean',
       enableGzip: 'boolean',
+      enableGzipHardwareAccelerate: 'boolean',
       enableHardwareAccelerate: 'boolean',
       enableHttp2: 'boolean',
       enableHttp3: 'boolean',
@@ -8038,6 +8041,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
    * 12
    */
   id?: number;
+  isManaged?: boolean;
   /**
    * @remarks
    * The issuer.
@@ -8110,6 +8114,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       http2: 'Http2',
       id: 'Id',
+      isManaged: 'IsManaged',
       issuer: 'Issuer',
       mustHttps: 'MustHttps',
       name: 'Name',
@@ -8136,6 +8141,7 @@ export class GetGatewayDomainDetailResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       http2: 'string',
       id: 'number',
+      isManaged: 'boolean',
       issuer: 'string',
       mustHttps: 'boolean',
       name: 'string',
@@ -17930,6 +17936,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
    * 243
    */
   id?: number;
+  isManaged?: boolean;
   /**
    * @remarks
    * Indicates whether HTTPS is forcefully used.
@@ -18006,6 +18013,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       http2: 'Http2',
       id: 'Id',
+      isManaged: 'IsManaged',
       mustHttps: 'MustHttps',
       name: 'Name',
       protocol: 'Protocol',
@@ -18026,6 +18034,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       http2: 'string',
       id: 'number',
+      isManaged: 'boolean',
       mustHttps: 'boolean',
       name: 'string',
       protocol: 'string',
@@ -21165,6 +21174,7 @@ export class ListGatewayZoneResponseBodyData extends $dara.Model {
    * I
    */
   localName?: string;
+  supportQat?: boolean;
   /**
    * @remarks
    * The zone ID.
@@ -21176,6 +21186,7 @@ export class ListGatewayZoneResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       localName: 'LocalName',
+      supportQat: 'SupportQat',
       zoneId: 'ZoneId',
     };
   }
@@ -21183,6 +21194,7 @@ export class ListGatewayZoneResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       localName: 'string',
+      supportQat: 'boolean',
       zoneId: 'string',
     };
   }
@@ -30595,8 +30607,15 @@ export class AddGatewayRequest extends $dara.Model {
    * 
    * @example
    * slb.s2.small
+   * 
+   * @deprecated
    */
   internetSlbSpec?: string;
+  /**
+   * @example
+   * pubnet
+   */
+  managedEntryNetworkType?: string;
   /**
    * @remarks
    * The MSE instance type. Valid values:
@@ -30685,6 +30704,8 @@ export class AddGatewayRequest extends $dara.Model {
    * 
    * @example
    * slb.s2.small
+   * 
+   * @deprecated
    */
   slbSpec?: string;
   /**
@@ -30754,6 +30775,7 @@ export class AddGatewayRequest extends $dara.Model {
       enableXtrace: 'EnableXtrace',
       enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
       internetSlbSpec: 'InternetSlbSpec',
+      managedEntryNetworkType: 'ManagedEntryNetworkType',
       mserVersion: 'MserVersion',
       name: 'Name',
       nlbNetworkType: 'NlbNetworkType',
@@ -30782,6 +30804,7 @@ export class AddGatewayRequest extends $dara.Model {
       enableXtrace: 'boolean',
       enterpriseSecurityGroup: 'boolean',
       internetSlbSpec: 'string',
+      managedEntryNetworkType: 'string',
       mserVersion: 'string',
       name: 'string',
       nlbNetworkType: 'string',
@@ -30897,8 +30920,15 @@ export class AddGatewayShrinkRequest extends $dara.Model {
    * 
    * @example
    * slb.s2.small
+   * 
+   * @deprecated
    */
   internetSlbSpec?: string;
+  /**
+   * @example
+   * pubnet
+   */
+  managedEntryNetworkType?: string;
   /**
    * @remarks
    * The MSE instance type. Valid values:
@@ -30987,6 +31017,8 @@ export class AddGatewayShrinkRequest extends $dara.Model {
    * 
    * @example
    * slb.s2.small
+   * 
+   * @deprecated
    */
   slbSpec?: string;
   /**
@@ -31056,6 +31088,7 @@ export class AddGatewayShrinkRequest extends $dara.Model {
       enableXtrace: 'EnableXtrace',
       enterpriseSecurityGroup: 'EnterpriseSecurityGroup',
       internetSlbSpec: 'InternetSlbSpec',
+      managedEntryNetworkType: 'ManagedEntryNetworkType',
       mserVersion: 'MserVersion',
       name: 'Name',
       nlbNetworkType: 'NlbNetworkType',
@@ -31084,6 +31117,7 @@ export class AddGatewayShrinkRequest extends $dara.Model {
       enableXtrace: 'boolean',
       enterpriseSecurityGroup: 'boolean',
       internetSlbSpec: 'string',
+      managedEntryNetworkType: 'string',
       mserVersion: 'string',
       name: 'string',
       nlbNetworkType: 'string',
@@ -83087,6 +83121,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.internetSlbSpec)) {
       query["InternetSlbSpec"] = request.internetSlbSpec;
+    }
+
+    if (!$dara.isNull(request.managedEntryNetworkType)) {
+      query["ManagedEntryNetworkType"] = request.managedEntryNetworkType;
     }
 
     if (!$dara.isNull(request.mserVersion)) {
