@@ -5,6 +5,32 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class BatchCreateAICoachTaskRequestStudentList extends $dara.Model {
+  studentAudioUrl?: string;
+  studentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      studentAudioUrl: 'studentAudioUrl',
+      studentId: 'studentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      studentAudioUrl: 'string',
+      studentId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetProjectTaskResponseBodyResultList extends $dara.Model {
   errorMsg?: string;
   /**
@@ -504,6 +530,32 @@ export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $dara.Model 
     if(Array.isArray(this.inputTypeList)) {
       $dara.Model.validateArray(this.inputTypeList);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyCheckCheatConfig extends $dara.Model {
+  checkImage?: boolean;
+  checkVoice?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      checkImage: 'checkImage',
+      checkVoice: 'checkVoice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkImage: 'boolean',
+      checkVoice: 'boolean',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3906,11 +3958,13 @@ export class BatchCreateAICoachTaskRequest extends $dara.Model {
    */
   scriptRecordId?: string;
   studentIds?: string[];
+  studentList?: BatchCreateAICoachTaskRequestStudentList[];
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
       scriptRecordId: 'scriptRecordId',
       studentIds: 'studentIds',
+      studentList: 'studentList',
     };
   }
 
@@ -3919,12 +3973,16 @@ export class BatchCreateAICoachTaskRequest extends $dara.Model {
       requestId: 'string',
       scriptRecordId: 'string',
       studentIds: { 'type': 'array', 'itemType': 'string' },
+      studentList: { 'type': 'array', 'itemType': BatchCreateAICoachTaskRequestStudentList },
     };
   }
 
   validate() {
     if(Array.isArray(this.studentIds)) {
       $dara.Model.validateArray(this.studentIds);
+    }
+    if(Array.isArray(this.studentList)) {
+      $dara.Model.validateArray(this.studentList);
     }
     super.validate();
   }
@@ -4821,11 +4879,13 @@ export class CreateAICoachTaskRequest extends $dara.Model {
    */
   requestId?: string;
   scriptRecordId?: string;
+  studentAudioUrl?: string;
   studentId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'requestId',
       scriptRecordId: 'scriptRecordId',
+      studentAudioUrl: 'studentAudioUrl',
       studentId: 'studentId',
     };
   }
@@ -4834,6 +4894,7 @@ export class CreateAICoachTaskRequest extends $dara.Model {
     return {
       requestId: 'string',
       scriptRecordId: 'string',
+      studentAudioUrl: 'string',
       studentId: 'string',
     };
   }
@@ -6352,11 +6413,13 @@ export class GetAICoachScriptRequest extends $dara.Model {
 }
 
 export class GetAICoachScriptResponseBody extends $dara.Model {
+  appendQuestionFlag?: boolean;
   /**
    * @example
    * point
    */
   assessmentScope?: string;
+  checkCheatConfig?: GetAICoachScriptResponseBodyCheckCheatConfig;
   completeStrategy?: GetAICoachScriptResponseBodyCompleteStrategy;
   /**
    * @example
@@ -6463,7 +6526,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
   weights?: GetAICoachScriptResponseBodyWeights;
   static names(): { [key: string]: string } {
     return {
+      appendQuestionFlag: 'appendQuestionFlag',
       assessmentScope: 'assessmentScope',
+      checkCheatConfig: 'checkCheatConfig',
       completeStrategy: 'completeStrategy',
       coverUrl: 'coverUrl',
       dialogueInputTextLimit: 'dialogueInputTextLimit',
@@ -6497,7 +6562,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appendQuestionFlag: 'boolean',
       assessmentScope: 'string',
+      checkCheatConfig: GetAICoachScriptResponseBodyCheckCheatConfig,
       completeStrategy: GetAICoachScriptResponseBodyCompleteStrategy,
       coverUrl: 'string',
       dialogueInputTextLimit: 'number',
@@ -6530,6 +6597,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.checkCheatConfig && typeof (this.checkCheatConfig as any).validate === 'function') {
+      (this.checkCheatConfig as any).validate();
+    }
     if(this.completeStrategy && typeof (this.completeStrategy as any).validate === 'function') {
       (this.completeStrategy as any).validate();
     }
@@ -10701,6 +10771,10 @@ export default class Client extends OpenApi {
       body["studentIds"] = request.studentIds;
     }
 
+    if (!$dara.isNull(request.studentList)) {
+      body["studentList"] = request.studentList;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -11151,6 +11225,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scriptRecordId)) {
       body["scriptRecordId"] = request.scriptRecordId;
+    }
+
+    if (!$dara.isNull(request.studentAudioUrl)) {
+      body["studentAudioUrl"] = request.studentAudioUrl;
     }
 
     if (!$dara.isNull(request.studentId)) {
