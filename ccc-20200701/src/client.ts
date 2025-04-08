@@ -21547,6 +21547,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $dara.Model {
    */
   agentId?: string;
   agentName?: string;
+  breakCode?: string;
   /**
    * @example
    * Outbound
@@ -21608,6 +21609,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $dara.Model {
     return {
       agentId: 'AgentId',
       agentName: 'AgentName',
+      breakCode: 'BreakCode',
       callType: 'CallType',
       counterParty: 'CounterParty',
       duration: 'Duration',
@@ -21628,6 +21630,7 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $dara.Model {
     return {
       agentId: 'string',
       agentName: 'string',
+      breakCode: 'string',
       callType: 'string',
       counterParty: 'string',
       duration: 'number',
@@ -24304,6 +24307,100 @@ export class ListUsersResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListVisitorChatMessagesResponseBodyDataMessages extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
+  jobId?: string;
+  /**
+   * @example
+   * http://xxxxx.com/avatar.png
+   */
+  senderAvatarUrl?: string;
+  /**
+   * @example
+   * fcd020fe-****-1a272a174a7d
+   */
+  senderId?: string;
+  senderName?: string;
+  /**
+   * @example
+   * CUSTOMER
+   */
+  senderType?: string;
+  /**
+   * @example
+   * 1696126980371
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      jobId: 'JobId',
+      senderAvatarUrl: 'SenderAvatarUrl',
+      senderId: 'SenderId',
+      senderName: 'SenderName',
+      senderType: 'SenderType',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      jobId: 'string',
+      senderAvatarUrl: 'string',
+      senderId: 'string',
+      senderName: 'string',
+      senderType: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVisitorChatMessagesResponseBodyData extends $dara.Model {
+  messages?: ListVisitorChatMessagesResponseBodyDataMessages[];
+  /**
+   * @example
+   * 1737193352340::7463707254.EAUNIT
+   */
+  nextPageToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'Messages',
+      nextPageToken: 'NextPageToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': ListVisitorChatMessagesResponseBodyDataMessages },
+      nextPageToken: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVoicemailsResponseBodyDataList extends $dara.Model {
   /**
    * @example
@@ -24681,6 +24778,7 @@ export class MakeCallResponseBodyDataCallContext extends $dara.Model {
    * OUTBOUND
    */
   callType?: string;
+  callVariables?: string;
   channelContexts?: MakeCallResponseBodyDataCallContextChannelContexts[];
   /**
    * @example
@@ -24695,6 +24793,7 @@ export class MakeCallResponseBodyDataCallContext extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       callType: 'CallType',
+      callVariables: 'CallVariables',
       channelContexts: 'ChannelContexts',
       instanceId: 'InstanceId',
       jobId: 'JobId',
@@ -24704,6 +24803,7 @@ export class MakeCallResponseBodyDataCallContext extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       callType: 'string',
+      callVariables: 'string',
       channelContexts: { 'type': 'array', 'itemType': MakeCallResponseBodyDataCallContextChannelContexts },
       instanceId: 'string',
       jobId: 'string',
@@ -54974,6 +55074,177 @@ export class ListUsersResponse extends $dara.Model {
   }
 }
 
+export class ListVisitorChatMessagesRequest extends $dara.Model {
+  /**
+   * @example
+   * cf584733-***-***-9699-cb77aa3b7aa6
+   */
+  accessChannelId?: string;
+  /**
+   * @example
+   * 9XYGTGWtq2wXzVikKuip_zeVGl6O4VJ-l-*-*-JPofhap4P7fAevuE=
+   */
+  accessToken?: string;
+  /**
+   * @example
+   * 1650316799000
+   */
+  endTime?: string;
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1737193352340::7463707254.EAUNIT
+   */
+  nextPageToken?: string;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * DESC
+   */
+  sortOrder?: string;
+  /**
+   * @example
+   * 1647325450000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * fcd020fe-****-1a272a174a7d
+   */
+  visitorId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      accessToken: 'AccessToken',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      sortOrder: 'SortOrder',
+      startTime: 'StartTime',
+      visitorId: 'VisitorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      accessToken: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      sortOrder: 'string',
+      startTime: 'number',
+      visitorId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVisitorChatMessagesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListVisitorChatMessagesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListVisitorChatMessagesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVisitorChatMessagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVisitorChatMessagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVisitorChatMessagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVoicemailsRequest extends $dara.Model {
   /**
    * @example
@@ -75085,6 +75356,85 @@ export default class Client extends OpenApi {
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * ListVisitorChatMessages
+   * 
+   * @param request - ListVisitorChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVisitorChatMessagesResponse
+   */
+  async listVisitorChatMessagesWithOptions(request: ListVisitorChatMessagesRequest, runtime: $dara.RuntimeOptions): Promise<ListVisitorChatMessagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessChannelId)) {
+      query["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.visitorId)) {
+      query["VisitorId"] = request.visitorId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVisitorChatMessages",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVisitorChatMessagesResponse>(await this.callApi(params, req, runtime), new ListVisitorChatMessagesResponse({}));
+    } else {
+      return $dara.cast<ListVisitorChatMessagesResponse>(await this.execute(params, req, runtime), new ListVisitorChatMessagesResponse({}));
+    }
+
+  }
+
+  /**
+   * ListVisitorChatMessages
+   * 
+   * @param request - ListVisitorChatMessagesRequest
+   * @returns ListVisitorChatMessagesResponse
+   */
+  async listVisitorChatMessages(request: ListVisitorChatMessagesRequest): Promise<ListVisitorChatMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVisitorChatMessagesWithOptions(request, runtime);
   }
 
   /**
