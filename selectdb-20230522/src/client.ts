@@ -46,13 +46,48 @@ export class CreateDBClusterResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreateDBInstanceRequestMultiZone extends $dara.Model {
+  vSwitchIds?: string[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * testKey
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * testValue
    */
@@ -82,11 +117,17 @@ export class CreateDBInstanceRequestTag extends $dara.Model {
 
 export class CreateDBInstanceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 21137950671****
    */
@@ -641,6 +682,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * Prepaid
    */
   chargeType?: string;
+  clusterBinding?: string;
   /**
    * @remarks
    * The number of CPU cores.
@@ -745,11 +787,15 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * ACTIVATION
    */
   status?: string;
+  subDomain?: string;
+  vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       cacheStorageSizeGB: 'CacheStorageSizeGB',
       cacheStorageType: 'CacheStorageType',
       chargeType: 'ChargeType',
+      clusterBinding: 'ClusterBinding',
       cpuCores: 'CpuCores',
       createdTime: 'CreatedTime',
       dbClusterClass: 'DbClusterClass',
@@ -762,6 +808,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
       scalingRulesEnable: 'ScalingRulesEnable',
       startTime: 'StartTime',
       status: 'Status',
+      subDomain: 'SubDomain',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -770,6 +819,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
       cacheStorageSizeGB: 'string',
       cacheStorageType: 'string',
       chargeType: 'string',
+      clusterBinding: 'string',
       cpuCores: 'number',
       createdTime: 'string',
       dbClusterClass: 'string',
@@ -782,10 +832,48 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
       scalingRulesEnable: 'boolean',
       startTime: 'string',
       status: 'string',
+      subDomain: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Model {
+  availableIpCount?: number;
+  cidr?: string;
+  vSwitchIds?: string[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableIpCount: 'AvailableIpCount',
+      cidr: 'Cidr',
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableIpCount: 'number',
+      cidr: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
     super.validate();
   }
 
@@ -1173,6 +1261,35 @@ export class DescribeDBInstancesRequestTag extends $dara.Model {
   }
 }
 
+export class DescribeDBInstancesResponseBodyItemsMultiZone extends $dara.Model {
+  vSwitchIds?: string[];
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstancesResponseBodyItemsTags extends $dara.Model {
   /**
    * @example
@@ -1243,6 +1360,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
+  deployScheme?: string;
   /**
    * @remarks
    * The description of the instance.
@@ -1256,6 +1374,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * selectdb
    */
   engine?: string;
+  engineMinorVersion?: string;
   /**
    * @remarks
    * The database engine version of the instance.
@@ -1345,6 +1464,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * The start time of the instance maintenance window.
    */
   maintainStarttime?: string;
+  multiZone?: DescribeDBInstancesResponseBodyItemsMultiZone[];
   /**
    * @remarks
    * The storage capacity of the instance. Unit: GB.
@@ -1494,8 +1614,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       chargeType: 'ChargeType',
       clusterCount: 'ClusterCount',
       DBInstanceId: 'DBInstanceId',
+      deployScheme: 'DeployScheme',
       description: 'Description',
       engine: 'Engine',
+      engineMinorVersion: 'EngineMinorVersion',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
       gmtCreated: 'GmtCreated',
@@ -1508,6 +1630,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       maintainEndtime: 'MaintainEndtime',
       maintainStartTimeStr: 'MaintainStartTimeStr',
       maintainStarttime: 'MaintainStarttime',
+      multiZone: 'MultiZone',
       objectStoreSize: 'ObjectStoreSize',
       parentInstance: 'ParentInstance',
       regionId: 'RegionId',
@@ -1537,8 +1660,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       chargeType: 'string',
       clusterCount: 'number',
       DBInstanceId: 'string',
+      deployScheme: 'string',
       description: 'string',
       engine: 'string',
+      engineMinorVersion: 'string',
       engineVersion: 'string',
       expireTime: 'string',
       gmtCreated: 'string',
@@ -1551,6 +1676,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
       maintainEndtime: 'string',
       maintainStartTimeStr: 'string',
       maintainStarttime: 'string',
+      multiZone: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyItemsMultiZone },
       objectStoreSize: 'number',
       parentInstance: 'string',
       regionId: 'string',
@@ -1575,6 +1701,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.multiZone)) {
+      $dara.Model.validateArray(this.multiZone);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
@@ -1701,34 +1830,60 @@ export class DescribeElasticRulesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model {
+  /**
+   * @remarks
+   * The zone description.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the VPC is disabled.
+   * 
    * @example
    * false
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * The label.
+   * 
    * @example
    * test
    */
   label?: string;
+  /**
+   * @remarks
+   * The zone name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The subdomain.
+   * 
    * @example
    * cn-beijing-h-aliyun
    */
   subDomain?: string;
   /**
+   * @remarks
+   * Indicates whether the VPC is enabled.
+   * 
    * @example
    * true
    */
   vpcEnabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the virtual private cloud (VPC) is available.
+   * 
    * @example
    * cn-beijing-h
    */
@@ -1770,10 +1925,17 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
 
 export class DescribeRegionsResponseBodyRegionModelList extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * An array of zones.
+   */
   zones?: DescribeRegionsResponseBodyRegionModelListZones[];
   static names(): { [key: string]: string } {
     return {
@@ -2934,6 +3096,8 @@ export class CreateDBClusterResponse extends $dara.Model {
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The reserved cache size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2942,6 +3106,11 @@ export class CreateDBInstanceRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **Postpaid**: pay-as-you-go
+   * *   **Prepaid**: subscription
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2949,27 +3118,47 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AB
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The instance endpoint.
+   * 
    * @example
    * selectdb-cn-7213c8y****-public.selectdbfe.pre.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
+   * The specifications of the instance. Valid values:
+   * 
+   * *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory
+   * *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory
+   * *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory
+   * 
    * This parameter is required.
    * 
    * @example
    * selectdb.xlarge
    */
   DBInstanceClass?: string;
-  DBInstanceDescription?: string;
   /**
    * @remarks
-   * The type of the database. Default value: **selectdb**.
+   * The instance description.
+   * 
+   * @example
+   * The instance is created for testing.
+   */
+  DBInstanceDescription?: string;
+  deployScheme?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Default value: **selectdb**.
    * 
    * @example
    * selectdb
@@ -2977,6 +3166,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
+   * The database engine version of the instance. Default value: **2.4**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2984,12 +3175,27 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   engineVersion?: string;
   /**
+   * **if can be null:**
+   * false
+   */
+  multiZone?: CreateDBInstanceRequestMultiZone[];
+  /**
+   * @remarks
+   * The unit of the subscription duration of the cluster. Valid values:
+   * 
+   * *   **Year**: subscription on a yearly basis.
+   * *   **Month**: subscription on a monthly basis.
+   * 
+   * >  This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
+   * 
    * @example
    * Month
    */
   period?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2998,7 +3204,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 代表资源组的资源属性字段
+   * The resource group ID.
    * 
    * @example
    * rg-aekzt2zaluvuvqa_fake
@@ -3006,18 +3212,35 @@ export class CreateDBInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
+   * 
    * @example
    * 192.168.1.1
    */
   securityIPList?: string;
+  /**
+   * @remarks
+   * The instance tags.
+   */
   tag?: CreateDBInstanceRequestTag[];
   /**
+   * @remarks
+   * The subscription duration of the instance.
+   * 
+   * *   Valid values when Period is set to Year: 1, 2, 3, and 5 (integer)
+   * *   Valid values when Period is set to Month: 1 to 9 (integer)
+   * 
+   * >  This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
+   * 
    * @example
    * 1
    */
   usedTime?: number;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3026,7 +3249,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * This parameter is required.
    * 
@@ -3036,6 +3259,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The zone ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3050,8 +3275,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
       connectionString: 'ConnectionString',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
+      deployScheme: 'DeployScheme',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      multiZone: 'MultiZone',
       period: 'Period',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -3073,8 +3300,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
       connectionString: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
+      deployScheme: 'string',
       engine: 'string',
       engineVersion: 'string',
+      multiZone: { 'type': 'array', 'itemType': CreateDBInstanceRequestMultiZone },
       period: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -3089,6 +3318,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.multiZone)) {
+      $dara.Model.validateArray(this.multiZone);
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }
@@ -3103,6 +3335,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The reserved cache size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3111,6 +3345,11 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   cacheSize?: number;
   /**
    * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   **Postpaid**: pay-as-you-go
+   * *   **Prepaid**: subscription
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3118,27 +3357,47 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * AB
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The instance endpoint.
+   * 
    * @example
    * selectdb-cn-7213c8y****-public.selectdbfe.pre.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
+   * The specifications of the instance. Valid values:
+   * 
+   * *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory
+   * *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory
+   * *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory
+   * 
    * This parameter is required.
    * 
    * @example
    * selectdb.xlarge
    */
   DBInstanceClass?: string;
-  DBInstanceDescription?: string;
   /**
    * @remarks
-   * The type of the database. Default value: **selectdb**.
+   * The instance description.
+   * 
+   * @example
+   * The instance is created for testing.
+   */
+  DBInstanceDescription?: string;
+  deployScheme?: string;
+  /**
+   * @remarks
+   * The database engine of the instance. Default value: **selectdb**.
    * 
    * @example
    * selectdb
@@ -3146,6 +3405,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
+   * The database engine version of the instance. Default value: **2.4**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3153,12 +3414,27 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   engineVersion?: string;
   /**
+   * **if can be null:**
+   * false
+   */
+  multiZoneShrink?: string;
+  /**
+   * @remarks
+   * The unit of the subscription duration of the cluster. Valid values:
+   * 
+   * *   **Year**: subscription on a yearly basis.
+   * *   **Month**: subscription on a monthly basis.
+   * 
+   * >  This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
+   * 
    * @example
    * Month
    */
   period?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3167,7 +3443,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 代表资源组的资源属性字段
+   * The resource group ID.
    * 
    * @example
    * rg-aekzt2zaluvuvqa_fake
@@ -3175,18 +3451,35 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
+   * 
    * @example
    * 192.168.1.1
    */
   securityIPList?: string;
+  /**
+   * @remarks
+   * The instance tags.
+   */
   tagShrink?: string;
   /**
+   * @remarks
+   * The subscription duration of the instance.
+   * 
+   * *   Valid values when Period is set to Year: 1, 2, 3, and 5 (integer)
+   * *   Valid values when Period is set to Month: 1 to 9 (integer)
+   * 
+   * >  This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
+   * 
    * @example
    * 1
    */
   usedTime?: number;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3195,7 +3488,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The virtual private cloud (VPC) ID.
    * 
    * This parameter is required.
    * 
@@ -3205,6 +3498,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The zone ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3219,8 +3514,10 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       connectionString: 'ConnectionString',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
+      deployScheme: 'DeployScheme',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      multiZoneShrink: 'MultiZone',
       period: 'Period',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -3242,8 +3539,10 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       connectionString: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
+      deployScheme: 'string',
       engine: 'string',
       engineVersion: 'string',
+      multiZoneShrink: 'string',
       period: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -3267,8 +3566,15 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
 }
 
 export class CreateDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateDBInstanceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */
@@ -4546,6 +4852,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
+  deployScheme?: string;
   /**
    * @remarks
    * The description of the instance.
@@ -4627,6 +4934,11 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    */
   maintainStarttime?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  multiZone?: DescribeDBInstanceAttributeResponseBodyMultiZone[];
+  /**
    * @remarks
    * The storage capacity of the instance.
    * 
@@ -4702,6 +5014,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
    */
   tags?: DescribeDBInstanceAttributeResponseBodyTags[];
+  vSwitchId?: string;
   /**
    * @remarks
    * The VPC ID.
@@ -4725,6 +5038,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       createTime: 'CreateTime',
       DBClusterList: 'DBClusterList',
       DBInstanceId: 'DBInstanceId',
+      deployScheme: 'DeployScheme',
       description: 'Description',
       engine: 'Engine',
       engineMinorVersion: 'EngineMinorVersion',
@@ -4735,6 +5049,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       lockReason: 'LockReason',
       maintainEndtime: 'MaintainEndtime',
       maintainStarttime: 'MaintainStarttime',
+      multiZone: 'MultiZone',
       objectStoreSize: 'ObjectStoreSize',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -4744,6 +5059,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       storageSize: 'StorageSize',
       subDomain: 'SubDomain',
       tags: 'Tags',
+      vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -4756,6 +5072,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       createTime: 'string',
       DBClusterList: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBClusterList },
       DBInstanceId: 'string',
+      deployScheme: 'string',
       description: 'string',
       engine: 'string',
       engineMinorVersion: 'string',
@@ -4766,6 +5083,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       lockReason: 'string',
       maintainEndtime: 'string',
       maintainStarttime: 'string',
+      multiZone: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyMultiZone },
       objectStoreSize: 'number',
       regionId: 'string',
       requestId: 'string',
@@ -4775,6 +5093,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       storageSize: 'number',
       subDomain: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyTags },
+      vSwitchId: 'string',
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -4786,6 +5105,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.DBClusterList)) {
       $dara.Model.validateArray(this.DBClusterList);
+    }
+    if(Array.isArray(this.multiZone)) {
+      $dara.Model.validateArray(this.multiZone);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
@@ -5435,11 +5757,17 @@ export class DescribeElasticRulesResponse extends $dara.Model {
 
 export class DescribeRegionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-beijing-h
    */
@@ -5468,8 +5796,15 @@ export class DescribeRegionsRequest extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of regions.
+   */
   regionModelList?: DescribeRegionsResponseBodyRegionModelList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F8900A96-67F7-5274-A41B-7722E1ECF8C9
    */
@@ -8467,7 +8802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建SelectDB实例
+   * Creates an ApsaraDB for SelectDB instance.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8477,6 +8812,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new CreateDBInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.multiZone)) {
+      request.multiZoneShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multiZone, "MultiZone", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
@@ -8506,12 +8845,20 @@ export default class Client extends OpenApi {
       query["DBInstanceDescription"] = request.DBInstanceDescription;
     }
 
+    if (!$dara.isNull(request.deployScheme)) {
+      query["DeployScheme"] = request.deployScheme;
+    }
+
     if (!$dara.isNull(request.engine)) {
       query["Engine"] = request.engine;
     }
 
     if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.multiZoneShrink)) {
+      query["MultiZone"] = request.multiZoneShrink;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -8579,7 +8926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建SelectDB实例
+   * Creates an ApsaraDB for SelectDB instance.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -9316,7 +9663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Region信息
+   * Queries available regions and zones.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9348,7 +9695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Region信息
+   * Queries available regions and zones.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
