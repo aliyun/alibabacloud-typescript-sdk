@@ -21973,7 +21973,43 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   }
 }
 
+export class ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList extends $dara.Model {
+  format?: string;
+  id?: string;
+  name?: string;
+  type?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      format: 'Format',
+      id: 'Id',
+      name: 'Name',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      format: 'string',
+      id: 'string',
+      name: 'string',
+      type: 'number',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
+  attachedFileList?: ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList[];
   /**
    * @example
    * 19de81b3b3d94abda22****
@@ -22000,6 +22036,7 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      attachedFileList: 'AttachedFileList',
       dialogueId: 'DialogueId',
       producer: 'Producer',
       reasoningText: 'ReasoningText',
@@ -22013,6 +22050,7 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachedFileList: { 'type': 'array', 'itemType': ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList },
       dialogueId: 'string',
       producer: 'string',
       reasoningText: 'string',
@@ -22025,6 +22063,9 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.attachedFileList)) {
+      $dara.Model.validateArray(this.attachedFileList);
+    }
     super.validate();
   }
 
@@ -64489,11 +64530,13 @@ export class DescribeNotifyConfigRequest extends $dara.Model {
 }
 
 export class DescribeNotifyConfigResponseBody extends $dara.Model {
+  audioOssPath?: string;
   /**
    * @example
    * http://customer.com/callback
    */
   callbackUrl?: string;
+  enableAudioRecording?: boolean;
   /**
    * @example
    * true
@@ -64523,7 +64566,9 @@ export class DescribeNotifyConfigResponseBody extends $dara.Model {
   token?: string;
   static names(): { [key: string]: string } {
     return {
+      audioOssPath: 'AudioOssPath',
       callbackUrl: 'CallbackUrl',
+      enableAudioRecording: 'EnableAudioRecording',
       enableNotify: 'EnableNotify',
       eventTypes: 'EventTypes',
       requestId: 'RequestId',
@@ -64533,7 +64578,9 @@ export class DescribeNotifyConfigResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioOssPath: 'string',
       callbackUrl: 'string',
+      enableAudioRecording: 'boolean',
       enableNotify: 'boolean',
       eventTypes: 'string',
       requestId: 'string',
@@ -88461,6 +88508,7 @@ export class SetNotifyConfigRequest extends $dara.Model {
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  audioOssPath?: string;
   /**
    * @remarks
    * The URL for receiving callback notifications. By default, this parameter is left empty.
@@ -88469,6 +88517,7 @@ export class SetNotifyConfigRequest extends $dara.Model {
    * http://customer.com/callback
    */
   callbackUrl?: string;
+  enableAudioRecording?: boolean;
   /**
    * @remarks
    * Specifies whether to enable event notifications.
@@ -88502,7 +88551,9 @@ export class SetNotifyConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      audioOssPath: 'AudioOssPath',
       callbackUrl: 'CallbackUrl',
+      enableAudioRecording: 'EnableAudioRecording',
       enableNotify: 'EnableNotify',
       eventTypes: 'EventTypes',
       token: 'Token',
@@ -88512,7 +88563,9 @@ export class SetNotifyConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      audioOssPath: 'string',
       callbackUrl: 'string',
+      enableAudioRecording: 'boolean',
       enableNotify: 'boolean',
       eventTypes: 'string',
       token: 'string',
@@ -117479,8 +117532,16 @@ export default class Client extends OpenApi {
       query["AIAgentId"] = request.AIAgentId;
     }
 
+    if (!$dara.isNull(request.audioOssPath)) {
+      query["AudioOssPath"] = request.audioOssPath;
+    }
+
     if (!$dara.isNull(request.callbackUrl)) {
       query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!$dara.isNull(request.enableAudioRecording)) {
+      query["EnableAudioRecording"] = request.enableAudioRecording;
     }
 
     if (!$dara.isNull(request.enableNotify)) {
