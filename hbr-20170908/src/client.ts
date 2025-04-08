@@ -850,7 +850,7 @@ export class CreatePolicyV2RequestRulesDataSourceFilters extends $dara.Model {
   dataSourceIds?: string[];
   /**
    * @remarks
-   * The type of the data source. Valid value:
+   * The type of the data source. Valid values:
    * 
    * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**.
    * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
@@ -1039,9 +1039,9 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
   replicationRegionId?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION** or **REPLICATION**.
+   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION**, or **REPLICATION**.
    * 
-   * *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the Retention field of the rule with RuleType=TRANSITION. Minimum value: 1. Maximum value: 364635. Unit: days.
+   * *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the retention period when the **RuleType** parameter is set to **TRANSITION**. Minimum value: 1. Maximum value: 364635. Unit: days.
    * *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Maximum value: 364635. Unit: days.
    * *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Maximum value: 364635. Unit: days.
    * 
@@ -1061,7 +1061,7 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
    * *   **BACKUP**: backup rule
    * *   **TRANSITION**: lifecycle rule
    * *   **REPLICATION**: replication rule
-   * *   **TAG**: tag rule
+   * *   **TAG**: tag-based resource association rule
    * 
    * This parameter is required.
    * 
@@ -1071,10 +1071,19 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
    * 
-   * *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   * *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of 1 hour. P1D specifies an interval of one day.
+   * *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * 
+   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
+   *     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
+   * 
+   * *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
+   * 
+   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
+   *     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
+   * 
+   * The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
    * 
    * @example
    * I|1648647166|P1D
@@ -1143,6 +1152,35 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
   }
 }
 
+export class DescribeBackupClientsRequestFilters extends $dara.Model {
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupClientsRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -1183,6 +1221,35 @@ export class DescribeBackupClientsRequestTag extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupClientsShrinkRequestFilters extends $dara.Model {
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
     super.validate();
   }
 
@@ -3379,6 +3446,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $dara.
    * *   **NAS**: NAS file systems
    * *   **OTS**: Tablestore instances
    * *   **UDM_ECS**: ECS instances
+   * *   **SYNC**: data synchronization
    * 
    * @example
    * ECS_FILE
@@ -3621,6 +3689,13 @@ export class DescribeClientsResponseBodyClientsClient extends $dara.Model {
    * 1554347313
    */
   createdTime?: number;
+  /**
+   * @remarks
+   * The latest heartbeat time of the Cloud Backup client. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1554347313
+   */
   heartBeatTime?: number;
   /**
    * @remarks
@@ -6383,9 +6458,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $dara.Mode
   dataSourceId?: string;
   /**
    * @remarks
-   * 策略是否对该数据源生效。
-   * - true：暂停
-   * - false：未暂停
+   * Whether the policy is disbaled for this data source.
+   * - true: disabled
+   * - false: Not disabled
    * 
    * @example
    * true
@@ -10162,7 +10237,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   retention?: number;
   /**
    * @remarks
-   * This parameter is required only if the value of the **RuleType** parameter is **TRANSITION**. This parameter specifies the special retention rules.
+   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
    */
   retentionRules?: UpdatePolicyV2RequestRulesRetentionRules[];
   /**
@@ -10187,10 +10262,19 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
    * 
-   * *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   * *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of 1 hour. P1D specifies an interval of one day.
+   * *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * 
+   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
+   *     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
+   * 
+   * *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
+   * 
+   *     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
+   *     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
+   * 
+   * The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
    * 
    * @example
    * I|1648647166|P1D
@@ -14670,7 +14754,30 @@ export class CreateRestoreJobRequest extends $dara.Model {
   targetTime?: number;
   /**
    * @remarks
-   * Details of the whole machine backup.
+   * The parameter is valid only when the SourceType is set to UDM_ECS. It represents the details of the entire machine backup and is a JSON string. Depending on the value of RestoreType, different details must be passed as follows:
+   * - **UDM_ECS_DISK**: ECS disk cloning.
+   *   - **targetInstanceId**: string (required). Specifies the target ECS instance ID to which the cloned disk will be attached.
+   *   - **diskCategory**: string (required). Specifies the type of the target disk.
+   *   - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level, supporting PL0, PL1, PL2, and PL3, with PL1 as the default.
+   * - **UDM_ECS_DISK_ROLLBACK**: ECS disk rollback.
+   *   - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+   *   - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+   * - **UDM_ECS**: Full ECS cloning.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+   *   - **diskCategory**: string (required). Specifies the type of the target disk.
+   *   - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level (PL0/PL1/PL2/PL3), defaulting to PL1.
+   *   - **instanceType**: string (required). Specifies the specification of the target ECS instance.
+   *   - **restoredNetwork**: string (required). Specifies the vSwitch ID for the target ECS instance.
+   *   - **securityGroup**: string (required). Specifies the security group ID for the target ECS instance.
+   *   - **restoredName:** string (required). Specifies the instance name of the target ECS instance.
+   *   - **restoredHostName**: string (required). Specifies the host name of the target ECS instance.
+   *   - **allocatePublicIp**: bool (default: false). Indicates whether to assign a public IP to the target ECS instance.
+   *   - **privateIpAddress**: string. Specifies the internal IP address of the target ECS instance. If not specified, an IP will be assigned via DHCP.
+   * - **UDM_ECS_ROLLBACK**: Full ECS rollback.
+   *   - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+   *   - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
    * 
    * @example
    * {\\"sourceInstanceId\\":\\"i-uf62te6pm3iwsyxyz66q\\",\\"bootAfterRestore\\":false}
@@ -14979,7 +15086,30 @@ export class CreateRestoreJobShrinkRequest extends $dara.Model {
   targetTime?: number;
   /**
    * @remarks
-   * Details of the whole machine backup.
+   * The parameter is valid only when the SourceType is set to UDM_ECS. It represents the details of the entire machine backup and is a JSON string. Depending on the value of RestoreType, different details must be passed as follows:
+   * - **UDM_ECS_DISK**: ECS disk cloning.
+   *   - **targetInstanceId**: string (required). Specifies the target ECS instance ID to which the cloned disk will be attached.
+   *   - **diskCategory**: string (required). Specifies the type of the target disk.
+   *   - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level, supporting PL0, PL1, PL2, and PL3, with PL1 as the default.
+   * - **UDM_ECS_DISK_ROLLBACK**: ECS disk rollback.
+   *   - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+   *   - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+   * - **UDM_ECS**: Full ECS cloning.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
+   *   - **diskCategory**: string (required). Specifies the type of the target disk.
+   *   - **diskPerformanceLevel**: string. When diskCategory is "essd", this indicates the disk performance level (PL0/PL1/PL2/PL3), defaulting to PL1.
+   *   - **instanceType**: string (required). Specifies the specification of the target ECS instance.
+   *   - **restoredNetwork**: string (required). Specifies the vSwitch ID for the target ECS instance.
+   *   - **securityGroup**: string (required). Specifies the security group ID for the target ECS instance.
+   *   - **restoredName:** string (required). Specifies the instance name of the target ECS instance.
+   *   - **restoredHostName**: string (required). Specifies the host name of the target ECS instance.
+   *   - **allocatePublicIp**: bool (default: false). Indicates whether to assign a public IP to the target ECS instance.
+   *   - **privateIpAddress**: string. Specifies the internal IP address of the target ECS instance. If not specified, an IP will be assigned via DHCP.
+   * - **UDM_ECS_ROLLBACK**: Full ECS rollback.
+   *   - **sourceInstanceId**: string (required). Specifies the source ECS instance ID.
+   *   - **forceRestore**: bool (default: false). Indicates whether to force restore. NOTE: If forceRestore is set to true, the disk restoration will proceed even if the backup disk has been unmounted from the original ECS instance or mounted to another instance. Exercise caution when using this option.
+   *   - **bootAfterRestore**: bool (default: false). Indicates whether to start the ECS instance after restoration.
    * 
    * @example
    * {\\"sourceInstanceId\\":\\"i-uf62te6pm3iwsyxyz66q\\",\\"bootAfterRestore\\":false}
@@ -15431,11 +15561,12 @@ export class CreateVaultRequest extends $dara.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * The storage type of the backup vault. Valid value: 
-   * - **STANDARD**: standard storage.
-   * - **ARCHIVE**: deprected.
-   * - **COLD_ARCHIVE**: deprected.
-   * - **IA**: deprected.
+   * The storage type of the backup vault.
+   * 
+   * *   **STANDARD**: standard storage.
+   * *   **ARCHIVE**: This parameter is deprecated.
+   * *   **COLD_ARCHIVE**: This parameter is deprecated.
+   * *   **IA**: This parameter is deprecated.
    * 
    * @example
    * STANDARD
@@ -15454,7 +15585,7 @@ export class CreateVaultRequest extends $dara.Model {
   vaultType?: string;
   /**
    * @remarks
-   * Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+   * Specifies whether to enable the immutable backup feature.
    * 
    * @example
    * false
@@ -15616,7 +15747,7 @@ export class CreateVaultResponse extends $dara.Model {
 export class DeleteAirEcsInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The ID of the Elastic Compute Service (ECS) instance.
    * 
    * @example
    * i-uf6ir9y******hvisj
@@ -15656,7 +15787,7 @@ export class DeleteAirEcsInstanceRequest extends $dara.Model {
 export class DeleteAirEcsInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The ID of the Elastic Compute Service (ECS) instance.
    * 
    * @example
    * i-uf6ir9y******hvisj
@@ -17077,13 +17208,12 @@ export class DeleteSnapshotRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly delete the most recent backup snapshot. Valid values:
-   * 
-   * *   true: The system forcibly deletes the most recent backup snapshot.
-   * *   false (default): The system does not forcibly delete the most recent backup snapshot.
+   * This parameter is deprecated.
    * 
    * @example
-   * false
+   * Deprected.
+   * 
+   * @deprecated
    */
   force?: boolean;
   /**
@@ -17726,6 +17856,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
    * 129374672382xxxx
    */
   crossAccountUserId?: number;
+  filters?: DescribeBackupClientsRequestFilters[];
   /**
    * @remarks
    * The IDs of ECS instances.
@@ -17766,6 +17897,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
+      filters: 'Filters',
       instanceIds: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -17781,6 +17913,7 @@ export class DescribeBackupClientsRequest extends $dara.Model {
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
       crossAccountUserId: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeBackupClientsRequestFilters },
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
@@ -17791,6 +17924,9 @@ export class DescribeBackupClientsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.clientIds)) {
       $dara.Model.validateArray(this.clientIds);
+    }
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
     }
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
@@ -17863,6 +17999,7 @@ export class DescribeBackupClientsShrinkRequest extends $dara.Model {
    * 129374672382xxxx
    */
   crossAccountUserId?: number;
+  filters?: DescribeBackupClientsShrinkRequestFilters[];
   /**
    * @remarks
    * The IDs of ECS instances.
@@ -17903,6 +18040,7 @@ export class DescribeBackupClientsShrinkRequest extends $dara.Model {
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
+      filters: 'Filters',
       instanceIdsShrink: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -17918,6 +18056,7 @@ export class DescribeBackupClientsShrinkRequest extends $dara.Model {
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
       crossAccountUserId: 'number',
+      filters: { 'type': 'array', 'itemType': DescribeBackupClientsShrinkRequestFilters },
       instanceIdsShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -17926,6 +18065,9 @@ export class DescribeBackupClientsShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }
@@ -18324,9 +18466,10 @@ export class DescribeBackupPlansRequest extends $dara.Model {
    * 
    * *   **ECS_FILE**: Elastic Compute Service (ECS) files
    * *   **OSS**: Object Storage Service (OSS) buckets
-   * *   **NAS**: Apsara File Storage NAS file systems
+   * *   **NAS**: File Storage NAS (NAS) file systems
    * *   **OTS**: Tablestore instances
    * *   **UDM_ECS**: ECS instances
+   * *   **SYNC**: data synchronization
    * 
    * @example
    * ECS_FILE
@@ -22701,6 +22844,13 @@ export class DescribeVaultsRequest extends $dara.Model {
    * v-*********************
    */
   vaultId?: string;
+  /**
+   * @remarks
+   * The name of the backup vault. The name must be 1 to 64 characters in length.
+   * 
+   * @example
+   * vaultname
+   */
   vaultName?: string;
   /**
    * @remarks
@@ -24319,7 +24469,7 @@ export class GetTempFileDownloadLinkResponseBody extends $dara.Model {
    * The download URL of the file.
    * 
    * @example
-   * https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/job-0007yg2i0m6705wdhgb6_0.csv?Expires=1649406469&OSSAccessKeyId=LTAIjGotF8wX****&Signature=26%2BgjegCrRmMDCpS5jzyG4ivKU8%3D
+   * https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/job-0007yg2i0m6705wdhgb6_0.csv?Expires=1649406469&OSSAccessKeyId=LTAI************&Signature=26%2BgjegCrRmMDCpS5jzyG4ivKU8%3D
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -28383,7 +28533,7 @@ export class UpdateVaultRequest extends $dara.Model {
   vaultName?: string;
   /**
    * @remarks
-   * Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+   * Specifies whether to enable the immutable backup feature for storage vaults. After the immutable backup feature is enabled, backup vaults and all backup data cannot be deleted until the retention period expires. The immutable backup feature cannot be disabled after it is enabled. Only standard backup vaults and archive vaults support the immutable backup feature.
    * 
    * @example
    * true
@@ -31090,9 +31240,6 @@ export default class Client extends OpenApi {
   /**
    * Deletes a backup snapshot.
    * 
-   * @remarks
-   * If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
-   * 
    * @param request - DeleteSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSnapshotResponse
@@ -31152,9 +31299,6 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a backup snapshot.
-   * 
-   * @remarks
-   * If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
    * 
    * @param request - DeleteSnapshotRequest
    * @returns DeleteSnapshotResponse
@@ -31359,6 +31503,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.crossAccountUserId)) {
       query["CrossAccountUserId"] = request.crossAccountUserId;
+    }
+
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
