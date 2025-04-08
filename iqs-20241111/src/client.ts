@@ -5,6 +5,35 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class GlobalQueryContextOriginalQuery extends $dara.Model {
+  page?: string;
+  query?: string;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      page: 'page',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: 'string',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryContextOriginalQuery extends $dara.Model {
   industry?: string;
   page?: string;
@@ -292,6 +321,182 @@ export class GenericSearchResult extends $dara.Model {
     }
     if(Array.isArray(this.weiboItems)) {
       $dara.Model.validateArray(this.weiboItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalPageItem extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://baijiahao.baidu.com/s?id=1787881554557805096
+   */
+  link?: string;
+  /**
+   * @example
+   * 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，小米SU7确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
+   */
+  snippet?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 小米SU7售价22.99万元起 高管亲自辟谣：发布前不会有价格
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      link: 'link',
+      snippet: 'snippet',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      link: 'string',
+      snippet: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalQueryContext extends $dara.Model {
+  originalQuery?: GlobalQueryContextOriginalQuery;
+  static names(): { [key: string]: string } {
+    return {
+      originalQuery: 'originalQuery',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalQuery: GlobalQueryContextOriginalQuery,
+    };
+  }
+
+  validate() {
+    if(this.originalQuery && typeof (this.originalQuery as any).validate === 'function') {
+      (this.originalQuery as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalSceneItem extends $dara.Model {
+  detail?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalSearchInformation extends $dara.Model {
+  searchTime?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      searchTime: 'searchTime',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchTime: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalSearchResult extends $dara.Model {
+  pageItems?: GlobalPageItem[];
+  queryContext?: GlobalQueryContext;
+  /**
+   * @example
+   * 123456
+   */
+  requestId?: string;
+  sceneItems?: GlobalSceneItem[];
+  searchInformation?: GlobalSearchInformation;
+  static names(): { [key: string]: string } {
+    return {
+      pageItems: 'pageItems',
+      queryContext: 'queryContext',
+      requestId: 'requestId',
+      sceneItems: 'sceneItems',
+      searchInformation: 'searchInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageItems: { 'type': 'array', 'itemType': GlobalPageItem },
+      queryContext: GlobalQueryContext,
+      requestId: 'string',
+      sceneItems: { 'type': 'array', 'itemType': GlobalSceneItem },
+      searchInformation: GlobalSearchInformation,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pageItems)) {
+      $dara.Model.validateArray(this.pageItems);
+    }
+    if(this.queryContext && typeof (this.queryContext as any).validate === 'function') {
+      (this.queryContext as any).validate();
+    }
+    if(Array.isArray(this.sceneItems)) {
+      $dara.Model.validateArray(this.sceneItems);
+    }
+    if(this.searchInformation && typeof (this.searchInformation as any).validate === 'function') {
+      (this.searchInformation as any).validate();
     }
     super.validate();
   }
@@ -973,6 +1178,89 @@ export class GenericSearchResponse extends $dara.Model {
   }
 }
 
+export class GlobalSearchRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  /**
+   * @example
+   * OneWeek
+   */
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      page: 'page',
+      pageSize: 'pageSize',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: 'number',
+      pageSize: 'number',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GlobalSearchResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GlobalSearchResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GlobalSearchResult,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1204,6 +1492,68 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.genericSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通晓搜索-出海版(全球信息搜索)
+   * 
+   * @param request - GlobalSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GlobalSearchResponse
+   */
+  async globalSearchWithOptions(request: GlobalSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GlobalSearchResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GlobalSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/search/global`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GlobalSearchResponse>(await this.callApi(params, req, runtime), new GlobalSearchResponse({}));
+    } else {
+      return $dara.cast<GlobalSearchResponse>(await this.execute(params, req, runtime), new GlobalSearchResponse({}));
+    }
+
+  }
+
+  /**
+   * 通晓搜索-出海版(全球信息搜索)
+   * 
+   * @param request - GlobalSearchRequest
+   * @returns GlobalSearchResponse
+   */
+  async globalSearch(request: GlobalSearchRequest): Promise<GlobalSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.globalSearchWithOptions(request, headers, runtime);
   }
 
 }
