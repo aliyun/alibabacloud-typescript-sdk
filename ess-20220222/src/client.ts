@@ -3173,6 +3173,10 @@ export class CreateScalingConfigurationRequestNetworkInterfaces extends $dara.Mo
 
 export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4207,6 +4211,10 @@ export class CreateScalingConfigurationShrinkRequestNetworkInterfaces extends $d
 
 export class CreateScalingConfigurationShrinkRequestResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10545,9 +10553,25 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModels extends $d
 }
 
 export class DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   adequacyScore?: number;
+  /**
+   * @example
+   * 3
+   */
   healthScore?: number;
+  /**
+   * @example
+   * 3
+   */
   hotScore?: number;
+  /**
+   * @example
+   * 3
+   */
   supplyScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10602,6 +10626,10 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
    * The instanceType does not support the image in the configuration.
    */
   msg?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
   /**
    * @remarks
@@ -12324,6 +12352,10 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetwo
 
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20044,6 +20076,10 @@ export class ModifyScalingConfigurationRequestNetworkInterfaces extends $dara.Mo
 
 export class ModifyScalingConfigurationRequestResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21096,6 +21132,10 @@ export class ModifyScalingConfigurationShrinkRequestNetworkInterfaces extends $d
 
 export class ModifyScalingConfigurationShrinkRequestResourcePoolOptions extends $dara.Model {
   privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22227,7 +22267,7 @@ export class AttachAlbServerGroupsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the new ALB server group. Valid values:
    * 
-   * *   true: adds the existing ECS instances or elastic container instances in the scaling group to the new ALB server group. In this case, the system returns the value of `ScalingActivityId`.
+   * *   true: adds the existing ECS instances or elastic container instances in the scaling group to the new ALB server group and returns the value of `ScalingActivityId`. You can query the value of ScalingActivityId to check whether the existing ECS instances are added to the ALB server group.
    * *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the new ALB server group.
    * 
    * Default value: false.
@@ -22406,7 +22446,7 @@ export class AttachDBInstancesRequest extends $dara.Model {
   DBInstances?: string[];
   /**
    * @remarks
-   * Specifies whether to add the private IP addresses of all ECS instances in the scaling group to the IP address whitelist of an ApsaraDB RDS instance when you attach the ApsaraDB RDS instance to the scaling group. Valid values:
+   * Specifies whether to add the private IP addresses of all ECS instances in the scaling group to the IP address whitelist of the ApsaraDB RDS instance that you want to attach to the scaling group. Valid values:
    * 
    * *   true
    * *   false
@@ -23885,11 +23925,11 @@ export class CreateAlarmRequest extends $dara.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The method that you want to use to aggregate the metric data. Valid values:
+   * The statistical method of the metric data. Valid values:
    * 
-   * *   Average: the average value.
-   * *   Minimum: the minimum value.
-   * *   Maximum: the maximum value.
+   * *   Average: calculates the average value of the metric data.
+   * *   Minimum: calculates the minimum value of the metric data.
+   * *   Maximum: calculates the maximum value of the metric data.
    * 
    * Default value: Average.
    * 
@@ -24469,7 +24509,7 @@ export class CreateEciScalingConfigurationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The name of the instance Resource Access Management (RAM) role. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
+   * The name of the instance Resource Access Management (RAM) role. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [RAM roles](https://help.aliyun.com/document_detail/61175.html).
    * 
    * @example
    * RamTestRole
@@ -27572,7 +27612,7 @@ export class CreateScalingRuleRequest extends $dara.Model {
    * *   SimpleScalingRule: a simple scaling rule. After you execute a simple scaling rule, Auto Scaling adjusts the number of ECS instances or elastic container instances in the scaling group based on the values of AdjustmentType and AdjustmentValue.
    * *   TargetTrackingScalingRule: a target tracking scaling rule. After you execute a target tracking scaling rule, Auto Scaling dynamically calculates the number of ECS instances or elastic container instances to scale based on the predefined metric (MetricName) and attempts to maintain the metric value close to the expected value (TargetValue).
    * *   StepScalingRule: a step scaling rule. After you execute a step scaling rule, Auto Scaling scales instances step by step based on the predefined thresholds and metric values.
-   * *   PredictiveScalingRule: a predictive scaling rule. After you execute a predictive scaling rule, Auto Scaling uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to specify the value range for the scaling group.
+   * *   PredictiveScalingRule: a predictive scaling rule. After you execute a predictive scaling rule, Auto Scaling uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to adjust the boundary values for the scaling group.
    * 
    * Default value: SimpleScalingRule.
    * 
@@ -29851,7 +29891,7 @@ export class DescribeEciScalingConfigurationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Pages start from page 1.
+   * The page number. Pages start from page 1.
    * 
    * Default value: 1.
    * 
@@ -29861,7 +29901,7 @@ export class DescribeEciScalingConfigurationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 50.
+   * The number of entries per page. Maximum value: 50.
    * 
    * Default value: 10.
    * 
@@ -30243,6 +30283,10 @@ export class DescribeElasticStrengthRequest extends $dara.Model {
 }
 
 export class DescribeElasticStrengthResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Strong
+   */
   elasticStrength?: string;
   /**
    * @remarks
@@ -34403,7 +34447,7 @@ export class DetachLoadBalancersRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the Server Load Balancer (SLB) instance. Valid values:
+   * Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the load balancer. Valid values:
    * 
    * *   true
    * *   false
@@ -36529,7 +36573,7 @@ export class ModifyAlarmRequest extends $dara.Model {
    * @remarks
    * The metric type. Valid values:
    * 
-   * *   system: system metrics of CloudMonitor
+   * *   system: system metrics of CloudMonitor.
    * *   custom: custom metrics that are reported to CloudMonitor.
    * 
    * @example
@@ -37524,12 +37568,11 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
    * @remarks
    * The ID of the ECS instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * i-bp109k5j3dum1ce6****
    */
   instanceId?: string;
+  instanceIds?: string[];
   ownerId?: number;
   /**
    * @remarks
@@ -37556,6 +37599,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
     return {
       entrusted: 'Entrusted',
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -37567,6 +37611,7 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
     return {
       entrusted: 'boolean',
       instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
@@ -37575,6 +37620,9 @@ export class ModifyInstanceAttributeRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
     super.validate();
   }
 
@@ -49756,6 +49804,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
     }
 
     if (!$dara.isNull(request.ownerId)) {
