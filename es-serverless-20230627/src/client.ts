@@ -221,6 +221,7 @@ export class CreateAppRequestQuotaInfo extends $dara.Model {
 }
 
 export class CreateAppResponseBodyResult extends $dara.Model {
+  appId?: string;
   /**
    * @example
    * es-serverless-cn-xxx
@@ -228,12 +229,14 @@ export class CreateAppResponseBodyResult extends $dara.Model {
   instaneId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
       instaneId: 'instaneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       instaneId: 'string',
     };
   }
