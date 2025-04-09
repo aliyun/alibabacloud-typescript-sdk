@@ -1208,6 +1208,8 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
    * The information about the IP address whitelist.
    */
   allowedIpList?: string[];
+  blackIPList?: string[];
+  blackIPMap?: { [key: string]: string };
   /**
    * @remarks
    * The port range. Valid value:
@@ -1218,11 +1220,17 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
    * 9093/9093
    */
   portRange?: string;
+  securityGroupId?: string;
+  userDefinedSharedSecurityGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
       allowedIpGroup: 'AllowedIpGroup',
       allowedIpList: 'AllowedIpList',
+      blackIPList: 'BlackIPList',
+      blackIPMap: 'BlackIPMap',
       portRange: 'PortRange',
+      securityGroupId: 'SecurityGroupId',
+      userDefinedSharedSecurityGroup: 'UserDefinedSharedSecurityGroup',
     };
   }
 
@@ -1230,7 +1238,11 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
     return {
       allowedIpGroup: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       allowedIpList: { 'type': 'array', 'itemType': 'string' },
+      blackIPList: { 'type': 'array', 'itemType': 'string' },
+      blackIPMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       portRange: 'string',
+      securityGroupId: 'string',
+      userDefinedSharedSecurityGroup: 'boolean',
     };
   }
 
@@ -1240,6 +1252,12 @@ export class GetAllowedIpListResponseBodyAllowedListInternetList extends $dara.M
     }
     if(Array.isArray(this.allowedIpList)) {
       $dara.Model.validateArray(this.allowedIpList);
+    }
+    if(Array.isArray(this.blackIPList)) {
+      $dara.Model.validateArray(this.blackIPList);
+    }
+    if(this.blackIPMap) {
+      $dara.Model.validateMap(this.blackIPMap);
     }
     super.validate();
   }
@@ -1260,6 +1278,8 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
    * The information about the IP address whitelist.
    */
   allowedIpList?: string[];
+  blackIPList?: string[];
+  blackIPMap?: { [key: string]: string };
   /**
    * @remarks
    * The port range. Valid value:
@@ -1270,11 +1290,17 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
    * 9092/9092
    */
   portRange?: string;
+  securityGroupId?: string;
+  userDefinedSharedSecurityGroup?: boolean;
   static names(): { [key: string]: string } {
     return {
       allowedIpGroup: 'AllowedIpGroup',
       allowedIpList: 'AllowedIpList',
+      blackIPList: 'BlackIPList',
+      blackIPMap: 'BlackIPMap',
       portRange: 'PortRange',
+      securityGroupId: 'SecurityGroupId',
+      userDefinedSharedSecurityGroup: 'UserDefinedSharedSecurityGroup',
     };
   }
 
@@ -1282,7 +1308,11 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
     return {
       allowedIpGroup: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       allowedIpList: { 'type': 'array', 'itemType': 'string' },
+      blackIPList: { 'type': 'array', 'itemType': 'string' },
+      blackIPMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       portRange: 'string',
+      securityGroupId: 'string',
+      userDefinedSharedSecurityGroup: 'boolean',
     };
   }
 
@@ -1292,6 +1322,12 @@ export class GetAllowedIpListResponseBodyAllowedListVpcList extends $dara.Model 
     }
     if(Array.isArray(this.allowedIpList)) {
       $dara.Model.validateArray(this.allowedIpList);
+    }
+    if(Array.isArray(this.blackIPList)) {
+      $dara.Model.validateArray(this.blackIPList);
+    }
+    if(this.blackIPMap) {
+      $dara.Model.validateMap(this.blackIPMap);
     }
     super.validate();
   }
