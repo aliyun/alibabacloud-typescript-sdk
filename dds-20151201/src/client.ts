@@ -202,10 +202,13 @@ export class CreateShardingDBInstanceRequestMongos extends $dara.Model {
 export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
   /**
    * @remarks
-   * The instance type of the shard node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * The instance type of the shard component. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
    * 
-   * > * **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
-   * > * Valid values of **N**: **2** to **32**.
+   * > 
+   * 
+   * *   **N** specifies the serial number of the shard component for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard component.
+   * 
+   * *   Valid values of **N**: **2** to **32**.
    * 
    * This parameter is required.
    * 
@@ -215,11 +218,11 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
   class?: string;
   /**
    * @remarks
-   * The number of read-only nodes in the shard node.
+   * The number of read-only nodes in the shard component.
    * 
    * Valid values: **0**, **1, 2, 3, 4, and 5**. Default value: **0**.
    * 
-   * >  **N** specifies the serial number of the shard node for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard node.
+   * >  **N** specifies the serial number of the shard component for which you want to set the number of read-only nodes. **ReplicaSet.2.ReadonlyReplicas** specifies the number of read-only nodes in the second shard component.
    * 
    * @example
    * 0
@@ -227,10 +230,13 @@ export class CreateShardingDBInstanceRequestReplicaSet extends $dara.Model {
   readonlyReplicas?: number;
   /**
    * @remarks
-   * The storage capacity of the shard node. Unit: GB.
+   * The storage capacity of the shard component. Unit: GB.
    * 
-   * > * The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-   * > * **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
+   * > 
+   * 
+   * *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+   * 
+   * *   **N** specifies the serial number of the shard component for which the storage capacity is specified. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard component.
    * 
    * This parameter is required.
    * 
@@ -2721,6 +2727,13 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosL
    * s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
    */
   connectSting?: string;
+  /**
+   * @remarks
+   * The endpoint of the mongos node.
+   * 
+   * @example
+   * s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
+   */
   connectString?: string;
   /**
    * @remarks
@@ -5798,7 +5811,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * @example
    * Succeed
    */
-  status?: number;
+  status?: string;
   /**
    * @remarks
    * The details of the task. The task details vary based on the value of the taskType parameter.
@@ -5897,7 +5910,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
       regionId: 'string',
       remainTime: 'number',
       startTime: 'string',
-      status: 'number',
+      status: 'string',
       taskDetail: 'string',
       taskId: 'string',
       taskType: 'string',
@@ -8000,7 +8013,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
   promDetailList?: DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInstancePromDetailList;
   /**
    * @remarks
-   * The discount.
+   * The discounted price.
    * 
    * @example
    * 451.00
@@ -8022,7 +8035,21 @@ export class DescribePriceResponseBodySubOrdersSubOrderModuleInstanceModuleInsta
    * 0.0
    */
   totalProductFee?: number;
+  /**
+   * @remarks
+   * The price type.
+   * 
+   * @example
+   * monthPrice
+   */
   priceType?: string;
+  /**
+   * @remarks
+   * The unit of the price.
+   * 
+   * @example
+   * xxxx
+   */
   priceUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8217,7 +8244,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptiona
   promotionOptionNo?: string;
   /**
    * @remarks
-   * The IDs of the rules that correspond to the coupon.
+   * The promotion IDs.
    */
   promotionRuleIdList?: DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptionalPromotionPromotionRuleIdList;
   /**
@@ -11461,6 +11488,19 @@ export class CreateAccountRequest extends $dara.Model {
    * Test123456!
    */
   accountPassword?: string;
+  /**
+   * @remarks
+   * The type of the account that you want to create. Valid values:
+   * 
+   * *   **db** (default): shard account (available)
+   * *   **cs**: ConfigServer account
+   * *   **normal**: replica set account
+   * 
+   * >  You can set this parameter only to **db**.
+   * 
+   * @example
+   * db
+   */
   characterType?: string;
   /**
    * @remarks
@@ -12997,9 +13037,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * The password of the root account. The password must meet the following requirements:
    * 
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   The special characters include ! # $ % ^ & \\* ( ) _ + - =
-   * *   The password of the account must be 8 to 32 characters in length.
+   * *   The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * *   The following special characters are supported: ! @ # $ % ^ & \\* ( ) _ + - =.
+   * *   The password must be 8 to 32 characters in length.
+   * 
+   * >  For more information about how to resolve failed database connections due to special characters, see [What do I do if my instance is not connected due to special characters in the password in the connection string of the instance?](https://help.aliyun.com/document_detail/471568.html)
    * 
    * @example
    * 123456Aa
@@ -13035,7 +13077,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * *   **PostPaid** (default): pay-as-you-go
    * *   **PrePaid**: subscription
    * 
-   * >  If this parameter is set to **PrePaid**, you must also configure the **Period** parameter.
+   * >  If you set this parameter to **PrePaid**, you must also configure the **Period** parameter.
    * 
    * @example
    * PrePaid
@@ -13080,7 +13122,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   destRegion?: string;
   /**
    * @remarks
-   * Indicates whether disk encryption is enabled.
+   * Specifies whether to enable disk encryption.
    * 
    * @example
    * true
@@ -13115,8 +13157,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * *   **4.2**
    * *   **4.0**
    * 
-   * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
-   * > * If you call this operation to clone an instance, set the value of this parameter to the database engine version of the source instance.
+   * > 
+   * 
+   * *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * 
+   * *   If you call this operation to clone an instance, set the value of this parameter to the database engine version of the source instance.
    * 
    * This parameter is required.
    * 
@@ -13172,9 +13217,9 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   mongos?: CreateShardingDBInstanceRequestMongos[];
   /**
    * @remarks
-   * The network type of the instance.
+   * The network type of the instance. Set the value to VPC.
    * 
-   * Set the value to **VPC**.
+   * ****
    * 
    * @example
    * VPC
@@ -13225,7 +13270,7 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The information of the shard node.
+   * The information of the shard component.
    * 
    * This parameter is required.
    */
@@ -13252,10 +13297,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The backup restore type of the instance.
-   * - 1:  restore an instance to the specified time.
-   * - 2: restore an  released instance to the specified backup set.
-   * - 3：restore an instance to the specified cross-regional backup set.
+   * The restoration type of the instance. Valid values:
+   * 
+   * *   1: restores the instance data to the specified point in time.
+   * *   2: restores the data of the released instance to the specified backup set.
+   * *   3: restores the instance data to the specified cross-region backup set.
    * 
    * @example
    * 1
@@ -13331,8 +13377,11 @@ export class CreateShardingDBInstanceRequest extends $dara.Model {
    * @remarks
    * The storage engine of the instance. Set the value to **WiredTiger**.
    * 
-   * > * If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
-   * > * For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
+   * > 
+   * 
+   * *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
+   * 
+   * *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](https://help.aliyun.com/document_detail/61906.html).
    * 
    * @example
    * WiredTiger
@@ -14896,7 +14945,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The number of the page to return. Specify the parameter to a positive integer that is greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -14904,7 +14953,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30, 50, and 100**. Default value: **30**.
+   * The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -14928,6 +14977,14 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -14964,6 +15021,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
       pageSize: 'PageSize',
       productId: 'ProductId',
       region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -14984,6 +15042,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
       pageSize: 'number',
       productId: 'string',
       region: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'number',
@@ -15661,7 +15720,7 @@ export class DescribeAuditRecordsResponse extends $dara.Model {
 export class DescribeAvailabilityZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the values of the returned **RegionName** and **ZoneName** parameters. Valid values:
+   * The language of the returned **RegionName** and **ZoneName** parameter values. Valid values:
    * 
    * *   **zh** (default): Chinese
    * *   **en**: English
@@ -15715,15 +15774,26 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
   excludeZoneId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the product. Valid values:
    * 
-   * *   **PrePaid** (default): subscription
-   * *   **PostPaid**: pay-as-you-go
+   * *   **PrePaid**: subscription
+   * *   **PostPaid:** pay-as-you-go
    * 
    * @example
    * PrePaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The architecture of the instance. Valid values:
+   * 
+   * *   **sharding**: sharded cluster instance
+   * *   **replicate**: replica set or standalone instance
+   * 
+   * @example
+   * replicate
+   */
+  instanceType?: string;
   /**
    * @remarks
    * The edition of the instance. High-Available Edition and Preview Edition (dbfs) are supported.
@@ -15746,7 +15816,16 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of nodes. This parameter is available only for replica set instances.
+   * The number of nodes in the instance.
+   * 
+   * >  This parameter is available only for replica set instances.
+   * 
+   * Valid values:
+   * 
+   * *   1
+   * *   3
+   * *   5
+   * *   7
    * 
    * @example
    * 3
@@ -15764,10 +15843,11 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The storage type of the instance. 
-   * - **cloud**: The system displays only zones in which cloud disk-based instances can be deployed. 
-   * - **local**: The system displays only zones in which local disk-based instances can be deployed. 
-   * - **default** or null: The system displays only zones in which cloud disk-based and local disk-based instances can be deployed.
+   * The storage type. Valid values:
+   * 
+   * *   **cloud**: displays only zones available for instances that use cloud disks.
+   * *   **local**: only displays zones available for instances that use local disks instances.
+   * *   **default** or unspecified: displays zones available for instances that use cloud disks and those that use local disks.
    * 
    * @example
    * local
@@ -15775,15 +15855,18 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
   storageSupport?: string;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The disk type. Valid values:
    * 
-   * *   **cloud_essd1**: PL1 enhanced SSD (ESSD)
+   * *   **cloud_essd**: PL1 Enterprise SSD (ESSD)
    * *   **cloud_essd2**: PL2 ESSD
    * *   **cloud_essd3**: PL3 ESSD
-   * *   **local_ssd**: Local SSD
+   * *   **dhg_local_ssd**: local SSD
    * 
-   * > *   Instances that run MongoDB 4.4 or later support only cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
-   * > *   Instances that run MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
+   * > 
+   * 
+   * *   Instances that run MongoDB 4.4 or later only use cloud disks to store data. If you do not specify this parameter, the value **cloud_essd1** is used by default.
+   * 
+   * *   Instances that run MongoDB 4.2 and earlier only use local disks to store data. If you do not specify this parameter, the value **local_ssd** is used by default.
    * 
    * @example
    * local_ssd
@@ -15806,6 +15889,7 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
       excludeSecondaryZoneId: 'ExcludeSecondaryZoneId',
       excludeZoneId: 'ExcludeZoneId',
       instanceChargeType: 'InstanceChargeType',
+      instanceType: 'InstanceType',
       mongoType: 'MongoType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -15829,6 +15913,7 @@ export class DescribeAvailabilityZonesRequest extends $dara.Model {
       excludeSecondaryZoneId: 'string',
       excludeZoneId: 'string',
       instanceChargeType: 'string',
+      instanceType: 'string',
       mongoType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -17004,7 +17089,7 @@ export class DescribeBackupTasksRequest extends $dara.Model {
    * @remarks
    * The ID of the backup task.
    * 
-   * >  If you call the [CreateBackup](https://help.aliyun.com/document_detail/61075.html) operation to perform a manual backup task, you can set this parameter to the returned backup ID to query the backup progress of the task.
+   * >  If you call the [CreateBackup](https://help.aliyun.com/document_detail/468439.html) operation to perform a manual backup task, you can set this parameter to the returned backup ID to query the backup progress of the task.
    * 
    * @example
    * 170034
@@ -17188,7 +17273,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+   * The page number. Pages start from page 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -18593,6 +18678,130 @@ export class DescribeDBInstanceSSLResponse extends $dara.Model {
   }
 }
 
+export class DescribeDBInstanceSpecInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mdb.shard.4x.large.d
+   */
+  instanceClass?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceClass: 'InstanceClass',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceClass: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSpecInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  CPU?: string;
+  description?: string;
+  /**
+   * @example
+   * 8
+   */
+  memory?: string;
+  /**
+   * @example
+   * 6B82A9EF-9961-5A31-A19F-009B709xxxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      description: 'Description',
+      memory: 'Memory',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'string',
+      description: 'string',
+      memory: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSpecInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceSpecInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceSpecInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceSwitchLogRequest extends $dara.Model {
   /**
    * @remarks
@@ -19440,6 +19649,13 @@ export class DescribeDBInstancesOverviewRequest extends $dara.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to display instance tags. Default value: False.
+   * 
+   * @example
+   * false
+   */
   showTags?: boolean;
   /**
    * @remarks
@@ -20185,7 +20401,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of the page to return. The value must be a positive integer. Default value: 1
+   * The number of the page to return. The value must be a positive integer. Default value: 1.
    * 
    * @example
    * 1
@@ -20193,7 +20409,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 10 to 100. Default value: 10
+   * The number of entries per page. Valid values: 10 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -20207,6 +20423,14 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek2inrfrnw3xby
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -20294,6 +20518,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -20313,6 +20538,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
@@ -20474,6 +20700,14 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -20558,6 +20792,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
       fromStartTime: 'FromStartTime',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       status: 'Status',
@@ -20574,6 +20809,7 @@ export class DescribeHistoryTasksStatRequest extends $dara.Model {
       fromStartTime: 'string',
       instanceId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       status: 'string',
@@ -25042,10 +25278,8 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * @remarks
    * The time when the instance is migrated to the destination zone. Valid values:
    * 
-   * *   **Immediately**: The instance is immediately migrated to the destination zone.
-   * *   **MaintainTime**: The instance is migrated during the maintenance period of the instance.
-   * 
-   * Default value: **Immediately**.
+   * *   **Immediately** (default): The instance is migrated immediately.
+   * *   **MaintainTime**: The instance is migrated during its maintenance window.
    * 
    * @example
    * Immediately
@@ -25214,6 +25448,19 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * root
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The type of the account whose description you can modify. Valid values:
+   * 
+   * *   **db**: shard account
+   * *   **cs**: ConfigServer account
+   * *   **normal** (default): replica set account (available)
+   * 
+   * >  You can set this parameter only to **normal**.
+   * 
+   * @example
+   * normal
+   */
   characterType?: string;
   /**
    * @remarks
@@ -25358,6 +25605,14 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
   immediateStart?: number;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -25378,6 +25633,7 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
       immediateStart: 'ImmediateStart',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       switchTime: 'SwitchTime',
@@ -25390,6 +25646,7 @@ export class ModifyActiveOperationTasksRequest extends $dara.Model {
       immediateStart: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       switchTime: 'string',
@@ -32063,33 +32320,26 @@ export default class Client extends OpenApi {
       'cn-wulanchabu': "mongodb.aliyuncs.com",
       'cn-hangzhou': "mongodb.aliyuncs.com",
       'cn-shanghai': "mongodb.aliyuncs.com",
-      'cn-nanjing': "mongodb.cn-nanjing.aliyuncs.com",
-      'cn-fuzhou': "mongodb.cn-fuzhou.aliyuncs.com",
       'cn-shenzhen': "mongodb.aliyuncs.com",
       'cn-heyuan': "mongodb.aliyuncs.com",
       'cn-guangzhou': "mongodb.aliyuncs.com",
       'cn-chengdu': "mongodb.cn-chengdu.aliyuncs.com",
       'cn-hongkong': "mongodb.cn-hongkong.aliyuncs.com",
       'ap-northeast-1': "mongodb.ap-northeast-1.aliyuncs.com",
-      'ap-northeast-2': "mongodb.ap-northeast-2.aliyuncs.com",
       'ap-southeast-1': "mongodb.ap-southeast-1.aliyuncs.com",
       'ap-southeast-2': "mongodb.ap-southeast-2.aliyuncs.com",
       'ap-southeast-3': "mongodb.ap-southeast-3.aliyuncs.com",
       'ap-southeast-5': "mongodb.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-6': "mongodb.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-7': "mongodb.ap-southeast-7.aliyuncs.com",
-      'cn-zhengzhou-jva': "mongodb.cn-zhengzhou-jva.aliyuncs.com",
       'us-east-1': "mongodb.us-east-1.aliyuncs.com",
       'us-west-1': "mongodb.us-west-1.aliyuncs.com",
       'eu-west-1': "mongodb.eu-west-1.aliyuncs.com",
       'eu-central-1': "mongodb.eu-central-1.aliyuncs.com",
       'ap-south-1': "mongodb.ap-south-1.aliyuncs.com",
       'me-east-1': "mongodb.me-east-1.aliyuncs.com",
-      'me-central-1': "mongodb.me-central-1.aliyuncs.com",
       'cn-hangzhou-finance': "mongodb.aliyuncs.com",
       'cn-shanghai-finance-1': "mongodb.aliyuncs.com",
       'cn-shenzhen-finance-1': "mongodb.aliyuncs.com",
-      'cn-north-2-gov-1': "mongodb.aliyuncs.com",
+      'cn-north-2-gov-1': "mongodb.cn-north-2-gov-1.aliyuncs.com",
       'ap-northeast-2-pop': "mongodb.aliyuncs.com",
       'cn-beijing-finance-1': "mongodb.aliyuncs.com",
       'cn-beijing-finance-pop': "mongodb.aliyuncs.com",
@@ -34111,6 +34361,10 @@ export default class Client extends OpenApi {
       query["Region"] = request.region;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -34466,6 +34720,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceChargeType)) {
       query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
     }
 
     if (!$dara.isNull(request.mongoType)) {
@@ -35603,6 +35861,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看规格信息详情
+   * 
+   * @param request - DescribeDBInstanceSpecInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceSpecInfoResponse
+   */
+  async describeDBInstanceSpecInfoWithOptions(request: DescribeDBInstanceSpecInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceSpecInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceSpecInfo",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSpecInfoResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceSpecInfoResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceSpecInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * 查看规格信息详情
+   * 
+   * @param request - DescribeDBInstanceSpecInfoRequest
+   * @returns DescribeDBInstanceSpecInfoResponse
+   */
+  async describeDBInstanceSpecInfo(request: DescribeDBInstanceSpecInfoRequest): Promise<DescribeDBInstanceSpecInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceSpecInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
@@ -36263,6 +36588,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -36348,6 +36677,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -36972,7 +37305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+   * Queries the pricing information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37056,7 +37389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fees incurred when you create, upgrade, or renew an ApsaraDB for MongoDB instance.
+   * Queries the pricing information of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribePriceRequest
    * @returns DescribePriceResponse
@@ -38568,6 +38901,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
