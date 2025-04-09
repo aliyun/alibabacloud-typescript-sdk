@@ -235,6 +235,66 @@ export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels ext
   }
 }
 
+export class ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos extends $dara.Model {
+  /**
+   * @example
+   * cpn-jewjt8xryuitu****
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCloudPhoneNodeResponseBodyNodeInfos extends $dara.Model {
+  instanceInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos[];
+  /**
+   * @example
+   * cpn-e5kxgjyt8s1mb****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceInfos: 'InstanceInfos',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceInfos: { 'type': 'array', 'itemType': ChangeCloudPhoneNodeResponseBodyNodeInfosInstanceInfos },
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceInfos)) {
+      $dara.Model.validateArray(this.instanceInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResourceStockResponseBodyResourceStockModels extends $dara.Model {
   /**
    * @remarks
@@ -4283,6 +4343,115 @@ export class BatchGetAcpConnectionTicketResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchGetAcpConnectionTicketResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCloudPhoneNodeRequest extends $dara.Model {
+  /**
+   * @example
+   * ac.max
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * cpn-0ugbptfu473fy****
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 20
+   */
+  phoneCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      nodeId: 'NodeId',
+      phoneCount: 'PhoneCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      nodeId: 'string',
+      phoneCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCloudPhoneNodeResponseBody extends $dara.Model {
+  nodeInfos?: ChangeCloudPhoneNodeResponseBodyNodeInfos[];
+  /**
+   * @example
+   * 4610632D-D661-5982-B3D7-5D3FD183F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeInfos: 'NodeInfos',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeInfos: { 'type': 'array', 'itemType': ChangeCloudPhoneNodeResponseBodyNodeInfos },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeInfos)) {
+      $dara.Model.validateArray(this.nodeInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeCloudPhoneNodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeCloudPhoneNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeCloudPhoneNodeResponseBody,
     };
   }
 
@@ -9674,6 +9843,122 @@ export class EndCoordinationResponse extends $dara.Model {
   }
 }
 
+export class ExpandDataVolumeRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  nodeIds?: string[];
+  /**
+   * @example
+   * 100
+   */
+  shareDataVolume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      bizRegionId: 'BizRegionId',
+      nodeIds: 'NodeIds',
+      shareDataVolume: 'ShareDataVolume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      bizRegionId: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      shareDataVolume: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandDataVolumeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22326560487****
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExpandDataVolumeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExpandDataVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExpandDataVolumeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FetchFileRequest extends $dara.Model {
   /**
    * @remarks
@@ -13702,6 +13987,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改云手机矩阵的配置
+   * 
+   * @param request - ChangeCloudPhoneNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeCloudPhoneNodeResponse
+   */
+  async changeCloudPhoneNodeWithOptions(request: ChangeCloudPhoneNodeRequest, runtime: $dara.RuntimeOptions): Promise<ChangeCloudPhoneNodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.phoneCount)) {
+      query["PhoneCount"] = request.phoneCount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeCloudPhoneNode",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeCloudPhoneNodeResponse>(await this.callApi(params, req, runtime), new ChangeCloudPhoneNodeResponse({}));
+    } else {
+      return $dara.cast<ChangeCloudPhoneNodeResponse>(await this.execute(params, req, runtime), new ChangeCloudPhoneNodeResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改云手机矩阵的配置
+   * 
+   * @param request - ChangeCloudPhoneNodeRequest
+   * @returns ChangeCloudPhoneNodeResponse
+   */
+  async changeCloudPhoneNode(request: ChangeCloudPhoneNodeRequest): Promise<ChangeCloudPhoneNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeCloudPhoneNodeWithOptions(request, runtime);
+  }
+
+  /**
    * Check the resource inventory.
    * 
    * @param request - CheckResourceStockRequest
@@ -15849,6 +16189,65 @@ export default class Client extends OpenApi {
   async endCoordination(request: EndCoordinationRequest): Promise<EndCoordinationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.endCoordinationWithOptions(request, runtime);
+  }
+
+  /**
+   * 存储扩容
+   * 
+   * @param request - ExpandDataVolumeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExpandDataVolumeResponse
+   */
+  async expandDataVolumeWithOptions(request: ExpandDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<ExpandDataVolumeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
+    }
+
+    if (!$dara.isNull(request.shareDataVolume)) {
+      query["ShareDataVolume"] = request.shareDataVolume;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExpandDataVolume",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExpandDataVolumeResponse>(await this.callApi(params, req, runtime), new ExpandDataVolumeResponse({}));
+    } else {
+      return $dara.cast<ExpandDataVolumeResponse>(await this.execute(params, req, runtime), new ExpandDataVolumeResponse({}));
+    }
+
+  }
+
+  /**
+   * 存储扩容
+   * 
+   * @param request - ExpandDataVolumeRequest
+   * @returns ExpandDataVolumeResponse
+   */
+  async expandDataVolume(request: ExpandDataVolumeRequest): Promise<ExpandDataVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.expandDataVolumeWithOptions(request, runtime);
   }
 
   /**
