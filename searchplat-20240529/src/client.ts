@@ -61,6 +61,29 @@ export class CreateDocumentAnalyzeTaskRequestOutput extends $dara.Model {
   }
 }
 
+export class CreateDocumentAnalyzeTaskRequestStrategy extends $dara.Model {
+  enableSemantic?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableSemantic: 'enable_semantic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSemantic: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocumentAnalyzeTaskResponseBodyResult extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -1232,10 +1255,12 @@ export class GetWebSearchResponseBodyUsage extends $dara.Model {
 export class CreateDocumentAnalyzeTaskRequest extends $dara.Model {
   document?: CreateDocumentAnalyzeTaskRequestDocument;
   output?: CreateDocumentAnalyzeTaskRequestOutput;
+  strategy?: CreateDocumentAnalyzeTaskRequestStrategy;
   static names(): { [key: string]: string } {
     return {
       document: 'document',
       output: 'output',
+      strategy: 'strategy',
     };
   }
 
@@ -1243,6 +1268,7 @@ export class CreateDocumentAnalyzeTaskRequest extends $dara.Model {
     return {
       document: CreateDocumentAnalyzeTaskRequestDocument,
       output: CreateDocumentAnalyzeTaskRequestOutput,
+      strategy: CreateDocumentAnalyzeTaskRequestStrategy,
     };
   }
 
@@ -1252,6 +1278,9 @@ export class CreateDocumentAnalyzeTaskRequest extends $dara.Model {
     }
     if(this.output && typeof (this.output as any).validate === 'function') {
       (this.output as any).validate();
+    }
+    if(this.strategy && typeof (this.strategy as any).validate === 'function') {
+      (this.strategy as any).validate();
     }
     super.validate();
   }
@@ -2617,6 +2646,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.output)) {
       body["output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
