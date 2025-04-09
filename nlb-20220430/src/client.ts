@@ -18,9 +18,9 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The port that is used by the backend server. Valid values: **0 to 65535**. If you do not specify a port, the default value **0** is used.
+   * The port that is used by the backend server to provide services. Valid values: **0 to 65535**. If you do not set this parameter, the default value **0** is used.
    * 
-   * If you enable all-port forwarding, you do not need to specify a port when you add a backend server. The default port is port 0. NLB forwards requests to the requested ports. To determine whether all-port forwarding is enabled, call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) API operation and check the value of the **AnyPortEnabled** parameter.
+   * If multi-port forwarding is enabled, you do not need to set this parameter. The default value 0 is used. NLB forwards requests to the requested ports. To determine whether multi-port forwarding is enabled, call the [ListServerGroups](https://help.aliyun.com/document_detail/445895.html) operation and check the value of the **AnyPortEnabled** parameter.
    * 
    * @example
    * 443
@@ -28,10 +28,10 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The ID of the server group.
+   * The backend server ID.
    * 
    * *   If the server group is of the **Instance** type, set this parameter to the IDs of **Elastic Compute Service (ECS) instances**, **elastic network interfaces (ENIs)**, or **elastic container instances**.
-   * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
+   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The IP addresses of servers. If the server group type is **Ip**, set the ServerId parameter to IP addresses.
+   * The IP address of the backend server. If the server group type is **Ip**, set the ServerId parameter to IP addresses.
    * 
    * @example
    * 192.168.6.6
@@ -51,10 +51,10 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
    * @remarks
    * The type of the backend server. Valid values:
    * 
-   * *   **Ecs**: ECS instance
-   * *   **Eni**: ENI
-   * *   **Eci**: elastic container instance
-   * *   **Ip**: IP address
+   * *   **Ecs**: the ECS instance
+   * *   **Eni**: the ENI
+   * *   **Eci**: the elastic container instance
+   * *   **Ip**: the IP address
    * 
    * This parameter is required.
    * 
@@ -64,7 +64,7 @@ export class AddServersToServerGroupRequestServers extends $dara.Model {
   serverType?: string;
   /**
    * @remarks
-   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If the value is set to **0**, no requests are forwarded to the server.
+   * The weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If this parameter is set to **0**, no requests are forwarded to the server.
    * 
    * @example
    * 100
@@ -116,7 +116,7 @@ export class CancelShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model
    * @remarks
    * The zone ID of the NLB instance.
    * 
-   * > You can add at most one zone in each call.
+   * >  You can specify only one zone ID in each call.
    * 
    * You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
    * 
@@ -211,9 +211,9 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
 export class CreateListenerRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * KeyTest
@@ -221,9 +221,9 @@ export class CreateListenerRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * Test
@@ -255,9 +255,9 @@ export class CreateListenerRequestTag extends $dara.Model {
 export class CreateListenerShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * KeyTest
@@ -265,9 +265,9 @@ export class CreateListenerShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * Test
@@ -299,10 +299,10 @@ export class CreateListenerShrinkRequestTag extends $dara.Model {
 export class CreateLoadBalancerRequestDeletionProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable deletion protection. Valid values:
+   * Specifies whether to enable the deletion protection feature. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false** (default): no
+   * *   **true**
+   * *   **false** (default)
    * 
    * @example
    * false
@@ -310,7 +310,7 @@ export class CreateLoadBalancerRequestDeletionProtectionConfig extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The reason why the deletion protection feature is enabled or disabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
+   * The reason why the deletion protection feature is enabled or disabled. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
    * @example
    * The instance is running
@@ -374,9 +374,9 @@ export class CreateLoadBalancerRequestLoadBalancerBillingConfig extends $dara.Mo
 export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The reason why the configuration read-only mode is enabled. The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
+   * The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
-   * >  This parameter takes effect only if the **Status** parameter is set to **ConsoleProtection**.
+   * >  This parameter takes effect only when **Status** is set to **ConsoleProtection**.
    * 
    * @example
    * Service guarantee period
@@ -389,7 +389,7 @@ export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara
    * *   **NonProtection**: does not enable the configuration read-only mode. You cannot set the **Reason** parameter. If the **Reason** parameter is set, the value is cleared.
    * *   **ConsoleProtection**: enables the configuration read-only mode. You can set the **Reason** parameter.
    * 
-   * >  If you set this parameter to **ConsoleProtection**, you cannot use the NLB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the NLB instance in the NLB console. However, you can call API operations to modify the configurations of the NLB instance.
    * 
    * @example
    * ConsoleProtection
@@ -421,9 +421,9 @@ export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara
 export class CreateLoadBalancerRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag key can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * env
@@ -431,9 +431,9 @@ export class CreateLoadBalancerRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * product
@@ -465,7 +465,7 @@ export class CreateLoadBalancerRequestTag extends $dara.Model {
 export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic IP address (EIP) that is associated with the Internet-facing NLB instance. You can specify one EIP for each zone. You must add at least two zones. You can add a maximum of 10 zones.
+   * The ID of the elastic IP address (EIP) that is associated with the Internet-facing NLB instance. Each zone is assigned one EIP. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, specify at least two zones.
    * 
    * @example
    * eip-bp1aedxso6u80u0qf****
@@ -473,12 +473,12 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   allocationId?: string;
   /**
    * @remarks
-   * The IPv4 link-local addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
+   * The local IPv4 addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
    */
   ipv4LocalAddresses?: string[];
   /**
    * @remarks
-   * The IPv6 address. The IPv6 address that the NLB instance uses to provide external services.
+   * The VIP of the IPv6 version. The IPv6 address that the NLB instance uses to provide external services.
    * 
    * @example
    * 2408:400a:d5:3080:b409:840a:ca:e8e5
@@ -486,12 +486,12 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   ipv6Address?: string;
   /**
    * @remarks
-   * The IPv6 link-local addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
+   * The local IPv6 addresses. The IP addresses that the NLB instance uses to communicate with the backend servers. The number of IP addresses must be an even number, which must be at least 2 and at most 8.
    */
   ipv6LocalAddresses?: string[];
   /**
    * @remarks
-   * The private IP address. You must add at least two zones. You can add a maximum of 10 zones.
+   * The private virtual IP address (VIP) of the IPv4 version. The private IPv4 address that the NLB instance uses to provide external services.
    * 
    * @example
    * 192.168.10.1
@@ -499,7 +499,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   privateIPv4Address?: string;
   /**
    * @remarks
-   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an NLB instance. You must add at least two zones. You can add a maximum of 10 zones.
+   * The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an NLB instance. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, you must specify at least two zones.
    * 
    * This parameter is required.
    * 
@@ -509,7 +509,7 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the zone of the NLB instance. You must add at least two zones. You can add a maximum of 10 zones.
+   * The ID of the zone where the NLB instance is deployed. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, specify at least two zones.
    * 
    * You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
    * 
@@ -561,9 +561,9 @@ export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
 export class CreateSecurityPolicyRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. It must be 1 to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. It can contain letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), minus signs (-), and at signs (@).
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * You can add up to 20 tags for the security policy in each call.
    * 
    * @example
    * KeyTest
@@ -571,9 +571,9 @@ export class CreateSecurityPolicyRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The value of the tag. It must be 1 to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. It can contain letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), minus signs (-), and at signs (@).
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * You can add up to 20 tags for the security policy in each call.
    * 
    * @example
    * ValueTest
@@ -609,7 +609,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * 
    * Valid values: **0** to **65535**.
    * 
-   * Default value: **0**. If you set the value to 0, the port of a backend server is used for health checks.
+   * Default value: **0**. If you set this parameter to 0, the port that the backend server uses to provide services is also used for health checks.
    * 
    * @example
    * 0
@@ -617,7 +617,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The maximum timeout period of a health check. Unit: seconds. Valid values: **1** to **300**. Default value: **5**.
+   * The timeout period for a health check response. Unit: seconds Valid values: **1** to **300** Default value: **5**.
    * 
    * @example
    * 5
@@ -638,7 +638,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckDomain?: string;
   /**
    * @remarks
-   * Specifies whether to enable the health check feature. Valid values:
+   * Specifies whether to enable health checks. Valid values:
    * 
    * *   **true** (default)
    * *   **false**
@@ -649,7 +649,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The request string for UDP listener health checks. The string must be 1 to 64 characters in length and can contain only letters and digits.
+   * The response string that backend servers return to UDP listeners for health checks. The string must be 1 to 512 characters in length and can contain only letters and digits.
    * 
    * @example
    * ok
@@ -663,20 +663,24 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    */
   healthCheckHttpCode?: string[];
   /**
+   * @example
+   * HTTP1.0
+   */
+  healthCheckHttpVersion?: string;
+  /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds.
+   * The interval at which health checks are performed. Unit: seconds Default value: **5**
    * 
-   * Valid values: **1** to **50**.
-   * 
-   * Default value: **10**.
+   * *   If you set **HealthCheckType** to **TCP** or **HTTP**, valid values are **1** to **50**.
+   * *   If you set **HealthCheckType** to **UDP**, valid values are **1** to **300**. Set the health check interval equal to or larger than the response timeout period to ensure that UDP response timeouts are not determined as no responses.
    * 
    * @example
-   * 10
+   * 5
    */
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The request string for UDP listener health checks. The string must be 1 to 64 characters in length and can contain only letters and digits.
+   * The request string that UDP listeners send to backend servers for health checks. The string must be 1 to 512 characters in length and can contain only letters and digits.
    * 
    * @example
    * hello
@@ -684,7 +688,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckReq?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The protocol that you want to use for health checks. Valid values:
    * 
    * *   **TCP**
    * *   **HTTP**
@@ -696,9 +700,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckType?: string;
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The URL path to which health check probes are sent.
    * 
-   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: ` - / . % ? # &  `. The URL must start with a forward slash (/).
+   * The URL path must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: ` - / . % ? # &  `. It must start with a forward slash (/).
    * 
    * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
    * 
@@ -710,9 +714,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * @remarks
    * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
    * 
-   * Valid values: **2** to **10**.
+   * Valid values: **2** to **10**
    * 
-   * Default value: **2**.
+   * Default value: **2**
    * 
    * @example
    * 2
@@ -732,9 +736,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * @remarks
    * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
    * 
-   * Valid values: **2** to **10**.
+   * Valid values: **2** to **10**
    * 
-   * Default value: **2**.
+   * Default value: **2**
    * 
    * @example
    * 2
@@ -748,6 +752,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
@@ -766,6 +771,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
       healthCheckEnabled: 'boolean',
       healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
+      healthCheckHttpVersion: 'string',
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
       healthCheckType: 'string',
@@ -791,9 +797,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
 export class CreateServerGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag key can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * env
@@ -801,9 +807,9 @@ export class CreateServerGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * product
@@ -1094,7 +1100,6 @@ export class GetListenerHealthStatusResponseBodyListenerHealthStatusServerGroupI
    * 
    * *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
    * *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
-   * *   **Unused**: indicates that the weight of the backend server is 0.
    * *   **Unavailable**: indicates that health checks are disabled.
    * 
    * @example
@@ -1727,9 +1732,9 @@ export class ListListenerCertificatesResponseBodyCertificates extends $dara.Mode
 export class ListListenersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * It can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -1737,9 +1742,9 @@ export class ListListenersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 10 tag values.
+   * The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * It can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -2156,9 +2161,9 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
 export class ListLoadBalancersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * It must be 1 to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * KeyTest
@@ -2166,9 +2171,9 @@ export class ListLoadBalancersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * ValueTest
@@ -2859,7 +2864,7 @@ export class ListSecurityPolicyRequestTag extends $dara.Model {
    * @remarks
    * The tag key. You can specify up to 10 tag keys.
    * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -2869,7 +2874,7 @@ export class ListSecurityPolicyRequestTag extends $dara.Model {
    * @remarks
    * The tag value. You can specify up to 10 tag values.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -3185,7 +3190,7 @@ export class ListServerGroupServersResponseBodyServers extends $dara.Model {
    * The ID of the server group.
    * 
    * @example
-   * ecs-bp67acfmxazb4p****
+   * i-bp67acfmxazb4p****
    */
   serverId?: string;
   /**
@@ -3280,7 +3285,7 @@ export class ListServerGroupsRequestTag extends $dara.Model {
    * @remarks
    * The key of the tag. You can specify up to 10 tag keys.
    * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -3290,7 +3295,7 @@ export class ListServerGroupsRequestTag extends $dara.Model {
    * @remarks
    * The value of the tag. You can specify up to 10 tag values.
    * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` and `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * Test
@@ -3334,7 +3339,9 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The maximum timeout period of a health check. Unit: seconds. Valid values: **1** to **300**.
+   * The maximum timeout period of a health check response. Unit: seconds. Default value: **5**.
+   * 
+   * Valid values: **1** to **300**
    * 
    * @example
    * 200
@@ -3366,7 +3373,7 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The response string of UDP health checks. The string must be 1 to 64 characters in length, and can contain letters and digits.
+   * The response string of UDP health checks. The string must be 1 to 512 characters in length, and can contain letters and digits.
    * 
    * @example
    * ok
@@ -3379,11 +3386,13 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
    * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    */
   healthCheckHttpCode?: string[];
+  healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds.
+   * The interval at which health checks are performed. Unit: seconds. Default value: **5**.
    * 
-   * Valid values: **5** to **50**.
+   * *   If you set **HealthCheckType** to **TCP** or **HTTP**, valid values are **1 to 50**.
+   * *   If you set **HealthCheckType** to **UDP**, valid values are **1 to 300**. Set the health check interval equal to or larger than the response timeout period to ensure that UDP response timeouts are not determined as no responses.
    * 
    * @example
    * 200
@@ -3391,7 +3400,7 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The request string of UDP health checks. The string must be 1 to 64 characters in length, and can contain letters and digits.
+   * The request string of UDP health checks. The string must be 1 to 512 characters in length, and can contain letters and digits.
    * 
    * @example
    * hello
@@ -3457,6 +3466,7 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
@@ -3475,6 +3485,7 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheck extends $dara.M
       healthCheckEnabled: 'boolean',
       healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
+      healthCheckHttpVersion: 'string',
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
       healthCheckType: 'string',
@@ -3841,7 +3852,7 @@ export class ListSystemSecurityPolicyResponseBodySecurityPolicies extends $dara.
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of the tag. The tag key can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * env
@@ -3849,7 +3860,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * product
@@ -4019,7 +4030,7 @@ export class MoveResourceGroupResponseBodyData extends $dara.Model {
 export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
   /**
    * @remarks
-   * The port that is used by the backend server. Valid values: **1** to **65535**.
+   * The port that is used by the backend server. Valid values: **0** to **65535**. If you do not set this parameter, the default value **0** is used.
    * 
    * @example
    * 443
@@ -4030,10 +4041,10 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The ID of the server group.
+   * The backend server ID.
    * 
-   * *   If the server group is of the **Instance** type, set this parameter to the IDs of **Elastic Compute Service (ECS) instances**, **elastic network interfaces (ENIs)**, or **elastic container instances**.
-   * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
+   * *   If the server group is of the **Instance** type, set this parameter to the IDs of servers of the **Ecs**, **Eni**, or **Eci** type.
+   * *   If the server group is of the **Ip** type, set ServerId to IP addresses.
    * 
    * This parameter is required.
    * 
@@ -4043,7 +4054,7 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
   serverId?: string;
   /**
    * @remarks
-   * The IP addresses of servers. If the server group type is **Ip**, set the ServerId parameter to IP addresses.
+   * The IP addresses of the server. If the server group type is **Ip**, set the ServerId parameter to IP addresses.
    * 
    * @example
    * 192.168.6.6
@@ -4051,12 +4062,12 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
   serverIp?: string;
   /**
    * @remarks
-   * The type of backend server. Valid values:
+   * The type of the backend server. Valid values:
    * 
-   * *   **Ecs**: ECS instance
-   * *   **Eni**: ENI
-   * *   **Eci**: elastic container instance
-   * *   **Ip**: IP address
+   * *   **Ecs**: the Elastic Compute Service (ECS) instance
+   * *   **Eni**: the elastic network interface (ENI)
+   * *   **Eci**: the elastic container instance
+   * *   **Ip**: the IP address
    * 
    * This parameter is required.
    * 
@@ -4094,7 +4105,7 @@ export class RemoveServersFromServerGroupRequestServers extends $dara.Model {
 export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet.
+   * The ID of the vSwitch in the zone. By default, each zone uses one vSwitch and one subnet.
    * 
    * This parameter is required.
    * 
@@ -4106,7 +4117,7 @@ export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model 
    * @remarks
    * The zone ID of the NLB instance.
    * 
-   * > You can remove only one zone in each call.
+   * >  You can remove only one IP address (or zone) in each call.
    * 
    * You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
    * 
@@ -4142,9 +4153,9 @@ export class StartShiftLoadBalancerZonesRequestZoneMappings extends $dara.Model 
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag key can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * env
@@ -4152,9 +4163,9 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
    * 
-   * You can add up to 20 tags in each call.
+   * You can specify up to 20 tags in each call.
    * 
    * @example
    * product
@@ -4255,10 +4266,10 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
    * @remarks
    * The type of the EIP. Valid values:
    * 
-   * *   **Common**
-   * *   **Anycast**
+   * *   **Common**: an EIP
+   * *   **Anycast**: an Anycast EIP
    * 
-   * > Anycast EIPs are supported only by NLB instances in the China (Hong Kong) region. This parameter is required when **AddressType** is set to **Internet**.
+   * >  This parameter is required only if **AddressType** is set to **Internet**.
    * 
    * @example
    * Common
@@ -4266,7 +4277,7 @@ export class UpdateLoadBalancerAddressTypeConfigRequestZoneMappings extends $dar
   eipType?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the zone. Each zone can contain only one vSwitch and one subnet.
+   * The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an NLB instance.
    * 
    * @example
    * vsw-bp10ttov87felojcn****
@@ -4322,10 +4333,10 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $dara.Model {
    * @remarks
    * The type of the EIP. Valid values:
    * 
-   * *   **Common**
-   * *   **Anycast**
+   * *   **Common**: an EIP
+   * *   **Anycast**: an Anycast EIP
    * 
-   * > Anycast EIPs are supported only by NLB instances in the China (Hong Kong) region. This parameter is required when **AddressType** is set to **Internet**.
+   * >  For regions that support Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/470000.html).This parameter is required if **AddressType** is set to **Internet**.
    * 
    * @example
    * Common
@@ -4333,7 +4344,7 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $dara.Model {
   eipType?: string;
   /**
    * @remarks
-   * The private IP addresses.
+   * The private IP address.
    * 
    * @example
    * 192.168.36.16
@@ -4391,7 +4402,7 @@ export class UpdateLoadBalancerZonesRequestZoneMappings extends $dara.Model {
 export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * The backend port that is used for health checks. Valid values: **0** to **65535**. If you set the value to **0**, the port of a backend server is used for health checks.
+   * The backend port that is used for health checks. Valid values: **0** to **65535**. If you set this parameter to **0**, the port that the backend server uses to provide services is also used for health checks.
    * 
    * @example
    * 0
@@ -4399,7 +4410,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The maximum timeout period of a health check. Unit: seconds Valid values: **1 to 300**. Default value: 5****
+   * The timeout period for a health check response. Unit: seconds. Valid values: **1 to 300**. Default value: **5**
    * 
    * @example
    * 100
@@ -4407,12 +4418,12 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckConnectTimeout?: number;
   /**
    * @remarks
-   * The domain name that is used for health checks. Valid values:
+   * The domain name used for health checks. Valid values:
    * 
    * *   **$SERVER_IP**: the internal IP address of a backend server.
    * *   **domain**: the specified domain name. The domain name must be 1 to 80 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.).
    * 
-   * > This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
    * 
    * @example
    * $SERVER_IP
@@ -4420,7 +4431,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckDomain?: string;
   /**
    * @remarks
-   * Specifies whether to enable the health check feature. Valid values:
+   * Specifies whether to enable health checks. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -4441,12 +4452,13 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
    * @remarks
    * The HTTP status codes to return for health checks. Separate multiple HTTP status codes with commas (,). Valid values: **http_2xx** (default), **http_3xx**, **http_4xx**, and **http_5xx**.
    * 
-   * > This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
    */
   healthCheckHttpCode?: string[];
+  healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds. Default value: 5.****
+   * The interval at which health checks are performed. Unit: seconds. Default value: **5**
    * 
    * *   If you set **HealthCheckType** to **TCP** or **HTTP**, valid values are **1 to 50**.
    * *   If you set **HealthCheckType** to **UDP**, valid values are **1 to 300**. Set the health check interval equal to or larger than the response timeout period to ensure that UDP response timeouts are not determined as no responses.
@@ -4465,7 +4477,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckReq?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The protocol that you want to use for health checks. Valid values:
    * 
    * *   **TCP**
    * *   **HTTP**
@@ -4477,11 +4489,11 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckType?: string;
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The path to which health check probes are sent.
    * 
-   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * The path must be 1 to 80 characters in length and can contain only letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. It must start with a forward slash (/).
    * 
-   * > This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
    * 
    * @example
    * /test/index.html
@@ -4497,9 +4509,9 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthyThreshold?: number;
   /**
    * @remarks
-   * The HTTP method that is used for health checks. Valid values: **GET** and **HEAD**.
+   * The HTTP method used for health checks. Valid values: **GET** and **HEAD**.
    * 
-   * > This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
    * 
    * @example
    * GET
@@ -4521,6 +4533,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckExp: 'HealthCheckExp',
       healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
       healthCheckInterval: 'HealthCheckInterval',
       healthCheckReq: 'HealthCheckReq',
       healthCheckType: 'HealthCheckType',
@@ -4539,6 +4552,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
       healthCheckEnabled: 'boolean',
       healthCheckExp: 'string',
       healthCheckHttpCode: { 'type': 'array', 'itemType': 'string' },
+      healthCheckHttpVersion: 'string',
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
       healthCheckType: 'string',
@@ -4574,7 +4588,7 @@ export class UpdateServerGroupServersAttributeRequestServers extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The port that is used by the backend server. Valid values: **1** to **65535**.
+   * The port used by the backend server. Valid values: **1** to **65535**.
    * 
    * >  This parameter cannot be modified.
    * 
@@ -4586,9 +4600,9 @@ export class UpdateServerGroupServersAttributeRequestServers extends $dara.Model
   port?: number;
   /**
    * @remarks
-   * The ID of the server group.
+   * The backend server ID.
    * 
-   * *   If the server group is of the **Instance** type, set this parameter to the IDs of **Elastic Compute Service (ECS) instances**, **elastic network interfaces (ENIs)**, or **elastic container instances**.
+   * *   If the server group is of the **Instance** type, set this parameter to the IDs of servers of the **Ecs**, **Eni**, or **Eci** type.
    * *   If the server group is of the **Ip** type, set this parameter to IP addresses.
    * 
    * This parameter is required.
@@ -4662,11 +4676,11 @@ export class UpdateServerGroupServersAttributeRequestServers extends $dara.Model
 export class AddServersToServerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -4674,10 +4688,10 @@ export class AddServersToServerGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request but does not add the servers to the server group. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -4695,7 +4709,7 @@ export class AddServersToServerGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the server group.
+   * The server group ID.
    * 
    * This parameter is required.
    * 
@@ -4705,9 +4719,9 @@ export class AddServersToServerGroupRequest extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The backend servers.
+   * The backend servers that you want to add.
    * 
-   * >  You can add at most 200 backend servers in each call.
+   * >  You can add up to 200 backend servers in each call.
    * 
    * This parameter is required.
    */
@@ -4832,18 +4846,18 @@ export class AddServersToServerGroupResponse extends $dara.Model {
 export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional certificates. You can associate at most 15 additional certificates with a listener in each call.
+   * The additional certificates. You can associate up to 15 additional certificates with a listener in each call.
    * 
    * This parameter is required.
    */
   additionalCertificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -4851,10 +4865,10 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -4862,7 +4876,7 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   dryRun?: boolean;
   /**
    * @remarks
-   * The listener ID. Only TCP/SSL listener IDs are supported.
+   * The listener ID. Only TCPSSL listener IDs are supported.
    * 
    * This parameter is required.
    * 
@@ -4872,7 +4886,7 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   listenerId?: string;
   /**
    * @remarks
-   * The region ID of the Network Load Balancer (NLB) instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -4990,7 +5004,7 @@ export class AssociateAdditionalCertificatesWithListenerResponse extends $dara.M
 export class AttachCommonBandwidthPackageToLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP bandwidth plan.
+   * The ID of the Internet Shared Bandwidth instance.
    * 
    * This parameter is required.
    * 
@@ -5000,11 +5014,11 @@ export class AttachCommonBandwidthPackageToLoadBalancerRequest extends $dara.Mod
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -5012,10 +5026,10 @@ export class AttachCommonBandwidthPackageToLoadBalancerRequest extends $dara.Mod
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request but does not associate the EIP bandwidth plan with the NLB instance. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -5148,11 +5162,11 @@ export class AttachCommonBandwidthPackageToLoadBalancerResponse extends $dara.Mo
 export class CancelShiftLoadBalancerZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -5160,10 +5174,10 @@ export class CancelShiftLoadBalancerZonesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -5171,7 +5185,7 @@ export class CancelShiftLoadBalancerZonesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The NLB instance ID.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -5181,7 +5195,7 @@ export class CancelShiftLoadBalancerZonesRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -5191,9 +5205,9 @@ export class CancelShiftLoadBalancerZonesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches.
+   * The mapping between the zone and the vSwitch.
    * 
-   * > You can add at most one zone in each call.
+   * >  You can specify only one zone ID in each call.
    * 
    * This parameter is required.
    */
@@ -5311,13 +5325,12 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The ALPN policy. Valid values:
    * 
-   * *   HTTP1Only: uses only HTTP 1.x. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
-   * *   HTTP2Only: uses only HTTP 2.0.
-   * *   HTTP2Preferred: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
-   * Note
-   * *   HTTP2Optional: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
+   * *   **HTTP1Only**: uses only HTTP 1.x. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
+   * *   **HTTP2Only**: uses only HTTP 2.0.
+   * *   **HTTP2Optional**: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
+   * *   **HTTP2Preferred**: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
    * 
-   * > This parameter is required if AlpnEnabled is set to true.
+   * >  This parameter is required if **AlpnEnabled** is set to true.
    * 
    * @example
    * HTTP1Only
@@ -5325,9 +5338,9 @@ export class CreateListenerRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The certificate authority (CA) certificates. This parameter takes effect only for listeners that use SSL over TCP.
+   * The certificate authority (CA) certificate. This parameter is supported only by TCLSSL listeners.
    * 
-   * > You can specify only one CA certificate.
+   * >  You can specify only one CA certificate.
    */
   caCertificateIds?: string[];
   /**
@@ -5343,18 +5356,18 @@ export class CreateListenerRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificates. This parameter takes effect only for listeners that use SSL over TCP.
+   * The server certificate. This parameter is supported only by TCLSSL listeners.
    * 
-   * > You can specify only one server certificate.
+   * >  You can specify only one server certificate.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -5370,10 +5383,10 @@ export class CreateListenerRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -5381,9 +5394,9 @@ export class CreateListenerRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The last port in the listener port range. Valid values: **0** to **65535**. The number of the last port must be greater than the number of the first port.
+   * The last port in the listener port range. Valid values: **0** to **65535**. The port number of the last port must be greater than the port number of the first port.
    * 
-   * > This parameter is required when **ListenerPort** is set to **0**.
+   * >  This parameter is required when **ListenerPort** is set to **0**.
    * 
    * @example
    * 566
@@ -5391,10 +5404,10 @@ export class CreateListenerRequest extends $dara.Model {
   endPort?: number;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds
+   * The timeout period for idle connections. Unit: seconds.
    * 
-   * *   If you set **ListenerProtocol** to **TCP** or **TCPSSL**, the timeout period of idle connections can be set to **10** to **900** seconds. Default value: **900**.
-   * *   If **ListenerProtocol** is set to **UDP**, the timeout period of idle connections can be set to **10** to **20** seconds. Default value: **20**.
+   * *   If you set **ListenerProtocol** to **TCP** or **TCPSSL**, this parameter can be set to a value ranging from **10** to **900**. Default value: **900**.
+   * *   If **ListenerProtocol** is set to **UDP**, this parameter can be set to a value ranging from **10** to **20**. Default value: **20**.
    * 
    * @example
    * 900
@@ -5414,7 +5427,7 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The listener port. Valid values: **0** to **65535**.
    * 
-   * If you set the value to **0**, the listener listens by port range. If you set the value to **0**, you must specify **StartPort** and **EndPort**.
+   * If you set this parameter to **0**, the listener listens by port range. If you set this parameter to **0**, you must also set the **StartPort** and **EndPort** parameters.
    * 
    * This parameter is required.
    * 
@@ -5434,7 +5447,7 @@ export class CreateListenerRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The ID of the Network Load Balancer (NLB) instance.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -5444,9 +5457,9 @@ export class CreateListenerRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The maximum size of a TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged.
+   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) value of TCP packets remains unchanged.
    * 
-   * > This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
+   * >  This parameter takes effect only for TCP and TCPSSL listeners.
    * 
    * @example
    * 43
@@ -5465,12 +5478,12 @@ export class CreateListenerRequest extends $dara.Model {
   proxyProtocolEnabled?: boolean;
   /**
    * @remarks
-   * Specifies that the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+   * Specifies whether to use the Proxy protocol to pass the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
    */
   proxyProtocolV2Config?: CreateListenerRequestProxyProtocolV2Config;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -5491,16 +5504,16 @@ export class CreateListenerRequest extends $dara.Model {
   secSensorEnabled?: boolean;
   /**
    * @remarks
-   * The security policy ID. System security policies and custom security policies are supported.
+   * The ID of the security policy. System security policies and custom security policies are supported.
    * 
-   * - Valid values: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
+   * *   Valid values for system security policies: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
    * 
-   * - Custom security policy: the ID of the custom security policy.
-   *     - For more information about how to create a custom security policy, see [CreateSecurityPolicy](https://help.aliyun.com/document_detail/2399231.html) .
+   * *   For a custom security policy, enter the policy ID.
    * 
-   *     - For more information about how to query security policies, see [ListSecurityPolicy](https://help.aliyun.com/document_detail/2399234.html) .
+   *     *   For information about creating a custom security policy, see [CreateSecurityPolicy](https://help.aliyun.com/document_detail/445901.html).
+   *     *   For information about querying security policies, see [ListSecurityPolicy](https://help.aliyun.com/document_detail/445900.html).
    * 
-   * > This parameter takes effect only for listeners that use SSL over TCP.
+   * >  This parameter takes effect only for TCPSSL listeners.
    * 
    * @example
    * tls_cipher_policy_1_0
@@ -5510,9 +5523,9 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The server group ID.
    * 
-   * > - If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
-   * > - If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
-   * > - If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
+   * >  *   If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
+   * >  *   If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
+   * >  *   If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
    * 
    * This parameter is required.
    * 
@@ -5524,7 +5537,7 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The first port in the listener port range. Valid values: **0** to **65535**.
    * 
-   * > This parameter is required when **ListenerPort** is set to **0**.
+   * >  This parameter is required when **ListenerPort** is set to **0**.
    * 
    * @example
    * 244
@@ -5631,13 +5644,12 @@ export class CreateListenerShrinkRequest extends $dara.Model {
    * @remarks
    * The ALPN policy. Valid values:
    * 
-   * *   HTTP1Only: uses only HTTP 1.x. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
-   * *   HTTP2Only: uses only HTTP 2.0.
-   * *   HTTP2Preferred: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
-   * Note
-   * *   HTTP2Optional: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
+   * *   **HTTP1Only**: uses only HTTP 1.x. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
+   * *   **HTTP2Only**: uses only HTTP 2.0.
+   * *   **HTTP2Optional**: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
+   * *   **HTTP2Preferred**: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
    * 
-   * > This parameter is required if AlpnEnabled is set to true.
+   * >  This parameter is required if **AlpnEnabled** is set to true.
    * 
    * @example
    * HTTP1Only
@@ -5645,9 +5657,9 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The certificate authority (CA) certificates. This parameter takes effect only for listeners that use SSL over TCP.
+   * The certificate authority (CA) certificate. This parameter is supported only by TCLSSL listeners.
    * 
-   * > You can specify only one CA certificate.
+   * >  You can specify only one CA certificate.
    */
   caCertificateIds?: string[];
   /**
@@ -5663,18 +5675,18 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificates. This parameter takes effect only for listeners that use SSL over TCP.
+   * The server certificate. This parameter is supported only by TCLSSL listeners.
    * 
-   * > You can specify only one server certificate.
+   * >  You can specify only one server certificate.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -5690,10 +5702,10 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -5701,9 +5713,9 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The last port in the listener port range. Valid values: **0** to **65535**. The number of the last port must be greater than the number of the first port.
+   * The last port in the listener port range. Valid values: **0** to **65535**. The port number of the last port must be greater than the port number of the first port.
    * 
-   * > This parameter is required when **ListenerPort** is set to **0**.
+   * >  This parameter is required when **ListenerPort** is set to **0**.
    * 
    * @example
    * 566
@@ -5711,10 +5723,10 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   endPort?: number;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds
+   * The timeout period for idle connections. Unit: seconds.
    * 
-   * *   If you set **ListenerProtocol** to **TCP** or **TCPSSL**, the timeout period of idle connections can be set to **10** to **900** seconds. Default value: **900**.
-   * *   If **ListenerProtocol** is set to **UDP**, the timeout period of idle connections can be set to **10** to **20** seconds. Default value: **20**.
+   * *   If you set **ListenerProtocol** to **TCP** or **TCPSSL**, this parameter can be set to a value ranging from **10** to **900**. Default value: **900**.
+   * *   If **ListenerProtocol** is set to **UDP**, this parameter can be set to a value ranging from **10** to **20**. Default value: **20**.
    * 
    * @example
    * 900
@@ -5734,7 +5746,7 @@ export class CreateListenerShrinkRequest extends $dara.Model {
    * @remarks
    * The listener port. Valid values: **0** to **65535**.
    * 
-   * If you set the value to **0**, the listener listens by port range. If you set the value to **0**, you must specify **StartPort** and **EndPort**.
+   * If you set this parameter to **0**, the listener listens by port range. If you set this parameter to **0**, you must also set the **StartPort** and **EndPort** parameters.
    * 
    * This parameter is required.
    * 
@@ -5754,7 +5766,7 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The ID of the Network Load Balancer (NLB) instance.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -5764,9 +5776,9 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The maximum size of a TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged.
+   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) value of TCP packets remains unchanged.
    * 
-   * > This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
+   * >  This parameter takes effect only for TCP and TCPSSL listeners.
    * 
    * @example
    * 43
@@ -5785,12 +5797,12 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   proxyProtocolEnabled?: boolean;
   /**
    * @remarks
-   * Specifies that the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+   * Specifies whether to use the Proxy protocol to pass the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
    */
   proxyProtocolV2ConfigShrink?: string;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -5811,16 +5823,16 @@ export class CreateListenerShrinkRequest extends $dara.Model {
   secSensorEnabled?: boolean;
   /**
    * @remarks
-   * The security policy ID. System security policies and custom security policies are supported.
+   * The ID of the security policy. System security policies and custom security policies are supported.
    * 
-   * - Valid values: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
+   * *   Valid values for system security policies: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
    * 
-   * - Custom security policy: the ID of the custom security policy.
-   *     - For more information about how to create a custom security policy, see [CreateSecurityPolicy](https://help.aliyun.com/document_detail/2399231.html) .
+   * *   For a custom security policy, enter the policy ID.
    * 
-   *     - For more information about how to query security policies, see [ListSecurityPolicy](https://help.aliyun.com/document_detail/2399234.html) .
+   *     *   For information about creating a custom security policy, see [CreateSecurityPolicy](https://help.aliyun.com/document_detail/445901.html).
+   *     *   For information about querying security policies, see [ListSecurityPolicy](https://help.aliyun.com/document_detail/445900.html).
    * 
-   * > This parameter takes effect only for listeners that use SSL over TCP.
+   * >  This parameter takes effect only for TCPSSL listeners.
    * 
    * @example
    * tls_cipher_policy_1_0
@@ -5830,9 +5842,9 @@ export class CreateListenerShrinkRequest extends $dara.Model {
    * @remarks
    * The server group ID.
    * 
-   * > - If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
-   * > - If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
-   * > - If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
+   * >  *   If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
+   * >  *   If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
+   * >  *   If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
    * 
    * This parameter is required.
    * 
@@ -5844,7 +5856,7 @@ export class CreateListenerShrinkRequest extends $dara.Model {
    * @remarks
    * The first port in the listener port range. Valid values: **0** to **65535**.
    * 
-   * > This parameter is required when **ListenerPort** is set to **0**.
+   * >  This parameter is required when **ListenerPort** is set to **0**.
    * 
    * @example
    * 244
@@ -6020,10 +6032,10 @@ export class CreateListenerResponse extends $dara.Model {
 export class CreateLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the protocol. Valid values:
+   * The IP version of the NLB instance. Valid values:
    * 
-   * *   **ipv4** (default)
-   * *   **DualStack**
+   * *   **ipv4** (default): IPv4
+   * *   **DualStack**: dual-stack
    * 
    * @example
    * ipv4
@@ -6031,10 +6043,10 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The network type of the IPv4 address used by the NLB instance. Valid values:
+   * The type of the IPv4 address used by the NLB instance. Valid values:
    * 
-   * *   **Internet**: The NLB instance is assigned a public IP address. The domain name is resolved to the public IP address. The NLB instance is accessible over the Internet.
-   * *   **Intranet**: The NLB instance is assigned only a private IP address. The domain name is resolved to the private IP address. The NLB instance is accessible only within the VPC of the NLB instance.
+   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the instance is resolved to the public IP address. The instance is accessible over the Internet.
+   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the instance is resolved to the private IP address. The instance is accessible only within the virtual private cloud (VPC) where the instance is deployed.
    * 
    * >  To enable a public IPv6 address for a dual-stack NLB instance, call the [EnableLoadBalancerIpv6Internet](https://help.aliyun.com/document_detail/445878.html) operation.
    * 
@@ -6046,7 +6058,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the EIP bandwidth plan that is associated with the Internet-facing NLB instance.
+   * The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing NLB instance.
    * 
    * @example
    * cbwp-bp1vevu8h3ieh****
@@ -6054,11 +6066,11 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request is different.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -6071,10 +6083,10 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   deletionProtectionConfig?: CreateLoadBalancerRequestDeletionProtectionConfig;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -6089,7 +6101,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * @remarks
    * The name of the NLB instance.
    * 
-   * The value must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The value must start with a letter.
+   * It must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
    * @example
    * NLB1
@@ -6097,7 +6109,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The type of the instance. Set the value to **network**, which specifies an NLB instance.
+   * The type of the Server Load Balancer (SLB) instance. Set the value to **network**, which specifies NLB.
    * 
    * @example
    * network
@@ -6120,7 +6132,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -6136,7 +6148,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   tag?: CreateLoadBalancerRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC where the NLB instance is deployed.
+   * The ID of the VPC where you want to create the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -6146,7 +6158,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches. You must add at least two zones. You can add a maximum of 10 zones.
+   * The mappings between zones and vSwitches. An NLB instance can be deployed in up to 10 zones. If the region supports two or more zones, you must specify at least two zones.
    * 
    * This parameter is required.
    */
@@ -6303,9 +6315,9 @@ export class CreateLoadBalancerResponse extends $dara.Model {
 export class CreateSecurityPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The supported cipher suites, which are determined by the TLS protocol version. You can specify at most 32 cipher suites.
+   * The cipher suites supported by the security policy. Valid values of this parameter vary based on TlsVersions. A security policy supports up to 32 cipher suites.
    * 
-   * TLS 1.0 and TLS 1.1 support the following cipher suites:
+   * TLSv1.0 and TLSv1.1 support the following cipher suites:
    * 
    * *   **ECDHE-ECDSA-AES128-SHA**
    * *   **ECDHE-ECDSA-AES256-SHA**
@@ -6315,7 +6327,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
    * *   **AES256-SHA**
    * *   **DES-CBC3-SHA**
    * 
-   * TLS 1.2 supports the following cipher suites:
+   * TLSv1.2 supports the following cipher suites:
    * 
    * *   **ECDHE-ECDSA-AES128-SHA**
    * *   **ECDHE-ECDSA-AES256-SHA**
@@ -6337,7 +6349,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
    * *   **AES128-SHA256**
    * *   **AES256-SHA256**
    * 
-   * TLS 1.3 supports the following cipher suites:
+   * TLSv1.3 supports the following cipher suites:
    * 
    * *   **TLS_AES_128_GCM_SHA256**
    * *   **TLS_AES_256_GCM_SHA384**
@@ -6350,11 +6362,11 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   ciphers?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -6362,10 +6374,10 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: checks the request but does not create the security policy. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -6383,7 +6395,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which the security policy belongs.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -6393,7 +6405,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
    * @remarks
    * The name of the security policy.
    * 
-   * The name must be 1 to 200 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * It must be 1 to 200 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * TLSCipherPolicy
@@ -6409,7 +6421,7 @@ export class CreateSecurityPolicyRequest extends $dara.Model {
   tag?: CreateSecurityPolicyRequestTag[];
   /**
    * @remarks
-   * The supported versions of the Transport Layer Security (TLS) protocol. Valid values: **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, and **TLSv1.3**.
+   * The Transport Layer Security (TLS) versions supported by the security policy. Valid values: **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, and **TLSv1.3**.
    * 
    * This parameter is required.
    */
@@ -6546,10 +6558,10 @@ export class CreateSecurityPolicyResponse extends $dara.Model {
 export class CreateServerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The protocol version. Valid values:
+   * The IP version. Valid values:
    * 
    * *   **ipv4** (default): IPv4
-   * *   **DualStack**: dual stack
+   * *   **DualStack**: dual-stack
    * 
    * @example
    * ipv4
@@ -6557,9 +6569,9 @@ export class CreateServerGroupRequest extends $dara.Model {
   addressIPVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable all-port forwarding. Valid values:
+   * Specifies whether to enable multi-port forwarding. Valid values:
    * 
-   * *   **true**
+   * *   **true:**
    * *   **false** (default)
    * 
    * @example
@@ -6568,11 +6580,11 @@ export class CreateServerGroupRequest extends $dara.Model {
   anyPortEnabled?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -6582,7 +6594,7 @@ export class CreateServerGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable connection draining. Valid values:
    * 
-   * *   **true**
+   * *   **true:**
    * *   **false** (default)
    * 
    * @example
@@ -6591,7 +6603,7 @@ export class CreateServerGroupRequest extends $dara.Model {
   connectionDrainEnabled?: boolean;
   /**
    * @remarks
-   * The timeout period of connection draining. Unit: seconds. Valid values: **0** to **900**.
+   * Specifies a timeout period for connection draining. Unit: seconds Valid values: **0** to **900**.
    * 
    * @example
    * 10
@@ -6599,10 +6611,10 @@ export class CreateServerGroupRequest extends $dara.Model {
   connectionDrainTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true:**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -6610,7 +6622,7 @@ export class CreateServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The configuration of health checks.
+   * The configurations of health checks.
    */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   /**
@@ -6620,10 +6632,10 @@ export class CreateServerGroupRequest extends $dara.Model {
    * *   **true** (default)
    * *   **false**
    * 
-   * >  If you set the value to **true** and **Protocol** to **TCP**, the server group cannot be associated with **TCPSSL** listeners.
+   * >  If you set this parameter to **true** and **Protocol** to **TCP**, the server group cannot be associated with **TCPSSL** listeners.
    * 
    * @example
-   * false
+   * true
    * 
    * **if can be null:**
    * false
@@ -6637,10 +6649,10 @@ export class CreateServerGroupRequest extends $dara.Model {
    * *   **UDP**
    * *   **TCP_UDP**
    * 
-   * > *   If you set the value to **UDP**, you can associate the server group only with **UDP** listeners.
-   * > *   If you set the value to **TCP** and **PreserveClientIpEnabled** to **true**, you can associate the server group only with **TCP** listeners.
-   * > *   If you set the value to **TCP** and **PreserveClientIpEnabled** to **false**, you can associate the server group with **TCP/SSL** and **TCP** listeners.
-   * > *   If you set the value to **TCP_UDP**, you can associate the server group with **TCP** and **UDP** listeners.
+   * > *   If you set this parameter to **UDP**, you can associate the server group only with **UDP** listeners.
+   * > *   If you set this parameter to **TCP** and **PreserveClientIpEnabled** to **true**, you can associate the server group only with **TCP** listeners.
+   * > *   If you set this parameter to **TCP** and **PreserveClientIpEnabled** to **false**, you can associate the server group with **TCPSSL** and **TCP** listeners.
+   * > *   If you set this parameter to **TCP_UDP**, you can associate the server group with **TCP** and **UDP** listeners.
    * 
    * @example
    * TCP
@@ -6648,7 +6660,7 @@ export class CreateServerGroupRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -6668,13 +6680,14 @@ export class CreateServerGroupRequest extends $dara.Model {
    * @remarks
    * The scheduling algorithm. Valid values:
    * 
-   * *   **Wrr:** The weighted round-robin algorithm is used. Backend servers with higher weights receive more requests than backend servers with lower weights. This is the default value.
-   * *   **rr:** The round-robin algorithm is used. Requests are forwarded to backend servers in sequence.
-   * *   **sch:** Source IP hashing is used. Requests from the same source IP address are forwarded to the same backend server.
-   * *   **tch:** Four-element hashing is used. It specifies consistent hashing that is based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same information based on the four factors are forwarded to the same backend server.
-   * *   **qch**: QUIC ID hashing. Requests that contain the same QUIC ID are forwarded to the same backend server.
+   * *   **Wrr** (default): weighted round-robin. Backend servers with higher weights receive more requests.
+   * *   **Wlc**: weighted least connections. Requests are distributed based on the weights and the number of connections to backend servers. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least connections.
+   * *   **rr**: Requests are forwarded to backend servers in sequence.
+   * *   **sch**: source IP hash. Requests from the same source IP address are forwarded to the same backend server.
+   * *   **tch**: consistent hashing based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same four factors are forwarded to the same backend server.
+   * *   **qch**: QUIC ID hash. Requests that contain the same QUIC ID are forwarded to the same backend server.
    * 
-   * > QUIC ID hashing is supported only when the backend protocol is set to UDP.
+   * >  QUIC ID hash is supported only when the backend protocol is set to UDP.
    * 
    * @example
    * Wrr
@@ -6682,9 +6695,9 @@ export class CreateServerGroupRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The name of the server group.
+   * The server group name.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, can contain digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
    * This parameter is required.
    * 
@@ -6694,10 +6707,10 @@ export class CreateServerGroupRequest extends $dara.Model {
   serverGroupName?: string;
   /**
    * @remarks
-   * The type of server group. Valid values:
+   * The type of the server group. Valid values:
    * 
    * *   **Instance** (default): allows you to specify servers of the **Ecs**, **Eni**, or **Eci** type.
-   * *   **Ip**: allows you to add servers of by specifying IP addresses.
+   * *   **Ip**: allows you to specify IP addresses.
    * 
    * @example
    * Instance
@@ -6713,9 +6726,9 @@ export class CreateServerGroupRequest extends $dara.Model {
   tag?: CreateServerGroupRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the server group belongs.
+   * The ID of the virtual private cloud (VPC) where the server group is deployed.
    * 
-   * > If **ServerGroupType** is set to **Instance**, only servers in the specified VPC can be added to the server group.
+   * >  If **ServerGroupType** is set to **Instance**, only servers in the specified VPC can be added to the server group.
    * 
    * This parameter is required.
    * 
@@ -6868,11 +6881,11 @@ export class CreateServerGroupResponse extends $dara.Model {
 export class DeleteListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -6880,10 +6893,10 @@ export class DeleteListenerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: prechecks the request but does not delete the listener. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -6901,7 +6914,7 @@ export class DeleteListenerRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -7014,11 +7027,11 @@ export class DeleteListenerResponse extends $dara.Model {
 export class DeleteLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7026,10 +7039,10 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to only precheck this request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request without deleting the NLB instance. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -7160,11 +7173,11 @@ export class DeleteLoadBalancerResponse extends $dara.Model {
 export class DeleteSecurityPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can only contain ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. **RequestId** of each API request may be different.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7172,10 +7185,10 @@ export class DeleteSecurityPolicyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -7183,9 +7196,9 @@ export class DeleteSecurityPolicyRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the available regions.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -7296,11 +7309,11 @@ export class DeleteSecurityPolicyResponse extends $dara.Model {
 export class DeleteServerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can only contain ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. **RequestId** of each API request may be different.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7310,8 +7323,8 @@ export class DeleteServerGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -7329,7 +7342,7 @@ export class DeleteServerGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the server group.
+   * The server group ID.
    * 
    * This parameter is required.
    * 
@@ -7441,6 +7454,9 @@ export class DeleteServerGroupResponse extends $dara.Model {
 
 export class DescribeHdMonitorRegionConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region where the resources are deployed.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -7468,21 +7484,35 @@ export class DescribeHdMonitorRegionConfigRequest extends $dara.Model {
 
 export class DescribeHdMonitorRegionConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Log Service project.
+   * 
    * @example
    * hdmonitor-cn-hangzhou-223794579283657556
    */
   logProject?: string;
   /**
+   * @remarks
+   * The name of the Metricstore in Simple Log Service.
+   * 
    * @example
    * hdmonitor-cn-hangzhou-metricStore-1
    */
   metricStore?: string;
   /**
+   * @remarks
+   * The region ID of the NLB instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B45
    */
@@ -7564,11 +7594,11 @@ export class DescribeRegionsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7697,11 +7727,11 @@ export class DescribeZonesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7828,7 +7858,7 @@ export class DescribeZonesResponse extends $dara.Model {
 export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP bandwidth plan.
+   * The ID of the Internet Shared Bandwidth instance.
    * 
    * This parameter is required.
    * 
@@ -7838,11 +7868,11 @@ export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $dara.M
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7850,10 +7880,10 @@ export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $dara.M
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: prechecks the request but does not disassociate the NLB instance from the EIP bandwidth plan. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -7871,7 +7901,7 @@ export class DetachCommonBandwidthPackageFromLoadBalancerRequest extends $dara.M
   loadBalancerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -7986,11 +8016,11 @@ export class DetachCommonBandwidthPackageFromLoadBalancerResponse extends $dara.
 export class DisableLoadBalancerIpv6InternetRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -7998,10 +8028,10 @@ export class DisableLoadBalancerIpv6InternetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -8122,18 +8152,18 @@ export class DisableLoadBalancerIpv6InternetResponse extends $dara.Model {
 export class DisassociateAdditionalCertificatesWithListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional certificates. You can disassociate up to 15 additional certificates from a listener in each request.
+   * The additional certificates. You can disassociate up to 15 additional certificates in each call.
    * 
    * This parameter is required.
    */
   additionalCertificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -8141,10 +8171,10 @@ export class DisassociateAdditionalCertificatesWithListenerRequest extends $dara
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: Validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -8162,7 +8192,7 @@ export class DisassociateAdditionalCertificatesWithListenerRequest extends $dara
   listenerId?: string;
   /**
    * @remarks
-   * The region ID of the Network Load Balancer (NLB) instance.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -8282,9 +8312,9 @@ export class EnableLoadBalancerIpv6InternetRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -8292,10 +8322,10 @@ export class EnableLoadBalancerIpv6InternetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: prechecks the request but does not change the network type of the NLB instance. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -8303,7 +8333,7 @@ export class EnableLoadBalancerIpv6InternetRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the NLB instance.
+   * The NLB instance ID.
    * 
    * This parameter is required.
    * 
@@ -8313,7 +8343,7 @@ export class EnableLoadBalancerIpv6InternetRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -8416,11 +8446,11 @@ export class EnableLoadBalancerIpv6InternetResponse extends $dara.Model {
 export class GetJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -8428,7 +8458,7 @@ export class GetJobStatusRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task.
+   * The ID of the asynchronous job.
    * 
    * This parameter is required.
    * 
@@ -8544,7 +8574,7 @@ export class GetListenerAttributeRequest extends $dara.Model {
    * 
    * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** of each API request may be different.
+   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -8552,10 +8582,10 @@ export class GetListenerAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: checks the request but does not query the listener details. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -8563,7 +8593,7 @@ export class GetListenerAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the listener.
+   * The listener ID.
    * 
    * This parameter is required.
    * 
@@ -8573,7 +8603,7 @@ export class GetListenerAttributeRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the region where the Network Load Balancer (NLB) instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -8950,7 +8980,7 @@ export class GetListenerAttributeResponse extends $dara.Model {
 export class GetListenerHealthStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the listener of the NLB instance.
+   * The ID of the listener on the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -8994,7 +9024,7 @@ export class GetListenerHealthStatusRequest extends $dara.Model {
 export class GetListenerHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The health check status of the server groups that are associated with the listener.
+   * The health check status of the server group of the listener.
    */
   listenerHealthStatus?: GetListenerHealthStatusResponseBodyListenerHealthStatus[];
   /**
@@ -9104,9 +9134,9 @@ export class GetLoadBalancerAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among all requests. ClientToken can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -9114,10 +9144,10 @@ export class GetLoadBalancerAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: checks the request but does not query the listener details. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -9125,7 +9155,7 @@ export class GetLoadBalancerAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the NLB instance.
+   * The NLB instance ID.
    * 
    * This parameter is required.
    * 
@@ -9135,7 +9165,7 @@ export class GetLoadBalancerAttributeRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -9506,9 +9536,9 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The server certificates. Only one server certificate is supported.
+   * The server certificate. Only one server certificate is supported.
    * 
-   * > This parameter takes effect only for listeners that use SSL over TCP.
+   * >  This parameter takes effect only for TCP/SSL listeners.
    * 
    * **if can be null:**
    * true
@@ -9526,7 +9556,7 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: **1** to **50**. Default value: **20**.
    * 
    * @example
    * 20
@@ -9600,7 +9630,7 @@ export class ListListenerCertificatesResponseBody extends $dara.Model {
   certificates?: ListListenerCertificatesResponseBodyCertificates[];
   /**
    * @remarks
-   * The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries returned per page. Valid values: **1** to **50**. Default value: **20**.
    * 
    * @example
    * 20
@@ -9708,12 +9738,12 @@ export class ListListenerCertificatesResponse extends $dara.Model {
 export class ListListenersRequest extends $dara.Model {
   /**
    * @remarks
-   * The listener IDs.
+   * The listener IDs. You can specify up to 20 listeners.
    */
   listenerIds?: string[];
   /**
    * @remarks
-   * The listening protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
+   * The listener protocol. Valid values: **TCP**, **UDP**, and **TCPSSL**.
    * 
    * @example
    * TCPSSL
@@ -9721,12 +9751,12 @@ export class ListListenersRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The ID of the NLB instance. You can query up to 20 NLB instances at a time.
+   * The IDs of the NLB instances. You can specify up to 20 instances.
    */
   loadBalancerIds?: string[];
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**
    * 
    * @example
    * 20
@@ -9734,10 +9764,10 @@ export class ListListenersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The pagination token used to specify a particular page of results. Valid values:
    * 
-   * *   If this is your first query or no next query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * *   Leave this parameter empty for the first query or the only query.
+   * *   Set this parameter to the value of NextToken obtained from the previous query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -9757,8 +9787,8 @@ export class ListListenersRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable fine-grained monitoring. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -9924,10 +9954,10 @@ export class ListListenersResponse extends $dara.Model {
 export class ListLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
-   * The protocol version. Valid values:
+   * The IP version of the NLB instance. Valid values:
    * 
    * *   **ipv4**: IPv4
-   * *   **DualStack**: dual stack
+   * *   **DualStack**: dual-stack
    * 
    * @example
    * ipv4
@@ -9937,8 +9967,8 @@ export class ListLoadBalancersRequest extends $dara.Model {
    * @remarks
    * The type of IPv4 address used by the NLB instance. Valid values:
    * 
-   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. The NLB instance can be accessed over the Internet.
+   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. The NLB instance can be accessed over the VPC where the NLB instance is deployed.
    * 
    * @example
    * Internet
@@ -9956,8 +9986,8 @@ export class ListLoadBalancersRequest extends $dara.Model {
    * @remarks
    * The type of IPv6 address used by the NLB instance. Valid values:
    * 
-   * *   **Internet**: a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-   * *   **Intranet**: a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. The NLB instance can be accessed over the Internet.
+   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. The NLB instance can be accessed over the VPC where the NLB instance is deployed.
    * 
    * @example
    * Internet
@@ -9976,19 +10006,19 @@ export class ListLoadBalancersRequest extends $dara.Model {
   loadBalancerBusinessStatus?: string;
   /**
    * @remarks
-   * The ID of the NLB instance. You can query up to 20 NLB instances at a time.
+   * The NLB instance IDs. You can specify up to 20 IDs in each call.
    */
   loadBalancerIds?: string[];
   /**
    * @remarks
-   * The name of the NLB instance. You can specify up to 20 names at a time.
+   * The names of the NLB instances. You can specify up to 20 names in each call.
    */
   loadBalancerNames?: string[];
   /**
    * @remarks
    * The status of the NLB instance. Valid values:
    * 
-   * *   **Inactive**: The NLB instance is disabled. Listeners of NLB instances in the Inactive state do not forward traffic.
+   * *   **Inactive**: The NLB instance is disabled. Listeners of an NLB instance in the Inactive state do not forward traffic.
    * *   **Active**: The NLB instance is running.
    * *   **Provisioning**: The NLB instance is being created.
    * *   **Configuring**: The NLB instance is being modified.
@@ -10001,7 +10031,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   loadBalancerStatus?: string;
   /**
    * @remarks
-   * The type of the Server Load Balancer (SLB) instance. Set the value to **network**, which specifies NLB.
+   * The type of the Server Load Balancer (SLB) instances. Set the value to **network**, which specifies NLB.
    * 
    * @example
    * network
@@ -10009,7 +10039,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   loadBalancerType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -10017,10 +10047,10 @@ export class ListLoadBalancersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
+   * The pagination token used to specify a particular page of results. Valid values:
    * 
-   * *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * *   Leave this parameter empty for the first query or the only query.
+   * *   Set this parameter to the value of NextToken obtained from the previous query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -10038,7 +10068,7 @@ export class ListLoadBalancersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -10051,12 +10081,12 @@ export class ListLoadBalancersRequest extends $dara.Model {
   tag?: ListLoadBalancersRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the NLB instance is deployed. You can specify up to 10 VPC IDs at a time.
+   * The IDs of the virtual private clouds (VPCs) where the NLB instances are deployed. You can specify up to 10 VPC IDs in each call.
    */
   vpcIds?: string[];
   /**
    * @remarks
-   * The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
+   * The ID of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the most recent zone list.
    * 
    * @example
    * cn-hangzhou-a
@@ -10439,7 +10469,7 @@ export class ListSecurityPolicyResponse extends $dara.Model {
 export class ListServerGroupServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return in each call. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -10447,10 +10477,10 @@ export class ListServerGroupServersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The pagination token used to specify a particular page of results. Valid values:
    * 
-   * *   If this is your first query or no next query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * *   Left this parameter empty if this is the first query or the only query.
+   * *   Set this parameter to the value of NextToken obtained from the previous query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -10476,12 +10506,12 @@ export class ListServerGroupServersRequest extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The server IDs. You can specify at most 40 servers in each call.
+   * The IDs of the backend servers. You can specify up to 40 backend servers in each call.
    */
   serverIds?: string[];
   /**
    * @remarks
-   * A list of server IP addresses. You can specify at most 40 servers in each call.
+   * The IP addresses of the backend servers. You can specify up to 40 backend servers in each call.
    */
   serverIps?: string[];
   static names(): { [key: string]: string } {
@@ -10640,10 +10670,10 @@ export class ListServerGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * *   For the first request and last request, you do not need to specify this parameter.
+   * *   You must specify the token obtained from the previous query as the value of NextToken.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -10669,7 +10699,7 @@ export class ListServerGroupsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The server group ID. You can specify up to 20 server group IDs in each call.
+   * The server group IDs. You can specify up to 20 server group IDs in each call.
    */
   serverGroupIds?: string[];
   /**
@@ -10681,7 +10711,7 @@ export class ListServerGroupsRequest extends $dara.Model {
    * @remarks
    * The type of server group. Valid values:
    * 
-   * *   **Instance** : allows you to add servers of the **Ecs**, **Ens**, and **Eci** types.
+   * *   **Instance**: allows you to add servers of the **Ecs**, **Ens**, and **Eci** types.
    * *   **Ip**: allows you to add servers by specifying IP addresses.
    * 
    * @example
@@ -10695,7 +10725,7 @@ export class ListServerGroupsRequest extends $dara.Model {
   tag?: ListServerGroupsRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the server group belongs.
+   * The ID of the virtual private cloud (VPC) in which the server group is deployed.
    * 
    * @example
    * vpc-bp15zckdt37pq72zv****
@@ -10965,7 +10995,7 @@ export class ListSystemSecurityPolicyResponse extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **50**. Default value: **50**.
+   * The number of entries to return in each call. Valid values: **1** to **50**. Default value: **50**.
    * 
    * @example
    * 20
@@ -10973,10 +11003,10 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The pagination token used to specify a particular page of results. Valid values:
    * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * *   Leave this parameter empty for the first query or the only query.
+   * *   Set this parameter to the value of NextToken obtained from the previous query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -10992,17 +11022,17 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The IDs of the resources.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of resource to query. Valid values:
+   * The type of the resource. Valid values:
    * 
-   * *   **loadbalancer**: a Network Load Balancer (NLB) instance
-   * *   **securitypolicy**: a security policy
-   * *   **servergroup**: a server group
-   * *   **listener**: a listener
+   * *   **loadbalancer**: the Network Load Balancer (NLB) instance
+   * *   **securitypolicy**: the security policy
+   * *   **servergroup**: the server group
+   * *   **listener**: the listener
    * 
    * This parameter is required.
    * 
@@ -11012,7 +11042,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -11165,9 +11195,9 @@ export class LoadBalancerJoinSecurityGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -11175,10 +11205,10 @@ export class LoadBalancerJoinSecurityGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -11186,7 +11216,7 @@ export class LoadBalancerJoinSecurityGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the NLB instance to be associated with the security group.
+   * The ID of the NLB instance which you want to add to a security group.
    * 
    * This parameter is required.
    * 
@@ -11323,9 +11353,9 @@ export class LoadBalancerLeaveSecurityGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -11333,10 +11363,10 @@ export class LoadBalancerLeaveSecurityGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: checks the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -11356,7 +11386,7 @@ export class LoadBalancerLeaveSecurityGroupRequest extends $dara.Model {
    * @remarks
    * The region ID of the NLB instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -11489,7 +11519,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The region ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -11499,7 +11529,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -11509,7 +11539,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The type of resource. Valid values:
    * 
    * *   **loadbalancer**: a Network Load Balancer (NLB) instance
    * *   **securitypolicy**: a security policy
@@ -11649,11 +11679,11 @@ export class MoveResourceGroupResponse extends $dara.Model {
 export class RemoveServersFromServerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -11661,10 +11691,10 @@ export class RemoveServersFromServerGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -11672,7 +11702,7 @@ export class RemoveServersFromServerGroupRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -11692,7 +11722,7 @@ export class RemoveServersFromServerGroupRequest extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The server groups. You can specify at most 200 server groups in each call.
+   * The backend servers. You can specify up to 200 backend servers in each call.
    * 
    * This parameter is required.
    */
@@ -11817,6 +11847,8 @@ export class RemoveServersFromServerGroupResponse extends $dara.Model {
 export class SetHdMonitorRegionConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the Log Service project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11825,6 +11857,8 @@ export class SetHdMonitorRegionConfigRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
+   * The name of the MetricStore in Simple Log Service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11832,6 +11866,11 @@ export class SetHdMonitorRegionConfigRequest extends $dara.Model {
    */
   metricStore?: string;
   /**
+   * @remarks
+   * The region ID of the NLB instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2399192.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -11863,21 +11902,35 @@ export class SetHdMonitorRegionConfigRequest extends $dara.Model {
 
 export class SetHdMonitorRegionConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Log Service project.
+   * 
    * @example
    * hdmonitor-cn-hangzhou-223794579283657556
    */
   logProject?: string;
   /**
+   * @remarks
+   * The name of the MetricStore in Simple Log Service.
+   * 
    * @example
    * hdmonitor-cn-hangzhou-metricStore-1
    */
   metricStore?: string;
   /**
+   * @remarks
+   * The region ID of the NLB instance.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2399192.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
@@ -11949,9 +12002,9 @@ export class StartListenerRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -11959,10 +12012,10 @@ export class StartListenerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -12095,9 +12148,9 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -12105,10 +12158,10 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -12138,7 +12191,7 @@ export class StartShiftLoadBalancerZonesRequest extends $dara.Model {
    * @remarks
    * The mappings between zones and vSwitches.
    * 
-   * > You can remove only one zone in each call.
+   * >  You can remove only one IP address (or zone) in each call.
    * 
    * This parameter is required.
    */
@@ -12245,9 +12298,9 @@ export class StopListenerRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -12255,10 +12308,10 @@ export class StopListenerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: performs a dry run without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -12389,11 +12442,11 @@ export class StopListenerResponse extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** is different for each API request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -12403,8 +12456,8 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -12412,7 +12465,7 @@ export class TagResourcesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region where the resources are deployed.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
@@ -12422,18 +12475,18 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource. You can specify up to 50 resource IDs in each call.
+   * The IDs of the resources. You can specify up to 50 resource IDs in each call.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The type of the resources. Valid values:
    * 
-   * *   **loadbalancer**: a Network Load Balancer (NLB) instance
-   * *   **securitypolicy**: a security policy
-   * *   **servergroup**: a server group
+   * *   **loadbalancer**: the Network Load Balancer (NLB) instance
+   * *   **securitypolicy**: the security policy
+   * *   **servergroup**: the server group
    * 
    * This parameter is required.
    * 
@@ -12556,7 +12609,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * Specifies whether to remove all tags from the specified resource. Valid values:
    * 
    * *   **true**: removes all tags from the specified resource.
-   * *   **false**: does not remove all tags from the specified resource. This is the default value.
+   * *   **false** (default): does not remove all tags from the specified resource.
    * 
    * @example
    * false
@@ -12566,9 +12619,9 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** is different for each API request.
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -12576,10 +12629,10 @@ export class UntagResourcesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
+   * *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -12597,14 +12650,14 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource. You can specify up to 50 resource IDs in each call.
+   * The ID of the resource. You can specify at most 50 resource IDs in each call.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource from which you want to remove tags. Valid values:
+   * The type of the resource. Valid values:
    * 
    * *   **loadbalancer**: a Network Load Balancer (NLB) instance
    * *   **securitypolicy**: a security policy
@@ -12618,7 +12671,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag that you want to remove. You can remove up to 20 tags in each call.
+   * The keys of the tags that you want to remove. You can remove at most 20 tags in each call.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {
@@ -12730,8 +12783,8 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -12746,7 +12799,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * *   **HTTP2Optional**: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
    * *   **HTTP2Preferred**: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
    * 
-   * > This parameter is required if AlpnEnabled is set to true.
+   * >  This parameter is required if AlpnEnabled is set to true.
    * 
    * @example
    * HTTP1Only
@@ -12757,7 +12810,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The CA certificates. Only one CA certificate is supported.
+   * The CA certificate. You can specify only one CA certificate.
    * 
    * >  This parameter takes effect only for listeners that use SSL over TCP.
    */
@@ -12766,8 +12819,8 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable mutual authentication. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false** (default): no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -12775,16 +12828,18 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificates.
+   * The server certificate. Only one server certificate is supported.
+   * 
+   * >  This parameter takes effect only for listeners that use SSL over TCP.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -12800,10 +12855,10 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request but does not update the configurations of the listener. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -12811,10 +12866,10 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds
+   * The timeout period for idle connections. Unit: seconds
    * 
-   * *   If the listener uses **TCP** or **TCPSSL**, you can set the timeout period of idle connections to **10** to **900** seconds. Default value: **900**.
-   * *   If the listener uses **UDP**, you can set the timeout period of idle connections to **10** to **20** seconds. Default value: **20**.
+   * *   If the listener uses **TCP** or **TCPSSL**, you can set this parameter to a value ranging from **10** to **900**. Default value: **900**
+   * *   If the listener uses **UDP**, you can set this parameter to a value ranging from **10** to **20**. Default value: **20**
    * 
    * @example
    * 900
@@ -12822,9 +12877,9 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * Enter a name for the listener.
+   * The name of the listener.
    * 
-   * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
    * 
    * @example
    * tcpssl_443
@@ -12832,7 +12887,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   listenerDescription?: string;
   /**
    * @remarks
-   * The ID of the listener.
+   * The listener ID.
    * 
    * This parameter is required.
    * 
@@ -12842,7 +12897,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The size of the largest TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged. This parameter is supported only by listeners that use SSL over TCP.
+   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) remains unchanged. This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
    * 
    * @example
    * 344
@@ -12850,10 +12905,10 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   mss?: number;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass client IP addresses to backend servers. Valid values:
+   * Specifies whether to use the Proxy protocol to pass the client IP address to the backend server. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -12878,8 +12933,8 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable fine-grained monitoring. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -12897,10 +12952,15 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The ID of the server group.
-   * > - If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
-   * > - If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
-   * > - If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
+   * The server group ID.
+   * 
+   * > 
+   * 
+   * *   If the listener uses **TCP**, you can specify server groups whose protocol is **TCP** or **TCP_UDP**. **UDP** server groups are not supported.
+   * 
+   * *   If the listener uses **UDP**, you can specify server groups whose protocol is **UDP** or **TCP_UDP**. **TCP** server groups are not supported.
+   * 
+   * *   If the listener uses **TCPSSL**, you can specify server groups whose protocol is **TCP** and whose **client IP preservation is disabled**. **TCP** server groups for which **client IP preservation is enabled** and server groups whose protocol is **UDP** or **TCP_UDP** are not supported.
    * 
    * @example
    * sgp-ppdpc14gdm3x4o****
@@ -12975,8 +13035,8 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -12991,7 +13051,7 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
    * *   **HTTP2Optional**: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than the priority of HTTP 1.0, and the priority of HTTP 1.0 is higher than the priority of HTTP 2.0.
    * *   **HTTP2Preferred**: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than the priority of HTTP 1.1, and the priority of HTTP 1.1 is higher than the priority of HTTP 1.0.
    * 
-   * > This parameter is required if AlpnEnabled is set to true.
+   * >  This parameter is required if AlpnEnabled is set to true.
    * 
    * @example
    * HTTP1Only
@@ -13002,7 +13062,7 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The CA certificates. Only one CA certificate is supported.
+   * The CA certificate. You can specify only one CA certificate.
    * 
    * >  This parameter takes effect only for listeners that use SSL over TCP.
    */
@@ -13011,8 +13071,8 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable mutual authentication. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false** (default): no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -13020,16 +13080,18 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificates.
+   * The server certificate. Only one server certificate is supported.
+   * 
+   * >  This parameter takes effect only for listeners that use SSL over TCP.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13045,10 +13107,10 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether only to precheck the request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: prechecks the request but does not update the configurations of the listener. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -13056,10 +13118,10 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds
+   * The timeout period for idle connections. Unit: seconds
    * 
-   * *   If the listener uses **TCP** or **TCPSSL**, you can set the timeout period of idle connections to **10** to **900** seconds. Default value: **900**.
-   * *   If the listener uses **UDP**, you can set the timeout period of idle connections to **10** to **20** seconds. Default value: **20**.
+   * *   If the listener uses **TCP** or **TCPSSL**, you can set this parameter to a value ranging from **10** to **900**. Default value: **900**
+   * *   If the listener uses **UDP**, you can set this parameter to a value ranging from **10** to **20**. Default value: **20**
    * 
    * @example
    * 900
@@ -13067,9 +13129,9 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * Enter a name for the listener.
+   * The name of the listener.
    * 
-   * The description must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
    * 
    * @example
    * tcpssl_443
@@ -13077,7 +13139,7 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   listenerDescription?: string;
   /**
    * @remarks
-   * The ID of the listener.
+   * The listener ID.
    * 
    * This parameter is required.
    * 
@@ -13087,7 +13149,7 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The size of the largest TCP segment. Unit: bytes. Valid values: **0** to **1500**. **0** specifies that the maximum segment size remains unchanged. This parameter is supported only by listeners that use SSL over TCP.
+   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) remains unchanged. This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
    * 
    * @example
    * 344
@@ -13095,10 +13157,10 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   mss?: number;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass client IP addresses to backend servers. Valid values:
+   * Specifies whether to use the Proxy protocol to pass the client IP address to the backend server. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -13123,8 +13185,8 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable fine-grained monitoring. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -13142,10 +13204,15 @@ export class UpdateListenerAttributeShrinkRequest extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The ID of the server group.
-   * > - If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
-   * > - If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
-   * > - If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
+   * The server group ID.
+   * 
+   * > 
+   * 
+   * *   If the listener uses **TCP**, you can specify server groups whose protocol is **TCP** or **TCP_UDP**. **UDP** server groups are not supported.
+   * 
+   * *   If the listener uses **UDP**, you can specify server groups whose protocol is **UDP** or **TCP_UDP**. **TCP** server groups are not supported.
+   * 
+   * *   If the listener uses **TCPSSL**, you can specify server groups whose protocol is **TCP** and whose **client IP preservation is disabled**. **TCP** server groups for which **client IP preservation is enabled** and server groups whose protocol is **UDP** or **TCP_UDP** are not supported.
    * 
    * @example
    * sgp-ppdpc14gdm3x4o****
@@ -13292,8 +13359,8 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
    * @remarks
    * The new network type. Valid values:
    * 
-   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. In this case, the NLB instance can be accessed over the virtual private cloud (VPC) where the NLB instance is deployed.
+   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. The NLB instance is accessible over the Internet.
+   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. The NLB instance can be accessed over the virtual private cloud (VPC) where the NLB instance is deployed.
    * 
    * This parameter is required.
    * 
@@ -13303,11 +13370,11 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13315,10 +13382,10 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -13326,7 +13393,7 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The NLB instance ID.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -13346,7 +13413,7 @@ export class UpdateLoadBalancerAddressTypeConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches. You can specify at most 10 zones in each call.
+   * The mappings between zones and vSwitches. You can specify up to 10 zones.
    */
   zoneMappings?: UpdateLoadBalancerAddressTypeConfigRequestZoneMappings[];
   static names(): { [key: string]: string } {
@@ -13463,9 +13530,9 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the system uses the **request ID** as the **client token**. The **request ID** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13473,7 +13540,7 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of new connections per second supported by the NLB instance in each zone (virtual IP address). Valid values: **1** to **1000000**.
+   * The maximum number of new connections per second in each zone supported by the NLB instance (virtual IP address). Valid values: **1** to **1000000**.
    * 
    * @example
    * 1
@@ -13492,10 +13559,10 @@ export class UpdateLoadBalancerAttributeRequest extends $dara.Model {
   crossZoneEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -13642,11 +13709,11 @@ export class UpdateLoadBalancerAttributeResponse extends $dara.Model {
 export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13665,9 +13732,9 @@ export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
   deletionProtectionEnabled?: boolean;
   /**
    * @remarks
-   * The reason why deletion protection is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * The reason why deletion protection is enabled. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
-   * > This parameter takes effect only when **DeletionProtectionEnabled** is set to **true**.
+   * >  This parameter takes effect only when **DeletionProtectionEnabled** is set to **true**.
    * 
    * @example
    * Instance_Is_Bound_By_Acceleration_Instance
@@ -13675,10 +13742,10 @@ export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
   deletionProtectionReason?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): sends a request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -13686,7 +13753,7 @@ export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The NLB instance ID.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -13696,9 +13763,9 @@ export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
-   * > This parameter takes effect only if **Status** is set to **ConsoleProtection**.
+   * >  This parameter takes effect only when **Status** is set to **ConsoleProtection**.
    * 
    * @example
    * ConsoleProtection
@@ -13711,7 +13778,7 @@ export class UpdateLoadBalancerProtectionRequest extends $dara.Model {
    * *   **NonProtection**: disables the configuration read-only mode. In this case, you cannot set the **ModificationProtectionReason** parameter. If you specify **ModificationProtectionReason**, the value is cleared.
    * *   **ConsoleProtection**: enables the configuration read-only mode. In this case, you can specify **ModificationProtectionReason**.
    * 
-   * > If you set this parameter to **ConsoleProtection**, you cannot use the NLB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * >  If you set this parameter to **ConsoleProtection**, you cannot use the NLB console to modify configurations of the NLB instance. However, you can call API operations to modify the instance configurations.
    * 
    * @example
    * ConsoleProtection
@@ -13830,11 +13897,11 @@ export class UpdateLoadBalancerProtectionResponse extends $dara.Model {
 export class UpdateLoadBalancerZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13842,10 +13909,10 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**: sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the request. If the request passes the validation, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -13853,7 +13920,7 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The NLB instance ID.
+   * The ID of the NLB instance.
    * 
    * This parameter is required.
    * 
@@ -13863,9 +13930,9 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of region where the NLB instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -13873,7 +13940,7 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches. You can specify at most 10 zones.
+   * The mappings between the zones and the vSwitches. You can specify up to 10 zones.
    * 
    * This parameter is required.
    */
@@ -13988,9 +14055,9 @@ export class UpdateLoadBalancerZonesResponse extends $dara.Model {
 export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The supported cipher suites, which are determined by the TLS protocol version. You can specify at most 32 cipher suites.
+   * The supported cipher suites. Valid values of this parameter vary base on the value of TlsVersions. You can specify up to 32 cipher suites.
    * 
-   * TLS 1.0 and TLS 1.1 support the following cipher suites:
+   * TLSv1.0 and TLSv1.1 support the following cipher suites:
    * 
    * *   **ECDHE-ECDSA-AES128-SHA**
    * *   **ECDHE-ECDSA-AES256-SHA**
@@ -14000,7 +14067,7 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
    * *   **AES256-SHA**
    * *   **DES-CBC3-SHA**
    * 
-   * TLS 1.2 supports the following cipher suites:
+   * TLSv1.2 supports the following cipher suites:
    * 
    * *   **ECDHE-ECDSA-AES128-SHA**
    * *   **ECDHE-ECDSA-AES256-SHA**
@@ -14022,7 +14089,7 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
    * *   **AES128-SHA256**
    * *   **AES256-SHA256**
    * 
-   * TLS 1.3 supports the following cipher suites:
+   * TLSv1.3 supports the following cipher suites:
    * 
    * *   **TLS_AES_128_GCM_SHA256**
    * *   **TLS_AES_256_GCM_SHA384**
@@ -14033,11 +14100,11 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   ciphers?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14045,10 +14112,10 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -14056,9 +14123,9 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -14086,7 +14153,7 @@ export class UpdateSecurityPolicyAttributeRequest extends $dara.Model {
   securityPolicyName?: string;
   /**
    * @remarks
-   * The supported versions of the Transport Layer Security (TLS) protocol. Valid values: **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, and **TLSv1.3**. You can specify at most four TLS protocol versions.
+   * The supported TLS versions. Valid values: **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, and **TLSv1.3**. You can specify up to four TLS versions.
    */
   tlsVersions?: string[];
   static names(): { [key: string]: string } {
@@ -14216,11 +14283,11 @@ export class UpdateSecurityPolicyAttributeResponse extends $dara.Model {
 export class UpdateServerGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14239,7 +14306,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   connectionDrainEnabled?: boolean;
   /**
    * @remarks
-   * The timeout period of connection draining. Unit: seconds. Valid values: **10** to **900**.
+   * Specify a timeout period for connection draining. Unit: seconds. Valid values: **0** to **900**.
    * 
    * @example
    * 10
@@ -14247,10 +14314,10 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   connectionDrainTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
+   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -14258,7 +14325,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The configuration of health checks.
+   * Health check configurations.
    */
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
   /**
@@ -14268,7 +14335,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * *   **true**
    * *   **false**
    * 
-   * >  You cannot set this parameter to **true** if **PreserveClientIpEnabled** is set to **false** and the server group is associated with a **TCP/SSL** listener.
+   * >  You cannot set this parameter to **true** if **PreserveClientIpEnabled** is set to **false** and the server group is associated with a listener that uses **SSL over TCP**.
    * 
    * @example
    * false
@@ -14276,9 +14343,9 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   preserveClientIpEnabled?: boolean;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The ID of the region where the NLB instance is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
    * 
    * @example
    * cn-hangzhou
@@ -14286,15 +14353,16 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The routing algorithm. Valid values:
+   * The scheduling algorithm. Valid values:
    * 
-   * *   **Wrr**: Backend servers with higher weights receive more requests than backend servers with lower weights.
+   * *   **Wrr**: weighted round-robin. Backend servers with higher weights receive more requests.
+   * *   **Wlc**: weighted least connections. Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least connections.
    * *   **rr**: Requests are forwarded to backend servers in sequence.
-   * *   **sch:** Source IP hashing is used. Requests from the same source IP address are forwarded to the same backend server.
-   * *   **tch:** Four-element hashing is used. It specifies consistent hashing that is based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same information based on the four factors are forwarded to the same backend server.
-   * *   **qch**: QUIC ID hashing. Requests that contain the same QUIC ID are forwarded to the same backend server.
+   * *   **sch**: source IP hash. Requests from the same source IP address are forwarded to the same backend server.
+   * *   **tch**: consistent hashing based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same four factors are forwarded to the same backend server.
+   * *   **qch**: QUIC ID hash. Requests that contain the same QUIC ID are forwarded to the same backend server.
    * 
-   * > QUIC ID hashing is supported only when the backend protocol is set to UDP.
+   * >  QUIC ID hash is supported only when the backend protocol is set to UDP.
    * 
    * @example
    * Wrr
@@ -14314,7 +14382,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * @remarks
    * The new name of the server group.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, can contain digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
    * 
    * @example
    * NLB_ServerGroup1
@@ -14450,11 +14518,11 @@ export class UpdateServerGroupAttributeResponse extends $dara.Model {
 export class UpdateServerGroupServersAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate this value. Ensure that the value is unique among all requests. Only ASCII characters are allowed.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * >  If you do not specify this parameter, the value of **RequestId** is used.**** **RequestId** of each request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -14462,10 +14530,10 @@ export class UpdateServerGroupServersAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
    * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * *   **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -15251,11 +15319,9 @@ export default class Client extends OpenApi {
    * Creates a server group in a region.
    * 
    * @remarks
-   *   **protocol** specifies the protocol used to forward requests to the backend servers.
-   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-   *     *   If the task is in the **Succeeded** status, the server group is created.
-   *     *   If the task is in the **Processing** status, the server group is being created.
+   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+   *    - If the task is in the **Succeeded** status, the server group is created.
+   * -    If the task is in the **Processing** status, the server group is being created.
    * 
    * @param request - CreateServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15359,11 +15425,9 @@ export default class Client extends OpenApi {
    * Creates a server group in a region.
    * 
    * @remarks
-   *   **protocol** specifies the protocol used to forward requests to the backend servers.
-   * *   NLB instances support only backend server groups that use TCP, UDP, or SSL over TCP.
-   * *   **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-   *     *   If the task is in the **Succeeded** status, the server group is created.
-   *     *   If the task is in the **Processing** status, the server group is being created.
+   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
+   *    - If the task is in the **Succeeded** status, the server group is created.
+   * -    If the task is in the **Processing** status, the server group is being created.
    * 
    * @param request - CreateServerGroupRequest
    * @returns CreateServerGroupResponse
@@ -15616,7 +15680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询秒级监控存储配置
+   * Queries the storage configurations of fine-grained monitoring.
    * 
    * @param request - DescribeHdMonitorRegionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15652,7 +15716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询秒级监控存储配置
+   * Queries the storage configurations of fine-grained monitoring.
    * 
    * @param request - DescribeHdMonitorRegionConfigRequest
    * @returns DescribeHdMonitorRegionConfigResponse
@@ -15974,7 +16038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+   * Changes the network type of the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from internal-facing to Internet-facing.
    * 
    * @param request - EnableLoadBalancerIpv6InternetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16022,7 +16086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the network type of the IPv6 address of a dual-stack NLB instance from private to the public.
+   * Changes the network type of the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from internal-facing to Internet-facing.
    * 
    * @param request - EnableLoadBalancerIpv6InternetRequest
    * @returns EnableLoadBalancerIpv6InternetResponse
@@ -16395,7 +16459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a Network Load Balancer (NLB) instance.
+   * Queries the basic information about Network Load Balancer (NLB) instances.
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16491,7 +16555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about a Network Load Balancer (NLB) instance.
+   * Queries the basic information about Network Load Balancer (NLB) instances.
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -17116,7 +17180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置秒级监控存储
+   * Configures storage for fine-grained monitoring.
+   * 
+   * @remarks
+   * This operation is used to configure a data warehouse for the fine-grained monitoring feature. If a listener in the current region has fine-grained monitoring enabled, you must disable fine-grained monitoring before you can configure a warehouse.
    * 
    * @param request - SetHdMonitorRegionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17160,7 +17227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置秒级监控存储
+   * Configures storage for fine-grained monitoring.
+   * 
+   * @remarks
+   * This operation is used to configure a data warehouse for the fine-grained monitoring feature. If a listener in the current region has fine-grained monitoring enabled, you must disable fine-grained monitoring before you can configure a warehouse.
    * 
    * @param request - SetHdMonitorRegionConfigRequest
    * @returns SetHdMonitorRegionConfigResponse
@@ -17230,10 +17300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
+   * Removes the elastic IP address (EIP) or virtual IP address (VIP) used in a zone from the DNS record.
    * 
    * @remarks
-   * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+   * >  If the NLB instance is deployed in only one zone, you cannot remove the EIP or VIP from the DNS record.
    * 
    * @param request - StartShiftLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17285,10 +17355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the elastic IP address (EIP) or virtual IP address (VIP) from a zone.
+   * Removes the elastic IP address (EIP) or virtual IP address (VIP) used in a zone from the DNS record.
    * 
    * @remarks
-   * > If a Network Load Balancer (NLB) instance is deployed only in one zone, you cannot remove the NLB instance from the zone.
+   * >  If the NLB instance is deployed in only one zone, you cannot remove the EIP or VIP from the DNS record.
    * 
    * @param request - StartShiftLoadBalancerZonesRequest
    * @returns StartShiftLoadBalancerZonesResponse
