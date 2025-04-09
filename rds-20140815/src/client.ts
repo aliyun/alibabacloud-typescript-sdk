@@ -6334,6 +6334,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * The IDs of the read-only instances that are attached to the primary instance.
    */
   readOnlyDBInstanceIds?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeReadOnlyDBInstanceIds;
+  readOnlyStatus?: string;
   /**
    * @remarks
    * The latency at which the system replicates data to read-only instances. The system replicates data from the primary instance to the read-only instances at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
@@ -6569,6 +6570,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       port: 'Port',
       proxyType: 'ProxyType',
       readOnlyDBInstanceIds: 'ReadOnlyDBInstanceIds',
+      readOnlyStatus: 'ReadOnlyStatus',
       readonlyInstanceSQLDelayedTime: 'ReadonlyInstanceSQLDelayedTime',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -6657,6 +6659,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       port: 'string',
       proxyType: 'number',
       readOnlyDBInstanceIds: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeReadOnlyDBInstanceIds,
+      readOnlyStatus: 'string',
       readonlyInstanceSQLDelayedTime: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -19091,6 +19094,147 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.
   }
 }
 
+export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the instance family.
+   */
+  instanceTypeFamilyDesc?: string;
+  /**
+   * @remarks
+   * The ID of the instance family.
+   * 
+   * @example
+   * x.6cm
+   */
+  instanceTypeFamilyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypeFamilyDesc: 'InstanceTypeFamilyDesc',
+      instanceTypeFamilyId: 'InstanceTypeFamilyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypeFamilyDesc: 'string',
+      instanceTypeFamilyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies extends $dara.Model {
+  /**
+   * @remarks
+   * The instance family.
+   */
+  instanceTypeFamily?: DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypeFamily: 'InstanceTypeFamily',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypeFamily: { 'type': 'array', 'itemType': DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamiliesInstanceTypeFamily },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceTypeFamily)) {
+      $dara.Model.validateArray(this.instanceTypeFamily);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  cpuCoreCount?: number;
+  /**
+   * @example
+   * gn8.cm
+   */
+  instanceTypeFamily?: string;
+  /**
+   * @example
+   * rds.gna8.2xlarge.8cm
+   */
+  instanceTypeId?: string;
+  /**
+   * @example
+   * 256
+   */
+  memorySize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCoreCount: 'CpuCoreCount',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      instanceTypeId: 'InstanceTypeId',
+      memorySize: 'MemorySize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCoreCount: 'number',
+      instanceTypeFamily: 'string',
+      instanceTypeId: 'string',
+      memorySize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesResponseBodyInstanceTypes extends $dara.Model {
+  instanceType?: DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: { 'type': 'array', 'itemType': DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceType)) {
+      $dara.Model.validateArray(this.instanceType);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $dara.Model {
   resourceId?: string;
   resourceType?: string;
@@ -19155,6 +19299,41 @@ export class DescribeRCInstancesResponseBodyRCInstancesTags extends $dara.Model 
   }
 }
 
+export class DescribeRCInstancesResponseBodyRCInstancesVpcAttributes extends $dara.Model {
+  natIpAddress?: string;
+  privateIpAddress?: string[];
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natIpAddress: 'NatIpAddress',
+      privateIpAddress: 'PrivateIpAddress',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natIpAddress: 'string',
+      privateIpAddress: { 'type': 'array', 'itemType': 'string' },
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privateIpAddress)) {
+      $dara.Model.validateArray(this.privateIpAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   /**
    * @remarks
@@ -19164,6 +19343,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * testrdscustom
    */
   clusterName?: string;
+  cpu?: number;
   createMode?: string;
   /**
    * @remarks
@@ -19173,6 +19353,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * rds_custom
    */
   dbType?: string;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The instance description.
@@ -19181,6 +19362,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * test
    */
   description?: string;
+  expiredTime?: string;
   /**
    * @remarks
    * The time when the task was created. The time is displayed in GMT.
@@ -19205,6 +19387,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
    * i-2zeaiz4g9u23f40m****
    */
   hostName?: string;
+  imageId?: string;
   instanceChargeType?: string;
   /**
    * @remarks
@@ -19216,6 +19399,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   instanceId?: string;
   instanceType?: string;
   instanceTypeFamily?: string;
+  memory?: number;
   publicIp?: string;
   /**
    * @remarks
@@ -19246,6 +19430,11 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
   tags?: DescribeRCInstancesResponseBodyRCInstancesTags[];
   /**
+   * **if can be null:**
+   * true
+   */
+  vpcAttributes?: DescribeRCInstancesResponseBodyRCInstancesVpcAttributes;
+  /**
    * @remarks
    * The VPC ID.
    * 
@@ -19257,16 +19446,21 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterName: 'ClusterName',
+      cpu: 'Cpu',
       createMode: 'CreateMode',
       dbType: 'DbType',
+      deploymentSetId: 'DeploymentSetId',
       description: 'Description',
+      expiredTime: 'ExpiredTime',
       gmtCreated: 'GmtCreated',
       hostIp: 'HostIp',
       hostName: 'HostName',
+      imageId: 'ImageId',
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       instanceTypeFamily: 'InstanceTypeFamily',
+      memory: 'Memory',
       publicIp: 'PublicIp',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
@@ -19274,6 +19468,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       status: 'Status',
       tagResources: 'TagResources',
       tags: 'Tags',
+      vpcAttributes: 'VpcAttributes',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -19282,16 +19477,21 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterName: 'string',
+      cpu: 'number',
       createMode: 'string',
       dbType: 'string',
+      deploymentSetId: 'string',
       description: 'string',
+      expiredTime: 'string',
       gmtCreated: 'string',
       hostIp: 'string',
       hostName: 'string',
+      imageId: 'string',
       instanceChargeType: 'string',
       instanceId: 'string',
       instanceType: 'string',
       instanceTypeFamily: 'string',
+      memory: 'number',
       publicIp: 'string',
       regionId: 'string',
       securityGroupId: 'string',
@@ -19299,6 +19499,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
       status: 'string',
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
       tags: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTags },
+      vpcAttributes: DescribeRCInstancesResponseBodyRCInstancesVpcAttributes,
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -19310,6 +19511,9 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(this.vpcAttributes && typeof (this.vpcAttributes as any).validate === 'function') {
+      (this.vpcAttributes as any).validate();
     }
     super.validate();
   }
@@ -24636,12 +24840,12 @@ export class ModifyDBInstanceEndpointAddressResponseBodyData extends $dara.Model
 export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic start and stop feature for the serverless instance. Valid values:
+   * Specifies whether to enable the automatic start and stop feature for the serverless instance that runs MySQL or PostgreSQL. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
    * 
-   * > This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
+   * >  After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
    * 
    * @example
    * true
@@ -24652,15 +24856,13 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $dara.Mo
   autoPause?: boolean;
   /**
    * @remarks
-   * The maximum number of RDS Capacity Units (RCUs). Valid values:
+   * The **maximum** number of RDS Capacity Units (RCUs). Valid values:
    * 
    * *   Serverless ApsaraDB RDS for MySQL instances: **1 to 32**
-   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**
+   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 16**. Only integers are supported.
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 14**
    * 
-   * > 
-   * 
-   * *   The value of this parameter must be greater than or equal to the value of **MinCapacity** and can be specified only to an **integer**.
+   * >  The value of this parameter must be greater than or equal to the value of **MinCapacity**.
    * 
    * @example
    * 8
@@ -24668,15 +24870,13 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $dara.Mo
   maxCapacity?: number;
   /**
    * @remarks
-   * The minimum number of RCUs. Valid values:
+   * The minimum number of RCUs. Valid values:****
    * 
    * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
    * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
    * 
-   * > 
-   * 
-   * *   The value of this parameter must be less than or equal to the value of MaxCapacity.
+   * >  The value of this parameter must be less than or equal to the value of MaxCapacity.
    * 
    * @example
    * 0.5
@@ -24684,13 +24884,16 @@ export class ModifyDBInstanceSpecRequestServerlessConfiguration extends $dara.Mo
   minCapacity?: number;
   /**
    * @remarks
-   * Specifies whether to enable the forced scaling feature for the serverless instance. Valid values:
+   * Specifies whether to enable the forceful scaling feature for the serverless instance that runs MySQL or PostgreSQL. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
    * 
-   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts 30 to 120 seconds occurs during forced scaling. Process with caution.
-   * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+   * > 
+   * 
+   * *   If you set this parameter to true, **a service interruption that lasts 30 to 120 seconds occurs during forced scaling**. Process with caution.
+   * 
+   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
    * 
    * @example
    * false
@@ -25101,8 +25304,20 @@ export class ModifyPGHbaConfigRequestHbaItem extends $dara.Model {
 }
 
 export class ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   currency?: string;
+  /**
+   * @example
+   * None
+   */
   fee?: string;
+  /**
+   * @example
+   * None
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31643,11 +31858,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * The vSwitch ID.
    * 
-   * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-   * *   If you set the **ZoneSlaveId1** parameter to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,). The ZoneSlaveId1 parameter specifies the zone ID of the secondary node.
-   * *   The value cannot contain `spaces`, exclamation points `(!)`, or special characters such as number signs `(#)`, dollar signs `($)`, ampersands `(&)`, and percent signs `(%)`.
+   * *   **Relations with zones**: Specify the vSwitch ID based on the zones in which the vSwitch belongs to. If you specify two vSwitch IDs, make sure that the vSwitch IDs match the zone IDs specified by the ZoneId and ZoneIdSlave1 parameters.
+   * *   **Limits on the network type**: Set **InstanceNetworkType** to **VPC**.
+   * *   **Limits on multiple vSwitch IDs**: If you set **ZoneSlaveId1** to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * *   **Limits on characters**: The value cannot contain `spaces` or the following characters: `!` `#` `￥` `&` `%`
    * 
    * @example
    * vsw-*****
@@ -32541,11 +32757,12 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * The vSwitch ID.
    * 
-   * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-   * *   If you set the **ZoneSlaveId1** parameter to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,). The ZoneSlaveId1 parameter specifies the zone ID of the secondary node.
-   * *   The value cannot contain `spaces`, exclamation points `(!)`, or special characters such as number signs `(#)`, dollar signs `($)`, ampersands `(&)`, and percent signs `(%)`.
+   * *   **Relations with zones**: Specify the vSwitch ID based on the zones in which the vSwitch belongs to. If you specify two vSwitch IDs, make sure that the vSwitch IDs match the zone IDs specified by the ZoneId and ZoneIdSlave1 parameters.
+   * *   **Limits on the network type**: Set **InstanceNetworkType** to **VPC**.
+   * *   **Limits on multiple vSwitch IDs**: If you set **ZoneSlaveId1** to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * *   **Limits on characters**: The value cannot contain `spaces` or the following characters: `!` `#` `￥` `&` `%`
    * 
    * @example
    * vsw-*****
@@ -37209,7 +37426,7 @@ export class CreateRCDiskRequest extends $dara.Model {
    * *   **cloud** (default): basic disk
    * *   **cloud_efficiency**: ultra disk.
    * *   **cloud_ssd**: standard SSD.
-   * *   **cloud_essd**: Enterprise SSD (ESSD).
+   * *   **cloud_essd**: ESSD.
    * *   **cloud_auto**: ESSD AutoPL disk
    * *   **cloud_essd_entry**: ESSD Entry disk
    * *   **elastic_ephemeral_disk_standard**: standard elastic ephemeral disk
@@ -37237,6 +37454,10 @@ export class CreateRCDiskRequest extends $dara.Model {
    * Postpaid
    */
   instanceChargeType?: string;
+  /**
+   * @example
+   * rc-v28c6k3jupp61m2t****
+   */
   instanceId?: string;
   /**
    * @remarks
@@ -37308,8 +37529,6 @@ export class CreateRCDiskRequest extends $dara.Model {
    * 
    * *   If the size of the snapshot specified by `SnapshotId` is larger than the value of `Size`, the size of the created disk is equal to the size of the snapshot.
    * *   If the size of the snapshot specified by `SnapshotId` is smaller than the value of `Size`, the size of the created disk is equal to the value of `Size`.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 2000
@@ -39091,7 +39310,7 @@ export class CreateReadOnlyDBInstanceResponse extends $dara.Model {
 export class CreateReplicationLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the DR instance.
    * 
    * This parameter is required.
    * 
@@ -39101,10 +39320,10 @@ export class CreateReplicationLinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run before the system creates the DR instance. Valid values:
    * 
-   * *   **true**: performs a dry run but does not create the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
-   * *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
+   * *   **true**: performs a dry run but does not create the instance. The system checks the request parameters, request syntax, limits, and available resources.
+   * *   **false** (default): performs a dry run and the actual request. If the request passes the dry run, the instance is directly created.
    * 
    * This parameter is required.
    * 
@@ -39130,7 +39349,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
   replicatorPassword?: string;
   /**
    * @remarks
-   * The endpoint of the source instance.
+   * The endpoint of the source ApsaraDB RDS for PostgreSQL instance or the IP address of the source ApsaraDB RDS for SQL Server instance.
    * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
@@ -39140,8 +39359,8 @@ export class CreateReplicationLinkRequest extends $dara.Model {
    * @remarks
    * The type of the source instance. Valid values:
    * 
-   * *   **other**: other instances
-   * *   **aliyunRDS**: an ApsaraDB RDS instance
+   * *   **other**: other instances. **SQL Server instances are not supported.**
+   * *   **aliyunRDS**: an ApsaraDB RDS instance.
    * 
    * @example
    * aliyunRDS
@@ -39149,9 +39368,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
   sourceCategory?: string;
   /**
    * @remarks
-   * The name of the source instance.
-   * 
-   * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
+   * The name of the source instance. If you set **SourceCategory** to **aliyunRDS**, this parameter is required.
    * 
    * @example
    * testInstance
@@ -39159,9 +39376,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
   sourceInstanceName?: string;
   /**
    * @remarks
-   * The region ID of the source instance.
-   * 
-   * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
+   * The region ID of the source instance. If you set **SourceCategory** to **aliyunRDS**, this parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -39175,6 +39390,13 @@ export class CreateReplicationLinkRequest extends $dara.Model {
    * 5432
    */
   sourcePort?: number;
+  /**
+   * @remarks
+   * The IP address of the DR instance of the ApsaraDB RDS for SQL Server instance.
+   * 
+   * @example
+   * 192.XXX.XX.XXX
+   */
   targetAddress?: string;
   /**
    * @remarks
@@ -39186,7 +39408,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
+   * The task name of the dry run. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
    * 
    * @example
    * test01
@@ -39238,7 +39460,7 @@ export class CreateReplicationLinkRequest extends $dara.Model {
 export class CreateReplicationLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the DR instance.
    * 
    * @example
    * pgm-****.pg.rds.aliyuncs.com
@@ -39254,7 +39476,7 @@ export class CreateReplicationLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 564532302
@@ -39262,7 +39484,7 @@ export class CreateReplicationLinkResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * test01
@@ -43103,7 +43325,7 @@ export class DeleteRCSnapshotResponse extends $dara.Model {
 export class DeleteReplicationLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the DR instance.
    * 
    * This parameter is required.
    * 
@@ -43113,7 +43335,7 @@ export class DeleteReplicationLinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to promote the disaster recovery instance to the primary instance. Valid values:
+   * Specifies whether to delete the data synchronization link between the DR instance and the primary instance and promote the DR instance to the primary instance. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -43153,7 +43375,7 @@ export class DeleteReplicationLinkRequest extends $dara.Model {
 export class DeleteReplicationLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the DR instance.
    * 
    * @example
    * pgm-bp1trqb4p1xd****
@@ -43169,7 +43391,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 3472****
@@ -43177,7 +43399,7 @@ export class DeleteReplicationLinkResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * test01
@@ -64729,6 +64951,7 @@ export class DescribeRCInstanceAttributeRequest extends $dara.Model {
 }
 
 export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
+  autoRenew?: boolean;
   /**
    * @remarks
    * The ID of the cluster to which the instance belongs.
@@ -65055,6 +65278,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenew: 'AutoRenew',
       clusterId: 'ClusterId',
       cpu: 'Cpu',
       createMode: 'CreateMode',
@@ -65105,6 +65329,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenew: 'boolean',
       clusterId: 'string',
       cpu: 'number',
       createMode: 'number',
@@ -65209,6 +65434,284 @@ export class DescribeRCInstanceAttributeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCInstanceAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypeFamiliesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypeFamiliesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance families.
+   */
+  instanceTypeFamilies?: DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypeFamilies: 'InstanceTypeFamilies',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypeFamilies: DescribeRCInstanceTypeFamiliesResponseBodyInstanceTypeFamilies,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.instanceTypeFamilies && typeof (this.instanceTypeFamilies as any).validate === 'function') {
+      (this.instanceTypeFamilies as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypeFamiliesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceTypeFamiliesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceTypeFamiliesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesRequest extends $dara.Model {
+  /**
+   * @example
+   * rds_customprepaid_public_cn
+   */
+  commodityCode?: string;
+  /**
+   * @example
+   * MySQL
+   */
+  engine?: string;
+  instanceType?: string[];
+  /**
+   * @example
+   * gn8.cm
+   */
+  instanceTypeFamily?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      engine: 'Engine',
+      instanceType: 'InstanceType',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      engine: 'string',
+      instanceType: { 'type': 'array', 'itemType': 'string' },
+      instanceTypeFamily: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceType)) {
+      $dara.Model.validateArray(this.instanceType);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * rds_customprepaid_public_cn
+   */
+  commodityCode?: string;
+  /**
+   * @example
+   * MySQL
+   */
+  engine?: string;
+  instanceTypeShrink?: string;
+  /**
+   * @example
+   * gn8.cm
+   */
+  instanceTypeFamily?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      engine: 'Engine',
+      instanceTypeShrink: 'InstanceType',
+      instanceTypeFamily: 'InstanceTypeFamily',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      engine: 'string',
+      instanceTypeShrink: 'string',
+      instanceTypeFamily: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesResponseBody extends $dara.Model {
+  instanceTypes?: DescribeRCInstanceTypesResponseBodyInstanceTypes;
+  /**
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypes: 'InstanceTypes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypes: DescribeRCInstanceTypesResponseBodyInstanceTypes,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.instanceTypes && typeof (this.instanceTypes as any).validate === 'function') {
+      (this.instanceTypes as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceTypesResponseBody,
     };
   }
 
@@ -79590,12 +80093,13 @@ export class ModifyDBInstanceSecurityGroupRuleResponse extends $dara.Model {
 export class ModifyDBInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to upgrade the major engine version of the instance. Valid values:
+   * Specifies whether to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance. For more information, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/127458.html). Valid values:
    * 
    * *   **true**
    * *   **false** (default)
    * 
-   * >When you upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, set this parameter to true. When you upgrade the major engine version, you must also specify required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, and Category, and optional parameters such as ZoneId, ZoneIdSlave1, and VSwitchId.
+   * > *   When you upgrade the major engine version, you must also specify the required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, Category, ZoneId, and VSwitchId.
+   * > *   If you want to upgrade the instance edition to RDS High-availability Edition or RDS Cluster Edition, you must specify ZoneIdSlave1.
    * 
    * @example
    * false
@@ -79614,7 +80118,7 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * An invalid parameter. You can ignore this parameter.
+   * An invalid parameter. You do not need to specify this parameter.
    * 
    * @example
    * false
@@ -79624,22 +80128,20 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
    * @remarks
    * The RDS edition of the instance. Valid values:
    * 
-   * *   Regular instance
+   * >  If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
    * 
-   *     *   **Basic**: RDS Basic Edition.
-   *     *   **HighAvailability**: RDS High-availability Edition.
-   *     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
-   *     *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
+   * **Regular RDS instances**
    * 
-   * *   Serverless instance
+   * *   **Basic**: RDS Basic Edition.
+   * *   **HighAvailability**: RDS High-availability Edition.
+   * *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
+   * *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
    * 
-   *     *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-   *     *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-   *     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
+   * **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
    * 
-   * 
-   * 
-   * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+   * *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+   * *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+   * *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
    * 
    * @example
    * HighAvailability
@@ -79655,9 +80157,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   coldDataEnabled?: boolean;
   /**
    * @remarks
-   * Whether to enable storage compression.
-   * - on: Enable
-   * - off: Disable
+   * Specifies whether to enable the storage compression feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the storage compression feature](https://help.aliyun.com/document_detail/2861985.html). Valid values:
+   * 
+   * *   **on**
+   * *   **off**
    * 
    * @example
    * on
@@ -79665,10 +80168,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   compressionMode?: string;
   /**
    * @remarks
-   * The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
+   * The instance type of the new instance. For more information, see [Specifications](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the instance types.
    * 
    * > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
-   * > *   You can call the DescribeDBInstanceAttribute operation to query the current instance type of the instance.
+   * > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current instance type of the instance.
    * 
    * @example
    * rds.mys2.small
@@ -79676,7 +80179,7 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -79686,10 +80189,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The new storage capacity of the instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the storage capacity range that is supported by the new instance type.
+   * The storage capacity of the new instance. Unit: GB. For more information, see [Storage types](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the storage capacity range that is supported by the new instance type.
    * 
-   * > *   You must specify at least one of the DBInstanceStorage and **DBInstanceClass** parameters.
-   * > *   You can call the DescribeDBInstanceAttribute to query the current storage capacity of the instance.
+   * > *   You must specify at least one of DBInstanceStorage and **DBInstanceClass**.
+   * > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current storage capacity of the instance.
    * 
    * @example
    * 20
@@ -79697,17 +80200,17 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage type of the new instance. Valid values:
    * 
    * *   **local_ssd**: local SSD.
-   * *   **cloud_ssd**: standard SSD. This storage type is not recommended and is unavailable in some Alibaba Cloud regions.
-   * *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-   * *   **cloud_essd2**: ESSDs of PL2.
-   * *   **cloud_essd3**: ESSD of PL3.
+   * *   **cloud_ssd**: SSD cloud disks. This storage medium is not recommended and is unavailable in specific Alibaba Cloud regions.
+   * *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD).
+   * *   **cloud_essd2**: PL2 ESSD.
+   * *   **cloud_essd3**: PL3 ESSD.
    * 
    * To change the storage type, take note of the following items:
    * 
-   * If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSD to ESSD. However, you cannot downgrade the storage type of the instance from ESSD to standard SSD. ESSDs provide the following PLs: PL1, PL2, and PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
+   * If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSDs to ESSDs. However, you cannot downgrade the storage type of the instance from ESSDs to standard SSDs. ESSDs provide the following PLs: ESSDs of PL1, ESSDs of PL2, and ESSDs of PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
    * 
    * @example
    * local_ssd
@@ -79738,11 +80241,13 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The effective time. Valid values:
+   * The time when the new specifications take effect. Valid values:
    * 
-   * *   **Immediate** (default): The effective time immediately takes effect.
-   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The value of ScheduleTime must be a specific point in time that is 12 hours later than the current time. In this case, The value of EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * >  **Specific changes may affect the instance**. Read the [Impact](https://help.aliyun.com/document_detail/96061.html) section before you specify this parameter. We recommend that you specify this parameter during off-peak hours.
+   * 
+   * *   **Immediate** (default): The changes immediately take effect.
+   * *   **MaintainTime**: The changes take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html) of the instance.
+   * *   **ScheduleTime**: The changes take effect at the point in time that you specify. This time must be at least 12 hours later than the current time. The actual effective time is calculated based on the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -79750,22 +80255,20 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version of the instance. Valid values:
    * 
-   * *   Regular instance
+   * **Regular RDS instances**
    * 
-   *     *   Valid values if you set the Engine parameter to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-   *     *   Valid values if you set the Engine parameter to SQLServer: **2008r2**, **08r2_ent_ha**, **2012**, **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_std_ha**, **2017_ent**, **2019_std_ha**, and **2019_ent**
-   *     *   Valid values if you set the Engine parameter to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
-   *     *   Valid value if you set the Engine parameter to MariaDB: **10.3**
+   * *   Valid values when Engine is set to MySQL: 5.5, 5.6, 5.7, and 8.0.
+   * *   Valid values when Engine is set to SQLServer: 2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, and 2019_ent.
+   * *   Valid values when Engine is set to PostgreSQL: 10.0, 11.0, 12.0, 13.0, 14.0, and 15.0.
+   * *   Valid value when Engine is set to MariaDB: 10.3.
    * 
-   * *   Serverless instance
+   * **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
    * 
-   *     *   Valid values if you set the Engine parameter to MySQL: **5.7** and **8.0**
-   *     *   Valid values if you set the Engine parameter to SQLServer: **2016_std_sl**, **2017_std_sl**, and **2019_std_sl**
-   *     *   Valid values if you set the Engine parameter to PostgreSQL: **14.0**, **15.0**, **16.0**
-   * 
-   * > ApsaraDB RDS for MariaDB does not support serverless instances.
+   * *   Valid values when Engine is set to MySQL: 5.7 and 8.0.
+   * *   Valid values when Engine is set to SQL Server: 2016_std_sl, 2017_std_sl, and 2019_std_sl.
+   * *   Valid values when Engine is set to PostgreSQL: 14.0, 15.0, and 16.0.
    * 
    * @example
    * 5.6
@@ -79781,12 +80284,10 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the write optimization feature.
+   * Specifies whether to enable the write optimization feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the write optimization feature](https://help.aliyun.com/document_detail/2858761.html). Valid values:
    * 
    * *   **optimized**: enables the feature.
    * *   **none**: disables the feature.
-   * 
-   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
    * 
    * @example
    * optimized
@@ -79800,7 +80301,9 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
    * 
    * *   **Postpaid**: pay-as-you-go.
    * *   **Prepaid**: subscription.
-   * *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. If you set the value to Serverless, you must specify the scaling range of computing resources, configure the automatic start and stop feature, and configure auto scaling policies for your serverless instance. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
+   * *   **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances.
+   * 
+   * >  If you want to set this parameter to Serverless, **you must specify **AutoPause, MaxCapacity, MinCapacity, and SwitchForce. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
    * 
    * @example
    * Postpaid
@@ -79816,7 +80319,7 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * Target specifications for read-only instances when changing a MySQL high-availability local disk instance to a cloud disk.
+   * The specification of the read-only instance when you change the storage type of the ApsaraDB RDS for MySQL instance that runs RDS High-availability Edition from cloud disk to local disk.
    * 
    * @example
    * mysqlro.n2.large.c
@@ -79847,7 +80350,12 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   sourceBiz?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The time at which you want to change the specifications. **We recommend that you perform the specification changes during off-peak hours.**
+   * 
+   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * > *   The time at which you want to change the specifications **must be later than the current time**. Otherwise, the specification change task fails. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
+   * > *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to specify this parameter.
    * 
    * @example
    * 2019-07-10T13:15:12Z
@@ -79855,13 +80363,9 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The number of the minor version.
+   * The minor engine version number of the ApsaraDB RDS for PostgreSQL instance. For more information, see [Update the minor engine version](https://help.aliyun.com/document_detail/126002.html). If the minor engine version does not support changing the instance type, you must specify the minor engine version to **update the minor engine version when you change the instance type**.
    * 
-   * This parameter is required only for instances that run PostgreSQL. If the minor engine version does not support changing the instance type, you must specify the minor engine version to update the minor engine version when you change the instance type.
-   * 
-   * Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1200_20200830`.
-   * 
-   * >  For more information about minor engine versions, see [Release notes for AliPG](https://help.aliyun.com/document_detail/126002.html).
+   * Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. For example, if the instance runs PostgreSQL 12, set this parameter to `rds_postgres_1200_20200830`.
    * 
    * @example
    * rds_postgres_1200_20200830
@@ -79869,7 +80373,7 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. At the end of the validity period, the specifications of the instance are restored to the specifications that are used before an [elastic upgrade](https://help.aliyun.com/document_detail/95665.html) is performed. Unit: days.
    * 
    * @example
    * 3
@@ -79882,7 +80386,7 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
    * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
    * *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
    * 
-   * > When you upgrade the major engine version, if you want to specify a vSwitch or change the vSwitch for the RDS instance, you must also specify this parameter.
+   * >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the vSwitch, you must specify this parameter.
    * 
    * @example
    * vsw-bp1oxflciovg9l7163lr7
@@ -79905,9 +80409,9 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID of the secondary instance. If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set this parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+   * The zone ID of the secondary instance. If you set this parameter to the same value as **ZoneId**, the single-zone deployment method is used. If you set this parameter to a different value from **ZoneId**, the multi-zone deployment method is used.
    * 
-   * > If you must specify a secondary zone or change the secondary zone to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, you must also specify this parameter.
+   * >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the secondary zone, you must specify this parameter.
    * 
    * @example
    * cn-hangzhou-c
@@ -80002,12 +80506,13 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
 export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to upgrade the major engine version of the instance. Valid values:
+   * Specifies whether to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance. For more information, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/127458.html). Valid values:
    * 
    * *   **true**
    * *   **false** (default)
    * 
-   * >When you upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, set this parameter to true. When you upgrade the major engine version, you must also specify required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, and Category, and optional parameters such as ZoneId, ZoneIdSlave1, and VSwitchId.
+   * > *   When you upgrade the major engine version, you must also specify the required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, Category, ZoneId, and VSwitchId.
+   * > *   If you want to upgrade the instance edition to RDS High-availability Edition or RDS Cluster Edition, you must specify ZoneIdSlave1.
    * 
    * @example
    * false
@@ -80026,7 +80531,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * An invalid parameter. You can ignore this parameter.
+   * An invalid parameter. You do not need to specify this parameter.
    * 
    * @example
    * false
@@ -80036,22 +80541,20 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
    * @remarks
    * The RDS edition of the instance. Valid values:
    * 
-   * *   Regular instance
+   * >  If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
    * 
-   *     *   **Basic**: RDS Basic Edition.
-   *     *   **HighAvailability**: RDS High-availability Edition.
-   *     *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
-   *     *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
+   * **Regular RDS instances**
    * 
-   * *   Serverless instance
+   * *   **Basic**: RDS Basic Edition.
+   * *   **HighAvailability**: RDS High-availability Edition.
+   * *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
+   * *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
    * 
-   *     *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-   *     *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-   *     *   **serverless_ha**: RDS High-availability Edition for ApsaraDB RDS for SQL Server.
+   * **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
    * 
-   * 
-   * 
-   * > If you set the **EngineVersion** parameter to an SQL Server version number, you must also specify this parameter.
+   * *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+   * *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
+   * *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
    * 
    * @example
    * HighAvailability
@@ -80067,9 +80570,10 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   coldDataEnabled?: boolean;
   /**
    * @remarks
-   * Whether to enable storage compression.
-   * - on: Enable
-   * - off: Disable
+   * Specifies whether to enable the storage compression feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the storage compression feature](https://help.aliyun.com/document_detail/2861985.html). Valid values:
+   * 
+   * *   **on**
+   * *   **off**
    * 
    * @example
    * on
@@ -80077,10 +80581,10 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   compressionMode?: string;
   /**
    * @remarks
-   * The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
+   * The instance type of the new instance. For more information, see [Specifications](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the instance types.
    * 
    * > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
-   * > *   You can call the DescribeDBInstanceAttribute operation to query the current instance type of the instance.
+   * > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current instance type of the instance.
    * 
    * @example
    * rds.mys2.small
@@ -80088,7 +80592,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -80098,10 +80602,10 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The new storage capacity of the instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the storage capacity range that is supported by the new instance type.
+   * The storage capacity of the new instance. Unit: GB. For more information, see [Storage types](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the storage capacity range that is supported by the new instance type.
    * 
-   * > *   You must specify at least one of the DBInstanceStorage and **DBInstanceClass** parameters.
-   * > *   You can call the DescribeDBInstanceAttribute to query the current storage capacity of the instance.
+   * > *   You must specify at least one of DBInstanceStorage and **DBInstanceClass**.
+   * > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current storage capacity of the instance.
    * 
    * @example
    * 20
@@ -80109,17 +80613,17 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * The storage type of the new instance. Valid values:
    * 
    * *   **local_ssd**: local SSD.
-   * *   **cloud_ssd**: standard SSD. This storage type is not recommended and is unavailable in some Alibaba Cloud regions.
-   * *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
-   * *   **cloud_essd2**: ESSDs of PL2.
-   * *   **cloud_essd3**: ESSD of PL3.
+   * *   **cloud_ssd**: SSD cloud disks. This storage medium is not recommended and is unavailable in specific Alibaba Cloud regions.
+   * *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD).
+   * *   **cloud_essd2**: PL2 ESSD.
+   * *   **cloud_essd3**: PL3 ESSD.
    * 
    * To change the storage type, take note of the following items:
    * 
-   * If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSD to ESSD. However, you cannot downgrade the storage type of the instance from ESSD to standard SSD. ESSDs provide the following PLs: PL1, PL2, and PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
+   * If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSDs to ESSDs. However, you cannot downgrade the storage type of the instance from ESSDs to standard SSDs. ESSDs provide the following PLs: ESSDs of PL1, ESSDs of PL2, and ESSDs of PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
    * 
    * @example
    * local_ssd
@@ -80150,11 +80654,13 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The effective time. Valid values:
+   * The time when the new specifications take effect. Valid values:
    * 
-   * *   **Immediate** (default): The effective time immediately takes effect.
-   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * *   **ScheduleTime**: The effective time takes effect at the point in time that you specify. The value of ScheduleTime must be a specific point in time that is 12 hours later than the current time. In this case, The value of EffectiveTime is calculated by using the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+   * >  **Specific changes may affect the instance**. Read the [Impact](https://help.aliyun.com/document_detail/96061.html) section before you specify this parameter. We recommend that you specify this parameter during off-peak hours.
+   * 
+   * *   **Immediate** (default): The changes immediately take effect.
+   * *   **MaintainTime**: The changes take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html) of the instance.
+   * *   **ScheduleTime**: The changes take effect at the point in time that you specify. This time must be at least 12 hours later than the current time. The actual effective time is calculated based on the following formula: EffectiveTime = ScheduleTime + SwitchTime.
    * 
    * @example
    * MaintainTime
@@ -80162,22 +80668,20 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * The database engine version of the instance. Valid values:
    * 
-   * *   Regular instance
+   * **Regular RDS instances**
    * 
-   *     *   Valid values if you set the Engine parameter to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
-   *     *   Valid values if you set the Engine parameter to SQLServer: **2008r2**, **08r2_ent_ha**, **2012**, **2012_ent_ha**, **2012_std_ha**, **2012_web**, **2014_std_ha**, **2016_ent_ha**, **2016_std_ha**, **2016_web**, **2017_std_ha**, **2017_ent**, **2019_std_ha**, and **2019_ent**
-   *     *   Valid values if you set the Engine parameter to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
-   *     *   Valid value if you set the Engine parameter to MariaDB: **10.3**
+   * *   Valid values when Engine is set to MySQL: 5.5, 5.6, 5.7, and 8.0.
+   * *   Valid values when Engine is set to SQLServer: 2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, and 2019_ent.
+   * *   Valid values when Engine is set to PostgreSQL: 10.0, 11.0, 12.0, 13.0, 14.0, and 15.0.
+   * *   Valid value when Engine is set to MariaDB: 10.3.
    * 
-   * *   Serverless instance
+   * **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
    * 
-   *     *   Valid values if you set the Engine parameter to MySQL: **5.7** and **8.0**
-   *     *   Valid values if you set the Engine parameter to SQLServer: **2016_std_sl**, **2017_std_sl**, and **2019_std_sl**
-   *     *   Valid values if you set the Engine parameter to PostgreSQL: **14.0**, **15.0**, **16.0**
-   * 
-   * > ApsaraDB RDS for MariaDB does not support serverless instances.
+   * *   Valid values when Engine is set to MySQL: 5.7 and 8.0.
+   * *   Valid values when Engine is set to SQL Server: 2016_std_sl, 2017_std_sl, and 2019_std_sl.
+   * *   Valid values when Engine is set to PostgreSQL: 14.0, 15.0, and 16.0.
    * 
    * @example
    * 5.6
@@ -80193,12 +80697,10 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   ioAccelerationEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to enable the write optimization feature.
+   * Specifies whether to enable the write optimization feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the write optimization feature](https://help.aliyun.com/document_detail/2858761.html). Valid values:
    * 
    * *   **optimized**: enables the feature.
    * *   **none**: disables the feature.
-   * 
-   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
    * 
    * @example
    * optimized
@@ -80212,7 +80714,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
    * 
    * *   **Postpaid**: pay-as-you-go.
    * *   **Prepaid**: subscription.
-   * *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. If you set the value to Serverless, you must specify the scaling range of computing resources, configure the automatic start and stop feature, and configure auto scaling policies for your serverless instance. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
+   * *   **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances.
+   * 
+   * >  If you want to set this parameter to Serverless, **you must specify **AutoPause, MaxCapacity, MinCapacity, and SwitchForce. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
    * 
    * @example
    * Postpaid
@@ -80228,7 +80732,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * Target specifications for read-only instances when changing a MySQL high-availability local disk instance to a cloud disk.
+   * The specification of the read-only instance when you change the storage type of the ApsaraDB RDS for MySQL instance that runs RDS High-availability Edition from cloud disk to local disk.
    * 
    * @example
    * mysqlro.n2.large.c
@@ -80259,7 +80763,12 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   sourceBiz?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The time at which you want to change the specifications. **We recommend that you perform the specification changes during off-peak hours.**
+   * 
+   * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * > *   The time at which you want to change the specifications **must be later than the current time**. Otherwise, the specification change task fails. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
+   * > *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to specify this parameter.
    * 
    * @example
    * 2019-07-10T13:15:12Z
@@ -80267,13 +80776,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   switchTime?: string;
   /**
    * @remarks
-   * The number of the minor version.
+   * The minor engine version number of the ApsaraDB RDS for PostgreSQL instance. For more information, see [Update the minor engine version](https://help.aliyun.com/document_detail/126002.html). If the minor engine version does not support changing the instance type, you must specify the minor engine version to **update the minor engine version when you change the instance type**.
    * 
-   * This parameter is required only for instances that run PostgreSQL. If the minor engine version does not support changing the instance type, you must specify the minor engine version to update the minor engine version when you change the instance type.
-   * 
-   * Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. Example: `rds_postgres_1200_20200830`.
-   * 
-   * >  For more information about minor engine versions, see [Release notes for AliPG](https://help.aliyun.com/document_detail/126002.html).
+   * Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. For example, if the instance runs PostgreSQL 12, set this parameter to `rds_postgres_1200_20200830`.
    * 
    * @example
    * rds_postgres_1200_20200830
@@ -80281,7 +80786,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   targetMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. At the end of the validity period, the specifications of the instance are restored to the specifications that are used before an [elastic upgrade](https://help.aliyun.com/document_detail/95665.html) is performed. Unit: days.
    * 
    * @example
    * 3
@@ -80294,7 +80799,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
    * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
    * *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
    * 
-   * > When you upgrade the major engine version, if you want to specify a vSwitch or change the vSwitch for the RDS instance, you must also specify this parameter.
+   * >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the vSwitch, you must specify this parameter.
    * 
    * @example
    * vsw-bp1oxflciovg9l7163lr7
@@ -80317,9 +80822,9 @@ export class ModifyDBInstanceSpecShrinkRequest extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The zone ID of the secondary instance. If you set this parameter to the same value as the **ZoneId** parameter, the single-zone deployment method is used. If you set this parameter to a different value from the **ZoneId** parameter, the multi-zone deployment method is used.
+   * The zone ID of the secondary instance. If you set this parameter to the same value as **ZoneId**, the single-zone deployment method is used. If you set this parameter to a different value from **ZoneId**, the multi-zone deployment method is used.
    * 
-   * > If you must specify a secondary zone or change the secondary zone to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance, you must also specify this parameter.
+   * >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the secondary zone, you must specify this parameter.
    * 
    * @example
    * cn-hangzhou-c
@@ -81162,9 +81667,9 @@ export class ModifyDBProxyRequest extends $dara.Model {
   DBProxyNodes?: ModifyDBProxyRequestDBProxyNodes[];
   /**
    * @remarks
-   * The network type of the instance. Set the value to **VPC**.
+   * The network type of the instance. Only the VPC network type is supported. Set the value to **VPC**.
    * 
-   * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * VPC
@@ -81208,9 +81713,9 @@ export class ModifyDBProxyRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
-   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * vpc-xxxxxxxxxxxx
@@ -81218,9 +81723,9 @@ export class ModifyDBProxyRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+   * The ID of the vSwitch to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
-   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * vsw-xxxxxxxxxxxx
@@ -81339,9 +81844,9 @@ export class ModifyDBProxyShrinkRequest extends $dara.Model {
   DBProxyNodesShrink?: string;
   /**
    * @remarks
-   * The network type of the instance. Set the value to **VPC**.
+   * The network type of the instance. Only the VPC network type is supported. Set the value to **VPC**.
    * 
-   * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * VPC
@@ -81385,9 +81890,9 @@ export class ModifyDBProxyShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+   * The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
-   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * vpc-xxxxxxxxxxxx
@@ -81395,9 +81900,9 @@ export class ModifyDBProxyShrinkRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+   * The ID of the vSwitch to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID.
    * 
-   * >  This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+   * >  If you enable the database proxy feature for the instance, you must specify this parameter.
    * 
    * @example
    * vsw-xxxxxxxxxxxx
@@ -81868,13 +82373,10 @@ export class ModifyDBProxyEndpointAddressRequest extends $dara.Model {
    * @remarks
    * The network type of the database proxy endpoint. Valid values:
    * 
-   * *   **Public**: Internet
-   * *   **VPC**: virtual private cloud (VPC)
-   * *   **Classic**: classic network
+   * *   **Public**
+   * *   **VPC** (default)
    * 
-   * If the instance runs MySQL, the default value is **Classic**.
-   * 
-   * >  If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+   * >  If the RDS instance runs MySQL, this parameter is required.
    * 
    * @example
    * Public
@@ -84681,6 +85183,137 @@ export class ModifyParameterGroupResponse extends $dara.Model {
   }
 }
 
+export class ModifyRCDiskSpecRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * cloud_essd
+   */
+  diskCategory?: string;
+  /**
+   * @example
+   * rcd-wz9f3peueu5npsl****
+   */
+  diskId?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @example
+   * PL2
+   */
+  performanceLevel?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      diskCategory: 'DiskCategory',
+      diskId: 'DiskId',
+      dryRun: 'DryRun',
+      performanceLevel: 'PerformanceLevel',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      diskCategory: 'string',
+      diskId: 'string',
+      dryRun: 'boolean',
+      performanceLevel: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCDiskSpecResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 245053924720608
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCDiskSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCDiskSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCDiskSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyRCInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -84994,35 +85627,92 @@ export class ModifyRCInstanceAttributeResponse extends $dara.Model {
 }
 
 export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   autoPay?: boolean;
+  /**
+   * @example
+   * true
+   */
   autoRenew?: string;
+  /**
+   * @example
+   * true
+   */
   autoUseCoupon?: boolean;
+  /**
+   * @example
+   * None
+   */
   businessInfo?: string;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOC****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * None
+   */
   dryRun?: boolean;
+  /**
+   * @example
+   * None
+   */
   includeDataDisks?: boolean;
+  /**
+   * @example
+   * None
+   */
   instanceChargeType?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
    */
   instanceId?: string;
+  /**
+   * @example
+   * None
+   */
   instanceIds?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Postpaid
    */
   payType?: string;
+  /**
+   * @example
+   * Month
+   */
   period?: string;
+  /**
+   * @example
+   * 72802442****
+   */
   promotionCode?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
+   * @example
+   * cn-hangzhou
+   * 
    * **if can be null:**
    * true
    */
   regionId?: string;
+  /**
+   * @example
+   * 2
+   */
   usedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -85074,11 +85764,23 @@ export class ModifyRCInstanceChargeTypeRequest extends $dara.Model {
 }
 
 export class ModifyRCInstanceChargeTypeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * POSTPAY
+   */
   chargeType?: string;
   expiredTime?: string[];
   feeOfInstances?: ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances[];
   instanceIds?: string[];
+  /**
+   * @example
+   * 2133400000****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 6EF82B07-28D2-48D1-B5D6-7E78FED277C7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88127,9 +88829,37 @@ export class RebootRCInstanceResponse extends $dara.Model {
 }
 
 export class RebootRCInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The batch operation mode. Set the value to **AllTogether**. In this mode, if all specified instances are restarted, a success message is returned. If an instance fails the verification, none of the specified instances can be restarted and an error message is returned.
+   * 
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcefully restart the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   forceReboot?: boolean;
+  /**
+   * @remarks
+   * The node IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88162,9 +88892,37 @@ export class RebootRCInstancesRequest extends $dara.Model {
 }
 
 export class RebootRCInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The batch operation mode. Set the value to **AllTogether**. In this mode, if all specified instances are restarted, a success message is returned. If an instance fails the verification, none of the specified instances can be restarted and an error message is returned.
+   * 
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcefully restart the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
   forceReboot?: boolean;
+  /**
+   * @remarks
+   * The node IDs.
+   */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88194,6 +88952,13 @@ export class RebootRCInstancesShrinkRequest extends $dara.Model {
 }
 
 export class RebootRCInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 32A5B40E-50DA-5166-9B22-35F00C5D1BC6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92618,8 +93383,16 @@ export class StartRCInstanceResponse extends $dara.Model {
 }
 
 export class StartRCInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
   instanceIds?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92650,8 +93423,16 @@ export class StartRCInstancesRequest extends $dara.Model {
 }
 
 export class StartRCInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
   instanceIdsShrink?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92679,6 +93460,10 @@ export class StartRCInstancesShrinkRequest extends $dara.Model {
 }
 
 export class StartRCInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 847BA085-B377-4BFA-8267-F82345ECE1D2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -92975,9 +93760,21 @@ export class StopRCInstanceResponse extends $dara.Model {
 }
 
 export class StopRCInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
+  /**
+   * @example
+   * false
+   */
   forceStop?: boolean;
   instanceIds?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93010,9 +93807,21 @@ export class StopRCInstancesRequest extends $dara.Model {
 }
 
 export class StopRCInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * AllTogether
+   */
   batchOptimization?: string;
+  /**
+   * @example
+   * false
+   */
   forceStop?: boolean;
   instanceIdsShrink?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93042,6 +93851,10 @@ export class StopRCInstancesShrinkRequest extends $dara.Model {
 }
 
 export class StopRCInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 481BC3B1-7069-5D37-9B6C-21757F8F9FB1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93569,6 +94382,8 @@ export class SwitchDBInstanceVpcResponse extends $dara.Model {
 export class SwitchReplicationLinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the source or primary instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93578,6 +94393,8 @@ export class SwitchReplicationLinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The name of the destination DR instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93586,6 +94403,8 @@ export class SwitchReplicationLinkRequest extends $dara.Model {
   targetInstanceName?: string;
   /**
    * @remarks
+   * The ID of the region in which the destination DR instance resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -93621,21 +94440,33 @@ export class SwitchReplicationLinkRequest extends $dara.Model {
 
 export class SwitchReplicationLinkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the DR instance.
+   * 
    * @example
    * 135****
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2F2DD69B-90AF-1E72-923C-87575658A9D9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 159****
    */
   taskId?: number;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * zbtest
    */
@@ -101433,11 +102264,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+   * Creates a data synchronization task for a disaster recovery (DR) ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   PostgreSQL
+   * *   SQL Server
+   * >  The parameters vary based on database engines.
    * 
    * @param request - CreateReplicationLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101517,11 +102350,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a disaster recovery instance for an ApsaraDB RDS instance and configures a data synchronization link.
+   * Creates a data synchronization task for a disaster recovery (DR) ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   PostgreSQL
+   * *   SQL Server
+   * >  The parameters vary based on database engines.
    * 
    * @param request - CreateReplicationLinkRequest
    * @returns CreateReplicationLinkResponse
@@ -103558,11 +104393,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+   * Deletes the data synchronization link for a disaster recovery (DR) ApsaraDB RDS instance and promotes the DR instance to the primary instance.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   PostgreSQL
+   * *   SQL Server
    * 
    * @param request - DeleteReplicationLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103606,11 +104442,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the data synchronization link of a disaster recovery RDS instance and promotes the disaster recovery instance to the primary instance.
+   * Deletes the data synchronization link for a disaster recovery (DR) ApsaraDB RDS instance and promotes the DR instance to the primary instance.
    * 
    * @remarks
-   * ### [](#)Supported database engine
+   * ### [](#)Supported database engines
    * *   PostgreSQL
+   * *   SQL Server
    * 
    * @param request - DeleteReplicationLinkRequest
    * @returns DeleteReplicationLinkResponse
@@ -112770,6 +113607,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the instance families of RDS Custom instances.
+   * 
+   * @param request - DescribeRCInstanceTypeFamiliesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceTypeFamiliesResponse
+   */
+  async describeRCInstanceTypeFamiliesWithOptions(request: DescribeRCInstanceTypeFamiliesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstanceTypeFamiliesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInstanceTypeFamilies",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRCInstanceTypeFamiliesResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceTypeFamiliesResponse({}));
+    } else {
+      return $dara.cast<DescribeRCInstanceTypeFamiliesResponse>(await this.execute(params, req, runtime), new DescribeRCInstanceTypeFamiliesResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the instance families of RDS Custom instances.
+   * 
+   * @param request - DescribeRCInstanceTypeFamiliesRequest
+   * @returns DescribeRCInstanceTypeFamiliesResponse
+   */
+  async describeRCInstanceTypeFamilies(request: DescribeRCInstanceTypeFamiliesRequest): Promise<DescribeRCInstanceTypeFamiliesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInstanceTypeFamiliesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询RDS Custom规格信息
+   * 
+   * @param tmpReq - DescribeRCInstanceTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceTypesResponse
+   */
+  async describeRCInstanceTypesWithOptions(tmpReq: DescribeRCInstanceTypesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRCInstanceTypesResponse> {
+    tmpReq.validate();
+    let request = new DescribeRCInstanceTypesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceType)) {
+      request.instanceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceType, "InstanceType", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceTypeShrink)) {
+      query["InstanceType"] = request.instanceTypeShrink;
+    }
+
+    if (!$dara.isNull(request.instanceTypeFamily)) {
+      query["InstanceTypeFamily"] = request.instanceTypeFamily;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRCInstanceTypes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRCInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceTypesResponse({}));
+    } else {
+      return $dara.cast<DescribeRCInstanceTypesResponse>(await this.execute(params, req, runtime), new DescribeRCInstanceTypesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询RDS Custom规格信息
+   * 
+   * @param request - DescribeRCInstanceTypesRequest
+   * @returns DescribeRCInstanceTypesResponse
+   */
+  async describeRCInstanceTypes(request: DescribeRCInstanceTypesRequest): Promise<DescribeRCInstanceTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRCInstanceTypesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the Virtual Network Computing (VNC) logon address of an RDS Custom instance.
    * 
    * @remarks
@@ -119776,13 +120725,14 @@ export default class Client extends OpenApi {
    * Changes the instance type and storage capacity of an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
    * *   MariaDB
-   * ### References
-   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * ### [](#)Billing details
+   * [Fees for specification changes](https://help.aliyun.com/document_detail/57178.html) are generated if the call is successful. Before you call this operation, carefully read the following topics.
+   * ### [](#)References
    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
    * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
    * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
@@ -119955,13 +120905,14 @@ export default class Client extends OpenApi {
    * Changes the instance type and storage capacity of an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
    * *   MariaDB
-   * ### References
-   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+   * ### [](#)Billing details
+   * [Fees for specification changes](https://help.aliyun.com/document_detail/57178.html) are generated if the call is successful. Before you call this operation, carefully read the following topics.
+   * ### [](#)References
    * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
    * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
    * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
@@ -121931,6 +122882,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 变更云盘类型或性能级别
+   * 
+   * @param request - ModifyRCDiskSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCDiskSpecResponse
+   */
+  async modifyRCDiskSpecWithOptions(request: ModifyRCDiskSpecRequest, runtime: $dara.RuntimeOptions): Promise<ModifyRCDiskSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.diskCategory)) {
+      query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!$dara.isNull(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.performanceLevel)) {
+      query["PerformanceLevel"] = request.performanceLevel;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRCDiskSpec",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyRCDiskSpecResponse>(await this.callApi(params, req, runtime), new ModifyRCDiskSpecResponse({}));
+    } else {
+      return $dara.cast<ModifyRCDiskSpecResponse>(await this.execute(params, req, runtime), new ModifyRCDiskSpecResponse({}));
+    }
+
+  }
+
+  /**
+   * 变更云盘类型或性能级别
+   * 
+   * @param request - ModifyRCDiskSpecRequest
+   * @returns ModifyRCDiskSpecResponse
+   */
+  async modifyRCDiskSpec(request: ModifyRCDiskSpecRequest): Promise<ModifyRCDiskSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRCDiskSpecWithOptions(request, runtime);
+  }
+
+  /**
    * Upgrades or downgrades the instance type of a subscription RDS Custom instance. The new instance type takes effect for the remaining lifecycle of the instance.
    * 
    * @remarks
@@ -123672,7 +124690,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重启RC实例
+   * Restarts multiple RDS Custom instances at a time.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
    * 
    * @param tmpReq - RebootRCInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -123726,7 +124748,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重启RC实例
+   * Restarts multiple RDS Custom instances at a time.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
    * 
    * @param request - RebootRCInstancesRequest
    * @returns RebootRCInstancesResponse
@@ -126497,7 +127523,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换到灾备实例
+   * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
    * 
    * @param request - SwitchReplicationLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -126545,7 +127575,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换到灾备实例
+   * Switches the data synchronization link to synchronize data from a disaster recovery (DR) instance to the primary ApsaraDB RDS for SQL Server instance.
+   * 
+   * @remarks
+   * ### [](#)Supported database engine
+   * SQL Server
    * 
    * @param request - SwitchReplicationLinkRequest
    * @returns SwitchReplicationLinkResponse
