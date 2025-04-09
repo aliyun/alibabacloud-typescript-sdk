@@ -3489,6 +3489,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The maximum capacity for auto scaling.
@@ -3547,6 +3548,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       engineVersion: 'EngineVersion',
       multiZone: 'MultiZone',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       sourceDBInstanceId: 'SourceDBInstanceId',
@@ -3566,6 +3568,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       engineVersion: 'string',
       multiZone: { 'type': 'array', 'itemType': CreateDBInstanceRequestMultiZone },
       regionId: 'string',
+      resourceGroupId: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       sourceDBInstanceId: 'string',
@@ -3655,6 +3658,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The maximum capacity for auto scaling.
@@ -3713,6 +3717,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       engineVersion: 'EngineVersion',
       multiZoneShrink: 'MultiZone',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       sourceDBInstanceId: 'SourceDBInstanceId',
@@ -3732,6 +3737,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       engineVersion: 'string',
       multiZoneShrink: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       sourceDBInstanceId: 'string',
@@ -7913,6 +7919,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.scaleMax)) {
