@@ -1111,7 +1111,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dar
 export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow end users to configure scheduled tasks.
+   * Specifies whether to allow end users to configure the scheduled task.
    * 
    * @example
    * true
@@ -1119,7 +1119,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The CRON expression for the scheduled task.
+   * The cron expression specified in the scheduled task.
    * 
    * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
    * 
@@ -1129,7 +1129,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly execute the scheduled task.
+   * Specifies whether to forcefully execute the scheduled task.
    * 
    * @example
    * true
@@ -1159,18 +1159,18 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   * The process whitelist. If whitelisted processes are running, the scheduled task does not take effect.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset operation for cloud computers.
+   * The reset option.
    * 
    * Valid values:
    * 
-   * *   RESET_TYPE_SYSTEM: resets only the system disks of cloud computers.
-   * *   RESET_TYPE_USER_DISK: resets only the data disks of cloud computers.
-   * *   RESET_TYPE_BOTH: resets the system disks and data disks of cloud computers.
+   * *   RESET_TYPE_SYSTEM: resets only the system disk.
+   * *   RESET_TYPE_USER_DISK: resets only the data disk.
+   * *   RESET_TYPE_BOTH: resets the system and data disks.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -1178,7 +1178,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   resetType?: string;
   /**
    * @remarks
-   * The type of the scheduled task.
+   * The scheduled task type.
    * 
    * Valid values:
    * 
@@ -6126,6 +6126,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * m-gq15cq5ydlvwn****
    */
   imageId?: string;
+  isLdap?: boolean;
   /**
    * @remarks
    * The keep-alive duration of a session after the session is disconnected. Valid values: 180000 (3 minutes) to 345600000 (4 days). Unit: milliseconds. If you set this parameter to 0, the session is permanently retained after it is disconnected.
@@ -6453,6 +6454,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       gpuSpec: 'GpuSpec',
       idleDisconnectDuration: 'IdleDisconnectDuration',
       imageId: 'ImageId',
+      isLdap: 'IsLdap',
       keepDuration: 'KeepDuration',
       loadPolicy: 'LoadPolicy',
       maxDesktopsCount: 'MaxDesktopsCount',
@@ -6507,6 +6509,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       gpuSpec: 'string',
       idleDisconnectDuration: 'number',
       imageId: 'string',
+      isLdap: 'boolean',
       keepDuration: 'number',
       loadPolicy: 'number',
       maxDesktopsCount: 'number',
@@ -7947,6 +7950,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * m-4zfb6zj728hhr****
    */
   imageId?: string;
+  isLdap?: boolean;
   /**
    * @remarks
    * The flag that is used to manage the cloud computer.
@@ -8260,6 +8264,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       hibernationOptionsConfigured: 'HibernationOptionsConfigured',
       hostName: 'HostName',
       imageId: 'ImageId',
+      isLdap: 'IsLdap',
       managementFlag: 'ManagementFlag',
       managementFlags: 'ManagementFlags',
       memory: 'Memory',
@@ -8328,6 +8333,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       hibernationOptionsConfigured: 'boolean',
       hostName: 'string',
       imageId: 'string',
+      isLdap: 'boolean',
       managementFlag: 'string',
       managementFlags: { 'type': 'array', 'itemType': 'string' },
       memory: 'number',
@@ -12289,7 +12295,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $dara.Model 
 export class DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts extends $dara.Model {
   /**
    * @remarks
-   * The amount of resources.
+   * The number of resources.
    * 
    * @example
    * 1
@@ -12297,10 +12303,12 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts extends $
   amount?: number;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource type.
    * 
-   * - desktop: cloud computers
-   * - desktopGroup: shared cloud computers
+   * Valid values:
+   * 
+   * *   desktop: the cloud computer.
+   * *   DesktopGroup: the cloud computer share.
    * 
    * @example
    * desktop
@@ -12423,7 +12431,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The custom gateway.
+   * The custom endpoint of the access gateway.
    * 
    * @example
    * gw-****.com
@@ -12431,7 +12439,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   customAccessPoint?: string;
   /**
    * @remarks
-   * The array of custom DNS addresses.
+   * The custom DNS addresses.
    */
   customDnsAddress?: string[];
   /**
@@ -12476,7 +12484,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   desktopVpcEndpoint?: string;
   /**
    * @remarks
-   * The array of DNS addresses in the AD domains.
+   * The DNS addresses for the AD domains.
    */
   dnsAddress?: string[];
   /**
@@ -12605,10 +12613,12 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
-   * The network version. App Streaming is supported by the new version. Valid values:
+   * The network version. The new version supports App Streaming.
    * 
-   * - DEFAULT: the legacy version
-   * - NM: the new version
+   * Valid values:
+   * 
+   * *   DEFAULT: the old version.
+   * *   NM: the new version.
    * 
    * @example
    * NM
@@ -12682,7 +12692,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   rdsLicenseStatus?: string;
   /**
    * @remarks
-   * The amount of resources.
+   * The number of resources.
    */
   resourceAmounts?: DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts[];
   /**
@@ -12740,7 +12750,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * An array of DNS addresses for AD subdomains.
+   * The DNS addresses for the AD subdomains.
    */
   subDnsAddress?: string[];
   /**
@@ -12774,7 +12784,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   totalEdsCount?: number;
   /**
    * @remarks
-   * The number of pooled cloud computers in the cloud computer pool.
+   * The number of cloud computers in the cloud computer share.
    * 
    * @example
    * 0
@@ -12782,7 +12792,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
   totalEdsCountForGroup?: number;
   /**
    * @remarks
-   * The total number of network cards.
+   * The number of network interface controllers (NICs).
    * 
    * @example
    * 1
@@ -15554,11 +15564,17 @@ export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
 
 export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList extends $dara.Model {
   /**
+   * @remarks
+   * The application ID. This parameter is only applicable to cloud applications.
+   * 
    * @example
    * 18
    */
   appId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * alipic-powergem
    */
@@ -15587,84 +15603,140 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppMod
 }
 
 export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud applications.
+   */
   appModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelListAppModelList[];
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 64
    */
   cpu?: number;
   /**
+   * @remarks
+   * The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the cloud computer types supported by Alibaba Cloud Workspace.
+   * 
    * @example
    * eds.enterprise_office.8c32g
    */
   desktopType?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 0.125
    */
   gpuCount?: number;
   /**
+   * @remarks
+   * The GPU type.
+   * 
    * @example
    * 2GiB
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The memory size. Unit: MiB.
+   * 
    * @example
    * 10240
    */
   memory?: number;
   /**
+   * @remarks
+   * The OS type.
+   * 
    * @example
    * Linux
    */
   osType?: string;
   /**
+   * @remarks
+   * The billing method.
+   * 
    * @example
    * postPaid
    */
   payType?: string;
   /**
+   * @remarks
+   * The service type.
+   * 
    * @example
    * desktop
    */
   productType?: string;
   /**
+   * @remarks
+   * The protocol type.
+   * 
    * @example
    * ASP
    */
   protocolType?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-d7pasxsd3b9nhq**
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The resource group name.
+   * 
    * @example
    * test
    */
   resourceGroupName?: string;
   /**
+   * @remarks
+   * The number of associated resource groups
+   * 
    * @example
    * 10
    */
   resourceGroupRelCount?: number;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * ecd-7o96aa08fr****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   */
   resourceName?: string;
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-shenzhen
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * desktop
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The resource status.
+   * 
    * @example
    * Stopped
    */
@@ -16237,7 +16309,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   bindCountMap?: { [key: string]: number };
   /**
    * @remarks
-   * The scheduled task configuration groups.
+   * The scheduled task configurations.
    */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
   /**
@@ -16885,6 +16957,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
    * alice
    */
   displayName?: string;
+  displayNameNew?: string;
   /**
    * @remarks
    * The email address of the authorized user.
@@ -16951,6 +17024,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
    * ud-i896ze8hazpvl****
    */
   userDesktopId?: string;
+  userPrincipalName?: string;
   /**
    * @remarks
    * Details about the seats of users.
@@ -16962,6 +17036,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       displayName: 'DisplayName',
+      displayNameNew: 'DisplayNameNew',
       endUserEmail: 'EndUserEmail',
       endUserId: 'EndUserId',
       endUserName: 'EndUserName',
@@ -16970,6 +17045,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
       endUserType: 'EndUserType',
       externalInfo: 'ExternalInfo',
       userDesktopId: 'UserDesktopId',
+      userPrincipalName: 'UserPrincipalName',
       userSetPropertiesModels: 'UserSetPropertiesModels',
     };
   }
@@ -16980,6 +17056,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
       desktopId: 'string',
       desktopName: 'string',
       displayName: 'string',
+      displayNameNew: 'string',
       endUserEmail: 'string',
       endUserId: 'string',
       endUserName: 'string',
@@ -16988,6 +17065,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
       endUserType: 'string',
       externalInfo: DescribeUsersInGroupResponseBodyEndUsersExternalInfo,
       userDesktopId: 'string',
+      userPrincipalName: 'string',
       userSetPropertiesModels: { 'type': 'array', 'itemType': DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels },
     };
   }
@@ -18567,6 +18645,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
    * Alice
    */
   displayName?: string;
+  displayNameNew?: string;
   /**
    * @remarks
    * The email address.
@@ -18591,13 +18670,16 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
    * 130********
    */
   phone?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
       assignedDesktopNumber: 'AssignedDesktopNumber',
       displayName: 'DisplayName',
+      displayNameNew: 'DisplayNameNew',
       email: 'Email',
       endUser: 'EndUser',
       phone: 'Phone',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
@@ -18605,9 +18687,11 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
     return {
       assignedDesktopNumber: 'number',
       displayName: 'string',
+      displayNameNew: 'string',
       email: 'string',
       endUser: 'string',
       phone: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -18860,6 +18944,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * Alice
    */
   displayName?: string;
+  displayNameNew?: string;
   email?: string;
   /**
    * @remarks
@@ -18870,13 +18955,16 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    */
   endUser?: string;
   phone?: string;
+  userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
       assignedDesktopNumber: 'AssignedDesktopNumber',
       displayName: 'DisplayName',
+      displayNameNew: 'DisplayNameNew',
       email: 'Email',
       endUser: 'EndUser',
       phone: 'Phone',
+      userPrincipalName: 'UserPrincipalName',
     };
   }
 
@@ -18884,9 +18972,11 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
     return {
       assignedDesktopNumber: 'number',
       displayName: 'string',
+      displayNameNew: 'string',
       email: 'string',
       endUser: 'string',
       phone: 'string',
+      userPrincipalName: 'string',
     };
   }
 
@@ -20762,11 +20852,17 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
 
 export class ModifyResourceCenterPolicyResponseBodyModifyResults extends $dara.Model {
   /**
+   * @remarks
+   * The verification result.
+   * 
    * @example
    * true
    */
   checkResult?: boolean;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * ecd-e254cpyt9bb*****
    */
@@ -20805,7 +20901,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The CRON expression for the scheduled task.
+   * The cron expression specified in the scheduled task.
    * 
    * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7.
    * 
@@ -20845,12 +20941,12 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   * The process whitelist. If whitelisted processes are running, the scheduled task triggered by inactivity does not take effect.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset operation.
+   * The reset option.
    * 
    * Valid values:
    * 
@@ -20864,7 +20960,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   resetType?: string;
   /**
    * @remarks
-   * The type of the scheduled task.
+   * The scheduled task type.
    * 
    * Valid values:
    * 
@@ -22633,7 +22729,7 @@ export class AddUserToDesktopGroupRequest extends $dara.Model {
   desktopGroupIds?: string[];
   /**
    * @remarks
-   * The regular users to whom you want to assign the desktop group.
+   * The IDs of the users to whom you want to grant permissions.
    */
   endUserIds?: string[];
   /**
@@ -24502,6 +24598,11 @@ export class CancelCopyImageResponse extends $dara.Model {
 export class CloneCenterPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The business type. Valid values:
+   * 
+   * *   1: public cloud.
+   * *   8: commercial edition.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24510,6 +24611,8 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
+   * The name of the cloud computer policy that you want to clone.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24518,6 +24621,8 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The ID of the cloud computer policy that you want to clone.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24526,6 +24631,8 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24534,6 +24641,11 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   desktop: cloud computers.
+   * *   app: cloud applications.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24571,11 +24683,17 @@ export class CloneCenterPolicyRequest extends $dara.Model {
 
 export class CloneCenterPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the duplicated cloud computer policy.
+   * 
    * @example
    * pg-gx2x1dhsmthe9****
    */
   policyGroupId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -29082,7 +29200,7 @@ export class CreateCloudDriveUsersResponse extends $dara.Model {
 export class CreateConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of configuration groups.
+   * The scheduled task groups.
    */
   configTimers?: CreateConfigGroupRequestConfigTimers[];
   /**
@@ -29127,11 +29245,11 @@ export class CreateConfigGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the configuration group.
+   * The group type.
    * 
    * Valid value:
    * 
-   * *   Timer: the scheduled task type.
+   * *   Timer: a scheduled task group.
    * 
    * This parameter is required.
    * 
@@ -31339,6 +31457,7 @@ export class CreateImageRequest extends $dara.Model {
    * false
    */
   autoCleanUserdata?: boolean;
+  dataSnapshotIds?: string[];
   /**
    * @remarks
    * The description of the custom image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
@@ -31410,6 +31529,7 @@ export class CreateImageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoCleanUserdata: 'AutoCleanUserdata',
+      dataSnapshotIds: 'DataSnapshotIds',
       description: 'Description',
       desktopId: 'DesktopId',
       diskType: 'DiskType',
@@ -31424,6 +31544,7 @@ export class CreateImageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoCleanUserdata: 'boolean',
+      dataSnapshotIds: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       desktopId: 'string',
       diskType: 'string',
@@ -31436,6 +31557,9 @@ export class CreateImageRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataSnapshotIds)) {
+      $dara.Model.validateArray(this.dataSnapshotIds);
+    }
     if(Array.isArray(this.snapshotIds)) {
       $dara.Model.validateArray(this.snapshotIds);
     }
@@ -34185,6 +34309,13 @@ export class DeleteCdsFileResponse extends $dara.Model {
 export class DeleteCenterPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The business type.
+   * 
+   * Valid values:
+   * 
+   * *   1: public cloud.
+   * *   8: commercial edition.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34193,11 +34324,15 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
+   * The policy IDs.
+   * 
    * This parameter is required.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34206,6 +34341,13 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   app: cloud applications.
+   * *   desktop: cloud computers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34244,6 +34386,9 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
 
 export class DeleteCenterPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 72E47B1E-6B11-5A11-A27C-7A80F866****
    */
@@ -44080,7 +44225,7 @@ export class DescribeOfficeSitesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about office networks.
+   * The office networks.
    */
   officeSites?: DescribeOfficeSitesResponseBodyOfficeSites[];
   /**
@@ -45558,17 +45703,28 @@ export class DescribeRenewalPriceResponse extends $dara.Model {
 
 export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * *   Maximum value: 100.
+   * *   Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token.
+   * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l69tQX7yFxx6/4dbooBAOc
    */
   nextToken?: string;
   /**
    * @remarks
+   * The policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45576,11 +45732,24 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
    */
   policyGroupId?: string;
   /**
+   * @remarks
+   * The service type.
+   * 
+   * Valid values:
+   * 
+   * *   app: cloud applications.
+   * *   resourceGroup: resource groups.
+   * *   desktop: cloud computers.
+   * *   desktopGroup: cloud computer shares.
+   * 
    * @example
    * desktop
    */
   productType?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * ecd-ia2zw38bi6cm7****
    */
@@ -45616,20 +45785,33 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
 
 export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of resources.
+   * 
    * @example
    * 2
    */
   count?: string;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 48174475-5EB2-5F99-A9E9-6F892D645****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resources.
+   */
   resourceModelList?: DescribeResourceByCenterPolicyIdResponseBodyResourceModelList[];
   static names(): { [key: string]: string } {
     return {
@@ -45918,7 +46100,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -45978,27 +46160,14 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The type of the disk for which the snapshot is created.
+   * The disk for which you want to create a snapshot.
    * 
    * >  The value of this parameter is not case-sensitive.
    * 
    * Valid values:
    * 
-   * *   Data: data disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   System: system disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   Data: the data disk.
+   * *   System: the system disk.
    * 
    * @example
    * system
@@ -46074,7 +46243,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the queried snapshots.
+   * The snapshots.
    */
   snapshots?: DescribeSnapshotsResponseBodySnapshots[];
   static names(): { [key: string]: string } {
@@ -46185,7 +46354,7 @@ export class DescribeTimerGroupRequest extends $dara.Model {
 export class DescribeTimerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the configuration group.
+   * The information about the scheduled task group.
    */
   data?: DescribeTimerGroupResponseBodyData;
   /**
@@ -46854,20 +47023,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
    * Valid values:
    * 
    * *   true (default)
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * false
@@ -48195,7 +48351,7 @@ export class DownloadCdsFileResponse extends $dara.Model {
 export class ExportClientEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -48203,7 +48359,7 @@ export class ExportClientEventsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud computer name.
    * 
    * @example
    * testName
@@ -48229,17 +48385,18 @@ export class ExportClientEventsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The type of event that you want to query. Valid values:
+   * The type of the event that you want to query. If you provide multiple values for EventTypes, the response will include events of all the specified types. If you provide no values for EventTypes and EventType, the response will include all events in the designated region.
    * 
-   * *   DESKTOP_CONNECT: The desktop session is established.
-   * *   DESKTOP_DISCONNECT: The desktop session is disconnected.
-   * *   DESKTOP_REBOOT: The cloud desktop is restarted.
-   * *   CLIENT_AD_LOGIN: The AD user logs on to the client.
-   * *   GET_CONNECTION_TICKET: The request to connect to the cloud desktop is sent.
-   * *   DESKTOP_START: The cloud desktop is started.
-   * *   DESKTOP_STOP: The cloud desktop is stopped.
+   * Valid values:
    * 
-   * If you do not specify a value for this parameter, events of all types are queried.
+   * *   DESKTOP_STOP: the shutdown event.
+   * *   GET_LITE_CONNECTION_TICKET: the event of retrieving the connection ticket.
+   * *   DESKTOP_DISCONNECT: the session disconnection event.
+   * *   CLIENT_LOGIN: the user logon event.
+   * *   GET_CONNECTION_TICKET: the connection credential retrieval event.
+   * *   DESKTOP_REBOOT: the restart event.
+   * *   DESKTOP_CONNECT: the session establishment event.
+   * *   DESKTOP_START: the start event.
    * 
    * @example
    * CLIENT_LOGIN
@@ -48247,17 +48404,17 @@ export class ExportClientEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The types of event.
+   * The types of the events that you want to query. You can include multiple event types, and the response will return events matching the specified types or all events if none are specified.
    */
   eventTypes?: string[];
   /**
    * @remarks
-   * The language in which the cloud desktop is displayed in the console UI. You can export the list of cloud desktops in the specified language. Valid values:
+   * The language displayed on the frontend page. The backend uses this setting to define the language of exported files.
    * 
-   * *   `zh-CN`: Simplified Chinese
-   * *   `en-GB`: English (United Kingdom)
+   * Valid values:
    * 
-   * Default value: `zh-CN`.
+   * *   zh-CN: Simplified Chinese.
+   * *   en-GB: British English.
    * 
    * @example
    * zh-CN
@@ -48276,7 +48433,7 @@ export class ExportClientEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -48284,7 +48441,7 @@ export class ExportClientEventsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The office network name.
    * 
    * @example
    * test
@@ -48292,7 +48449,7 @@ export class ExportClientEventsRequest extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -48367,7 +48524,7 @@ export class ExportClientEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The download address from which you can export desktop groups.
+   * The download URL of the exported files.
    * 
    * @example
    * https://cn-shanghai-servicemanager.oss-cn-shanghai.aliyuncs.com/A0_CLIENT_EVENT/EDS_Events%20List_20220519234611_w5HuD83KGs.csv?Expires=1652975773&OSSAccessKeyId=****&Signature=4erMG*********k%3D
@@ -59477,11 +59634,21 @@ export class ModifyPolicyGroupResponse extends $dara.Model {
 export class ModifyResourceCenterPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the cloud computer policies that you want to associate with cloud computers.
+   * 
+   * >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If multiple cloud computer policies are configured for global enforcement, only the earliest-associated policy will take effect
+   * 
    * This parameter is required.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
+   * The policy type.
+   * 
+   * Valid values:
+   * 
+   * *   general: a general policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59490,6 +59657,15 @@ export class ModifyResourceCenterPolicyRequest extends $dara.Model {
   policyGroupType?: string;
   /**
    * @remarks
+   * The service type.
+   * 
+   * Valid values:
+   * 
+   * *   app: cloud applications.
+   * *   resourceGroup: resource groups.
+   * *   desktop: cloud computers.
+   * *   desktopGroup: cloud computer shares.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59498,11 +59674,15 @@ export class ModifyResourceCenterPolicyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
+   * The resource IDs. You can specify up to 100 resource IDs.
+   * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
    * @remarks
+   * The region ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59511,6 +59691,13 @@ export class ModifyResourceCenterPolicyRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   app: cloud applications.
+   * *   desktop: cloud computers.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59555,8 +59742,15 @@ export class ModifyResourceCenterPolicyRequest extends $dara.Model {
 }
 
 export class ModifyResourceCenterPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The modification results.
+   */
   modifyResults?: ModifyResourceCenterPolicyResponseBodyModifyResults[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 51592A88-0F2C-55E6-AD2C-2AD9C10D****
    */
@@ -59625,7 +59819,7 @@ export class ModifyResourceCenterPolicyResponse extends $dara.Model {
 export class ModifyTimerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration groups.
+   * The scheduled task groups.
    */
   configTimers?: ModifyTimerGroupRequestConfigTimers[];
   /**
@@ -60393,6 +60587,7 @@ export class RebootDesktopsResponse extends $dara.Model {
 }
 
 export class RebuildDesktopsRequest extends $dara.Model {
+  afterStatus?: string;
   /**
    * @remarks
    * The cloud computer IDs. You can specify the IDs of 1 to 20 cloud computers.
@@ -60463,6 +60658,7 @@ export class RebuildDesktopsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      afterStatus: 'AfterStatus',
       desktopId: 'DesktopId',
       imageId: 'ImageId',
       language: 'Language',
@@ -60473,6 +60669,7 @@ export class RebuildDesktopsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      afterStatus: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       imageId: 'string',
       language: 'string',
@@ -69081,6 +69278,10 @@ export default class Client extends OpenApi {
       query["AutoCleanUserdata"] = request.autoCleanUserdata;
     }
 
+    if (!$dara.isNull(request.dataSnapshotIds)) {
+      query["DataSnapshotIds"] = request.dataSnapshotIds;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -70008,6 +70209,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a center policy
+   * 
    * @param request - DeleteCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCenterPolicyResponse
@@ -70054,6 +70257,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a center policy
+   * 
    * @param request - DeleteCenterPolicyRequest
    * @returns DeleteCenterPolicyResponse
    */
@@ -80530,6 +80735,10 @@ export default class Client extends OpenApi {
   async rebuildDesktopsWithOptions(request: RebuildDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<RebuildDesktopsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.afterStatus)) {
+      query["AfterStatus"] = request.afterStatus;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
