@@ -7369,6 +7369,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  officeSiteIds?: string[];
   /**
    * @remarks
    * The sales mode.
@@ -7427,6 +7428,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       nextToken: 'NextToken',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
+      officeSiteIds: 'OfficeSiteIds',
       saleMode: 'SaleMode',
       status: 'Status',
       tag: 'Tag',
@@ -7447,6 +7449,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       nextToken: 'string',
       nodeId: 'string',
       nodeName: 'string',
+      officeSiteIds: { 'type': 'array', 'itemType': 'string' },
       saleMode: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeAndroidInstancesRequestTag },
@@ -7459,6 +7462,9 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.instanceGroupIds)) {
       $dara.Model.validateArray(this.instanceGroupIds);
+    }
+    if(Array.isArray(this.officeSiteIds)) {
+      $dara.Model.validateArray(this.officeSiteIds);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
@@ -15194,6 +15200,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nodeName)) {
       query["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.officeSiteIds)) {
+      query["OfficeSiteIds"] = request.officeSiteIds;
     }
 
     if (!$dara.isNull(request.saleMode)) {
