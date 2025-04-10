@@ -7532,6 +7532,7 @@ export class RunStyleWritingResponse extends $dara.Model {
 }
 
 export class RunTagMiningAnalysisRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -7568,6 +7569,7 @@ export class RunTagMiningAnalysisRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       content: 'content',
       extraInfo: 'extraInfo',
@@ -7580,6 +7582,7 @@ export class RunTagMiningAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       content: 'string',
       extraInfo: 'string',
@@ -7603,6 +7606,7 @@ export class RunTagMiningAnalysisRequest extends $dara.Model {
 }
 
 export class RunTagMiningAnalysisShrinkRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -7639,6 +7643,7 @@ export class RunTagMiningAnalysisShrinkRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       content: 'content',
       extraInfo: 'extraInfo',
@@ -7651,6 +7656,7 @@ export class RunTagMiningAnalysisShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       content: 'string',
       extraInfo: 'string',
@@ -8055,6 +8061,7 @@ export class RunVideoAnalysisResponse extends $dara.Model {
 }
 
 export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -8089,6 +8096,7 @@ export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       contents: 'contents',
       extraInfo: 'extraInfo',
@@ -8102,6 +8110,7 @@ export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       contents: { 'type': 'array', 'itemType': 'string' },
       extraInfo: 'string',
@@ -8129,6 +8138,7 @@ export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
 }
 
 export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -8163,6 +8173,7 @@ export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       contentsShrink: 'contents',
       extraInfo: 'extraInfo',
@@ -8176,6 +8187,7 @@ export class SubmitTagMiningAnalysisTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       contentsShrink: 'string',
       extraInfo: 'string',
@@ -9833,6 +9845,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       body["businessType"] = request.businessType;
     }
@@ -10061,6 +10077,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       body["businessType"] = request.businessType;
     }
