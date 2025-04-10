@@ -11301,6 +11301,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
    * cpu_ratio
    */
   key?: string;
+  node?: string;
   /**
    * @remarks
    * The service dimension.
@@ -11325,6 +11326,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
+      node: 'Node',
       service: 'Service',
       valueFormat: 'ValueFormat',
       values: 'Values',
@@ -11334,6 +11336,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
   static types(): { [key: string]: any } {
     return {
       key: 'string',
+      node: 'string',
       service: 'string',
       valueFormat: 'string',
       values: DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKeyValues,
