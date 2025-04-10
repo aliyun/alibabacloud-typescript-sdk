@@ -220,6 +220,32 @@ export class CreateAppRequestQuotaInfo extends $dara.Model {
   }
 }
 
+export class CreateAppRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppResponseBodyResult extends $dara.Model {
   appId?: string;
   /**
@@ -474,6 +500,32 @@ export class GetAppResponseBodyResultPrivateNetwork extends $dara.Model {
   }
 }
 
+export class GetAppResponseBodyResultTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppResponseBodyResult extends $dara.Model {
   /**
    * @example
@@ -486,6 +538,7 @@ export class GetAppResponseBodyResult extends $dara.Model {
    */
   appName?: string;
   appType?: string;
+  chargeType?: string;
   /**
    * @example
    * 2022-08-15T11:20:52.370Z
@@ -510,11 +563,13 @@ export class GetAppResponseBodyResult extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  scenario?: string;
   /**
    * @example
    * ACTIVE
    */
   status?: string;
+  tags?: GetAppResponseBodyResultTags[];
   /**
    * @example
    * 7.10
@@ -525,6 +580,7 @@ export class GetAppResponseBodyResult extends $dara.Model {
       appId: 'appId',
       appName: 'appName',
       appType: 'appType',
+      chargeType: 'chargeType',
       createTime: 'createTime',
       description: 'description',
       instanceId: 'instanceId',
@@ -533,7 +589,9 @@ export class GetAppResponseBodyResult extends $dara.Model {
       ownerId: 'ownerId',
       privateNetwork: 'privateNetwork',
       regionId: 'regionId',
+      scenario: 'scenario',
       status: 'status',
+      tags: 'tags',
       version: 'version',
     };
   }
@@ -543,6 +601,7 @@ export class GetAppResponseBodyResult extends $dara.Model {
       appId: 'string',
       appName: 'string',
       appType: 'string',
+      chargeType: 'string',
       createTime: 'string',
       description: 'string',
       instanceId: 'string',
@@ -551,7 +610,9 @@ export class GetAppResponseBodyResult extends $dara.Model {
       ownerId: 'string',
       privateNetwork: { 'type': 'array', 'itemType': GetAppResponseBodyResultPrivateNetwork },
       regionId: 'string',
+      scenario: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetAppResponseBodyResultTags },
       version: 'string',
     };
   }
@@ -562,6 +623,9 @@ export class GetAppResponseBodyResult extends $dara.Model {
     }
     if(Array.isArray(this.privateNetwork)) {
       $dara.Model.validateArray(this.privateNetwork);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -1805,7 +1869,9 @@ export class CreateAppRequest extends $dara.Model {
   quotaInfo?: CreateAppRequestQuotaInfo;
   regionId?: string;
   scenario?: string;
+  tags?: CreateAppRequestTags[];
   version?: string;
+  clientToken?: string;
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1818,7 +1884,9 @@ export class CreateAppRequest extends $dara.Model {
       quotaInfo: 'quotaInfo',
       regionId: 'regionId',
       scenario: 'scenario',
+      tags: 'tags',
       version: 'version',
+      clientToken: 'clientToken',
       dryRun: 'dryRun',
     };
   }
@@ -1834,7 +1902,9 @@ export class CreateAppRequest extends $dara.Model {
       quotaInfo: CreateAppRequestQuotaInfo,
       regionId: 'string',
       scenario: 'string',
+      tags: { 'type': 'array', 'itemType': CreateAppRequestTags },
       version: 'string',
+      clientToken: 'string',
       dryRun: 'boolean',
     };
   }
@@ -1851,6 +1921,9 @@ export class CreateAppRequest extends $dara.Model {
     }
     if(this.quotaInfo && typeof (this.quotaInfo as any).validate === 'function') {
       (this.quotaInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -2935,6 +3008,7 @@ export class ListAppsRequest extends $dara.Model {
    * ACTIVE
    */
   status?: string;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'appName',
@@ -2944,6 +3018,7 @@ export class ListAppsRequest extends $dara.Model {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       status: 'status',
+      tags: 'tags',
     };
   }
 
@@ -2956,6 +3031,7 @@ export class ListAppsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       status: 'string',
+      tags: 'string',
     };
   }
 
@@ -4231,6 +4307,10 @@ export default class Client extends OpenApi {
   async createAppWithOptions(request: CreateAppRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateAppResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["dryRun"] = request.dryRun;
     }
@@ -4270,6 +4350,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scenario)) {
       body["scenario"] = request.scenario;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.version)) {
@@ -4862,6 +4946,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
