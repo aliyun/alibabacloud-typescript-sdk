@@ -753,6 +753,35 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
   }
 }
 
+export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
+  category?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestNodeGroups extends $dara.Model {
   /**
    * @remarks
@@ -791,6 +820,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * Node list
    */
   nodes?: CreateClusterRequestNodeGroupsNodes[];
+  systemDisk?: CreateClusterRequestNodeGroupsSystemDisk;
   /**
    * @remarks
    * Instance custom data. It needs to be Base64 encoded, and the original data should not exceed 16 KB.
@@ -814,6 +844,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
       nodes: 'Nodes',
+      systemDisk: 'SystemDisk',
       userData: 'UserData',
       zoneId: 'ZoneId',
     };
@@ -826,6 +857,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
       nodes: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsNodes },
+      systemDisk: CreateClusterRequestNodeGroupsSystemDisk,
       userData: 'string',
       zoneId: 'string',
     };
@@ -834,6 +866,9 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   validate() {
     if(Array.isArray(this.nodes)) {
       $dara.Model.validateArray(this.nodes);
+    }
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
     }
     super.validate();
   }
@@ -1516,9 +1551,40 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
   }
 }
 
+export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
+  category?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   /**
    * @remarks
+   * Availability Zone
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1527,6 +1593,8 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   az?: string;
   /**
    * @remarks
+   * Image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1535,21 +1603,42 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
+   * Machine type
+   * 
    * This parameter is required.
    * 
    * @example
    * mock-machine-type3
    */
   machineType?: string;
+  /**
+   * @remarks
+   * Node group description
+   * 
+   * @example
+   * describe for node group
+   */
   nodeGroupDescription?: string;
   /**
    * @remarks
+   * Node group name
+   * 
    * This parameter is required.
    * 
    * @example
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
+  systemDisk?: CreateNodeGroupRequestNodeGroupSystemDisk;
+  /**
+   * @remarks
+   * user data
+   * 
+   * @example
+   * #!/bin/bash
+   * uptime
+   * echo "aaaaaaa" >> /tmp/ttttt20250110141010.sh
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1558,6 +1647,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
+      systemDisk: 'SystemDisk',
       userData: 'UserData',
     };
   }
@@ -1569,11 +1659,15 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
+      systemDisk: CreateNodeGroupRequestNodeGroupSystemDisk,
       userData: 'string',
     };
   }
 
   validate() {
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
+    }
     super.validate();
   }
 
@@ -2552,6 +2646,41 @@ export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
   }
 }
 
+export class DescribeNodeResponseBodyDisks extends $dara.Model {
+  category?: string;
+  diskId?: string;
+  performanceLevel?: string;
+  size?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      diskId: 'DiskId',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      diskId: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNodeResponseBodyNetworks extends $dara.Model {
   /**
    * @remarks
@@ -3453,6 +3582,13 @@ export class ExtendClusterRequestIpAllocationPolicyNodePolicy extends $dara.Mode
    * Bond information
    */
   bonds?: ExtendClusterRequestIpAllocationPolicyNodePolicyBonds[];
+  /**
+   * @remarks
+   * Host name
+   * 
+   * @example
+   * i22c11282.eu95sqa
+   */
   hostname?: string;
   /**
    * @remarks
@@ -3541,7 +3677,21 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag.
+   * 
+   * @example
+   * my_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag.
+   * 
+   * @example
+   * my_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3637,10 +3787,59 @@ export class ExtendClusterRequestNodeGroupsNodes extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroups extends $dara.Model {
+  /**
+   * @remarks
+   * Number of nodes to purchase. Value range: 0–500.
+   * 
+   * If the Amount parameter is set to 0, no nodes will be purchased. Existing nodes will be used for scaling.
+   * If the Amount parameter is set to 1–500, the specified number of nodes will be purchased and used for scaling.
+   * Default value: 0
+   * 
+   * @example
+   * 4
+   */
   amount?: number;
+  /**
+   * @remarks
+   * Whether to enable auto-renewal for purchased nodes.
+   * Conditions: This parameter takes effect only when the Amount parameter is set to a non-zero value and the ChargeType is PrePaid.
+   * Valid values:
+   * 
+   * True: Enable auto-renewal.
+   * False: Disable auto-renewal.
+   * Default value: False
+   * 
+   * @example
+   * True
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * Billing method for nodes.
+   * This parameter takes effect only when the Amount parameter is set to a value other than 0.
+   * Valid values:
+   * 
+   * PrePaid: Subscription (prepaid).
+   * PostPaid: Pay-as-you-go (postpaid).
+   * Default value: PrePaid
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The hostnames of purchased nodes.
+   * This parameter takes effect only when the Amount parameter is set to a non-zero value.
+   */
   hostnames?: string[];
+  /**
+   * @remarks
+   * The login password of node.
+   * 
+   * @example
+   * Addk(*78
+   */
   loginPassword?: string;
   /**
    * @remarks
@@ -3650,12 +3849,25 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
    * i16d4883a46cbadeb4bc9
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * The tag of node
+   */
   nodeTag?: ExtendClusterRequestNodeGroupsNodeTag[];
   /**
    * @remarks
    * List of Nodes
    */
   nodes?: ExtendClusterRequestNodeGroupsNodes[];
+  /**
+   * @remarks
+   * Purchase duration for nodes (unit: month).
+   * Valid values: 1, 6, 12, 24, 36, 48.
+   * Conditions: This parameter takes effect only when the Amount parameter is set to a non-zero value and the ChargeType is PrePaid.
+   * 
+   * @example
+   * 6
+   */
   period?: number;
   /**
    * @remarks
@@ -3666,7 +3878,21 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
    * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
    */
   userData?: string;
+  /**
+   * @remarks
+   * VSwitch Id
+   * 
+   * @example
+   * vsw-0jly2d537ejphyq6h13ke
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * Vpc Id
+   * 
+   * @example
+   * vpc-zq1econyv63tvyci5hefw
+   */
   vpcId?: string;
   /**
    * @remarks
@@ -3731,7 +3957,21 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
 }
 
 export class ListClusterNodesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * aa_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag object
+   * 
+   * @example
+   * aa_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3817,7 +4057,21 @@ export class ListClusterNodesResponseBodyNodesNetworks extends $dara.Model {
 }
 
 export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * aa_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag object
+   * 
+   * @example
+   * aa_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3843,6 +4097,13 @@ export class ListClusterNodesResponseBodyNodesTags extends $dara.Model {
 }
 
 export class ListClusterNodesResponseBodyNodes extends $dara.Model {
+  /**
+   * @remarks
+   * product code
+   * 
+   * @example
+   * bcccluster
+   */
   commodityCode?: string;
   /**
    * @remarks
@@ -3884,6 +4145,13 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * i190297201669099844192
    */
   imageId?: string;
+  /**
+   * @remarks
+   * image name
+   * 
+   * @example
+   * Alinux3_x86_AMD_R_Host_D3_E3_24.13.00_UEFI_N_250121
+   */
   imageName?: string;
   /**
    * @remarks
@@ -3938,11 +4206,22 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * sn_tOuUk
    */
   sn?: string;
+  /**
+   * @remarks
+   * tag information
+   */
   tags?: ListClusterNodesResponseBodyNodesTags[];
+  /**
+   * @remarks
+   * task id
+   * 
+   * @example
+   * i28ddkdkkdkdd
+   */
   taskId?: string;
   /**
    * @remarks
-   * 专有网络交换机ID
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1mxqhw8o20tgv3xk47h
@@ -3950,7 +4229,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * 专有网络ID
+   * VPC ID
    * 
    * @example
    * vpc-0jltf9vinjz3if3lltdy7
@@ -4028,7 +4307,21 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
 }
 
 export class ListClustersRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * key_aa
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag object
+   * 
+   * @example
+   * value_aa
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4054,7 +4347,21 @@ export class ListClustersRequestTags extends $dara.Model {
 }
 
 export class ListClustersResponseBodyClustersTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * aa_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag object
+   * 
+   * @example
+   * aa_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4176,6 +4483,10 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
    * rg-aek2ajbjoloa23q
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * tag information
+   */
   tags?: ListClustersResponseBodyClustersTags[];
   /**
    * @remarks
@@ -4376,10 +4687,20 @@ export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Mo
 }
 
 export class ListFreeNodesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * key_aa
+   */
   key?: string;
   /**
+   * @remarks
+   * The value of tag object
+   * 
    * @example
-   * 129
+   * value_aa
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -4406,7 +4727,21 @@ export class ListFreeNodesRequestTags extends $dara.Model {
 }
 
 export class ListFreeNodesResponseBodyNodesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag object
+   * 
+   * @example
+   * aa_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag object
+   * 
+   * @example
+   * aa_vakye
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4432,6 +4767,13 @@ export class ListFreeNodesResponseBodyNodesTags extends $dara.Model {
 }
 
 export class ListFreeNodesResponseBodyNodes extends $dara.Model {
+  /**
+   * @remarks
+   * Product Code
+   * 
+   * @example
+   * bccluster_eflocomputing_public_cn
+   */
   commodityCode?: string;
   /**
    * @remarks
@@ -4473,6 +4815,13 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * e01-cn-7pp2x193801
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * Node status
+   * 
+   * @example
+   * Unused
+   */
   operatingState?: string;
   /**
    * @remarks
@@ -4490,6 +4839,10 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    * sn_pozkHBgicd
    */
   sn?: string;
+  /**
+   * @remarks
+   * Tags Info
+   */
   tags?: ListFreeNodesResponseBodyNodesTags[];
   /**
    * @remarks
@@ -7137,6 +7490,8 @@ export class CreateNetTestTaskResponse extends $dara.Model {
 export class CreateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Cluster ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7145,9 +7500,15 @@ export class CreateNodeGroupRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Node ID.
+   * 
    * This parameter is required.
    */
   nodeGroup?: CreateNodeGroupRequestNodeGroup;
+  /**
+   * @remarks
+   * Node information
+   */
   nodeUnit?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -7183,6 +7544,8 @@ export class CreateNodeGroupRequest extends $dara.Model {
 export class CreateNodeGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Cluster ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7191,9 +7554,15 @@ export class CreateNodeGroupShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
+   * Node ID.
+   * 
    * This parameter is required.
    */
   nodeGroupShrink?: string;
+  /**
+   * @remarks
+   * Node information
+   */
   nodeUnitShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7222,18 +7591,24 @@ export class CreateNodeGroupShrinkRequest extends $dara.Model {
 
 export class CreateNodeGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
   /**
+   * @remarks
+   * Node group name
+   * 
    * @example
    * emr-default
    */
   nodeGroupName?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -7555,11 +7930,17 @@ export class DeleteClusterResponse extends $dara.Model {
 
 export class DeleteNodeGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i114444141733395242745
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Node Group ID
+   * 
    * @example
    * i121824791737080429819
    */
@@ -7590,7 +7971,7 @@ export class DeleteNodeGroupRequest extends $dara.Model {
 export class DeleteNodeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 887FA855-89F4-5DB3-B305-C5879EC480E6
@@ -7921,6 +8302,9 @@ export class DescribeClusterResponse extends $dara.Model {
 
 export class DescribeDiagnosticResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Diagnostic ID
+   * 
    * @example
    * diag-i151942361720577788844
    */
@@ -7948,38 +8332,67 @@ export class DescribeDiagnosticResultRequest extends $dara.Model {
 
 export class DescribeDiagnosticResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Cluster ID
+   * 
    * @example
    * i118913031696573280136
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Device creation time.
+   * 
    * @example
    * 2024-06-15T10:17:56
    */
   createdTime?: string;
   /**
+   * @remarks
+   * Diagnostic ID
+   * 
    * @example
    * diag-i155363241720059671316
    */
   diagnosticId?: string;
+  /**
+   * @remarks
+   * Diagnostic Information
+   */
   diagnosticResults?: any[];
   /**
+   * @remarks
+   * Diagnostic State
+   * 
    * @example
    * Fault
    */
   diagnosticState?: string;
   /**
+   * @remarks
+   * Diagnostic Type
+   * 
    * @example
    * CheckByAiJobLogs
    */
   diagnosticType?: string;
   /**
+   * @remarks
+   * End time of node anomaly issues. Represented according to the ISO8601 standard, in a timezone-aware format, formatted as yyyy-MM-ddTHH:mm:ss+0800
+   * 
    * @example
    * 2024-06-11T10:00:30
    */
   endTime?: string;
+  /**
+   * @remarks
+   * List of Node IDs
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
    */
@@ -8484,6 +8897,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
    * 2022-09-30T03:35:53Z
    */
   createTime?: string;
+  disks?: DescribeNodeResponseBodyDisks[];
   /**
    * @remarks
    * Expiration time
@@ -8579,7 +8993,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 资源组ID
+   * Resource group ID
    * 
    * @example
    * rg-acfmywpvugkh7kq
@@ -8593,6 +9007,15 @@ export class DescribeNodeResponseBody extends $dara.Model {
    * sag42ckf4jx
    */
   sn?: string;
+  /**
+   * @remarks
+   * The script by user defined
+   * 
+   * @example
+   * #!/bin/bash
+   * uptime
+   * echo "aaaaaaa" >> /tmp/ttttt20250110141010.sh
+   */
   userData?: string;
   /**
    * @remarks
@@ -8607,6 +9030,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
+      disks: 'Disks',
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
@@ -8631,6 +9055,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       clusterId: 'string',
       clusterName: 'string',
       createTime: 'string',
+      disks: { 'type': 'array', 'itemType': DescribeNodeResponseBodyDisks },
       expiredTime: 'string',
       hostname: 'string',
       hpnZone: 'string',
@@ -8651,6 +9076,9 @@ export class DescribeNodeResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.disks)) {
+      $dara.Model.validateArray(this.disks);
+    }
     if(Array.isArray(this.networks)) {
       $dara.Model.validateArray(this.networks);
     }
@@ -9490,7 +9918,18 @@ export class ListClusterNodesRequest extends $dara.Model {
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * resource group id
+   * 
+   * @example
+   * rg-xxkxkllss
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * tag information
+   */
   tags?: ListClusterNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -9636,6 +10075,10 @@ export class ListClustersRequest extends $dara.Model {
    * rg-aek2bg6wyoox6jq
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * tag info
+   */
   tags?: ListClustersRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -9959,6 +10402,10 @@ export class ListFreeNodesRequest extends $dara.Model {
    * rg-acfmxno4vh5muoq
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Tag information
+   */
   tags?: ListFreeNodesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -13066,15 +13513,30 @@ export class UntagResourcesResponse extends $dara.Model {
 
 export class UpdateNodeGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Node group name
+   * 
    * @example
    * test-update
    */
   newNodeGroupName?: string;
   /**
+   * @remarks
+   * Node group ID
+   * 
    * @example
    * i120021051733814190732
    */
   nodeGroupId?: string;
+  /**
+   * @remarks
+   * user data
+   * 
+   * @example
+   * #!/bin/bash
+   * uptime
+   * echo "aaaaaaa" >> /tmp/ttttt20250110141010.sh
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13632,7 +14094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群下的节点分组
+   * Create Node Group under Cluster
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
    * 
    * @param tmpReq - CreateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13686,7 +14151,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群下的节点分组
+   * Create Node Group under Cluster
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status
    * 
    * @param request - CreateNodeGroupRequest
    * @returns CreateNodeGroupResponse
@@ -13805,7 +14273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点分组
+   * Delete Node Group
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - DeleteNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13845,7 +14316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节点分组
+   * Delete Node Group
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - DeleteNodeGroupRequest
    * @returns DeleteNodeGroupResponse
@@ -13903,7 +14377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务查询接口
+   * Diagnostic Task Query Interface
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - DescribeDiagnosticResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13939,7 +14416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 诊断任务查询接口
+   * Diagnostic Task Query Interface
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - DescribeDiagnosticResultRequest
    * @returns DescribeDiagnosticResultResponse
@@ -15670,7 +16150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节点分组
+   * Update Node Group
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - UpdateNodeGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15714,7 +16197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节点分组
+   * Update Node Group
+   * 
+   * @remarks
+   * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status.
    * 
    * @param request - UpdateNodeGroupRequest
    * @returns UpdateNodeGroupResponse
