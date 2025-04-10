@@ -12561,6 +12561,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * An array of File Storage NAS (NAS) file system IDs.
    */
   fileSystemIds?: string[];
+  isLdap?: boolean;
+  ldapUrl?: string;
   /**
    * @remarks
    * Details about registration logs.
@@ -12862,6 +12864,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       enableInternetAccess: 'EnableInternetAccess',
       enableServiceRoute: 'EnableServiceRoute',
       fileSystemIds: 'FileSystemIds',
+      isLdap: 'IsLdap',
+      ldapUrl: 'LdapUrl',
       logs: 'Logs',
       mfaEnabled: 'MfaEnabled',
       name: 'Name',
@@ -12923,6 +12927,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       enableInternetAccess: 'boolean',
       enableServiceRoute: 'boolean',
       fileSystemIds: { 'type': 'array', 'itemType': 'string' },
+      isLdap: 'boolean',
+      ldapUrl: 'string',
       logs: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesLogs },
       mfaEnabled: 'boolean',
       name: 'string',
@@ -15907,6 +15913,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * Running
    */
   desktopStatus?: string;
+  diskStatus?: string;
+  osType?: string;
   /**
    * @remarks
    * The progress of creating the snapshot. Unit: %.
@@ -16102,6 +16110,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       desktopStatus: 'DesktopStatus',
+      diskStatus: 'DiskStatus',
+      osType: 'OsType',
       progress: 'Progress',
       protocolType: 'ProtocolType',
       remainTime: 'RemainTime',
@@ -16127,6 +16137,8 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
       desktopId: 'string',
       desktopName: 'string',
       desktopStatus: 'string',
+      diskStatus: 'string',
+      osType: 'string',
       progress: 'string',
       protocolType: 'string',
       remainTime: 'number',
@@ -46098,6 +46110,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    * 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
    */
   nextToken?: string;
+  osType?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
@@ -46189,6 +46202,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
       endTime: 'EndTime',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      osType: 'OsType',
       regionId: 'RegionId',
       snapshotId: 'SnapshotId',
       snapshotName: 'SnapshotName',
@@ -46206,6 +46220,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
       endTime: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      osType: 'string',
       regionId: 'string',
       snapshotId: 'string',
       snapshotName: 'string',
@@ -74849,6 +74864,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      query["OsType"] = request.osType;
     }
 
     if (!$dara.isNull(request.regionId)) {
