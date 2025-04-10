@@ -1,13 +1,2048 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class BatchEnrollAccountsRequest extends $tea.Model {
+export class BatchEnrollAccountsRequestAccounts extends $dara.Model {
+  /**
+   * @remarks
+   * The account ID. This parameter is required.
+   * 
+   * @example
+   * 12868156179****
+   */
+  accountUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountUid: 'AccountUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountUid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Specifies whether to skip the baseline item. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountFactoryBaselineRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item. The value of this parameter is a JSON string.
+   * 
+   * @example
+   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Whether to skip the baseline item. Valid values:
+   * 
+   * *   false: The baseline item is not skipped.
+   * *   true: The baseline item is skipped.
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountShrinkRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Whether to skip the baseline item. Valid values:
+   * 
+   * *   false: The baseline item is not skipped.
+   * *   true: The baseline item is skipped.
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the baseline item.
+   * 
+   * The value is a JSON string.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * 1097526274671790
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyErrorInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * CompliancePackExists
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The compliance pack already exists.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The recommended solution.
+   * 
+   * @example
+   * https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
+   */
+  recommend?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6D5EAA86-2D41-5CB7-8DA7-B60093ACAA4E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      recommend: 'Recommend',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      recommend: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * product
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * governance
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The prefix of the account name.
+   * 
+   * @example
+   * test-account
+   */
+  accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 12868156179*****
+   */
+  accountUid?: number;
+  /**
+   * @remarks
+   * The baseline items.
+   */
+  baselineItems?: GetEnrolledAccountResponseBodyInputsBaselineItems[];
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * test-account
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The ID of the settlement account.
+   * 
+   * @example
+   * 19534534552*****
+   */
+  payerAccountUid?: number;
+  /**
+   * @remarks
+   * The tag.
+   */
+  tag?: GetEnrolledAccountResponseBodyInputsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      accountNamePrefix: 'AccountNamePrefix',
+      accountUid: 'AccountUid',
+      baselineItems: 'BaselineItems',
+      displayName: 'DisplayName',
+      folderId: 'FolderId',
+      payerAccountUid: 'PayerAccountUid',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNamePrefix: 'string',
+      accountUid: 'number',
+      baselineItems: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsBaselineItems },
+      displayName: 'string',
+      folderId: 'string',
+      payerAccountUid: 'number',
+      tag: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The status of applying the baseline to the account. Valid values:
+   * 
+   * *   Pending: The baseline is pending to be applied to the account.
+   * *   Running: The baseline is being applied to the account.
+   * *   Finished: : The baseline is applied to the account.
+   * *   Failed: : The baseline fails to be applied to the account.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The type of the baseline item.
+   * 
+   * @example
+   * AccountFactory
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselineItemsResponseBodyBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The dependency of the baseline item.
+   */
+  dependsOn?: ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn[];
+  /**
+   * @remarks
+   * The description of the baseline item.
+   * 
+   * @example
+   * Notification.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The type of the baseline item.
+   * 
+   * @example
+   * AccountFactory
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependsOn: 'DependsOn',
+      description: 'Description',
+      name: 'Name',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependsOn: { 'type': 'array', 'itemType': ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn },
+      description: 'string',
+      name: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dependsOn)) {
+      $dara.Model.validateArray(this.dependsOn);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesResponseBodyBaselines extends $dara.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @remarks
+   * The name of the baseline.
+   * 
+   * @example
+   * Default
+   */
+  baselineName?: string;
+  /**
+   * @remarks
+   * The time at which the baseline was created.
+   * 
+   * @example
+   * 2021-11-30T09:09:28Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the baseline.
+   * 
+   * @example
+   * Default baseline
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The type of the baseline. Valid values:
+   * 
+   * *   System: default baseline.
+   * *   Custom: custom baseline.
+   * 
+   * @example
+   * Custom
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the baseline was updated.
+   * 
+   * @example
+   * 2022-12-29T07:08:40Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      baselineName: 'BaselineName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      baselineName: 'string',
+      createTime: 'string',
+      description: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $dara.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 19534534552*****
+   */
+  accountUid?: number;
+  /**
+   * @remarks
+   * The ID of the baseline that is implemented.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * TestAccount
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The ID of the settlement account.
+   * 
+   * @example
+   * 13161210500*****
+   */
+  payerAccountUid?: number;
+  /**
+   * @remarks
+   * The creation status. Valid values:
+   * 
+   * *   Pending: The account is pending to be created.
+   * *   Running: The account is being created.
+   * *   Finished: The account is created.
+   * *   Failed: The account fails to be created.
+   * *   Scheduling: The account is being scheduled.
+   * *   ScheduleFailed: The account fails to be scheduled.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The update time.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountUid: 'AccountUid',
+      baselineId: 'BaselineId',
+      createTime: 'CreateTime',
+      displayName: 'DisplayName',
+      folderId: 'FolderId',
+      payerAccountUid: 'PayerAccountUid',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountUid: 'number',
+      baselineId: 'string',
+      createTime: 'string',
+      displayName: 'string',
+      folderId: 'string',
+      payerAccountUid: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance extends $dara.Model {
+  /**
+   * @remarks
+   * The display name of the fixing button.
+   * 
+   * @example
+   * Manual fixing
+   */
+  buttonName?: string;
+  /**
+   * @remarks
+   * The navigation URL of the fixing button.
+   * 
+   * @example
+   * https://ram.console.aliyun.com/users
+   */
+  buttonRef?: string;
+  /**
+   * @remarks
+   * The fixing procedure.
+   * 
+   * @example
+   * You must replace the AccessKey pair of your Alibaba Cloud account. To do so, perform the following steps:</br>1. Log on to the RAM console. In the left-side navigation pane, choose Identities > Users. On the Users page, click Create User.</br>2. On the Create User page, enter a logon name and select OpenAPI Access for the Access Mode parameter.</br>3. After the RAM user is created, save the AccessKey pair. Then, find the user that you created on the Users page and click Add Permissions in the Actions column. In the Grant Permission panel, find the AdministratorAccess policy and attach it to the RAM user.</br>4. In a program, replace the AccessKey pair of the Alibaba Cloud account with the AccessKey pair of the RAM user created in the previous step and check whether the program runs as expected in the test environment.</br>5. If the program runs as expected, publish the program to the production environment and disable the previous AccessKey pair of your Alibaba Cloud account. Then, check whether the program runs as expected.</br>6. If the program runs as expected, delete the disabled AccessKey pair after the specified period of time, such as 90 days.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The title of the fixing procedure.
+   * 
+   * @example
+   * Scenario 3: AccessKey pair that is used within the last 90 days
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttonName: 'ButtonName',
+      buttonRef: 'ButtonRef',
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttonName: 'string',
+      buttonRef: 'string',
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions extends $dara.Model {
+  /**
+   * @remarks
+   * The fixing method.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * 
+   * @example
+   * UnusedAccessKeyInRamUser
+   */
+  classification?: string;
+  /**
+   * @remarks
+   * The fixing cost.
+   * 
+   * @example
+   * You are not charged for this operation.
+   */
+  costDescription?: string;
+  /**
+   * @remarks
+   * The description of the fixing item.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * 
+   * @example
+   * Console logon is enabled for the RAM user. The RAM user owns an AccessKey pair that is never used.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The content of the fixing items.
+   */
+  guidance?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance[];
+  /**
+   * @remarks
+   * The usage notes of the fixing item.
+   * 
+   * @example
+   * The BestPracticesForIdentityAndPermissions compliance package is enabled in Cloud Config to check the settings and usage of the AccessKey pair, Alibaba Cloud account, and RAM users.
+   */
+  notice?: string;
+  /**
+   * @remarks
+   * The fixing suggestion.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * 
+   * @example
+   * Console logon is enabled for the RAM user and the RAM user owns an AccessKey pair, while the AccessKey pair has never been used by the RAM user. We recommend that you disable the AccessKey pair for 90 days. If no related issue occurs during this period, you can delete the AccessKey pair.
+   */
+  suggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classification: 'Classification',
+      costDescription: 'CostDescription',
+      description: 'Description',
+      guidance: 'Guidance',
+      notice: 'Notice',
+      suggestion: 'Suggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classification: 'string',
+      costDescription: 'string',
+      description: 'string',
+      guidance: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance },
+      notice: 'string',
+      suggestion: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.guidance)) {
+      $dara.Model.validateArray(this.guidance);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation extends $dara.Model {
+  /**
+   * @remarks
+   * The fixing operations.
+   */
+  actions?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions[];
+  /**
+   * @remarks
+   * The type of the fixing method. Valid values:
+   * 
+   * *   Manual: manual fixing
+   * *   QuickFix: quick fixing
+   * *   Analysis: auxiliary decision-making
+   * 
+   * @example
+   * Manual
+   */
+  remediationType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      remediationType: 'RemediationType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions },
+      remediationType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The fixing items.
+   */
+  remediation?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation[];
+  static names(): { [key: string]: string } {
+    return {
+      remediation: 'Remediation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediation: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.remediation)) {
+      $dara.Model.validateArray(this.remediation);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The display name of the resource property.
+   * 
+   * @example
+   * AccessKey Pair Last Used At
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The name of the resource property.
+   * 
+   * @example
+   * AkLastUsedTime
+   */
+  propertyName?: string;
+  /**
+   * @remarks
+   * The type of the resource property.
+   * 
+   * @example
+   * String
+   */
+  propertyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      propertyName: 'PropertyName',
+      propertyType: 'PropertyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      propertyName: 'string',
+      propertyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata of the resource properties.
+   */
+  resourcePropertyMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata[];
+  static names(): { [key: string]: string } {
+    return {
+      resourcePropertyMetadata: 'ResourcePropertyMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourcePropertyMetadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourcePropertyMetadata)) {
+      $dara.Model.validateArray(this.resourcePropertyMetadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the check item.
+   * 
+   * @example
+   * Security
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The description of the check item.
+   * 
+   * @example
+   * If you use an AccessKey pair of an Alibaba Cloud account, you have full permissions on the resources of the account. You cannot set limits on the account, such as setting limits on source IP addresses or access duration. If the AccessKey pair is leaked, resources within the account are exposed to high security risks. If your Alibaba Cloud account has an existing AccessKey pair, the check result is Non-compliant.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The display name of the check item.
+   * 
+   * @example
+   * An AccessKey pair is enabled for the Alibaba Cloud account.
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the metadata.
+   * 
+   * @example
+   * pxgtda****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The governance level of the check item.
+   * 
+   * @example
+   * High
+   */
+  recommendationLevel?: string;
+  /**
+   * @remarks
+   * The metadata of the fixing task.
+   */
+  remediationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata;
+  /**
+   * @remarks
+   * The metadata of the checked resources.
+   */
+  resourceMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata;
+  /**
+   * @remarks
+   * The scope of the check item. Valid values:
+   * 
+   * *   Account: the check item in a single-account governance maturity check
+   * *   ResourceDirectory: the check item in a multi-account governance maturity check
+   * 
+   * @example
+   * Account
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * The status of the check item. Valid values:
+   * 
+   * *   Released: The check item is released.
+   * *   Beta: The check item is pre-released.
+   * 
+   * @example
+   * Released
+   */
+  stage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      description: 'Description',
+      displayName: 'DisplayName',
+      id: 'Id',
+      recommendationLevel: 'RecommendationLevel',
+      remediationMetadata: 'RemediationMetadata',
+      resourceMetadata: 'ResourceMetadata',
+      scope: 'Scope',
+      stage: 'Stage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      displayName: 'string',
+      id: 'string',
+      recommendationLevel: 'string',
+      remediationMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata,
+      resourceMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata,
+      scope: 'string',
+      stage: 'string',
+    };
+  }
+
+  validate() {
+    if(this.remediationMetadata && typeof (this.remediationMetadata as any).validate === 'function') {
+      (this.remediationMetadata as any).validate();
+    }
+    if(this.resourceMetadata && typeof (this.resourceMetadata as any).validate === 'function') {
+      (this.resourceMetadata as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata objects of a specific metadata type.
+   */
+  metadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata[];
+  /**
+   * @remarks
+   * The type of the metadata. Valid values:
+   * 
+   * *   Metric: the check item
+   * 
+   * @example
+   * Metric
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metadata)) {
+      $dara.Model.validateArray(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource attribute.
+   * 
+   * @example
+   * DisplayName
+   */
+  propertyName?: string;
+  /**
+   * @remarks
+   * The value of the resource attribute.
+   * 
+   * @example
+   * example
+   */
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyName: 'PropertyName',
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyName: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The compliance status of the resource. Valid values:
+   * 
+   * *   NonCompliant: non-compliant.
+   * *   Excluded: ignored.
+   * *   PendingExclusion: to be ignored.
+   * *   PendingInclusion: to be unignored.
+   * 
+   * @example
+   * NonCompliant
+   */
+  complianceType?: string;
+  /**
+   * @remarks
+   * The region ID of the resource.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The check results further analyzed by auxiliary decision-making.
+   * 
+   * >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
+   * 
+   * @example
+   * RecentUnloginRamUser
+   */
+  resourceClassification?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * 26435103783237****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that owns the resource.
+   * 
+   * @example
+   * 176618589410****
+   */
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The attributes of the resource.
+   */
+  resourceProperties?: ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties[];
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ACS::RAM::User
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      complianceType: 'ComplianceType',
+      regionId: 'RegionId',
+      resourceClassification: 'ResourceClassification',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceProperties: 'ResourceProperties',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complianceType: 'string',
+      regionId: 'string',
+      resourceClassification: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceOwnerId: 'number',
+      resourceProperties: { 'type': 'array', 'itemType': ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceProperties)) {
+      $dara.Model.validateArray(this.resourceProperties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the filter condition. Valid values:
+   * 
+   * *   ResourceId: the resource ID.
+   * *   ResourceName: the name of the resource.
+   * *   ResourceType: the resource type.
+   * 
+   * @example
+   * ResourceId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The list of filter condition values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * EcsInsightEnableFailed
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Unable to enable ECS Insight due to a server error.
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The number of non-compliant resources.
+   * 
+   * @example
+   * 2
+   */
+  nonCompliant?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nonCompliant: 'NonCompliant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nonCompliant: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara.Model {
+  /**
+   * @remarks
+   * The error information.
+   * 
+   * >  This parameter is returned only if the value of `Status` is `Failed`.
+   */
+  errorInfo?: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo;
+  /**
+   * @remarks
+   * The end time of the check item. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-12-13T03:34:02Z
+   */
+  evaluationTime?: string;
+  /**
+   * @remarks
+   * The ID of the check item.
+   * 
+   * @example
+   * r7xdcu****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The checked resources.
+   */
+  resourcesSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary;
+  /**
+   * @remarks
+   * The rate of the non-compliant resources.
+   * 
+   * @example
+   * 0.67
+   */
+  result?: number;
+  /**
+   * @remarks
+   * The risk level. Valid values:
+   * 
+   * *   Error: high risk
+   * *   Warning: medium risk
+   * *   None: no risk
+   * 
+   * @example
+   * Error
+   */
+  risk?: string;
+  /**
+   * @remarks
+   * The status of the check item. Valid values:
+   * 
+   * *   Running: The check is in progress.
+   * *   Finished: The check is complete.
+   * *   failed: The check fails.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorInfo: 'ErrorInfo',
+      evaluationTime: 'EvaluationTime',
+      id: 'Id',
+      resourcesSummary: 'ResourcesSummary',
+      result: 'Result',
+      risk: 'Risk',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorInfo: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo,
+      evaluationTime: 'string',
+      id: 'string',
+      resourcesSummary: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary,
+      result: 'number',
+      risk: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.errorInfo && typeof (this.errorInfo as any).validate === 'function') {
+      (this.errorInfo as any).validate();
+    }
+    if(this.resourcesSummary && typeof (this.resourcesSummary as any).validate === 'function') {
+      (this.resourcesSummary as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationResultsResponseBodyResults extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the overall check. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-12-13T03:35:00Z
+   */
+  evaluationTime?: string;
+  /**
+   * @remarks
+   * The check results.
+   */
+  metricResults?: ListEvaluationResultsResponseBodyResultsMetricResults[];
+  /**
+   * @remarks
+   * The status of the overall check. Valid values:
+   * 
+   * *   Running: The check is in progress.
+   * *   Finished: The check is complete.
+   * *   failed: The check fails.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The overall score.
+   * 
+   * @example
+   * 0.6453
+   */
+  totalScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationTime: 'EvaluationTime',
+      metricResults: 'MetricResults',
+      status: 'Status',
+      totalScore: 'TotalScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationTime: 'string',
+      metricResults: { 'type': 'array', 'itemType': ListEvaluationResultsResponseBodyResultsMetricResults },
+      status: 'string',
+      totalScore: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metricResults)) {
+      $dara.Model.validateArray(this.metricResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the score was generated. The time is in UTC.
+   * 
+   * @example
+   * 2024-06-30T03:34:02Z
+   */
+  evaluationTime?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * Valid values: 0 to 1.
+   * 
+   * @example
+   * 0.6753
+   */
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationTime: 'EvaluationTime',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationTime: 'string',
+      score: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $dara.Model {
+  /**
+   * @remarks
+   * The historical scores.
+   */
+  totalScoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory[];
+  static names(): { [key: string]: string } {
+    return {
+      totalScoreHistory: 'TotalScoreHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalScoreHistory: { 'type': 'array', 'itemType': ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.totalScoreHistory)) {
+      $dara.Model.validateArray(this.totalScoreHistory);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountFactoryBaselineRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item. The value of this parameter is a JSON string.
+   * 
+   * @example
+   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsRequest extends $dara.Model {
   /**
    * @remarks
    * The resource accounts.
@@ -56,12 +2091,22 @@ export class BatchEnrollAccountsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accounts)) {
+      $dara.Model.validateArray(this.accounts);
+    }
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchEnrollAccountsResponseBody extends $tea.Model {
+export class BatchEnrollAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -82,12 +2127,16 @@ export class BatchEnrollAccountsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchEnrollAccountsResponse extends $tea.Model {
+export class BatchEnrollAccountsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BatchEnrollAccountsResponseBody;
@@ -107,15 +2156,25 @@ export class BatchEnrollAccountsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAccountFactoryBaselineRequest extends $tea.Model {
+export class CreateAccountFactoryBaselineRequest extends $dara.Model {
   /**
    * @remarks
-   * The baseline items.
+   * An array that contains the baseline items.
    * 
    * You can call the [ListAccountFactoryBaselineItems](~~ListAccountFactoryBaselineItems~~) operation to query a list of baseline items supported by the account factory in Cloud Governance Center.
    */
@@ -162,12 +2221,19 @@ export class CreateAccountFactoryBaselineRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAccountFactoryBaselineResponseBody extends $tea.Model {
+export class CreateAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
@@ -198,12 +2264,16 @@ export class CreateAccountFactoryBaselineResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAccountFactoryBaselineResponse extends $tea.Model {
+export class CreateAccountFactoryBaselineResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAccountFactoryBaselineResponseBody;
@@ -223,12 +2293,22 @@ export class CreateAccountFactoryBaselineResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAccountFactoryBaselineRequest extends $tea.Model {
+export class DeleteAccountFactoryBaselineRequest extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
@@ -259,12 +2339,16 @@ export class DeleteAccountFactoryBaselineRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAccountFactoryBaselineResponseBody extends $tea.Model {
+export class DeleteAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -285,12 +2369,16 @@ export class DeleteAccountFactoryBaselineResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAccountFactoryBaselineResponse extends $tea.Model {
+export class DeleteAccountFactoryBaselineResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteAccountFactoryBaselineResponseBody;
@@ -310,12 +2398,22 @@ export class DeleteAccountFactoryBaselineResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnrollAccountRequest extends $tea.Model {
+export class EnrollAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The prefix for the account name of the member.
@@ -350,9 +2448,9 @@ export class EnrollAccountRequest extends $tea.Model {
   baselineId?: string;
   /**
    * @remarks
-   * An array that contains baseline items.
+   * The array that contains baseline items.
    * 
-   * If this parameter is specified, the configurations of the baseline items are merged with the baseline of the specified account. The configurations of the same baseline items are subject to the configuration of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configuration of the account baseline to the account.
+   * If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
    */
   baselineItems?: EnrollAccountRequestBaselineItems[];
   /**
@@ -444,12 +2542,22 @@ export class EnrollAccountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnrollAccountShrinkRequest extends $tea.Model {
+export class EnrollAccountShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The prefix for the account name of the member.
@@ -484,9 +2592,9 @@ export class EnrollAccountShrinkRequest extends $tea.Model {
   baselineId?: string;
   /**
    * @remarks
-   * An array that contains baseline items.
+   * The array that contains baseline items.
    * 
-   * If this parameter is specified, the configurations of the baseline items are merged with the baseline of the specified account. The configurations of the same baseline items are subject to the configuration of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configuration of the account baseline to the account.
+   * If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
    */
   baselineItems?: EnrollAccountShrinkRequestBaselineItems[];
   /**
@@ -578,12 +2686,19 @@ export class EnrollAccountShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnrollAccountResponseBody extends $tea.Model {
+export class EnrollAccountResponseBody extends $dara.Model {
   /**
    * @remarks
    * The account ID.
@@ -614,12 +2729,16 @@ export class EnrollAccountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnrollAccountResponse extends $tea.Model {
+export class EnrollAccountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EnrollAccountResponseBody;
@@ -639,12 +2758,22 @@ export class EnrollAccountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountFactoryBaselineRequest extends $tea.Model {
+export class GetAccountFactoryBaselineRequest extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
@@ -675,12 +2804,16 @@ export class GetAccountFactoryBaselineRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountFactoryBaselineResponseBody extends $tea.Model {
+export class GetAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
@@ -771,12 +2904,19 @@ export class GetAccountFactoryBaselineResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccountFactoryBaselineResponse extends $tea.Model {
+export class GetAccountFactoryBaselineResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAccountFactoryBaselineResponseBody;
@@ -796,12 +2936,22 @@ export class GetAccountFactoryBaselineResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetEnrolledAccountRequest extends $tea.Model {
+export class GetEnrolledAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The account ID.
@@ -834,12 +2984,16 @@ export class GetEnrolledAccountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetEnrolledAccountResponseBody extends $tea.Model {
+export class GetEnrolledAccountResponseBody extends $dara.Model {
   /**
    * @remarks
    * The account ID.
@@ -858,7 +3012,7 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
   baselineId?: string;
   /**
    * @remarks
-   * An array that contains baseline items.
+   * The array that contains baseline items.
    */
   baselineItems?: GetEnrolledAccountResponseBodyBaselineItems[];
   /**
@@ -905,7 +3059,7 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
   initialized?: boolean;
   /**
    * @remarks
-   * The input parameters that are used when the account was registered.
+   * Input parameters used to create an account.
    */
   inputs?: GetEnrolledAccountResponseBodyInputs;
   /**
@@ -954,7 +3108,7 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the information about the account was updated.
+   * The update time.
    * 
    * @example
    * 2021-11-01T02:38:27Z
@@ -1000,12 +3154,28 @@ export class GetEnrolledAccountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    if(this.errorInfo && typeof (this.errorInfo as any).validate === 'function') {
+      (this.errorInfo as any).validate();
+    }
+    if(this.inputs && typeof (this.inputs as any).validate === 'function') {
+      (this.inputs as any).validate();
+    }
+    if(Array.isArray(this.progress)) {
+      $dara.Model.validateArray(this.progress);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetEnrolledAccountResponse extends $tea.Model {
+export class GetEnrolledAccountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetEnrolledAccountResponseBody;
@@ -1025,17 +3195,27 @@ export class GetEnrolledAccountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselineItemsRequest extends $tea.Model {
+export class ListAccountFactoryBaselineItemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
-   * Valid values: 1 to 100. Default value: 10
+   * Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -1097,12 +3277,22 @@ export class ListAccountFactoryBaselineItemsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.names)) {
+      $dara.Model.validateArray(this.names);
+    }
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselineItemsResponseBody extends $tea.Model {
+export class ListAccountFactoryBaselineItemsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The baseline items.
@@ -1140,12 +3330,19 @@ export class ListAccountFactoryBaselineItemsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselineItemsResponse extends $tea.Model {
+export class ListAccountFactoryBaselineItemsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAccountFactoryBaselineItemsResponseBody;
@@ -1165,12 +3362,22 @@ export class ListAccountFactoryBaselineItemsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselinesRequest extends $tea.Model {
+export class ListAccountFactoryBaselinesRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of entries to return on each page.
@@ -1215,12 +3422,16 @@ export class ListAccountFactoryBaselinesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselinesResponseBody extends $tea.Model {
+export class ListAccountFactoryBaselinesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The baselines.
@@ -1258,12 +3469,19 @@ export class ListAccountFactoryBaselinesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselines)) {
+      $dara.Model.validateArray(this.baselines);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccountFactoryBaselinesResponse extends $tea.Model {
+export class ListAccountFactoryBaselinesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAccountFactoryBaselinesResponseBody;
@@ -1283,15 +3501,25 @@ export class ListAccountFactoryBaselinesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnrolledAccountsRequest extends $tea.Model {
+export class ListEnrolledAccountsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of entries per page.
    * 
    * Valid values: 1 to 100. Default value: 10.
    * 
@@ -1301,7 +3529,9 @@ export class ListEnrolledAccountsRequest extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * You do not need to specify this parameter for the first request.
    * 
    * @example
    * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
@@ -1331,15 +3561,19 @@ export class ListEnrolledAccountsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnrolledAccountsResponseBody extends $tea.Model {
+export class ListEnrolledAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The accounts.
+   * The enrolled accounts.
    */
   enrolledAccounts?: ListEnrolledAccountsResponseBodyEnrolledAccounts[];
   /**
@@ -1374,12 +3608,19 @@ export class ListEnrolledAccountsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.enrolledAccounts)) {
+      $dara.Model.validateArray(this.enrolledAccounts);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnrolledAccountsResponse extends $tea.Model {
+export class ListEnrolledAccountsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEnrolledAccountsResponseBody;
@@ -1399,12 +3640,22 @@ export class ListEnrolledAccountsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationMetadataRequest extends $tea.Model {
+export class ListEvaluationMetadataRequest extends $dara.Model {
   /**
    * @remarks
    * The language. The information is returned in the specified language. Valid values:
@@ -1438,12 +3689,16 @@ export class ListEvaluationMetadataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationMetadataResponseBody extends $tea.Model {
+export class ListEvaluationMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
    * The metadata of a governance maturity check.
@@ -1471,12 +3726,19 @@ export class ListEvaluationMetadataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.evaluationMetadata)) {
+      $dara.Model.validateArray(this.evaluationMetadata);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationMetadataResponse extends $tea.Model {
+export class ListEvaluationMetadataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEvaluationMetadataResponseBody;
@@ -1496,15 +3758,25 @@ export class ListEvaluationMetadataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationMetricDetailsRequest extends $tea.Model {
+export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
    * 
    * @example
    * 103144549568****
@@ -1544,6 +3816,7 @@ export class ListEvaluationMetricDetailsRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -1551,6 +3824,7 @@ export class ListEvaluationMetricDetailsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
     };
   }
 
@@ -1561,7 +3835,12 @@ export class ListEvaluationMetricDetailsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      snapshotId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1569,7 +3848,7 @@ export class ListEvaluationMetricDetailsRequest extends $tea.Model {
   }
 }
 
-export class ListEvaluationMetricDetailsResponseBody extends $tea.Model {
+export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
@@ -1607,12 +3886,19 @@ export class ListEvaluationMetricDetailsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationMetricDetailsResponse extends $tea.Model {
+export class ListEvaluationMetricDetailsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEvaluationMetricDetailsResponseBody;
@@ -1632,12 +3918,22 @@ export class ListEvaluationMetricDetailsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationResultsRequest extends $tea.Model {
+export class ListEvaluationResultsRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
@@ -1648,24 +3944,41 @@ export class ListEvaluationResultsRequest extends $tea.Model {
   accountId?: number;
   /**
    * @remarks
+   * The filter conditions.
+   */
+  filters?: ListEvaluationResultsRequestFilters[];
+  /**
+   * @remarks
    * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      filters: 'Filters',
       regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      filters: { 'type': 'array', 'itemType': ListEvaluationResultsRequestFilters },
       regionId: 'string',
+      snapshotId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1673,7 +3986,7 @@ export class ListEvaluationResultsRequest extends $tea.Model {
   }
 }
 
-export class ListEvaluationResultsResponseBody extends $tea.Model {
+export class ListEvaluationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member.
@@ -1711,12 +4024,19 @@ export class ListEvaluationResultsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.results && typeof (this.results as any).validate === 'function') {
+      (this.results as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationResultsResponse extends $tea.Model {
+export class ListEvaluationResultsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEvaluationResultsResponseBody;
@@ -1736,12 +4056,22 @@ export class ListEvaluationResultsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationScoreHistoryRequest extends $tea.Model {
+export class ListEvaluationScoreHistoryRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
@@ -1796,12 +4126,16 @@ export class ListEvaluationScoreHistoryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationScoreHistoryResponseBody extends $tea.Model {
+export class ListEvaluationScoreHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1829,12 +4163,19 @@ export class ListEvaluationScoreHistoryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.scoreHistory && typeof (this.scoreHistory as any).validate === 'function') {
+      (this.scoreHistory as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEvaluationScoreHistoryResponse extends $tea.Model {
+export class ListEvaluationScoreHistoryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEvaluationScoreHistoryResponseBody;
@@ -1854,12 +4195,22 @@ export class ListEvaluationScoreHistoryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunEvaluationRequest extends $tea.Model {
+export class RunEvaluationRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
@@ -1868,6 +4219,10 @@ export class RunEvaluationRequest extends $tea.Model {
    * 176618589410****
    */
   accountId?: number;
+  /**
+   * @remarks
+   * The IDs of the check items to be checked.
+   */
   metricIds?: string[];
   /**
    * @remarks
@@ -1906,12 +4261,19 @@ export class RunEvaluationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.metricIds)) {
+      $dara.Model.validateArray(this.metricIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunEvaluationShrinkRequest extends $tea.Model {
+export class RunEvaluationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
@@ -1920,6 +4282,10 @@ export class RunEvaluationShrinkRequest extends $tea.Model {
    * 176618589410****
    */
   accountId?: number;
+  /**
+   * @remarks
+   * The IDs of the check items to be checked.
+   */
   metricIdsShrink?: string;
   /**
    * @remarks
@@ -1958,12 +4324,16 @@ export class RunEvaluationShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunEvaluationResponseBody extends $tea.Model {
+export class RunEvaluationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1984,12 +4354,16 @@ export class RunEvaluationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunEvaluationResponse extends $tea.Model {
+export class RunEvaluationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RunEvaluationResponseBody;
@@ -2009,12 +4383,22 @@ export class RunEvaluationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
+export class UpdateAccountFactoryBaselineRequest extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
@@ -2068,12 +4452,19 @@ export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountFactoryBaselineResponseBody extends $tea.Model {
+export class UpdateAccountFactoryBaselineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -2094,12 +4485,16 @@ export class UpdateAccountFactoryBaselineResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountFactoryBaselineResponse extends $tea.Model {
+export class UpdateAccountFactoryBaselineResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateAccountFactoryBaselineResponseBody;
@@ -2119,1761 +4514,14 @@ export class UpdateAccountFactoryBaselineResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchEnrollAccountsRequestAccounts extends $tea.Model {
-  /**
-   * @remarks
-   * The account ID. This parameter is required.
-   * 
-   * @example
-   * 12868156179****
-   */
-  accountUid?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountUid: 'AccountUid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountUid: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchEnrollAccountsRequestBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item.
-   * 
-   * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Specifies whether to skip the baseline item. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
-  skip?: boolean;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      skip: 'Skip',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      skip: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item. The value of this parameter is a JSON string.
-   * 
-   * @example
-   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnrollAccountRequestBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item.
-   * 
-   * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Specifies whether to skip the baseline item. Valid values:
-   * 
-   * *   false: The baseline item is not skipped.
-   * *   true: The baseline item is skipped.
-   * 
-   * @example
-   * false
-   */
-  skip?: boolean;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      skip: 'Skip',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      skip: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnrollAccountRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tagKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * tagValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnrollAccountShrinkRequestBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item.
-   * 
-   * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Specifies whether to skip the baseline item. Valid values:
-   * 
-   * *   false: The baseline item is not skipped.
-   * *   true: The baseline item is skipped.
-   * 
-   * @example
-   * false
-   */
-  skip?: boolean;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      skip: 'Skip',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      skip: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the baseline item.
-   * 
-   * The value is a JSON string.
-   * 
-   * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * 1097526274671790
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item.
-   * 
-   * @example
-   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Indicates whether baseline item is skipped. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
-  skip?: boolean;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      skip: 'Skip',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      skip: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyErrorInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * CompliancePackExists
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The compliance pack already exists.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The recommended solution.
-   * 
-   * @example
-   * https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
-   */
-  recommend?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6D5EAA86-2D41-5CB7-8DA7-B60093ACAA4E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      recommend: 'Recommend',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      recommend: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item.
-   * 
-   * @example
-   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Indicates whether baseline item is skipped. Valid values:
-   * 
-   * *   false
-   * *   true
-   * 
-   * @example
-   * false
-   */
-  skip?: boolean;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      skip: 'Skip',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      skip: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyInputsTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
-  /**
-   * @remarks
-   * The prefix of the account name.
-   * 
-   * @example
-   * test-account
-   */
-  accountNamePrefix?: string;
-  /**
-   * @remarks
-   * The account ID.
-   * 
-   * @example
-   * 12868156179*****
-   */
-  accountUid?: number;
-  /**
-   * @remarks
-   * The baseline items.
-   */
-  baselineItems?: GetEnrolledAccountResponseBodyInputsBaselineItems[];
-  /**
-   * @remarks
-   * The display name of the account.
-   * 
-   * @example
-   * test-account
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * @example
-   * fd-5ESoku****
-   */
-  folderId?: string;
-  /**
-   * @remarks
-   * The ID of the settlement account.
-   * 
-   * @example
-   * 19534534552*****
-   */
-  payerAccountUid?: number;
-  tag?: GetEnrolledAccountResponseBodyInputsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      accountNamePrefix: 'AccountNamePrefix',
-      accountUid: 'AccountUid',
-      baselineItems: 'BaselineItems',
-      displayName: 'DisplayName',
-      folderId: 'FolderId',
-      payerAccountUid: 'PayerAccountUid',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountNamePrefix: 'string',
-      accountUid: 'number',
-      baselineItems: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsBaselineItems },
-      displayName: 'string',
-      folderId: 'string',
-      payerAccountUid: 'number',
-      tag: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnrolledAccountResponseBodyProgress extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The status of applying the baseline to the account. Valid values:
-   * 
-   * *   Pending: The baseline is pending to be applied to the account.
-   * *   Running: The baseline is being applied to the account.
-   * *   Finished: : The baseline is applied to the account.
-   * *   Failed: : The baseline fails to be applied to the account.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The type of the baseline item.
-   * 
-   * @example
-   * AccountFactory
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountFactoryBaselineItemsResponseBodyBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The dependency of the baseline item.
-   */
-  dependsOn?: ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn[];
-  /**
-   * @remarks
-   * The description of the baseline item.
-   * 
-   * @example
-   * Notification.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The type of the baseline item.
-   * 
-   * @example
-   * AccountFactory
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dependsOn: 'DependsOn',
-      description: 'Description',
-      name: 'Name',
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dependsOn: { 'type': 'array', 'itemType': ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn },
-      description: 'string',
-      name: 'string',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model {
-  /**
-   * @remarks
-   * The baseline ID.
-   * 
-   * @example
-   * afb-bp1durvn3lgqe28v****
-   */
-  baselineId?: string;
-  /**
-   * @remarks
-   * The name of the baseline.
-   * 
-   * @example
-   * Default
-   */
-  baselineName?: string;
-  /**
-   * @remarks
-   * The time at which the baseline was created.
-   * 
-   * @example
-   * 2021-11-30T09:09:28Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The description of the baseline.
-   * 
-   * @example
-   * Default baseline
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The type of the baseline. Valid values:
-   * 
-   * *   System: default baseline.
-   * *   Custom: custom baseline.
-   * 
-   * @example
-   * Custom
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The time when the baseline was updated.
-   * 
-   * @example
-   * 2022-12-29T07:08:40Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baselineId: 'BaselineId',
-      baselineName: 'BaselineName',
-      createTime: 'CreateTime',
-      description: 'Description',
-      type: 'Type',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baselineId: 'string',
-      baselineName: 'string',
-      createTime: 'string',
-      description: 'string',
-      type: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model {
-  /**
-   * @remarks
-   * The account ID.
-   * 
-   * @example
-   * 19534534552*****
-   */
-  accountUid?: number;
-  /**
-   * @remarks
-   * The baseline ID.
-   * 
-   * @example
-   * afb-bp1durvn3lgqe28v****
-   */
-  baselineId?: string;
-  /**
-   * @remarks
-   * The time at which the account was created.
-   * 
-   * @example
-   * 2021-11-01T02:38:27Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The display name of the account.
-   * 
-   * @example
-   * TestAccount
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The ID of the parent folder.
-   * 
-   * @example
-   * fd-5ESoku****
-   */
-  folderId?: string;
-  /**
-   * @remarks
-   * The ID of the billing account.
-   * 
-   * @example
-   * 13161210500*****
-   */
-  payerAccountUid?: number;
-  /**
-   * @remarks
-   * The creation status of the account. Valid values:
-   * 
-   * *   Pending: The account is waiting to be created.
-   * *   Running: The account is being created.
-   * *   Finished: The account is created.
-   * *   Failed: The account failed to be created.
-   * *   Scheduling: The account is being scheduled.
-   * *   ScheduleFailed: The account failed to be scheduled.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the information about the account was updated.
-   * 
-   * @example
-   * 2021-11-01T02:38:27Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountUid: 'AccountUid',
-      baselineId: 'BaselineId',
-      createTime: 'CreateTime',
-      displayName: 'DisplayName',
-      folderId: 'FolderId',
-      payerAccountUid: 'PayerAccountUid',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountUid: 'number',
-      baselineId: 'string',
-      createTime: 'string',
-      displayName: 'string',
-      folderId: 'string',
-      payerAccountUid: 'number',
-      status: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance extends $tea.Model {
-  /**
-   * @remarks
-   * The display name of the fixing button.
-   */
-  buttonName?: string;
-  /**
-   * @remarks
-   * The navigation URL of the fixing button.
-   * 
-   * @example
-   * https://ram.console.aliyun.com/users
-   */
-  buttonRef?: string;
-  /**
-   * @remarks
-   * The fixing procedure.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The title of the fixing procedure.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttonName: 'ButtonName',
-      buttonRef: 'ButtonRef',
-      content: 'Content',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttonName: 'string',
-      buttonRef: 'string',
-      content: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions extends $tea.Model {
-  /**
-   * @remarks
-   * The fixing method.
-   * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
-   * 
-   * @example
-   * UnusedAccessKeyInRamUser
-   */
-  classification?: string;
-  /**
-   * @remarks
-   * The fixing cost.
-   */
-  costDescription?: string;
-  /**
-   * @remarks
-   * The description of the fixing item.
-   * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The content of the fixing items.
-   */
-  guidance?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance[];
-  /**
-   * @remarks
-   * The usage notes of the fixing item.
-   */
-  notice?: string;
-  /**
-   * @remarks
-   * The fixing suggestion.
-   * 
-   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
-   */
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      classification: 'Classification',
-      costDescription: 'CostDescription',
-      description: 'Description',
-      guidance: 'Guidance',
-      notice: 'Notice',
-      suggestion: 'Suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      classification: 'string',
-      costDescription: 'string',
-      description: 'string',
-      guidance: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance },
-      notice: 'string',
-      suggestion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation extends $tea.Model {
-  /**
-   * @remarks
-   * The fixing operations.
-   */
-  actions?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions[];
-  /**
-   * @remarks
-   * The type of the fixing method. Valid values:
-   * 
-   * *   Manual: manual fixing
-   * *   QuickFix: quick fixing
-   * *   Analysis: auxiliary decision-making
-   * 
-   * @example
-   * Manual
-   */
-  remediationType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actions: 'Actions',
-      remediationType: 'RemediationType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actions: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions },
-      remediationType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata extends $tea.Model {
-  /**
-   * @remarks
-   * The fixing items.
-   */
-  remediation?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation[];
-  static names(): { [key: string]: string } {
-    return {
-      remediation: 'Remediation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remediation: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata extends $tea.Model {
-  /**
-   * @remarks
-   * The display name of the resource property.
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The name of the resource property.
-   * 
-   * @example
-   * AkLastUsedTime
-   */
-  propertyName?: string;
-  /**
-   * @remarks
-   * The type of the resource property.
-   * 
-   * @example
-   * String
-   */
-  propertyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayName: 'DisplayName',
-      propertyName: 'PropertyName',
-      propertyType: 'PropertyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayName: 'string',
-      propertyName: 'string',
-      propertyType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata extends $tea.Model {
-  /**
-   * @remarks
-   * The metadata of the resource properties.
-   */
-  resourcePropertyMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata[];
-  static names(): { [key: string]: string } {
-    return {
-      resourcePropertyMetadata: 'ResourcePropertyMetadata',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourcePropertyMetadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extends $tea.Model {
-  /**
-   * @remarks
-   * The category of the check item.
-   * 
-   * @example
-   * Security
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The description of the check item.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The display name of the check item.
-   */
-  displayName?: string;
-  /**
-   * @remarks
-   * The ID of the metadata.
-   * 
-   * @example
-   * pxgtda****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The governance level of the check item.
-   * 
-   * @example
-   * High
-   */
-  recommendationLevel?: string;
-  /**
-   * @remarks
-   * The metadata of the fixing task.
-   */
-  remediationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata;
-  /**
-   * @remarks
-   * The metadata of the checked resources.
-   */
-  resourceMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata;
-  /**
-   * @remarks
-   * The scope of the check item. Valid values:
-   * 
-   * *   Account: the check item in a single-account governance maturity check
-   * *   ResourceDirectory: the check item in a multi-account governance maturity check
-   * 
-   * @example
-   * Account
-   */
-  scope?: string;
-  /**
-   * @remarks
-   * The status of the check item. Valid values:
-   * 
-   * *   Released: The check item is released.
-   * *   Beta: The check item is pre-released.
-   * 
-   * @example
-   * Released
-   */
-  stage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      description: 'Description',
-      displayName: 'DisplayName',
-      id: 'Id',
-      recommendationLevel: 'RecommendationLevel',
-      remediationMetadata: 'RemediationMetadata',
-      resourceMetadata: 'ResourceMetadata',
-      scope: 'Scope',
-      stage: 'Stage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      description: 'string',
-      displayName: 'string',
-      id: 'string',
-      recommendationLevel: 'string',
-      remediationMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata,
-      resourceMetadata: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata,
-      scope: 'string',
-      stage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $tea.Model {
-  /**
-   * @remarks
-   * The metadata objects of a specific metadata type.
-   */
-  metadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata[];
-  /**
-   * @remarks
-   * The type of the metadata. Valid values:
-   * 
-   * *   Metric: the check item
-   * 
-   * @example
-   * Metric
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metadata: 'Metadata',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metadata: { 'type': 'array', 'itemType': ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the resource attribute.
-   * 
-   * @example
-   * DisplayName
-   */
-  propertyName?: string;
-  /**
-   * @remarks
-   * The value of the resource attribute.
-   */
-  propertyValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      propertyName: 'PropertyName',
-      propertyValue: 'PropertyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      propertyName: 'string',
-      propertyValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model {
-  /**
-   * @remarks
-   * 合规状态。取值：
-   * - NonCompliant：不合规。
-   * - Excluded：已忽略。
-   * - PendingExclusion：已忽略未生效。
-   * - PendingInclusion：已取消忽略未生效。
-   * 
-   * @example
-   * NonCompliant
-   */
-  complianceType?: string;
-  /**
-   * @remarks
-   * The region ID of the resource.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The check results further analyzed by auxiliary decision-making.
-   * 
-   * >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
-   * 
-   * @example
-   * RecentUnloginRamUser
-   */
-  resourceClassification?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * 26435103783237****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The name of the resource.
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account that owns the resource.
-   * 
-   * @example
-   * 176618589410****
-   */
-  resourceOwnerId?: number;
-  /**
-   * @remarks
-   * The attributes of the resource.
-   */
-  resourceProperties?: ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties[];
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * ACS::RAM::User
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      complianceType: 'ComplianceType',
-      regionId: 'RegionId',
-      resourceClassification: 'ResourceClassification',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceProperties: 'ResourceProperties',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      complianceType: 'string',
-      regionId: 'string',
-      resourceClassification: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceOwnerId: 'number',
-      resourceProperties: { 'type': 'array', 'itemType': ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * EcsInsightEnableFailed
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Unable to enable ECS Insight due to a server error.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary extends $tea.Model {
-  /**
-   * @remarks
-   * The number of non-compliant resources.
-   * 
-   * @example
-   * 2
-   */
-  nonCompliant?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nonCompliant: 'NonCompliant',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nonCompliant: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationResultsResponseBodyResultsMetricResults extends $tea.Model {
-  /**
-   * @remarks
-   * The error information.
-   * 
-   * >  This parameter is returned only if the value of `Status` is `Failed`.
-   */
-  errorInfo?: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo;
-  /**
-   * @remarks
-   * The end time of the check item. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-12-13T03:34:02Z
-   */
-  evaluationTime?: string;
-  /**
-   * @remarks
-   * The ID of the check item.
-   * 
-   * @example
-   * r7xdcu****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The checked resources.
-   */
-  resourcesSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary;
-  /**
-   * @remarks
-   * The rate of the non-compliant resources.
-   * 
-   * @example
-   * 0.67
-   */
-  result?: number;
-  /**
-   * @remarks
-   * The risk level. Valid values:
-   * 
-   * *   Error: high risk
-   * *   Warning: medium risk
-   * *   None: no risk
-   * 
-   * @example
-   * Error
-   */
-  risk?: string;
-  /**
-   * @remarks
-   * The status of the check item. Valid values:
-   * 
-   * *   Running: The check is in progress.
-   * *   Finished: The check is complete.
-   * *   failed: The check fails.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorInfo: 'ErrorInfo',
-      evaluationTime: 'EvaluationTime',
-      id: 'Id',
-      resourcesSummary: 'ResourcesSummary',
-      result: 'Result',
-      risk: 'Risk',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorInfo: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo,
-      evaluationTime: 'string',
-      id: 'string',
-      resourcesSummary: ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary,
-      result: 'number',
-      risk: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationResultsResponseBodyResults extends $tea.Model {
-  /**
-   * @remarks
-   * The end time of the overall check. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-12-13T03:35:00Z
-   */
-  evaluationTime?: string;
-  /**
-   * @remarks
-   * The check results.
-   */
-  metricResults?: ListEvaluationResultsResponseBodyResultsMetricResults[];
-  /**
-   * @remarks
-   * The status of the overall check. Valid values:
-   * 
-   * *   Running: The check is in progress.
-   * *   Finished: The check is complete.
-   * *   failed: The check fails.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The overall score.
-   * 
-   * @example
-   * 0.6453
-   */
-  totalScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      evaluationTime: 'EvaluationTime',
-      metricResults: 'MetricResults',
-      status: 'Status',
-      totalScore: 'TotalScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      evaluationTime: 'string',
-      metricResults: { 'type': 'array', 'itemType': ListEvaluationResultsResponseBodyResultsMetricResults },
-      status: 'string',
-      totalScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the score was generated. The time is in UTC.
-   * 
-   * @example
-   * 2024-06-30T03:34:02Z
-   */
-  evaluationTime?: string;
-  /**
-   * @remarks
-   * The score.
-   * 
-   * Valid values: 0 to 1.
-   * 
-   * @example
-   * 0.6753
-   */
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      evaluationTime: 'EvaluationTime',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      evaluationTime: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $tea.Model {
-  /**
-   * @remarks
-   * The historical scores.
-   */
-  totalScoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory[];
-  static names(): { [key: string]: string } {
-    return {
-      totalScoreHistory: 'TotalScoreHistory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalScoreHistory: { 'type': 'array', 'itemType': ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the baseline item. The value of this parameter is a JSON string.
-   * 
-   * @example
-   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
-   */
-  config?: string;
-  /**
-   * @remarks
-   * The name of the baseline item.
-   * 
-   * @example
-   * ACS-BP_ACCOUNT_FACTORY_VPC
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the baseline item.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      name: 'string',
-      version: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -3884,7 +4532,7 @@ export class UpdateAccountFactoryBaselineRequestBaselineItems extends $tea.Model
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
@@ -3894,15 +4542,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -3916,29 +4564,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchEnrollAccountsResponse
    */
-  async batchEnrollAccountsWithOptions(request: BatchEnrollAccountsRequest, runtime: $Util.RuntimeOptions): Promise<BatchEnrollAccountsResponse> {
-    Util.validateModel(request);
+  async batchEnrollAccountsWithOptions(request: BatchEnrollAccountsRequest, runtime: $dara.RuntimeOptions): Promise<BatchEnrollAccountsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accounts)) {
+    if (!$dara.isNull(request.accounts)) {
       query["Accounts"] = request.accounts;
     }
 
-    if (!Util.isUnset(request.baselineId)) {
+    if (!$dara.isNull(request.baselineId)) {
       query["BaselineId"] = request.baselineId;
     }
 
-    if (!Util.isUnset(request.baselineItems)) {
+    if (!$dara.isNull(request.baselineItems)) {
       query["BaselineItems"] = request.baselineItems;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchEnrollAccounts",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -3949,7 +4597,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    } else {
+      return $dara.cast<BatchEnrollAccountsResponse>(await this.execute(params, req, runtime), new BatchEnrollAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -3963,7 +4616,7 @@ export default class Client extends OpenApi {
    * @returns BatchEnrollAccountsResponse
    */
   async batchEnrollAccounts(request: BatchEnrollAccountsRequest): Promise<BatchEnrollAccountsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.batchEnrollAccountsWithOptions(request, runtime);
   }
 
@@ -3974,29 +4627,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccountFactoryBaselineResponse
    */
-  async createAccountFactoryBaselineWithOptions(request: CreateAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountFactoryBaselineResponse> {
-    Util.validateModel(request);
+  async createAccountFactoryBaselineWithOptions(request: CreateAccountFactoryBaselineRequest, runtime: $dara.RuntimeOptions): Promise<CreateAccountFactoryBaselineResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baselineItems)) {
+    if (!$dara.isNull(request.baselineItems)) {
       query["BaselineItems"] = request.baselineItems;
     }
 
-    if (!Util.isUnset(request.baselineName)) {
+    if (!$dara.isNull(request.baselineName)) {
       query["BaselineName"] = request.baselineName;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccountFactoryBaseline",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4007,7 +4660,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    } else {
+      return $dara.cast<CreateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -4017,7 +4675,7 @@ export default class Client extends OpenApi {
    * @returns CreateAccountFactoryBaselineResponse
    */
   async createAccountFactoryBaseline(request: CreateAccountFactoryBaselineRequest): Promise<CreateAccountFactoryBaselineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccountFactoryBaselineWithOptions(request, runtime);
   }
 
@@ -4028,21 +4686,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccountFactoryBaselineResponse
    */
-  async deleteAccountFactoryBaselineWithOptions(request: DeleteAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountFactoryBaselineResponse> {
-    Util.validateModel(request);
+  async deleteAccountFactoryBaselineWithOptions(request: DeleteAccountFactoryBaselineRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccountFactoryBaselineResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baselineId)) {
+    if (!$dara.isNull(request.baselineId)) {
       query["BaselineId"] = request.baselineId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccountFactoryBaseline",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4053,7 +4711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    } else {
+      return $dara.cast<DeleteAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -4063,7 +4726,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAccountFactoryBaselineResponse
    */
   async deleteAccountFactoryBaseline(request: DeleteAccountFactoryBaselineRequest): Promise<DeleteAccountFactoryBaselineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountFactoryBaselineWithOptions(request, runtime);
   }
 
@@ -4078,59 +4741,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnrollAccountResponse
    */
-  async enrollAccountWithOptions(tmpReq: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
-    Util.validateModel(tmpReq);
+  async enrollAccountWithOptions(tmpReq: EnrollAccountRequest, runtime: $dara.RuntimeOptions): Promise<EnrollAccountResponse> {
+    tmpReq.validate();
     let request = new EnrollAccountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tag)) {
+    if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountNamePrefix)) {
+    if (!$dara.isNull(request.accountNamePrefix)) {
       query["AccountNamePrefix"] = request.accountNamePrefix;
     }
 
-    if (!Util.isUnset(request.accountUid)) {
+    if (!$dara.isNull(request.accountUid)) {
       query["AccountUid"] = request.accountUid;
     }
 
-    if (!Util.isUnset(request.baselineId)) {
+    if (!$dara.isNull(request.baselineId)) {
       query["BaselineId"] = request.baselineId;
     }
 
-    if (!Util.isUnset(request.baselineItems)) {
+    if (!$dara.isNull(request.baselineItems)) {
       query["BaselineItems"] = request.baselineItems;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.folderId)) {
+    if (!$dara.isNull(request.folderId)) {
       query["FolderId"] = request.folderId;
     }
 
-    if (!Util.isUnset(request.payerAccountUid)) {
+    if (!$dara.isNull(request.payerAccountUid)) {
       query["PayerAccountUid"] = request.payerAccountUid;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resellAccountType)) {
+    if (!$dara.isNull(request.resellAccountType)) {
       query["ResellAccountType"] = request.resellAccountType;
     }
 
-    if (!Util.isUnset(request.tagShrink)) {
+    if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnrollAccount",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4141,7 +4804,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnrollAccountResponse>(await this.callApi(params, req, runtime), new EnrollAccountResponse({}));
+    } else {
+      return $dara.cast<EnrollAccountResponse>(await this.execute(params, req, runtime), new EnrollAccountResponse({}));
+    }
+
   }
 
   /**
@@ -4155,7 +4823,7 @@ export default class Client extends OpenApi {
    * @returns EnrollAccountResponse
    */
   async enrollAccount(request: EnrollAccountRequest): Promise<EnrollAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enrollAccountWithOptions(request, runtime);
   }
 
@@ -4166,21 +4834,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountFactoryBaselineResponse
    */
-  async getAccountFactoryBaselineWithOptions(request: GetAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountFactoryBaselineResponse> {
-    Util.validateModel(request);
+  async getAccountFactoryBaselineWithOptions(request: GetAccountFactoryBaselineRequest, runtime: $dara.RuntimeOptions): Promise<GetAccountFactoryBaselineResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baselineId)) {
+    if (!$dara.isNull(request.baselineId)) {
       query["BaselineId"] = request.baselineId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccountFactoryBaseline",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4191,7 +4859,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    } else {
+      return $dara.cast<GetAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -4201,7 +4874,7 @@ export default class Client extends OpenApi {
    * @returns GetAccountFactoryBaselineResponse
    */
   async getAccountFactoryBaseline(request: GetAccountFactoryBaselineRequest): Promise<GetAccountFactoryBaselineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountFactoryBaselineWithOptions(request, runtime);
   }
 
@@ -4212,21 +4885,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEnrolledAccountResponse
    */
-  async getEnrolledAccountWithOptions(request: GetEnrolledAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetEnrolledAccountResponse> {
-    Util.validateModel(request);
+  async getEnrolledAccountWithOptions(request: GetEnrolledAccountRequest, runtime: $dara.RuntimeOptions): Promise<GetEnrolledAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountUid)) {
+    if (!$dara.isNull(request.accountUid)) {
       query["AccountUid"] = request.accountUid;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetEnrolledAccount",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4237,7 +4910,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
+    } else {
+      return $dara.cast<GetEnrolledAccountResponse>(await this.execute(params, req, runtime), new GetEnrolledAccountResponse({}));
+    }
+
   }
 
   /**
@@ -4247,7 +4925,7 @@ export default class Client extends OpenApi {
    * @returns GetEnrolledAccountResponse
    */
   async getEnrolledAccount(request: GetEnrolledAccountRequest): Promise<GetEnrolledAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getEnrolledAccountWithOptions(request, runtime);
   }
 
@@ -4258,37 +4936,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountFactoryBaselineItemsResponse
    */
-  async listAccountFactoryBaselineItemsWithOptions(request: ListAccountFactoryBaselineItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselineItemsResponse> {
-    Util.validateModel(request);
+  async listAccountFactoryBaselineItemsWithOptions(request: ListAccountFactoryBaselineItemsRequest, runtime: $dara.RuntimeOptions): Promise<ListAccountFactoryBaselineItemsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.names)) {
+    if (!$dara.isNull(request.names)) {
       query["Names"] = request.names;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.versions)) {
+    if (!$dara.isNull(request.versions)) {
       query["Versions"] = request.versions;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccountFactoryBaselineItems",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4299,7 +4977,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    } else {
+      return $dara.cast<ListAccountFactoryBaselineItemsResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+    }
+
   }
 
   /**
@@ -4309,7 +4992,7 @@ export default class Client extends OpenApi {
    * @returns ListAccountFactoryBaselineItemsResponse
    */
   async listAccountFactoryBaselineItems(request: ListAccountFactoryBaselineItemsRequest): Promise<ListAccountFactoryBaselineItemsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccountFactoryBaselineItemsWithOptions(request, runtime);
   }
 
@@ -4320,25 +5003,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountFactoryBaselinesResponse
    */
-  async listAccountFactoryBaselinesWithOptions(request: ListAccountFactoryBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselinesResponse> {
-    Util.validateModel(request);
+  async listAccountFactoryBaselinesWithOptions(request: ListAccountFactoryBaselinesRequest, runtime: $dara.RuntimeOptions): Promise<ListAccountFactoryBaselinesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccountFactoryBaselines",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4349,7 +5032,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    } else {
+      return $dara.cast<ListAccountFactoryBaselinesResponse>(await this.execute(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
+    }
+
   }
 
   /**
@@ -4359,7 +5047,7 @@ export default class Client extends OpenApi {
    * @returns ListAccountFactoryBaselinesResponse
    */
   async listAccountFactoryBaselines(request: ListAccountFactoryBaselinesRequest): Promise<ListAccountFactoryBaselinesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccountFactoryBaselinesWithOptions(request, runtime);
   }
 
@@ -4370,25 +5058,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEnrolledAccountsResponse
    */
-  async listEnrolledAccountsWithOptions(request: ListEnrolledAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnrolledAccountsResponse> {
-    Util.validateModel(request);
+  async listEnrolledAccountsWithOptions(request: ListEnrolledAccountsRequest, runtime: $dara.RuntimeOptions): Promise<ListEnrolledAccountsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEnrolledAccounts",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4399,7 +5087,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    } else {
+      return $dara.cast<ListEnrolledAccountsResponse>(await this.execute(params, req, runtime), new ListEnrolledAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -4409,7 +5102,7 @@ export default class Client extends OpenApi {
    * @returns ListEnrolledAccountsResponse
    */
   async listEnrolledAccounts(request: ListEnrolledAccountsRequest): Promise<ListEnrolledAccountsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEnrolledAccountsWithOptions(request, runtime);
   }
 
@@ -4420,21 +5113,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEvaluationMetadataResponse
    */
-  async listEvaluationMetadataWithOptions(request: ListEvaluationMetadataRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationMetadataResponse> {
-    Util.validateModel(request);
+  async listEvaluationMetadataWithOptions(request: ListEvaluationMetadataRequest, runtime: $dara.RuntimeOptions): Promise<ListEvaluationMetadataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEvaluationMetadata",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4445,7 +5138,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEvaluationMetadataResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    } else {
+      return $dara.cast<ListEvaluationMetadataResponse>(await this.execute(params, req, runtime), new ListEvaluationMetadataResponse({}));
+    }
+
   }
 
   /**
@@ -4455,7 +5153,7 @@ export default class Client extends OpenApi {
    * @returns ListEvaluationMetadataResponse
    */
   async listEvaluationMetadata(request: ListEvaluationMetadataRequest): Promise<ListEvaluationMetadataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEvaluationMetadataWithOptions(request, runtime);
   }
 
@@ -4466,33 +5164,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEvaluationMetricDetailsResponse
    */
-  async listEvaluationMetricDetailsWithOptions(request: ListEvaluationMetricDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationMetricDetailsResponse> {
-    Util.validateModel(request);
+  async listEvaluationMetricDetailsWithOptions(request: ListEvaluationMetricDetailsRequest, runtime: $dara.RuntimeOptions): Promise<ListEvaluationMetricDetailsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEvaluationMetricDetails",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4503,7 +5205,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEvaluationMetricDetailsResponse>(await this.callApi(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    } else {
+      return $dara.cast<ListEvaluationMetricDetailsResponse>(await this.execute(params, req, runtime), new ListEvaluationMetricDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -4513,32 +5220,40 @@ export default class Client extends OpenApi {
    * @returns ListEvaluationMetricDetailsResponse
    */
   async listEvaluationMetricDetails(request: ListEvaluationMetricDetailsRequest): Promise<ListEvaluationMetricDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEvaluationMetricDetailsWithOptions(request, runtime);
   }
 
   /**
-   * Queries the result and status of a governance maturity check.
+   * Queries the result and status of a governance check.
    * 
    * @param request - ListEvaluationResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEvaluationResultsResponse
    */
-  async listEvaluationResultsWithOptions(request: ListEvaluationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationResultsResponse> {
-    Util.validateModel(request);
+  async listEvaluationResultsWithOptions(request: ListEvaluationResultsRequest, runtime: $dara.RuntimeOptions): Promise<ListEvaluationResultsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEvaluationResults",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4549,17 +5264,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEvaluationResultsResponse>(await this.callApi(params, req, runtime), new ListEvaluationResultsResponse({}));
+    } else {
+      return $dara.cast<ListEvaluationResultsResponse>(await this.execute(params, req, runtime), new ListEvaluationResultsResponse({}));
+    }
+
   }
 
   /**
-   * Queries the result and status of a governance maturity check.
+   * Queries the result and status of a governance check.
    * 
    * @param request - ListEvaluationResultsRequest
    * @returns ListEvaluationResultsResponse
    */
   async listEvaluationResults(request: ListEvaluationResultsRequest): Promise<ListEvaluationResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEvaluationResultsWithOptions(request, runtime);
   }
 
@@ -4570,29 +5290,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEvaluationScoreHistoryResponse
    */
-  async listEvaluationScoreHistoryWithOptions(request: ListEvaluationScoreHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListEvaluationScoreHistoryResponse> {
-    Util.validateModel(request);
+  async listEvaluationScoreHistoryWithOptions(request: ListEvaluationScoreHistoryRequest, runtime: $dara.RuntimeOptions): Promise<ListEvaluationScoreHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEvaluationScoreHistory",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4603,7 +5323,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEvaluationScoreHistoryResponse>(await this.callApi(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    } else {
+      return $dara.cast<ListEvaluationScoreHistoryResponse>(await this.execute(params, req, runtime), new ListEvaluationScoreHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -4613,7 +5338,7 @@ export default class Client extends OpenApi {
    * @returns ListEvaluationScoreHistoryResponse
    */
   async listEvaluationScoreHistory(request: ListEvaluationScoreHistoryRequest): Promise<ListEvaluationScoreHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEvaluationScoreHistoryWithOptions(request, runtime);
   }
 
@@ -4624,35 +5349,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEvaluationResponse
    */
-  async runEvaluationWithOptions(tmpReq: RunEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<RunEvaluationResponse> {
-    Util.validateModel(tmpReq);
+  async runEvaluationWithOptions(tmpReq: RunEvaluationRequest, runtime: $dara.RuntimeOptions): Promise<RunEvaluationResponse> {
+    tmpReq.validate();
     let request = new RunEvaluationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.metricIds)) {
+    if (!$dara.isNull(tmpReq.metricIds)) {
       request.metricIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricIds, "MetricIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.metricIdsShrink)) {
+    if (!$dara.isNull(request.metricIdsShrink)) {
       query["MetricIds"] = request.metricIdsShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.scope)) {
+    if (!$dara.isNull(request.scope)) {
       query["Scope"] = request.scope;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RunEvaluation",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4663,7 +5388,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunEvaluationResponse>(await this.callApi(params, req, runtime), new RunEvaluationResponse({}));
+    } else {
+      return $dara.cast<RunEvaluationResponse>(await this.execute(params, req, runtime), new RunEvaluationResponse({}));
+    }
+
   }
 
   /**
@@ -4673,7 +5403,7 @@ export default class Client extends OpenApi {
    * @returns RunEvaluationResponse
    */
   async runEvaluation(request: RunEvaluationRequest): Promise<RunEvaluationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.runEvaluationWithOptions(request, runtime);
   }
 
@@ -4684,33 +5414,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAccountFactoryBaselineResponse
    */
-  async updateAccountFactoryBaselineWithOptions(request: UpdateAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountFactoryBaselineResponse> {
-    Util.validateModel(request);
+  async updateAccountFactoryBaselineWithOptions(request: UpdateAccountFactoryBaselineRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAccountFactoryBaselineResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.baselineId)) {
+    if (!$dara.isNull(request.baselineId)) {
       query["BaselineId"] = request.baselineId;
     }
 
-    if (!Util.isUnset(request.baselineItems)) {
+    if (!$dara.isNull(request.baselineItems)) {
       query["BaselineItems"] = request.baselineItems;
     }
 
-    if (!Util.isUnset(request.baselineName)) {
+    if (!$dara.isNull(request.baselineName)) {
       query["BaselineName"] = request.baselineName;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAccountFactoryBaseline",
       version: "2021-01-20",
       protocol: "HTTPS",
@@ -4721,7 +5451,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    } else {
+      return $dara.cast<UpdateAccountFactoryBaselineResponse>(await this.execute(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+    }
+
   }
 
   /**
@@ -4731,7 +5466,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAccountFactoryBaselineResponse
    */
   async updateAccountFactoryBaseline(request: UpdateAccountFactoryBaselineRequest): Promise<UpdateAccountFactoryBaselineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccountFactoryBaselineWithOptions(request, runtime);
   }
 
