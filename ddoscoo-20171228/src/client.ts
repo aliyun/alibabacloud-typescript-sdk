@@ -5,6 +5,58 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class ConfigLayer4RuleRequestUsTimeout extends $dara.Model {
+  connectTimeout?: number;
+  rsTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      rsTimeout: 'RsTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      rsTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLayer4RuleRequestUsTimeout extends $dara.Model {
+  connectTimeout?: number;
+  rsTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      rsTimeout: 'RsTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      rsTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBatchSlsDispatchStatusResponseBodySlsConfigStatusList extends $dara.Model {
   /**
    * @example
@@ -1528,6 +1580,32 @@ export class DescribeLayer4RuleAttributesResponseBodyListeners extends $dara.Mod
   }
 }
 
+export class DescribeLayer4RulesResponseBodyListenersUsTimeout extends $dara.Model {
+  connectTimeout?: number;
+  rsTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectTimeout: 'ConnectTimeout',
+      rsTimeout: 'RsTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectTimeout: 'number',
+      rsTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLayer4RulesResponseBodyListeners extends $dara.Model {
   /**
    * @remarks
@@ -1647,6 +1725,7 @@ export class DescribeLayer4RulesResponseBodyListeners extends $dara.Model {
    * test-remark
    */
   remark?: string;
+  usTimeout?: DescribeLayer4RulesResponseBodyListenersUsTimeout;
   static names(): { [key: string]: string } {
     return {
       backendPort: 'BackendPort',
@@ -1662,6 +1741,7 @@ export class DescribeLayer4RulesResponseBodyListeners extends $dara.Model {
       proxyStatus: 'ProxyStatus',
       realServers: 'RealServers',
       remark: 'Remark',
+      usTimeout: 'UsTimeout',
     };
   }
 
@@ -1680,12 +1760,16 @@ export class DescribeLayer4RulesResponseBodyListeners extends $dara.Model {
       proxyStatus: 'string',
       realServers: { 'type': 'array', 'itemType': 'string' },
       remark: 'string',
+      usTimeout: DescribeLayer4RulesResponseBodyListenersUsTimeout,
     };
   }
 
   validate() {
     if(Array.isArray(this.realServers)) {
       $dara.Model.validateArray(this.realServers);
+    }
+    if(this.usTimeout && typeof (this.usTimeout as any).validate === 'function') {
+      (this.usTimeout as any).validate();
     }
     super.validate();
   }
@@ -2730,10 +2814,12 @@ export class ConfigLayer4RuleRequest extends $dara.Model {
    */
   listeners?: string;
   proxyEnable?: number;
+  usTimeout?: ConfigLayer4RuleRequestUsTimeout;
   static names(): { [key: string]: string } {
     return {
       listeners: 'Listeners',
       proxyEnable: 'ProxyEnable',
+      usTimeout: 'UsTimeout',
     };
   }
 
@@ -2741,6 +2827,46 @@ export class ConfigLayer4RuleRequest extends $dara.Model {
     return {
       listeners: 'string',
       proxyEnable: 'number',
+      usTimeout: ConfigLayer4RuleRequestUsTimeout,
+    };
+  }
+
+  validate() {
+    if(this.usTimeout && typeof (this.usTimeout as any).validate === 'function') {
+      (this.usTimeout as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigLayer4RuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"xxxxxx-xxxxxx-xxxxxx-xxxxxxx","Protocol":"tcp","FrontendPort":80,"BackendPort":5,"RealServers":"1.1.1.1","2.2.2.2"}]
+   */
+  listeners?: string;
+  proxyEnable?: number;
+  usTimeoutShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listeners: 'Listeners',
+      proxyEnable: 'ProxyEnable',
+      usTimeoutShrink: 'UsTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listeners: 'string',
+      proxyEnable: 'number',
+      usTimeoutShrink: 'string',
     };
   }
 
@@ -3735,10 +3861,12 @@ export class CreateLayer4RuleRequest extends $dara.Model {
    */
   listeners?: string;
   proxyEnable?: number;
+  usTimeout?: CreateLayer4RuleRequestUsTimeout;
   static names(): { [key: string]: string } {
     return {
       listeners: 'Listeners',
       proxyEnable: 'ProxyEnable',
+      usTimeout: 'UsTimeout',
     };
   }
 
@@ -3746,6 +3874,46 @@ export class CreateLayer4RuleRequest extends $dara.Model {
     return {
       listeners: 'string',
       proxyEnable: 'number',
+      usTimeout: CreateLayer4RuleRequestUsTimeout,
+    };
+  }
+
+  validate() {
+    if(this.usTimeout && typeof (this.usTimeout as any).validate === 'function') {
+      (this.usTimeout as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLayer4RuleShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"xxxxxx-xxxxxx-xxxxxx-xxxxxxx","Protocol":"tcp","FrontendPort":80,"BackendPort":5,"RealServers":"1.1.1.1","2.2.2.2"}]
+   */
+  listeners?: string;
+  proxyEnable?: number;
+  usTimeoutShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listeners: 'Listeners',
+      proxyEnable: 'ProxyEnable',
+      usTimeoutShrink: 'UsTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listeners: 'string',
+      proxyEnable: 'number',
+      usTimeoutShrink: 'string',
     };
   }
 
@@ -11010,12 +11178,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - ConfigLayer4RuleRequest
+   * @param tmpReq - ConfigLayer4RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigLayer4RuleResponse
    */
-  async configLayer4RuleWithOptions(request: ConfigLayer4RuleRequest, runtime: $dara.RuntimeOptions): Promise<ConfigLayer4RuleResponse> {
-    request.validate();
+  async configLayer4RuleWithOptions(tmpReq: ConfigLayer4RuleRequest, runtime: $dara.RuntimeOptions): Promise<ConfigLayer4RuleResponse> {
+    tmpReq.validate();
+    let request = new ConfigLayer4RuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.usTimeout)) {
+      request.usTimeoutShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.usTimeout, "UsTimeout", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.listeners)) {
       query["Listeners"] = request.listeners;
@@ -11023,6 +11197,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.proxyEnable)) {
       query["ProxyEnable"] = request.proxyEnable;
+    }
+
+    if (!$dara.isNull(request.usTimeoutShrink)) {
+      query["UsTimeout"] = request.usTimeoutShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -11482,12 +11660,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - CreateLayer4RuleRequest
+   * @param tmpReq - CreateLayer4RuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLayer4RuleResponse
    */
-  async createLayer4RuleWithOptions(request: CreateLayer4RuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateLayer4RuleResponse> {
-    request.validate();
+  async createLayer4RuleWithOptions(tmpReq: CreateLayer4RuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateLayer4RuleResponse> {
+    tmpReq.validate();
+    let request = new CreateLayer4RuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.usTimeout)) {
+      request.usTimeoutShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.usTimeout, "UsTimeout", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.listeners)) {
       query["Listeners"] = request.listeners;
@@ -11495,6 +11679,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.proxyEnable)) {
       query["ProxyEnable"] = request.proxyEnable;
+    }
+
+    if (!$dara.isNull(request.usTimeoutShrink)) {
+      query["UsTimeout"] = request.usTimeoutShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
