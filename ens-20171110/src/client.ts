@@ -5194,6 +5194,58 @@ export class DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfo extend
   }
 }
 
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags extends $dara.Model {
+  tag?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $dara.Model {
   /**
    * @remarks
@@ -5338,6 +5390,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
    * Available
    */
   status?: string;
+  tags?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
@@ -5355,6 +5408,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       name: 'Name',
       standby: 'Standby',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -5375,10 +5429,14 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       name: 'string',
       standby: 'boolean',
       status: 'string',
+      tags: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags,
     };
   }
 
   validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
     super.validate();
   }
 
@@ -12735,6 +12793,32 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysIpLists extends $dara.Mod
   }
 }
 
+export class DescribeNatGatewaysResponseBodyNatGatewaysTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
   /**
    * @remarks
@@ -12801,6 +12885,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
    * Available
    */
   status?: string;
+  tags?: DescribeNatGatewaysResponseBodyNatGatewaysTags[];
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -12819,6 +12904,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
       networkId: 'NetworkId',
       spec: 'Spec',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -12833,6 +12919,7 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
       networkId: 'string',
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeNatGatewaysResponseBodyNatGatewaysTags },
       vSwitchId: 'string',
     };
   }
@@ -12840,6 +12927,9 @@ export class DescribeNatGatewaysResponseBodyNatGateways extends $dara.Model {
   validate() {
     if(Array.isArray(this.ipLists)) {
       $dara.Model.validateArray(this.ipLists);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -13907,6 +13997,58 @@ export class DescribeNetworksResponseBodyNetworksNetworkRouteTableIds extends $d
   }
 }
 
+export class DescribeNetworksResponseBodyNetworksNetworkTagsTag extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworksResponseBodyNetworksNetworkTags extends $dara.Model {
+  tag?: DescribeNetworksResponseBodyNetworksNetworkTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeNetworksResponseBodyNetworksNetworkTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworksResponseBodyNetworksNetworkVSwitchIds extends $dara.Model {
   vSwitchId?: string[];
   static names(): { [key: string]: string } {
@@ -14032,6 +14174,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
    * Available
    */
   status?: string;
+  tags?: DescribeNetworksResponseBodyNetworksNetworkTags;
   /**
    * @remarks
    * The list of vSwitches in the network.
@@ -14051,6 +14194,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       routeTableIds: 'RouteTableIds',
       routerTableId: 'RouterTableId',
       status: 'Status',
+      tags: 'Tags',
       vSwitchIds: 'VSwitchIds',
     };
   }
@@ -14069,6 +14213,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       routeTableIds: DescribeNetworksResponseBodyNetworksNetworkRouteTableIds,
       routerTableId: 'string',
       status: 'string',
+      tags: DescribeNetworksResponseBodyNetworksNetworkTags,
       vSwitchIds: DescribeNetworksResponseBodyNetworksNetworkVSwitchIds,
     };
   }
@@ -14076,6 +14221,9 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
   validate() {
     if(this.routeTableIds && typeof (this.routeTableIds as any).validate === 'function') {
       (this.routeTableIds as any).validate();
+    }
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
     }
     if(this.vSwitchIds && typeof (this.vSwitchIds as any).validate === 'function') {
       (this.vSwitchIds as any).validate();
@@ -18447,6 +18595,58 @@ export class DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds extends $d
   }
 }
 
+export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTags extends $dara.Model {
+  tag?: DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
   /**
    * @remarks
@@ -18507,6 +18707,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
    * Pending
    */
   status?: string;
+  tags?: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags;
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -18532,6 +18733,7 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       freeIpCount: 'FreeIpCount',
       networkId: 'NetworkId',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vSwitchName: 'VSwitchName',
     };
@@ -18546,12 +18748,16 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
       freeIpCount: 'number',
       networkId: 'string',
       status: 'string',
+      tags: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags,
       vSwitchId: 'string',
       vSwitchName: 'string',
     };
   }
 
   validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
     super.validate();
   }
 
