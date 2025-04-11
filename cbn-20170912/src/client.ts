@@ -5920,6 +5920,12 @@ export class DescribeTransitRouteTableAggregationResponseBodyData extends $dara.
    * VPC
    */
   scope?: string;
+  /**
+   * @remarks
+   * The list of propagation ranges of the aggregation route.
+   * 
+   * >  You must specify at least one of the following attributes: Aggregation Scope and Aggregate Scope List. We recommend that you specify the latter. The elements in the two attributes cannot be duplicate.
+   */
   scopeList?: string[];
   /**
    * @remarks
@@ -14568,9 +14574,9 @@ export class CreateTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -14609,7 +14615,7 @@ export class CreateTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The description of the aggregate route.
    * 
-   * The description must be 0 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -14619,7 +14625,7 @@ export class CreateTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The name of the aggregate route.
    * 
-   * The name must be 1 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -. You can also leave the name empty.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -14627,14 +14633,20 @@ export class CreateTransitRouteTableAggregationRequest extends $dara.Model {
   transitRouteTableAggregationName?: string;
   /**
    * @remarks
-   * The scope of networks that you want to advertise the aggregate route.
+   * The scope of networks to which the aggregate route is advertised.
    * 
-   * Set the value to **VPC**, which specified that the aggregate route is advertised to VPCs that are in associated forwarding relationship with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+   * The valid value is **VPC**, which indicates that the aggregate route is advertised to all VPCs that are in associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
    * 
    * @example
    * VPC
    */
   transitRouteTableAggregationScope?: string;
+  /**
+   * @remarks
+   * The list of propagation ranges of the aggregation route.
+   * 
+   * >  You must specify at least one of the following attributes: Aggregation Scope and Aggregate Scope List. We recommend that you specify the latter. The elements in the two attributes cannot be duplicate.
+   */
   transitRouteTableAggregationScopeList?: string[];
   /**
    * @remarks
@@ -14697,9 +14709,9 @@ export class CreateTransitRouteTableAggregationShrinkRequest extends $dara.Model
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -14738,7 +14750,7 @@ export class CreateTransitRouteTableAggregationShrinkRequest extends $dara.Model
    * @remarks
    * The description of the aggregate route.
    * 
-   * The description must be 0 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -14748,7 +14760,7 @@ export class CreateTransitRouteTableAggregationShrinkRequest extends $dara.Model
    * @remarks
    * The name of the aggregate route.
    * 
-   * The name must be 1 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -. You can also leave the name empty.
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -14756,14 +14768,20 @@ export class CreateTransitRouteTableAggregationShrinkRequest extends $dara.Model
   transitRouteTableAggregationName?: string;
   /**
    * @remarks
-   * The scope of networks that you want to advertise the aggregate route.
+   * The scope of networks to which the aggregate route is advertised.
    * 
-   * Set the value to **VPC**, which specified that the aggregate route is advertised to VPCs that are in associated forwarding relationship with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+   * The valid value is **VPC**, which indicates that the aggregate route is advertised to all VPCs that are in associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
    * 
    * @example
    * VPC
    */
   transitRouteTableAggregationScope?: string;
+  /**
+   * @remarks
+   * The list of propagation ranges of the aggregation route.
+   * 
+   * >  You must specify at least one of the following attributes: Aggregation Scope and Aggregate Scope List. We recommend that you specify the latter. The elements in the two attributes cannot be duplicate.
+   */
   transitRouteTableAggregationScopeListShrink?: string;
   /**
    * @remarks
@@ -19249,6 +19267,7 @@ export class DeleteTrafficMarkingPolicyRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  force?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -19267,6 +19286,7 @@ export class DeleteTrafficMarkingPolicyRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      force: 'Force',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -19279,6 +19299,7 @@ export class DeleteTrafficMarkingPolicyRequest extends $dara.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      force: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -25708,9 +25729,9 @@ export class DescribeTransitRouteTableAggregationRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -34413,11 +34434,24 @@ export class ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse extends $dara.
 
 export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * Use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different.
+   * 
    * @example
    * 02fb3da4****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   **false** (default): sends the request. If the request passes the check, an Enterprise Edition transit router is created.
+   * *   **true**: checks the request but does not create the Enterprise Edition transit router. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
    * @example
    * false
    */
@@ -34428,6 +34462,8 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The destination CIDR block of the aggregate route.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34435,23 +34471,46 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
    */
   transitRouteTableAggregationCidr?: string;
   /**
+   * @remarks
+   * The description of the aggregate route.
+   * 
+   * The description can be empty or 0 to 256 characters in length and cannot start with http:// or https://.
+   * 
    * @example
    * desctest
    */
   transitRouteTableAggregationDescription?: string;
   /**
+   * @remarks
+   * The name of the aggregate route.
+   * 
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * 
    * @example
    * nametest
    */
   transitRouteTableAggregationName?: string;
   /**
+   * @remarks
+   * The scope of networks that you want to advertise the aggregate route.
+   * 
+   * The valid value is **VPC**, which indicates that the aggregate route is advertised to all VPCs that have associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
+   * 
    * @example
    * VPC
    */
   transitRouteTableAggregationScope?: string;
+  /**
+   * @remarks
+   * The scope of networks to which the aggregate route is advertised.
+   * 
+   * >  You must select at least one attribute from either the Aggregate Route Propagation Range or the Aggregate Route Propagation Range List. We recommend using the latter. The elements of the two attributes cannot duplicate.
+   */
   transitRouteTableAggregationScopeList?: string[];
   /**
    * @remarks
+   * The list of route table IDs of the Enterprise Edition transit router.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34506,11 +34565,24 @@ export class ModifyTransitRouteTableAggregationRequest extends $dara.Model {
 
 export class ModifyTransitRouteTableAggregationShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * Use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may be different.
+   * 
    * @example
    * 02fb3da4****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   **false** (default): sends the request. If the request passes the check, an Enterprise Edition transit router is created.
+   * *   **true**: checks the request but does not create the Enterprise Edition transit router. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
    * @example
    * false
    */
@@ -34521,6 +34593,8 @@ export class ModifyTransitRouteTableAggregationShrinkRequest extends $dara.Model
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The destination CIDR block of the aggregate route.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34528,23 +34602,46 @@ export class ModifyTransitRouteTableAggregationShrinkRequest extends $dara.Model
    */
   transitRouteTableAggregationCidr?: string;
   /**
+   * @remarks
+   * The description of the aggregate route.
+   * 
+   * The description can be empty or 0 to 256 characters in length and cannot start with http:// or https://.
+   * 
    * @example
    * desctest
    */
   transitRouteTableAggregationDescription?: string;
   /**
+   * @remarks
+   * The name of the aggregate route.
+   * 
+   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * 
    * @example
    * nametest
    */
   transitRouteTableAggregationName?: string;
   /**
+   * @remarks
+   * The scope of networks that you want to advertise the aggregate route.
+   * 
+   * The valid value is **VPC**, which indicates that the aggregate route is advertised to all VPCs that have associated forwarding correlation with the Enterprise Edition transit router and have route synchronization enabled.
+   * 
    * @example
    * VPC
    */
   transitRouteTableAggregationScope?: string;
+  /**
+   * @remarks
+   * The scope of networks to which the aggregate route is advertised.
+   * 
+   * >  You must select at least one attribute from either the Aggregate Route Propagation Range or the Aggregate Route Propagation Range List. We recommend using the latter. The elements of the two attributes cannot duplicate.
+   */
   transitRouteTableAggregationScopeListShrink?: string;
   /**
    * @remarks
+   * The list of route table IDs of the Enterprise Edition transit router.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34596,6 +34693,9 @@ export class ModifyTransitRouteTableAggregationShrinkRequest extends $dara.Model
 
 export class ModifyTransitRouteTableAggregationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
    */
@@ -41857,7 +41957,7 @@ export default class Client extends OpenApi {
    * Creates an aggregate route.
    * 
    * @remarks
-   * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+   * After you add an aggregate route to a route table of an Enterprise Edition transit router, the transit router advertises its routes only to route tables of associated virtual private clouds (VPCs) and have route synchronization enabled.
    * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
    * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](https://help.aliyun.com/document_detail/261242.html).
    * *   Route synchronization is enabled for the VPCs. For more information, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261358.html).
@@ -41949,7 +42049,7 @@ export default class Client extends OpenApi {
    * Creates an aggregate route.
    * 
    * @remarks
-   * After you add an aggregate route to a route table of an Enterprise Edition transit router, the Enterprise Edition transit router advertises its routes only to route tables of virtual private clouds (VPCs) that are associated with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+   * After you add an aggregate route to a route table of an Enterprise Edition transit router, the transit router advertises its routes only to route tables of associated virtual private clouds (VPCs) and have route synchronization enabled.
    * Perform the following operations before you create an aggregate route. Otherwise, the Enterprise Edition transit router does not advertise routes to VPC route tables:
    * *   Associated forwarding is enabled between the VPCs and the Enterprise Edition transit router. For more information, see [AssociateTransitRouterAttachmentWithRouteTable](https://help.aliyun.com/document_detail/261242.html).
    * *   Route synchronization is enabled for the VPCs. For more information, see [CreateTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261358.html).
@@ -44147,6 +44247,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -47170,7 +47274,7 @@ export default class Client extends OpenApi {
    * Queries the aggregate routes on an Enterprise Edition transit router.
    * 
    * @remarks
-   * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+   * You can specify the values of the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to query a specified aggregate route. If you specify only the **TransitRouteTableId** parameter, all aggregated routes in the route table are queried.
    * 
    * @param request - DescribeTransitRouteTableAggregationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47241,7 +47345,7 @@ export default class Client extends OpenApi {
    * Queries the aggregate routes on an Enterprise Edition transit router.
    * 
    * @remarks
-   * You can set the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to specify the aggregate routes that you want to query. If you set only the **TransitRouteTableId** parameter, all aggregate routes in the specified route table are queried.
+   * You can specify the values of the **TransitRouteTableId** and **TransitRouteTableAggregationCidr** parameters to query a specified aggregate route. If you specify only the **TransitRouteTableId** parameter, all aggregated routes in the route table are queried.
    * 
    * @param request - DescribeTransitRouteTableAggregationRequest
    * @returns DescribeTransitRouteTableAggregationResponse
@@ -51140,7 +51244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑聚合路由
+   * Edit an aggregate route.
    * 
    * @param tmpReq - ModifyTransitRouteTableAggregationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51226,7 +51330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑聚合路由
+   * Edit an aggregate route.
    * 
    * @param request - ModifyTransitRouteTableAggregationRequest
    * @returns ModifyTransitRouteTableAggregationResponse
@@ -52731,6 +52835,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 进行云企业网预付费带宽包临时升配
+   * 
    * @param request - TempUpgradeCenBandwidthPackageSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TempUpgradeCenBandwidthPackageSpecResponse
@@ -52789,6 +52895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 进行云企业网预付费带宽包临时升配
+   * 
    * @param request - TempUpgradeCenBandwidthPackageSpecRequest
    * @returns TempUpgradeCenBandwidthPackageSpecResponse
    */
