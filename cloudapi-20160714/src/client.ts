@@ -35574,6 +35574,13 @@ export class DescribeDatasetListRequest extends $dara.Model {
    * 4add6a61804e47858266883e********
    */
   datasetIds?: string;
+  /**
+   * @remarks
+   * The name of the dataset.
+   * 
+   * @example
+   * IPwhitelist
+   */
   datasetName?: string;
   /**
    * @remarks
@@ -53186,6 +53193,14 @@ export class SetDomainCertificateRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
+   * If enable ssl OCSP cache.
+   * 
+   * @example
+   * True
+   */
+  sslOcspCacheEnable?: boolean;
+  /**
+   * @remarks
    * If enable ssl OCSP.
    * 
    * @example
@@ -53210,6 +53225,7 @@ export class SetDomainCertificateRequest extends $dara.Model {
       domainName: 'DomainName',
       groupId: 'GroupId',
       securityToken: 'SecurityToken',
+      sslOcspCacheEnable: 'SslOcspCacheEnable',
       sslOcspEnable: 'SslOcspEnable',
       sslVerifyDepth: 'SslVerifyDepth',
     };
@@ -53225,6 +53241,7 @@ export class SetDomainCertificateRequest extends $dara.Model {
       domainName: 'string',
       groupId: 'string',
       securityToken: 'string',
+      sslOcspCacheEnable: 'boolean',
       sslOcspEnable: 'boolean',
       sslVerifyDepth: 'string',
     };
@@ -68840,6 +68857,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.sslOcspCacheEnable)) {
+      query["SslOcspCacheEnable"] = request.sslOcspCacheEnable;
     }
 
     if (!$dara.isNull(request.sslOcspEnable)) {
