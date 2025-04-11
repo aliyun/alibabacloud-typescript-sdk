@@ -1686,6 +1686,29 @@ export class ListEvaluationResultsRequestFilters extends $dara.Model {
   }
 }
 
+export class ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary extends $dara.Model {
+  nonCompliant?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nonCompliant: 'NonCompliant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nonCompliant: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $dara.Model {
   /**
    * @remarks
@@ -1757,6 +1780,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSumma
 }
 
 export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara.Model {
+  accountSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary;
   /**
    * @remarks
    * The error information.
@@ -1819,6 +1843,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      accountSummary: 'AccountSummary',
       errorInfo: 'ErrorInfo',
       evaluationTime: 'EvaluationTime',
       id: 'Id',
@@ -1831,6 +1856,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      accountSummary: ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary,
       errorInfo: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo,
       evaluationTime: 'string',
       id: 'string',
@@ -1842,6 +1868,9 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   }
 
   validate() {
+    if(this.accountSummary && typeof (this.accountSummary as any).validate === 'function') {
+      (this.accountSummary as any).validate();
+    }
     if(this.errorInfo && typeof (this.errorInfo as any).validate === 'function') {
       (this.errorInfo as any).validate();
     }
@@ -3816,6 +3845,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  scope?: string;
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3824,6 +3854,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      scope: 'Scope',
       snapshotId: 'SnapshotId',
     };
   }
@@ -3835,6 +3866,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      scope: 'string',
       snapshotId: 'string',
     };
   }
@@ -3955,12 +3987,14 @@ export class ListEvaluationResultsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  scope?: string;
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       filters: 'Filters',
       regionId: 'RegionId',
+      scope: 'Scope',
       snapshotId: 'SnapshotId',
     };
   }
@@ -3970,6 +4004,7 @@ export class ListEvaluationResultsRequest extends $dara.Model {
       accountId: 'number',
       filters: { 'type': 'array', 'itemType': ListEvaluationResultsRequestFilters },
       regionId: 'string',
+      scope: 'string',
       snapshotId: 'string',
     };
   }
@@ -5187,6 +5222,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
     if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
     }
@@ -5244,6 +5283,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
     }
 
     if (!$dara.isNull(request.snapshotId)) {
