@@ -1838,6 +1838,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
    * testapp
    */
   appName?: string;
+  appType?: string;
   /**
    * @remarks
    * Region id.
@@ -1936,6 +1937,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
       apkSize: 'ApkSize',
       appId: 'AppId',
       appName: 'AppName',
+      appType: 'AppType',
       bizRegionId: 'BizRegionId',
       description: 'Description',
       gmtCreate: 'GmtCreate',
@@ -1955,6 +1957,7 @@ export class DescribeAppsResponseBodyData extends $dara.Model {
       apkSize: 'string',
       appId: 'number',
       appName: 'string',
+      appType: 'string',
       bizRegionId: 'string',
       description: 'string',
       gmtCreate: 'string',
@@ -5066,6 +5069,7 @@ export class CreateAppRequest extends $dara.Model {
    * http://testApp.apk
    */
   ossAppUrl?: string;
+  signApk?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -5077,6 +5081,7 @@ export class CreateAppRequest extends $dara.Model {
       iconUrl: 'IconUrl',
       installParam: 'InstallParam',
       ossAppUrl: 'OssAppUrl',
+      signApk: 'SignApk',
     };
   }
 
@@ -5091,6 +5096,7 @@ export class CreateAppRequest extends $dara.Model {
       iconUrl: 'string',
       installParam: 'string',
       ossAppUrl: 'string',
+      signApk: 'string',
     };
   }
 
@@ -5197,6 +5203,7 @@ export class CreateAppShrinkRequest extends $dara.Model {
    * http://testApp.apk
    */
   ossAppUrl?: string;
+  signApk?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -5208,6 +5215,7 @@ export class CreateAppShrinkRequest extends $dara.Model {
       iconUrl: 'IconUrl',
       installParam: 'InstallParam',
       ossAppUrl: 'OssAppUrl',
+      signApk: 'SignApk',
     };
   }
 
@@ -5222,6 +5230,7 @@ export class CreateAppShrinkRequest extends $dara.Model {
       iconUrl: 'string',
       installParam: 'string',
       ossAppUrl: 'string',
+      signApk: 'string',
     };
   }
 
@@ -7586,6 +7595,7 @@ export class DescribeAppsRequest extends $dara.Model {
    * defaultAppName
    */
   appName?: string;
+  appType?: string;
   /**
    * @remarks
    * Region id.
@@ -7653,6 +7663,7 @@ export class DescribeAppsRequest extends $dara.Model {
     return {
       appIdList: 'AppIdList',
       appName: 'AppName',
+      appType: 'AppType',
       bizRegionId: 'BizRegionId',
       installationStatus: 'InstallationStatus',
       MD5: 'MD5',
@@ -7666,6 +7677,7 @@ export class DescribeAppsRequest extends $dara.Model {
     return {
       appIdList: { 'type': 'array', 'itemType': 'string' },
       appName: 'string',
+      appType: 'string',
       bizRegionId: 'string',
       installationStatus: 'string',
       MD5: 'string',
@@ -14308,6 +14320,10 @@ export default class Client extends OpenApi {
       query["OssAppUrl"] = request.ossAppUrl;
     }
 
+    if (!$dara.isNull(request.signApk)) {
+      query["SignApk"] = request.signApk;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -15267,6 +15283,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.appType)) {
+      query["AppType"] = request.appType;
     }
 
     if (!$dara.isNull(request.bizRegionId)) {
