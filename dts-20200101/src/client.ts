@@ -2068,6 +2068,7 @@ export class DescribeDtsJobDetailResponseBodyDataSynchronizationStatus extends $
 }
 
 export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.Model {
+  aliyunUid?: string;
   /**
    * @remarks
    * Indicates whether the password can be modified. Valid values:
@@ -2145,6 +2146,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
    * cn-hangzhou
    */
   region?: string;
+  roleName?: string;
   /**
    * @remarks
    * Indicates whether SSL encryption is enabled. Valid values:
@@ -2168,6 +2170,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      aliyunUid: 'AliyunUid',
       canModifyPassword: 'CanModifyPassword',
       databaseName: 'DatabaseName',
       engineName: 'EngineName',
@@ -2177,6 +2180,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
       oracleSID: 'OracleSID',
       port: 'Port',
       region: 'Region',
+      roleName: 'RoleName',
       sslSolutionEnum: 'SslSolutionEnum',
       userName: 'UserName',
     };
@@ -2184,6 +2188,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      aliyunUid: 'string',
       canModifyPassword: 'boolean',
       databaseName: 'string',
       engineName: 'string',
@@ -2193,6 +2198,7 @@ export class DescribeDtsJobDetailResponseBodyDestinationEndpoint extends $dara.M
       oracleSID: 'string',
       port: 'string',
       region: 'string',
+      roleName: 'string',
       sslSolutionEnum: 'string',
       userName: 'string',
     };
@@ -47031,6 +47037,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
    * dtstest
    */
   username?: string;
+  zeroEtlJob?: boolean;
   static names(): { [key: string]: string } {
     return {
       aliyunUid: 'AliyunUid',
@@ -47053,6 +47060,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
       shardUsername: 'ShardUsername',
       synchronizationDirection: 'SynchronizationDirection',
       username: 'Username',
+      zeroEtlJob: 'ZeroEtlJob',
     };
   }
 
@@ -47078,6 +47086,7 @@ export class ModifyDtsJobEndpointRequest extends $dara.Model {
       shardUsername: 'string',
       synchronizationDirection: 'string',
       username: 'string',
+      zeroEtlJob: 'boolean',
     };
   }
 
@@ -61942,6 +61951,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
+    }
+
+    if (!$dara.isNull(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
