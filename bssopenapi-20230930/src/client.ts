@@ -5,6 +5,388 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class AddCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCouponDeductTagRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1501603440974415
+   */
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponResponseBodyDataShareUidList extends $dara.Model {
+  /**
+   * @example
+   * 1902671110151254
+   */
+  uid?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+      userNick: 'UserNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+      userNick: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 9929.750000
+   */
+  amount?: string;
+  /**
+   * @example
+   * 59243658
+   */
+  couponId?: number;
+  /**
+   * @example
+   * 731074910070
+   */
+  couponNo?: string;
+  /**
+   * @example
+   * CERTAIN
+   */
+  couponType?: string;
+  couponTypeName?: string;
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 2021-03-06T15:12Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 2021-03-02T15:12Z
+   */
+  gmtCreate?: string;
+  itemNames?: string[];
+  moneyLimit?: string;
+  orderTimeRule?: string;
+  /**
+   * @example
+   * 100.00
+   */
+  remainAmount?: string;
+  remark?: string;
+  shareUidList?: DescribeCouponResponseBodyDataShareUidList[];
+  /**
+   * @example
+   * true
+   */
+  showSetDeductTagButton?: boolean;
+  /**
+   * @example
+   * CHINA
+   */
+  site?: string;
+  siteName?: string;
+  /**
+   * @example
+   * 2021-03-02T15:12Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @example
+   * 1902671110151254
+   */
+  suitAccount?: string;
+  /**
+   * @example
+   * all
+   */
+  suitItemType?: string;
+  /**
+   * @example
+   * UNIVERSAL
+   */
+  universalType?: string;
+  yhOrderTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      couponId: 'CouponId',
+      couponNo: 'CouponNo',
+      couponType: 'CouponType',
+      couponTypeName: 'CouponTypeName',
+      currency: 'Currency',
+      endTime: 'EndTime',
+      gmtCreate: 'GmtCreate',
+      itemNames: 'ItemNames',
+      moneyLimit: 'MoneyLimit',
+      orderTimeRule: 'OrderTimeRule',
+      remainAmount: 'RemainAmount',
+      remark: 'Remark',
+      shareUidList: 'ShareUidList',
+      showSetDeductTagButton: 'ShowSetDeductTagButton',
+      site: 'Site',
+      siteName: 'SiteName',
+      startTime: 'StartTime',
+      status: 'Status',
+      suitAccount: 'SuitAccount',
+      suitItemType: 'SuitItemType',
+      universalType: 'UniversalType',
+      yhOrderTypes: 'YhOrderTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      couponId: 'number',
+      couponNo: 'string',
+      couponType: 'string',
+      couponTypeName: 'string',
+      currency: 'string',
+      endTime: 'string',
+      gmtCreate: 'string',
+      itemNames: { 'type': 'array', 'itemType': 'string' },
+      moneyLimit: 'string',
+      orderTimeRule: 'string',
+      remainAmount: 'string',
+      remark: 'string',
+      shareUidList: { 'type': 'array', 'itemType': DescribeCouponResponseBodyDataShareUidList },
+      showSetDeductTagButton: 'boolean',
+      site: 'string',
+      siteName: 'string',
+      startTime: 'string',
+      status: 'string',
+      suitAccount: 'string',
+      suitItemType: 'string',
+      universalType: 'string',
+      yhOrderTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.itemNames)) {
+      $dara.Model.validateArray(this.itemNames);
+    }
+    if(Array.isArray(this.shareUidList)) {
+      $dara.Model.validateArray(this.shareUidList);
+    }
+    if(Array.isArray(this.yhOrderTypes)) {
+      $dara.Model.validateArray(this.yhOrderTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1004064243473974
+   */
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * vm
+   */
+  code?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFundAccountAvailableAmountResponseBodyExtendLedgerList extends $dara.Model {
   /**
    * @example
@@ -276,6 +658,65 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
       transactionNumber: 'number',
       transactionTime: 'string',
       transactionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponDeductTagRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponDeductTagResponseBodyData extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -560,6 +1001,137 @@ export class SetSavingPlanUserDeductRuleRequestUserDeductRules extends $dara.Mod
   }
 }
 
+export class AddCouponDeductTagRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIds?: AddCouponDeductTagRequestEcIdAccountIds[];
+  nbid?: string;
+  tags?: AddCouponDeductTagRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIds: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIds: { 'type': 'array', 'itemType': AddCouponDeductTagRequestEcIdAccountIds },
+      nbid: 'string',
+      tags: { 'type': 'array', 'itemType': AddCouponDeductTagRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCouponDeductTagShrinkRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIdsShrink?: string;
+  nbid?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIdsShrink: 'string',
+      nbid: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCouponDeductTagResponseBody extends $dara.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCouponDeductTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCouponDeductTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCouponDeductTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
   /**
    * @example
@@ -804,6 +1376,641 @@ export class CreateFundAccountTransferResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateFundAccountTransferResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponDeductTagRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIds?: DeleteCouponDeductTagRequestEcIdAccountIds[];
+  nbid?: string;
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIds: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIds: { 'type': 'array', 'itemType': DeleteCouponDeductTagRequestEcIdAccountIds },
+      nbid: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponDeductTagShrinkRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIdsShrink?: string;
+  nbid?: string;
+  tagKeysShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      nbid: 'Nbid',
+      tagKeysShrink: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIdsShrink: 'string',
+      nbid: 'string',
+      tagKeysShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponDeductTagResponseBody extends $dara.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponDeductTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCouponDeductTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCouponDeductTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponRequest extends $dara.Model {
+  /**
+   * @example
+   * 351430260343
+   */
+  couponId?: number;
+  /**
+   * @example
+   * 554863270150
+   */
+  couponNo?: string;
+  /**
+   * @example
+   * CERTAIN
+   */
+  couponType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  ecIdAccountIds?: DescribeCouponRequestEcIdAccountIds[];
+  /**
+   * @example
+   * 1708423156000
+   */
+  effectiveEndTime?: number;
+  /**
+   * @example
+   * 1684750028000
+   */
+  effectiveStartTime?: number;
+  /**
+   * @example
+   * 1708423156000
+   */
+  expireEndDate?: number;
+  /**
+   * @example
+   * 1684750028000
+   */
+  expireStartDate?: number;
+  /**
+   * @example
+   * 2684201000001
+   */
+  nbid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AVAILABLE
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      couponNo: 'CouponNo',
+      couponType: 'CouponType',
+      currentPage: 'CurrentPage',
+      ecIdAccountIds: 'EcIdAccountIds',
+      effectiveEndTime: 'EffectiveEndTime',
+      effectiveStartTime: 'EffectiveStartTime',
+      expireEndDate: 'ExpireEndDate',
+      expireStartDate: 'ExpireStartDate',
+      nbid: 'Nbid',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'number',
+      couponNo: 'string',
+      couponType: 'string',
+      currentPage: 'number',
+      ecIdAccountIds: { 'type': 'array', 'itemType': DescribeCouponRequestEcIdAccountIds },
+      effectiveEndTime: 'number',
+      effectiveStartTime: 'number',
+      expireEndDate: 'number',
+      expireStartDate: 'number',
+      nbid: 'string',
+      pageSize: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 351430260343
+   */
+  couponId?: number;
+  /**
+   * @example
+   * 554863270150
+   */
+  couponNo?: string;
+  /**
+   * @example
+   * CERTAIN
+   */
+  couponType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  ecIdAccountIdsShrink?: string;
+  /**
+   * @example
+   * 1708423156000
+   */
+  effectiveEndTime?: number;
+  /**
+   * @example
+   * 1684750028000
+   */
+  effectiveStartTime?: number;
+  /**
+   * @example
+   * 1708423156000
+   */
+  expireEndDate?: number;
+  /**
+   * @example
+   * 1684750028000
+   */
+  expireStartDate?: number;
+  /**
+   * @example
+   * 2684201000001
+   */
+  nbid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AVAILABLE
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      couponNo: 'CouponNo',
+      couponType: 'CouponType',
+      currentPage: 'CurrentPage',
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      effectiveEndTime: 'EffectiveEndTime',
+      effectiveStartTime: 'EffectiveStartTime',
+      expireEndDate: 'ExpireEndDate',
+      expireStartDate: 'ExpireStartDate',
+      nbid: 'Nbid',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'number',
+      couponNo: 'string',
+      couponType: 'string',
+      currentPage: 'number',
+      ecIdAccountIdsShrink: 'string',
+      effectiveEndTime: 'number',
+      effectiveStartTime: 'number',
+      expireEndDate: 'number',
+      expireStartDate: 'number',
+      nbid: 'string',
+      pageSize: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  data?: DescribeCouponResponseBodyData[];
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * C880B065-A781-4F19-B6DD-3E0E3B715C64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': DescribeCouponResponseBodyData },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCouponResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCouponResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListRequest extends $dara.Model {
+  /**
+   * @example
+   * 59104570
+   */
+  couponId?: number;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  ecIdAccountIds?: DescribeCouponItemListRequestEcIdAccountIds[];
+  name?: string;
+  /**
+   * @example
+   * 2684201000001
+   */
+  nbid?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      currentPage: 'CurrentPage',
+      ecIdAccountIds: 'EcIdAccountIds',
+      name: 'Name',
+      nbid: 'Nbid',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'number',
+      currentPage: 'number',
+      ecIdAccountIds: { 'type': 'array', 'itemType': DescribeCouponItemListRequestEcIdAccountIds },
+      name: 'string',
+      nbid: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 59104570
+   */
+  couponId?: number;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  ecIdAccountIdsShrink?: string;
+  name?: string;
+  /**
+   * @example
+   * 2684201000001
+   */
+  nbid?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      currentPage: 'CurrentPage',
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      name: 'Name',
+      nbid: 'Nbid',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'number',
+      currentPage: 'number',
+      ecIdAccountIdsShrink: 'string',
+      name: 'string',
+      nbid: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  data?: DescribeCouponItemListResponseBodyData[];
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * EAE08A27-386C-579E-966D-8853EC3C5D0E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': DescribeCouponItemListResponseBodyData },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCouponItemListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCouponItemListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCouponItemListResponseBody,
     };
   }
 
@@ -2107,6 +3314,131 @@ export class GetFundAccountTransactionDetailsResponse extends $dara.Model {
   }
 }
 
+export class ListCouponDeductTagRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIds?: ListCouponDeductTagRequestEcIdAccountIds[];
+  nbid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIds: 'EcIdAccountIds',
+      nbid: 'Nbid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIds: { 'type': 'array', 'itemType': ListCouponDeductTagRequestEcIdAccountIds },
+      nbid: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponDeductTagShrinkRequest extends $dara.Model {
+  couponId?: string;
+  ecIdAccountIdsShrink?: string;
+  nbid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+      ecIdAccountIdsShrink: 'EcIdAccountIds',
+      nbid: 'Nbid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'string',
+      ecIdAccountIdsShrink: 'string',
+      nbid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponDeductTagResponseBody extends $dara.Model {
+  data?: ListCouponDeductTagResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListCouponDeductTagResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCouponDeductTagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCouponDeductTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCouponDeductTagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFundAccountRequest extends $dara.Model {
   /**
    * @example
@@ -2485,6 +3817,116 @@ export class SetFundAccountCreditAmountResponse extends $dara.Model {
   }
 }
 
+export class SetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
+  /**
+   * @example
+   * 12321213
+   */
+  fundAccountId?: number;
+  /**
+   * @example
+   * 100
+   */
+  thresholdAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fundAccountId: 'FundAccountId',
+      thresholdAmount: 'ThresholdAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fundAccountId: 'number',
+      thresholdAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: any;
+  /**
+   * @example
+   * 08108BF5-1AA3-518E-9986-95A3616E8DA9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      metadata: 'Metadata',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      metadata: 'any',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetFundAccountLowAvailableAmountAlarmResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetFundAccountLowAvailableAmountAlarmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetFundAccountLowAvailableAmountAlarmResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSavingPlanUserDeductRuleRequest extends $dara.Model {
   ecIdAccountIds?: SetSavingPlanUserDeductRuleRequestEcIdAccountIds[];
   nbid?: string;
@@ -2700,6 +4142,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加优惠券抵扣标签
+   * 
+   * @param tmpReq - AddCouponDeductTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCouponDeductTagResponse
+   */
+  async addCouponDeductTagWithOptions(tmpReq: AddCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<AddCouponDeductTagResponse> {
+    tmpReq.validate();
+    let request = new AddCouponDeductTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddCouponDeductTag",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddCouponDeductTagResponse>(await this.callApi(params, req, runtime), new AddCouponDeductTagResponse({}));
+    } else {
+      return $dara.cast<AddCouponDeductTagResponse>(await this.execute(params, req, runtime), new AddCouponDeductTagResponse({}));
+    }
+
+  }
+
+  /**
+   * 添加优惠券抵扣标签
+   * 
+   * @param request - AddCouponDeductTagRequest
+   * @returns AddCouponDeductTagResponse
+   */
+  async addCouponDeductTag(request: AddCouponDeductTagRequest): Promise<AddCouponDeductTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addCouponDeductTagWithOptions(request, runtime);
+  }
+
+  /**
    * 取消资金账户低额预警
    * 
    * @param request - CancelFundAccountLowAvailableAmountAlarmRequest
@@ -2815,6 +4326,173 @@ export default class Client extends OpenApi {
   async createFundAccountTransfer(request: CreateFundAccountTransferRequest): Promise<CreateFundAccountTransferResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFundAccountTransferWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除优惠券的抵扣标签
+   * 
+   * @param tmpReq - DeleteCouponDeductTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCouponDeductTagResponse
+   */
+  async deleteCouponDeductTagWithOptions(tmpReq: DeleteCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<DeleteCouponDeductTagResponse> {
+    tmpReq.validate();
+    let request = new DeleteCouponDeductTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagKeys)) {
+      request.tagKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKeys, "TagKeys", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.tagKeysShrink)) {
+      query["TagKeys"] = request.tagKeysShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCouponDeductTag",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCouponDeductTagResponse>(await this.callApi(params, req, runtime), new DeleteCouponDeductTagResponse({}));
+    } else {
+      return $dara.cast<DeleteCouponDeductTagResponse>(await this.execute(params, req, runtime), new DeleteCouponDeductTagResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除优惠券的抵扣标签
+   * 
+   * @param request - DeleteCouponDeductTagRequest
+   * @returns DeleteCouponDeductTagResponse
+   */
+  async deleteCouponDeductTag(request: DeleteCouponDeductTagRequest): Promise<DeleteCouponDeductTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCouponDeductTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询优惠券列表
+   * 
+   * @param tmpReq - DescribeCouponRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCouponResponse
+   */
+  async describeCouponWithOptions(tmpReq: DescribeCouponRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCouponResponse> {
+    tmpReq.validate();
+    let request = new DescribeCouponShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCoupon",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCouponResponse>(await this.callApi(params, req, runtime), new DescribeCouponResponse({}));
+    } else {
+      return $dara.cast<DescribeCouponResponse>(await this.execute(params, req, runtime), new DescribeCouponResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询优惠券列表
+   * 
+   * @param request - DescribeCouponRequest
+   * @returns DescribeCouponResponse
+   */
+  async describeCoupon(request: DescribeCouponRequest): Promise<DescribeCouponResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCouponWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询优惠券可用商品列表
+   * 
+   * @param tmpReq - DescribeCouponItemListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCouponItemListResponse
+   */
+  async describeCouponItemListWithOptions(tmpReq: DescribeCouponItemListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCouponItemListResponse> {
+    tmpReq.validate();
+    let request = new DescribeCouponItemListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCouponItemList",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCouponItemListResponse>(await this.callApi(params, req, runtime), new DescribeCouponItemListResponse({}));
+    } else {
+      return $dara.cast<DescribeCouponItemListResponse>(await this.execute(params, req, runtime), new DescribeCouponItemListResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询优惠券可用商品列表
+   * 
+   * @param request - DescribeCouponItemListRequest
+   * @returns DescribeCouponItemListResponse
+   */
+  async describeCouponItemList(request: DescribeCouponItemListRequest): Promise<DescribeCouponItemListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCouponItemListWithOptions(request, runtime);
   }
 
   /**
@@ -3211,6 +4889,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询优惠券设置的抵扣标签
+   * 
+   * @param tmpReq - ListCouponDeductTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCouponDeductTagResponse
+   */
+  async listCouponDeductTagWithOptions(tmpReq: ListCouponDeductTagRequest, runtime: $dara.RuntimeOptions): Promise<ListCouponDeductTagResponse> {
+    tmpReq.validate();
+    let request = new ListCouponDeductTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCouponDeductTag",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCouponDeductTagResponse>(await this.callApi(params, req, runtime), new ListCouponDeductTagResponse({}));
+    } else {
+      return $dara.cast<ListCouponDeductTagResponse>(await this.execute(params, req, runtime), new ListCouponDeductTagResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询优惠券设置的抵扣标签
+   * 
+   * @param request - ListCouponDeductTagRequest
+   * @returns ListCouponDeductTagResponse
+   */
+  async listCouponDeductTag(request: ListCouponDeductTagRequest): Promise<ListCouponDeductTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCouponDeductTagWithOptions(request, runtime);
+  }
+
+  /**
    * 查询资金账户列表
    * 
    * @param request - ListFundAccountRequest
@@ -3385,6 +5124,57 @@ export default class Client extends OpenApi {
   async setFundAccountCreditAmount(request: SetFundAccountCreditAmountRequest): Promise<SetFundAccountCreditAmountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setFundAccountCreditAmountWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置资金账户低额预警
+   * 
+   * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetFundAccountLowAvailableAmountAlarmResponse
+   */
+  async setFundAccountLowAvailableAmountAlarmWithOptions(request: SetFundAccountLowAvailableAmountAlarmRequest, runtime: $dara.RuntimeOptions): Promise<SetFundAccountLowAvailableAmountAlarmResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fundAccountId)) {
+      body["FundAccountId"] = request.fundAccountId;
+    }
+
+    if (!$dara.isNull(request.thresholdAmount)) {
+      body["ThresholdAmount"] = request.thresholdAmount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetFundAccountLowAvailableAmountAlarm",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetFundAccountLowAvailableAmountAlarmResponse>(await this.callApi(params, req, runtime), new SetFundAccountLowAvailableAmountAlarmResponse({}));
+    } else {
+      return $dara.cast<SetFundAccountLowAvailableAmountAlarmResponse>(await this.execute(params, req, runtime), new SetFundAccountLowAvailableAmountAlarmResponse({}));
+    }
+
+  }
+
+  /**
+   * 设置资金账户低额预警
+   * 
+   * @param request - SetFundAccountLowAvailableAmountAlarmRequest
+   * @returns SetFundAccountLowAvailableAmountAlarmResponse
+   */
+  async setFundAccountLowAvailableAmountAlarm(request: SetFundAccountLowAvailableAmountAlarmRequest): Promise<SetFundAccountLowAvailableAmountAlarmResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setFundAccountLowAvailableAmountAlarmWithOptions(request, runtime);
   }
 
   /**
