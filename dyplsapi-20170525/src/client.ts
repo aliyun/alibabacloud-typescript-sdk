@@ -686,6 +686,46 @@ export class ConfigXResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreatePhoneNoAReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 创建结果
+   * 
+   * @example
+   * true
+   */
+  createResult?: boolean;
+  /**
+   * @remarks
+   * 创建类型枚举，1为成功，负数为创建失败
+   * 
+   * @example
+   * 1
+   */
+  failType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createResult: 'CreateResult',
+      failType: 'FailType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createResult: 'boolean',
+      failType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePickUpWaybillRequestConsigneeAddress extends $dara.Model {
   /**
    * @remarks
@@ -1528,6 +1568,68 @@ export class CreateSmsSignResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       calledNoSign: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDyplsOSSInfoForUploadFileResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * LTAI***pSvPz
+   */
+  accessKeyId?: string;
+  /**
+   * @example
+   * 1744613007
+   */
+  expireTime?: string;
+  /**
+   * @example
+   * https://alicom-**********-cn-zhangjiakou.aliyuncs.com
+   */
+  host?: string;
+  /**
+   * @example
+   * IjoiMjAyN*****9udGV
+   */
+  policy?: string;
+  /**
+   * @example
+   * BXwW**********aoZH
+   */
+  signature?: string;
+  /**
+   * @example
+   * 123456
+   */
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
     };
   }
 
@@ -6073,6 +6175,249 @@ export class CreateAxgGroupResponse extends $dara.Model {
   }
 }
 
+export class CreatePhoneNoAReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 所属a号码组id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 19
+   */
+  ANoWhiteGroupId?: number;
+  /**
+   * @remarks
+   * 姓名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 赵**
+   */
+  custName?: string;
+  /**
+   * @remarks
+   * 证件号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 370*********
+   */
+  documentNumber?: string;
+  /**
+   * @remarks
+   * 证件类型 填写1表示身份证
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  documentType?: number;
+  /**
+   * @remarks
+   * 半身照oss路径地址
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456/test1719383196033.jpg示例值
+   */
+  idCardAlivePhoto?: string;
+  /**
+   * @remarks
+   * 身份证反面照片oss路径地址
+   * 
+   * @example
+   * 123456/test1719383196032.jpg
+   */
+  idCardBackPhoto?: string;
+  /**
+   * @remarks
+   * 身份证正面照片oss路径地址
+   * 
+   * @example
+   * 123456/test1719383196031.jpg
+   */
+  idCardFrontPhoto?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 手机号
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 130*****1234
+   */
+  phoneNoA?: string;
+  /**
+   * @remarks
+   * 备注（客户自己的业务备注，可编辑）
+   * 
+   * @example
+   * ***报备
+   */
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ANoWhiteGroupId: 'ANoWhiteGroupId',
+      custName: 'CustName',
+      documentNumber: 'DocumentNumber',
+      documentType: 'DocumentType',
+      idCardAlivePhoto: 'IdCardAlivePhoto',
+      idCardBackPhoto: 'IdCardBackPhoto',
+      idCardFrontPhoto: 'IdCardFrontPhoto',
+      ownerId: 'OwnerId',
+      phoneNoA: 'PhoneNoA',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ANoWhiteGroupId: 'number',
+      custName: 'string',
+      documentNumber: 'string',
+      documentType: 'number',
+      idCardAlivePhoto: 'string',
+      idCardBackPhoto: 'string',
+      idCardFrontPhoto: 'string',
+      ownerId: 'number',
+      phoneNoA: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneNoAReportResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * 请求状态码
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * A号码报备结果结构体
+   */
+  data?: CreatePhoneNoAReportResponseBodyData;
+  /**
+   * @remarks
+   * 失败错误提示
+   * 
+   * @example
+   * 手机号码***已存在
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回id
+   * 
+   * @example
+   * 1D73E648-0978-18A5-B089-3BB2
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * 请求是否成功
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: CreatePhoneNoAReportResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneNoAReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePhoneNoAReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePhoneNoAReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePickUpWaybillRequest extends $dara.Model {
   /**
    * @remarks
@@ -7307,6 +7652,141 @@ export class DeleteSecretBlacklistResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSecretBlacklistResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDyplsOSSInfoForUploadFileRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * phone_card
+   */
+  bizType?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDyplsOSSInfoForUploadFileResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetDyplsOSSInfoForUploadFileResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * E2FD3B2F-5028-16E3-9F83-2F76F99B3873
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetDyplsOSSInfoForUploadFileResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDyplsOSSInfoForUploadFileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDyplsOSSInfoForUploadFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDyplsOSSInfoForUploadFileResponseBody,
     };
   }
 
@@ -12267,6 +12747,97 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过API收集小号a号码手机号
+   * 
+   * @param request - CreatePhoneNoAReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePhoneNoAReportResponse
+   */
+  async createPhoneNoAReportWithOptions(request: CreatePhoneNoAReportRequest, runtime: $dara.RuntimeOptions): Promise<CreatePhoneNoAReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ANoWhiteGroupId)) {
+      query["ANoWhiteGroupId"] = request.ANoWhiteGroupId;
+    }
+
+    if (!$dara.isNull(request.custName)) {
+      query["CustName"] = request.custName;
+    }
+
+    if (!$dara.isNull(request.documentNumber)) {
+      query["DocumentNumber"] = request.documentNumber;
+    }
+
+    if (!$dara.isNull(request.documentType)) {
+      query["DocumentType"] = request.documentType;
+    }
+
+    if (!$dara.isNull(request.idCardAlivePhoto)) {
+      query["IdCardAlivePhoto"] = request.idCardAlivePhoto;
+    }
+
+    if (!$dara.isNull(request.idCardBackPhoto)) {
+      query["IdCardBackPhoto"] = request.idCardBackPhoto;
+    }
+
+    if (!$dara.isNull(request.idCardFrontPhoto)) {
+      query["IdCardFrontPhoto"] = request.idCardFrontPhoto;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNoA)) {
+      query["PhoneNoA"] = request.phoneNoA;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePhoneNoAReport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePhoneNoAReportResponse>(await this.callApi(params, req, runtime), new CreatePhoneNoAReportResponse({}));
+    } else {
+      return $dara.cast<CreatePhoneNoAReportResponse>(await this.execute(params, req, runtime), new CreatePhoneNoAReportResponse({}));
+    }
+
+  }
+
+  /**
+   * 通过API收集小号a号码手机号
+   * 
+   * @param request - CreatePhoneNoAReportRequest
+   * @returns CreatePhoneNoAReportResponse
+   */
+  async createPhoneNoAReport(request: CreatePhoneNoAReportRequest): Promise<CreatePhoneNoAReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPhoneNoAReportWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a door-to-door delivery order.
    * 
    * @remarks
@@ -12683,6 +13254,65 @@ export default class Client extends OpenApi {
   async deleteSecretBlacklist(request: DeleteSecretBlacklistRequest): Promise<DeleteSecretBlacklistResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSecretBlacklistWithOptions(request, runtime);
+  }
+
+  /**
+   * 隐私号上传文件，获取 OSS 信息
+   * 
+   * @param request - GetDyplsOSSInfoForUploadFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDyplsOSSInfoForUploadFileResponse
+   */
+  async getDyplsOSSInfoForUploadFileWithOptions(request: GetDyplsOSSInfoForUploadFileRequest, runtime: $dara.RuntimeOptions): Promise<GetDyplsOSSInfoForUploadFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDyplsOSSInfoForUploadFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDyplsOSSInfoForUploadFileResponse>(await this.callApi(params, req, runtime), new GetDyplsOSSInfoForUploadFileResponse({}));
+    } else {
+      return $dara.cast<GetDyplsOSSInfoForUploadFileResponse>(await this.execute(params, req, runtime), new GetDyplsOSSInfoForUploadFileResponse({}));
+    }
+
+  }
+
+  /**
+   * 隐私号上传文件，获取 OSS 信息
+   * 
+   * @param request - GetDyplsOSSInfoForUploadFileRequest
+   * @returns GetDyplsOSSInfoForUploadFileResponse
+   */
+  async getDyplsOSSInfoForUploadFile(request: GetDyplsOSSInfoForUploadFileRequest): Promise<GetDyplsOSSInfoForUploadFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDyplsOSSInfoForUploadFileWithOptions(request, runtime);
   }
 
   /**
