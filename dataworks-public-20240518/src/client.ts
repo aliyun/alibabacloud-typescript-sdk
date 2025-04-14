@@ -10,6 +10,81 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
+export class ColumnBusinessMetadata extends $dara.Model {
+  /**
+   * @example
+   * 字段1的业务描述
+   */
+  description?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CrawlerTypeSupportedEntityTypes extends $dara.Model {
+  /**
+   * @example
+   * 如对于maxcompute-schema类型，schema层级是否存在可选（是否开启三层模型）
+   */
+  optional?: boolean;
+  /**
+   * @example
+   * database
+   */
+  parentSubType?: string;
+  /**
+   * @example
+   * table
+   */
+  subType?: string;
+  /**
+   * @example
+   * dlf-table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optional: 'Optional',
+      parentSubType: 'ParentSubType',
+      subType: 'SubType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optional: 'boolean',
+      parentSubType: 'string',
+      subType: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataQualityEvaluationTaskHooks extends $dara.Model {
   /**
    * @example
@@ -1437,6 +1512,292 @@ export class DataQualityRuleTemplateSamplingConfig extends $dara.Model {
   }
 }
 
+export class TableBusinessMetadataCategories extends $dara.Model {
+  /**
+   * @example
+   * CATEGORY.456
+   */
+  id?: string;
+  /**
+   * @example
+   * 测试类目
+   */
+  name?: string;
+  /**
+   * @example
+   * CATEGORY.123
+   */
+  parentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      parentId: 'ParentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      parentId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableBusinessMetadataExtension extends $dara.Model {
+  /**
+   * @example
+   * Dev
+   */
+  envType?: string;
+  /**
+   * @example
+   * 0
+   */
+  favorCount?: number;
+  /**
+   * @example
+   * 234
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 0
+   */
+  readCount?: number;
+  /**
+   * @example
+   * 0
+   */
+  viewCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      favorCount: 'FavorCount',
+      projectId: 'ProjectId',
+      readCount: 'ReadCount',
+      viewCount: 'ViewCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      favorCount: 'number',
+      projectId: 'number',
+      readCount: 'number',
+      viewCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableBusinessMetadataTags extends $dara.Model {
+  /**
+   * @example
+   * tag_key
+   */
+  key?: string;
+  /**
+   * @example
+   * tag_value
+   * 
+   * **if can be null:**
+   * true
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableBusinessMetadataUpstreamTasks extends $dara.Model {
+  /**
+   * @example
+   * 123456
+   */
+  id?: number;
+  /**
+   * @example
+   * test_task
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableBusinessMetadata extends $dara.Model {
+  categories?: TableBusinessMetadataCategories[][];
+  extension?: TableBusinessMetadataExtension;
+  /**
+   * @example
+   * ## 使用说明
+   */
+  readme?: string;
+  tags?: TableBusinessMetadataTags[];
+  upstreamTasks?: TableBusinessMetadataUpstreamTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      extension: 'Extension',
+      readme: 'Readme',
+      tags: 'Tags',
+      upstreamTasks: 'UpstreamTasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': TableBusinessMetadataCategories } },
+      extension: TableBusinessMetadataExtension,
+      readme: 'string',
+      tags: { 'type': 'array', 'itemType': TableBusinessMetadataTags },
+      upstreamTasks: { 'type': 'array', 'itemType': TableBusinessMetadataUpstreamTasks },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(this.extension && typeof (this.extension as any).validate === 'function') {
+      (this.extension as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.upstreamTasks)) {
+      $dara.Model.validateArray(this.upstreamTasks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TableTechnicalMetadata extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  compressed?: boolean;
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+   */
+  inputFormat?: string;
+  /**
+   * @example
+   * oss://test-bucket/test_tbl
+   */
+  location?: string;
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+   */
+  outputFormat?: string;
+  /**
+   * @example
+   * 123456789
+   */
+  owner?: string;
+  parameters?: { [key: string]: string };
+  /**
+   * @example
+   * org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+   */
+  serializationLibrary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compressed: 'Compressed',
+      inputFormat: 'InputFormat',
+      location: 'Location',
+      outputFormat: 'OutputFormat',
+      owner: 'Owner',
+      parameters: 'Parameters',
+      serializationLibrary: 'SerializationLibrary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compressed: 'boolean',
+      inputFormat: 'string',
+      location: 'string',
+      outputFormat: 'string',
+      owner: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      serializationLibrary: 'string',
+    };
+  }
+
+  validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
   /**
    * @remarks
@@ -1562,7 +1923,7 @@ export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
 export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -1570,7 +1931,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -1590,7 +1951,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -1600,8 +1961,8 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: periodic scheduling
-   * *   Manual: manual scheduling
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -1644,7 +2005,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   dataSource?: BatchUpdateTasksRequestTasksDataSource;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * test
@@ -1673,7 +2034,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The name.
    * 
    * @example
    * SQL node
@@ -1809,13 +2170,13 @@ export class CreateAlertRuleRequestNotificationReceivers extends $dara.Model {
    * The type of the alert recipient. Valid valves:
    * 
    * *   AliUid: Alibaba Cloud account ID.
-   * *   Shift Schedules: The personnel in a shift schedule.
-   * *   TaskOwner: The node owner. This parameter is available for custom alerts and event alerts.
-   * *   Owner: The baseline owner. This parameter is available for baseline alerts.
+   * *   Shift Schedules: the personnel in a shift schedule.
+   * *   TaskOwner: the task owner. The task owner can receive custom alerts and event alerts.
+   * *   Owner: the baseline owner. The baseline owner can receive baseline alerts.
    * *   WebhookUrl: URL of a custom webhook.
-   * *   DingdingUrl: DingTalk chatbot URL.
-   * *   FeishuUrl: Lark chatbot URL.
-   * *   WeixinUrl: WeCom chatbot URL.
+   * *   DingdingUrl: DingTalk webhook URL.
+   * *   FeishuUrl: Lark webhook URL.
+   * *   WeixinUrl: WeCom webhook URL.
    * 
    * @example
    * TaskOwner
@@ -1823,7 +2184,7 @@ export class CreateAlertRuleRequestNotificationReceivers extends $dara.Model {
   receiverType?: string;
   /**
    * @remarks
-   * The IDs of the alert recipients.
+   * The ID of the alert recipient.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -1857,14 +2218,14 @@ export class CreateAlertRuleRequestNotificationReceivers extends $dara.Model {
 export class CreateAlertRuleRequestNotification extends $dara.Model {
   /**
    * @remarks
-   * The alert channels.
+   * The alert notification channels.
    * 
    * This parameter is required.
    */
   channels?: string[];
   /**
    * @remarks
-   * The interval at which an alert notification is sent. Unit: minutes. Valid values: 5 to 10,000.
+   * The interval at which an alert notification is sent. Unit: minutes. Valid values: [5,10000].
    * 
    * @example
    * 30
@@ -1872,7 +2233,7 @@ export class CreateAlertRuleRequestNotification extends $dara.Model {
   intervalInMinutes?: number;
   /**
    * @remarks
-   * The maximum number of times an alert notification is sent within one calendar day. Valid values: 1 to 10,000.
+   * The maximum number of times an alert notification can be sent within a calendar day. Valid values: [1, 10000].
    * 
    * @example
    * 3
@@ -1880,14 +2241,14 @@ export class CreateAlertRuleRequestNotification extends $dara.Model {
   maximum?: number;
   /**
    * @remarks
-   * The alert recipient.
+   * The alert recipients.
    * 
    * This parameter is required.
    */
   receivers?: CreateAlertRuleRequestNotificationReceivers[];
   /**
    * @remarks
-   * The end of the time range for silence. The time is in the HH:mm:ss format.
+   * The end time for silence. The time is in the HH:mm format.
    * 
    * @example
    * 00:00:00
@@ -1895,7 +2256,7 @@ export class CreateAlertRuleRequestNotification extends $dara.Model {
   silenceEndTime?: string;
   /**
    * @remarks
-   * The beginning of the time range for silence. The time is in the HH:mm:ss format.
+   * The start time for silence. The time is in the HH:mm format.
    * 
    * @example
    * 00:00:00
@@ -2966,7 +3327,7 @@ export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * The name of the resource group for Data Integration that are used for batch synchronization.
    * 
    * @example
    * S_res_group_111_222
@@ -3006,7 +3367,7 @@ export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * The name of the resource group for Data Integration that are used for real-time synchronization.
    * 
    * @example
    * S_res_group_111_222
@@ -3046,7 +3407,7 @@ export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends 
   requestedCu?: number;
   /**
    * @remarks
-   * The identifier of the resource group for scheduling used for batch synchronization.
+   * The name of the resource group for scheduling that is used for batch synchronization.
    * 
    * @example
    * S_res_group_235454102432001_1579085295030
@@ -3078,17 +3439,17 @@ export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends 
 export class CreateDIJobRequestResourceSettings extends $dara.Model {
   /**
    * @remarks
-   * The resource used for batch synchronization.
+   * The resource settings for batch synchronization.
    */
   offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
   /**
    * @remarks
-   * The resource used for real-time synchronization.
+   * The resource settings for real-time synchronization.
    */
   realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
   /**
    * @remarks
-   * The resource used for scheduling.
+   * The resource settings for scheduling.
    */
   scheduleResourceSettings?: CreateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
@@ -7743,11 +8104,13 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   jobStatus?: string;
   /**
    * @remarks
-   * DatabaseRealtimeMigration (Full Database Real-Time): Perform stream synchronization of multiple tables from multiple source databases. Supports full data only, incremental only, or full + incremental.
+   * 任务类型
    * 
-   * DatabaseOfflineMigration (Full Database Offline): Perform batch synchronization of multiple tables from multiple source databases. Supports full data only, incremental only, or full + incremental.
+   * - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
    * 
-   * SingleTableRealtimeMigration (Single Table Real-Time): Perform stream synchronization of a single table from the source.
+   * - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
+   * 
+   * - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步。
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -7757,11 +8120,11 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    * @remarks
    * The synchronization type. Valid values:
    * 
-   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-   * *   RealtimeIncremental: real-time incremental synchronization
-   * *   Full: full synchronization
-   * *   OfflineIncremental: batch incremental synchronization
-   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * *   FullAndRealtimeIncremental: full synchronization and real-time incremental synchronization of data in an entire database
+   * *   RealtimeIncremental: real-time incremental synchronization of data in a single table
+   * *   Full: full batch synchronization of data in an entire database
+   * *   OfflineIncremental: batch incremental synchronization of data in an entire database
+   * *   FullAndOfflineIncremental: full synchronization and batch incremental synchronization of data in an entire database
    * 
    * @example
    * FullAndRealtimeIncremental
@@ -7881,10 +8244,10 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * Hook trigger condition. When this condition is met, hook action is triggered. Currently, only two conditional expressions are supported:
+   * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
    * 
-   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
-   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -8056,10 +8419,10 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two conditional expressions are supported:
+   * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
    * 
-   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
-   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -10660,6 +11023,84 @@ export class GetJobStatusResponseBodyJobStatus extends $dara.Model {
   }
 }
 
+export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
+  administrators?: number[];
+  /**
+   * @example
+   * 1668568601000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 456789
+   */
+  createUser?: string;
+  description?: string;
+  /**
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @example
+   * 1668568601000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_category
+   */
+  name?: string;
+  /**
+   * @example
+   * category.12
+   */
+  parentId?: string;
+  /**
+   * @example
+   * Category
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrators: 'Administrators',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentId: 'ParentId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrators: { 'type': 'array', 'itemType': 'number' },
+      createTime: 'number',
+      createUser: 'string',
+      description: 'string',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.administrators)) {
+      $dara.Model.validateArray(this.administrators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNetworkResponseBodyNetwork extends $dara.Model {
   /**
    * @remarks
@@ -11498,7 +11939,7 @@ export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specification details.
+   * The number of compute units (CUs) in the resource group.
    * 
    * @example
    * 2CU
@@ -11543,7 +11984,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   aliyunResourceTags?: GetResourceGroupResponseBodyResourceGroupAliyunResourceTags[];
   /**
    * @remarks
-   * The creation time, which is a 64-bit timestamp.
+   * The time when the resource group was created. The value is a 64-bit timestamp.
    * 
    * @example
    * 1727055811000
@@ -11551,7 +11992,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the user who created the resource group.
+   * The ID of the account that is used to create the resource group.
    * 
    * @example
    * 11075500042XXXXX
@@ -11559,7 +12000,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The default VPC ID bound to the common resource group.
+   * The ID of the virtual private cloud (VPC) with which the resource group is associated by default.
    * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
@@ -11567,7 +12008,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   defaultVpcId?: string;
   /**
    * @remarks
-   * The default switch ID bound to the common resource group.
+   * The ID of the vSwitch with which the resource group is associated by default.
    * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
@@ -11575,7 +12016,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   defaultVswitchId?: string;
   /**
    * @remarks
-   * The unique identifier of the resource group.
+   * The ID of the resource group.
    * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
@@ -11591,7 +12032,7 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the order instance of the resource group.
+   * The instance ID of the order that is used to create the resource group.
    * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
@@ -14175,8 +14616,8 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
    * @remarks
    * The environment of the workspace. Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -15724,6 +16165,53 @@ export class ListAlertRulesResponseBodyPagingInfo extends $dara.Model {
   }
 }
 
+export class ListCatalogsResponseBodyPagingInfo extends $dara.Model {
+  catalogs?: Catalog[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogs: 'Catalogs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogs: { 'type': 'array', 'itemType': Catalog },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.catalogs)) {
+      $dara.Model.validateArray(this.catalogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCertificatesResponseBodyPagingInfoCertificates extends $dara.Model {
   /**
    * @remarks
@@ -15855,6 +16343,53 @@ export class ListCertificatesResponseBodyPagingInfo extends $dara.Model {
   validate() {
     if(Array.isArray(this.certificates)) {
       $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
+  columns?: Column[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': Column },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
     }
     super.validate();
   }
@@ -19537,7 +20072,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   code?: string;
   /**
    * @remarks
-   * The category directory where the custom template is stored, separated by slashes. Each level name can be up to 1024 characters in length and cannot contain white space characters or slashes.
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
    * 
    * @example
    * /ods/order_data
@@ -19545,7 +20080,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
   directoryPath?: string;
   /**
    * @remarks
-   * Rule template name, a combination of numbers, English letters, Chinese characters, and half-width punctuation marks, up to 512 characters in length
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
    * 
    * @example
    * Table row Count Verification
@@ -19616,7 +20151,7 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * Rule template list
+   * The templates.
    */
   dataQualityRuleTemplates?: ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplates[];
   /**
@@ -20686,6 +21221,53 @@ export class ListDataSourcesResponseBodyPagingInfo extends $dara.Model {
   validate() {
     if(Array.isArray(this.dataSources)) {
       $dara.Model.validateArray(this.dataSources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBodyPagingInfo extends $dara.Model {
+  databases?: Database[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'Databases',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': Database },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.databases)) {
+      $dara.Model.validateArray(this.databases);
     }
     super.validate();
   }
@@ -23091,6 +23673,114 @@ export class ListDownstreamTasksResponseBodyPagingInfo extends $dara.Model {
   }
 }
 
+export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends $dara.Model {
+  comment?: string;
+  /**
+   * @example
+   * 1737078994080
+   */
+  createTime?: number;
+  description?: string;
+  /**
+   * @example
+   * dlf-table:123456789:test_catalog:test_database::test_table
+   */
+  id?: string;
+  /**
+   * @example
+   * 1737078994080
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_table
+   */
+  name?: string;
+  /**
+   * @example
+   * dlf-table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      createTime: 'number',
+      description: 'string',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesInMetaCollectionResponseBodyPagingInfo extends $dara.Model {
+  entities?: ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      entities: 'Entities',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entities: { 'type': 'array', 'itemType': ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entities)) {
+      $dara.Model.validateArray(this.entities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFunctionsResponseBodyPagingInfoFunctionsDataSource extends $dara.Model {
   /**
    * @remarks
@@ -23556,6 +24246,263 @@ export class ListFunctionsResponseBodyPagingInfo extends $dara.Model {
   validate() {
     if(Array.isArray(this.functions)) {
       $dara.Model.validateArray(this.functions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model {
+  lineageRelationships?: LineageRelationship[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 123
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lineageRelationships: 'LineageRelationships',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineageRelationships: { 'type': 'array', 'itemType': LineageRelationship },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lineageRelationships)) {
+      $dara.Model.validateArray(this.lineageRelationships);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineagesResponseBodyPagingInfoLineages extends $dara.Model {
+  dstEntity?: LineageEntity;
+  relationships?: LineageRelationship[];
+  srcEntity?: LineageEntity;
+  static names(): { [key: string]: string } {
+    return {
+      dstEntity: 'DstEntity',
+      relationships: 'Relationships',
+      srcEntity: 'SrcEntity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstEntity: LineageEntity,
+      relationships: { 'type': 'array', 'itemType': LineageRelationship },
+      srcEntity: LineageEntity,
+    };
+  }
+
+  validate() {
+    if(this.dstEntity && typeof (this.dstEntity as any).validate === 'function') {
+      (this.dstEntity as any).validate();
+    }
+    if(Array.isArray(this.relationships)) {
+      $dara.Model.validateArray(this.relationships);
+    }
+    if(this.srcEntity && typeof (this.srcEntity as any).validate === 'function') {
+      (this.srcEntity as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineagesResponseBodyPagingInfo extends $dara.Model {
+  lineages?: ListLineagesResponseBodyPagingInfoLineages[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lineages: 'Lineages',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineages: { 'type': 'array', 'itemType': ListLineagesResponseBodyPagingInfoLineages },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lineages)) {
+      $dara.Model.validateArray(this.lineages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Model {
+  administrators?: string[];
+  /**
+   * @example
+   * 1668568601000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 456789
+   */
+  createUser?: string;
+  description?: string;
+  /**
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @example
+   * 1668568601000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_category
+   */
+  name?: string;
+  /**
+   * @example
+   * category.1
+   */
+  parentId?: string;
+  /**
+   * @example
+   * Category
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrators: 'Administrators',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      description: 'Description',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentId: 'ParentId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrators: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'number',
+      createUser: 'string',
+      description: 'string',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.administrators)) {
+      $dara.Model.validateArray(this.administrators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponseBodyData extends $dara.Model {
+  metaCollections?: ListMetaCollectionsResponseBodyDataMetaCollections[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metaCollections: 'MetaCollections',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaCollections: { 'type': 'array', 'itemType': ListMetaCollectionsResponseBodyDataMetaCollections },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metaCollections)) {
+      $dara.Model.validateArray(this.metaCollections);
     }
     super.validate();
   }
@@ -25910,6 +26857,53 @@ export class ListNodesResponseBodyPagingInfo extends $dara.Model {
   }
 }
 
+export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  partitionList?: Partition[];
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      partitionList: 'PartitionList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      partitionList: { 'type': 'array', 'itemType': Partition },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.partitionList)) {
+      $dara.Model.validateArray(this.partitionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends $dara.Model {
   /**
    * @remarks
@@ -27332,6 +28326,100 @@ export class ListRoutesResponseBodyPagingInfo extends $dara.Model {
   validate() {
     if(Array.isArray(this.routeList)) {
       $dara.Model.validateArray(this.routeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  schemas?: Schema[];
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      schemas: 'Schemas',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      schemas: { 'type': 'array', 'itemType': Schema },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.schemas)) {
+      $dara.Model.validateArray(this.schemas);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  tables?: Table[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      tables: 'Tables',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      tables: { 'type': 'array', 'itemType': Table },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
     }
     super.validate();
   }
@@ -28885,9 +29973,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -28908,13 +29994,11 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   projectId?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
    * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
    * 
    * @example
    * AllAllowed
@@ -28948,9 +30032,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
+   * The status of the instance. Valid values:
    * 
    * *   NotRun: The instance is not run.
    * *   Running: The instance is running.
@@ -29010,9 +30092,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
-   * 
-   * Valid values:
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
    * *   Pause
    * *   Skip
@@ -29032,9 +30112,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   triggerTime?: number;
   /**
    * @remarks
-   * The method to trigger instance scheduling.
-   * 
-   * Valid values:
+   * The trigger type. Valid values:
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -29061,9 +30139,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance.
-   * 
-   * Valid values:
+   * The type of the workflow instance. Valid values:
    * 
    * *   SmokeTest
    * *   SupplementData
@@ -33909,8 +34985,8 @@ export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
    * @remarks
    * The hook trigger condition. When this condition is met, the hook action is triggered. Only two conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as ${severity} == "High" AND ${status} == "Critical". In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error"). In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -33986,14 +35062,6 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
    * 
    * *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
    * 
-   * Valid values:
-   * 
-   * *   WebhookUrl
-   * *   FeishuUrl
-   * *   DingdingUrl
-   * *   WeixinUrl
-   * *   AliUid
-   * 
    * @example
    * {  "atAll": true }
    */
@@ -34001,6 +35069,14 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
   /**
    * @remarks
    * The type of the alert recipient.
+   * 
+   * Valid values:
+   * 
+   * *   WebhookUrl
+   * *   FeishuUrl
+   * *   DingdingUrl
+   * *   WeixinUrl
+   * *   AliUid
    * 
    * @example
    * DingdingUrl
@@ -34084,8 +35160,8 @@ export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.M
    * @remarks
    * The notification trigger condition. When this condition is met, the alert notification is triggered. Only two conditional expressions are supported:
    * 
-   * *   Specify only one group of rule strength type and rule check status, such as ${severity} == "High" AND ${status} == "Critical". In this expression, the hook trigger condition is met if severity is High and status is Critical.
-   * *   Specify multiple groups of rule strength types and rule check status, such as (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error"). In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
+   * *   Specify only one group of rule strength type and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. In this expression, the hook trigger condition is met if severity is High and status is Critical.
+   * *   Specify multiple groups of rule strength types and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. In this expression, the hook trigger condition is met if severity is High and status is Critical, severity is Normal and status is Critical, or severity is Normal and status is Error. The enumeration of severity in a conditional expression is the same as the enumeration of severity in DataQualityRule. The enumeration of status in a conditional expression is the same as the enumeration of status in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -35199,7 +36275,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -35219,7 +36295,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -36015,7 +37091,7 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
   baseLineId?: number;
   /**
    * @remarks
-   * The unique code of the client. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the task, the system automatically generates a unique code. The unique code is uniquely associated with the task ID. If you specify this parameter when you update or delete the task, the value of this parameter must be the unique code that is used to create the task.
+   * The unique code of the client. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
    * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
@@ -36300,6 +37376,176 @@ export class UpdateWorkflowRequestTrigger extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Catalog extends $dara.Model {
+  comment?: string;
+  createTime?: number;
+  id?: string;
+  modifyTime?: number;
+  name?: string;
+  parentMetaEntityId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      createTime: 'number',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentMetaEntityId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Column extends $dara.Model {
+  businessMetadata?: ColumnBusinessMetadata;
+  /**
+   * @example
+   * 字段1
+   */
+  comment?: string;
+  /**
+   * @example
+   * false
+   */
+  foreignKey?: boolean;
+  /**
+   * @example
+   * maxcompute-column:123456::test_project:default:test_tbl:col1
+   */
+  id?: string;
+  /**
+   * @example
+   * col1
+   */
+  name?: string;
+  /**
+   * @example
+   * false
+   */
+  partitionKey?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  position?: number;
+  /**
+   * @example
+   * false
+   */
+  primaryKey?: boolean;
+  /**
+   * @example
+   * maxcompute-table:123456::test_project:default:test_tbl
+   */
+  tableId?: string;
+  /**
+   * @example
+   * bigint
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessMetadata: 'BusinessMetadata',
+      comment: 'Comment',
+      foreignKey: 'ForeignKey',
+      id: 'Id',
+      name: 'Name',
+      partitionKey: 'PartitionKey',
+      position: 'Position',
+      primaryKey: 'PrimaryKey',
+      tableId: 'TableId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessMetadata: ColumnBusinessMetadata,
+      comment: 'string',
+      foreignKey: 'boolean',
+      id: 'string',
+      name: 'string',
+      partitionKey: 'boolean',
+      position: 'number',
+      primaryKey: 'boolean',
+      tableId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.businessMetadata && typeof (this.businessMetadata as any).validate === 'function') {
+      (this.businessMetadata as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CrawlerType extends $dara.Model {
+  /**
+   * @example
+   * Data Lake Formation
+   */
+  displayName?: string;
+  supportedEntityTypes?: CrawlerTypeSupportedEntityTypes[];
+  /**
+   * @example
+   * dlf
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      supportedEntityTypes: 'SupportedEntityTypes',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      supportedEntityTypes: { 'type': 'array', 'itemType': CrawlerTypeSupportedEntityTypes },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedEntityTypes)) {
+      $dara.Model.validateArray(this.supportedEntityTypes);
+    }
     super.validate();
   }
 
@@ -36673,6 +37919,429 @@ export class DataQualityRuleTemplate extends $dara.Model {
   }
 }
 
+export class Database extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * holo-database:h-xxxx::test_db
+   */
+  id?: string;
+  /**
+   * @example
+   * oss://test-bucket/test_db
+   */
+  locationUri?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_db
+   */
+  name?: string;
+  /**
+   * @example
+   * holo:h-xxxx
+   */
+  parentMetaEntityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      id: 'Id',
+      locationUri: 'LocationUri',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentMetaEntityId: 'ParentMetaEntityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      createTime: 'number',
+      id: 'string',
+      locationUri: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentMetaEntityId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageEntity extends $dara.Model {
+  /**
+   * @example
+   * {"key1":"value1"}
+   */
+  attributes?: { [key: string]: string };
+  /**
+   * @example
+   * maxcompute-table:123456::test_project::test_tbl
+   */
+  id?: string;
+  /**
+   * @example
+   * test_tbl
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageRelationship extends $dara.Model {
+  /**
+   * @example
+   * 1743040581000
+   */
+  createTime?: number;
+  dstEntity?: LineageEntity;
+  /**
+   * @example
+   * maxcompute-table.p.table:custom-table.xxx:custom-sql.123
+   */
+  id?: string;
+  srcEntity?: LineageEntity;
+  task?: LineageTask;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dstEntity: 'DstEntity',
+      id: 'Id',
+      srcEntity: 'SrcEntity',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      dstEntity: LineageEntity,
+      id: 'string',
+      srcEntity: LineageEntity,
+      task: LineageTask,
+    };
+  }
+
+  validate() {
+    if(this.dstEntity && typeof (this.dstEntity as any).validate === 'function') {
+      (this.dstEntity as any).validate();
+    }
+    if(this.srcEntity && typeof (this.srcEntity as any).validate === 'function') {
+      (this.srcEntity as any).validate();
+    }
+    if(this.task && typeof (this.task as any).validate === 'function') {
+      (this.task as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LineageTask extends $dara.Model {
+  attributes?: { [key: string]: string };
+  /**
+   * @example
+   * 12345
+   */
+  id?: string;
+  /**
+   * @example
+   * custom-sql
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Partition extends $dara.Model {
+  /**
+   * @example
+   * 1700192563000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 4096
+   */
+  dataSize?: number;
+  /**
+   * @example
+   * 1700192563000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * ds=20250101
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000000
+   */
+  recordCount?: number;
+  /**
+   * @example
+   * maxcompute-table:accountId::project::table
+   */
+  tableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dataSize: 'DataSize',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      recordCount: 'RecordCount',
+      tableId: 'TableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      dataSize: 'number',
+      modifyTime: 'number',
+      name: 'string',
+      recordCount: 'number',
+      tableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Schema extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * maxcompute-schema:123456::test_project:default
+   */
+  id?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_db
+   */
+  name?: string;
+  /**
+   * @example
+   * maxcompute-project:123456::test_project
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * MANAGED
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      createTime: 'number',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentMetaEntityId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Table extends $dara.Model {
+  businessMetadata?: TableBusinessMetadata;
+  /**
+   * @example
+   * 测试表
+   */
+  comment?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * maxcompute-table:123456::test_project::test_tbl
+   */
+  id?: string;
+  /**
+   * @example
+   * 1736852168000
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * test_tbl
+   */
+  name?: string;
+  /**
+   * @example
+   * maxcompute-project:123456::test_project
+   */
+  parentMetaEntityId?: string;
+  partitionKeys?: string[];
+  /**
+   * @example
+   * TABLE
+   */
+  tableType?: string;
+  technicalMetadata?: TableTechnicalMetadata;
+  static names(): { [key: string]: string } {
+    return {
+      businessMetadata: 'BusinessMetadata',
+      comment: 'Comment',
+      createTime: 'CreateTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      partitionKeys: 'PartitionKeys',
+      tableType: 'TableType',
+      technicalMetadata: 'TechnicalMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessMetadata: TableBusinessMetadata,
+      comment: 'string',
+      createTime: 'number',
+      id: 'string',
+      modifyTime: 'number',
+      name: 'string',
+      parentMetaEntityId: 'string',
+      partitionKeys: { 'type': 'array', 'itemType': 'string' },
+      tableType: 'string',
+      technicalMetadata: TableTechnicalMetadata,
+    };
+  }
+
+  validate() {
+    if(this.businessMetadata && typeof (this.businessMetadata as any).validate === 'function') {
+      (this.businessMetadata as any).validate();
+    }
+    if(Array.isArray(this.partitionKeys)) {
+      $dara.Model.validateArray(this.partitionKeys);
+    }
+    if(this.technicalMetadata && typeof (this.technicalMetadata as any).validate === 'function') {
+      (this.technicalMetadata as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SuccessInfoValue extends $dara.Model {
   /**
    * @remarks
@@ -36819,6 +38488,114 @@ export class AbolishDeploymentResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AbolishDeploymentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-table
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  metaCollectionId?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      metaCollectionId: 'MetaCollectionId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      metaCollectionId: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEntityIntoMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddEntityIntoMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddEntityIntoMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddEntityIntoMetaCollectionResponseBody,
     };
   }
 
@@ -37994,13 +39771,11 @@ export class CreateDIJobRequest extends $dara.Model {
   jobSettings?: CreateDIJobRequestJobSettings;
   /**
    * @remarks
-   * 任务类型，可选
+   * The type of the task. This parameter is optional. Valid values:
    * 
-   *  - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
-   * 
-   *  - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
-   * 
-   *  - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步
+   * *   DatabaseRealtimeMigration: A real-time synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
+   * *   DatabaseOfflineMigration: A batch synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
+   * *   SingleTableRealtimeMigration: A real-time synchronization task used to synchronize only data in single table at the source.
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -38188,13 +39963,11 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   jobSettingsShrink?: string;
   /**
    * @remarks
-   * 任务类型，可选
+   * The type of the task. This parameter is optional. Valid values:
    * 
-   *  - DatabaseRealtimeMigration(整库实时):将源端多个库的多个表进行流同步，支持仅全量，仅增量，或全量+增量。
-   * 
-   *  - DatabaseOfflineMigration(整库离线):将源端多个库的多个表进行批同步，支持仅全量，仅增量，或全量+增量。
-   * 
-   *  - SingleTableRealtimeMigration(单表实时):将源端单个表进行流同步
+   * *   DatabaseRealtimeMigration: A real-time synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
+   * *   DatabaseOfflineMigration: A batch synchronization task used to synchronize only full data, only incremental data, or full and incremental data in multiple tables of multiple databases at the source.
+   * *   SingleTableRealtimeMigration: A real-time synchronization task used to synchronize only data in single table at the source.
    * 
    * @example
    * DatabaseRealtimeMigration
@@ -39229,7 +41002,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: CreateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The strength of the monitoring rule. Valid values:
+   * The strength of the rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -39356,7 +41129,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the monitoring rule. Valid values:
+   * The strength of the rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -39804,7 +41577,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the data source. More than 70 types of data sources are supported in DataWorks.
+   * The type of the data source. More than 70 types of data sources are supported in DataWorks. For more information, see [Data source types](https://help.aliyun.com/document_detail/2852465.html).
    * 
    * This parameter is required.
    * 
@@ -40404,6 +42177,275 @@ export class CreateFunctionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLineageRelationshipRequest extends $dara.Model {
+  dstEntity?: LineageEntity;
+  srcEntity?: LineageEntity;
+  task?: LineageTask;
+  static names(): { [key: string]: string } {
+    return {
+      dstEntity: 'DstEntity',
+      srcEntity: 'SrcEntity',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstEntity: LineageEntity,
+      srcEntity: LineageEntity,
+      task: LineageTask,
+    };
+  }
+
+  validate() {
+    if(this.dstEntity && typeof (this.dstEntity as any).validate === 'function') {
+      (this.dstEntity as any).validate();
+    }
+    if(this.srcEntity && typeof (this.srcEntity as any).validate === 'function') {
+      (this.srcEntity as any).validate();
+    }
+    if(this.task && typeof (this.task as any).validate === 'function') {
+      (this.task as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLineageRelationshipShrinkRequest extends $dara.Model {
+  dstEntityShrink?: string;
+  srcEntityShrink?: string;
+  taskShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstEntityShrink: 'DstEntity',
+      srcEntityShrink: 'SrcEntity',
+      taskShrink: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstEntityShrink: 'string',
+      srcEntityShrink: 'string',
+      taskShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLineageRelationshipResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
+   */
+  id?: string;
+  /**
+   * @example
+   * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLineageRelationshipResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLineageRelationshipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLineageRelationshipResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetaCollectionRequest extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_album
+   */
+  name?: string;
+  /**
+   * @example
+   * category.123
+   */
+  parentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Category
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      parentId: 'ParentId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      parentId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E6F0DBDD-5AD****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMetaCollectionResponseBody,
     };
   }
 
@@ -42198,8 +44240,10 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData
-   * *   ManualWorkflow
+   * *   SupplementData The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
+   * *   ManualWorkflow You must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not specify the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
+   * *   Manual You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
+   * *   SmokeTest You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
    * 
    * This parameter is required.
    * 
@@ -42348,8 +44392,10 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData
-   * *   ManualWorkflow
+   * *   SupplementData The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
+   * *   ManualWorkflow You must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not specify the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
+   * *   Manual You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
+   * *   SmokeTest You need to specify only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
    * 
    * This parameter is required.
    * 
@@ -43804,6 +45850,200 @@ export class DeleteFunctionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationshipRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationshipResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 952795279527ab****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteLineageRelationshipResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteLineageRelationshipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteLineageRelationshipResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 45D14A7A-7C28-5547-AB0A-35FBCD9DE7B5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMetaCollectionResponseBody,
     };
   }
 
@@ -45776,6 +48016,112 @@ export class GetAlertRuleResponse extends $dara.Model {
   }
 }
 
+export class GetCatalogRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dlf-catalog:123456XXX:test_catalog
+   * starrocks-catalog:c-abc123xxx:default_catalog
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogResponseBody extends $dara.Model {
+  catalog?: Catalog;
+  /**
+   * @example
+   * 1AFAE64E-D1BE-432B-A9****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      catalog: 'Catalog',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalog: Catalog,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.catalog && typeof (this.catalog as any).validate === 'function') {
+      (this.catalog as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCatalogResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCatalogResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -45875,6 +48221,111 @@ export class GetCertificateResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCertificateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetColumnRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-column:11075xxxx::test_project:test_schema:test_table:test_column
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetColumnResponseBody extends $dara.Model {
+  column?: Column;
+  /**
+   * @example
+   * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: Column,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.column && typeof (this.column as any).validate === 'function') {
+      (this.column as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetColumnResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetColumnResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetColumnResponseBody,
     };
   }
 
@@ -46832,6 +49283,111 @@ export class GetDataSourceResponse extends $dara.Model {
   }
 }
 
+export class GetDatabaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mysql-database:rm-abc123xxx::test_db
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabaseResponseBody extends $dara.Model {
+  database?: Database;
+  /**
+   * @example
+   * 1AFAE64E-D1BE-432B-A9****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: Database,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.database && typeof (this.database as any).validate === 'function') {
+      (this.database as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatabaseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatabaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeploymentRequest extends $dara.Model {
   /**
    * @remarks
@@ -47179,6 +49735,205 @@ export class GetJobStatusResponse extends $dara.Model {
   }
 }
 
+export class GetLineageRelationshipRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 110xxxx:custom-table.xxxxx:maxcompute-table.project.test_big_lineage_080901:custom-sqlxx.00001
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageRelationshipResponseBody extends $dara.Model {
+  lineageRelationship?: LineageRelationship;
+  /**
+   * @example
+   * 58D5334A-B013-430E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lineageRelationship: 'LineageRelationship',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineageRelationship: LineageRelationship,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.lineageRelationship && typeof (this.lineageRelationship as any).validate === 'function') {
+      (this.lineageRelationship as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLineageRelationshipResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLineageRelationshipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLineageRelationshipResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaCollectionResponseBody extends $dara.Model {
+  metaCollection?: GetMetaCollectionResponseBodyMetaCollection;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1AFAE64E-D1BE-432B-A9****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metaCollection: 'MetaCollection',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metaCollection: GetMetaCollectionResponseBodyMetaCollection,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.metaCollection && typeof (this.metaCollection as any).validate === 'function') {
+      (this.metaCollection as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMetaCollectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNetworkRequest extends $dara.Model {
   /**
    * @remarks
@@ -47397,6 +50152,121 @@ export class GetNodeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetNodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPartitionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ds=20250101
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   */
+  tableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      tableId: 'TableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      tableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPartitionResponseBody extends $dara.Model {
+  partition?: Partition;
+  /**
+   * @example
+   * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      partition: 'Partition',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      partition: Partition,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.partition && typeof (this.partition as any).validate === 'function') {
+      (this.partition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPartitionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPartitionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPartitionResponseBody,
     };
   }
 
@@ -47897,7 +50767,7 @@ export class GetResourceResponse extends $dara.Model {
 export class GetResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier of a common resource group.
+   * The ID of the resource group.
    * 
    * This parameter is required.
    * 
@@ -47929,7 +50799,7 @@ export class GetResourceGroupRequest extends $dara.Model {
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * The request ID.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -47942,7 +50812,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -48110,6 +50980,227 @@ export class GetRouteResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSchemaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-schema:123456XXX::test_project:default
+   * holo-schema:h-abc123xxx::test_db:test_schema
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSchemaResponseBody extends $dara.Model {
+  /**
+   * @example
+   * A89B5D9D-74EA-XXXXXX
+   */
+  requestId?: string;
+  schema?: Schema;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      schema: 'Schema',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      schema: Schema,
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.schema && typeof (this.schema as any).validate === 'function') {
+      (this.schema as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSchemaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSchemaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSchemaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   */
+  id?: string;
+  /**
+   * @example
+   * true
+   */
+  includeBusinessMetadata?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      includeBusinessMetadata: 'IncludeBusinessMetadata',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      includeBusinessMetadata: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 7B3435F4-2D91-XXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  table?: Table;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      table: Table,
+    };
+  }
+
+  validate() {
+    if(this.table && typeof (this.table as any).validate === 'function') {
+      (this.table as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTableResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTableResponseBody,
     };
   }
 
@@ -49697,6 +52788,236 @@ export class ListAlertRulesResponse extends $dara.Model {
   }
 }
 
+export class ListCatalogsRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dlf
+   * starrocks:c-abc123xxx
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.types)) {
+      $dara.Model.validateArray(this.types);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCatalogsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dlf
+   * starrocks:c-abc123xxx
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  typesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      typesShrink: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      typesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCatalogsResponseBody extends $dara.Model {
+  pagingInfo?: ListCatalogsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 317CD7D0-AB36-XXXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListCatalogsResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCatalogsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCatalogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCatalogsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCertificatesRequest extends $dara.Model {
   /**
    * @remarks
@@ -49866,6 +53187,228 @@ export class ListCertificatesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCertificatesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListColumnsRequest extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * test_table
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Position
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   */
+  tableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      tableId: 'TableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      tableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListColumnsResponseBody extends $dara.Model {
+  pagingInfo?: ListColumnsResponseBodyPagingInfo;
+  /**
+   * @example
+   * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListColumnsResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListColumnsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListColumnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListColumnsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCrawlerTypesResponseBody extends $dara.Model {
+  crawlerTypes?: CrawlerType[];
+  /**
+   * @example
+   * 0000-ABCD-EFG****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      crawlerTypes: 'CrawlerTypes',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crawlerTypes: { 'type': 'array', 'itemType': CrawlerType },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.crawlerTypes)) {
+      $dara.Model.validateArray(this.crawlerTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCrawlerTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCrawlerTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCrawlerTypesResponseBody,
     };
   }
 
@@ -51693,9 +55236,10 @@ export class ListDataQualityResultsResponse extends $dara.Model {
 export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the rule template. Required.
-   * - System: System Template
-   * - UserDefined: user-defined Template
+   * The source of the template. This parameter is required. Valid values:
+   * 
+   * *   System
+   * *   UserDefined
    * 
    * @example
    * System
@@ -51703,7 +55247,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   creationSource?: string;
   /**
    * @remarks
-   * The category directory where the custom template is stored, slash/divider level. Each level name can be up to 1024 characters in length and cannot contain white space characters or backslashes.
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
    * 
    * @example
    * /ods/order_data
@@ -51711,7 +55255,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   directoryPath?: string;
   /**
    * @remarks
-   * Fuzzy matching of template rule names. If it is a system template, the internationalized name of the system template will be fuzzy matching based on the language.
+   * The name of the template. If you want to query a system template, set this parameter to the name of the system template. Fuzzy match is supported.
    * 
    * @example
    * Table rows
@@ -51735,7 +55279,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * DataWorks workspace ID.
+   * The DataWorks workspace ID.
    * 
    * This parameter is required.
    * 
@@ -51777,7 +55321,7 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
 export class ListDataQualityRuleTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Quality Rule template pagination query results
+   * The pagination information.
    */
   pagingInfo?: ListDataQualityRuleTemplatesResponseBodyPagingInfo;
   /**
@@ -52455,6 +55999,154 @@ export class ListDataSourcesResponse extends $dara.Model {
   }
 }
 
+export class ListDatabasesRequest extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * test_tbl
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mysql:rm-abc123xxx
+   * dlf-catalog:123456XXX:test_catalog
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponseBody extends $dara.Model {
+  pagingInfo?: ListDatabasesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 9DD08926-38B9-XXXXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDatabasesResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatabasesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDatabasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDatabasesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDeploymentsRequest extends $dara.Model {
   /**
    * @remarks
@@ -52882,6 +56574,152 @@ export class ListDownstreamTasksResponse extends $dara.Model {
   }
 }
 
+export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
+  entityDescription?: string;
+  /**
+   * @example
+   * test1
+   */
+  entityName?: string;
+  /**
+   * @example
+   * dlf-table
+   */
+  entityType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Name
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityDescription: 'EntityDescription',
+      entityName: 'EntityName',
+      entityType: 'EntityType',
+      id: 'Id',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityDescription: 'string',
+      entityName: 'string',
+      entityType: 'string',
+      id: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesInMetaCollectionResponseBody extends $dara.Model {
+  pagingInfo?: ListEntitiesInMetaCollectionResponseBodyPagingInfo;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F05080B0-CCE6-5D22-B284-34A51C5D4E28
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListEntitiesInMetaCollectionResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEntitiesInMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEntitiesInMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEntitiesInMetaCollectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFunctionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -53040,6 +56878,501 @@ export class ListFunctionsResponse extends $dara.Model {
   }
 }
 
+export class ListLineageRelationshipsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * custom-api:api123
+   * custom-table:table456
+   */
+  dstEntityId?: string;
+  /**
+   * @example
+   * dstName
+   */
+  dstEntityName?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Name
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * custom-api:api123
+   * custom-table:table456
+   */
+  srcEntityId?: string;
+  /**
+   * @example
+   * srcName
+   */
+  srcEntityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstEntityId: 'DstEntityId',
+      dstEntityName: 'DstEntityName',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      srcEntityId: 'SrcEntityId',
+      srcEntityName: 'SrcEntityName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstEntityId: 'string',
+      dstEntityName: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      srcEntityId: 'string',
+      srcEntityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageRelationshipsResponseBody extends $dara.Model {
+  pagingInfo?: ListLineageRelationshipsResponseBodyPagingInfo;
+  /**
+   * @example
+   * SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListLineageRelationshipsResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineageRelationshipsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLineageRelationshipsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLineageRelationshipsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineagesRequest extends $dara.Model {
+  /**
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * custom-api:api123
+   * custom-table:table456
+   */
+  dstEntityId?: string;
+  /**
+   * @example
+   * dstName1
+   */
+  dstEntityName?: string;
+  /**
+   * @example
+   * false
+   */
+  needAttachRelationship?: boolean;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Name
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   * custom-api:api123
+   * custom-table:table456
+   */
+  srcEntityId?: string;
+  /**
+   * @example
+   * srcName1
+   */
+  srcEntityName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dstEntityId: 'DstEntityId',
+      dstEntityName: 'DstEntityName',
+      needAttachRelationship: 'NeedAttachRelationship',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      srcEntityId: 'SrcEntityId',
+      srcEntityName: 'SrcEntityName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dstEntityId: 'string',
+      dstEntityName: 'string',
+      needAttachRelationship: 'boolean',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      srcEntityId: 'string',
+      srcEntityName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineagesResponseBody extends $dara.Model {
+  pagingInfo?: ListLineagesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 0000-ABCD-EFG****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListLineagesResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLineagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListLineagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListLineagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsRequest extends $dara.Model {
+  /**
+   * @example
+   * 12345
+   */
+  administrator?: string;
+  /**
+   * @example
+   * 123456
+   */
+  createUser?: string;
+  description?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * category.123
+   */
+  parentId?: string;
+  /**
+   * @example
+   * Name
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Category
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrator: 'Administrator',
+      createUser: 'CreateUser',
+      description: 'Description',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentId: 'ParentId',
+      sortBy: 'SortBy',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrator: 'string',
+      createUser: 'string',
+      description: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentId: 'string',
+      sortBy: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponseBody extends $dara.Model {
+  data?: ListMetaCollectionsResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E25887B7-579C-54A5-9C4F-83A0DE367DDE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListMetaCollectionsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetaCollectionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMetaCollectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetaCollectionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNetworksRequest extends $dara.Model {
   /**
    * @remarks
@@ -53059,7 +57392,7 @@ export class ListNetworksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Unique identifier of a Serverless resource group
+   * The ID of the resource group.
    * 
    * This parameter is required.
    * 
@@ -53125,7 +57458,7 @@ export class ListNetworksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -53500,6 +57833,146 @@ export class ListNodesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPartitionsRequest extends $dara.Model {
+  /**
+   * @example
+   * ds=20250101
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-column:11075xxxx::test_project:test_schema:test_table
+   */
+  tableId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      tableId: 'TableId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      tableId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPartitionsResponseBody extends $dara.Model {
+  pagingInfo?: ListPartitionsResponseBodyPagingInfo;
+  /**
+   * @example
+   * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListPartitionsResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPartitionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPartitionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPartitionsResponseBody,
     };
   }
 
@@ -54989,6 +59462,474 @@ export class ListRoutesResponse extends $dara.Model {
   }
 }
 
+export class ListSchemasRequest extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-project:123456XXX::test_project
+   * holo-database:h-abc123xxx::test_db
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.types)) {
+      $dara.Model.validateArray(this.types);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * test comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-project:123456XXX::test_project
+   * holo-database:h-abc123xxx::test_db
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  typesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      typesShrink: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      typesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasResponseBody extends $dara.Model {
+  pagingInfo?: ListSchemasResponseBodyPagingInfo;
+  /**
+   * @example
+   * 235BBA5E-3428-XXXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListSchemasResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchemasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSchemasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSchemasResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-schema:123456XXX::test_project_with_schema:default
+   * maxcompute-project:123456XXX::test_project_without_schema
+   * dlf-database:123456XXX:test_catalog:test_db
+   * hms-database:c-abc123xxx::test_db
+   * holo-schema:h-abc123xxx::test_db:test_schema
+   * mysql-database:jdbc%3Amysql%3A%2F%2F127.0.0.1%3A3306%2Ftest_db::test_db
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  tableTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      tableTypes: 'TableTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      tableTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tableTypes)) {
+      $dara.Model.validateArray(this.tableTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @example
+   * abc
+   */
+  name?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-schema:123456XXX::test_project_with_schema:default
+   * maxcompute-project:123456XXX::test_project_without_schema
+   * dlf-database:123456XXX:test_catalog:test_db
+   * hms-database:c-abc123xxx::test_db
+   * holo-schema:h-abc123xxx::test_db:test_schema
+   * mysql-database:jdbc%3Amysql%3A%2F%2F127.0.0.1%3A3306%2Ftest_db::test_db
+   */
+  parentMetaEntityId?: string;
+  /**
+   * @example
+   * CreateTime
+   */
+  sortBy?: string;
+  tableTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      parentMetaEntityId: 'ParentMetaEntityId',
+      sortBy: 'SortBy',
+      tableTypesShrink: 'TableTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      parentMetaEntityId: 'string',
+      sortBy: 'string',
+      tableTypesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponseBody extends $dara.Model {
+  pagingInfo?: ListTablesResponseBodyPagingInfo;
+  /**
+   * @example
+   * E25887B7-579C-54A5-9C4F-83A****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListTablesResponseBodyPagingInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTablesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTablesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTaskInstanceOperationLogsRequest extends $dara.Model {
   /**
    * @remarks
@@ -55129,7 +60070,7 @@ export class ListTaskInstanceOperationLogsResponse extends $dara.Model {
 export class ListTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The data timestamp. The value of this parameter is 00:00:00 of the day before the scheduling time of the instance. The value is a UNIX timestamp. Unit: milliseconds. Example: 1743350400000.
    * 
    * This parameter is required.
    * 
@@ -55371,7 +60312,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
 export class ListTaskInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data timestamp.
+   * The data timestamp. The value of this parameter is 00:00:00 of the day before the scheduling time of the instance. The value is a UNIX timestamp. Unit: milliseconds. Example: 1743350400000.
    * 
    * This parameter is required.
    * 
@@ -56719,6 +61660,8 @@ export class ListWorkflowDefinitionsResponse extends $dara.Model {
 export class ListWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The data timestamp. The value of this parameter is 00:00:00 of the day before the scheduling time of the instance. The value is a UNIX timestamp. Unit: milliseconds. Example: 1743350400000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56855,6 +61798,8 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
 export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The data timestamp. The value of this parameter is 00:00:00 of the day before the scheduling time of the instance. The value is a UNIX timestamp. Unit: milliseconds. Example: 1743350400000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57137,8 +62082,8 @@ export class ListWorkflowsRequest extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler
+   * *   Manual
    * 
    * @example
    * Scheduler
@@ -57261,8 +62206,8 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler
+   * *   Manual
    * 
    * @example
    * Scheduler
@@ -57912,6 +62857,105 @@ export class MoveWorkflowDefinitionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: MoveWorkflowDefinitionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityFromMetaCollectionRequest extends $dara.Model {
+  /**
+   * @example
+   * dlf-table:123456789:test_catalog:test_database::test_table
+   */
+  id?: string;
+  /**
+   * @example
+   * category.123
+   */
+  metaCollectionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      metaCollectionId: 'MetaCollectionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      metaCollectionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityFromMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6D6CD444-DFA0-5180-9763-4A8730F2B382
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveEntityFromMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveEntityFromMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveEntityFromMetaCollectionResponseBody,
     };
   }
 
@@ -61221,6 +66265,112 @@ export class UpdateAlertRuleResponse extends $dara.Model {
   }
 }
 
+export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
+  /**
+   * @example
+   * test description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-column:11075xxxx::test_project:test_schema:test_table:test_column
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateColumnBusinessMetadataResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateColumnBusinessMetadataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateColumnBusinessMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateColumnBusinessMetadataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDIAlarmRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -62913,7 +68063,6 @@ export class UpdateDataSourceRequest extends $dara.Model {
    * 
    * *   InstanceMode: instance mode
    * *   UrlMode: connection string mode
-   * *   CdhMode: CDH cluster mode
    * 
    * @example
    * UrlMode
@@ -63195,6 +68344,168 @@ export class UpdateFunctionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionRequest extends $dara.Model {
+  administrators?: string[];
+  /**
+   * @example
+   * new comment
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @example
+   * new_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administrators: 'Administrators',
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administrators: { 'type': 'array', 'itemType': 'string' },
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.administrators)) {
+      $dara.Model.validateArray(this.administrators);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionShrinkRequest extends $dara.Model {
+  administratorsShrink?: string;
+  /**
+   * @example
+   * new comment
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * category.123
+   */
+  id?: string;
+  /**
+   * @example
+   * new_name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorsShrink: 'Administrators',
+      description: 'Description',
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorsShrink: 'string',
+      description: 'string',
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0E1C0122-F79F-5C26-B546-47A321691868
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMetaCollectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMetaCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMetaCollectionResponseBody,
     };
   }
 
@@ -63984,6 +69295,115 @@ export class UpdateRouteResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateRouteResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableBusinessMetadataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * maxcompute-table:123456XXX::test_project::test_tbl
+   * dlf-table:123456XXX:test_catalog:test_db::test_tbl
+   * hms-table:c-abc123xxx::test_db::test_tbl
+   * holo-table:h-abc123xxx::test_db:test_schema:test_tbl
+   */
+  id?: string;
+  /**
+   * @example
+   * ## introduction
+   */
+  readme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      readme: 'Readme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      readme: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableBusinessMetadataResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 7C352CB7-CD88-XXXXXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTableBusinessMetadataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTableBusinessMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTableBusinessMetadataResponseBody,
     };
   }
 
@@ -65314,6 +70734,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 从集合中移除实体对象
+   * 
+   * @param request - AddEntityIntoMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddEntityIntoMetaCollectionResponse
+   */
+  async addEntityIntoMetaCollectionWithOptions(request: AddEntityIntoMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<AddEntityIntoMetaCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.metaCollectionId)) {
+      query["MetaCollectionId"] = request.metaCollectionId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddEntityIntoMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddEntityIntoMetaCollectionResponse>(await this.callApi(params, req, runtime), new AddEntityIntoMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<AddEntityIntoMetaCollectionResponse>(await this.execute(params, req, runtime), new AddEntityIntoMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 从集合中移除实体对象
+   * 
+   * @param request - AddEntityIntoMetaCollectionRequest
+   * @returns AddEntityIntoMetaCollectionResponse
+   */
+  async addEntityIntoMetaCollection(request: AddEntityIntoMetaCollectionRequest): Promise<AddEntityIntoMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addEntityIntoMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Associates a resource group with a workspace.
    * 
    * @remarks
@@ -65375,7 +70850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates monitoring rules with a monitor
+   * Associates monitoring rules with a data quality monitoring task.
    * 
    * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65425,7 +70900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates monitoring rules with a monitor
+   * Associates monitoring rules with a data quality monitoring task.
    * 
    * @param request - AttachDataQualityRulesToEvaluationTaskRequest
    * @returns AttachDataQualityRulesToEvaluationTaskResponse
@@ -66467,6 +71942,134 @@ export default class Client extends OpenApi {
   async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * 注册血缘关系
+   * 
+   * @param tmpReq - CreateLineageRelationshipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLineageRelationshipResponse
+   */
+  async createLineageRelationshipWithOptions(tmpReq: CreateLineageRelationshipRequest, runtime: $dara.RuntimeOptions): Promise<CreateLineageRelationshipResponse> {
+    tmpReq.validate();
+    let request = new CreateLineageRelationshipShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dstEntity)) {
+      request.dstEntityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dstEntity, "DstEntity", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.srcEntity)) {
+      request.srcEntityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.srcEntity, "SrcEntity", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.task)) {
+      request.taskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.task, "Task", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.dstEntityShrink)) {
+      query["DstEntity"] = request.dstEntityShrink;
+    }
+
+    if (!$dara.isNull(request.srcEntityShrink)) {
+      query["SrcEntity"] = request.srcEntityShrink;
+    }
+
+    if (!$dara.isNull(request.taskShrink)) {
+      query["Task"] = request.taskShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLineageRelationship",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateLineageRelationshipResponse>(await this.callApi(params, req, runtime), new CreateLineageRelationshipResponse({}));
+    } else {
+      return $dara.cast<CreateLineageRelationshipResponse>(await this.execute(params, req, runtime), new CreateLineageRelationshipResponse({}));
+    }
+
+  }
+
+  /**
+   * 注册血缘关系
+   * 
+   * @param request - CreateLineageRelationshipRequest
+   * @returns CreateLineageRelationshipResponse
+   */
+  async createLineageRelationship(request: CreateLineageRelationshipRequest): Promise<CreateLineageRelationshipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLineageRelationshipWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建集合
+   * 
+   * @param request - CreateMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMetaCollectionResponse
+   */
+  async createMetaCollectionWithOptions(request: CreateMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<CreateMetaCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMetaCollectionResponse>(await this.callApi(params, req, runtime), new CreateMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<CreateMetaCollectionResponse>(await this.execute(params, req, runtime), new CreateMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建集合
+   * 
+   * @param request - CreateMetaCollectionRequest
+   * @returns CreateMetaCollectionResponse
+   */
+  async createMetaCollection(request: CreateMetaCollectionRequest): Promise<CreateMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMetaCollectionWithOptions(request, runtime);
   }
 
   /**
@@ -67702,6 +73305,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除血缘关系
+   * 
+   * @param request - DeleteLineageRelationshipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLineageRelationshipResponse
+   */
+  async deleteLineageRelationshipWithOptions(request: DeleteLineageRelationshipRequest, runtime: $dara.RuntimeOptions): Promise<DeleteLineageRelationshipResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLineageRelationship",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteLineageRelationshipResponse>(await this.callApi(params, req, runtime), new DeleteLineageRelationshipResponse({}));
+    } else {
+      return $dara.cast<DeleteLineageRelationshipResponse>(await this.execute(params, req, runtime), new DeleteLineageRelationshipResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除血缘关系
+   * 
+   * @param request - DeleteLineageRelationshipRequest
+   * @returns DeleteLineageRelationshipResponse
+   */
+  async deleteLineageRelationship(request: DeleteLineageRelationshipRequest): Promise<DeleteLineageRelationshipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLineageRelationshipWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除集合
+   * 
+   * @param request - DeleteMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMetaCollectionResponse
+   */
+  async deleteMetaCollectionWithOptions(request: DeleteMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMetaCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMetaCollectionResponse>(await this.callApi(params, req, runtime), new DeleteMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<DeleteMetaCollectionResponse>(await this.execute(params, req, runtime), new DeleteMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除集合
+   * 
+   * @param request - DeleteMetaCollectionRequest
+   * @returns DeleteMetaCollectionResponse
+   */
+  async deleteMetaCollection(request: DeleteMetaCollectionRequest): Promise<DeleteMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates and deletes a network from a general resource group.
    * 
    * @remarks
@@ -68264,7 +73961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates monitoring rules from a monitor
+   * Disassociates monitoring rules from a data quality monitoring task.
    * 
    * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68314,7 +74011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates monitoring rules from a monitor
+   * Disassociates monitoring rules from a data quality monitoring task.
    * 
    * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
    * @returns DetachDataQualityRulesFromEvaluationTaskResponse
@@ -68573,6 +74270,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据目录详情
+   * 
+   * @param request - GetCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogResponse
+   */
+  async getCatalogWithOptions(request: GetCatalogRequest, runtime: $dara.RuntimeOptions): Promise<GetCatalogResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalog",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCatalogResponse>(await this.callApi(params, req, runtime), new GetCatalogResponse({}));
+    } else {
+      return $dara.cast<GetCatalogResponse>(await this.execute(params, req, runtime), new GetCatalogResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取数据目录详情
+   * 
+   * @param request - GetCatalogRequest
+   * @returns GetCatalogResponse
+   */
+  async getCatalog(request: GetCatalogRequest): Promise<GetCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCatalogWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a certificate file.
    * 
    * @remarks
@@ -68621,6 +74361,49 @@ export default class Client extends OpenApi {
   async getCertificate(request: GetCertificateRequest): Promise<GetCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取字段详情
+   * 
+   * @param request - GetColumnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetColumnResponse
+   */
+  async getColumnWithOptions(request: GetColumnRequest, runtime: $dara.RuntimeOptions): Promise<GetColumnResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetColumn",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetColumnResponse>(await this.callApi(params, req, runtime), new GetColumnResponse({}));
+    } else {
+      return $dara.cast<GetColumnResponse>(await this.execute(params, req, runtime), new GetColumnResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取字段详情
+   * 
+   * @param request - GetColumnRequest
+   * @returns GetColumnResponse
+   */
+  async getColumn(request: GetColumnRequest): Promise<GetColumnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getColumnWithOptions(request, runtime);
   }
 
   /**
@@ -69008,6 +74791,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据库详情
+   * 
+   * @param request - GetDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseResponse
+   */
+  async getDatabaseWithOptions(request: GetDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<GetDatabaseResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatabase",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDatabaseResponse>(await this.callApi(params, req, runtime), new GetDatabaseResponse({}));
+    } else {
+      return $dara.cast<GetDatabaseResponse>(await this.execute(params, req, runtime), new GetDatabaseResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取数据库详情
+   * 
+   * @param request - GetDatabaseRequest
+   * @returns GetDatabaseResponse
+   */
+  async getDatabase(request: GetDatabaseRequest): Promise<GetDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDatabaseWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a process for deploying or undeploying an entity.
    * 
    * @param request - GetDeploymentRequest
@@ -69137,6 +74963,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取血缘关系详情
+   * 
+   * @param request - GetLineageRelationshipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLineageRelationshipResponse
+   */
+  async getLineageRelationshipWithOptions(request: GetLineageRelationshipRequest, runtime: $dara.RuntimeOptions): Promise<GetLineageRelationshipResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLineageRelationship",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLineageRelationshipResponse>(await this.callApi(params, req, runtime), new GetLineageRelationshipResponse({}));
+    } else {
+      return $dara.cast<GetLineageRelationshipResponse>(await this.execute(params, req, runtime), new GetLineageRelationshipResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取血缘关系详情
+   * 
+   * @param request - GetLineageRelationshipRequest
+   * @returns GetLineageRelationshipResponse
+   */
+  async getLineageRelationship(request: GetLineageRelationshipRequest): Promise<GetLineageRelationshipResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLineageRelationshipWithOptions(request, runtime);
+  }
+
+  /**
+   * 请求collection详情
+   * 
+   * @param request - GetMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetaCollectionResponse
+   */
+  async getMetaCollectionWithOptions(request: GetMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<GetMetaCollectionResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMetaCollectionResponse>(await this.callApi(params, req, runtime), new GetMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<GetMetaCollectionResponse>(await this.execute(params, req, runtime), new GetMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 请求collection详情
+   * 
+   * @param request - GetMetaCollectionRequest
+   * @returns GetMetaCollectionResponse
+   */
+  async getMetaCollection(request: GetMetaCollectionRequest): Promise<GetMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a network resource.
    * 
    * @remarks
@@ -69226,6 +75138,49 @@ export default class Client extends OpenApi {
   async getNode(request: GetNodeRequest): Promise<GetNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据表的分区详情
+   * 
+   * @param request - GetPartitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPartitionResponse
+   */
+  async getPartitionWithOptions(request: GetPartitionRequest, runtime: $dara.RuntimeOptions): Promise<GetPartitionResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPartition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPartitionResponse>(await this.callApi(params, req, runtime), new GetPartitionResponse({}));
+    } else {
+      return $dara.cast<GetPartitionResponse>(await this.execute(params, req, runtime), new GetPartitionResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取数据表的分区详情
+   * 
+   * @param request - GetPartitionRequest
+   * @returns GetPartitionResponse
+   */
+  async getPartition(request: GetPartitionRequest): Promise<GetPartitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPartitionWithOptions(request, runtime);
   }
 
   /**
@@ -69530,6 +75485,92 @@ export default class Client extends OpenApi {
   async getRoute(request: GetRouteRequest): Promise<GetRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取模式详情
+   * 
+   * @param request - GetSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSchemaResponse
+   */
+  async getSchemaWithOptions(request: GetSchemaRequest, runtime: $dara.RuntimeOptions): Promise<GetSchemaResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSchema",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSchemaResponse>(await this.callApi(params, req, runtime), new GetSchemaResponse({}));
+    } else {
+      return $dara.cast<GetSchemaResponse>(await this.execute(params, req, runtime), new GetSchemaResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取模式详情
+   * 
+   * @param request - GetSchemaRequest
+   * @returns GetSchemaResponse
+   */
+  async getSchema(request: GetSchemaRequest): Promise<GetSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取表详情
+   * 
+   * @param request - GetTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableResponse
+   */
+  async getTableWithOptions(request: GetTableRequest, runtime: $dara.RuntimeOptions): Promise<GetTableResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTable",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTableResponse>(await this.callApi(params, req, runtime), new GetTableResponse({}));
+    } else {
+      return $dara.cast<GetTableResponse>(await this.execute(params, req, runtime), new GetTableResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取表详情
+   * 
+   * @param request - GetTableRequest
+   * @returns GetTableResponse
+   */
+  async getTable(request: GetTableRequest): Promise<GetTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableWithOptions(request, runtime);
   }
 
   /**
@@ -70158,6 +76199,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据目录列表
+   * 
+   * @param tmpReq - ListCatalogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogsWithOptions(tmpReq: ListCatalogsRequest, runtime: $dara.RuntimeOptions): Promise<ListCatalogsResponse> {
+    tmpReq.validate();
+    let request = new ListCatalogsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCatalogs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCatalogsResponse>(await this.callApi(params, req, runtime), new ListCatalogsResponse({}));
+    } else {
+      return $dara.cast<ListCatalogsResponse>(await this.execute(params, req, runtime), new ListCatalogsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询数据目录列表
+   * 
+   * @param request - ListCatalogsRequest
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogs(request: ListCatalogsRequest): Promise<ListCatalogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCatalogsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of certificate files.
    * 
    * @remarks
@@ -70206,6 +76296,86 @@ export default class Client extends OpenApi {
   async listCertificates(request: ListCertificatesRequest): Promise<ListCertificatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCertificatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询字段列表
+   * 
+   * @param request - ListColumnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListColumnsResponse
+   */
+  async listColumnsWithOptions(request: ListColumnsRequest, runtime: $dara.RuntimeOptions): Promise<ListColumnsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListColumns",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListColumnsResponse>(await this.callApi(params, req, runtime), new ListColumnsResponse({}));
+    } else {
+      return $dara.cast<ListColumnsResponse>(await this.execute(params, req, runtime), new ListColumnsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询字段列表
+   * 
+   * @param request - ListColumnsRequest
+   * @returns ListColumnsResponse
+   */
+  async listColumns(request: ListColumnsRequest): Promise<ListColumnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listColumnsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询元数据采集器类型列表
+   * 
+   * @param request - ListCrawlerTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrawlerTypesResponse
+   */
+  async listCrawlerTypesWithOptions(runtime: $dara.RuntimeOptions): Promise<ListCrawlerTypesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCrawlerTypes",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCrawlerTypesResponse>(await this.callApi(params, req, runtime), new ListCrawlerTypesResponse({}));
+    } else {
+      return $dara.cast<ListCrawlerTypesResponse>(await this.execute(params, req, runtime), new ListCrawlerTypesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询元数据采集器类型列表
+   * @returns ListCrawlerTypesResponse
+   */
+  async listCrawlerTypes(): Promise<ListCrawlerTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCrawlerTypesWithOptions(runtime);
   }
 
   /**
@@ -70405,7 +76575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of synchronization tasks.
+   * Queries a list of new-version synchronization tasks in Data Integration. A new-version synchronization task can be a real-time synchronization task used to synchronize full or incremental data in a database, a batch synchronization task used to synchronize full or incremental data in a database, or a real-time synchronization task used to synchronize incremental data in a single table.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -70440,7 +76610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of synchronization tasks.
+   * Queries a list of new-version synchronization tasks in Data Integration. A new-version synchronization task can be a real-time synchronization task used to synchronize full or incremental data in a database, a batch synchronization task used to synchronize full or incremental data in a database, or a real-time synchronization task used to synchronize incremental data in a single table.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -70909,6 +77079,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据库列表
+   * 
+   * @param request - ListDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesResponse
+   */
+  async listDatabasesWithOptions(request: ListDatabasesRequest, runtime: $dara.RuntimeOptions): Promise<ListDatabasesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatabases",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDatabasesResponse>(await this.callApi(params, req, runtime), new ListDatabasesResponse({}));
+    } else {
+      return $dara.cast<ListDatabasesResponse>(await this.execute(params, req, runtime), new ListDatabasesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询数据库列表
+   * 
+   * @param request - ListDatabasesRequest
+   * @returns ListDatabasesResponse
+   */
+  async listDatabases(request: ListDatabasesRequest): Promise<ListDatabasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatabasesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of processes that are used to deploy or undeploy entities in DataStudio. You can also specify filter conditions to query specific processes.
    * 
    * @param request - ListDeploymentsRequest
@@ -71044,6 +77257,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询集合中的实体列表
+   * 
+   * @param request - ListEntitiesInMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEntitiesInMetaCollectionResponse
+   */
+  async listEntitiesInMetaCollectionWithOptions(request: ListEntitiesInMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<ListEntitiesInMetaCollectionResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEntitiesInMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEntitiesInMetaCollectionResponse>(await this.callApi(params, req, runtime), new ListEntitiesInMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<ListEntitiesInMetaCollectionResponse>(await this.execute(params, req, runtime), new ListEntitiesInMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询集合中的实体列表
+   * 
+   * @param request - ListEntitiesInMetaCollectionRequest
+   * @returns ListEntitiesInMetaCollectionResponse
+   */
+  async listEntitiesInMetaCollection(request: ListEntitiesInMetaCollectionRequest): Promise<ListEntitiesInMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEntitiesInMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of user-defined functions (UDFs) in DataStudio. You can also specify filter conditions to query specific UDFs.
    * 
    * @param request - ListFunctionsRequest
@@ -71084,6 +77340,135 @@ export default class Client extends OpenApi {
   async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFunctionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询血缘关系
+   * 
+   * @param request - ListLineageRelationshipsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLineageRelationshipsResponse
+   */
+  async listLineageRelationshipsWithOptions(request: ListLineageRelationshipsRequest, runtime: $dara.RuntimeOptions): Promise<ListLineageRelationshipsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLineageRelationships",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLineageRelationshipsResponse>(await this.callApi(params, req, runtime), new ListLineageRelationshipsResponse({}));
+    } else {
+      return $dara.cast<ListLineageRelationshipsResponse>(await this.execute(params, req, runtime), new ListLineageRelationshipsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询血缘关系
+   * 
+   * @param request - ListLineageRelationshipsRequest
+   * @returns ListLineageRelationshipsResponse
+   */
+  async listLineageRelationships(request: ListLineageRelationshipsRequest): Promise<ListLineageRelationshipsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLineageRelationshipsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实体血缘
+   * 
+   * @param request - ListLineagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLineagesResponse
+   */
+  async listLineagesWithOptions(request: ListLineagesRequest, runtime: $dara.RuntimeOptions): Promise<ListLineagesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLineages",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLineagesResponse>(await this.callApi(params, req, runtime), new ListLineagesResponse({}));
+    } else {
+      return $dara.cast<ListLineagesResponse>(await this.execute(params, req, runtime), new ListLineagesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询实体血缘
+   * 
+   * @param request - ListLineagesRequest
+   * @returns ListLineagesResponse
+   */
+  async listLineages(request: ListLineagesRequest): Promise<ListLineagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLineagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Collection列表
+   * 
+   * @param request - ListMetaCollectionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetaCollectionsResponse
+   */
+  async listMetaCollectionsWithOptions(request: ListMetaCollectionsRequest, runtime: $dara.RuntimeOptions): Promise<ListMetaCollectionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMetaCollections",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMetaCollectionsResponse>(await this.callApi(params, req, runtime), new ListMetaCollectionsResponse({}));
+    } else {
+      return $dara.cast<ListMetaCollectionsResponse>(await this.execute(params, req, runtime), new ListMetaCollectionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询Collection列表
+   * 
+   * @param request - ListMetaCollectionsRequest
+   * @returns ListMetaCollectionsResponse
+   */
+  async listMetaCollections(request: ListMetaCollectionsRequest): Promise<ListMetaCollectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMetaCollectionsWithOptions(request, runtime);
   }
 
   /**
@@ -71219,6 +77604,49 @@ export default class Client extends OpenApi {
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据表的分区列表
+   * 
+   * @param request - ListPartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPartitionsResponse
+   */
+  async listPartitionsWithOptions(request: ListPartitionsRequest, runtime: $dara.RuntimeOptions): Promise<ListPartitionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPartitions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPartitionsResponse>(await this.callApi(params, req, runtime), new ListPartitionsResponse({}));
+    } else {
+      return $dara.cast<ListPartitionsResponse>(await this.execute(params, req, runtime), new ListPartitionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询数据表的分区列表
+   * 
+   * @param request - ListPartitionsRequest
+   * @returns ListPartitionsResponse
+   */
+  async listPartitions(request: ListPartitionsRequest): Promise<ListPartitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPartitionsWithOptions(request, runtime);
   }
 
   /**
@@ -71627,6 +78055,104 @@ export default class Client extends OpenApi {
   async listRoutes(request: ListRoutesRequest): Promise<ListRoutesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRoutesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模式列表
+   * 
+   * @param tmpReq - ListSchemasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSchemasResponse
+   */
+  async listSchemasWithOptions(tmpReq: ListSchemasRequest, runtime: $dara.RuntimeOptions): Promise<ListSchemasResponse> {
+    tmpReq.validate();
+    let request = new ListSchemasShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSchemas",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSchemasResponse>(await this.callApi(params, req, runtime), new ListSchemasResponse({}));
+    } else {
+      return $dara.cast<ListSchemasResponse>(await this.execute(params, req, runtime), new ListSchemasResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询模式列表
+   * 
+   * @param request - ListSchemasRequest
+   * @returns ListSchemasResponse
+   */
+  async listSchemas(request: ListSchemasRequest): Promise<ListSchemasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据表列表
+   * 
+   * @param tmpReq - ListTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
+   */
+  async listTablesWithOptions(tmpReq: ListTablesRequest, runtime: $dara.RuntimeOptions): Promise<ListTablesResponse> {
+    tmpReq.validate();
+    let request = new ListTablesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tableTypes)) {
+      request.tableTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableTypes, "TableTypes", "simple");
+    }
+
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTables",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
+    } else {
+      return $dara.cast<ListTablesResponse>(await this.execute(params, req, runtime), new ListTablesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询数据表列表
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
+   */
+  async listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTablesWithOptions(request, runtime);
   }
 
   /**
@@ -72506,6 +79032,57 @@ export default class Client extends OpenApi {
   async moveWorkflowDefinition(request: MoveWorkflowDefinitionRequest): Promise<MoveWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.moveWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 从集合中移除实体对象
+   * 
+   * @param request - RemoveEntityFromMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveEntityFromMetaCollectionResponse
+   */
+  async removeEntityFromMetaCollectionWithOptions(request: RemoveEntityFromMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<RemoveEntityFromMetaCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.metaCollectionId)) {
+      query["MetaCollectionId"] = request.metaCollectionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveEntityFromMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveEntityFromMetaCollectionResponse>(await this.callApi(params, req, runtime), new RemoveEntityFromMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<RemoveEntityFromMetaCollectionResponse>(await this.execute(params, req, runtime), new RemoveEntityFromMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 从集合中移除实体对象
+   * 
+   * @param request - RemoveEntityFromMetaCollectionRequest
+   * @returns RemoveEntityFromMetaCollectionResponse
+   */
+  async removeEntityFromMetaCollection(request: RemoveEntityFromMetaCollectionRequest): Promise<RemoveEntityFromMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeEntityFromMetaCollectionWithOptions(request, runtime);
   }
 
   /**
@@ -73775,6 +80352,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新字段业务元数据
+   * 
+   * @param request - UpdateColumnBusinessMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateColumnBusinessMetadataResponse
+   */
+  async updateColumnBusinessMetadataWithOptions(request: UpdateColumnBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<UpdateColumnBusinessMetadataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateColumnBusinessMetadata",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateColumnBusinessMetadataResponse>(await this.callApi(params, req, runtime), new UpdateColumnBusinessMetadataResponse({}));
+    } else {
+      return $dara.cast<UpdateColumnBusinessMetadataResponse>(await this.execute(params, req, runtime), new UpdateColumnBusinessMetadataResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新字段业务元数据
+   * 
+   * @param request - UpdateColumnBusinessMetadataRequest
+   * @returns UpdateColumnBusinessMetadataResponse
+   */
+  async updateColumnBusinessMetadata(request: UpdateColumnBusinessMetadataRequest): Promise<UpdateColumnBusinessMetadataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateColumnBusinessMetadataWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an alert rule configured for a synchronization task.
    * 
    * @param tmpReq - UpdateDIAlarmRuleRequest
@@ -74391,6 +81019,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新集合
+   * 
+   * @param tmpReq - UpdateMetaCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetaCollectionResponse
+   */
+  async updateMetaCollectionWithOptions(tmpReq: UpdateMetaCollectionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMetaCollectionResponse> {
+    tmpReq.validate();
+    let request = new UpdateMetaCollectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.administrators)) {
+      request.administratorsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.administrators, "Administrators", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.administratorsShrink)) {
+      query["Administrators"] = request.administratorsShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMetaCollection",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMetaCollectionResponse>(await this.callApi(params, req, runtime), new UpdateMetaCollectionResponse({}));
+    } else {
+      return $dara.cast<UpdateMetaCollectionResponse>(await this.execute(params, req, runtime), new UpdateMetaCollectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新集合
+   * 
+   * @param request - UpdateMetaCollectionRequest
+   * @returns UpdateMetaCollectionResponse
+   */
+  async updateMetaCollection(request: UpdateMetaCollectionRequest): Promise<UpdateMetaCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
@@ -74691,6 +81384,57 @@ export default class Client extends OpenApi {
   async updateRoute(request: UpdateRouteRequest): Promise<UpdateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据表业务元数据
+   * 
+   * @param request - UpdateTableBusinessMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTableBusinessMetadataResponse
+   */
+  async updateTableBusinessMetadataWithOptions(request: UpdateTableBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<UpdateTableBusinessMetadataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.readme)) {
+      body["Readme"] = request.readme;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTableBusinessMetadata",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTableBusinessMetadataResponse>(await this.callApi(params, req, runtime), new UpdateTableBusinessMetadataResponse({}));
+    } else {
+      return $dara.cast<UpdateTableBusinessMetadataResponse>(await this.execute(params, req, runtime), new UpdateTableBusinessMetadataResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新数据表业务元数据
+   * 
+   * @param request - UpdateTableBusinessMetadataRequest
+   * @returns UpdateTableBusinessMetadataResponse
+   */
+  async updateTableBusinessMetadata(request: UpdateTableBusinessMetadataRequest): Promise<UpdateTableBusinessMetadataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTableBusinessMetadataWithOptions(request, runtime);
   }
 
   /**
