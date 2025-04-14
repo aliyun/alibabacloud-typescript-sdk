@@ -11145,6 +11145,7 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $da
    * ipv6GW
    */
   name?: string;
+  ownerId?: string;
   /**
    * @remarks
    * The ID of the region in which the IPv6 gateway is deployed.
@@ -11194,6 +11195,7 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $da
       instanceChargeType: 'InstanceChargeType',
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
@@ -11211,6 +11213,7 @@ export class DescribeIpv6GatewaysResponseBodyIpv6GatewaysIpv6Gateway extends $da
       instanceChargeType: 'string',
       ipv6GatewayId: 'string',
       name: 'string',
+      ownerId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       status: 'string',
@@ -34442,6 +34445,8 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
 export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $dara.Model {
   /**
    * @remarks
+   * The destination CIDR block
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34450,6 +34455,8 @@ export class WithdrawVpcPublishedRouteEntriesRequestRouteEntries extends $dara.M
   destinationCidrBlock?: string;
   /**
    * @remarks
+   * The ID of the route table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62403,6 +62410,7 @@ export class DeleteTrafficMirrorSessionResponse extends $dara.Model {
 }
 
 export class DeleteVSwitchRequest extends $dara.Model {
+  dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -62429,6 +62437,7 @@ export class DeleteVSwitchRequest extends $dara.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -62440,6 +62449,7 @@ export class DeleteVSwitchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -65113,7 +65123,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The number of the returned page. Default value: **1**.
    * 
    * @example
    * 1
@@ -65121,7 +65131,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. The maximum value is **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -65187,7 +65197,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
 export class DescribeBgpNetworksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The BGP network.
+   * BGP networks.
    */
   bgpNetworks?: DescribeBgpNetworksResponseBodyBgpNetworks;
   /**
@@ -71326,6 +71336,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
    * test
    */
   name?: string;
+  ownerId?: string;
   /**
    * @remarks
    * The ID of the region where the IPv6 gateway is deployed.
@@ -71384,6 +71395,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
       instanceChargeType: 'InstanceChargeType',
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
@@ -71403,6 +71415,7 @@ export class DescribeIpv6GatewayAttributeResponseBody extends $dara.Model {
       instanceChargeType: 'string',
       ipv6GatewayId: 'string',
       name: 'string',
+      ownerId: 'string',
       regionId: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
@@ -113420,6 +113433,12 @@ export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse extends $dara
 
 export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
    * @example
    * false
    */
@@ -113427,15 +113446,24 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the region. Call the DescribeRegions operation to access it.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The route entries to be withdrawn. Maximum value: 50.
+   */
   routeEntries?: WithdrawVpcPublishedRouteEntriesRequestRouteEntries[];
   /**
    * @remarks
+   * Target instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -113444,6 +113472,8 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
+   * The type of target instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -113492,6 +113522,9 @@ export class WithdrawVpcPublishedRouteEntriesRequest extends $dara.Model {
 
 export class WithdrawVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
    */
@@ -127153,6 +127186,10 @@ export default class Client extends OpenApi {
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -149078,7 +149115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤回VPC已发布路由
+   * Withdraw advertised Virtual Private Cloud (VPC) routes.
    * 
    * @param request - WithdrawVpcPublishedRouteEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -149150,7 +149187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤回VPC已发布路由
+   * Withdraw advertised Virtual Private Cloud (VPC) routes.
    * 
    * @param request - WithdrawVpcPublishedRouteEntriesRequest
    * @returns WithdrawVpcPublishedRouteEntriesResponse
