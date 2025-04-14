@@ -14364,6 +14364,7 @@ export class ListServicesRequest extends $dara.Model {
    * MSE_NACOS
    */
   sourceType?: string;
+  sourceTypes?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
@@ -14372,6 +14373,7 @@ export class ListServicesRequest extends $dara.Model {
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
       sourceType: 'sourceType',
+      sourceTypes: 'sourceTypes',
     };
   }
 
@@ -14383,6 +14385,7 @@ export class ListServicesRequest extends $dara.Model {
       pageSize: 'number',
       resourceGroupId: 'string',
       sourceType: 'string',
+      sourceTypes: 'string',
     };
   }
 
@@ -18722,6 +18725,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceType)) {
       query["sourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.sourceTypes)) {
+      query["sourceTypes"] = request.sourceTypes;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
