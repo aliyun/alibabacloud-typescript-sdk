@@ -3976,6 +3976,60 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
   }
 }
 
+export class DescribeL7GlobalRuleResponseBodyGlobalRules extends $dara.Model {
+  /**
+   * @example
+   * watch
+   */
+  action?: string;
+  /**
+   * @example
+   * watch
+   */
+  actionDefault?: string;
+  description?: string;
+  /**
+   * @example
+   * 1
+   */
+  enabled?: number;
+  /**
+   * @example
+   * global_1
+   */
+  ruleId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionDefault: 'ActionDefault',
+      description: 'Description',
+      enabled: 'Enabled',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionDefault: 'string',
+      description: 'string',
+      enabled: 'number',
+      ruleId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeL7RsPolicyResponseBodyAttributesAttribute extends $dara.Model {
   /**
    * @remarks
@@ -4891,6 +4945,16 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $dara.Model {
    * true
    */
   isAutoCreate?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the payload filtering rule is enabled. Valid values:
+   * 
+   * *   1: enabled.
+   * *   0: disabled.
+   * 
+   * @example
+   * 1
+   */
   payloadRuleEnable?: number;
   /**
    * @remarks
@@ -4903,7 +4967,27 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $dara.Model {
    * tcp
    */
   protocol?: string;
+  /**
+   * @remarks
+   * Indicates whether the traffic diversion switch is on. Valid values:
+   * 
+   * *   0: on.
+   * *   1: off.
+   * 
+   * @example
+   * 0
+   */
   proxyEnable?: number;
+  /**
+   * @remarks
+   * The status of traffic diversion. Valid values:
+   * 
+   * *   on: Traffic diversion takes effect.
+   * *   off: Traffic diversion does not take effect.
+   * 
+   * @example
+   * on
+   */
   proxyStatus?: string;
   /**
    * @remarks
@@ -8464,6 +8548,12 @@ export class ModifyDomainResourceRequestProxyTypes extends $dara.Model {
 export class AddAutoCcBlacklistRequest extends $dara.Model {
   /**
    * @remarks
+   * The IP addresses that you want to manage. This parameter is a JSON string. The string contains the following field:
+   * 
+   * *   **src**: the IP address. This field is required and must be of the STRING type.
+   * 
+   * >  You can manually add up to 2,000 IP addresses to the IP address blacklist. Separate multiple IP addresses with spaces or line breaks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9071,6 +9161,108 @@ export class ConfigDomainSecurityProfileResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ConfigDomainSecurityProfileResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7GlobalRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"RuleId\\":\\"global_01\\",\\"Action\\":\\"block\\",\\"Enabled\\":0}]
+   */
+  ruleAttr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      ruleAttr: 'RuleAttr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      ruleAttr: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7GlobalRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigL7GlobalRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConfigL7GlobalRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConfigL7GlobalRuleResponseBody,
     };
   }
 
@@ -11230,8 +11422,8 @@ export class CreateSceneDefensePolicyRequest extends $dara.Model {
    * @remarks
    * The template of the policy. Valid values:
    * 
-   * *   **promotion**: important activity
-   * *   **bypass**: all traffic forwarded
+   * *   **promotion**: important activity.
+   * *   **bypass**: all traffic forwarded.
    * 
    * This parameter is required.
    * 
@@ -12639,7 +12831,7 @@ export class DeletePortRequest extends $dara.Model {
   frontendPort?: string;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
+   * The type of the forwarding protocol. Valid values:
    * 
    * *   **tcp**
    * *   **udp**
@@ -14938,6 +15130,10 @@ export class DescribeCertsResponse extends $dara.Model {
 export class DescribeCnameReusesRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain names of the websites. You can specify the domain names of up to 200 websites.
+   * 
+   * >  A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15315,7 +15511,7 @@ export class DescribeDDosAllEventListRequest extends $dara.Model {
 export class DescribeDDosAllEventListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array that consists of attack events.
+   * The DDoS attack events.
    */
   attackEvents?: DescribeDDosAllEventListResponseBodyAttackEvents[];
   /**
@@ -19303,6 +19499,7 @@ export class DescribeDomainViewTopUrlRequest extends $dara.Model {
    * 1583683200
    */
   endTime?: number;
+  inerval?: number;
   /**
    * @remarks
    * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
@@ -19337,6 +19534,7 @@ export class DescribeDomainViewTopUrlRequest extends $dara.Model {
     return {
       domain: 'Domain',
       endTime: 'EndTime',
+      inerval: 'Inerval',
       resourceGroupId: 'ResourceGroupId',
       startTime: 'StartTime',
       top: 'Top',
@@ -19347,6 +19545,7 @@ export class DescribeDomainViewTopUrlRequest extends $dara.Model {
     return {
       domain: 'string',
       endTime: 'number',
+      inerval: 'number',
       resourceGroupId: 'string',
       startTime: 'number',
       top: 'number',
@@ -21267,6 +21466,111 @@ export class DescribeInstancesResponse extends $dara.Model {
   }
 }
 
+export class DescribeL7GlobalRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
+  domain?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7GlobalRuleResponseBody extends $dara.Model {
+  globalRules?: DescribeL7GlobalRuleResponseBodyGlobalRules[];
+  /**
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      globalRules: 'GlobalRules',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      globalRules: { 'type': 'array', 'itemType': DescribeL7GlobalRuleResponseBodyGlobalRules },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.globalRules)) {
+      $dara.Model.validateArray(this.globalRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeL7GlobalRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeL7GlobalRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeL7GlobalRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeL7RsPolicyRequest extends $dara.Model {
   /**
    * @remarks
@@ -22150,7 +22454,7 @@ export class DescribeNetworkRulesRequest extends $dara.Model {
 export class DescribeNetworkRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the port forwarding rule.
+   * The details of the port forwarding rules.
    */
   networkRules?: DescribeNetworkRulesResponseBodyNetworkRules[];
   /**
@@ -22601,7 +22905,7 @@ export class DescribePortAttackMaxFlowRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * An array that consists of the IDs of instances to query.
+   * The IDs of the Anti-DDoS Proxy instances to query.
    * 
    * This parameter is required.
    * 
@@ -23549,9 +23853,9 @@ export class DescribePortMaxConnsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The IDs of the Anti-DDoS Proxy instances.
    * 
-   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy instances.
    * 
    * This parameter is required.
    * 
@@ -23612,7 +23916,7 @@ export class DescribePortMaxConnsRequest extends $dara.Model {
 export class DescribePortMaxConnsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array consisting of the details of the maximum number of connections that are established over a port of the instance.
+   * The details of the maximum number of connections that can be established over a port of the instance.
    */
   portMaxConns?: DescribePortMaxConnsResponseBodyPortMaxConns[];
   /**
@@ -23699,7 +24003,7 @@ export class DescribePortViewSourceCountriesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * An array that consists of the IDs of instances to query.
+   * The IDs of the Anti-DDoS Proxy instances to query.
    * 
    * This parameter is required.
    * 
@@ -23709,9 +24013,9 @@ export class DescribePortViewSourceCountriesRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -23770,7 +24074,7 @@ export class DescribePortViewSourceCountriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array consisting of countries or areas from which the requests are sent.
+   * The details about the country or area from which the requests are sent.
    */
   sourceCountrys?: DescribePortViewSourceCountriesResponseBodySourceCountrys[];
   static names(): { [key: string]: string } {
@@ -23849,7 +24153,7 @@ export class DescribePortViewSourceIspsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * An array that consists of the IDs of instances to query.
+   * The IDs of the Anti-DDoS Proxy instances to query.
    * 
    * This parameter is required.
    * 
@@ -23859,9 +24163,9 @@ export class DescribePortViewSourceIspsRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs in Resource Management.
+   * The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management.
    * 
-   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * If you do not specify this parameter, the instance belongs to the default resource group.
    * 
    * @example
    * rg-acfm2pz25js****
@@ -23997,7 +24301,7 @@ export class DescribePortViewSourceProvincesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The IDs of instances to query.
+   * The IDs of the Anti-DDoS Proxy instances to query.
    * 
    * This parameter is required.
    * 
@@ -24007,9 +24311,9 @@ export class DescribePortViewSourceProvincesRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
    * 
-   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****
@@ -24068,7 +24372,7 @@ export class DescribePortViewSourceProvincesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details about the administrative region in China from which the requests are sent.
+   * The details of the administrative region in China from which the requests are sent.
    */
   sourceProvinces?: DescribePortViewSourceProvincesResponseBodySourceProvinces[];
   static names(): { [key: string]: string } {
@@ -25751,7 +26055,7 @@ export class DescribeTotalAttackMaxFlowRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The IDs of the instances. Separate multiple instance IDs with commas (,). Example: InstanceIds.1, InstanceIds.2, InstanceIds.3.
+   * The IDs of the Anti-DDoS Proxy instances. Separate multiple instance IDs with commas (,). Example: InstanceIds.1, InstanceIds.2, InstanceIds.3.
    * 
    * This parameter is required.
    */
@@ -25817,7 +26121,7 @@ export class DescribeTotalAttackMaxFlowResponseBody extends $dara.Model {
   bps?: number;
   /**
    * @remarks
-   * The peak packet rate of attack traffic . Unit: packets per second (pps).
+   * The peak packet rate of attack traffic. Unit: packets per second (pps).
    * 
    * @example
    * 0
@@ -27522,9 +27826,9 @@ export class DescribeWebCustomPortsResponse extends $dara.Model {
 export class DescribeWebInstanceRelationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain names of the website. list
+   * The domain names of the website.
    * 
-   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * >  A forwarding rule must be configured for the domain names. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
    * 
    * This parameter is required.
    * 
@@ -27802,7 +28106,7 @@ export class DescribeWebReportTopIpRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The source of the statistics. Valid value:
+   * The source of the statistics. Valid values:
    * 
    * *   **visit**: indicates all IP addresses.
    * *   **block**: indicates blocked IP addresses.
@@ -27867,7 +28171,7 @@ export class DescribeWebReportTopIpRequest extends $dara.Model {
 export class DescribeWebReportTopIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The information about the IP addresses.
    */
   dataList?: DescribeWebReportTopIpResponseBodyDataList[];
   /**
@@ -29106,7 +29410,7 @@ export class EnableWebAccessLogConfigRequest extends $dara.Model {
    * @remarks
    * The domain name of the website.
    * 
-   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/474212.html) operation to query all domain names.
    * 
    * This parameter is required.
    * 
@@ -30998,37 +31302,66 @@ export class ModifyHttp2EnableResponse extends $dara.Model {
 
 export class ModifyInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Address type. Values:
+   * - **Ipv4**: IPv4.
+   * - **Ipv6**: IPv6.
+   * 
    * @example
    * Ipv4
    */
   addressType?: string;
   /**
+   * @remarks
+   * Elastic protection bandwidth (Mainland China). Unit: Gbps.
+   * 
    * @example
    * 30
    */
   bandwidth?: string;
   /**
+   * @remarks
+   * Guaranteed protection bandwidth (Mainland China). Unit: Gbps.
+   * 
    * @example
    * 30
    */
   baseBandwidth?: string;
   /**
+   * @remarks
+   * Number of protected domains.
+   * 
    * @example
    * 50
    */
   domainCount?: string;
   /**
+   * @remarks
+   * Protection package (Mainland China). Values:
+   * 
+   * - **coop**: Indicates the DDoS High Defense (Mainland China) Professional Edition.
+   * - **advance**: Indicates the DDoS High Defense (Mainland China) Professional Edition.
+   * 
    * @example
    * coop
    */
   editionSale?: string;
   /**
+   * @remarks
+   * Function version, with values:
+   * 
+   * - **0**: Standard function.
+   * - **1**: Enhanced function.
+   * 
    * @example
    * 0
    */
   functionVersion?: string;
   /**
    * @remarks
+   * The ID of the DDoS High Defense instance.
+   * > You can call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the ID information of all DDoS High Defense instances.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31037,6 +31370,10 @@ export class ModifyInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Adjustment type, with values
+   * - UPGRADE: Upgrade.
+   * - DOWNGRADE: Downgrade.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31044,27 +31381,51 @@ export class ModifyInstanceRequest extends $dara.Model {
    */
   modifyType?: string;
   /**
+   * @remarks
+   * Business bandwidth (outside Mainland China). Unit: Mbps.
+   * 
    * @example
    * 200
    */
   normalBandwidth?: string;
   /**
+   * @remarks
+   * Business QPS. Unit: Mbps.
+   * 
    * @example
    * 100
    */
   normalQps?: string;
   /**
+   * @remarks
+   * Number of protected ports.
+   * 
    * @example
    * 50
    */
   portCount?: string;
   /**
+   * @remarks
+   * Protection package (outside Mainland China). Values:
+   * 
+   * - **0**: Indicates the DDoS High Defense (outside Mainland China) Insurance Edition.
+   * - **1**: Indicates the DDoS High Defense (outside Mainland China) Worry-Free Edition.
+   * - **2**: Indicates the DDoS High Defense (outside Mainland China) Acceleration Line.
+   * - **3**: Indicates the DDoS High Defense (outside Mainland China) Secure Acceleration Line.
+   * 
    * @example
    * 0
    */
   productPlan?: string;
   /**
    * @remarks
+   * Product type.
+   * Values:
+   * 
+   * - **ddoscoo**: Indicates that the DDoS High Defense (Mainland China) instance is being adjusted for a China site account.
+   * - **ddoscoo_intl**: Indicates that the DDoS High Defense (Mainland China) instance is being adjusted for an international site account.
+   * - **ddosDip**: Indicates that the DDoS High Defense (outside Mainland China) instance is being adjusted for either a China or international site account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31072,11 +31433,19 @@ export class ModifyInstanceRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * Business bandwidth (Mainland China). Unit: Mbps.
+   * 
    * @example
    * 300
    */
   serviceBandwidth?: string;
   /**
+   * @remarks
+   * Line resources of the instance (Mainland China). Values:
+   * 
+   * - **coop-line-001**: Indicates the DDoS High Defense (Mainland China) 8-line BGP line.
+   * 
    * @example
    * coop-line-001
    */
@@ -31132,11 +31501,17 @@ export class ModifyInstanceRequest extends $dara.Model {
 
 export class ModifyInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Order ID.
+   * 
    * @example
    * 242461444340562
    */
   orderId?: number;
   /**
+   * @remarks
+   * The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 0018DF77-7189-5D33-947B-E5B34BFCE07E
    */
@@ -31494,10 +31869,13 @@ export class ModifyOcspStatusRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the OCSP feature. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * *   **1**: yes.
+   * *   **0**: no.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   enable?: number;
   static names(): { [key: string]: string } {
@@ -32032,8 +32410,8 @@ export class ModifySceneDefensePolicyRequest extends $dara.Model {
    * @remarks
    * The template of the policy. Valid values:
    * 
-   * *   **promotion**: important activity
-   * *   **bypass**: all traffic forwarded
+   * *   **promotion**: important activity.
+   * *   **bypass**: all traffic forwarded.
    * 
    * This parameter is required.
    * 
@@ -32506,7 +32884,7 @@ export class ModifyWebAIProtectModeRequest extends $dara.Model {
    * @remarks
    * The domain name of the website.
    * 
-   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/474212.html) operation to query all domain names.
    * 
    * This parameter is required.
    * 
@@ -34195,6 +34573,10 @@ export class ModifyWebPreciseAccessSwitchResponse extends $dara.Model {
 export class ModifyWebRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34202,6 +34584,21 @@ export class ModifyWebRuleRequest extends $dara.Model {
    */
   domain?: string;
   /**
+   * @remarks
+   * The advanced HTTPS settings. This parameter takes effect only when the value of **ProxyType** includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **Http2https**: specifies whether to turn on Enforce HTTPS Routing. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enforce HTTPS Routing is turned off. The value 1 indicates that Enforce HTTPS Routing is turned on. The default value is 0.
+   * 
+   *     If your website supports both HTTP and HTTPS, this feature suits your needs. If you turn on the switch, all HTTP requests are redirected to HTTPS requests on port 443 by default.
+   * 
+   * *   **Https2http**: specifies whether to turn on Enable HTTP. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP is turned off. The value 1 indicates that Enable HTTP is turned on. The default value is 0.
+   * 
+   *     If your website does not support HTTPS, this feature suits your needs. If you turn on the switch, all HTTPS requests are redirected to HTTP requests and forwarded to origin servers. The feature can also redirect WebSockets requests to WebSocket requests. All requests are redirected over port 80.
+   * 
+   * *   **Http2**: specifies whether to turn on Enable HTTP/2. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on. The default value is 0.
+   * 
+   *     After you turn on the switch, the protocol type is HTTP/2.
+   * 
    * @example
    * {"Http2":1,"Http2https":1,"Https2http":1}
    */
@@ -34213,6 +34610,11 @@ export class ModifyWebRuleRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
+   * The protocol of the forwarding rule. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+   * 
+   * *   **ProxyType**: the protocol type. This field is required and must be a string. Valid values: **http**, **https**, **websocket**, and **websockets**.
+   * *   **ProxyPort**: the port number. This field is required and must be an array.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34228,12 +34630,22 @@ export class ModifyWebRuleRequest extends $dara.Model {
    */
   realServers?: string[];
   /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
    * @example
    * rg-acfm2pz25js****
    */
   resourceGroupId?: string;
   /**
    * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address.
+   * *   **1**: domain name. Use the domain name of the origin server if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the Anti-DDoS Pro or Anti-DDoS Premium instance. If you use the domain name, you must enter the address of the proxy, such as the CNAME of WAF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34281,6 +34693,9 @@ export class ModifyWebRuleRequest extends $dara.Model {
 
 export class ModifyWebRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * CB3261D2-7D1B-4ADA-9E98-A200B2CDA2DC
    */
@@ -34893,6 +35308,57 @@ export default class Client extends OpenApi {
   async configDomainSecurityProfile(request: ConfigDomainSecurityProfileRequest): Promise<ConfigDomainSecurityProfileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.configDomainSecurityProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置全局模板规则
+   * 
+   * @param request - ConfigL7GlobalRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigL7GlobalRuleResponse
+   */
+  async configL7GlobalRuleWithOptions(request: ConfigL7GlobalRuleRequest, runtime: $dara.RuntimeOptions): Promise<ConfigL7GlobalRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.ruleAttr)) {
+      query["RuleAttr"] = request.ruleAttr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigL7GlobalRule",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ConfigL7GlobalRuleResponse>(await this.callApi(params, req, runtime), new ConfigL7GlobalRuleResponse({}));
+    } else {
+      return $dara.cast<ConfigL7GlobalRuleResponse>(await this.execute(params, req, runtime), new ConfigL7GlobalRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * 配置全局模板规则
+   * 
+   * @param request - ConfigL7GlobalRuleRequest
+   * @returns ConfigL7GlobalRuleResponse
+   */
+  async configL7GlobalRule(request: ConfigL7GlobalRuleRequest): Promise<ConfigL7GlobalRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configL7GlobalRuleWithOptions(request, runtime);
   }
 
   /**
@@ -36239,7 +36705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DeleteAutoCcWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36279,7 +36745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DeleteAutoCcWhitelistRequest
    * @returns DeleteAutoCcWhitelistResponse
@@ -37098,7 +37564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DescribeAutoCcListCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37138,7 +37604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DescribeAutoCcListCountRequest
    * @returns DescribeAutoCcListCountResponse
@@ -37149,7 +37615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DescribeAutoCcWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37197,7 +37663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Proxy instance.
    * 
    * @param request - DescribeAutoCcWhitelistRequest
    * @returns DescribeAutoCcWhitelistResponse
@@ -37373,7 +37839,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+   * 
+   * @remarks
+   * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
+   * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
    * 
    * @param request - DescribeCertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37413,7 +37883,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+   * 
+   * @remarks
+   * This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
+   * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
    * 
    * @param request - DescribeCertsRequest
    * @returns DescribeCertsResponse
@@ -37538,7 +38012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query DDoS attacks by IP address.
+   * Queries DDoS attack events.
    * 
    * @remarks
    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
@@ -37595,7 +38069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query DDoS attacks by IP address.
+   * Queries DDoS attack events.
    * 
    * @remarks
    * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
@@ -37977,7 +38451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the advanced mitigation logs of Anti-DDoS Premium.
+   * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
    * 
    * @remarks
    * > This operation is suitable only for Anti-DDoS Premium.
@@ -38036,7 +38510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the advanced mitigation logs of Anti-DDoS Premium.
+   * Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
    * 
    * @remarks
    * > This operation is suitable only for Anti-DDoS Premium.
@@ -39181,6 +39655,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.inerval)) {
+      query["Inerval"] = request.inerval;
+    }
+
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -39916,6 +40394,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @remarks
    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
    * 
@@ -39997,6 +40477,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @remarks
    * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
    * 
@@ -40006,6 +40488,57 @@ export default class Client extends OpenApi {
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 展示全局模板规则
+   * 
+   * @param request - DescribeL7GlobalRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeL7GlobalRuleResponse
+   */
+  async describeL7GlobalRuleWithOptions(request: DescribeL7GlobalRuleRequest, runtime: $dara.RuntimeOptions): Promise<DescribeL7GlobalRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeL7GlobalRule",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeL7GlobalRuleResponse>(await this.callApi(params, req, runtime), new DescribeL7GlobalRuleResponse({}));
+    } else {
+      return $dara.cast<DescribeL7GlobalRuleResponse>(await this.execute(params, req, runtime), new DescribeL7GlobalRuleResponse({}));
+    }
+
+  }
+
+  /**
+   * 展示全局模板规则
+   * 
+   * @param request - DescribeL7GlobalRuleRequest
+   * @returns DescribeL7GlobalRuleResponse
+   */
+  async describeL7GlobalRule(request: DescribeL7GlobalRuleRequest): Promise<DescribeL7GlobalRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeL7GlobalRuleWithOptions(request, runtime);
   }
 
   /**
@@ -40158,7 +40691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   * Checks whether a Logstore is created for Anti-DDoS Proxy.
    * 
    * @param request - DescribeLogStoreExistStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40194,7 +40727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   * Checks whether a Logstore is created for Anti-DDoS Proxy.
    * 
    * @param request - DescribeLogStoreExistStatusRequest
    * @returns DescribeLogStoreExistStatusResponse
@@ -40878,7 +41411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
    * 
    * @param request - DescribePortMaxConnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40926,7 +41459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
    * 
    * @param request - DescribePortMaxConnsRequest
    * @returns DescribePortMaxConnsResponse
@@ -41376,7 +41909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
    * 
    * @param request - DescribeSlsAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41412,7 +41945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   * Queries whether Anti-DDoS Proxy is authorized to access Simple Log Service.
    * 
    * @param request - DescribeSlsAuthStatusRequest
    * @returns DescribeSlsAuthStatusResponse
@@ -41423,7 +41956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
    * 
    * @param request - DescribeSlsLogstoreInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41459,7 +41992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   * Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
    * 
    * @param request - DescribeSlsLogstoreInfoRequest
    * @returns DescribeSlsLogstoreInfoResponse
@@ -41470,7 +42003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether Log Service is activated.
+   * Checks whether Simple Log Service is activated.
    * 
    * @param request - DescribeSlsOpenStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41506,7 +42039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether Log Service is activated.
+   * Checks whether Simple Log Service is activated.
    * 
    * @param request - DescribeSlsOpenStatusRequest
    * @returns DescribeSlsOpenStatusResponse
@@ -41921,7 +42454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   * Queries the total quota and remaining quota for blackhole filtering deactivation.
    * 
    * @param request - DescribeUnBlackholeCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41957,7 +42490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   * Queries the total quota and remaining quota for blackhole filtering deactivation.
    * 
    * @param request - DescribeUnBlackholeCountRequest
    * @returns DescribeUnBlackholeCountResponse
@@ -42133,7 +42666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
    * 
    * @param request - DescribeWebAccessLogStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42173,7 +42706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   * Queries the information about the log analysis feature for a website, such as the feature status and the Simple Log Service project and Logstore that are used.
    * 
    * @param request - DescribeWebAccessLogStatusRequest
    * @returns DescribeWebAccessLogStatusResponse
@@ -44123,7 +44656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例变配  类似bss的变配
+   * Instance adjustment, similar to BSS adjustment
    * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44215,7 +44748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例变配  类似bss的变配
+   * Instance adjustment, similar to BSS adjustment
    * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse
@@ -44226,7 +44759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Modifies the description of an Anti-DDoS Proxy instance.
    * 
    * @param request - ModifyInstanceRemarkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44266,7 +44799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Modifies the description of an Anti-DDoS Proxy instance.
    * 
    * @param request - ModifyInstanceRemarkRequest
    * @returns ModifyInstanceRemarkResponse
@@ -45514,6 +46047,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the forwarding rule of a website.
+   * 
+   * @remarks
+   * ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+   * 
    * @param request - ModifyWebRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyWebRuleResponse
@@ -45572,6 +46111,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the forwarding rule of a website.
+   * 
+   * @remarks
+   * ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+   * 
    * @param request - ModifyWebRuleRequest
    * @returns ModifyWebRuleResponse
    */
