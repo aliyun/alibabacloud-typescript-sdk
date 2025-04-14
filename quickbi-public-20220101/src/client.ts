@@ -8813,6 +8813,10 @@ export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
 }
 
 export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
   row?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8840,11 +8844,19 @@ export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
 
 export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   chartType?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  conclusionText?: string;
+  logicSql?: string;
   metaType?: SmartqQueryAbilityResponseBodyResultMetaType[];
   values?: SmartqQueryAbilityResponseBodyResultValues[];
   static names(): { [key: string]: string } {
     return {
       chartType: 'ChartType',
+      conclusionText: 'ConclusionText',
+      logicSql: 'LogicSql',
       metaType: 'MetaType',
       values: 'Values',
     };
@@ -8853,6 +8865,8 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       chartType: 'string',
+      conclusionText: 'string',
+      logicSql: 'string',
       metaType: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultMetaType },
       values: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultValues },
     };
@@ -9387,11 +9401,15 @@ export class AddUserRequest extends $dara.Model {
    * 
    * **if can be null:**
    * false
+   * 
+   * @deprecated
    */
   adminUser?: boolean;
   /**
    * @example
    * true
+   * 
+   * @deprecated
    */
   authAdminUser?: boolean;
   /**
@@ -11243,6 +11261,8 @@ export class CreateTicketRequest extends $dara.Model {
    * 
    * @example
    * test user
+   * 
+   * @deprecated
    */
   accountName?: string;
   /**
@@ -11258,6 +11278,8 @@ export class CreateTicketRequest extends $dara.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   accountType?: number;
   /**
@@ -24372,10 +24394,13 @@ export default class Client extends OpenApi {
   /**
    * 批量添加飞书用户。
    * 
+   * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
+   * 
    * @param request - BatchAddFeishuUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchAddFeishuUsersResponse
    */
+  // Deprecated
   async batchAddFeishuUsersWithOptions(request: BatchAddFeishuUsersRequest, runtime: $dara.RuntimeOptions): Promise<BatchAddFeishuUsersResponse> {
     request.validate();
     let query = { };
@@ -24424,9 +24449,12 @@ export default class Client extends OpenApi {
   /**
    * 批量添加飞书用户。
    * 
+   * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
+   * 
    * @param request - BatchAddFeishuUsersRequest
    * @returns BatchAddFeishuUsersResponse
    */
+  // Deprecated
   async batchAddFeishuUsers(request: BatchAddFeishuUsersRequest): Promise<BatchAddFeishuUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchAddFeishuUsersWithOptions(request, runtime);
@@ -27250,10 +27278,13 @@ export default class Client extends OpenApi {
    * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
    * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
    * 
+   * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
+   * 
    * @param request - QueryDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDataServiceResponse
    */
+  // Deprecated
   async queryDataServiceWithOptions(request: QueryDataServiceRequest, runtime: $dara.RuntimeOptions): Promise<QueryDataServiceResponse> {
     request.validate();
     let query = { };
@@ -27302,9 +27333,12 @@ export default class Client extends OpenApi {
    * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
    * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
    * 
+   * @deprecated OpenAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead.
+   * 
    * @param request - QueryDataServiceRequest
    * @returns QueryDataServiceResponse
    */
+  // Deprecated
   async queryDataService(request: QueryDataServiceRequest): Promise<QueryDataServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDataServiceWithOptions(request, runtime);
