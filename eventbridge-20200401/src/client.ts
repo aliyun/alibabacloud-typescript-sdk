@@ -1349,15 +1349,27 @@ export class CreateEventStreamingRequestRunOptionsDeadLetterQueue extends $dara.
    * acs:ram::1317334647812936:role/rdstoecsassumekms
    */
   arn?: string;
+  network?: string;
+  securityGroupId?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      network: 'Network',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      network: 'string',
+      securityGroupId: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -2991,6 +3003,35 @@ export class CreateEventStreamingRequestSinkSinkKafkaParametersAcks extends $dar
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkKafkaParametersHeaders extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkKafkaParametersInstanceId extends $dara.Model {
   /**
    * @remarks
@@ -3203,6 +3244,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
    * *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
    */
   acks?: CreateEventStreamingRequestSinkSinkKafkaParametersAcks;
+  headers?: CreateEventStreamingRequestSinkSinkKafkaParametersHeaders;
   /**
    * @remarks
    * The ID of the ApsaraMQ for Kafka instance.
@@ -3226,6 +3268,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       acks: 'Acks',
+      headers: 'Headers',
       instanceId: 'InstanceId',
       key: 'Key',
       topic: 'Topic',
@@ -3236,6 +3279,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       acks: CreateEventStreamingRequestSinkSinkKafkaParametersAcks,
+      headers: CreateEventStreamingRequestSinkSinkKafkaParametersHeaders,
       instanceId: CreateEventStreamingRequestSinkSinkKafkaParametersInstanceId,
       key: CreateEventStreamingRequestSinkSinkKafkaParametersKey,
       topic: CreateEventStreamingRequestSinkSinkKafkaParametersTopic,
@@ -3246,6 +3290,9 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   validate() {
     if(this.acks && typeof (this.acks as any).validate === 'function') {
       (this.acks as any).validate();
+    }
+    if(this.headers && typeof (this.headers as any).validate === 'function') {
+      (this.headers as any).validate();
     }
     if(this.instanceId && typeof (this.instanceId as any).validate === 'function') {
       (this.instanceId as any).validate();
@@ -3498,35 +3545,6 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody
   }
 }
 
-export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId extends $dara.Model {
   form?: string;
   template?: string;
@@ -3585,35 +3603,6 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProp
   }
 }
 
-export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
   form?: string;
   template?: string;
@@ -3644,14 +3633,15 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRout
 }
 
 export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   body?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody;
   endpoint?: string;
-  exchange?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange;
+  exchange?: string;
   messageId?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId;
   networkType?: string;
   password?: string;
   properties?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties;
-  queueName?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName;
+  queueName?: string;
   routingKey?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey;
   securityGroupId?: string;
   targetType?: string;
@@ -3661,6 +3651,7 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters ext
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       body: 'Body',
       endpoint: 'Endpoint',
       exchange: 'Exchange',
@@ -3681,14 +3672,15 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters ext
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       body: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody,
       endpoint: 'string',
-      exchange: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersExchange,
+      exchange: 'string',
       messageId: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId,
       networkType: 'string',
       password: 'string',
       properties: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties,
-      queueName: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersQueueName,
+      queueName: 'string',
       routingKey: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey,
       securityGroupId: 'string',
       targetType: 'string',
@@ -3703,17 +3695,11 @@ export class CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters ext
     if(this.body && typeof (this.body as any).validate === 'function') {
       (this.body as any).validate();
     }
-    if(this.exchange && typeof (this.exchange as any).validate === 'function') {
-      (this.exchange as any).validate();
-    }
     if(this.messageId && typeof (this.messageId as any).validate === 'function') {
       (this.messageId as any).validate();
     }
     if(this.properties && typeof (this.properties as any).validate === 'function') {
       (this.properties as any).validate();
-    }
-    if(this.queueName && typeof (this.queueName as any).validate === 'function') {
-      (this.queueName as any).validate();
     }
     if(this.routingKey && typeof (this.routingKey as any).validate === 'function') {
       (this.routingKey as any).validate();
@@ -6942,6 +6928,7 @@ export class CreateEventStreamingRequestSourceSourceOSSParameters extends $dara.
 }
 
 export class CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   bodyDataType?: string;
   endpoint?: string;
   networkType?: string;
@@ -6954,6 +6941,7 @@ export class CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       bodyDataType: 'BodyDataType',
       endpoint: 'Endpoint',
       networkType: 'NetworkType',
@@ -6969,6 +6957,7 @@ export class CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       bodyDataType: 'string',
       endpoint: 'string',
       networkType: 'string',
@@ -7599,6 +7588,32 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
   }
 }
 
+export class CreateEventStreamingRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestTransforms extends $dara.Model {
   /**
    * @example
@@ -7614,6 +7629,32 @@ export class CreateEventStreamingRequestTransforms extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingShrinkRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -9371,15 +9412,27 @@ export class GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue extends 
    * acs:ram::1550203943326350:role/edskmstoecs
    */
   arn?: string;
+  network?: string;
+  securityGroupId?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      network: 'Network',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      network: 'string',
+      securityGroupId: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -10862,6 +10915,35 @@ export class GetEventStreamingResponseBodyDataSinkSinkKafkaParametersAcks extend
   }
 }
 
+export class GetEventStreamingResponseBodyDataSinkSinkKafkaParametersHeaders extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSinkSinkKafkaParametersInstanceId extends $dara.Model {
   /**
    * @remarks
@@ -11061,6 +11143,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkKafkaParameters extends $d
    * The acknowledgment information.
    */
   acks?: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersAcks;
+  headers?: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersHeaders;
   /**
    * @remarks
    * The target service type is Message Queue for Apache Kafka.
@@ -11084,6 +11167,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkKafkaParameters extends $d
   static names(): { [key: string]: string } {
     return {
       acks: 'Acks',
+      headers: 'Headers',
       instanceId: 'InstanceId',
       key: 'Key',
       topic: 'Topic',
@@ -11094,6 +11178,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkKafkaParameters extends $d
   static types(): { [key: string]: any } {
     return {
       acks: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersAcks,
+      headers: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersHeaders,
       instanceId: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersInstanceId,
       key: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersKey,
       topic: GetEventStreamingResponseBodyDataSinkSinkKafkaParametersTopic,
@@ -11104,6 +11189,9 @@ export class GetEventStreamingResponseBodyDataSinkSinkKafkaParameters extends $d
   validate() {
     if(this.acks && typeof (this.acks as any).validate === 'function') {
       (this.acks as any).validate();
+    }
+    if(this.headers && typeof (this.headers as any).validate === 'function') {
+      (this.headers as any).validate();
     }
     if(this.instanceId && typeof (this.instanceId as any).validate === 'function') {
       (this.instanceId as any).validate();
@@ -11379,35 +11467,6 @@ export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParamete
   }
 }
 
-export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties extends $dara.Model {
   form?: string;
   template?: string;
@@ -11466,111 +11525,26 @@ export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParamete
   }
 }
 
-export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   body?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody;
   endpoint?: string;
   exchange?: string;
   messageId?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId;
-  networkType?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType;
+  networkType?: string;
   password?: string;
   properties?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties;
   queueName?: string;
   routingKey?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey;
-  securityGroupId?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId;
+  securityGroupId?: string;
   targetType?: string;
   username?: string;
-  vSwitchIds?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds;
+  vSwitchIds?: string;
   virtualHostName?: string;
-  vpcId?: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       body: 'Body',
       endpoint: 'Endpoint',
       exchange: 'Exchange',
@@ -11591,21 +11565,22 @@ export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParamete
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       body: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersBody,
       endpoint: 'string',
       exchange: 'string',
       messageId: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersMessageId,
-      networkType: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersNetworkType,
+      networkType: 'string',
       password: 'string',
       properties: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersProperties,
       queueName: 'string',
       routingKey: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersRoutingKey,
-      securityGroupId: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersSecurityGroupId,
+      securityGroupId: 'string',
       targetType: 'string',
       username: 'string',
-      vSwitchIds: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVSwitchIds,
+      vSwitchIds: 'string',
       virtualHostName: 'string',
-      vpcId: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParametersVpcId,
+      vpcId: 'string',
     };
   }
 
@@ -11616,23 +11591,11 @@ export class GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParamete
     if(this.messageId && typeof (this.messageId as any).validate === 'function') {
       (this.messageId as any).validate();
     }
-    if(this.networkType && typeof (this.networkType as any).validate === 'function') {
-      (this.networkType as any).validate();
-    }
     if(this.properties && typeof (this.properties as any).validate === 'function') {
       (this.properties as any).validate();
     }
     if(this.routingKey && typeof (this.routingKey as any).validate === 'function') {
       (this.routingKey as any).validate();
-    }
-    if(this.securityGroupId && typeof (this.securityGroupId as any).validate === 'function') {
-      (this.securityGroupId as any).validate();
-    }
-    if(this.vSwitchIds && typeof (this.vSwitchIds as any).validate === 'function') {
-      (this.vSwitchIds as any).validate();
-    }
-    if(this.vpcId && typeof (this.vpcId as any).validate === 'function') {
-      (this.vpcId as any).validate();
     }
     super.validate();
   }
@@ -14080,6 +14043,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceOSSParameters extends 
 }
 
 export class GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   bodyDataType?: string;
   endpoint?: string;
   networkType?: string;
@@ -14092,6 +14056,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQPara
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       bodyDataType: 'BodyDataType',
       endpoint: 'Endpoint',
       networkType: 'NetworkType',
@@ -14107,6 +14072,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQPara
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       bodyDataType: 'string',
       endpoint: 'string',
       networkType: 'string',
@@ -16253,6 +16219,32 @@ export class ListEventBusesResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListEventStreamingsRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow extends $dara.Model {
   /**
    * @remarks
@@ -16302,15 +16294,27 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
    * acs:ram::1597871211794192:role/aliyunsaedefaultrole
    */
   arn?: string;
+  network?: string;
+  securityGroupId?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      network: 'Network',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      network: 'string',
+      securityGroupId: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -18292,65 +18296,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   }
 }
 
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType extends $dara.Model {
   form?: string;
   template?: string;
   value?: string;
@@ -18408,35 +18354,6 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   }
 }
 
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
   form?: string;
   template?: string;
@@ -18466,111 +18383,26 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   }
 }
 
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId extends $dara.Model {
-  form?: string;
-  template?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      form: 'Form',
-      template: 'Template',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      form: 'string',
-      template: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody;
   endpoint?: string;
-  exchange?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange;
+  exchange?: string;
   messageId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId;
-  networkType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType;
+  networkType?: string;
   password?: string;
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties;
-  queueName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName;
+  queueName?: string;
   routingKey?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey;
-  securityGroupId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId;
+  securityGroupId?: string;
   targetType?: string;
   username?: string;
-  vSwitchIds?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds;
+  vSwitchIds?: string;
   virtualHostName?: string;
-  vpcId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       body: 'Body',
       endpoint: 'Endpoint',
       exchange: 'Exchange',
@@ -18591,21 +18423,22 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       body: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody,
       endpoint: 'string',
-      exchange: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersExchange,
+      exchange: 'string',
       messageId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersMessageId,
-      networkType: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersNetworkType,
+      networkType: 'string',
       password: 'string',
       properties: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties,
-      queueName: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersQueueName,
+      queueName: 'string',
       routingKey: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey,
-      securityGroupId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersSecurityGroupId,
+      securityGroupId: 'string',
       targetType: 'string',
       username: 'string',
-      vSwitchIds: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVSwitchIds,
+      vSwitchIds: 'string',
       virtualHostName: 'string',
-      vpcId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersVpcId,
+      vpcId: 'string',
     };
   }
 
@@ -18613,32 +18446,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
     if(this.body && typeof (this.body as any).validate === 'function') {
       (this.body as any).validate();
     }
-    if(this.exchange && typeof (this.exchange as any).validate === 'function') {
-      (this.exchange as any).validate();
-    }
     if(this.messageId && typeof (this.messageId as any).validate === 'function') {
       (this.messageId as any).validate();
-    }
-    if(this.networkType && typeof (this.networkType as any).validate === 'function') {
-      (this.networkType as any).validate();
     }
     if(this.properties && typeof (this.properties as any).validate === 'function') {
       (this.properties as any).validate();
     }
-    if(this.queueName && typeof (this.queueName as any).validate === 'function') {
-      (this.queueName as any).validate();
-    }
     if(this.routingKey && typeof (this.routingKey as any).validate === 'function') {
       (this.routingKey as any).validate();
-    }
-    if(this.securityGroupId && typeof (this.securityGroupId as any).validate === 'function') {
-      (this.securityGroupId as any).validate();
-    }
-    if(this.vSwitchIds && typeof (this.vSwitchIds as any).validate === 'function') {
-      (this.vSwitchIds as any).validate();
-    }
-    if(this.vpcId && typeof (this.vpcId as any).validate === 'function') {
-      (this.vpcId as any).validate();
     }
     super.validate();
   }
@@ -21076,6 +20891,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSPa
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
   bodyDataType?: string;
   endpoint?: string;
   networkType?: string;
@@ -21088,6 +20904,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      authType: 'AuthType',
       bodyDataType: 'BodyDataType',
       endpoint: 'Endpoint',
       networkType: 'NetworkType',
@@ -21103,6 +20920,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
 
   static types(): { [key: string]: any } {
     return {
+      authType: 'string',
       bodyDataType: 'string',
       endpoint: 'string',
       networkType: 'string',
@@ -25105,15 +24923,27 @@ export class UpdateEventStreamingRequestRunOptionsDeadLetterQueue extends $dara.
    * acs:ram::1317334647812936:role/rdstoecsassumekms
    */
   arn?: string;
+  network?: string;
+  securityGroupId?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      network: 'Network',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      network: 'string',
+      securityGroupId: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -26658,6 +26488,35 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParametersAcks extends $dar
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkKafkaParametersInstanceId extends $dara.Model {
   /**
    * @remarks
@@ -26861,6 +26720,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
    * *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
    */
   acks?: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks;
+  headers?: UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders;
   /**
    * @remarks
    * The ID of the ApsaraMQ for Kafka instance.
@@ -26884,6 +26744,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       acks: 'Acks',
+      headers: 'Headers',
       instanceId: 'InstanceId',
       key: 'Key',
       topic: 'Topic',
@@ -26894,6 +26755,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       acks: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks,
+      headers: UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders,
       instanceId: UpdateEventStreamingRequestSinkSinkKafkaParametersInstanceId,
       key: UpdateEventStreamingRequestSinkSinkKafkaParametersKey,
       topic: UpdateEventStreamingRequestSinkSinkKafkaParametersTopic,
@@ -26904,6 +26766,9 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   validate() {
     if(this.acks && typeof (this.acks as any).validate === 'function') {
       (this.acks as any).validate();
+    }
+    if(this.headers && typeof (this.headers as any).validate === 'function') {
+      (this.headers as any).validate();
     }
     if(this.instanceId && typeof (this.instanceId as any).validate === 'function') {
       (this.instanceId as any).validate();
@@ -27112,6 +26977,202 @@ export class UpdateEventStreamingRequestSinkSinkMNSParameters extends $dara.Mode
     }
     if(this.queueName && typeof (this.queueName as any).validate === 'function') {
       (this.queueName as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
+  body?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody;
+  endpoint?: string;
+  exchange?: string;
+  messageId?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId;
+  networkType?: string;
+  password?: string;
+  properties?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties;
+  queueName?: string;
+  routingKey?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey;
+  securityGroupId?: string;
+  targetType?: string;
+  username?: string;
+  vSwitchIds?: string;
+  virtualHostName?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      body: 'Body',
+      endpoint: 'Endpoint',
+      exchange: 'Exchange',
+      messageId: 'MessageId',
+      networkType: 'NetworkType',
+      password: 'Password',
+      properties: 'Properties',
+      queueName: 'QueueName',
+      routingKey: 'RoutingKey',
+      securityGroupId: 'SecurityGroupId',
+      targetType: 'TargetType',
+      username: 'Username',
+      vSwitchIds: 'VSwitchIds',
+      virtualHostName: 'VirtualHostName',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      body: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersBody,
+      endpoint: 'string',
+      exchange: 'string',
+      messageId: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersMessageId,
+      networkType: 'string',
+      password: 'string',
+      properties: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersProperties,
+      queueName: 'string',
+      routingKey: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParametersRoutingKey,
+      securityGroupId: 'string',
+      targetType: 'string',
+      username: 'string',
+      vSwitchIds: 'string',
+      virtualHostName: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    if(this.messageId && typeof (this.messageId as any).validate === 'function') {
+      (this.messageId as any).validate();
+    }
+    if(this.properties && typeof (this.properties as any).validate === 'function') {
+      (this.properties as any).validate();
+    }
+    if(this.routingKey && typeof (this.routingKey as any).validate === 'function') {
+      (this.routingKey as any).validate();
     }
     super.validate();
   }
@@ -29506,6 +29567,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify MNS as the event target.
    */
   sinkMNSParameters?: UpdateEventStreamingRequestSinkSinkMNSParameters;
+  sinkOpenSourceRabbitMQParameters?: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify Managed Service for Prometheus as the event target.
@@ -29538,6 +29600,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkFnfParameters: 'SinkFnfParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkPrometheusParameters: 'SinkPrometheusParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQCheckpointParameters: 'SinkRocketMQCheckpointParameters',
@@ -29557,6 +29620,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
       sinkKafkaParameters: UpdateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: UpdateEventStreamingRequestSinkSinkMNSParameters,
+      sinkOpenSourceRabbitMQParameters: UpdateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters,
       sinkPrometheusParameters: UpdateEventStreamingRequestSinkSinkPrometheusParameters,
       sinkRabbitMQParameters: UpdateEventStreamingRequestSinkSinkRabbitMQParameters,
       sinkRocketMQCheckpointParameters: UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParameters,
@@ -29592,6 +29656,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkOpenSourceRabbitMQParameters && typeof (this.sinkOpenSourceRabbitMQParameters as any).validate === 'function') {
+      (this.sinkOpenSourceRabbitMQParameters as any).validate();
     }
     if(this.sinkPrometheusParameters && typeof (this.sinkPrometheusParameters as any).validate === 'function') {
       (this.sinkPrometheusParameters as any).validate();
@@ -30127,6 +30194,59 @@ export class UpdateEventStreamingRequestSourceSourceOSSParameters extends $dara.
   }
 }
 
+export class UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters extends $dara.Model {
+  authType?: string;
+  bodyDataType?: string;
+  endpoint?: string;
+  networkType?: string;
+  password?: string;
+  queueName?: string;
+  securityGroupId?: string;
+  username?: string;
+  vSwitchIds?: string;
+  virtualHostName?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'AuthType',
+      bodyDataType: 'BodyDataType',
+      endpoint: 'Endpoint',
+      networkType: 'NetworkType',
+      password: 'Password',
+      queueName: 'QueueName',
+      securityGroupId: 'SecurityGroupId',
+      username: 'Username',
+      vSwitchIds: 'VSwitchIds',
+      virtualHostName: 'VirtualHostName',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      bodyDataType: 'string',
+      endpoint: 'string',
+      networkType: 'string',
+      password: 'string',
+      queueName: 'string',
+      securityGroupId: 'string',
+      username: 'string',
+      vSwitchIds: 'string',
+      virtualHostName: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSourceSourcePrometheusParameters extends $dara.Model {
   /**
    * @remarks
@@ -30546,6 +30666,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
    */
   sourceMQTTParameters?: UpdateEventStreamingRequestSourceSourceMQTTParameters;
   sourceOSSParameters?: UpdateEventStreamingRequestSourceSourceOSSParameters;
+  sourceOpenSourceRabbitMQParameters?: UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify Managed Service for Prometheus as the event source.
@@ -30578,6 +30699,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
       sourceOSSParameters: 'SourceOSSParameters',
+      sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
@@ -30597,6 +30719,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
       sourceMNSParameters: UpdateEventStreamingRequestSourceSourceMNSParameters,
       sourceMQTTParameters: UpdateEventStreamingRequestSourceSourceMQTTParameters,
       sourceOSSParameters: UpdateEventStreamingRequestSourceSourceOSSParameters,
+      sourceOpenSourceRabbitMQParameters: UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters,
       sourcePrometheusParameters: UpdateEventStreamingRequestSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: UpdateEventStreamingRequestSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: UpdateEventStreamingRequestSourceSourceRocketMQCheckpointParameters,
@@ -30632,6 +30755,9 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
     }
     if(this.sourceOSSParameters && typeof (this.sourceOSSParameters as any).validate === 'function') {
       (this.sourceOSSParameters as any).validate();
+    }
+    if(this.sourceOpenSourceRabbitMQParameters && typeof (this.sourceOpenSourceRabbitMQParameters as any).validate === 'function') {
+      (this.sourceOpenSourceRabbitMQParameters as any).validate();
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();
@@ -31690,6 +31816,7 @@ export class CreateEventStreamingRequest extends $dara.Model {
    * This parameter is required.
    */
   source?: CreateEventStreamingRequestSource;
+  tags?: CreateEventStreamingRequestTags[];
   transforms?: CreateEventStreamingRequestTransforms[];
   static names(): { [key: string]: string } {
     return {
@@ -31699,6 +31826,7 @@ export class CreateEventStreamingRequest extends $dara.Model {
       runOptions: 'RunOptions',
       sink: 'Sink',
       source: 'Source',
+      tags: 'Tags',
       transforms: 'Transforms',
     };
   }
@@ -31711,6 +31839,7 @@ export class CreateEventStreamingRequest extends $dara.Model {
       runOptions: CreateEventStreamingRequestRunOptions,
       sink: CreateEventStreamingRequestSink,
       source: CreateEventStreamingRequestSource,
+      tags: { 'type': 'array', 'itemType': CreateEventStreamingRequestTags },
       transforms: { 'type': 'array', 'itemType': CreateEventStreamingRequestTransforms },
     };
   }
@@ -31724,6 +31853,9 @@ export class CreateEventStreamingRequest extends $dara.Model {
     }
     if(this.source && typeof (this.source as any).validate === 'function') {
       (this.source as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     if(Array.isArray(this.transforms)) {
       $dara.Model.validateArray(this.transforms);
@@ -31781,6 +31913,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   sourceShrink?: string;
+  tags?: CreateEventStreamingShrinkRequestTags[];
   transformsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31790,6 +31923,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
       runOptionsShrink: 'RunOptions',
       sinkShrink: 'Sink',
       sourceShrink: 'Source',
+      tags: 'Tags',
       transformsShrink: 'Transforms',
     };
   }
@@ -31802,11 +31936,15 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
       runOptionsShrink: 'string',
       sinkShrink: 'string',
       sourceShrink: 'string',
+      tags: { 'type': 'array', 'itemType': CreateEventStreamingShrinkRequestTags },
       transformsShrink: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -35081,6 +35219,7 @@ export class ListEventStreamingsRequest extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the event source.
    */
   sourceArn?: string;
+  tags?: ListEventStreamingsRequestTags[];
   static names(): { [key: string]: string } {
     return {
       limit: 'Limit',
@@ -35088,6 +35227,7 @@ export class ListEventStreamingsRequest extends $dara.Model {
       nextToken: 'NextToken',
       sinkArn: 'SinkArn',
       sourceArn: 'SourceArn',
+      tags: 'Tags',
     };
   }
 
@@ -35098,10 +35238,14 @@ export class ListEventStreamingsRequest extends $dara.Model {
       nextToken: 'string',
       sinkArn: 'string',
       sourceArn: 'string',
+      tags: { 'type': 'array', 'itemType': ListEventStreamingsRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -38871,6 +39015,10 @@ export default class Client extends OpenApi {
       body["Source"] = request.sourceShrink;
     }
 
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     if (!$dara.isNull(request.transformsShrink)) {
       body["Transforms"] = request.transformsShrink;
     }
@@ -40147,6 +40295,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceArn)) {
       body["SourceArn"] = request.sourceArn;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
