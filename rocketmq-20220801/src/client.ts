@@ -6,22 +6,57 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
 export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
+  /**
+   * @remarks
+   * Consumer group ID, required for ACTIVE_ACTIVE bidirectional backup
+   * 
+   * @example
+   * GID_xxx
+   */
   consumerGroupId?: string;
+  /**
+   * @remarks
+   * The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
+   *   - Concurrently: concurrent delivery
+   *   - Orderly: sequential delivery
+   * 
+   * @example
+   * Concurrently
+   */
   deliveryOrderType?: string;
+  /**
+   * @remarks
+   * Instance ID, an instance ID will be automatically generated when `instanceType` is `EXTERNAL_ROCKETMQ`, and it can be obtained by querying the backup plan.
+   * 
+   * @example
+   * rmq-cn-em93y94xxx
+   */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
    * @example
    * ALIYUN_ROCKETMQ
    */
   instanceType?: string;
   /**
    * @remarks
-   * regionId
+   * Region ID
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Disaster recovery topic name, required
+   * 
+   * @example
+   * Topic_xxx
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,6 +148,205 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   }
 }
 
+export class CreateDisasterRecoveryPlanRequestInstancesMessageProperty extends $dara.Model {
+  /**
+   * @remarks
+   * Property key
+   * 
+   * @example
+   * aaa
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * Property value
+   * 
+   * @example
+   * bbb
+   */
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'propertyKey',
+      propertyValue: 'propertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDisasterRecoveryPlanRequestInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Authentication method. Not required for instanceType of ALIYUN_ROCKETMQ and version 4.0
+   *   - NO_AUTH: No authentication required
+   *   - ACL_AUTH: ACL authentication
+   * 
+   * @example
+   * ACL_AUTH
+   */
+  authType?: string;
+  /**
+   * @remarks
+   * Endpoint URL, not required for instanceType of ALIYUN_ROCKETMQ, but required for EXTERNAL_ROCKETMQ
+   * 
+   * @example
+   * xxx
+   */
+  endpointUrl?: string;
+  /**
+   * @remarks
+   * Instance ID, not required for instanceType of EXTERNAL_ROCKETMQ, but required for ALIYUN_ROCKETMQ
+   * 
+   * @example
+   * rmq-cn-******
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance role, either primary or secondary
+   *   - ACTIVE: Primary
+   *   - PASSIVE: Secondary
+   * 
+   * @example
+   * PASSIVE
+   */
+  instanceRole?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Message filtering properties. When messages are synchronized to the target cluster, this property will be automatically added for SQL filtering during message consumption.
+   */
+  messageProperty?: CreateDisasterRecoveryPlanRequestInstancesMessageProperty;
+  /**
+   * @remarks
+   * Network type, not required for instanceType of ALIYUN_ROCKETMQ, but required for EXTERNAL_ROCKETMQ
+   * Parameter values are as follows:
+   *   - TCP_INTERNET: TCP public network
+   *   - TCP_VPC: TCP VPC (Virtual Private Cloud)
+   * 
+   * @example
+   * TCP_INTERNET
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * Authentication password, required when authType is ACL_AUTH. Not required for instanceType of ALIYUN_ROCKETMQ
+   * 
+   * @example
+   * xxx
+   */
+  password?: string;
+  /**
+   * @remarks
+   * Region where the instance is located
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Security group ID, required only when the `instanceType` is EXTERNAL_ROCKETMQ and `networkType` is TCP_VPC.
+   * 
+   * @example
+   * sg-bp17hpmgz9******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * Authentication username, required when authType is ACL_AUTH
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  /**
+   * @remarks
+   * The ID of the switch associated with the instance, required only when the `instanceType` is EXTERNAL_ROCKETMQ and `networkType` is TCP_VPC.
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv******
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the private network associated with the created instance. The instanceType instance type is only EXTERNAL_ROCKETMQ. It is required when the networkType is TCP_VPC.
+   * 
+   * @example
+   * vpc-wz9qt50xhtj9krb******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      endpointUrl: 'endpointUrl',
+      instanceId: 'instanceId',
+      instanceRole: 'instanceRole',
+      instanceType: 'instanceType',
+      messageProperty: 'messageProperty',
+      networkType: 'networkType',
+      password: 'password',
+      regionId: 'regionId',
+      securityGroupId: 'securityGroupId',
+      username: 'username',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      endpointUrl: 'string',
+      instanceId: 'string',
+      instanceRole: 'string',
+      instanceType: 'string',
+      messageProperty: CreateDisasterRecoveryPlanRequestInstancesMessageProperty,
+      networkType: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      username: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.messageProperty && typeof (this.messageProperty as any).validate === 'function') {
+      (this.messageProperty as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
@@ -128,13 +362,13 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   flowOutBandwidth?: number;
   /**
    * @remarks
-   * The billing method of Internet usage.
+   * The metering method of Internet usage.
    * 
    * Valid values:
    * 
    * *   payByBandwidth: pay-by-bandwidth. This value is valid only if you enable Internet access.
    * *   payByTraffic: pay-by-traffic. This value is valid only if you enable Internet access.
-   * *   uninvolved: No billing method is involved. This value is valid only if you disable Internet access.
+   * *   uninvolved: No metering method is involved. This value is valid only if you disable Internet access.
    * 
    * This parameter is required.
    * 
@@ -161,10 +395,10 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   internetSpec?: string;
   /**
    * @remarks
-   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
+   * The whitelist that includes the CIDR blocks that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
    * 
    * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * *   If you configure an IP address whitelist, only the CIDR blocks in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
    * 
    * @deprecated
    */
@@ -401,7 +635,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   sendReceiveRatio?: number;
   /**
    * @remarks
-   * Indicates whether storage encryption is enabled.
+   * Specifies whether to enable the encryption at rest feature.
    * 
    * @example
    * false
@@ -409,7 +643,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   storageEncryption?: boolean;
   /**
    * @remarks
-   * The storage encryption key.
+   * The key for encryption at rest.
    * 
    * @example
    * xxx
@@ -447,7 +681,21 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
 }
 
 export class CreateInstanceRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The `key` of the tag.
+   * 
+   * @example
+   * aaa
+   */
   key?: string;
+  /**
+   * @remarks
+   * The `value` of the tag.
+   * 
+   * @example
+   * bbb
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -618,6 +866,13 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Maximum received message tps
+   * 
+   * @example
+   * 1000
+   */
   maxReceiveTps?: number;
   /**
    * @remarks
@@ -740,6 +995,13 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
    * 1
    */
   inflightCount?: number;
+  /**
+   * @remarks
+   * Last consumption time
+   * 
+   * @example
+   * 1735629607846
+   */
   lastConsumeTimestamp?: number;
   /**
    * @remarks
@@ -1149,6 +1411,511 @@ export class GetConsumerStackResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.stacks)) {
       $dara.Model.validateArray(this.stacks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryItemResponseBodyDataTopics extends $dara.Model {
+  /**
+   * @remarks
+   * The consumer group ID.
+   * 
+   * @example
+   * xxx_reserve_group
+   */
+  consumerGroupId?: string;
+  /**
+   * @remarks
+   * The order in which messages are delivered to the target instance. The parameter values ​​are as follows:
+   *   - Concurrently: concurrent delivery
+   *   - Orderly: sequential delivery
+   * 
+   * @example
+   * Concurrently
+   */
+  deliveryOrderType?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rmq-cn-wwo3xxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * regionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * @example
+   * order_push_xxx
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      deliveryOrderType: 'deliveryOrderType',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      deliveryOrderType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryItemResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the topic mapping task was created.
+   * 
+   * @example
+   * 2024-06-24 02:57:31
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Additional Information
+   */
+  extInfo?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ID of the topic mapping
+   * 
+   * @example
+   * 100070284
+   */
+  itemId?: number;
+  /**
+   * @remarks
+   * The topic mapping task status.
+   * 
+   * @example
+   * RUNNING
+   */
+  itemStatus?: string;
+  /**
+   * @remarks
+   * The ID of the global message backup plan.
+   * 
+   * @example
+   * 1300000016
+   */
+  planId?: number;
+  /**
+   * @remarks
+   * Topics included in the backup mapping
+   */
+  topics?: GetDisasterRecoveryItemResponseBodyDataTopics[];
+  /**
+   * @remarks
+   * The time when the topic mapping task was last updated.
+   * 
+   * @example
+   * 2024-09-26 02:13:10
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      extInfo: 'extInfo',
+      itemId: 'itemId',
+      itemStatus: 'itemStatus',
+      planId: 'planId',
+      topics: 'topics',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      itemId: 'number',
+      itemStatus: 'string',
+      planId: 'number',
+      topics: { 'type': 'array', 'itemType': GetDisasterRecoveryItemResponseBodyDataTopics },
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extInfo) {
+      $dara.Model.validateMap(this.extInfo);
+    }
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryPlanResponseBodyDataInstancesMessageProperty extends $dara.Model {
+  /**
+   * @remarks
+   * Property key
+   * 
+   * @example
+   * xxx
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * Property value
+   * 
+   * @example
+   * xxx
+   */
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'propertyKey',
+      propertyValue: 'propertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryPlanResponseBodyDataInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Authentication method. Not required for instanceType of ALIYUN_ROCKETMQ and version 4.0
+   *   - NO_AUTH: No authentication required
+   *   - ACL_AUTH: ACL authentication
+   * 
+   * @example
+   * ACL_AUTH
+   */
+  authType?: string;
+  /**
+   * @remarks
+   * Endpoint URL, not required for instanceType of ALIYUN_ROCKETMQ, but required for EXTERNAL_ROCKETMQ
+   * 
+   * @example
+   * xxx
+   */
+  endpointUrl?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rmq-cn-gpz3qtcdxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance role, either primary or secondary 
+   *   - ACTIVE: Primary
+   *   - PASSIVE: Secondary
+   * 
+   * @example
+   * ACTIVE
+   */
+  instanceRole?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Message filtering properties. When messages are synchronized to the target cluster, this property will be automatically added for SQL filtering during message consumption.
+   */
+  messageProperty?: GetDisasterRecoveryPlanResponseBodyDataInstancesMessageProperty;
+  /**
+   * @remarks
+   * Network type, not required for instanceType of ALIYUN_ROCKETMQ, but required for EXTERNAL_ROCKETMQ Parameter values are as follows:
+   *   - TCP_INTERNET: TCP public network
+   *   - TCP_VPC: TCP VPC (Virtual Private Cloud)
+   * 
+   * @example
+   * TCP_INTERNET
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * Authentication password, required when authType is ACL_AUTH. Not required for instanceType of ALIYUN_ROCKETMQ
+   * 
+   * @example
+   * xxx
+   */
+  password?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Security group ID, required only when the instanceType is EXTERNAL_ROCKETMQ and networkType is TCP_VPC.
+   * 
+   * @example
+   * sg-bp17hpmgz9******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * Authentication username, required when authType is ACL_AUTH
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  /**
+   * @remarks
+   * The ID of the switch associated with the instance, required only when the instanceType is EXTERNAL_ROCKETMQ and networkType is TCP_VPC.
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv******
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the private network associated with the created instance. The instanceType instance type is only EXTERNAL_ROCKETMQ. It is required when the networkType is TCP_VPC.
+   * 
+   * @example
+   * vpc-wz9qt50xhtj9krb******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      endpointUrl: 'endpointUrl',
+      instanceId: 'instanceId',
+      instanceRole: 'instanceRole',
+      instanceType: 'instanceType',
+      messageProperty: 'messageProperty',
+      networkType: 'networkType',
+      password: 'password',
+      regionId: 'regionId',
+      securityGroupId: 'securityGroupId',
+      username: 'username',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      endpointUrl: 'string',
+      instanceId: 'string',
+      instanceRole: 'string',
+      instanceType: 'string',
+      messageProperty: GetDisasterRecoveryPlanResponseBodyDataInstancesMessageProperty,
+      networkType: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      username: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.messageProperty && typeof (this.messageProperty as any).validate === 'function') {
+      (this.messageProperty as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryPlanResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable automatic synchronization of consumption progress.
+   * 
+   * @example
+   * true
+   */
+  autoSyncCheckpoint?: boolean;
+  /**
+   * @remarks
+   * The time when the backup plan was created.
+   * 
+   * @example
+   * 2022-08-01 20:05:50
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Additional Information
+   */
+  extInfo?: { [key: string]: string };
+  /**
+   * @remarks
+   * Instances involved in the backup plan
+   */
+  instances?: GetDisasterRecoveryPlanResponseBodyDataInstances[];
+  /**
+   * @remarks
+   * The describe of the global message backup plan.
+   * 
+   * @example
+   * xxxx
+   */
+  planDesc?: string;
+  /**
+   * @remarks
+   * The ID of the global message backup plan.
+   * 
+   * @example
+   * 1300000016
+   */
+  planId?: number;
+  /**
+   * @remarks
+   * The name of the global message backup plan.
+   * 
+   * @example
+   * xxx
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * The status of the global message backup plan.
+   * 
+   * @example
+   * RUNNING
+   */
+  planStatus?: string;
+  /**
+   * @remarks
+   * The type of the global message backup plan.
+   * values are as follows:
+   *   - ACTIVE_PASSIVE: One-way backup
+   *   - ACTIVE_ACTIVE: Two-way backup
+   * 
+   * @example
+   * ACTIVE_PASSIVE
+   */
+  planType?: string;
+  /**
+   * @remarks
+   * Switch for synchronizing consumption progress
+   * 
+   * @example
+   * true
+   */
+  syncCheckpointEnabled?: boolean;
+  /**
+   * @remarks
+   * The time when the backup plan was created.
+   * 
+   * @example
+   * 2022-08-01 20:05:50
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSyncCheckpoint: 'autoSyncCheckpoint',
+      createTime: 'createTime',
+      extInfo: 'extInfo',
+      instances: 'instances',
+      planDesc: 'planDesc',
+      planId: 'planId',
+      planName: 'planName',
+      planStatus: 'planStatus',
+      planType: 'planType',
+      syncCheckpointEnabled: 'syncCheckpointEnabled',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSyncCheckpoint: 'boolean',
+      createTime: 'string',
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      instances: { 'type': 'array', 'itemType': GetDisasterRecoveryPlanResponseBodyDataInstances },
+      planDesc: 'string',
+      planId: 'number',
+      planName: 'string',
+      planStatus: 'string',
+      planType: 'string',
+      syncCheckpointEnabled: 'boolean',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extInfo) {
+      $dara.Model.validateMap(this.extInfo);
+    }
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
     }
     super.validate();
   }
@@ -2313,6 +3080,18 @@ export class GetInstanceResponseBodyData extends $dara.Model {
 }
 
 export class GetInstanceAccountResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the account.
+   * 
+   * Valid values:
+   * 
+   * *   DISABLE
+   * *   ENABLE
+   * 
+   * @example
+   * ENABLE
+   */
   accountStatus?: string;
   /**
    * @remarks
@@ -2357,38 +3136,72 @@ export class GetInstanceAccountResponseBodyData extends $dara.Model {
 
 export class GetInstanceAclResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The authentication type of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   apache_acl: open source access control list (ACL)
+   * *   default: the default account of the instance
+   * 
    * @example
    * apache_acl
    */
   aclType?: string;
+  /**
+   * @remarks
+   * The type of operations that can be performed on the resource.
+   */
   actions?: string[];
   /**
+   * @remarks
+   * The decision result of the authorization.
+   * 
    * @example
    * Allow
    */
   decision?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhitelists?: string[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the resource on which the permissions are granted.
+   * 
    * @example
    * test
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The type of the resource on which the permissions are granted.
+   * 
    * @example
    * Topic
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * abc
    */
@@ -2438,12 +3251,22 @@ export class GetInstanceAclResponseBodyData extends $dara.Model {
 
 export class GetInstanceIpWhitelistResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhitelists?: string[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2659,7 +3482,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
 export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the topic was created.
+   * Creation time of the topic.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -2667,23 +3490,37 @@ export class GetTopicResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the instance to which the topic belongs.
    * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum TPS for message sending.
+   * 
+   * @example
+   * 1000
+   */
   maxSendTps?: number;
   /**
    * @remarks
-   * The message type of the topic.
+   * The type of messages in the topic.
    * 
    * Valid values:
    * 
-   * *   TRANSACTION: transactional message
-   * *   FIFO: ordered message
-   * *   DELAY: scheduled or delayed message
-   * *   NORMAL: normal message
+   * *   TRANSACTION: transactional messages
+   * *   FIFO: ordered messages
+   * *   DELAY: scheduled or delayed messages
+   * *   NORMAL: normal messages
+   * 
+   * Valid values:
+   * 
+   * *   TRANSACTION: transactional messages
+   * *   FIFO: ordered messages
+   * *   DELAY: scheduled or delayed messages
+   * *   NORMAL: normal messages
    * 
    * @example
    * NORMAL
@@ -2691,7 +3528,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID to which the instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -2699,7 +3536,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks on the topic.
+   * Remark information of the topic.
    * 
    * @example
    * This is the remark for test.
@@ -2707,12 +3544,12 @@ export class GetTopicResponseBodyData extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The state of the topic.
+   * The topic status.
    * 
    * Valid values:
    * 
-   * *   RUNNING: The topic is running.
-   * *   CREATING: The topic is being created.
+   * *   RUNNING
+   * *   CREATING
    * 
    * @example
    * RUNNING
@@ -2720,7 +3557,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * Topic name.
    * 
    * @example
    * topic_test
@@ -2728,7 +3565,7 @@ export class GetTopicResponseBodyData extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The time when the topic was last updated.
+   * Last modification time of the topic.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -2833,6 +3670,13 @@ export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
    * 2023-03-22 12:17:08
    */
   presetDelayTime?: string;
+  /**
+   * @remarks
+   * Withdraw scheduled message request result
+   * 
+   * @example
+   * RECALL_OK
+   */
   recallResult?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3359,6 +4203,13 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
    * 2023-03-22 12:17:08
    */
   produceTime?: string;
+  /**
+   * @remarks
+   * The time when the scheduled message withdrawal request was initiated
+   * 
+   * @example
+   * 2023-03-22 12:17:08
+   */
   recallTime?: string;
   /**
    * @remarks
@@ -3410,7 +4261,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
 export class GetTraceResponseBodyDataProducerInfo extends $dara.Model {
   /**
    * @remarks
-   * Producer record list.
+   * The production records.
    */
   records?: GetTraceResponseBodyDataProducerInfoRecords[];
   static names(): { [key: string]: string } {
@@ -3440,7 +4291,7 @@ export class GetTraceResponseBodyDataProducerInfo extends $dara.Model {
 export class GetTraceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Broker trace info.
+   * The broker trace.
    */
   brokerInfo?: GetTraceResponseBodyDataBrokerInfo;
   /**
@@ -3463,7 +4314,7 @@ export class GetTraceResponseBodyData extends $dara.Model {
   messageInfo?: GetTraceResponseBodyDataMessageInfo;
   /**
    * @remarks
-   * Producer trace info.
+   * The producer trace.
    */
   producerInfo?: GetTraceResponseBodyDataProducerInfo;
   /**
@@ -3844,7 +4695,7 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $dara.Model 
 export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group.
+   * Consumer group ID.
    * 
    * @example
    * GID-TEST
@@ -3852,7 +4703,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The time when the consumer group was created.
+   * Creation time of the consumer group.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -3860,16 +4711,23 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum TPS for message sending.
+   * 
+   * @example
+   * 1000
+   */
   maxReceiveTps?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID to which the instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -3877,7 +4735,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks on the consumer group.
+   * Remark information of the consumer group.
    * 
    * @example
    * This is the remark for test.
@@ -3885,37 +4743,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The state of the consumer group.
-   * 
-   * Valid values:
-   * 
-   * *   RUNNING
-   * 
-   *     <!-- -->
-   * 
-   *     : The consumer group is
-   * 
-   *     <!-- -->
-   * 
-   *     running
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   CREATING
-   * 
-   *     <!-- -->
-   * 
-   *     : The consumer group is
-   * 
-   *     <!-- -->
-   * 
-   *     being created
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * Status of the consumer group.
    * 
    * @example
    * RUNNING
@@ -3923,7 +4751,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the consumer group was last updated.
+   * Last update time of the consumer group.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -3967,12 +4795,12 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
 export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The paginated data.
+   * The consumer groups.
    */
   list?: ListConsumerGroupsResponseBodyDataList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * Current page number.
    * 
    * @example
    * 1
@@ -3980,7 +4808,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Page size.
    * 
    * @example
    * 10
@@ -3988,7 +4816,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * Total number of returned results.
    * 
    * @example
    * 1
@@ -4008,6 +4836,1038 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
       list: { 'type': 'array', 'itemType': ListConsumerGroupsResponseBodyDataList },
       pageNumber: 'number',
       pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressProgressData extends $dara.Model {
+  /**
+   * @remarks
+   * Latest consumption time
+   * 
+   * @example
+   * 1740724080343
+   */
+  consumeTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      consumeTimestamp: 'consumeTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumeTimestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress extends $dara.Model {
+  /**
+   * @remarks
+   * Consumer Group ID
+   * 
+   * @example
+   * GID_TEST
+   */
+  consumerGroupId?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * rmq-cn-3mp3vblzxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Last fetch time
+   * 
+   * @example
+   * 1740724080343
+   */
+  lastFetchTime?: number;
+  /**
+   * @remarks
+   * Consumption progress data
+   */
+  progressData?: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressProgressData;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * @example
+   * TOPIC_TEST
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      lastFetchTime: 'lastFetchTime',
+      progressData: 'progressData',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      lastFetchTime: 'number',
+      progressData: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgressProgressData,
+      regionId: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.progressData && typeof (this.progressData as any).validate === 'function') {
+      (this.progressData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressProgressData extends $dara.Model {
+  /**
+   * @remarks
+   * Latest consumption time
+   * 
+   * @example
+   * 1740724080343
+   */
+  consumeTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      consumeTimestamp: 'consumeTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumeTimestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress extends $dara.Model {
+  /**
+   * @remarks
+   * Consumer group ID
+   * 
+   * @example
+   * GID_TEST
+   */
+  consumerGroupId?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * rmq-cn-nwy3i065xxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Latest fetch time
+   * 
+   * @example
+   * 1740724080343
+   */
+  lastFetchTime?: number;
+  /**
+   * @remarks
+   * Consumption progress data
+   */
+  progressData?: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressProgressData;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Topic name
+   * 
+   * @example
+   * TOPIC_TEST
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      lastFetchTime: 'lastFetchTime',
+      progressData: 'progressData',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      lastFetchTime: 'number',
+      progressData: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgressProgressData,
+      regionId: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.progressData && typeof (this.progressData as any).validate === 'function') {
+      (this.progressData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Consumption Progress ID
+   * 
+   * @example
+   * 10000000xx
+   */
+  checkpointId?: number;
+  /**
+   * @remarks
+   * Backup Mapping ID
+   * 
+   * @example
+   * 10000000xx
+   */
+  itemId?: number;
+  /**
+   * @remarks
+   * Last synchronization time
+   * 
+   * @example
+   * 1740724080343
+   */
+  lastSyncTime?: number;
+  /**
+   * @remarks
+   * Backup Plan ID
+   * 
+   * @example
+   * 13000000xx
+   */
+  planId?: number;
+  /**
+   * @remarks
+   * Source consumption progress
+   */
+  sourceProgress?: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress;
+  /**
+   * @remarks
+   * Target consumption progress
+   */
+  targetProgress?: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress;
+  static names(): { [key: string]: string } {
+    return {
+      checkpointId: 'checkpointId',
+      itemId: 'itemId',
+      lastSyncTime: 'lastSyncTime',
+      planId: 'planId',
+      sourceProgress: 'sourceProgress',
+      targetProgress: 'targetProgress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkpointId: 'number',
+      itemId: 'number',
+      lastSyncTime: 'number',
+      planId: 'number',
+      sourceProgress: ListDisasterRecoveryCheckpointsResponseBodyDataListSourceProgress,
+      targetProgress: ListDisasterRecoveryCheckpointsResponseBodyDataListTargetProgress,
+    };
+  }
+
+  validate() {
+    if(this.sourceProgress && typeof (this.sourceProgress as any).validate === 'function') {
+      (this.sourceProgress as any).validate();
+    }
+    if(this.targetProgress && typeof (this.targetProgress as any).validate === 'function') {
+      (this.targetProgress as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Paged data
+   */
+  list?: ListDisasterRecoveryCheckpointsResponseBodyDataList[];
+  /**
+   * @remarks
+   * Current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Total number of records
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDisasterRecoveryCheckpointsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsResponseBodyDataListTopics extends $dara.Model {
+  /**
+   * @remarks
+   * Consumer group ID
+   * 
+   * @example
+   * group-test
+   */
+  consumerGroupId?: string;
+  /**
+   * @remarks
+   * The order in which messages are delivered to the target instance.
+   * 
+   * Parameter values are as follows:
+   * - Concurrently: concurrent delivery
+   * - Orderly: sequential delivery
+   * 
+   * @example
+   * Concurrently
+   */
+  deliveryOrderType?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * rmq-cn-kh43w0olz0c
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance type
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Region ID
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * @example
+   * topic-test
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      deliveryOrderType: 'deliveryOrderType',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      deliveryOrderType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 2024-09-20 03:38:28
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Extended information
+   */
+  extInfo?: { [key: string]: string };
+  /**
+   * @remarks
+   * Backup plan ID
+   * 
+   * @example
+   * 100070284
+   */
+  itemId?: number;
+  /**
+   * @remarks
+   * Backup mapping status:
+   *   - CREATING (Creating)
+   *   - CHANGING (Changing)
+   *   - RUNNING (Running)
+   *   - MANUAL_STOPPED (Manually Stopped)
+   *   - OVERDUE_STOPPED (Stopped Due to Overdue)
+   * 
+   * @example
+   * RUNNING
+   */
+  itemStatus?: string;
+  /**
+   * @remarks
+   * Mapping ID
+   * 
+   * @example
+   * 1300000016
+   */
+  planId?: number;
+  /**
+   * @remarks
+   * Topics included in the backup mapping
+   */
+  topics?: ListDisasterRecoveryItemsResponseBodyDataListTopics[];
+  /**
+   * @remarks
+   * Update time
+   * 
+   * @example
+   * 2024-10-04 02:19:44
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      extInfo: 'extInfo',
+      itemId: 'itemId',
+      itemStatus: 'itemStatus',
+      planId: 'planId',
+      topics: 'topics',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      itemId: 'number',
+      itemStatus: 'string',
+      planId: 'number',
+      topics: { 'type': 'array', 'itemType': ListDisasterRecoveryItemsResponseBodyDataListTopics },
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extInfo) {
+      $dara.Model.validateMap(this.extInfo);
+    }
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Paged data
+   */
+  list?: ListDisasterRecoveryItemsResponseBodyDataList[];
+  /**
+   * @remarks
+   * Current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Request scroll ID.
+   * Automatically generated by the system, subsequent pagination requests need to include this return value to continue pagination.
+   * 
+   * @example
+   * B13D0B07-F24B-4790-88D8-D47A38063D00
+   */
+  scrollId?: string;
+  /**
+   * @remarks
+   * Total number of records
+   * 
+   * @example
+   * 49
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      scrollId: 'scrollId',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDisasterRecoveryItemsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      scrollId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProperty extends $dara.Model {
+  /**
+   * @remarks
+   * Property key
+   * 
+   * @example
+   * aaa
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * Property value
+   * 
+   * @example
+   * bbb
+   */
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'propertyKey',
+      propertyValue: 'propertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponseBodyDataListInstances extends $dara.Model {
+  /**
+   * @remarks
+   * Authentication method
+   * 
+   * @example
+   * NO_AUTH
+   */
+  authType?: string;
+  /**
+   * @remarks
+   * Endpoint URL
+   * 
+   * @example
+   * xxx
+   */
+  endpointUrl?: string;
+  /**
+   * @remarks
+   * Instance ID
+   * 
+   * @example
+   * rmq-cn-ot93rbxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Instance role
+   * 
+   * @example
+   * ACTIVE
+   */
+  instanceRole?: string;
+  /**
+   * @remarks
+   * Instance type
+   *   - ALIYUN_ROCKETMQ: Alibaba Cloud instance
+   *   - EXTERNAL_ROCKETMQ: External instance, open-source instance, open-source cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * Message property
+   */
+  messageProperty?: ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProperty;
+  /**
+   * @remarks
+   * Network type
+   * 
+   * @example
+   * TCP_INTERNET
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * Authentication password
+   * 
+   * @example
+   * xxx
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region where the instance is located
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Security group ID
+   * 
+   * @example
+   * sg-bp17hpmgz9******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * Authentication username
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  /**
+   * @remarks
+   * VSwitch ID
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv******
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-bp13docqysrgxtbxxxx
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      endpointUrl: 'endpointUrl',
+      instanceId: 'instanceId',
+      instanceRole: 'instanceRole',
+      instanceType: 'instanceType',
+      messageProperty: 'messageProperty',
+      networkType: 'networkType',
+      password: 'password',
+      regionId: 'regionId',
+      securityGroupId: 'securityGroupId',
+      username: 'username',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      endpointUrl: 'string',
+      instanceId: 'string',
+      instanceRole: 'string',
+      instanceType: 'string',
+      messageProperty: ListDisasterRecoveryPlansResponseBodyDataListInstancesMessageProperty,
+      networkType: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      username: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.messageProperty && typeof (this.messageProperty as any).validate === 'function') {
+      (this.messageProperty as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable automatic synchronization of consumption progress.
+   * 
+   * @example
+   * true
+   */
+  autoSyncCheckpoint?: boolean;
+  /**
+   * @remarks
+   * Creation time
+   * 
+   * @example
+   * 2022-08-01 20:05:50
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Extended information
+   */
+  extInfo?: { [key: string]: string };
+  /**
+   * @remarks
+   * Instances involved in the backup plan
+   */
+  instances?: ListDisasterRecoveryPlansResponseBodyDataListInstances[];
+  /**
+   * @remarks
+   * Plan description
+   * 
+   * @example
+   * xxx
+   */
+  planDesc?: string;
+  /**
+   * @remarks
+   * Plan ID
+   * 
+   * @example
+   * 1300000016
+   */
+  planId?: number;
+  /**
+   * @remarks
+   * Plan name
+   * 
+   * @example
+   * xxx
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * Plan status:
+   *   - CREATED (Created)
+   *   - RUNNING (Running)
+   *   - DELETED (Deleted)
+   * 
+   * @example
+   * RUNNING
+   */
+  planStatus?: string;
+  /**
+   * @remarks
+   * Plan type:
+   *   - ACTIVE_PASSIVE (One-way backup)
+   *   - ACTIVE_ACTIVE (Two-way backup)
+   * 
+   * @example
+   * ACTIVE_PASSIVE
+   */
+  planType?: string;
+  /**
+   * @remarks
+   * Sync checkpoint switch
+   * 
+   * @example
+   * true
+   */
+  syncCheckpointEnabled?: boolean;
+  /**
+   * @remarks
+   * Update time
+   * 
+   * @example
+   * 2022-08-01 20:05:50
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSyncCheckpoint: 'autoSyncCheckpoint',
+      createTime: 'createTime',
+      extInfo: 'extInfo',
+      instances: 'instances',
+      planDesc: 'planDesc',
+      planId: 'planId',
+      planName: 'planName',
+      planStatus: 'planStatus',
+      planType: 'planType',
+      syncCheckpointEnabled: 'syncCheckpointEnabled',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSyncCheckpoint: 'boolean',
+      createTime: 'string',
+      extInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      instances: { 'type': 'array', 'itemType': ListDisasterRecoveryPlansResponseBodyDataListInstances },
+      planDesc: 'string',
+      planId: 'number',
+      planName: 'string',
+      planStatus: 'string',
+      planType: 'string',
+      syncCheckpointEnabled: 'boolean',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extInfo) {
+      $dara.Model.validateMap(this.extInfo);
+    }
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Paged data
+   */
+  list?: ListDisasterRecoveryPlansResponseBodyDataList[];
+  /**
+   * @remarks
+   * Current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Scroll request ID.
+   * Automatically generated by the system, subsequent paging requests need to include this result to continue paging.
+   * 
+   * @example
+   * B13D0B07-F24B-4790-88D8-D47A38063D00
+   */
+  scrollId?: string;
+  /**
+   * @remarks
+   * Total number of records
+   * 
+   * @example
+   * 28
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      scrollId: 'scrollId',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDisasterRecoveryPlansResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      scrollId: 'string',
       totalCount: 'number',
     };
   }
@@ -5036,16 +6896,25 @@ export class ListMessagesResponseBodyData extends $dara.Model {
 
 export class ListMetricMetaResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Monitoring item tag
+   * 
    * @example
    * Bug
    */
   category?: string;
   /**
+   * @remarks
+   * Monitoring item description
+   * 
    * @example
    * Using Serverless Devs to deploy the infrastructure of project:get-userinfo-v1-infrastructure-as-template-project
    */
   description?: string;
   /**
+   * @remarks
+   * Monitoring item name
+   * 
    * @example
    * SendMessageCountPerInstance
    */
@@ -5076,18 +6945,31 @@ export class ListMetricMetaResponseBodyDataList extends $dara.Model {
 }
 
 export class ListMetricMetaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Paged data
+   */
   list?: ListMetricMetaResponseBodyDataList[];
   /**
+   * @remarks
+   * Current page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total record count
+   * 
    * @example
    * 1
    */
@@ -5488,7 +7370,7 @@ export class ListTopicSubscriptionsResponseBodyData extends $dara.Model {
 export class ListTopicsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The time when the topic was created.
+   * Creation time.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -5496,66 +7378,30 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The maximum TPS for message sending.
+   * 
+   * @example
+   * 1000
+   */
   maxSendTps?: number;
   /**
    * @remarks
-   * The message type of the topic.
+   * The type of messages in the topic.
    * 
    * Valid values:
    * 
-   * *   TRANSACTION
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     transactional message
-   * 
-   *     <!-- -->
-   * 
-   * *   FIFO
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     ordered message
-   * 
-   *     <!-- -->
-   * 
-   * *   DELAY
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     scheduled or delayed message
-   * 
-   *     <!-- -->
-   * 
-   * *   NORMAL
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     normal message
-   * 
-   *     <!-- -->
+   * *   TRANSACTION: transactional messages
+   * *   FIFO: ordered messages
+   * *   DELAY: scheduled or delayed messages
+   * *   NORMAL: normal messages
    * 
    * @example
    * NORMAL
@@ -5563,7 +7409,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID to which the instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -5571,7 +7417,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The remarks on the topic.
+   * Remark information of the topic.
    * 
    * @example
    * This is the remark for test.
@@ -5579,37 +7425,12 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The state of the topic.
+   * The topic status.
    * 
    * Valid values:
    * 
    * *   RUNNING
-   * 
-   *     <!-- -->
-   * 
-   *     : The topic is
-   * 
-   *     <!-- -->
-   * 
-   *     running
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
    * *   CREATING
-   * 
-   *     <!-- -->
-   * 
-   *     : The topic is
-   * 
-   *     <!-- -->
-   * 
-   *     being created
-   * 
-   *     <!-- -->
-   * 
-   *     .
    * 
    * @example
    * RUNNING
@@ -5617,7 +7438,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the topic.
+   * Topic name.
    * 
    * @example
    * topic_test
@@ -5625,7 +7446,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
-   * The time when the topic was last updated.
+   * Last update time of the topic.
    * 
    * @example
    * 2022-08-01 20:05:50
@@ -5671,12 +7492,12 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
 export class ListTopicsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The paginated data.
+   * The topics.
    */
   list?: ListTopicsResponseBodyDataList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * Current page number.
    * 
    * @example
    * 1
@@ -5684,7 +7505,7 @@ export class ListTopicsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Page size.
    * 
    * @example
    * 3
@@ -5692,7 +7513,7 @@ export class ListTopicsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * Total number of results returned.
    * 
    * @example
    * 1
@@ -5883,7 +7704,7 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
    * @remarks
    * The dead-letter topic.
    * 
-   * If a consumer still fails to consume a message after the message is retried for a specified number of times, the message is delivered to a dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
+   * If a consumer still fails to consume a message after the maximum number of retries specified for the message is reached, the message is delivered to the dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
    * 
    * @example
    * DLQ_mqtest
@@ -5903,8 +7724,8 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   FixedRetryPolicy: Failed messages are retried at a fixed interval.
-   * *   DefaultRetryPolicy: Failed messages are retried at incremental intervals as the number of retries increases.
+   * *   FixedRetryPolicy: fixed-interval retry. This value is valid only if you set deliveryOrderType to Orderly.
+   * *   DefaultRetryPolicy: exponential backoff retry. This value is valid only if you set deliveryOrderType to Concurrently.
    * 
    * This parameter is required.
    * 
@@ -5929,6 +7750,296 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryItemRequestTopics extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the consumer group. If you use the two-way backup mode, you must specify this parameter.
+   * 
+   * @example
+   * GID_xxx
+   */
+  consumerGroupId?: string;
+  /**
+   * @remarks
+   * The method used to deliver messages to the destination instance.
+   * 
+   * Valid values:
+   * 
+   * *   Concurrently: concurrent delivery
+   * *   Orderly: ordered delivery
+   * 
+   * @example
+   * Concurrently
+   */
+  deliveryOrderType?: string;
+  /**
+   * @remarks
+   * The instance ID. If you set instanceType to EXTERNAL_ROCKETMQ, the system automatically generates an ID for the instance. You can obtain the ID by querying the global message backup plan.
+   * 
+   * @example
+   * rmq-cn-em93y94xxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance type. Valid values:
+   * 
+   * *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
+   * *   EXTERNAL_ROCKETMQ: open source RocketMQ cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The topic name. You must specify this parameter.
+   * 
+   * @example
+   * Topic_xxx
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      deliveryOrderType: 'deliveryOrderType',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      deliveryOrderType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryPlanRequestInstancesMessageProperty extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute key.
+   * 
+   * @example
+   * aaa
+   */
+  propertyKey?: string;
+  /**
+   * @remarks
+   * The attribute value.
+   * 
+   * @example
+   * bbb
+   */
+  propertyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyKey: 'propertyKey',
+      propertyValue: 'propertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyKey: 'string',
+      propertyValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryPlanRequestInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The authentication type.
+   * 
+   * *   NO_AUTH: no authentication
+   * *   ACL_AUTH: access control list (ACL)-based authentication
+   * 
+   * @example
+   * NO_AUTH
+   */
+  authType?: string;
+  /**
+   * @remarks
+   * The instance endpoint. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
+   * 
+   * @example
+   * xxx
+   */
+  endpointUrl?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rmq-cn-83l3r0xxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance role. Valid values:
+   * 
+   * *   ACTIVE: primary instance
+   * *   Passive: secondary instance
+   * 
+   * @example
+   * ACTIVE
+   */
+  instanceRole?: string;
+  /**
+   * @remarks
+   * The instance type. Valid values:
+   * 
+   * *   ALIYUN_ROCKETMQ: ApsaraMQ for RocketMQ instance
+   * *   EXTERNAL_ROCKETMQ: open source RocketMQ cluster
+   * 
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The message attribute. When you synchronize a message to the destination cluster, the system automatically adds the attribute to the message for SQL-based filtering.
+   */
+  messageProperty?: UpdateDisasterRecoveryPlanRequestInstancesMessageProperty;
+  /**
+   * @remarks
+   * The network type. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ. Valid values:
+   * 
+   * *   TCP_INTERNET: Internet over TCP
+   * *   TCP_VPC: virtual private cloud (VPC) over TCP.
+   * 
+   * @example
+   * TCP_INTERNET
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The password that is used for authentication. This parameter is required only if you set authType to ACL_AUTH.
+   * 
+   * @example
+   * xxx
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region in which the instance resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the security group to which the instance belongs. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
+   * 
+   * @example
+   * sg-bp17hpmgz9******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The username that is used for authentication. This parameter is required only if you set authType to ACL_AUTH.
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch with which the instance is associated. If you want to specify multiple vSwitches, separate the vSwitches with vertical bars (|).
+   * 
+   * @example
+   * vsw-uf6gwtbn6etadpv******
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC with which the instance is associated. This parameter is required only if you set instanceType to EXTERNAL_ROCKETMQ.
+   * 
+   * @example
+   * vpc-wz9qt50xhtj9krb******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authType: 'authType',
+      endpointUrl: 'endpointUrl',
+      instanceId: 'instanceId',
+      instanceRole: 'instanceRole',
+      instanceType: 'instanceType',
+      messageProperty: 'messageProperty',
+      networkType: 'networkType',
+      password: 'password',
+      regionId: 'regionId',
+      securityGroupId: 'securityGroupId',
+      username: 'username',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authType: 'string',
+      endpointUrl: 'string',
+      instanceId: 'string',
+      instanceRole: 'string',
+      instanceType: 'string',
+      messageProperty: UpdateDisasterRecoveryPlanRequestInstancesMessageProperty,
+      networkType: 'string',
+      password: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+      username: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.messageProperty && typeof (this.messageProperty as any).validate === 'function') {
+      (this.messageProperty as any).validate();
+    }
     super.validate();
   }
 
@@ -6149,6 +8260,13 @@ export class DataTopicLagMapValue extends $dara.Model {
    * 12
    */
   deliveryDuration?: number;
+  /**
+   * @remarks
+   * lastConsumeTimestamp
+   * 
+   * @example
+   * 1735629607846
+   */
   lastConsumeTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6178,6 +8296,10 @@ export class DataTopicLagMapValue extends $dara.Model {
 }
 
 export class AddDisasterRecoveryItemRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Topics included in the backup mapping. Required.
+   */
   topics?: AddDisasterRecoveryItemRequestTopics[];
   static names(): { [key: string]: string } {
     return {
@@ -6204,14 +8326,77 @@ export class AddDisasterRecoveryItemRequest extends $dara.Model {
 }
 
 export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access denied details, only in the scenario where the user is denied access due to RAM not having permission
+   * 
+   * @example
+   * xxx
+   */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * Return result, mapping task ID
+   * 
+   * @example
+   * 1300000016
+   */
   data?: number;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
   dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * xxx
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6495,19 +8680,14 @@ export class ChangeResourceGroupResponse extends $dara.Model {
 export class CreateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
+   * consume retry policy
    * 
    * This parameter is required.
    */
   consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
   /**
    * @remarks
-   * The message delivery order of the consumer group.
-   * 
-   * Valid values:
-   * 
-   * *   Concurrently: concurrent delivery
-   * *   Orderly: ordered delivery
+   * The dynamic error message.
    * 
    * This parameter is required.
    * 
@@ -6515,10 +8695,17 @@ export class CreateConsumerGroupRequest extends $dara.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  /**
+   * @remarks
+   * Maximum received message tps
+   * 
+   * @example
+   * 300
+   */
   maxReceiveTps?: number;
   /**
    * @remarks
-   * The remarks on the consumer group.
+   * The HTTP status code.
    * 
    * @example
    * This is the remark for test.
@@ -6605,7 +8792,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * The request ID.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -6613,7 +8800,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true
@@ -6689,6 +8876,236 @@ export class CreateConsumerGroupResponse extends $dara.Model {
   }
 }
 
+export class CreateDisasterRecoveryPlanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable automatic synchronization of consumption progress.
+   * 
+   * > This is effective only when consumption progress synchronization is enabled, i.e., the value of `syncCheckpointEnabled` is true.
+   * 
+   * @example
+   * true
+   */
+  autoSyncCheckpoint?: boolean;
+  /**
+   * @remarks
+   * Instances involved in the backup plan. Required
+   */
+  instances?: CreateDisasterRecoveryPlanRequestInstances[];
+  /**
+   * @remarks
+   * Plan description
+   * 
+   * @example
+   * xxx
+   */
+  planDesc?: string;
+  /**
+   * @remarks
+   * Plan name, required
+   * 
+   * @example
+   * xxx
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * Backup plan type, required. Please refer to the [documentation](https://help.aliyun.com/document_detail/2843187.html).
+   * Parameter values are as follows:
+   *   - ACTIVE_PASSIVE: One-way backup
+   *   - ACTIVE_ACTIVE: Two-way backup
+   * 
+   * @example
+   * ACTIVE_ACTIVE
+   */
+  planType?: string;
+  /**
+   * @remarks
+   * Switch for synchronizing consumption progress
+   * 
+   * @example
+   * true
+   */
+  syncCheckpointEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoSyncCheckpoint: 'autoSyncCheckpoint',
+      instances: 'instances',
+      planDesc: 'planDesc',
+      planName: 'planName',
+      planType: 'planType',
+      syncCheckpointEnabled: 'syncCheckpointEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSyncCheckpoint: 'boolean',
+      instances: { 'type': 'array', 'itemType': CreateDisasterRecoveryPlanRequestInstances },
+      planDesc: 'string',
+      planName: 'string',
+      planType: 'string',
+      syncCheckpointEnabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDisasterRecoveryPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access denied details, provided only in scenarios where access is denied due to lack of RAM permissions
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result, which is the backup plan ID
+   * 
+   * @example
+   * 1234
+   */
+  data?: number;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * C7E8AE3A-219B-52EE-BE32-4036F5xxxx
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation was successful
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'number',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDisasterRecoveryPlanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDisasterRecoveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDisasterRecoveryPlanResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -6719,6 +9136,8 @@ export class CreateInstanceRequest extends $dara.Model {
    * 
    * *   ons_rmqpost_public_intl: pay-as-you-go
    * *   ons_rmqsub_public_intl: subscription
+   * *   ons_rmqsrvlesspost_public_intl: serverless instance
+   * serverless instance requires this parameter
    * 
    * @example
    * ons_ rmqpost_public_cn
@@ -6786,7 +9205,7 @@ export class CreateInstanceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The information about the instance specifications.
+   * The information about instance specifications.
    */
   productInfo?: CreateInstanceRequestProductInfo;
   /**
@@ -6799,7 +9218,7 @@ export class CreateInstanceRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * rg-aekzy6pist7uuna
@@ -6859,6 +9278,10 @@ export class CreateInstanceRequest extends $dara.Model {
    * cluster_ha
    */
   subSeriesCode?: string;
+  /**
+   * @remarks
+   * The tags that you want to add to the instance.
+   */
   tags?: CreateInstanceRequestTags[];
   /**
    * @remarks
@@ -7677,6 +10100,13 @@ export class CreateInstanceIpWhitelistResponse extends $dara.Model {
 }
 
 export class CreateTopicRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum TPS for message sending.
+   * 
+   * @example
+   * 1500
+   */
   maxSendTps?: number;
   /**
    * @remarks
@@ -7686,10 +10116,10 @@ export class CreateTopicRequest extends $dara.Model {
    * 
    * *   TRANSACTION: transactional messages
    * *   FIFO: ordered messages
-   * *   DELAY: scheduled messages or delayed Message
+   * *   DELAY: scheduled or delayed messages
    * *   NORMAL: normal messages
    * 
-   * > The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, the topic can be used to send and receive only ordered messages.
+   * >  The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, you can use the topic to send and receive only ordered messages.
    * 
    * @example
    * NORMAL
@@ -7731,7 +10161,7 @@ export class CreateTopicRequest extends $dara.Model {
 export class CreateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call failed.
+   * Error code.
    * 
    * @example
    * Topic.Existed
@@ -7739,7 +10169,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * Return result.
    * 
    * @example
    * true
@@ -7747,7 +10177,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code.
    * 
    * @example
    * TopicName
@@ -7755,7 +10185,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * Dynamic error message.
    * 
    * @example
    * topicName
@@ -7763,7 +10193,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * HTTP status code.
    * 
    * @example
    * 400
@@ -7771,7 +10201,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * The topic already exists.
@@ -7779,7 +10209,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -7787,7 +10217,7 @@ export class CreateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true
@@ -8202,15 +10632,223 @@ export class DeleteConsumerGroupSubscriptionResponse extends $dara.Model {
   }
 }
 
-export class DeleteDisasterRecoveryPlanResponseBody extends $dara.Model {
+export class DeleteDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access denied details, only in the scenario where the user is denied access due to RAM not having permission
+   * 
+   * @example
+   * xxx
+   */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * DisasterRecoveryItemStatus.Error
+   */
   code?: string;
+  /**
+   * @remarks
+   * The return data
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
   dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * The current status of the disaster recovery item does not support this operation.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 0B962390-D84B-5D44-8C11-79DFxxxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * DisasterRecoveryPlanStatus.Error
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The current status of the disaster recovery plan does not support this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8769,6 +11407,10 @@ export class DeleteInstanceIpWhitelistRequest extends $dara.Model {
    * @deprecated
    */
   ipWhitelist?: string;
+  /**
+   * @remarks
+   * The IP address whitelist.
+   */
   ipWhitelists?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8807,6 +11449,10 @@ export class DeleteInstanceIpWhitelistShrinkRequest extends $dara.Model {
    * @deprecated
    */
   ipWhitelist?: string;
+  /**
+   * @remarks
+   * The IP address whitelist.
+   */
   ipWhitelistsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9122,7 +11768,7 @@ export class GetConsumerGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned data.
    */
   data?: GetConsumerGroupResponseBodyData;
   /**
@@ -9247,6 +11893,13 @@ export class GetConsumerGroupResponse extends $dara.Model {
 }
 
 export class GetConsumerGroupLagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * @example
+   * normal-topic-1
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9706,6 +12359,296 @@ export class GetConsumerStackResponse extends $dara.Model {
   }
 }
 
+export class GetDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetDisasterRecoveryItemResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetDisasterRecoveryItemResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetDisasterRecoveryPlanResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7358418D-83BD-507A-8079-611C63E0xxx
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetDisasterRecoveryPlanResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDisasterRecoveryPlanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDisasterRecoveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDisasterRecoveryPlanResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -9884,7 +12827,7 @@ export class GetInstanceAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetInstanceAccountResponseBodyData;
   /**
@@ -10011,6 +12954,8 @@ export class GetInstanceAccountResponse extends $dara.Model {
 export class GetInstanceAclRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the resource on which you want to grant permissions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10019,6 +12964,13 @@ export class GetInstanceAclRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
+   * The type of the resource on which you want to grant permissions.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10050,40 +13002,62 @@ export class GetInstanceAclRequest extends $dara.Model {
 
 export class GetInstanceAclResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetInstanceAclResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
-   * InstanceId
+   * xxx
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
-   * instanceId
+   * xxx
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -10162,6 +13136,10 @@ export class GetInstanceAclResponse extends $dara.Model {
 }
 
 export class GetInstanceIpWhitelistRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The  filter IP address whitelists.
+   */
   ipWhitelists?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10188,6 +13166,10 @@ export class GetInstanceIpWhitelistRequest extends $dara.Model {
 }
 
 export class GetInstanceIpWhitelistShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The  filter IP address whitelists.
+   */
   ipWhitelistsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10212,37 +13194,62 @@ export class GetInstanceIpWhitelistShrinkRequest extends $dara.Model {
 
 export class GetInstanceIpWhitelistResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetInstanceIpWhitelistResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * xxx
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B962390-D84B-5D44-8C11-79DF40299D41
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -10458,7 +13465,7 @@ export class GetMessageDetailResponse extends $dara.Model {
 export class GetTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * Topic.NotFound
@@ -10466,12 +13473,12 @@ export class GetTopicResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned data.
    */
   data?: GetTopicResponseBodyData;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code.
    * 
    * @example
    * TopicName
@@ -10479,7 +13486,7 @@ export class GetTopicResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * Dynamic error message.
    * 
    * @example
    * topicName
@@ -10487,7 +13494,7 @@ export class GetTopicResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 400
@@ -10495,7 +13502,7 @@ export class GetTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * The topic cannot be found.
@@ -10503,7 +13510,7 @@ export class GetTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -10511,7 +13518,7 @@ export class GetTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true
@@ -10601,7 +13608,7 @@ export class GetTraceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetTraceResponseBodyData;
   /**
@@ -10995,6 +14002,36 @@ export class ListConsumerConnectionsResponse extends $dara.Model {
   }
 }
 
+export class ListConsumerGroupSubscriptionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The topic name. If you do not specify this parameter, all subscriptions of the consumer group are queried.
+   * 
+   * @example
+   * topic_test
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumerGroupSubscriptionsResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11133,7 +14170,7 @@ export class ListConsumerGroupSubscriptionsResponse extends $dara.Model {
 export class ListConsumerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The condition that you want to use to filter consumer groups in the instance. If you leave this parameter empty, all consumer groups in the instance are queried.
+   * The filter condition for the query. If not provided, all consumer groups under the specified instance will be queried.
    * 
    * @example
    * CID-TEST
@@ -11141,7 +14178,7 @@ export class ListConsumerGroupsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number, indicating which page of results to return.
    * 
    * @example
    * 1
@@ -11149,7 +14186,9 @@ export class ListConsumerGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Page size, the maximum number of results to display per page.
+   * 
+   * Value range: [10, 100].
    * 
    * @example
    * 10
@@ -11183,7 +14222,7 @@ export class ListConsumerGroupsRequest extends $dara.Model {
 export class ListConsumerGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * MissingInstanceId
@@ -11191,15 +14230,15 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned data.
    */
   data?: ListConsumerGroupsResponseBodyData;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code.
    * 
    * @example
-   * InstanceId
+   * xxx
    */
   dynamicCode?: string;
   /**
@@ -11207,12 +14246,12 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
    * The dynamic error message.
    * 
    * @example
-   * instanceId
+   * xxx
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 400
@@ -11220,7 +14259,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * Parameter InstanceId is mandatory for this action .
@@ -11228,7 +14267,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
    * 
    * @example
    * 5503A460-98ED-5543-92CF-4853DE28****
@@ -11236,7 +14275,7 @@ export class ListConsumerGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true
@@ -11297,6 +14336,599 @@ export class ListConsumerGroupsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListConsumerGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter Condition
+   * 
+   * @example
+   * topic_test
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * Source Instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Current page number, starting from 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size, the maximum number of results returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      instanceId: 'instanceId',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Response Data
+   */
+  data?: ListDisasterRecoveryCheckpointsResponseBodyData;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDisasterRecoveryCheckpointsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryCheckpointsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDisasterRecoveryCheckpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDisasterRecoveryCheckpointsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter condition, filter by topicName
+   * 
+   * @example
+   * topic_test
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * Page number, indicating which page of the results to query.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size, the maximum number of results displayed per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Access denied details, provided only when access is denied due to lack of RAM permissions
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Return result
+   */
+  data?: ListDisasterRecoveryItemsResponseBodyData;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * C115601B-8736-5BBF-AC99-7FEAE12xxxx
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the request was successful
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ListDisasterRecoveryItemsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryItemsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDisasterRecoveryItemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDisasterRecoveryItemsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter conditions, filter by backup name and description
+   * 
+   * @example
+   * xxx
+   */
+  filter?: string;
+  instanceId?: string;
+  /**
+   * @remarks
+   * Page number, the page of results to be queried.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size, the maximum number of results displayed per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      instanceId: 'instanceId',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Return result
+   */
+  data?: ListDisasterRecoveryPlansResponseBodyData;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 855EF8E6-9C1D-5DE2-9E84-924E13Exxxx
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ListDisasterRecoveryPlansResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDisasterRecoveryPlansResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDisasterRecoveryPlansResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDisasterRecoveryPlansResponseBody,
     };
   }
 
@@ -12497,6 +16129,8 @@ export class ListMessagesResponse extends $dara.Model {
 export class ListMetricMetaRequest extends $dara.Model {
   /**
    * @remarks
+   * Page number, indicating which page of the results to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12505,6 +16139,8 @@ export class ListMetricMetaRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size, indicating the maximum number of results per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12536,37 +16172,62 @@ export class ListMetricMetaRequest extends $dara.Model {
 
 export class ListMetricMetaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * Return result
+   */
   data?: ListMetricMetaResponseBodyData;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
-   * InstanceId
+   * xxx
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
-   * instanceId
+   * xxx
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * The topic already exists.
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8B459455-4A35-5796-BA9D-98EF1AB9A931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation was successful
+   * 
    * @example
    * true
    */
@@ -13136,7 +16797,7 @@ export class ListTopicSubscriptionsResponse extends $dara.Model {
 export class ListTopicsRequest extends $dara.Model {
   /**
    * @remarks
-   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
+   * The filter condition for the query. If not provided, all topics under the instance will be queried.
    * 
    * @example
    * topic_test
@@ -13144,12 +16805,12 @@ export class ListTopicsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The message types of the topics.
+   * The message type of the topic.
    */
   messageTypes?: string[];
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number, indicating which page of results to return.
    * 
    * @example
    * 1
@@ -13157,7 +16818,7 @@ export class ListTopicsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Page size, the maximum number of results to display per page.
    * 
    * @example
    * 3
@@ -13196,7 +16857,7 @@ export class ListTopicsRequest extends $dara.Model {
 export class ListTopicsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
+   * The filter condition for the query. If not provided, all topics under the instance will be queried.
    * 
    * @example
    * topic_test
@@ -13204,12 +16865,12 @@ export class ListTopicsShrinkRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The message types of the topics.
+   * The message type of the topic.
    */
   messageTypesShrink?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number, indicating which page of results to return.
    * 
    * @example
    * 1
@@ -13217,7 +16878,7 @@ export class ListTopicsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Page size, the maximum number of results to display per page.
    * 
    * @example
    * 3
@@ -13253,7 +16914,7 @@ export class ListTopicsShrinkRequest extends $dara.Model {
 export class ListTopicsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * Topic.NotFound
@@ -13261,12 +16922,12 @@ export class ListTopicsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The returned data.
    */
   data?: ListTopicsResponseBodyData;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code.
    * 
    * @example
    * TopicName
@@ -13274,23 +16935,20 @@ export class ListTopicsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * Dynamic error message.
    * 
    * @example
    * topicName
    */
   dynamicMessage?: string;
   /**
-   * @remarks
-   * The HTTP status code.
-   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * The topic cannot be found.
@@ -13298,7 +16956,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -13306,7 +16964,7 @@ export class ListTopicsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true
@@ -13796,14 +17454,77 @@ export class ResetConsumeOffsetResponse extends $dara.Model {
 }
 
 export class StartDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * DisasterRecoveryItemStatus.Error
+   */
   code?: string;
+  /**
+   * @remarks
+   * Return result
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
   dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * InstanceId
+   */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * The current status of the disaster recovery item does not support this operation.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * C7E8AE3A-219B-52EE-BE32-4036Fxxxxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13878,14 +17599,77 @@ export class StartDisasterRecoveryItemResponse extends $dara.Model {
 }
 
 export class StopDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
   accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * DisasterRecoveryItemStatus.Error
+   */
   code?: string;
+  /**
+   * @remarks
+   * Return result
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
   dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * The current status of the disaster recovery item does not support this operation.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * A07B41BD-6DD3-5349-9E76-00303xxxx
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13941,6 +17725,141 @@ export class StopDisasterRecoveryItemResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDisasterRecoveryCheckpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error Code
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Result Data
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * Dynamic Error Code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP Status Code
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error Message
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 7358418D-83BD-507A-8079-611C63E05674
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Success or Not
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncDisasterRecoveryCheckpointResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncDisasterRecoveryCheckpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncDisasterRecoveryCheckpointResponseBody,
     };
   }
 
@@ -14380,14 +18299,14 @@ export class UntagResourcesResponse extends $dara.Model {
 export class UpdateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
+   * The new consumption retry policy of the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
    * 
    * This parameter is required.
    */
   consumeRetryPolicy?: UpdateConsumerGroupRequestConsumeRetryPolicy;
   /**
    * @remarks
-   * The new message delivery order of the consumer group.
+   * The new message delivery method of the consumer group.
    * 
    * Valid values:
    * 
@@ -14400,10 +18319,17 @@ export class UpdateConsumerGroupRequest extends $dara.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  /**
+   * @remarks
+   * The maximum TPS for message sending.
+   * 
+   * @example
+   * 100
+   */
   maxReceiveTps?: number;
   /**
    * @remarks
-   * The new remarks on the consumer group.
+   * The new description of the consumer group.
    * 
    * @example
    * This is the remark for test.
@@ -14442,7 +18368,7 @@ export class UpdateConsumerGroupRequest extends $dara.Model {
 export class UpdateConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * InvalidDeliveryOrderType
@@ -14450,7 +18376,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * The result returned.
    * 
    * @example
    * true
@@ -14458,23 +18384,23 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code.
    * 
    * @example
-   * DeliveryOrderType
+   * xxx
    */
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * Dynamic error message.
    * 
    * @example
-   * deliveryOrderType
+   * xxx
    */
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 400
@@ -14482,7 +18408,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * Parameter deliveryOrderType is invalid.
@@ -14490,7 +18416,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * The request ID, which is unique for each request and can be used for troubleshooting and problem localization.
    * 
    * @example
    * C7F94090-3358-506A-97DC-34BC803C****
@@ -14498,7 +18424,7 @@ export class UpdateConsumerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the execution was successful.
    * 
    * @example
    * true
@@ -14556,6 +18482,401 @@ export class UpdateConsumerGroupResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateConsumerGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryItemRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The topics involved in the topic mapping.
+   */
+  topics?: UpdateDisasterRecoveryItemRequestTopics[];
+  static names(): { [key: string]: string } {
+    return {
+      topics: 'topics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topics: { 'type': 'array', 'itemType': UpdateDisasterRecoveryItemRequestTopics },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryItemResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0C32BED2-FA9F-50AD-9DA7-8B70E26C9D0D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryPlanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable automatic synchronization of consumption progress.
+   * 
+   * > This is effective only when consumption progress synchronization is enabled, i.e., the value of `syncCheckpointEnabled` is true.
+   * 
+   * @example
+   * true
+   */
+  autoSyncCheckpoint?: boolean;
+  /**
+   * @remarks
+   * The instances that are involved in the global message backup plan.
+   */
+  instances?: UpdateDisasterRecoveryPlanRequestInstances[];
+  /**
+   * @remarks
+   * The description of the global message backup plan.
+   * 
+   * @example
+   * xxx
+   */
+  planDesc?: string;
+  /**
+   * @remarks
+   * The name of the global message backup plan.
+   * 
+   * @example
+   * xxx
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * The type of the global message backup plan. Valid values:
+   * 
+   * *   ACTIVE_PASSIVE: geo-disaster recovery
+   * *   ACTIVE_ACTIVE: active geo-redundancy
+   * 
+   * @example
+   * ACTIVE_PASSIVE
+   */
+  planType?: string;
+  /**
+   * @remarks
+   * Switch for synchronizing consumption progress
+   * 
+   * @example
+   * true
+   */
+  syncCheckpointEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoSyncCheckpoint: 'autoSyncCheckpoint',
+      instances: 'instances',
+      planDesc: 'planDesc',
+      planName: 'planName',
+      planType: 'planType',
+      syncCheckpointEnabled: 'syncCheckpointEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSyncCheckpoint: 'boolean',
+      instances: { 'type': 'array', 'itemType': UpdateDisasterRecoveryPlanRequestInstances },
+      planDesc: 'string',
+      planName: 'string',
+      planType: 'string',
+      syncCheckpointEnabled: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryPlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * DisasterRecoveryPlanStatus.Error
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The current status of the disaster recovery plan does not support this operation.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A07B41BD-6DD3-5349-9E76-00303Dxxxx
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDisasterRecoveryPlanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDisasterRecoveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDisasterRecoveryPlanResponseBody,
     };
   }
 
@@ -15211,10 +19532,17 @@ export class UpdateInstanceAclResponse extends $dara.Model {
 }
 
 export class UpdateTopicRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Maximum send message tps
+   * 
+   * @example
+   * 500
+   */
   maxSendTps?: number;
   /**
    * @remarks
-   * The new remarks on the topic.
+   * Updated remarks for the topic.
    * 
    * @example
    * This is the remark for test.
@@ -15246,7 +19574,7 @@ export class UpdateTopicRequest extends $dara.Model {
 export class UpdateTopicResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * Topic.NotFound
@@ -15254,7 +19582,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result data that is returned.
+   * Return result.
    * 
    * @example
    * true
@@ -15262,7 +19590,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic error code.
+   * Dynamic error code
    * 
    * @example
    * TopicName
@@ -15270,7 +19598,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message.
+   * 动态错误信息
    * 
    * @example
    * topicName
@@ -15278,7 +19606,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 400
@@ -15286,7 +19614,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * Error message.
    * 
    * @example
    * The topic cannot be found.
@@ -15294,7 +19622,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * Request ID, each request has a unique ID that can be used for troubleshooting and problem localization.
    * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
@@ -15302,7 +19630,7 @@ export class UpdateTopicResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Whether the execution result is successful.
    * 
    * @example
    * true
@@ -15766,7 +20094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加容灾计划条目
+   * Add Disaster Recovery Plan Entry
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @param headers - map
@@ -15804,7 +20132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加容灾计划条目
+   * Add Disaster Recovery Plan Entry
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @returns AddDisasterRecoveryItemResponse
@@ -15881,7 +20209,11 @@ export default class Client extends OpenApi {
    * Creates a consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
+   * The following limits are imposed on the ID:
+   * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
+   * *   Length limit: The ID must be 1 to 60 characters in length.
+   * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
    * 
    * @param request - CreateConsumerGroupRequest
    * @param headers - map
@@ -15934,7 +20266,11 @@ export default class Client extends OpenApi {
    * Creates a consumer group.
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
+   * The following limits are imposed on the ID:
+   * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
+   * *   Length limit: The ID must be 1 to 60 characters in length.
+   * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
    * 
    * @param request - CreateConsumerGroupRequest
    * @returns CreateConsumerGroupResponse
@@ -15943,6 +20279,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Create Disaster Recovery Plan
+   * 
+   * @param request - CreateDisasterRecoveryPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDisasterRecoveryPlanResponse
+   */
+  async createDisasterRecoveryPlanWithOptions(request: CreateDisasterRecoveryPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateDisasterRecoveryPlanResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoSyncCheckpoint)) {
+      body["autoSyncCheckpoint"] = request.autoSyncCheckpoint;
+    }
+
+    if (!$dara.isNull(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    if (!$dara.isNull(request.planDesc)) {
+      body["planDesc"] = request.planDesc;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      body["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.planType)) {
+      body["planType"] = request.planType;
+    }
+
+    if (!$dara.isNull(request.syncCheckpointEnabled)) {
+      body["syncCheckpointEnabled"] = request.syncCheckpointEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDisasterRecoveryPlan",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new CreateDisasterRecoveryPlanResponse({}));
+    } else {
+      return $dara.cast<CreateDisasterRecoveryPlanResponse>(await this.execute(params, req, runtime), new CreateDisasterRecoveryPlanResponse({}));
+    }
+
+  }
+
+  /**
+   * Create Disaster Recovery Plan
+   * 
+   * @param request - CreateDisasterRecoveryPlanRequest
+   * @returns CreateDisasterRecoveryPlanResponse
+   */
+  async createDisasterRecoveryPlan(request: CreateDisasterRecoveryPlanRequest): Promise<CreateDisasterRecoveryPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDisasterRecoveryPlanWithOptions(request, headers, runtime);
   }
 
   /**
@@ -16234,7 +20640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a topic.
+   * Create Topic
    * 
    * @param request - CreateTopicRequest
    * @param headers - map
@@ -16280,7 +20686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a topic.
+   * Create Topic
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -16398,7 +20804,47 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除容灾计划
+   * 删除容灾计划条目
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDisasterRecoveryItemResponse
+   */
+  async deleteDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteDisasterRecoveryItemResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new DeleteDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<DeleteDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new DeleteDisasterRecoveryItemResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除容灾计划条目
+   * @returns DeleteDisasterRecoveryItemResponse
+   */
+  async deleteDisasterRecoveryItem(planId: string, itemId: string): Promise<DeleteDisasterRecoveryItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+  }
+
+  /**
+   * Deletes a global message backup plan.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16428,7 +20874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除容灾计划
+   * Deletes a global message backup plan.
    * @returns DeleteDisasterRecoveryPlanResponse
    */
   async deleteDisasterRecoveryPlan(planId: string): Promise<DeleteDisasterRecoveryPlanResponse> {
@@ -16874,6 +21320,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询容灾计划条目详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDisasterRecoveryItemResponse
+   */
+  async getDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetDisasterRecoveryItemResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new GetDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<GetDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new GetDisasterRecoveryItemResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询容灾计划条目详情
+   * @returns GetDisasterRecoveryItemResponse
+   */
+  async getDisasterRecoveryItem(planId: string, itemId: string): Promise<GetDisasterRecoveryItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+  }
+
+  /**
+   * 查询容灾计划详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDisasterRecoveryPlanResponse
+   */
+  async getDisasterRecoveryPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetDisasterRecoveryPlanResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDisasterRecoveryPlan",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new GetDisasterRecoveryPlanResponse({}));
+    } else {
+      return $dara.cast<GetDisasterRecoveryPlanResponse>(await this.execute(params, req, runtime), new GetDisasterRecoveryPlanResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询容灾计划详情
+   * @returns GetDisasterRecoveryPlanResponse
+   */
+  async getDisasterRecoveryPlan(planId: string): Promise<GetDisasterRecoveryPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDisasterRecoveryPlanWithOptions(planId, headers, runtime);
+  }
+
+  /**
    * Queries the detailed information about an instance.
    * 
    * @remarks
@@ -16970,7 +21496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取访问控制acl数据
+   * Queries information about the access control list (ACL) of an instance.
    * 
    * @param request - GetInstanceAclRequest
    * @param headers - map
@@ -17012,7 +21538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取访问控制acl数据
+   * Queries information about the access control list (ACL) of an instance.
    * 
    * @param request - GetInstanceAclRequest
    * @returns GetInstanceAclResponse
@@ -17024,7 +21550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例ip白名单
+   * Queries the information about the IP address whitelist of an instance.
    * 
    * @param tmpReq - GetInstanceIpWhitelistRequest
    * @param headers - map
@@ -17068,7 +21594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例ip白名单
+   * Queries the information about the IP address whitelist of an instance.
    * 
    * @param request - GetInstanceIpWhitelistRequest
    * @returns GetInstanceIpWhitelistResponse
@@ -17120,7 +21646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified topic.
+   * Query Topic Details
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17150,7 +21676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified topic.
+   * Query Topic Details
    * @returns GetTopicResponse
    */
   async getTopic(instanceId: string, topicName: string): Promise<GetTopicResponse> {
@@ -17282,13 +21808,21 @@ export default class Client extends OpenApi {
   /**
    * Queries the subscriptions of a specific consumer group.
    * 
+   * @param request - ListConsumerGroupSubscriptionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConsumerGroupSubscriptionsResponse
    */
-  async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
+  async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, request: ListConsumerGroupSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.topicName)) {
+      query["topicName"] = request.topicName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListConsumerGroupSubscriptions",
@@ -17311,19 +21845,21 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the subscriptions of a specific consumer group.
+   * 
+   * @param request - ListConsumerGroupSubscriptionsRequest
    * @returns ListConsumerGroupSubscriptionsResponse
    */
-  async listConsumerGroupSubscriptions(instanceId: string, consumerGroupId: string): Promise<ListConsumerGroupSubscriptionsResponse> {
+  async listConsumerGroupSubscriptions(instanceId: string, consumerGroupId: string, request: ListConsumerGroupSubscriptionsRequest): Promise<ListConsumerGroupSubscriptionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+    return await this.listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
 
   /**
-   * Queries the consumer groups in a specified instance.
+   * List Consumer Groups
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
    * 
    * @param request - ListConsumerGroupsRequest
    * @param headers - map
@@ -17369,10 +21905,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the consumer groups in a specified instance.
+   * List Consumer Groups
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
    * 
    * @param request - ListConsumerGroupsRequest
    * @returns ListConsumerGroupsResponse
@@ -17381,6 +21917,192 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * Query disaster recovery plan consumption progress information
+   * 
+   * @param request - ListDisasterRecoveryCheckpointsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDisasterRecoveryCheckpointsResponse
+   */
+  async listDisasterRecoveryCheckpointsWithOptions(planId: string, itemId: string, request: ListDisasterRecoveryCheckpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListDisasterRecoveryCheckpointsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDisasterRecoveryCheckpoints",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}/checkpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDisasterRecoveryCheckpointsResponse>(await this.callApi(params, req, runtime), new ListDisasterRecoveryCheckpointsResponse({}));
+    } else {
+      return $dara.cast<ListDisasterRecoveryCheckpointsResponse>(await this.execute(params, req, runtime), new ListDisasterRecoveryCheckpointsResponse({}));
+    }
+
+  }
+
+  /**
+   * Query disaster recovery plan consumption progress information
+   * 
+   * @param request - ListDisasterRecoveryCheckpointsRequest
+   * @returns ListDisasterRecoveryCheckpointsResponse
+   */
+  async listDisasterRecoveryCheckpoints(planId: string, itemId: string, request: ListDisasterRecoveryCheckpointsRequest): Promise<ListDisasterRecoveryCheckpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDisasterRecoveryCheckpointsWithOptions(planId, itemId, request, headers, runtime);
+  }
+
+  /**
+   * Query Disaster Recovery Plan Entry List
+   * 
+   * @param request - ListDisasterRecoveryItemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDisasterRecoveryItemsResponse
+   */
+  async listDisasterRecoveryItemsWithOptions(planId: string, request: ListDisasterRecoveryItemsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListDisasterRecoveryItemsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["topicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDisasterRecoveryItems",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDisasterRecoveryItemsResponse>(await this.callApi(params, req, runtime), new ListDisasterRecoveryItemsResponse({}));
+    } else {
+      return $dara.cast<ListDisasterRecoveryItemsResponse>(await this.execute(params, req, runtime), new ListDisasterRecoveryItemsResponse({}));
+    }
+
+  }
+
+  /**
+   * Query Disaster Recovery Plan Entry List
+   * 
+   * @param request - ListDisasterRecoveryItemsRequest
+   * @returns ListDisasterRecoveryItemsResponse
+   */
+  async listDisasterRecoveryItems(planId: string, request: ListDisasterRecoveryItemsRequest): Promise<ListDisasterRecoveryItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDisasterRecoveryItemsWithOptions(planId, request, headers, runtime);
+  }
+
+  /**
+   * Query Disaster Recovery Plan List
+   * 
+   * @param request - ListDisasterRecoveryPlansRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDisasterRecoveryPlansResponse
+   */
+  async listDisasterRecoveryPlansWithOptions(request: ListDisasterRecoveryPlansRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListDisasterRecoveryPlansResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDisasterRecoveryPlans",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDisasterRecoveryPlansResponse>(await this.callApi(params, req, runtime), new ListDisasterRecoveryPlansResponse({}));
+    } else {
+      return $dara.cast<ListDisasterRecoveryPlansResponse>(await this.execute(params, req, runtime), new ListDisasterRecoveryPlansResponse({}));
+    }
+
+  }
+
+  /**
+   * Query Disaster Recovery Plan List
+   * 
+   * @param request - ListDisasterRecoveryPlansRequest
+   * @returns ListDisasterRecoveryPlansResponse
+   */
+  async listDisasterRecoveryPlans(request: ListDisasterRecoveryPlansRequest): Promise<ListDisasterRecoveryPlansResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDisasterRecoveryPlansWithOptions(request, headers, runtime);
   }
 
   /**
@@ -17726,7 +22448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询监控项列表
+   * Query Monitoring Items List
    * 
    * @param request - ListMetricMetaRequest
    * @param headers - map
@@ -17768,7 +22490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询监控项列表
+   * Query Monitoring Items List
    * 
    * @param request - ListMetricMetaRequest
    * @returns ListMetricMetaResponse
@@ -17930,7 +22652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topics in a specified instance.
+   * Query Topic List
    * 
    * @param tmpReq - ListTopicsRequest
    * @param headers - map
@@ -17986,7 +22708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the topics in a specified instance.
+   * Query Topic List
    * 
    * @param request - ListTopicsRequest
    * @returns ListTopicsResponse
@@ -18126,7 +22848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用容灾计划条目
+   * Enable Disaster Recovery Plan Entry
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18156,7 +22878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用容灾计划条目
+   * Enable Disaster Recovery Plan Entry
    * @returns StartDisasterRecoveryItemResponse
    */
   async startDisasterRecoveryItem(planId: string, itemId: string): Promise<StartDisasterRecoveryItemResponse> {
@@ -18166,7 +22888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停用容灾计划条目
+   * Deactivate Disaster Recovery Plan Entry
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18196,13 +22918,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停用容灾计划条目
+   * Deactivate Disaster Recovery Plan Entry
    * @returns StopDisasterRecoveryItemResponse
    */
   async stopDisasterRecoveryItem(planId: string, itemId: string): Promise<StopDisasterRecoveryItemResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
+  }
+
+  /**
+   * Synchronize Disaster Recovery Plan Consumption Progress
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncDisasterRecoveryCheckpointResponse
+   */
+  async syncDisasterRecoveryCheckpointWithOptions(planId: string, itemId: string, checkpointId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SyncDisasterRecoveryCheckpointResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncDisasterRecoveryCheckpoint",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}/checkpoints/${$dara.URL.percentEncode(checkpointId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SyncDisasterRecoveryCheckpointResponse>(await this.callApi(params, req, runtime), new SyncDisasterRecoveryCheckpointResponse({}));
+    } else {
+      return $dara.cast<SyncDisasterRecoveryCheckpointResponse>(await this.execute(params, req, runtime), new SyncDisasterRecoveryCheckpointResponse({}));
+    }
+
+  }
+
+  /**
+   * Synchronize Disaster Recovery Plan Consumption Progress
+   * @returns SyncDisasterRecoveryCheckpointResponse
+   */
+  async syncDisasterRecoveryCheckpoint(planId: string, itemId: string, checkpointId: string): Promise<SyncDisasterRecoveryCheckpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.syncDisasterRecoveryCheckpointWithOptions(planId, itemId, checkpointId, headers, runtime);
   }
 
   /**
@@ -18334,10 +23096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about and the consumption retry policy of a consumer group.
+   * Update ConsumerGroup
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
    * 
    * @param request - UpdateConsumerGroupRequest
    * @param headers - map
@@ -18387,10 +23149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about and the consumption retry policy of a consumer group.
+   * Update ConsumerGroup
    * 
    * @remarks
-   * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+   * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
    * 
    * @param request - UpdateConsumerGroupRequest
    * @returns UpdateConsumerGroupResponse
@@ -18399,6 +23161,126 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a topic mapping in a global message backup plan.
+   * 
+   * @param request - UpdateDisasterRecoveryItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDisasterRecoveryItemResponse
+   */
+  async updateDisasterRecoveryItemWithOptions(planId: string, itemId: string, request: UpdateDisasterRecoveryItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateDisasterRecoveryItemResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.topics)) {
+      body["topics"] = request.topics;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new UpdateDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<UpdateDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new UpdateDisasterRecoveryItemResponse({}));
+    }
+
+  }
+
+  /**
+   * Updates a topic mapping in a global message backup plan.
+   * 
+   * @param request - UpdateDisasterRecoveryItemRequest
+   * @returns UpdateDisasterRecoveryItemResponse
+   */
+  async updateDisasterRecoveryItem(planId: string, itemId: string, request: UpdateDisasterRecoveryItemRequest): Promise<UpdateDisasterRecoveryItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDisasterRecoveryItemWithOptions(planId, itemId, request, headers, runtime);
+  }
+
+  /**
+   * Modifies a global message backup plan.
+   * 
+   * @param request - UpdateDisasterRecoveryPlanRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDisasterRecoveryPlanResponse
+   */
+  async updateDisasterRecoveryPlanWithOptions(planId: string, request: UpdateDisasterRecoveryPlanRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateDisasterRecoveryPlanResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoSyncCheckpoint)) {
+      body["autoSyncCheckpoint"] = request.autoSyncCheckpoint;
+    }
+
+    if (!$dara.isNull(request.instances)) {
+      body["instances"] = request.instances;
+    }
+
+    if (!$dara.isNull(request.planDesc)) {
+      body["planDesc"] = request.planDesc;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      body["planName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.planType)) {
+      body["planType"] = request.planType;
+    }
+
+    if (!$dara.isNull(request.syncCheckpointEnabled)) {
+      body["syncCheckpointEnabled"] = request.syncCheckpointEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDisasterRecoveryPlan",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new UpdateDisasterRecoveryPlanResponse({}));
+    } else {
+      return $dara.cast<UpdateDisasterRecoveryPlanResponse>(await this.execute(params, req, runtime), new UpdateDisasterRecoveryPlanResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies a global message backup plan.
+   * 
+   * @param request - UpdateDisasterRecoveryPlanRequest
+   * @returns UpdateDisasterRecoveryPlanResponse
+   */
+  async updateDisasterRecoveryPlan(planId: string, request: UpdateDisasterRecoveryPlanRequest): Promise<UpdateDisasterRecoveryPlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDisasterRecoveryPlanWithOptions(planId, request, headers, runtime);
   }
 
   /**
@@ -18594,7 +23476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a topic.
+   * Update Topic
    * 
    * @param request - UpdateTopicRequest
    * @param headers - map
@@ -18636,7 +23518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic information about a topic.
+   * Update Topic
    * 
    * @param request - UpdateTopicRequest
    * @returns UpdateTopicResponse
