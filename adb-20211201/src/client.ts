@@ -1452,6 +1452,9 @@ export class DescribeAbnormalPatternDetectionResponseBodyDetectionItemsResults e
   /**
    * @remarks
    * The description of the detection result.
+   * 
+   * @example
+   * Two SQL patterns that have abnormal totalTime metric values are detected. This may result in increased CPU utilization, query slowdown, and degraded system stability. Go to the monitoring page to diagnose the issue and then perform optimization.
    */
   detail?: string;
   /**
@@ -1472,7 +1475,7 @@ export class DescribeAbnormalPatternDetectionResponseBodyDetectionItemsResults e
   patternId?: string;
   /**
    * @remarks
-   * The number of executed SQL patterns within the time range.
+   * The number of queries.
    * 
    * @example
    * 72
@@ -1481,6 +1484,11 @@ export class DescribeAbnormalPatternDetectionResponseBodyDetectionItemsResults e
   /**
    * @remarks
    * The metrics related to the SQL pattern.
+   * 
+   * @example
+   * Maximum query duration: 1.43s
+   * Maximum peak memory: 20.73 MB
+   * Maximum read table data: 10.12 MB
    */
   relatedMetrics?: string;
   /**
@@ -1555,7 +1563,7 @@ export class DescribeAbnormalPatternDetectionResponseBodyDetectionItems extends 
   name?: string;
   /**
    * @remarks
-   * The detection result.
+   * The detection result items.
    */
   results?: DescribeAbnormalPatternDetectionResponseBodyDetectionItemsResults[];
   static names(): { [key: string]: string } {
@@ -2356,6 +2364,9 @@ export class DescribeAppliedAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The benefit of the suggestion.
+   * 
+   * @example
+   * 0.4 GB of storage saved
    */
   benefit?: string;
   /**
@@ -2712,7 +2723,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $da
 export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2720,7 +2731,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   across?: boolean;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2728,7 +2739,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   acrossRole?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2736,7 +2747,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   acrossUid?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2744,7 +2755,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   connectUrl?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2752,7 +2763,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   instanceId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2760,7 +2771,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   regionId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2768,7 +2779,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   securityGroup?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2812,7 +2823,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
 export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2820,7 +2831,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   connectUrl?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2828,7 +2839,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   instanceId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2836,7 +2847,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   regionId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -2844,7 +2855,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   securityGroup?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -3572,6 +3583,9 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   /**
    * @remarks
    * The progress.
+   * 
+   * @example
+   * 30: The progress is 30%.
    */
   projress?: string;
   /**
@@ -4124,6 +4138,9 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The benefit of the suggestion.
+   * 
+   * @example
+   * 0.4 GB of storage saved
    */
   benefit?: string;
   /**
@@ -4149,6 +4166,9 @@ export class DescribeAvailableAdvicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The reason why the suggestion was generated.
+   * 
+   * @example
+   * Unused for 15 days, historical usage less than 1%
    */
   reason?: string;
   /**
@@ -4350,11 +4370,17 @@ export class DescribeBadSqlDetectionResponseBodyDetectionItemsResultsDiagnosisRe
   /**
    * @remarks
    * The diagnostic code.
+   * 
+   * @example
+   * Large amounts of data are returned to the client.
    */
   code?: string;
   /**
    * @remarks
    * The information about the diagnostic result.
+   * 
+   * @example
+   * Large amounts of data are returned to the client. Import the data to OSS.
    */
   detail?: string;
   /**
@@ -4538,6 +4564,9 @@ export class DescribeBadSqlDetectionResponseBodyDetectionItems extends $dara.Mod
   /**
    * @remarks
    * The information about the detection result.
+   * 
+   * @example
+   * SQL statements that result in high peak memory are detected.
    */
   message?: string;
   /**
@@ -5508,11 +5537,17 @@ export class DescribeControllerDetectionResponseBodyDetectionItems extends $dara
   /**
    * @remarks
    * The information about the detection result.
+   * 
+   * @example
+   * A CPU increase is detected on the access node.
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * CPU increase detection
    */
   name?: string;
   /**
@@ -9049,11 +9084,22 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $dara.Model {
 
 export class DescribeEssdCacheConfigResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the disk cache feature.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   enableEssdCache?: boolean;
   /**
+   * @remarks
+   * The disk cache size. Unit: GB.
+   * 
    * @example
    * 500
    */
@@ -9375,6 +9421,9 @@ export class DescribeExecutorDetectionResponseBodyDetectionItemsResultsOperatorD
   /**
    * @remarks
    * The property information about the operator.
+   * 
+   * @example
+   * GROUP BY field: uid
    */
   operatorInfo?: string;
   /**
@@ -9548,11 +9597,17 @@ export class DescribeExecutorDetectionResponseBodyDetectionItems extends $dara.M
   /**
    * @remarks
    * The information about the detection result.
+   * 
+   * @example
+   * Large amounts of memory resources are used by the Aggregation operator.
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * Metric detection
    */
   name?: string;
   /**
@@ -9634,6 +9689,143 @@ export class DescribeInclinedNodesResponseBodyItems extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesResponseBodyDetectionItems extends $dara.Model {
+  message?: string;
+  name?: string;
+  /**
+   * @example
+   * NORMAL
+   * WARNNING
+   * CRITICAL
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesResponseBodyItemsTable extends $dara.Model {
+  /**
+   * @example
+   * True
+   */
+  isIncline?: boolean;
+  /**
+   * @example
+   * admin_daily_own_statistic_record
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  rowCount?: number;
+  /**
+   * @example
+   * spark_test
+   */
+  schema?: string;
+  /**
+   * @example
+   * 200
+   */
+  size?: number;
+  /**
+   * @example
+   * 0.4
+   */
+  spaceRatio?: number;
+  /**
+   * @example
+   * 53687091200
+   */
+  totalSize?: number;
+  /**
+   * @example
+   * Fact
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isIncline: 'IsIncline',
+      name: 'Name',
+      rowCount: 'RowCount',
+      schema: 'Schema',
+      size: 'Size',
+      spaceRatio: 'SpaceRatio',
+      totalSize: 'TotalSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isIncline: 'boolean',
+      name: 'string',
+      rowCount: 'number',
+      schema: 'string',
+      size: 'number',
+      spaceRatio: 'number',
+      totalSize: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesResponseBodyItems extends $dara.Model {
+  table?: DescribeInclinedTablesResponseBodyItemsTable[];
+  static names(): { [key: string]: string } {
+    return {
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      table: { 'type': 'array', 'itemType': DescribeInclinedTablesResponseBodyItemsTable },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.table)) {
+      $dara.Model.validateArray(this.table);
+    }
     super.validate();
   }
 
@@ -9966,11 +10158,17 @@ export class DescribeOversizeNonPartitionTableInfosResponseBodyDetectionItems ex
   /**
    * @remarks
    * The information about the detection result.
+   * 
+   * @example
+   * Multiple oversized non-partitioned tables are detected.
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * Oversized non-partitioned tables
    */
   name?: string;
   /**
@@ -10244,8 +10442,34 @@ export class DescribePatternPerformanceResponseBodyPerformances extends $dara.Mo
 }
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the multi-cluster feature is enabled. Valid values:
+   * 
+   * - true
+   * 
+   * - false
+   * 
+   * @example
+   * true
+   */
   enableAutoMc?: boolean;
+  /**
+   * @remarks
+   * The database engine of the cluster. Valid values:
+   * 
+   * *  AnalyticDB
+   */
   engine?: string[];
+  /**
+   * @remarks
+   * The type of the resource group. Valid values:
+   * 
+   * *   **Interactive**
+   * *   **Job**
+   * 
+   * >  For more information about resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
+   */
   groupType?: string[];
   /**
    * @remarks
@@ -10605,6 +10829,53 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   validate() {
     if(Array.isArray(this.region)) {
       $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupSpecResponseBodySpecs extends $dara.Model {
+  allocateUnits?: string[];
+  /**
+   * @example
+   * 8
+   */
+  maxQuantity?: number;
+  /**
+   * @example
+   * xlarge
+   */
+  name?: string;
+  /**
+   * @example
+   * GPU
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnits: 'AllocateUnits',
+      maxQuantity: 'MaxQuantity',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnits: { 'type': 'array', 'itemType': 'string' },
+      maxQuantity: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.allocateUnits)) {
+      $dara.Model.validateArray(this.allocateUnits);
     }
     super.validate();
   }
@@ -11515,11 +11786,17 @@ export class DescribeTablePartitionDiagnoseResponseBodyDetectionItems extends $d
   /**
    * @remarks
    * The detection result.
+   * 
+   * @example
+   * Multiple oversized non-partitioned tables are detected.
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * Improper partition field diagnostics
    */
   name?: string;
   /**
@@ -11791,6 +12068,9 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg
   /**
    * @remarks
    * The detection result items of operator metric aggregation.
+   * 
+   * @example
+   * Peak memory
    */
   metricName?: string;
   /**
@@ -11852,6 +12132,9 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDet
   /**
    * @remarks
    * The property information about the operator.
+   * 
+   * @example
+   * GROUP BY field: id
    */
   operatorInfo?: string;
   /**
@@ -12265,6 +12548,9 @@ export class DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTa
   /**
    * @remarks
    * The name of the detection metric.
+   * 
+   * @example
+   * Peak memory detection
    */
   metricName?: string;
   /**
@@ -12372,11 +12658,17 @@ export class DescribeWorkerDetectionResponseBodyDetectionItems extends $dara.Mod
   /**
    * @remarks
    * The information about the detection result.
+   * 
+   * @example
+   * There are a total of 10 tables with an excessive number of primary keys.
    */
   message?: string;
   /**
    * @remarks
    * The name of the detection item.
+   * 
+   * @example
+   * Metric detection
    */
   name?: string;
   /**
@@ -14099,7 +14391,7 @@ export class ListApsLifecycleStrategyResponseBodyItems extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * *
+   * The operation tables.
    */
   operationTables?: ListApsLifecycleStrategyResponseBodyItemsOperationTables[];
   /**
@@ -14780,7 +15072,7 @@ export class ListResultExportJobHistoryResponseBodyItems extends $dara.Model {
    * @remarks
    * The query ID that can be used for diagnostics.
    * 
-   * >  You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612495.html) operation to query the execution information about a query.
+   * >  You can call the [DescribeDiagnosisSQLInfo](https://help.aliyun.com/document_detail/612337.html) operation to query the execution information about a query.
    * 
    * @example
    * 202306121421111720161451770345339****
@@ -15145,11 +15437,17 @@ export class ListSparkLogAnalyzeTasksResponseBodyData extends $dara.Model {
 
 export class ListSparkWarehouseBatchSQLResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
@@ -15160,6 +15458,9 @@ export class ListSparkWarehouseBatchSQLResponseBodyData extends $dara.Model {
    */
   queries?: SparkBatchSQL[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 0
    */
@@ -15515,7 +15816,7 @@ export class ModifyApsDatasoureRequestLakehouseId extends $dara.Model {
 export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15523,7 +15824,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   connectUrl?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15531,7 +15832,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15539,7 +15840,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15575,7 +15876,7 @@ export class ModifyApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
 export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15583,7 +15884,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   connectUrl?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15591,7 +15892,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -15599,7 +15900,7 @@ export class ModifyApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * *
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -18268,6 +18569,7 @@ export class TableModel extends $dara.Model {
 export class TableSummaryModel extends $dara.Model {
   createTime?: string;
   description?: string;
+  mvDetailModel?: OpenStructMvDetailModel;
   owner?: string;
   SQL?: string;
   schemaName?: string;
@@ -18279,6 +18581,7 @@ export class TableSummaryModel extends $dara.Model {
     return {
       createTime: 'CreateTime',
       description: 'Description',
+      mvDetailModel: 'MvDetailModel',
       owner: 'Owner',
       SQL: 'SQL',
       schemaName: 'SchemaName',
@@ -18293,6 +18596,7 @@ export class TableSummaryModel extends $dara.Model {
     return {
       createTime: 'string',
       description: 'string',
+      mvDetailModel: OpenStructMvDetailModel,
       owner: 'string',
       SQL: 'string',
       schemaName: 'string',
@@ -18300,6 +18604,264 @@ export class TableSummaryModel extends $dara.Model {
       tableSize: 'number',
       tableType: 'string',
       updateTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mvDetailModel && typeof (this.mvDetailModel as any).validate === 'function') {
+      (this.mvDetailModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructMVRecommendResultModel extends $dara.Model {
+  acceleratedQueriesCount?: number;
+  baseTables?: OpenStructMvBaseTableDetailModel[];
+  savedScanbytes?: number;
+  subquery?: string;
+  subqueryId?: number;
+  supportIncrementalRefresh?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratedQueriesCount: 'AcceleratedQueriesCount',
+      baseTables: 'BaseTables',
+      savedScanbytes: 'SavedScanbytes',
+      subquery: 'Subquery',
+      subqueryId: 'SubqueryId',
+      supportIncrementalRefresh: 'SupportIncrementalRefresh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratedQueriesCount: 'number',
+      baseTables: { 'type': 'array', 'itemType': OpenStructMvBaseTableDetailModel },
+      savedScanbytes: 'number',
+      subquery: 'string',
+      subqueryId: 'number',
+      supportIncrementalRefresh: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.baseTables)) {
+      $dara.Model.validateArray(this.baseTables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructMvBaseTableDetailModel extends $dara.Model {
+  dataVolumn?: string;
+  enableBinlog?: boolean;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataVolumn: 'DataVolumn',
+      enableBinlog: 'EnableBinlog',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataVolumn: 'string',
+      enableBinlog: 'boolean',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructMvDetailModel extends $dara.Model {
+  baseTableNames?: string[][];
+  explicitHit?: number;
+  firstRefreshTime?: string;
+  implicitHit?: number;
+  isInactive?: boolean;
+  localSize?: number;
+  queryRewriteEnabled?: boolean;
+  refreshInterval?: string;
+  refreshState?: string;
+  remoteSize?: number;
+  resourceGroup?: string;
+  updatedAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseTableNames: 'BaseTableNames',
+      explicitHit: 'ExplicitHit',
+      firstRefreshTime: 'FirstRefreshTime',
+      implicitHit: 'ImplicitHit',
+      isInactive: 'IsInactive',
+      localSize: 'LocalSize',
+      queryRewriteEnabled: 'QueryRewriteEnabled',
+      refreshInterval: 'RefreshInterval',
+      refreshState: 'RefreshState',
+      remoteSize: 'RemoteSize',
+      resourceGroup: 'ResourceGroup',
+      updatedAt: 'UpdatedAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseTableNames: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+      explicitHit: 'number',
+      firstRefreshTime: 'string',
+      implicitHit: 'number',
+      isInactive: 'boolean',
+      localSize: 'number',
+      queryRewriteEnabled: 'boolean',
+      refreshInterval: 'string',
+      refreshState: 'string',
+      remoteSize: 'number',
+      resourceGroup: 'string',
+      updatedAt: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.baseTableNames)) {
+      $dara.Model.validateArray(this.baseTableNames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructMvRecommendSubTaskModel extends $dara.Model {
+  endTime?: string;
+  scanQueriesCount?: number;
+  startTime?: string;
+  status?: string;
+  subQueriesCount?: number;
+  subtaskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      scanQueriesCount: 'ScanQueriesCount',
+      startTime: 'StartTime',
+      status: 'Status',
+      subQueriesCount: 'SubQueriesCount',
+      subtaskId: 'SubtaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      scanQueriesCount: 'number',
+      startTime: 'string',
+      status: 'string',
+      subQueriesCount: 'number',
+      subtaskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructMvRecommendTaskModel extends $dara.Model {
+  createdTime?: string;
+  description?: string;
+  lastRunAt?: string;
+  scanQueriesRange?: number;
+  schedulingSettings?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      lastRunAt: 'LastRunAt',
+      scanQueriesRange: 'ScanQueriesRange',
+      schedulingSettings: 'SchedulingSettings',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      lastRunAt: 'string',
+      scanQueriesRange: 'number',
+      schedulingSettings: 'string',
+      taskName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructRefreshJobModel extends $dara.Model {
+  endTime?: string;
+  name?: string;
+  processid?: string;
+  refreshInterval?: string;
+  refreshModel?: string;
+  resourceGroup?: string;
+  schemaName?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      name: 'Name',
+      processid: 'Processid',
+      refreshInterval: 'RefreshInterval',
+      refreshModel: 'RefreshModel',
+      resourceGroup: 'ResourceGroup',
+      schemaName: 'SchemaName',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      name: 'string',
+      processid: 'string',
+      refreshInterval: 'string',
+      refreshModel: 'string',
+      resourceGroup: 'string',
+      schemaName: 'string',
+      startTime: 'string',
+      status: 'string',
     };
   }
 
@@ -18665,17 +19227,27 @@ export class AttachUserENIResponse extends $dara.Model {
 
 export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The date on which you want to apply the suggestion. Format: yyyyMMdd.
+   * 
    * @example
    * 20221115
    */
   adviceDate?: number;
   /**
+   * @remarks
+   * The IDs of the suggestions that you want to apply. Separate multiple IDs with commas (,).
+   * 
    * @example
    * c2589ff3-e86c-4f19-80c8-2aeb7dd9****,53414470-ebf4-4a53-a312-8a1ad8fd****,6e8dce84-fec8-4b0b-9c04-b0cea12c****,b3b9703d-55ca-47e0-96dd-6a4a9dbf****
    */
   adviceIdList?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18684,6 +19256,8 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18719,6 +19293,9 @@ export class BatchApplyAdviceByIdListRequest extends $dara.Model {
 
 export class BatchApplyAdviceByIdListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 86F92D26-B774-5FA1-8E53-82CBEEEBB012
    */
@@ -19150,17 +19727,25 @@ export class CancelSparkReplStatementResponse extends $dara.Model {
 
 export class CancelSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the client, which can be up to 16 characters in length. Specify a descriptive name that makes it easy to identify.
+   * 
    * @example
    * DMS
    */
   agency?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * amv-uf6485635f***
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The query ID of the Spark SQL statement.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19202,6 +19787,9 @@ export class CancelSparkWarehouseBatchSQLResponseBody extends $dara.Model {
    */
   data?: SparkBatchSQL;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 771C5FAA-530F-52F7-B84D-EBAD45***
    */
@@ -20643,6 +21231,11 @@ export class CreateApsHiveJobRequest extends $dara.Model {
   /**
    * @remarks
    * The policy to handle tables with the same name in the destination cluster.
+   * 
+   * @example
+   * Intercept: reports error and aborts.
+   * Ignore: ignores and continues migrating the relevant tables.
+   * Skip: skips related tables and only migrates other tables.
    */
   conflictStrategy?: string;
   /**
@@ -21109,7 +21702,7 @@ export class CreateApsSlsADBJobRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * 源集群所处地域ID。
+   * The region ID of the source cluster.
    * 
    * @example
    * cn-beijing
@@ -21478,7 +22071,7 @@ export class CreateApsSlsADBJobShrinkRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * 源集群所处地域ID。
+   * The region ID of the source cluster.
    * 
    * @example
    * cn-beijing
@@ -21668,7 +22261,7 @@ export class CreateApsSlsADBJobResponseBody extends $dara.Model {
    * @remarks
    * The returned message. Valid values:
    * 
-   * *   If the request was successful, a success message is returned.****
+   * *   If the request was successful, a success message is returned.
    * *   If the request failed, an error message is returned.
    * 
    * @example
@@ -22924,7 +23517,8 @@ export class CreateElasticPlanResponse extends $dara.Model {
 export class CreateLakeStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The client token that is used to ensure the idempotence of the request.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ******
@@ -22997,7 +23591,8 @@ export class CreateLakeStorageRequest extends $dara.Model {
 export class CreateLakeStorageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The client token that is used to ensure the idempotence of the request.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ******
@@ -25098,180 +25693,6 @@ export class DeletePerformanceViewResponse extends $dara.Model {
   }
 }
 
-export class DeleteProcessInstanceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * am-wz9rq819u71ig****
-   */
-  DBClusterId?: string;
-  /**
-   * @remarks
-   * The ID of the workflow instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 4017
-   */
-  processInstanceId?: number;
-  /**
-   * @remarks
-   * The project ID, which is the unique identifier of the project.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 9839028042592
-   */
-  projectCode?: number;
-  /**
-   * @remarks
-   * The region ID of the cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      processInstanceId: 'ProcessInstanceId',
-      projectCode: 'ProjectCode',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      processInstanceId: 'number',
-      projectCode: 'number',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProcessInstanceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the workflow instance is deleted. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, **Success** is returned.
-   * *   If the request failed, an error message is returned.
-   * 
-   * @example
-   * Success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 115F9CCA-EF2E-5F91-AB60-4961D52FEAB4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProcessInstanceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteProcessInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteProcessInstanceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteSparkTemplateRequest extends $dara.Model {
   /**
    * @remarks
@@ -25731,9 +26152,7 @@ export class DescribeAPSADBInstancesResponse extends $dara.Model {
 export class DescribeAbnormalPatternDetectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25743,9 +26162,7 @@ export class DescribeAbnormalPatternDetectionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
-   * 
-   * >  The end time must be later than the start time.
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
    * 
    * @example
    * 2024-11-17T02:16Z
@@ -25768,8 +26185,6 @@ export class DescribeAbnormalPatternDetectionRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -25780,7 +26195,7 @@ export class DescribeAbnormalPatternDetectionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
    * 
    * @example
    * 2021-09-30T00:10Z
@@ -28092,7 +28507,7 @@ export class DescribeApsDatasourceRequest extends $dara.Model {
 export class DescribeApsDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The queried APS data source.
    */
   apsDatasource?: DescribeApsDatasourceResponseBodyApsDatasource;
   /**
@@ -28271,7 +28686,7 @@ export class DescribeApsDatasourcesRequest extends $dara.Model {
 export class DescribeApsDatasourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The queried APS data sources.
    * 
    * @example
    * -
@@ -28963,7 +29378,7 @@ export class DescribeApsMigrationWorkloadsRequest extends $dara.Model {
 export class DescribeApsMigrationWorkloadsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * *
+   * The queried migration workloads.
    */
   migrationWorkloads?: DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads[];
   /**
@@ -34619,6 +35034,8 @@ export class DescribeEnabledPrivilegesResponse extends $dara.Model {
 export class DescribeEssdCacheConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34647,8 +35064,15 @@ export class DescribeEssdCacheConfigRequest extends $dara.Model {
 }
 
 export class DescribeEssdCacheConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeEssdCacheConfigResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C7EDB8E4-9769-4233-88C7-DCA4C9******
    */
@@ -35330,6 +35754,188 @@ export class DescribeInclinedNodesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInclinedNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-k2jofo4pi5zhd****
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @example
+   * [      {          "Field":"Name",          "Type":"Asc"      }  ]
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-hongkong
+   */
+  regionId?: string;
+  /**
+   * @example
+   * FactTable
+   */
+  tableType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      lang: 'Lang',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      tableType: 'TableType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      lang: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      tableType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "AccountLevelIdentityBasedPolicy",
+   *     "AuthPrincipalOwnerId": "1*****************7",
+   *     "EncodedDiagnosticMessage": "AQIBIAAAAOPdwKY2QLOvgMEc7SkkoJfj1kvZwsaRqNYMh10Tv0wTe0fCzaCdrvgazfNb0EnJKETgXyhR+3BIQjx9WAqZryejBsp1Bl4qI5En/D9dEhcXAtKCxCmE2kZCiEzpy8BoEUt+bs0DmlaGWO5xkEpttypLIB4rUhDvZd+zwPg4EXk4KSSWSWsurxtqDkKEMshKlQFBTKvJcKwyhk62IeYly4hQ+5IpXjkh1GQXuDRCQ==",
+   *     "AuthPrincipalType": "SubUser",
+   *     "AuthPrincipalDisplayName": "2***************9",
+   *     "NoPermissionType": "ImplicitDeny",
+   *     "AuthAction": "adb:DescribeExcessivePrimaryKeys"
+   * }
+   */
+  accessDeniedDetail?: string;
+  detectionItems?: DescribeInclinedTablesResponseBodyDetectionItems[];
+  items?: DescribeInclinedTablesResponseBodyItems;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      detectionItems: 'DetectionItems',
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      detectionItems: { 'type': 'array', 'itemType': DescribeInclinedTablesResponseBodyDetectionItems },
+      items: DescribeInclinedTablesResponseBodyItems,
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detectionItems)) {
+      $dara.Model.validateArray(this.detectionItems);
+    }
+    if(this.items && typeof (this.items as any).validate === 'function') {
+      (this.items as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInclinedTablesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInclinedTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInclinedTablesResponseBody,
     };
   }
 
@@ -36866,6 +37472,124 @@ export class DescribeRegionsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupSpecRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-8vbo40tl1dxxxxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ai
+   */
+  resourceGroupType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+      resourceGroupType: 'ResourceGroupType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      regionId: 'string',
+      resourceGroupType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupSpecResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 10226189-4391-5B10-97AF-5CA5XXXXXXX
+   */
+  requestId?: string;
+  specs?: DescribeResourceGroupSpecResponseBodySpecs[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      specs: 'Specs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      specs: { 'type': 'array', 'itemType': DescribeResourceGroupSpecResponseBodySpecs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.specs)) {
+      $dara.Model.validateArray(this.specs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceGroupSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeResourceGroupSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeResourceGroupSpecResponseBody,
     };
   }
 
@@ -41294,11 +42018,13 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    * The name of the client.
    * 
    * @example
-   * Dataworks。
+   * DataWorks
    */
   agency?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41323,6 +42049,8 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
   executeTimeLimitInSeconds?: number;
   /**
    * @remarks
+   * The SQL statements that you want to execute in batches. Separate multiple SQL statements with semicolons (;). The execution engine executes the SQL statements in sequence in the same session.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41333,6 +42061,8 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
+   * The name of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41340,6 +42070,9 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    */
   resourceGroupName?: string;
   /**
+   * @remarks
+   * The additional runtime parameter. Specify the parameter in the JSON format.
+   * 
    * @example
    * {
    *  "OSSURL": "oss://testBucketname/"
@@ -41347,6 +42080,9 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    */
   runtimeConfig?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * adb_demo
    */
@@ -41396,6 +42132,9 @@ export class ExecuteSparkWarehouseBatchSQLResponseBody extends $dara.Model {
    */
   data?: SparkBatchSQL;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBE843D8-964D-5EA3-9D31-822125611B6E
    */
@@ -44054,12 +44793,17 @@ export class GetSparkWarehouseBatchSQLRequest extends $dara.Model {
    */
   agency?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * amv-uf6485635f***
    */
   DBClusterId?: string;
   /**
    * @remarks
+   * The query ID of the Spark SQL statement.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44101,6 +44845,9 @@ export class GetSparkWarehouseBatchSQLResponseBody extends $dara.Model {
    */
   data?: SparkBatchSQL;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3D44EDA0-A9DC-580D-9B5A-019370C075F4
    */
@@ -45192,6 +45939,7 @@ export class GetViewObjectsRequest extends $dara.Model {
    * adb_demo
    */
   schemaName?: string;
+  showMvBaseTable?: boolean;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -45203,6 +45951,7 @@ export class GetViewObjectsRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       schemaName: 'SchemaName',
+      showMvBaseTable: 'ShowMvBaseTable',
     };
   }
 
@@ -45217,6 +45966,7 @@ export class GetViewObjectsRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       schemaName: 'string',
+      showMvBaseTable: 'boolean',
     };
   }
 
@@ -46844,9 +47594,9 @@ export class ListLakeStoragesResponse extends $dara.Model {
 export class ListResultExportJobHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -46993,9 +47743,9 @@ export class ListResultExportJobHistoryRequest extends $dara.Model {
 export class ListResultExportJobHistoryShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -47842,6 +48592,8 @@ export class ListSparkTemplateFileIdsResponse extends $dara.Model {
 export class ListSparkWarehouseBatchSQLRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47866,6 +48618,8 @@ export class ListSparkWarehouseBatchSQLRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
+   * The name of the interactive resource group for which the Spark engine is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47906,6 +48660,9 @@ export class ListSparkWarehouseBatchSQLResponseBody extends $dara.Model {
    */
   data?: ListSparkWarehouseBatchSQLResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
@@ -48629,7 +49386,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * *
+   * The information about the Kafka instance.
    * 
    * @example
    * -
@@ -48645,7 +49402,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   lakehouseId?: ModifyApsDatasoureRequestLakehouseId;
   /**
    * @remarks
-   * The retired data source.
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -48653,7 +49410,7 @@ export class ModifyApsDatasoureRequest extends $dara.Model {
   polarDBMysqlInfo?: ModifyApsDatasoureRequestPolarDBMysqlInfo;
   /**
    * @remarks
-   * The retired data source.
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -48770,7 +49527,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   datasourceName?: string;
   /**
    * @remarks
-   * *
+   * The information about the Kafka instance.
    * 
    * @example
    * -
@@ -48786,7 +49543,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   lakehouseIdShrink?: string;
   /**
    * @remarks
-   * The retired data source.
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -48794,7 +49551,7 @@ export class ModifyApsDatasoureShrinkRequest extends $dara.Model {
   polarDBMysqlInfoShrink?: string;
   /**
    * @remarks
-   * The retired data source.
+   * The parameter is no longer supported.
    * 
    * @example
    * -
@@ -49512,6 +50269,9 @@ export class ModifyApsSlsADBJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
+   * 
+   * @example
+   * -
    */
   data?: { [key: string]: any };
   /**
@@ -50162,12 +50922,17 @@ export class ModifyBackupPolicyResponse extends $dara.Model {
 
 export class ModifyClickhouseEngineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The disk cache size of the wide table engine. Unit: GB. Default value: 100. Valid values: 100 to 1000.
+   * 
    * @example
    * 200
    */
   cacheSize?: number;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50175,6 +50940,13 @@ export class ModifyClickhouseEngineRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the wide table engine feature. Valid values:
+   * 
+   * - true
+   * 
+   * - false
+   * 
    * @example
    * true
    */
@@ -50209,6 +50981,9 @@ export class ModifyClickhouseEngineRequest extends $dara.Model {
 
 export class ModifyClickhouseEngineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D761DA51-12F8-5457-AAA9-F52B9F436D2D
    */
@@ -50722,8 +51497,6 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * true
    */
   enableDefaultResourcePool?: boolean;
-  ownerAccount?: string;
-  ownerId?: number;
   /**
    * @example
    * LegacyForm
@@ -50745,7 +51518,6 @@ export class ModifyDBClusterRequest extends $dara.Model {
    * LegacyForm
    */
   reservedNodeSize?: string;
-  resourceOwnerAccount?: string;
   /**
    * @remarks
    * The reserved storage resources. Valid values: 0ACU to 2064ACU. The value must be in increments of 24ACU. Each ACU is approximately equal to 1 core and 4 GB memory.
@@ -50761,13 +51533,10 @@ export class ModifyDBClusterRequest extends $dara.Model {
       computeResource: 'ComputeResource',
       DBClusterId: 'DBClusterId',
       enableDefaultResourcePool: 'EnableDefaultResourcePool',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
       productForm: 'ProductForm',
       regionId: 'RegionId',
       reservedNodeCount: 'ReservedNodeCount',
       reservedNodeSize: 'ReservedNodeSize',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
       storageResource: 'StorageResource',
     };
   }
@@ -50777,13 +51546,10 @@ export class ModifyDBClusterRequest extends $dara.Model {
       computeResource: 'string',
       DBClusterId: 'string',
       enableDefaultResourcePool: 'boolean',
-      ownerAccount: 'string',
-      ownerId: 'number',
       productForm: 'string',
       regionId: 'string',
       reservedNodeCount: 'number',
       reservedNodeSize: 'string',
-      resourceOwnerAccount: 'string',
       storageResource: 'string',
     };
   }
@@ -53826,9 +54592,9 @@ export class StartSparkSQLEngineResponse extends $dara.Model {
 export class SubmitResultExportJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
    * 
    * This parameter is required.
    * 
@@ -53844,6 +54610,10 @@ export class SubmitResultExportJobRequest extends $dara.Model {
    * XIHE
    */
   engine?: string;
+  /**
+   * @remarks
+   * The export type.
+   */
   exportType?: string;
   /**
    * @remarks
@@ -55213,7 +55983,7 @@ export class UpgradeKernelVersionRequest extends $dara.Model {
 export class UpgradeKernelVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A444FFFFFF
@@ -55524,7 +56294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The request ID.
+   * Applies optimization suggestions.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55572,7 +56342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The request ID.
+   * Applies optimization suggestions.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @returns BatchApplyAdviceByIdListResponse
@@ -55760,7 +56530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消一段Spark Batch SQL的状态
+   * Cancels the execution of a Spark SQL statement.
    * 
    * @param request - CancelSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55804,7 +56574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消一段Spark Batch SQL的状态
+   * Cancels the execution of a Spark SQL statement.
    * 
    * @param request - CancelSparkWarehouseBatchSQLRequest
    * @returns CancelSparkWarehouseBatchSQLResponse
@@ -57832,73 +58602,6 @@ export default class Client extends OpenApi {
   async deletePerformanceView(request: DeletePerformanceViewRequest): Promise<DeletePerformanceViewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePerformanceViewWithOptions(request, runtime);
-  }
-
-  /**
-   * Deletes a worflow instance from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * 
-   * @param request - DeleteProcessInstanceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteProcessInstanceResponse
-   */
-  async deleteProcessInstanceWithOptions(request: DeleteProcessInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteProcessInstanceResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!$dara.isNull(request.processInstanceId)) {
-      query["ProcessInstanceId"] = request.processInstanceId;
-    }
-
-    if (!$dara.isNull(request.projectCode)) {
-      query["ProjectCode"] = request.projectCode;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteProcessInstance",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteProcessInstanceResponse>(await this.callApi(params, req, runtime), new DeleteProcessInstanceResponse({}));
-    } else {
-      return $dara.cast<DeleteProcessInstanceResponse>(await this.execute(params, req, runtime), new DeleteProcessInstanceResponse({}));
-    }
-
-  }
-
-  /**
-   * Deletes a worflow instance from an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * 
-   * @param request - DeleteProcessInstanceRequest
-   * @returns DeleteProcessInstanceResponse
-   */
-  async deleteProcessInstance(request: DeleteProcessInstanceRequest): Promise<DeleteProcessInstanceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deleteProcessInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -61458,7 +62161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询EssdCache配置
+   * Queries the disk cache size in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeEssdCacheConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61494,7 +62197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询EssdCache配置
+   * Queries the disk cache size in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeEssdCacheConfigRequest
    * @returns DescribeEssdCacheConfigResponse
@@ -61749,6 +62452,77 @@ export default class Client extends OpenApi {
   async describeInclinedNodes(request: DescribeInclinedNodesRequest): Promise<DescribeInclinedNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInclinedNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看表倾斜诊断结果
+   * 
+   * @param request - DescribeInclinedTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInclinedTablesResponse
+   */
+  async describeInclinedTablesWithOptions(request: DescribeInclinedTablesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInclinedTablesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tableType)) {
+      query["TableType"] = request.tableType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInclinedTables",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInclinedTablesResponse>(await this.callApi(params, req, runtime), new DescribeInclinedTablesResponse({}));
+    } else {
+      return $dara.cast<DescribeInclinedTablesResponse>(await this.execute(params, req, runtime), new DescribeInclinedTablesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查看表倾斜诊断结果
+   * 
+   * @param request - DescribeInclinedTablesRequest
+   * @returns DescribeInclinedTablesResponse
+   */
+  async describeInclinedTables(request: DescribeInclinedTablesRequest): Promise<DescribeInclinedTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInclinedTablesWithOptions(request, runtime);
   }
 
   /**
@@ -62362,6 +63136,61 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资源组规格相关信息
+   * 
+   * @param request - DescribeResourceGroupSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceGroupSpecResponse
+   */
+  async describeResourceGroupSpecWithOptions(request: DescribeResourceGroupSpecRequest, runtime: $dara.RuntimeOptions): Promise<DescribeResourceGroupSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupType)) {
+      query["ResourceGroupType"] = request.resourceGroupType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceGroupSpec",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeResourceGroupSpecResponse>(await this.callApi(params, req, runtime), new DescribeResourceGroupSpecResponse({}));
+    } else {
+      return $dara.cast<DescribeResourceGroupSpecResponse>(await this.execute(params, req, runtime), new DescribeResourceGroupSpecResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询资源组规格相关信息
+   * 
+   * @param request - DescribeResourceGroupSpecRequest
+   * @returns DescribeResourceGroupSpecResponse
+   */
+  async describeResourceGroupSpec(request: DescribeResourceGroupSpecRequest): Promise<DescribeResourceGroupSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceGroupSpecWithOptions(request, runtime);
   }
 
   /**
@@ -63986,7 +64815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行一段Spark Batch SQL
+   * Executes Spark SQL statements in batches.
    * 
    * @param request - ExecuteSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64050,7 +64879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行一段Spark Batch SQL
+   * Executes Spark SQL statements in batches.
    * 
    * @param request - ExecuteSparkWarehouseBatchSQLRequest
    * @returns ExecuteSparkWarehouseBatchSQLResponse
@@ -65238,7 +66067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一段Spark Batch SQL的状态
+   * Queries the execution result of a Spark SQL statement.
    * 
    * @param request - GetSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65282,7 +66111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一段Spark Batch SQL的状态
+   * Queries the execution result of a Spark SQL statement.
    * 
    * @param request - GetSparkWarehouseBatchSQLRequest
    * @returns GetSparkWarehouseBatchSQLResponse
@@ -65695,6 +66524,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.schemaName)) {
       query["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.showMvBaseTable)) {
+      query["ShowMvBaseTable"] = request.showMvBaseTable;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -66615,7 +67448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出提交的的SparkBatchSQL
+   * Queries a list of Spark SQL statements.
    * 
    * @param request - ListSparkWarehouseBatchSQLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66663,7 +67496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出提交的的SparkBatchSQL
+   * Queries a list of Spark SQL statements.
    * 
    * @param request - ListSparkWarehouseBatchSQLRequest
    * @returns ListSparkWarehouseBatchSQLResponse
@@ -67458,7 +68291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启宽表引擎
+   * Enables the wide table engine feature for an AnalyticDB for MySQL cluster or modifies the disk cache size of the wide table engine of an AnalyticDB for MySQL cluster for which you enabled the wide table engine feature.
    * 
    * @param request - ModifyClickhouseEngineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -67506,7 +68339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启宽表引擎
+   * Enables the wide table engine feature for an AnalyticDB for MySQL cluster or modifies the disk cache size of the wide table engine of an AnalyticDB for MySQL cluster for which you enabled the wide table engine feature.
    * 
    * @param request - ModifyClickhouseEngineRequest
    * @returns ModifyClickhouseEngineResponse
@@ -67732,14 +68565,6 @@ export default class Client extends OpenApi {
       query["EnableDefaultResourcePool"] = request.enableDefaultResourcePool;
     }
 
-    if (!$dara.isNull(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!$dara.isNull(request.productForm)) {
       query["ProductForm"] = request.productForm;
     }
@@ -67754,10 +68579,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reservedNodeSize)) {
       query["ReservedNodeSize"] = request.reservedNodeSize;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
     if (!$dara.isNull(request.storageResource)) {
