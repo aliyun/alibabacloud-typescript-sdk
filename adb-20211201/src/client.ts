@@ -783,7 +783,7 @@ export class CreateApsSlsADBJobRequestUnixTimestampConvert extends $dara.Model {
    * The format of the timestamp.
    * 
    * @example
-   *  APSyyyyMMdd
+   * yyyyMMdd
    */
   format?: string;
   /**
