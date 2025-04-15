@@ -2626,6 +2626,7 @@ export class CreateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Request header value.
@@ -2638,6 +2639,7 @@ export class CreateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -2646,6 +2648,7 @@ export class CreateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -2684,6 +2687,7 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Response header value.
@@ -2696,6 +2700,7 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -2704,6 +2709,7 @@ export class CreateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -7715,6 +7721,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Request header value.
@@ -7727,6 +7734,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -7735,6 +7743,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -7769,6 +7778,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModi
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Response header value.
@@ -7781,6 +7791,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModi
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -7789,6 +7800,7 @@ export class GetHttpResponseHeaderModificationRuleResponseBodyResponseHeaderModi
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -9760,21 +9772,12 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
    * production
    */
   env?: string;
-  /**
-   * @remarks
-   * The specification.
-   * 
-   * @example
-   * 5ms
-   */
-  specName?: string;
   static names(): { [key: string]: string } {
     return {
       canaryAreaList: 'CanaryAreaList',
       canaryCodeVersion: 'CanaryCodeVersion',
       codeVersion: 'CodeVersion',
       env: 'Env',
-      specName: 'SpecName',
     };
   }
 
@@ -9784,7 +9787,6 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
       canaryCodeVersion: 'string',
       codeVersion: 'string',
       env: 'string',
-      specName: 'string',
     };
   }
 
@@ -11658,6 +11660,174 @@ export class ListCertificatesResponseBodyResult extends $dara.Model {
   }
 }
 
+export class ListCertificatesByRecordResponseBodyResultCertificates extends $dara.Model {
+  /**
+   * @example
+   * 30000137
+   */
+  casId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2023-02-28 06:17:11
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * GlobalSign Organization Validation CA - SHA256 - G3
+   */
+  issuerCN?: string;
+  name?: string;
+  /**
+   * @example
+   * 2024-02-28 06:17:11
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-02-28 06:17:11
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubAlg?: string;
+  region?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  sigAlg?: string;
+  status?: string;
+  /**
+   * @example
+   * free
+   */
+  type?: string;
+  /**
+   * @example
+   * 2023-02-28 06:17:11
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      casId: 'CasId',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      issuerCN: 'IssuerCN',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubAlg: 'PubAlg',
+      region: 'Region',
+      SAN: 'SAN',
+      serialNumber: 'SerialNumber',
+      sigAlg: 'SigAlg',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      casId: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      issuerCN: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubAlg: 'string',
+      region: 'string',
+      SAN: 'string',
+      serialNumber: 'string',
+      sigAlg: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesByRecordResponseBodyResult extends $dara.Model {
+  applylingCount?: number;
+  certificates?: ListCertificatesByRecordResponseBodyResultCertificates[];
+  count?: number;
+  recordName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applylingCount: 'ApplylingCount',
+      certificates: 'Certificates',
+      count: 'Count',
+      recordName: 'RecordName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applylingCount: 'number',
+      certificates: { 'type': 'array', 'itemType': ListCertificatesByRecordResponseBodyResultCertificates },
+      count: 'number',
+      recordName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.certificates)) {
+      $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClientCaCertificatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
@@ -13153,6 +13323,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * The value of the request header.
@@ -13165,6 +13336,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -13173,6 +13345,7 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigsRequestHea
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -13312,6 +13485,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Response header value.
@@ -13324,6 +13498,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -13332,6 +13507,7 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -17240,37 +17416,42 @@ export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   }
 }
 
-export class ListRoutineOptionalSpecsResponseBodySpecs extends $dara.Model {
+export class ListRoutineRelatedRecordsResponseBodyRelatedRecords extends $dara.Model {
   /**
-   * @remarks
-   * Indicates whether the specification is available. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
    * @example
-   * true
+   * 509348423011904
    */
-  isAvailable?: boolean;
+  recordId?: number;
   /**
-   * @remarks
-   * The specification name.
-   * 
    * @example
-   * 5ms
+   * test-record-1.example.com
    */
-  specName?: string;
+  recordName?: string;
+  /**
+   * @example
+   * 54362329990032
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
   static names(): { [key: string]: string } {
     return {
-      isAvailable: 'IsAvailable',
-      specName: 'SpecName',
+      recordId: 'RecordId',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isAvailable: 'boolean',
-      specName: 'string',
+      recordId: 'number',
+      recordName: 'string',
+      siteId: 'number',
+      siteName: 'string',
     };
   }
 
@@ -17333,7 +17514,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
    * @example
    * 554889455535696
    */
-  siteId?: string;
+  siteId?: number;
   /**
    * @example
    * test.com
@@ -17372,7 +17553,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
       routineName: 'string',
       rule: 'string',
       sequence: 'number',
-      siteId: 'string',
+      siteId: 'number',
       siteName: 'string',
       siteVersion: 'number',
     };
@@ -18590,6 +18771,35 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
   }
 }
 
+export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
+  createTime?: string;
+  description?: string;
+  routineName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      routineName: 'RoutineName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      routineName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
@@ -19238,6 +19448,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
 }
 
 export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
+  kinds?: string[];
   /**
    * @remarks
    * Rule type.
@@ -19248,17 +19459,22 @@ export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      kinds: 'Kinds',
       type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      kinds: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.kinds)) {
+      $dara.Model.validateArray(this.kinds);
+    }
     super.validate();
   }
 
@@ -20206,6 +20422,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Request header value.
@@ -20218,6 +20435,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -20226,6 +20444,7 @@ export class UpdateHttpRequestHeaderModificationRuleRequestRequestHeaderModifica
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -20263,6 +20482,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
    * add
    */
   operation?: string;
+  type?: string;
   /**
    * @remarks
    * Response header value.
@@ -20275,6 +20495,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
     return {
       name: 'Name',
       operation: 'Operation',
+      type: 'Type',
       value: 'Value',
     };
   }
@@ -20283,6 +20504,7 @@ export class UpdateHttpResponseHeaderModificationRuleRequestResponseHeaderModifi
     return {
       name: 'string',
       operation: 'string',
+      type: 'string',
       value: 'string',
     };
   }
@@ -29936,19 +30158,10 @@ export class CreateRoutineRequest extends $dara.Model {
    * test-routine1
    */
   name?: string;
-  /**
-   * @remarks
-   * The specification of the routine.
-   * 
-   * @example
-   * 5ms
-   */
-  specName?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       name: 'Name',
-      specName: 'SpecName',
     };
   }
 
@@ -29956,7 +30169,6 @@ export class CreateRoutineRequest extends $dara.Model {
     return {
       description: 'string',
       name: 'string',
-      specName: 'string',
     };
   }
 
@@ -44582,6 +44794,126 @@ export class GetEdgeContainerTerminalResponse extends $dara.Model {
   }
 }
 
+export class GetErServiceRequest extends $dara.Model {
+  ownerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The billing mode. Valid values:
+   * 
+   * *   er_paymode: billed for customers on the China site.
+   * *   er_freemode: free for customers on the China site.
+   * *   er_paymodeintl: billed for customers on the International site.
+   * *   err_freemodeintl: free for customers on the International site
+   * 
+   * @example
+   * er_paymode
+   */
+  planName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service status. Valid values:
+   * 
+   * *   Creating
+   * *   Running
+   * *   NotOpened
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      planName: 'PlanName',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      planName: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHttpRequestHeaderModificationRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -53377,6 +53709,122 @@ export class ListCertificatesResponse extends $dara.Model {
   }
 }
 
+export class ListCertificatesByRecordRequest extends $dara.Model {
+  detail?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  validOnly?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      recordName: 'RecordName',
+      siteId: 'SiteId',
+      validOnly: 'ValidOnly',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'boolean',
+      recordName: 'string',
+      siteId: 'number',
+      validOnly: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesByRecordResponseBody extends $dara.Model {
+  requestId?: string;
+  result?: ListCertificatesByRecordResponseBodyResult[];
+  siteId?: number;
+  siteName?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListCertificatesByRecordResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCertificatesByRecordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCertificatesByRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCertificatesByRecordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCiphersRequest extends $dara.Model {
   /**
    * @remarks
@@ -59516,37 +59964,102 @@ export class ListRoutineCanaryAreasResponse extends $dara.Model {
   }
 }
 
-export class ListRoutineOptionalSpecsResponseBody extends $dara.Model {
+export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * This parameter is required.
    * 
    * @example
-   * 1234567890ABCDEF01234567890ABCDEF
+   * test
    */
-  requestId?: string;
+  name?: string;
   /**
-   * @remarks
-   * The available specifications.
+   * @example
+   * 1
    */
-  specs?: ListRoutineOptionalSpecsResponseBodySpecs[];
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * hello
+   */
+  searchKeyWord?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      specs: 'Specs',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKeyWord: 'SearchKeyWord',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      specs: { 'type': 'array', 'itemType': ListRoutineOptionalSpecsResponseBodySpecs },
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKeyWord: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.specs)) {
-      $dara.Model.validateArray(this.specs);
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoutineRelatedRecordsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  relatedRecords?: ListRoutineRelatedRecordsResponseBodyRelatedRecords[];
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 16
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      relatedRecords: 'RelatedRecords',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      relatedRecords: { 'type': 'array', 'itemType': ListRoutineRelatedRecordsResponseBodyRelatedRecords },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedRecords)) {
+      $dara.Model.validateArray(this.relatedRecords);
     }
     super.validate();
   }
@@ -59556,10 +60069,10 @@ export class ListRoutineOptionalSpecsResponseBody extends $dara.Model {
   }
 }
 
-export class ListRoutineOptionalSpecsResponse extends $dara.Model {
+export class ListRoutineRelatedRecordsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: ListRoutineOptionalSpecsResponseBody;
+  body?: ListRoutineRelatedRecordsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -59572,7 +60085,7 @@ export class ListRoutineOptionalSpecsResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: ListRoutineOptionalSpecsResponseBody,
+      body: ListRoutineRelatedRecordsResponseBody,
     };
   }
 
@@ -61455,6 +61968,122 @@ export class ListUserRatePlanInstancesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserRatePlanInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRoutinesRequest extends $dara.Model {
+  /**
+   * @example
+   * ListUserRoutines
+   */
+  pageNumber?: number;
+  pageSize?: number;
+  searchKeyWord?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKeyWord: 'SearchKeyWord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKeyWord: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRoutinesResponseBody extends $dara.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  quotaRoutineNumber?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  routines?: ListUserRoutinesResponseBodyRoutines[];
+  totalCount?: number;
+  usedRoutineNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      quotaRoutineNumber: 'QuotaRoutineNumber',
+      requestId: 'RequestId',
+      routines: 'Routines',
+      totalCount: 'TotalCount',
+      usedRoutineNumber: 'UsedRoutineNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      quotaRoutineNumber: 'number',
+      requestId: 'string',
+      routines: { 'type': 'array', 'itemType': ListUserRoutinesResponseBodyRoutines },
+      totalCount: 'number',
+      usedRoutineNumber: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.routines)) {
+      $dara.Model.validateArray(this.routines);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserRoutinesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserRoutinesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserRoutinesResponseBody,
     };
   }
 
@@ -63672,19 +64301,6 @@ export class PublishEdgeContainerAppVersionResponse extends $dara.Model {
 export class PublishRoutineCodeVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The regions for canary release.
-   */
-  canaryAreaList?: string[];
-  /**
-   * @remarks
-   * The version number for canary release.
-   * 
-   * @example
-   * 1710120201067203242
-   */
-  canaryCodeVersion?: string;
-  /**
-   * @remarks
    * The code version to be released.
    * 
    * @example
@@ -63713,8 +64329,6 @@ export class PublishRoutineCodeVersionRequest extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      canaryAreaList: 'CanaryAreaList',
-      canaryCodeVersion: 'CanaryCodeVersion',
       codeVersion: 'CodeVersion',
       env: 'Env',
       name: 'Name',
@@ -63723,82 +64337,6 @@ export class PublishRoutineCodeVersionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      canaryAreaList: { 'type': 'array', 'itemType': 'string' },
-      canaryCodeVersion: 'string',
-      codeVersion: 'string',
-      env: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.canaryAreaList)) {
-      $dara.Model.validateArray(this.canaryAreaList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishRoutineCodeVersionShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The regions for canary release.
-   */
-  canaryAreaListShrink?: string;
-  /**
-   * @remarks
-   * The version number for canary release.
-   * 
-   * @example
-   * 1710120201067203242
-   */
-  canaryCodeVersion?: string;
-  /**
-   * @remarks
-   * The code version to be released.
-   * 
-   * @example
-   * 1710120201067203242
-   */
-  codeVersion?: string;
-  /**
-   * @remarks
-   * The environment name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * production
-   */
-  env?: string;
-  /**
-   * @remarks
-   * The routine name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PublishRoutineCodeVersion
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      canaryAreaListShrink: 'CanaryAreaList',
-      canaryCodeVersion: 'CanaryCodeVersion',
-      codeVersion: 'CodeVersion',
-      env: 'Env',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canaryAreaListShrink: 'string',
-      canaryCodeVersion: 'string',
       codeVersion: 'string',
       env: 'string',
       name: 'string',
@@ -65364,6 +65902,7 @@ export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
    * app-88068867578379****
    */
   appId?: string;
+  percentage?: number;
   /**
    * @remarks
    * The remarks.
@@ -65372,6 +65911,7 @@ export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
    * test rollback app
    */
   remarks?: string;
+  usedPercent?: boolean;
   /**
    * @remarks
    * The ID of version that you want to roll back.
@@ -65385,7 +65925,9 @@ export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      percentage: 'Percentage',
       remarks: 'Remarks',
+      usedPercent: 'UsedPercent',
       versionId: 'VersionId',
     };
   }
@@ -65393,7 +65935,9 @@ export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      percentage: 'number',
       remarks: 'string',
+      usedPercent: 'boolean',
       versionId: 'string',
     };
   }
@@ -80167,10 +80711,6 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
-    if (!$dara.isNull(request.specName)) {
-      body["SpecName"] = request.specName;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -85486,6 +86026,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Checks the status of Edge Routine.
+   * 
+   * @param request - GetErServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErServiceResponse
+   */
+  async getErServiceWithOptions(request: GetErServiceRequest, runtime: $dara.RuntimeOptions): Promise<GetErServiceResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetErService",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErServiceResponse>(await this.callApi(params, req, runtime), new GetErServiceResponse({}));
+    } else {
+      return $dara.cast<GetErServiceResponse>(await this.execute(params, req, runtime), new GetErServiceResponse({}));
+    }
+
+  }
+
+  /**
+   * Checks the status of Edge Routine.
+   * 
+   * @param request - GetErServiceRequest
+   * @returns GetErServiceResponse
+   */
+  async getErService(request: GetErServiceRequest): Promise<GetErServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getErServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Query HTTP Request Header Rule Details
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
@@ -87879,6 +88462,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询匹配记录名的站点证书列表
+   * 
+   * @param request - ListCertificatesByRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCertificatesByRecordResponse
+   */
+  async listCertificatesByRecordWithOptions(request: ListCertificatesByRecordRequest, runtime: $dara.RuntimeOptions): Promise<ListCertificatesByRecordResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCertificatesByRecord",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCertificatesByRecordResponse>(await this.callApi(params, req, runtime), new ListCertificatesByRecordResponse({}));
+    } else {
+      return $dara.cast<ListCertificatesByRecordResponse>(await this.execute(params, req, runtime), new ListCertificatesByRecordResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询匹配记录名的站点证书列表
+   * 
+   * @param request - ListCertificatesByRecordRequest
+   * @returns ListCertificatesByRecordResponse
+   */
+  async listCertificatesByRecord(request: ListCertificatesByRecordRequest): Promise<ListCertificatesByRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCertificatesByRecordWithOptions(request, runtime);
+  }
+
+  /**
    * Query TLS Cipher Suite List
    * 
    * @param request - ListCiphersRequest
@@ -89386,19 +90012,36 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+   * 查询函数关联域名列表
    * 
-   * @remarks
-   * You can call this operation to query the specifications that you can select for a routine.
-   * 
-   * @param request - ListRoutineOptionalSpecsRequest
+   * @param request - ListRoutineRelatedRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListRoutineOptionalSpecsResponse
+   * @returns ListRoutineRelatedRecordsResponse
    */
-  async listRoutineOptionalSpecsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListRoutineOptionalSpecsResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async listRoutineRelatedRecordsWithOptions(request: ListRoutineRelatedRecordsRequest, runtime: $dara.RuntimeOptions): Promise<ListRoutineRelatedRecordsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchKeyWord)) {
+      body["SearchKeyWord"] = request.searchKeyWord;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
     let params = new $OpenApiUtil.Params({
-      action: "ListRoutineOptionalSpecs",
+      action: "ListRoutineRelatedRecords",
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
@@ -89409,23 +90052,22 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListRoutineOptionalSpecsResponse>(await this.callApi(params, req, runtime), new ListRoutineOptionalSpecsResponse({}));
+      return $dara.cast<ListRoutineRelatedRecordsResponse>(await this.callApi(params, req, runtime), new ListRoutineRelatedRecordsResponse({}));
     } else {
-      return $dara.cast<ListRoutineOptionalSpecsResponse>(await this.execute(params, req, runtime), new ListRoutineOptionalSpecsResponse({}));
+      return $dara.cast<ListRoutineRelatedRecordsResponse>(await this.execute(params, req, runtime), new ListRoutineRelatedRecordsResponse({}));
     }
 
   }
 
   /**
-   * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+   * 查询函数关联域名列表
    * 
-   * @remarks
-   * You can call this operation to query the specifications that you can select for a routine.
-   * @returns ListRoutineOptionalSpecsResponse
+   * @param request - ListRoutineRelatedRecordsRequest
+   * @returns ListRoutineRelatedRecordsResponse
    */
-  async listRoutineOptionalSpecs(): Promise<ListRoutineOptionalSpecsResponse> {
+  async listRoutineRelatedRecords(request: ListRoutineRelatedRecordsRequest): Promise<ListRoutineRelatedRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.listRoutineOptionalSpecsWithOptions(runtime);
+    return await this.listRoutineRelatedRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -89930,6 +90572,61 @@ export default class Client extends OpenApi {
   async listUserRatePlanInstances(request: ListUserRatePlanInstancesRequest): Promise<ListUserRatePlanInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserRatePlanInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户的Routine列表
+   * 
+   * @param request - ListUserRoutinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserRoutinesResponse
+   */
+  async listUserRoutinesWithOptions(request: ListUserRoutinesRequest, runtime: $dara.RuntimeOptions): Promise<ListUserRoutinesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchKeyWord)) {
+      query["SearchKeyWord"] = request.searchKeyWord;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserRoutines",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUserRoutinesResponse>(await this.callApi(params, req, runtime), new ListUserRoutinesResponse({}));
+    } else {
+      return $dara.cast<ListUserRoutinesResponse>(await this.execute(params, req, runtime), new ListUserRoutinesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询用户的Routine列表
+   * 
+   * @param request - ListUserRoutinesRequest
+   * @returns ListUserRoutinesResponse
+   */
+  async listUserRoutines(request: ListUserRoutinesRequest): Promise<ListUserRoutinesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserRoutinesWithOptions(request, runtime);
   }
 
   /**
@@ -90628,27 +91325,13 @@ export default class Client extends OpenApi {
   /**
    * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
    * 
-   * @param tmpReq - PublishRoutineCodeVersionRequest
+   * @param request - PublishRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishRoutineCodeVersionResponse
    */
-  async publishRoutineCodeVersionWithOptions(tmpReq: PublishRoutineCodeVersionRequest, runtime: $dara.RuntimeOptions): Promise<PublishRoutineCodeVersionResponse> {
-    tmpReq.validate();
-    let request = new PublishRoutineCodeVersionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.canaryAreaList)) {
-      request.canaryAreaListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.canaryAreaList, "CanaryAreaList", "json");
-    }
-
+  async publishRoutineCodeVersionWithOptions(request: PublishRoutineCodeVersionRequest, runtime: $dara.RuntimeOptions): Promise<PublishRoutineCodeVersionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.canaryAreaListShrink)) {
-      body["CanaryAreaList"] = request.canaryAreaListShrink;
-    }
-
-    if (!$dara.isNull(request.canaryCodeVersion)) {
-      body["CanaryCodeVersion"] = request.canaryCodeVersion;
-    }
-
     if (!$dara.isNull(request.codeVersion)) {
       body["CodeVersion"] = request.codeVersion;
     }
@@ -91343,6 +92026,14 @@ export default class Client extends OpenApi {
   async rollbackEdgeContainerAppVersionWithOptions(request: RollbackEdgeContainerAppVersionRequest, runtime: $dara.RuntimeOptions): Promise<RollbackEdgeContainerAppVersionResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.percentage)) {
+      query["Percentage"] = request.percentage;
+    }
+
+    if (!$dara.isNull(request.usedPercent)) {
+      query["UsedPercent"] = request.usedPercent;
+    }
+
     if (!$dara.isNull(request.versionId)) {
       query["VersionId"] = request.versionId;
     }
