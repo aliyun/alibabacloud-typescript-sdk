@@ -1,30 +1,215 @@
 // This file is auto-generated, don't edit it
-import Util, * as $Util from '@alicloud/tea-util';
-import RPC, * as $RPC from '@alicloud/rpc-client';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+/**
+ */
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class DescribeDirectoriesRequest extends $tea.Model {
-  directoryType: string;
-  directoryId?: string[];
-  maxResults?: number;
-  nextToken?: string;
+export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
+  diskId?: string;
+  diskSize?: number;
+  diskType?: string;
   static names(): { [key: string]: string } {
     return {
+      diskId: 'DiskId',
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      diskSize: 'number',
+      diskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
+  connectionStatus?: string;
+  cpu?: number;
+  creationTime?: string;
+  dataDiskCategory?: string;
+  dataDiskSize?: string;
+  desktopId?: string;
+  desktopName?: string;
+  desktopStatus?: string;
+  desktopType?: string;
+  directoryId?: string;
+  disks?: DescribeDesktopsResponseBodyDesktopsDisks[];
+  endUserIds?: string[];
+  imageId?: string;
+  lastStartTime?: string;
+  memory?: number;
+  networkInterfaceId?: string;
+  officeSiteId?: string;
+  policyGroupId?: string;
+  systemDiskCategory?: string;
+  systemDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionStatus: 'ConnectionStatus',
+      cpu: 'Cpu',
+      creationTime: 'CreationTime',
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskSize: 'DataDiskSize',
+      desktopId: 'DesktopId',
+      desktopName: 'DesktopName',
+      desktopStatus: 'DesktopStatus',
+      desktopType: 'DesktopType',
+      directoryId: 'DirectoryId',
+      disks: 'Disks',
+      endUserIds: 'EndUserIds',
+      imageId: 'ImageId',
+      lastStartTime: 'LastStartTime',
+      memory: 'Memory',
+      networkInterfaceId: 'NetworkInterfaceId',
+      officeSiteId: 'OfficeSiteId',
+      policyGroupId: 'PolicyGroupId',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskSize: 'SystemDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionStatus: 'string',
+      cpu: 'number',
+      creationTime: 'string',
+      dataDiskCategory: 'string',
+      dataDiskSize: 'string',
+      desktopId: 'string',
+      desktopName: 'string',
+      desktopStatus: 'string',
+      desktopType: 'string',
+      directoryId: 'string',
+      disks: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsDisks },
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
+      imageId: 'string',
+      lastStartTime: 'string',
+      memory: 'number',
+      networkInterfaceId: 'string',
+      officeSiteId: 'string',
+      policyGroupId: 'string',
+      systemDiskCategory: 'string',
+      systemDiskSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.disks)) {
+      $dara.Model.validateArray(this.disks);
+    }
+    if(Array.isArray(this.endUserIds)) {
+      $dara.Model.validateArray(this.endUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dara.Model {
+  ADConnectorAddress?: string;
+  connectorStatus?: string;
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ADConnectorAddress: 'ADConnectorAddress',
+      connectorStatus: 'ConnectorStatus',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ADConnectorAddress: 'string',
+      connectorStatus: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
+  ADConnectors?: DescribeDirectoriesResponseBodyDirectoriesADConnectors[];
+  creationTime?: string;
+  customSecurityGroupId?: string;
+  directoryId?: string;
+  directoryType?: string;
+  dnsAddress?: string[];
+  dnsUserName?: string;
+  domainName?: string;
+  domainPassword?: string;
+  domainUserName?: string;
+  enableInternetAccess?: boolean;
+  name?: string;
+  status?: string;
+  trustPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ADConnectors: 'ADConnectors',
+      creationTime: 'CreationTime',
+      customSecurityGroupId: 'CustomSecurityGroupId',
+      directoryId: 'DirectoryId',
       directoryType: 'DirectoryType',
-      directoryId: 'DirectoryId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      dnsAddress: 'DnsAddress',
+      dnsUserName: 'DnsUserName',
+      domainName: 'DomainName',
+      domainPassword: 'DomainPassword',
+      domainUserName: 'DomainUserName',
+      enableInternetAccess: 'EnableInternetAccess',
+      name: 'Name',
+      status: 'Status',
+      trustPassword: 'TrustPassword',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ADConnectors: { 'type': 'array', 'itemType': DescribeDirectoriesResponseBodyDirectoriesADConnectors },
+      creationTime: 'string',
+      customSecurityGroupId: 'string',
+      directoryId: 'string',
       directoryType: 'string',
-      directoryId: { 'type': 'array', 'itemType': 'string' },
-      maxResults: 'number',
-      nextToken: 'string',
+      dnsAddress: { 'type': 'array', 'itemType': 'string' },
+      dnsUserName: 'string',
+      domainName: 'string',
+      domainPassword: 'string',
+      domainUserName: 'string',
+      enableInternetAccess: 'boolean',
+      name: 'string',
+      status: 'string',
+      trustPassword: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.ADConnectors)) {
+      $dara.Model.validateArray(this.ADConnectors);
+    }
+    if(Array.isArray(this.dnsAddress)) {
+      $dara.Model.validateArray(this.dnsAddress);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -32,108 +217,56 @@ export class DescribeDirectoriesRequest extends $tea.Model {
   }
 }
 
-export class DescribeDirectoriesResponse extends $tea.Model {
-  nextToken: string;
-  requestId: string;
-  directories: DescribeDirectoriesResponseDirectories[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      directories: 'Directories',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      directories: { 'type': 'array', 'itemType': DescribeDirectoriesResponseDirectories },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDirectoriesRequest extends $tea.Model {
-  directoryId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      directoryId: 'DirectoryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      directoryId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDirectoriesResponse extends $tea.Model {
-  nextToken: string;
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDesktopsRequest extends $tea.Model {
-  regionId: string;
+export class DescribeDesktopsRequest extends $dara.Model {
+  desktopId?: string[];
+  desktopName?: string;
+  desktopStatus?: string;
   directoryId?: string;
   groupId?: string;
-  desktopStatus?: string;
   maxResults?: number;
   nextToken?: string;
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
   userName?: string;
-  desktopName?: string;
-  desktopId?: string[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      desktopId: 'DesktopId',
+      desktopName: 'DesktopName',
+      desktopStatus: 'DesktopStatus',
       directoryId: 'DirectoryId',
       groupId: 'GroupId',
-      desktopStatus: 'DesktopStatus',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      officeSiteId: 'OfficeSiteId',
+      regionId: 'RegionId',
       userName: 'UserName',
-      desktopName: 'DesktopName',
-      desktopId: 'DesktopId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      desktopId: { 'type': 'array', 'itemType': 'string' },
+      desktopName: 'string',
+      desktopStatus: 'string',
       directoryId: 'string',
       groupId: 'string',
-      desktopStatus: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      officeSiteId: 'string',
+      regionId: 'string',
       userName: 'string',
-      desktopName: 'string',
-      desktopId: { 'type': 'array', 'itemType': 'string' },
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.desktopId)) {
+      $dara.Model.validateArray(this.desktopId);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -141,65 +274,31 @@ export class DescribeDesktopsRequest extends $tea.Model {
   }
 }
 
-export class DescribeDesktopsResponse extends $tea.Model {
-  requestId: string;
-  nextToken: string;
-  desktops: DescribeDesktopsResponseDesktops[];
+export class DescribeDesktopsResponseBody extends $dara.Model {
+  desktops?: DescribeDesktopsResponseBodyDesktops[];
+  nextToken?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      nextToken: 'NextToken',
       desktops: 'Desktops',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      nextToken: 'string',
-      desktops: { 'type': 'array', 'itemType': DescribeDesktopsResponseDesktops },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootDesktopsRequest extends $tea.Model {
-  regionId: string;
-  desktopId: string[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      desktopId: 'DesktopId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      desktopId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RebootDesktopsResponse extends $tea.Model {
-  requestId: string;
-  static names(): { [key: string]: string } {
-    return {
+      nextToken: 'NextToken',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      desktops: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktops },
+      nextToken: 'string',
       requestId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.desktops)) {
+      $dara.Model.validateArray(this.desktops);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -207,33 +306,34 @@ export class RebootDesktopsResponse extends $tea.Model {
   }
 }
 
-export class GetConnectionTicketRequest extends $tea.Model {
-  regionId: string;
-  instanceId?: string;
-  userName?: string;
-  password?: string;
-  taskId?: string;
-  desktopId?: string;
+export class DescribeDesktopsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDesktopsResponseBody;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
-      userName: 'UserName',
-      password: 'Password',
-      taskId: 'TaskId',
-      desktopId: 'DesktopId',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      instanceId: 'string',
-      userName: 'string',
-      password: 'string',
-      taskId: 'string',
-      desktopId: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDesktopsResponseBody,
     };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -241,11 +341,174 @@ export class GetConnectionTicketRequest extends $tea.Model {
   }
 }
 
-export class GetConnectionTicketResponse extends $tea.Model {
-  requestId: string;
-  taskId: string;
-  taskStatus: string;
-  ticket: string;
+export class DescribeDirectoriesRequest extends $dara.Model {
+  directoryId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  directoryType?: string;
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directoryId: 'DirectoryId',
+      directoryType: 'DirectoryType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directoryId: { 'type': 'array', 'itemType': 'string' },
+      directoryType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.directoryId)) {
+      $dara.Model.validateArray(this.directoryId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDirectoriesResponseBody extends $dara.Model {
+  directories?: DescribeDirectoriesResponseBodyDirectories[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      directories: 'Directories',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      directories: { 'type': 'array', 'itemType': DescribeDirectoriesResponseBodyDirectories },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.directories)) {
+      $dara.Model.validateArray(this.directories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDirectoriesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDirectoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDirectoriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketRequest extends $dara.Model {
+  clientOS?: string;
+  clientVersion?: string;
+  desktopId?: string;
+  instanceId?: string;
+  ownerId?: number;
+  password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  taskId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      desktopId: 'DesktopId',
+      instanceId: 'InstanceId',
+      ownerId: 'OwnerId',
+      password: 'Password',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskId: 'TaskId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientOS: 'string',
+      clientVersion: 'string',
+      desktopId: 'string',
+      instanceId: 'string',
+      ownerId: 'number',
+      password: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskId: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBody extends $dara.Model {
+  requestId?: string;
+  taskId?: string;
+  taskStatus?: string;
+  ticket?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -264,29 +527,43 @@ export class GetConnectionTicketResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDirectoriesResponseDirectoriesADConnectors extends $tea.Model {
-  ADConnectorAddress: string;
-  vSwitchId: string;
-  connectorStatus: string;
+export class GetConnectionTicketResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConnectionTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
-      ADConnectorAddress: 'ADConnectorAddress',
-      vSwitchId: 'VSwitchId',
-      connectorStatus: 'ConnectorStatus',
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ADConnectorAddress: 'string',
-      vSwitchId: 'string',
-      connectorStatus: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConnectionTicketResponseBody,
     };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -294,152 +571,302 @@ export class DescribeDirectoriesResponseDirectoriesADConnectors extends $tea.Mod
   }
 }
 
-export class DescribeDirectoriesResponseDirectories extends $tea.Model {
-  directoryId: string;
-  status: string;
-  directoryType: string;
-  creationTime: string;
-  name: string;
-  customSecurityGroupId: string;
-  dnsUserName: string;
-  enableInternetAccess: boolean;
-  trustPassword: string;
-  domainName: string;
-  domainUserName: string;
-  domainPassword: string;
-  ADConnectors: DescribeDirectoriesResponseDirectoriesADConnectors[];
-  dnsAddress: string[];
+export class RebootDesktopsRequest extends $dara.Model {
+  clientOS?: string;
+  clientVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desktopId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      directoryId: 'DirectoryId',
-      status: 'Status',
-      directoryType: 'DirectoryType',
-      creationTime: 'CreationTime',
-      name: 'Name',
-      customSecurityGroupId: 'CustomSecurityGroupId',
-      dnsUserName: 'DnsUserName',
-      enableInternetAccess: 'EnableInternetAccess',
-      trustPassword: 'TrustPassword',
-      domainName: 'DomainName',
-      domainUserName: 'DomainUserName',
-      domainPassword: 'DomainPassword',
-      ADConnectors: 'ADConnectors',
-      dnsAddress: 'DnsAddress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      directoryId: 'string',
-      status: 'string',
-      directoryType: 'string',
-      creationTime: 'string',
-      name: 'string',
-      customSecurityGroupId: 'string',
-      dnsUserName: 'string',
-      enableInternetAccess: 'boolean',
-      trustPassword: 'string',
-      domainName: 'string',
-      domainUserName: 'string',
-      domainPassword: 'string',
-      ADConnectors: { 'type': 'array', 'itemType': DescribeDirectoriesResponseDirectoriesADConnectors },
-      dnsAddress: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDesktopsResponseDesktopsDisks extends $tea.Model {
-  diskId: string;
-  diskSize: number;
-  diskType: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskId: 'DiskId',
-      diskSize: 'DiskSize',
-      diskType: 'DiskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskId: 'string',
-      diskSize: 'number',
-      diskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDesktopsResponseDesktops extends $tea.Model {
-  directoryId: string;
-  creationTime: string;
-  desktopId: string;
-  desktopStatus: string;
-  desktopName: string;
-  imageId: string;
-  desktopType: string;
-  systemDiskCategory: string;
-  systemDiskSize: number;
-  dataDiskCategory: string;
-  dataDiskSize: string;
-  connectionStatus: string;
-  policyGroupId: string;
-  cpu: number;
-  memory: number;
-  networkInterfaceId: number;
-  disks: DescribeDesktopsResponseDesktopsDisks[];
-  endUserIds: string[];
-  static names(): { [key: string]: string } {
-    return {
-      directoryId: 'DirectoryId',
-      creationTime: 'CreationTime',
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
       desktopId: 'DesktopId',
-      desktopStatus: 'DesktopStatus',
-      desktopName: 'DesktopName',
-      imageId: 'ImageId',
-      desktopType: 'DesktopType',
-      systemDiskCategory: 'SystemDiskCategory',
-      systemDiskSize: 'SystemDiskSize',
-      dataDiskCategory: 'DataDiskCategory',
-      dataDiskSize: 'DataDiskSize',
-      connectionStatus: 'ConnectionStatus',
-      policyGroupId: 'PolicyGroupId',
-      cpu: 'Cpu',
-      memory: 'Memory',
-      networkInterfaceId: 'NetworkInterfaceId',
-      disks: 'Disks',
-      endUserIds: 'EndUserIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      directoryId: 'string',
-      creationTime: 'string',
-      desktopId: 'string',
-      desktopStatus: 'string',
-      desktopName: 'string',
-      imageId: 'string',
-      desktopType: 'string',
-      systemDiskCategory: 'string',
-      systemDiskSize: 'number',
-      dataDiskCategory: 'string',
-      dataDiskSize: 'string',
-      connectionStatus: 'string',
-      policyGroupId: 'string',
-      cpu: 'number',
-      memory: 'number',
-      networkInterfaceId: 'number',
-      disks: { 'type': 'array', 'itemType': DescribeDesktopsResponseDesktopsDisks },
-      endUserIds: { 'type': 'array', 'itemType': 'string' },
+      clientOS: 'string',
+      clientVersion: 'string',
+      desktopId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.desktopId)) {
+      $dara.Model.validateArray(this.desktopId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootDesktopsResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RebootDesktopsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebootDesktopsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RebootDesktopsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDesktopsRequest extends $dara.Model {
+  clientOS?: string;
+  clientVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desktopId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      desktopId: 'DesktopId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientOS: 'string',
+      clientVersion: 'string',
+      desktopId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.desktopId)) {
+      $dara.Model.validateArray(this.desktopId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDesktopsResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDesktopsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDesktopsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDesktopsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDesktopsRequest extends $dara.Model {
+  clientOS?: string;
+  clientVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desktopId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      desktopId: 'DesktopId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientOS: 'string',
+      clientVersion: 'string',
+      desktopId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.desktopId)) {
+      $dara.Model.validateArray(this.desktopId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDesktopsResponseBody extends $dara.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDesktopsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDesktopsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDesktopsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -448,76 +875,379 @@ export class DescribeDesktopsResponseDesktops extends $tea.Model {
 }
 
 
-export default class Client extends RPC {
+export default class Client extends OpenApi {
 
-  constructor(config: $RPC.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
 
-  async describeDirectoriesWithOptions(request: DescribeDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDirectoriesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeDirectoriesResponse>(await this.doRequest("DescribeDirectories", "HTTPS", "POST", "2020-10-01", "AK", null, $tea.toMap(request), runtime), new DescribeDirectoriesResponse({}));
-  }
-
-  async describeDirectories(request: DescribeDirectoriesRequest): Promise<DescribeDirectoriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDirectoriesWithOptions(request, runtime);
-  }
-
-  async deleteDirectoriesWithOptions(request: DeleteDirectoriesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDirectoriesResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DeleteDirectoriesResponse>(await this.doRequest("DeleteDirectories", "HTTPS", "POST", "2020-10-01", "AK", null, $tea.toMap(request), runtime), new DeleteDirectoriesResponse({}));
-  }
-
-  async deleteDirectories(request: DeleteDirectoriesRequest): Promise<DeleteDirectoriesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDirectoriesWithOptions(request, runtime);
-  }
-
-  async describeDesktopsWithOptions(request: DescribeDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDesktopsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<DescribeDesktopsResponse>(await this.doRequest("DescribeDesktops", "HTTPS", "POST", "2020-10-01", "AK", null, $tea.toMap(request), runtime), new DescribeDesktopsResponse({}));
-  }
-
-  async describeDesktops(request: DescribeDesktopsRequest): Promise<DescribeDesktopsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDesktopsWithOptions(request, runtime);
-  }
-
-  async rebootDesktopsWithOptions(request: RebootDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<RebootDesktopsResponse> {
-    Util.validateModel(request);
-    return $tea.cast<RebootDesktopsResponse>(await this.doRequest("RebootDesktops", "HTTPS", "POST", "2020-10-01", "AK", null, $tea.toMap(request), runtime), new RebootDesktopsResponse({}));
-  }
-
-  async rebootDesktops(request: RebootDesktopsRequest): Promise<RebootDesktopsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.rebootDesktopsWithOptions(request, runtime);
-  }
-
-  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
-    Util.validateModel(request);
-    return $tea.cast<GetConnectionTicketResponse>(await this.doRequest("GetConnectionTicket", "HTTPS", "POST", "2020-10-01", "AK", null, $tea.toMap(request), runtime), new GetConnectionTicketResponse({}));
-  }
-
-  async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getConnectionTicketWithOptions(request, runtime);
-  }
-
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @param request - DescribeDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDesktopsResponse
+   */
+  async describeDesktopsWithOptions(request: DescribeDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.desktopName)) {
+      query["DesktopName"] = request.desktopName;
+    }
+
+    if (!$dara.isNull(request.desktopStatus)) {
+      query["DesktopStatus"] = request.desktopStatus;
+    }
+
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDesktops",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeDesktopsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDesktopsRequest
+   * @returns DescribeDesktopsResponse
+   */
+  async describeDesktops(request: DescribeDesktopsRequest): Promise<DescribeDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeDirectoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDirectoriesResponse
+   */
+  async describeDirectoriesWithOptions(request: DescribeDirectoriesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDirectoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.directoryId)) {
+      query["DirectoryId"] = request.directoryId;
+    }
+
+    if (!$dara.isNull(request.directoryType)) {
+      query["DirectoryType"] = request.directoryType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDirectories",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDirectoriesRequest
+   * @returns DescribeDirectoriesResponse
+   */
+  async describeDirectories(request: DescribeDirectoriesRequest): Promise<DescribeDirectoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDirectoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetConnectionTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectionTicketResponse
+   */
+  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<GetConnectionTicketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientOS)) {
+      query["ClientOS"] = request.clientOS;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConnectionTicket",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+  }
+
+  /**
+   * @param request - GetConnectionTicketRequest
+   * @returns GetConnectionTicketResponse
+   */
+  async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getConnectionTicketWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - RebootDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootDesktopsResponse
+   */
+  async rebootDesktopsWithOptions(request: RebootDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<RebootDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientOS)) {
+      query["ClientOS"] = request.clientOS;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RebootDesktops",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
+  }
+
+  /**
+   * @param request - RebootDesktopsRequest
+   * @returns RebootDesktopsResponse
+   */
+  async rebootDesktops(request: RebootDesktopsRequest): Promise<RebootDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rebootDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - StartDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartDesktopsResponse
+   */
+  async startDesktopsWithOptions(request: StartDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<StartDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientOS)) {
+      query["ClientOS"] = request.clientOS;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartDesktops",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<StartDesktopsResponse>(await this.callApi(params, req, runtime), new StartDesktopsResponse({}));
+  }
+
+  /**
+   * @param request - StartDesktopsRequest
+   * @returns StartDesktopsResponse
+   */
+  async startDesktops(request: StartDesktopsRequest): Promise<StartDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - StopDesktopsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopDesktopsResponse
+   */
+  async stopDesktopsWithOptions(request: StopDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<StopDesktopsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientOS)) {
+      query["ClientOS"] = request.clientOS;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopDesktops",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<StopDesktopsResponse>(await this.callApi(params, req, runtime), new StopDesktopsResponse({}));
+  }
+
+  /**
+   * @param request - StopDesktopsRequest
+   * @returns StopDesktopsResponse
+   */
+  async stopDesktops(request: StopDesktopsRequest): Promise<StopDesktopsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopDesktopsWithOptions(request, runtime);
   }
 
 }
