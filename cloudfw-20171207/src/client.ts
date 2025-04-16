@@ -276,7 +276,21 @@ export class DescribeACLProtectTrendResponseBodyTrendList extends $dara.Model {
 }
 
 export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
+  /**
+   * @remarks
+   * Address information in the address book.
+   * 
+   * @example
+   * 192.168.0.1/32
+   */
   address?: string;
+  /**
+   * @remarks
+   * Single address description.
+   * 
+   * @example
+   * description
+   */
   note?: string;
   static names(): { [key: string]: string } {
     return {
@@ -355,6 +369,10 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
    * 2
    */
   addressListCount?: number;
+  /**
+   * @remarks
+   * A list of addresses in the address book, each with a single address description.
+   */
   addresses?: DescribeAddressBookResponseBodyAclsAddresses[];
   /**
    * @remarks
@@ -4893,6 +4911,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
    * ips
    */
   type?: string;
+  updateTime?: number;
   /**
    * @remarks
    * The version number.
@@ -4904,6 +4923,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
+      updateTime: 'UpdateTime',
       version: 'Version',
     };
   }
@@ -4911,6 +4931,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+      updateTime: 'number',
       version: 'string',
     };
   }
@@ -5215,6 +5236,29 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   }
 }
 
+export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig extends $dara.Model {
+  strictMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      strictMode: 'StrictMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strictMode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsIpsConfig extends $dara.Model {
   /**
    * @remarks
@@ -5449,6 +5493,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsUnprotectedResou
 }
 
 export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $dara.Model {
+  aclConfig?: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig;
   /**
    * @remarks
    * The ID of the CEN instance.
@@ -5596,6 +5641,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $dara.M
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
     return {
+      aclConfig: 'AclConfig',
       cenId: 'CenId',
       cenName: 'CenName',
       cloudFirewallVpcOrderType: 'CloudFirewallVpcOrderType',
@@ -5617,6 +5663,7 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      aclConfig: DescribeTrFirewallsV2ListResponseBodyVpcTrFirewallsAclConfig,
       cenId: 'string',
       cenName: 'string',
       cloudFirewallVpcOrderType: 'string',
@@ -5637,6 +5684,9 @@ export class DescribeTrFirewallsV2ListResponseBodyVpcTrFirewalls extends $dara.M
   }
 
   validate() {
+    if(this.aclConfig && typeof (this.aclConfig as any).validate === 'function') {
+      (this.aclConfig as any).validate();
+    }
     if(this.ipsConfig && typeof (this.ipsConfig as any).validate === 'function') {
       (this.ipsConfig as any).validate();
     }
@@ -5790,7 +5840,31 @@ export class DescribeUserIPSWhitelistResponseBodyWhitelists extends $dara.Model 
   }
 }
 
+export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig extends $dara.Model {
+  strictMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      strictMode: 'StrictMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strictMode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $dara.Model {
+  aclConfig?: DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig;
   /**
    * @remarks
    * The ID of the policy group.
@@ -5848,6 +5922,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   memberUid?: string;
   static names(): { [key: string]: string } {
     return {
+      aclConfig: 'AclConfig',
       aclGroupId: 'AclGroupId',
       aclGroupName: 'AclGroupName',
       aclRuleCount: 'AclRuleCount',
@@ -5858,6 +5933,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
 
   static types(): { [key: string]: any } {
     return {
+      aclConfig: DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig,
       aclGroupId: 'string',
       aclGroupName: 'string',
       aclRuleCount: 'number',
@@ -5867,6 +5943,9 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   }
 
   validate() {
+    if(this.aclConfig && typeof (this.aclConfig as any).validate === 'function') {
+      (this.aclConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -5887,6 +5966,14 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
    * 0
    */
   allowConfiguration?: number;
+  /**
+   * @remarks
+   * Firewall backup availability zone ID.
+   * 
+   * @example
+   * cn-hangzhou-k
+   */
+  standbyZoneId?: string;
   /**
    * @remarks
    * The CIDR block of the VPC.
@@ -5921,6 +6008,14 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   vswitchId?: string;
   /**
    * @remarks
+   * The availability zone ID of the virtual switch.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  vswitchZoneId?: string;
+  /**
+   * @remarks
    * The zone ID.
    * 
    * @example
@@ -5930,10 +6025,12 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   static names(): { [key: string]: string } {
     return {
       allowConfiguration: 'AllowConfiguration',
+      standbyZoneId: 'StandbyZoneId',
       vpcCidr: 'VpcCidr',
       vpcId: 'VpcId',
       vswitchCidr: 'VswitchCidr',
       vswitchId: 'VswitchId',
+      vswitchZoneId: 'VswitchZoneId',
       zoneId: 'ZoneId',
     };
   }
@@ -5941,10 +6038,12 @@ export class DescribeVpcFirewallCenDetailResponseBodyFirewallVpc extends $dara.M
   static types(): { [key: string]: any } {
     return {
       allowConfiguration: 'number',
+      standbyZoneId: 'string',
       vpcCidr: 'string',
       vpcId: 'string',
       vswitchCidr: 'string',
       vswitchId: 'string',
+      vswitchZoneId: 'string',
       zoneId: 'string',
     };
   }
@@ -6287,6 +6386,29 @@ export class DescribeVpcFirewallCenDetailResponseBodyLocalVpc extends $dara.Mode
   }
 }
 
+export class DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig extends $dara.Model {
+  strictMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      strictMode: 'StrictMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strictMode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallCenListResponseBodyVpcFirewallsIpsConfig extends $dara.Model {
   /**
    * @remarks
@@ -6614,6 +6736,7 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewallsLocalVpc extends 
 }
 
 export class DescribeVpcFirewallCenListResponseBodyVpcFirewalls extends $dara.Model {
+  aclConfig?: DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig;
   /**
    * @remarks
    * The ID of the CEN instance.
@@ -6723,6 +6846,7 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewalls extends $dara.Mo
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
     return {
+      aclConfig: 'AclConfig',
       cenId: 'CenId',
       cenName: 'CenName',
       connectType: 'ConnectType',
@@ -6740,6 +6864,7 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewalls extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      aclConfig: DescribeVpcFirewallCenListResponseBodyVpcFirewallsAclConfig,
       cenId: 'string',
       cenName: 'string',
       connectType: 'string',
@@ -6756,6 +6881,9 @@ export class DescribeVpcFirewallCenListResponseBodyVpcFirewalls extends $dara.Mo
   }
 
   validate() {
+    if(this.aclConfig && typeof (this.aclConfig as any).validate === 'function') {
+      (this.aclConfig as any).validate();
+    }
     if(this.ipsConfig && typeof (this.ipsConfig as any).validate === 'function') {
       (this.ipsConfig as any).validate();
     }
@@ -7622,6 +7750,33 @@ export class DescribeVpcFirewallIPSWhitelistResponseBodyWhitelists extends $dara
   }
 }
 
+export class DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  strictMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      strictMode: 'StrictMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      strictMode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpcFirewallListResponseBodyVpcFirewallsIpsConfig extends $dara.Model {
   /**
    * @remarks
@@ -8016,6 +8171,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewallsPeerVpc extends $dar
 }
 
 export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model {
+  aclConfig?: DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig;
   /**
    * @remarks
    * The bandwidth of the Express Connect circuit. Unit: Mbit/s.
@@ -8119,6 +8275,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   vpcFirewallName?: string;
   static names(): { [key: string]: string } {
     return {
+      aclConfig: 'AclConfig',
       bandwidth: 'Bandwidth',
       connectSubType: 'ConnectSubType',
       connectType: 'ConnectType',
@@ -8136,6 +8293,7 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      aclConfig: DescribeVpcFirewallListResponseBodyVpcFirewallsAclConfig,
       bandwidth: 'number',
       connectSubType: 'string',
       connectType: 'string',
@@ -8152,6 +8310,9 @@ export class DescribeVpcFirewallListResponseBodyVpcFirewalls extends $dara.Model
   }
 
   validate() {
+    if(this.aclConfig && typeof (this.aclConfig as any).validate === 'function') {
+      (this.aclConfig as any).validate();
+    }
     if(this.ipsConfig && typeof (this.ipsConfig as any).validate === 'function') {
       (this.ipsConfig as any).validate();
     }
@@ -11468,6 +11629,16 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVpcCidrBlock?: string;
   /**
    * @remarks
+   * The ID of the backup availability zone to which the firewall belongs. The firewall will automatically switch to the backup availability zone to continue running only if the primary availability zone service is unavailable.
+   * If this parameter is not filled, the backup availability zone for the firewall will be automatically assigned.
+   * > This parameter is only effective when creating a VPC firewall for the first time in this CEN region.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
+  firewallVpcStandbyZoneId?: string;
+  /**
+   * @remarks
    * The ID of the zone to which the vSwitch belongs. If your service is latency-sensitive, you can specify the same zone for the vSwitch of the firewall and the vSwitch of your business VPC to minimize latency.
    * 
    * If you do not specify a value, a zone is automatically assigned for the vSwitch.
@@ -11543,6 +11714,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
       firewallSwitch: 'FirewallSwitch',
       firewallVSwitchCidrBlock: 'FirewallVSwitchCidrBlock',
       firewallVpcCidrBlock: 'FirewallVpcCidrBlock',
+      firewallVpcStandbyZoneId: 'FirewallVpcStandbyZoneId',
       firewallVpcZoneId: 'FirewallVpcZoneId',
       lang: 'Lang',
       memberUid: 'MemberUid',
@@ -11559,6 +11731,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
       firewallSwitch: 'string',
       firewallVSwitchCidrBlock: 'string',
       firewallVpcCidrBlock: 'string',
+      firewallVpcStandbyZoneId: 'string',
       firewallVpcZoneId: 'string',
       lang: 'string',
       memberUid: 'string',
@@ -15359,7 +15532,13 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
    * 0
    */
   ctiRules?: number;
-  freeTrailStatus?: string;
+  /**
+   * @remarks
+   * The maximum amount of traffic that can be processed by the sensitive data leak detection feature each day.
+   * 
+   * @example
+   * 10
+   */
   maxSdl?: number;
   /**
    * @remarks
@@ -15407,7 +15586,6 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
     return {
       basicRules: 'BasicRules',
       ctiRules: 'CtiRules',
-      freeTrailStatus: 'FreeTrailStatus',
       maxSdl: 'MaxSdl',
       patchRules: 'PatchRules',
       requestId: 'RequestId',
@@ -15420,7 +15598,6 @@ export class DescribeDefaultIPSConfigResponseBody extends $dara.Model {
     return {
       basicRules: 'number',
       ctiRules: 'number',
-      freeTrailStatus: 'string',
       maxSdl: 'number',
       patchRules: 'number',
       requestId: 'string',
@@ -19065,7 +19242,21 @@ export class DescribePostpayTrafficTotalResponseBody extends $dara.Model {
    * 560646279
    */
   totalNatTraffic?: number;
+  /**
+   * @remarks
+   * Data Leak Detection Total Fee Flow.
+   * 
+   * @example
+   * 22879916142
+   */
   totalSdlBillTraffic?: number;
+  /**
+   * @remarks
+   * Data Leak Detection Total free usage traffic.
+   * 
+   * @example
+   * 0
+   */
   totalSdlFreeTraffic?: number;
   /**
    * @remarks
@@ -20644,6 +20835,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * 10.0.2.0/24
    */
   trAttachmentMasterCidr?: string;
+  trAttachmentMasterZone?: string;
   /**
    * @remarks
    * The secondary subnet CIDR block that the VPC uses to connect to the transit router in automatic mode.
@@ -20652,6 +20844,7 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
    * 10.0.3.0/24
    */
   trAttachmentSlaveCidr?: string;
+  trAttachmentSlaveZone?: string;
   /**
    * @remarks
    * The ID of the transit router.
@@ -20677,7 +20870,9 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       requestId: 'RequestId',
       routeMode: 'RouteMode',
       trAttachmentMasterCidr: 'TrAttachmentMasterCidr',
+      trAttachmentMasterZone: 'TrAttachmentMasterZone',
       trAttachmentSlaveCidr: 'TrAttachmentSlaveCidr',
+      trAttachmentSlaveZone: 'TrAttachmentSlaveZone',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -20699,7 +20894,9 @@ export class DescribeTrFirewallsV2DetailResponseBody extends $dara.Model {
       requestId: 'string',
       routeMode: 'string',
       trAttachmentMasterCidr: 'string',
+      trAttachmentMasterZone: 'string',
       trAttachmentSlaveCidr: 'string',
+      trAttachmentSlaveZone: 'string',
       transitRouterId: 'string',
     };
   }
@@ -21399,6 +21596,13 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * normal
    */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The peak Internet traffic that can be protected.
+   * 
+   * @example
+   * 3000
+   */
   internetBandwidth?: number;
   /**
    * @remarks
@@ -21444,6 +21648,13 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * 0
    */
   maxOverflow?: number;
+  /**
+   * @remarks
+   * The peak traffic of NAT private network that can be protected.
+   * 
+   * @example
+   * 3000
+   */
   natBandwidth?: number;
   /**
    * @remarks
@@ -21487,6 +21698,13 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * 2
    */
   version?: number;
+  /**
+   * @remarks
+   * The peak cross-VPC traffic that can be protected.
+   * 
+   * @example
+   * 3000
+   */
   vpcBandwidth?: number;
   /**
    * @remarks
@@ -21701,6 +21919,7 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
    * configured
    */
   firewallConfigureStatus?: string;
+  firewallId?: string;
   /**
    * @remarks
    * The language of the content within the response. Valid values:
@@ -21724,6 +21943,7 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
     return {
       currentPage: 'CurrentPage',
       firewallConfigureStatus: 'FirewallConfigureStatus',
+      firewallId: 'FirewallId',
       lang: 'Lang',
       pageSize: 'PageSize',
     };
@@ -21733,6 +21953,7 @@ export class DescribeVpcFirewallAclGroupListRequest extends $dara.Model {
     return {
       currentPage: 'string',
       firewallConfigureStatus: 'string',
+      firewallId: 'string',
       lang: 'string',
       pageSize: 'string',
     };
@@ -21912,7 +22133,7 @@ export class DescribeVpcFirewallCenDetailResponseBody extends $dara.Model {
   firewallSwitchStatus?: string;
   /**
    * @remarks
-   * The VPC that is automatically created for the firewall.
+   * The firewall VPC.
    */
   firewallVpc?: DescribeVpcFirewallCenDetailResponseBodyFirewallVpc;
   /**
@@ -24835,12 +25056,10 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * *   **1**: yes
    * *   **0**: no
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
-  basicRules?: string;
+  basicRules?: number;
   /**
    * @remarks
    * Specifies whether to enable threat intelligence. Valid values:
@@ -24848,12 +25067,10 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * *   **1**: yes
    * *   **0**: no
    * 
-   * This parameter is required.
-   * 
    * @example
    * 0
    */
-  ctiRules?: string;
+  ctiRules?: number;
   /**
    * @remarks
    * The language of the content within the request and response. Valid values:
@@ -24865,6 +25082,13 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * The maximum amount of traffic that can be processed by the sensitive data leak detection feature each day.
+   * 
+   * @example
+   * 100
+   */
   maxSdl?: number;
   /**
    * @remarks
@@ -24876,7 +25100,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * @example
    * 1
    */
-  patchRules?: string;
+  patchRules?: number;
   /**
    * @remarks
    * The level of the rule group for the IPS. Valid values:
@@ -24888,7 +25112,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * @example
    * 1
    */
-  ruleClass?: string;
+  ruleClass?: number;
   /**
    * @remarks
    * The mode of the IPS. Valid values:
@@ -24901,7 +25125,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * @example
    * 0
    */
-  runMode?: string;
+  runMode?: number;
   static names(): { [key: string]: string } {
     return {
       basicRules: 'BasicRules',
@@ -24916,13 +25140,13 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      basicRules: 'string',
-      ctiRules: 'string',
+      basicRules: 'number',
+      ctiRules: 'number',
       lang: 'string',
       maxSdl: 'number',
-      patchRules: 'string',
-      ruleClass: 'string',
-      runMode: 'string',
+      patchRules: 'number',
+      ruleClass: 'number',
+      runMode: 'number',
     };
   }
 
@@ -25967,6 +26191,7 @@ export class ModifyObjectGroupOperationResponse extends $dara.Model {
 }
 
 export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
+  eips?: string[];
   /**
    * @remarks
    * Specifies whether to enable the strict mode for the access control policy. Valid values:
@@ -26003,6 +26228,7 @@ export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      eips: 'Eips',
       internetSwitch: 'InternetSwitch',
       lang: 'Lang',
       sourceIp: 'SourceIp',
@@ -26011,6 +26237,7 @@ export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eips: { 'type': 'array', 'itemType': 'string' },
       internetSwitch: 'string',
       lang: 'string',
       sourceIp: 'string',
@@ -26018,6 +26245,9 @@ export class ModifyPolicyAdvancedConfigRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.eips)) {
+      $dara.Model.validateArray(this.eips);
+    }
     super.validate();
   }
 
@@ -30093,6 +30323,10 @@ export default class Client extends OpenApi {
       query["FirewallVpcCidrBlock"] = request.firewallVpcCidrBlock;
     }
 
+    if (!$dara.isNull(request.firewallVpcStandbyZoneId)) {
+      query["FirewallVpcStandbyZoneId"] = request.firewallVpcStandbyZoneId;
+    }
+
     if (!$dara.isNull(request.firewallVpcZoneId)) {
       query["FirewallVpcZoneId"] = request.firewallVpcZoneId;
     }
@@ -31605,7 +31839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default configurations of the intrusion prevention system (IPS).
+   * Queries the default intrusion prevention system (IPS) configurations.
    * 
    * @param request - DescribeDefaultIPSConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31636,7 +31870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the default configurations of the intrusion prevention system (IPS).
+   * Queries the default intrusion prevention system (IPS) configurations.
    * 
    * @param request - DescribeDefaultIPSConfigRequest
    * @returns DescribeDefaultIPSConfigResponse
@@ -33675,6 +33909,10 @@ export default class Client extends OpenApi {
       query["FirewallConfigureStatus"] = request.firewallConfigureStatus;
     }
 
+    if (!$dara.isNull(request.firewallId)) {
+      query["FirewallId"] = request.firewallId;
+    }
+
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
@@ -35281,6 +35519,10 @@ export default class Client extends OpenApi {
   async modifyPolicyAdvancedConfigWithOptions(request: ModifyPolicyAdvancedConfigRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyAdvancedConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.eips)) {
+      query["Eips"] = request.eips;
+    }
+
     if (!$dara.isNull(request.internetSwitch)) {
       query["InternetSwitch"] = request.internetSwitch;
     }
