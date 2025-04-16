@@ -239,6 +239,243 @@ export class GenerateOutputFormatResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic extends $dara.Model {
+  tagName?: string;
+  /**
+   * @example
+   * 10
+   */
+  valueCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tagName: 'tagName',
+      valueCount: 'valueCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagName: 'string',
+      valueCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics extends $dara.Model {
+  tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      tagValueCountStatistic: 'tagValueCountStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValueCountStatistic: { 'type': 'array', 'itemType': GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagValueCountStatistic)) {
+      $dara.Model.validateArray(this.tagValueCountStatistic);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic extends $dara.Model {
+  tagName?: string;
+  /**
+   * @example
+   * 10
+   */
+  valueCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tagName: 'tagName',
+      valueCount: 'valueCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagName: 'string',
+      valueCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics extends $dara.Model {
+  tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      tagValueCountStatistic: 'tagValueCountStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValueCountStatistic: { 'type': 'array', 'itemType': GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagValueCountStatistic)) {
+      $dara.Model.validateArray(this.tagValueCountStatistic);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview extends $dara.Model {
+  /**
+   * @example
+   * 17
+   */
+  count?: number;
+  filterDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics;
+  tagDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      filterDimensionStatistics: 'filterDimensionStatistics',
+      tagDimensionStatistics: 'tagDimensionStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      filterDimensionStatistics: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics,
+      tagDimensionStatistics: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics,
+    };
+  }
+
+  validate() {
+    if(this.filterDimensionStatistics && typeof (this.filterDimensionStatistics as any).validate === 'function') {
+      (this.filterDimensionStatistics as any).validate();
+    }
+    if(this.tagDimensionStatistics && typeof (this.tagDimensionStatistics as any).validate === 'function') {
+      (this.tagDimensionStatistics as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  outputTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyData extends $dara.Model {
+  errorMessage?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  modelName?: string;
+  statisticsOverview?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview;
+  /**
+   * @example
+   * PENDING
+   */
+  status?: string;
+  usage?: GetEnterpriseVocAnalysisTaskResponseBodyDataUsage;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      modelId: 'modelId',
+      modelName: 'modelName',
+      statisticsOverview: 'statisticsOverview',
+      status: 'status',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      modelId: 'string',
+      modelName: 'string',
+      statisticsOverview: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview,
+      status: 'string',
+      usage: GetEnterpriseVocAnalysisTaskResponseBodyDataUsage,
+    };
+  }
+
+  validate() {
+    if(this.statisticsOverview && typeof (this.statisticsOverview as any).validate === 'function') {
+      (this.statisticsOverview as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTagMiningAnalysisTaskResponseBodyDataResultsHeader extends $dara.Model {
   /**
    * @example
@@ -1607,6 +1844,309 @@ export class ListHotTopicSummariesResponseBodyData extends $dara.Model {
     }
     if(this.summary && typeof (this.summary as any).validate === 'function') {
       (this.summary as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisRequestFilterTags extends $dara.Model {
+  /**
+   * @remarks
+   * 标签定义提示词
+   * 
+   * @example
+   * 标签定义提示词
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @remarks
+   * 标签名称
+   * 
+   * @example
+   * 标签名称
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * 标签定义提示词
+   * 
+   * @example
+   * 标签定义提示词
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @remarks
+   * 标签名称
+   * 
+   * @example
+   * 标签名称
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResultFilterResults extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  hit?: boolean;
+  tagName?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hit: 'hit',
+      tagName: 'tagName',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hit: 'boolean',
+      tagName: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult extends $dara.Model {
+  filterResults?: RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResultFilterResults[];
+  static names(): { [key: string]: string } {
+    return {
+      filterResults: 'filterResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterResults: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResultFilterResults },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filterResults)) {
+      $dara.Model.validateArray(this.filterResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyPayloadOutput extends $dara.Model {
+  filterResult?: RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterResult: 'filterResult',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterResult: RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult,
+      text: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filterResult && typeof (this.filterResult as any).validate === 'function') {
+      (this.filterResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBodyPayload extends $dara.Model {
+  output?: RunEnterpriseVocAnalysisResponseBodyPayloadOutput;
+  usage?: RunEnterpriseVocAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunEnterpriseVocAnalysisResponseBodyPayloadOutput,
+      usage: RunEnterpriseVocAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
     }
     super.validate();
   }
@@ -4957,6 +5497,127 @@ export class RunVideoAnalysisResponseBodyPayload extends $dara.Model {
   }
 }
 
+export class SubmitEnterpriseVocAnalysisTaskRequestContents extends $dara.Model {
+  /**
+   * @example
+   * id-xxxxx
+   */
+  id?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestFilterTags extends $dara.Model {
+  tagDefinePrompt?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestTags extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * a0cc71ec-fe07-47e5-bf12-6e1c46081c98
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTagMiningAnalysisTaskRequestTags extends $dara.Model {
   /**
    * @example
@@ -5139,6 +5800,297 @@ export class SubmitVideoAnalysisTaskResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelAsyncTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelAsyncTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * NoPermission
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * 403
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelAsyncTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelAsyncTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelAsyncTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdRequest extends $dara.Model {
+  categories?: string[];
+  category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'categories',
+      category: 'category',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdShrinkRequest extends $dara.Model {
+  categoriesShrink?: string;
+  category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoriesShrink: 'categories',
+      category: 'category',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoriesShrink: 'string',
+      category: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  code?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.xlsx
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportAnalysisTagDetailByTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportAnalysisTagDetailByTaskIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -5464,6 +6416,128 @@ export class GenerateOutputFormatResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateOutputFormatResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * a3d1c2ac-f086-4a21-9069-f5631542f5a2
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * NoPermission
+   */
+  code?: string;
+  data?: GetEnterpriseVocAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 403
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetEnterpriseVocAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEnterpriseVocAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEnterpriseVocAnalysisTaskResponseBody,
     };
   }
 
@@ -5990,6 +7064,243 @@ export class ListHotTopicSummariesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListHotTopicSummariesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 需要进行VOC分析的文本内容（content、contents、url、fileKey 四选一。优先级从小到大）
+   * 
+   * @example
+   * 这是一段需要分析的文本内容
+   */
+  content?: string;
+  extraInfo?: string;
+  /**
+   * @remarks
+   * 过滤标签，用于筛选符合条件的内容。
+   */
+  filterTags?: RunEnterpriseVocAnalysisRequestFilterTags[];
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @remarks
+   * 指定返回结果的格式，支持json或text
+   * 
+   * @example
+   * 按照如下格式输出：{"text1": "xxxx", "text2": "xxxx"}
+   */
+  outputFormat?: string;
+  /**
+   * @remarks
+   * 业务标签体系，用于对文本内容进行分类和分析。
+   */
+  tags?: RunEnterpriseVocAnalysisRequestTags[];
+  /**
+   * @example
+   * 你是一名经验丰富的数据分析师，擅长从文本评论中提取结构化信息。你需要从用户评论列表中识别和提取出与以下四个维度相关的关键词和短语：
+   *             
+   *             索引：输入评论JSON数组中的索引（从零开始）表示针对该条索引抽取的维度。
+   *             购买动机：描述用户购买产品的原因、需求或驱动力的关键词或短语。
+   *             未满足需求点：用户在使用产品过程中提到的未满足需求或问题的关键词或短语。
+   *             使用场景：用户提到的具体使用场景、使用方式或环境的关键词或短语。
+   *             正负面观点：明确表示用户对产品或服务的正面或负面看法的关键词或短语。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      extraInfo: 'extraInfo',
+      filterTags: 'filterTags',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      extraInfo: 'string',
+      filterTags: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisRequestFilterTags },
+      modelId: 'string',
+      outputFormat: 'string',
+      tags: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisRequestTags },
+      taskDescription: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filterTags)) {
+      $dara.Model.validateArray(this.filterTags);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 需要进行VOC分析的文本内容（content、contents、url、fileKey 四选一。优先级从小到大）
+   * 
+   * @example
+   * 这是一段需要分析的文本内容
+   */
+  content?: string;
+  extraInfo?: string;
+  /**
+   * @remarks
+   * 过滤标签，用于筛选符合条件的内容。
+   */
+  filterTagsShrink?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @remarks
+   * 指定返回结果的格式，支持json或text
+   * 
+   * @example
+   * 按照如下格式输出：{"text1": "xxxx", "text2": "xxxx"}
+   */
+  outputFormat?: string;
+  /**
+   * @remarks
+   * 业务标签体系，用于对文本内容进行分类和分析。
+   */
+  tagsShrink?: string;
+  /**
+   * @example
+   * 你是一名经验丰富的数据分析师，擅长从文本评论中提取结构化信息。你需要从用户评论列表中识别和提取出与以下四个维度相关的关键词和短语：
+   *             
+   *             索引：输入评论JSON数组中的索引（从零开始）表示针对该条索引抽取的维度。
+   *             购买动机：描述用户购买产品的原因、需求或驱动力的关键词或短语。
+   *             未满足需求点：用户在使用产品过程中提到的未满足需求或问题的关键词或短语。
+   *             使用场景：用户提到的具体使用场景、使用方式或环境的关键词或短语。
+   *             正负面观点：明确表示用户对产品或服务的正面或负面看法的关键词或短语。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      extraInfo: 'extraInfo',
+      filterTagsShrink: 'filterTags',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      extraInfo: 'string',
+      filterTagsShrink: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponseBody extends $dara.Model {
+  header?: RunEnterpriseVocAnalysisResponseBodyHeader;
+  payload?: RunEnterpriseVocAnalysisResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 49483FFC-0CB9-5163-8D3E-234E276E6DA8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunEnterpriseVocAnalysisResponseBodyHeader,
+      payload: RunEnterpriseVocAnalysisResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEnterpriseVocAnalysisResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunEnterpriseVocAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunEnterpriseVocAnalysisResponseBody,
     };
   }
 
@@ -8060,6 +9371,228 @@ export class RunVideoAnalysisResponse extends $dara.Model {
   }
 }
 
+export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
+  contents?: SubmitEnterpriseVocAnalysisTaskRequestContents[];
+  extraInfo?: string;
+  /**
+   * @example
+   * oss://default/aimiaobi-service-prod/aimiaobi/temp/public/government_service_experience_feedback_summary.txt
+   */
+  fileKey?: string;
+  filterTags?: SubmitEnterpriseVocAnalysisTaskRequestFilterTags[];
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  outputFormat?: string;
+  tags?: SubmitEnterpriseVocAnalysisTaskRequestTags[];
+  taskDescription?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.txt
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'contents',
+      extraInfo: 'extraInfo',
+      fileKey: 'fileKey',
+      filterTags: 'filterTags',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContents },
+      extraInfo: 'string',
+      fileKey: 'string',
+      filterTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestFilterTags },
+      modelId: 'string',
+      outputFormat: 'string',
+      tags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestTags },
+      taskDescription: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contents)) {
+      $dara.Model.validateArray(this.contents);
+    }
+    if(Array.isArray(this.filterTags)) {
+      $dara.Model.validateArray(this.filterTags);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
+  contentsShrink?: string;
+  extraInfo?: string;
+  /**
+   * @example
+   * oss://default/aimiaobi-service-prod/aimiaobi/temp/public/government_service_experience_feedback_summary.txt
+   */
+  fileKey?: string;
+  filterTagsShrink?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  outputFormat?: string;
+  tagsShrink?: string;
+  taskDescription?: string;
+  /**
+   * @example
+   * http://www.example.com/xxxx.txt
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentsShrink: 'contents',
+      extraInfo: 'extraInfo',
+      fileKey: 'fileKey',
+      filterTagsShrink: 'filterTags',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentsShrink: 'string',
+      extraInfo: 'string',
+      fileKey: 'string',
+      filterTagsShrink: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * NoPermission
+   */
+  code?: string;
+  data?: SubmitEnterpriseVocAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 403
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitEnterpriseVocAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitEnterpriseVocAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitEnterpriseVocAnalysisTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTagMiningAnalysisTaskRequest extends $dara.Model {
   apiKey?: string;
   /**
@@ -8783,6 +10316,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消异步任务
+   * 
+   * @param request - CancelAsyncTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAsyncTaskResponse
+   */
+  async cancelAsyncTaskWithOptions(workspaceId: string, request: CancelAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CancelAsyncTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAsyncTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/cancelAsyncTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
+  }
+
+  /**
+   * 取消异步任务
+   * 
+   * @param request - CancelAsyncTaskRequest
+   * @returns CancelAsyncTaskResponse
+   */
+  async cancelAsyncTask(workspaceId: string, request: CancelAsyncTaskRequest): Promise<CancelAsyncTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelAsyncTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 导出挖掘任务明细
+   * 
+   * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportAnalysisTagDetailByTaskIdResponse
+   */
+  async exportAnalysisTagDetailByTaskIdWithOptions(workspaceId: string, tmpReq: ExportAnalysisTagDetailByTaskIdRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ExportAnalysisTagDetailByTaskIdResponse> {
+    tmpReq.validate();
+    let request = new ExportAnalysisTagDetailByTaskIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "categories", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoriesShrink)) {
+      body["categories"] = request.categoriesShrink;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportAnalysisTagDetailByTaskId",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/exportAnalysisTagDetailByTaskId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ExportAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ExportAnalysisTagDetailByTaskIdResponse({}));
+  }
+
+  /**
+   * 导出挖掘任务明细
+   * 
+   * @param request - ExportAnalysisTagDetailByTaskIdRequest
+   * @returns ExportAnalysisTagDetailByTaskIdResponse
+   */
+  async exportAnalysisTagDetailByTaskId(workspaceId: string, request: ExportAnalysisTagDetailByTaskIdRequest): Promise<ExportAnalysisTagDetailByTaskIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.exportAnalysisTagDetailByTaskIdWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 新闻播报-抽取分类获取播报热点
    * 
    * @param request - GenerateBroadcastNewsRequest
@@ -8812,12 +10449,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateBroadcastNewsResponse>(await this.callApi(params, req, runtime), new GenerateBroadcastNewsResponse({}));
-    } else {
-      return $dara.cast<GenerateBroadcastNewsResponse>(await this.execute(params, req, runtime), new GenerateBroadcastNewsResponse({}));
-    }
-
+    return $dara.cast<GenerateBroadcastNewsResponse>(await this.callApi(params, req, runtime), new GenerateBroadcastNewsResponse({}));
   }
 
   /**
@@ -8884,12 +10516,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateOutputFormatResponse>(await this.callApi(params, req, runtime), new GenerateOutputFormatResponse({}));
-    } else {
-      return $dara.cast<GenerateOutputFormatResponse>(await this.execute(params, req, runtime), new GenerateOutputFormatResponse({}));
-    }
-
+    return $dara.cast<GenerateOutputFormatResponse>(await this.callApi(params, req, runtime), new GenerateOutputFormatResponse({}));
   }
 
   /**
@@ -8902,6 +10529,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取企业VOC分析任务结果
+   * 
+   * @param request - GetEnterpriseVocAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEnterpriseVocAnalysisTaskResponse
+   */
+  async getEnterpriseVocAnalysisTaskWithOptions(workspaceId: string, request: GetEnterpriseVocAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetEnterpriseVocAnalysisTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEnterpriseVocAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getEnterpriseVocAnalysisTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 获取企业VOC分析任务结果
+   * 
+   * @param request - GetEnterpriseVocAnalysisTaskRequest
+   * @returns GetEnterpriseVocAnalysisTaskResponse
+   */
+  async getEnterpriseVocAnalysisTask(workspaceId: string, request: GetEnterpriseVocAnalysisTaskRequest): Promise<GetEnterpriseVocAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -8934,12 +10606,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTagMiningAnalysisTaskResponse({}));
-    } else {
-      return $dara.cast<GetTagMiningAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetTagMiningAnalysisTaskResponse({}));
-    }
-
+    return $dara.cast<GetTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTagMiningAnalysisTaskResponse({}));
   }
 
   /**
@@ -8976,12 +10643,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisConfigResponse({}));
-    } else {
-      return $dara.cast<GetVideoAnalysisConfigResponse>(await this.execute(params, req, runtime), new GetVideoAnalysisConfigResponse({}));
-    }
-
+    return $dara.cast<GetVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisConfigResponse({}));
   }
 
   /**
@@ -9024,12 +10686,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisTaskResponse({}));
-    } else {
-      return $dara.cast<GetVideoAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetVideoAnalysisTaskResponse({}));
-    }
-
+    return $dara.cast<GetVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetVideoAnalysisTaskResponse({}));
   }
 
   /**
@@ -9090,12 +10747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListHotTopicSummariesResponse>(await this.callApi(params, req, runtime), new ListHotTopicSummariesResponse({}));
-    } else {
-      return $dara.cast<ListHotTopicSummariesResponse>(await this.execute(params, req, runtime), new ListHotTopicSummariesResponse({}));
-    }
-
+    return $dara.cast<ListHotTopicSummariesResponse>(await this.callApi(params, req, runtime), new ListHotTopicSummariesResponse({}));
   }
 
   /**
@@ -9108,6 +10760,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 企业VOC分析
+   * 
+   * @param tmpReq - RunEnterpriseVocAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunEnterpriseVocAnalysisResponse
+   */
+  async runEnterpriseVocAnalysisWithOptions(workspaceId: string, tmpReq: RunEnterpriseVocAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunEnterpriseVocAnalysisResponse> {
+    tmpReq.validate();
+    let request = new RunEnterpriseVocAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filterTags)) {
+      request.filterTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterTags, "filterTags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.filterTagsShrink)) {
+      body["filterTags"] = request.filterTagsShrink;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunEnterpriseVocAnalysis",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runEnterpriseVocAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RunEnterpriseVocAnalysisResponse>(await this.callApi(params, req, runtime), new RunEnterpriseVocAnalysisResponse({}));
+  }
+
+  /**
+   * 企业VOC分析
+   * 
+   * @param request - RunEnterpriseVocAnalysisRequest
+   * @returns RunEnterpriseVocAnalysisResponse
+   */
+  async runEnterpriseVocAnalysis(workspaceId: string, request: RunEnterpriseVocAnalysisRequest): Promise<RunEnterpriseVocAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runEnterpriseVocAnalysisWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -9202,12 +10933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunHotTopicChatResponse>(await this.callApi(params, req, runtime), new RunHotTopicChatResponse({}));
-    } else {
-      return $dara.cast<RunHotTopicChatResponse>(await this.execute(params, req, runtime), new RunHotTopicChatResponse({}));
-    }
-
+    return $dara.cast<RunHotTopicChatResponse>(await this.callApi(params, req, runtime), new RunHotTopicChatResponse({}));
   }
 
   /**
@@ -9270,12 +10996,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunHotTopicSummaryResponse>(await this.callApi(params, req, runtime), new RunHotTopicSummaryResponse({}));
-    } else {
-      return $dara.cast<RunHotTopicSummaryResponse>(await this.execute(params, req, runtime), new RunHotTopicSummaryResponse({}));
-    }
-
+    return $dara.cast<RunHotTopicSummaryResponse>(await this.callApi(params, req, runtime), new RunHotTopicSummaryResponse({}));
   }
 
   /**
@@ -9338,12 +11059,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunMarketingInformationExtractResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationExtractResponse({}));
-    } else {
-      return $dara.cast<RunMarketingInformationExtractResponse>(await this.execute(params, req, runtime), new RunMarketingInformationExtractResponse({}));
-    }
-
+    return $dara.cast<RunMarketingInformationExtractResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationExtractResponse({}));
   }
 
   /**
@@ -9412,12 +11128,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunMarketingInformationWritingResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationWritingResponse({}));
-    } else {
-      return $dara.cast<RunMarketingInformationWritingResponse>(await this.execute(params, req, runtime), new RunMarketingInformationWritingResponse({}));
-    }
-
+    return $dara.cast<RunMarketingInformationWritingResponse>(await this.callApi(params, req, runtime), new RunMarketingInformationWritingResponse({}));
   }
 
   /**
@@ -9492,12 +11203,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunNetworkContentAuditResponse>(await this.callApi(params, req, runtime), new RunNetworkContentAuditResponse({}));
-    } else {
-      return $dara.cast<RunNetworkContentAuditResponse>(await this.execute(params, req, runtime), new RunNetworkContentAuditResponse({}));
-    }
-
+    return $dara.cast<RunNetworkContentAuditResponse>(await this.callApi(params, req, runtime), new RunNetworkContentAuditResponse({}));
   }
 
   /**
@@ -9546,12 +11252,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunScriptChatResponse>(await this.callApi(params, req, runtime), new RunScriptChatResponse({}));
-    } else {
-      return $dara.cast<RunScriptChatResponse>(await this.execute(params, req, runtime), new RunScriptChatResponse({}));
-    }
-
+    return $dara.cast<RunScriptChatResponse>(await this.callApi(params, req, runtime), new RunScriptChatResponse({}));
   }
 
   /**
@@ -9604,12 +11305,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunScriptContinueResponse>(await this.callApi(params, req, runtime), new RunScriptContinueResponse({}));
-    } else {
-      return $dara.cast<RunScriptContinueResponse>(await this.execute(params, req, runtime), new RunScriptContinueResponse({}));
-    }
-
+    return $dara.cast<RunScriptContinueResponse>(await this.callApi(params, req, runtime), new RunScriptContinueResponse({}));
   }
 
   /**
@@ -9678,12 +11374,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunScriptPlanningResponse>(await this.callApi(params, req, runtime), new RunScriptPlanningResponse({}));
-    } else {
-      return $dara.cast<RunScriptPlanningResponse>(await this.execute(params, req, runtime), new RunScriptPlanningResponse({}));
-    }
-
+    return $dara.cast<RunScriptPlanningResponse>(await this.callApi(params, req, runtime), new RunScriptPlanningResponse({}));
   }
 
   /**
@@ -9728,12 +11419,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunScriptRefineResponse>(await this.callApi(params, req, runtime), new RunScriptRefineResponse({}));
-    } else {
-      return $dara.cast<RunScriptRefineResponse>(await this.execute(params, req, runtime), new RunScriptRefineResponse({}));
-    }
-
+    return $dara.cast<RunScriptRefineResponse>(await this.callApi(params, req, runtime), new RunScriptRefineResponse({}));
   }
 
   /**
@@ -9808,12 +11494,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunStyleWritingResponse>(await this.callApi(params, req, runtime), new RunStyleWritingResponse({}));
-    } else {
-      return $dara.cast<RunStyleWritingResponse>(await this.execute(params, req, runtime), new RunStyleWritingResponse({}));
-    }
-
+    return $dara.cast<RunStyleWritingResponse>(await this.callApi(params, req, runtime), new RunStyleWritingResponse({}));
   }
 
   /**
@@ -9892,12 +11573,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunTagMiningAnalysisResponse>(await this.callApi(params, req, runtime), new RunTagMiningAnalysisResponse({}));
-    } else {
-      return $dara.cast<RunTagMiningAnalysisResponse>(await this.execute(params, req, runtime), new RunTagMiningAnalysisResponse({}));
-    }
-
+    return $dara.cast<RunTagMiningAnalysisResponse>(await this.callApi(params, req, runtime), new RunTagMiningAnalysisResponse({}));
   }
 
   /**
@@ -10036,12 +11712,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunVideoAnalysisResponse>(await this.callApi(params, req, runtime), new RunVideoAnalysisResponse({}));
-    } else {
-      return $dara.cast<RunVideoAnalysisResponse>(await this.execute(params, req, runtime), new RunVideoAnalysisResponse({}));
-    }
-
+    return $dara.cast<RunVideoAnalysisResponse>(await this.callApi(params, req, runtime), new RunVideoAnalysisResponse({}));
   }
 
   /**
@@ -10054,6 +11725,97 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runVideoAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 提交企业VOC异步任务
+   * 
+   * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitEnterpriseVocAnalysisTaskResponse
+   */
+  async submitEnterpriseVocAnalysisTaskWithOptions(workspaceId: string, tmpReq: SubmitEnterpriseVocAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitEnterpriseVocAnalysisTaskResponse> {
+    tmpReq.validate();
+    let request = new SubmitEnterpriseVocAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contents)) {
+      request.contentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contents, "contents", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.filterTags)) {
+      request.filterTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterTags, "filterTags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentsShrink)) {
+      body["contents"] = request.contentsShrink;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.fileKey)) {
+      body["fileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.filterTagsShrink)) {
+      body["filterTags"] = request.filterTagsShrink;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitEnterpriseVocAnalysisTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/submitEnterpriseVocAnalysisTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 提交企业VOC异步任务
+   * 
+   * @param request - SubmitEnterpriseVocAnalysisTaskRequest
+   * @returns SubmitEnterpriseVocAnalysisTaskResponse
+   */
+  async submitEnterpriseVocAnalysisTask(workspaceId: string, request: SubmitEnterpriseVocAnalysisTaskRequest): Promise<SubmitEnterpriseVocAnalysisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitEnterpriseVocAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -10128,12 +11890,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTagMiningAnalysisTaskResponse({}));
-    } else {
-      return $dara.cast<SubmitTagMiningAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitTagMiningAnalysisTaskResponse({}));
-    }
-
+    return $dara.cast<SubmitTagMiningAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTagMiningAnalysisTaskResponse({}));
   }
 
   /**
@@ -10268,12 +12025,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitVideoAnalysisTaskResponse({}));
-    } else {
-      return $dara.cast<SubmitVideoAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitVideoAnalysisTaskResponse({}));
-    }
-
+    return $dara.cast<SubmitVideoAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitVideoAnalysisTaskResponse({}));
   }
 
   /**
@@ -10318,12 +12070,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new UpdateVideoAnalysisConfigResponse({}));
-    } else {
-      return $dara.cast<UpdateVideoAnalysisConfigResponse>(await this.execute(params, req, runtime), new UpdateVideoAnalysisConfigResponse({}));
-    }
-
+    return $dara.cast<UpdateVideoAnalysisConfigResponse>(await this.callApi(params, req, runtime), new UpdateVideoAnalysisConfigResponse({}));
   }
 
   /**
