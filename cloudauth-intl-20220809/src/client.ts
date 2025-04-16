@@ -212,6 +212,46 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
   }
 }
 
+export class DeepfakeDetectIntlResponseBodyResultObject extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  result?: string;
+  riskScore?: { [key: string]: string };
+  /**
+   * @example
+   * SuspectDeepForgery,SuspectWarterMark
+   */
+  riskTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+    };
+  }
+
+  validate() {
+    if(this.riskScore) {
+      $dara.Model.validateMap(this.riskScore);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVerifyResultResponseBodyResult extends $dara.Model {
   /**
    * @example
@@ -1069,6 +1109,156 @@ export class CheckVerifyLogResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckVerifyLogResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeDetectIntlRequest extends $dara.Model {
+  /**
+   * @example
+   * /9j/4AAQSkZJRgABAQAASxxxxxxx
+   */
+  faceBase64?: string;
+  /**
+   * @example
+   * IMAGE
+   */
+  faceInputType?: string;
+  /**
+   * @example
+   * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+   */
+  faceUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c******
+   */
+  merchantBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FACE_DEEPFAKE
+   */
+  productCode?: string;
+  /**
+   * @example
+   * 1234567890
+   */
+  sceneCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      faceBase64: 'FaceBase64',
+      faceInputType: 'FaceInputType',
+      faceUrl: 'FaceUrl',
+      merchantBizId: 'MerchantBizId',
+      productCode: 'ProductCode',
+      sceneCode: 'SceneCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceBase64: 'string',
+      faceInputType: 'string',
+      faceUrl: 'string',
+      merchantBizId: 'string',
+      productCode: 'string',
+      sceneCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeDetectIntlResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
+   */
+  requestId?: string;
+  resultObject?: DeepfakeDetectIntlResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: DeepfakeDetectIntlResponseBodyResultObject,
+    };
+  }
+
+  validate() {
+    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
+      (this.resultObject as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeepfakeDetectIntlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeepfakeDetectIntlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeepfakeDetectIntlResponseBody,
     };
   }
 
@@ -2997,6 +3187,70 @@ export default class Client extends OpenApi {
   async checkVerifyLog(request: CheckVerifyLogRequest): Promise<CheckVerifyLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkVerifyLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 人脸凭证核验
+   * 
+   * @param request - DeepfakeDetectIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeepfakeDetectIntlResponse
+   */
+  async deepfakeDetectIntlWithOptions(request: DeepfakeDetectIntlRequest, runtime: $dara.RuntimeOptions): Promise<DeepfakeDetectIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.faceInputType)) {
+      query["FaceInputType"] = request.faceInputType;
+    }
+
+    if (!$dara.isNull(request.faceUrl)) {
+      query["FaceUrl"] = request.faceUrl;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceBase64)) {
+      body["FaceBase64"] = request.faceBase64;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeepfakeDetectIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeepfakeDetectIntlResponse>(await this.callApi(params, req, runtime), new DeepfakeDetectIntlResponse({}));
+  }
+
+  /**
+   * 人脸凭证核验
+   * 
+   * @param request - DeepfakeDetectIntlRequest
+   * @returns DeepfakeDetectIntlResponse
+   */
+  async deepfakeDetectIntl(request: DeepfakeDetectIntlRequest): Promise<DeepfakeDetectIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deepfakeDetectIntlWithOptions(request, runtime);
   }
 
   /**
