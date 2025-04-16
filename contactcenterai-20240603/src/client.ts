@@ -5,6 +5,273 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class AnalyzeAudioSyncRequestCategoryTags extends $dara.Model {
+  tagDesc?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDesc: 'tagDesc',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDesc: 'string',
+      tagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestFieldsEnumValues extends $dara.Model {
+  desc?: string;
+  enumValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      enumValue: 'enumValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      enumValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestFields extends $dara.Model {
+  /**
+   * @example
+   * phoneNumber
+   */
+  code?: string;
+  desc?: string;
+  enumValues?: AnalyzeAudioSyncRequestFieldsEnumValues[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      desc: 'desc',
+      enumValues: 'enumValues',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      desc: 'string',
+      enumValues: { 'type': 'array', 'itemType': AnalyzeAudioSyncRequestFieldsEnumValues },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.enumValues)) {
+      $dara.Model.validateArray(this.enumValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestServiceInspectionInspectionContents extends $dara.Model {
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestServiceInspection extends $dara.Model {
+  inspectionContents?: AnalyzeAudioSyncRequestServiceInspectionInspectionContents[];
+  inspectionIntroduction?: string;
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'inspectionContents',
+      inspectionIntroduction: 'inspectionIntroduction',
+      sceneIntroduction: 'sceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': AnalyzeAudioSyncRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inspectionContents)) {
+      $dara.Model.validateArray(this.inspectionContents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestTranscription extends $dara.Model {
+  /**
+   * @example
+   * nls
+   */
+  asrModelCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  autoSplit?: number;
+  /**
+   * @example
+   * 1
+   */
+  clientChannel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sss.mp3
+   */
+  fileName?: string;
+  /**
+   * @example
+   * low
+   */
+  level?: string;
+  /**
+   * @example
+   * 1
+   */
+  serviceChannel?: number;
+  serviceChannelKeywords?: string[];
+  /**
+   * @example
+   * esnvknv*****skdnvjksd
+   */
+  vocabularyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://1111.com/sss.mp3
+   */
+  voiceFileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asrModelCode: 'asrModelCode',
+      autoSplit: 'autoSplit',
+      clientChannel: 'clientChannel',
+      fileName: 'fileName',
+      level: 'level',
+      serviceChannel: 'serviceChannel',
+      serviceChannelKeywords: 'serviceChannelKeywords',
+      vocabularyId: 'vocabularyId',
+      voiceFileUrl: 'voiceFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asrModelCode: 'string',
+      autoSplit: 'number',
+      clientChannel: 'number',
+      fileName: 'string',
+      level: 'string',
+      serviceChannel: 'number',
+      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
+      vocabularyId: 'string',
+      voiceFileUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceChannelKeywords)) {
+      $dara.Model.validateArray(this.serviceChannelKeywords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncRequestVariables extends $dara.Model {
+  /**
+   * @example
+   * name
+   */
+  variableCode?: string;
+  variableValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      variableCode: 'variableCode',
+      variableValue: 'variableValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variableCode: 'string',
+      variableValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AnalyzeConversationRequestCategoryTags extends $dara.Model {
   tagDesc?: string;
   tagName?: string;
@@ -1433,6 +1700,195 @@ export class UpdateVocabRequestWordWeightList extends $dara.Model {
   }
 }
 
+export class AnalyzeAudioSyncRequest extends $dara.Model {
+  categoryTags?: AnalyzeAudioSyncRequestCategoryTags[];
+  customPrompt?: string;
+  fields?: AnalyzeAudioSyncRequestFields[];
+  /**
+   * @example
+   * tyxmTurbo
+   */
+  modelCode?: string;
+  /**
+   * @example
+   * jsonObject
+   */
+  responseFormatType?: string;
+  resultTypes?: string[];
+  serviceInspection?: AnalyzeAudioSyncRequestServiceInspection;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  stream?: boolean;
+  templateIds?: string[];
+  transcription?: AnalyzeAudioSyncRequestTranscription;
+  variables?: AnalyzeAudioSyncRequestVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      categoryTags: 'categoryTags',
+      customPrompt: 'customPrompt',
+      fields: 'fields',
+      modelCode: 'modelCode',
+      responseFormatType: 'responseFormatType',
+      resultTypes: 'resultTypes',
+      serviceInspection: 'serviceInspection',
+      stream: 'stream',
+      templateIds: 'templateIds',
+      transcription: 'transcription',
+      variables: 'variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryTags: { 'type': 'array', 'itemType': AnalyzeAudioSyncRequestCategoryTags },
+      customPrompt: 'string',
+      fields: { 'type': 'array', 'itemType': AnalyzeAudioSyncRequestFields },
+      modelCode: 'string',
+      responseFormatType: 'string',
+      resultTypes: { 'type': 'array', 'itemType': 'string' },
+      serviceInspection: AnalyzeAudioSyncRequestServiceInspection,
+      stream: 'boolean',
+      templateIds: { 'type': 'array', 'itemType': 'string' },
+      transcription: AnalyzeAudioSyncRequestTranscription,
+      variables: { 'type': 'array', 'itemType': AnalyzeAudioSyncRequestVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categoryTags)) {
+      $dara.Model.validateArray(this.categoryTags);
+    }
+    if(Array.isArray(this.fields)) {
+      $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.resultTypes)) {
+      $dara.Model.validateArray(this.resultTypes);
+    }
+    if(this.serviceInspection && typeof (this.serviceInspection as any).validate === 'function') {
+      (this.serviceInspection as any).validate();
+    }
+    if(Array.isArray(this.templateIds)) {
+      $dara.Model.validateArray(this.templateIds);
+    }
+    if(this.transcription && typeof (this.transcription as any).validate === 'function') {
+      (this.transcription as any).validate();
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncResponseBody extends $dara.Model {
+  /**
+   * @example
+   * stop
+   */
+  finishReason?: string;
+  /**
+   * @example
+   * 1000
+   */
+  inputTokens?: string;
+  /**
+   * @example
+   * 2000
+   */
+  outputTokens?: string;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  text?: string;
+  /**
+   * @example
+   * 3000
+   */
+  totalTokens?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finishReason: 'finishReason',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      requestId: 'requestId',
+      success: 'success',
+      text: 'text',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishReason: 'string',
+      inputTokens: 'string',
+      outputTokens: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      text: 'string',
+      totalTokens: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeAudioSyncResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnalyzeAudioSyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AnalyzeAudioSyncResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AnalyzeConversationRequest extends $dara.Model {
   categoryTags?: AnalyzeConversationRequestCategoryTags[];
   customPrompt?: string;
@@ -1444,6 +1900,7 @@ export class AnalyzeConversationRequest extends $dara.Model {
    * tyxmTurbo
    */
   modelCode?: string;
+  responseFormatType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -1470,6 +1927,7 @@ export class AnalyzeConversationRequest extends $dara.Model {
       examples: 'examples',
       fields: 'fields',
       modelCode: 'modelCode',
+      responseFormatType: 'responseFormatType',
       resultTypes: 'resultTypes',
       sceneName: 'sceneName',
       serviceInspection: 'serviceInspection',
@@ -1488,6 +1946,7 @@ export class AnalyzeConversationRequest extends $dara.Model {
       examples: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamples },
       fields: { 'type': 'array', 'itemType': AnalyzeConversationRequestFields },
       modelCode: 'string',
+      responseFormatType: 'string',
       resultTypes: { 'type': 'array', 'itemType': 'string' },
       sceneName: 'string',
       serviceInspection: AnalyzeConversationRequestServiceInspection,
@@ -1631,6 +2090,7 @@ export class AnalyzeConversationResponse extends $dara.Model {
 
 export class AnalyzeImageRequest extends $dara.Model {
   imageUrls?: string[];
+  responseFormatType?: string;
   resultTypes?: string[];
   /**
    * @remarks
@@ -1643,6 +2103,7 @@ export class AnalyzeImageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       imageUrls: 'imageUrls',
+      responseFormatType: 'responseFormatType',
       resultTypes: 'resultTypes',
       stream: 'stream',
     };
@@ -1651,6 +2112,7 @@ export class AnalyzeImageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       imageUrls: { 'type': 'array', 'itemType': 'string' },
+      responseFormatType: 'string',
       resultTypes: { 'type': 'array', 'itemType': 'string' },
       stream: 'boolean',
     };
@@ -1785,6 +2247,7 @@ export class CreateTaskRequest extends $dara.Model {
    * tyxmTurbo
    */
   modelCode?: string;
+  responseFormatType?: string;
   resultTypes?: string[];
   serviceInspection?: CreateTaskRequestServiceInspection;
   /**
@@ -1806,6 +2269,7 @@ export class CreateTaskRequest extends $dara.Model {
       examples: 'examples',
       fields: 'fields',
       modelCode: 'modelCode',
+      responseFormatType: 'responseFormatType',
       resultTypes: 'resultTypes',
       serviceInspection: 'serviceInspection',
       taskType: 'taskType',
@@ -1823,6 +2287,7 @@ export class CreateTaskRequest extends $dara.Model {
       examples: CreateTaskRequestExamples,
       fields: { 'type': 'array', 'itemType': CreateTaskRequestFields },
       modelCode: 'string',
+      responseFormatType: 'string',
       resultTypes: { 'type': 'array', 'itemType': 'string' },
       serviceInspection: CreateTaskRequestServiceInspection,
       taskType: 'string',
@@ -2572,6 +3037,7 @@ export class RunCompletionRequest extends $dara.Model {
    * This parameter is required.
    */
   templateIds?: number[];
+  responseFormatType?: string;
   variables?: RunCompletionRequestVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -2581,6 +3047,7 @@ export class RunCompletionRequest extends $dara.Model {
       serviceInspection: 'ServiceInspection',
       stream: 'Stream',
       templateIds: 'TemplateIds',
+      responseFormatType: 'responseFormatType',
       variables: 'variables',
     };
   }
@@ -2593,6 +3060,7 @@ export class RunCompletionRequest extends $dara.Model {
       serviceInspection: RunCompletionRequestServiceInspection,
       stream: 'boolean',
       templateIds: { 'type': 'array', 'itemType': 'number' },
+      responseFormatType: 'string',
       variables: { 'type': 'array', 'itemType': RunCompletionRequestVariables },
     };
   }
@@ -2714,11 +3182,13 @@ export class RunCompletionMessageRequest extends $dara.Model {
    * false
    */
   stream?: boolean;
+  responseFormatType?: string;
   static names(): { [key: string]: string } {
     return {
       messages: 'Messages',
       modelCode: 'ModelCode',
       stream: 'Stream',
+      responseFormatType: 'responseFormatType',
     };
   }
 
@@ -2727,6 +3197,7 @@ export class RunCompletionMessageRequest extends $dara.Model {
       messages: { 'type': 'array', 'itemType': RunCompletionMessageRequestMessages },
       modelCode: 'string',
       stream: 'boolean',
+      responseFormatType: 'string',
     };
   }
 
@@ -2971,6 +3442,91 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 语音文件分析任务极速版
+   * 
+   * @param request - AnalyzeAudioSyncRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeAudioSyncResponse
+   */
+  async analyzeAudioSyncWithOptions(workspaceId: string, appId: string, request: AnalyzeAudioSyncRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AnalyzeAudioSyncResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryTags)) {
+      body["categoryTags"] = request.categoryTags;
+    }
+
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["modelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
+    if (!$dara.isNull(request.resultTypes)) {
+      body["resultTypes"] = request.resultTypes;
+    }
+
+    if (!$dara.isNull(request.serviceInspection)) {
+      body["serviceInspection"] = request.serviceInspection;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      body["templateIds"] = request.templateIds;
+    }
+
+    if (!$dara.isNull(request.transcription)) {
+      body["transcription"] = request.transcription;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeAudioSync",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/ccai/app/${$dara.URL.percentEncode(appId)}/analyzeAudioSync`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<AnalyzeAudioSyncResponse>(await this.callApi(params, req, runtime), new AnalyzeAudioSyncResponse({}));
+  }
+
+  /**
+   * 语音文件分析任务极速版
+   * 
+   * @param request - AnalyzeAudioSyncRequest
+   * @returns AnalyzeAudioSyncResponse
+   */
+  async analyzeAudioSync(workspaceId: string, appId: string, request: AnalyzeAudioSyncRequest): Promise<AnalyzeAudioSyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.analyzeAudioSyncWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
    * 根据类型调用大模型
    * 
    * @param request - AnalyzeConversationRequest
@@ -3003,6 +3559,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modelCode)) {
       body["modelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
     }
 
     if (!$dara.isNull(request.resultTypes)) {
@@ -3048,12 +3608,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
-    } else {
-      return $dara.cast<AnalyzeConversationResponse>(await this.execute(params, req, runtime), new AnalyzeConversationResponse({}));
-    }
-
+    return $dara.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
   }
 
   /**
@@ -3083,6 +3638,10 @@ export default class Client extends OpenApi {
       body["imageUrls"] = request.imageUrls;
     }
 
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
     if (!$dara.isNull(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
@@ -3106,12 +3665,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
-    } else {
-      return $dara.cast<AnalyzeImageResponse>(await this.execute(params, req, runtime), new AnalyzeImageResponse({}));
-    }
-
+    return $dara.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
   }
 
   /**
@@ -3161,6 +3715,10 @@ export default class Client extends OpenApi {
       body["modelCode"] = request.modelCode;
     }
 
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
     if (!$dara.isNull(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
@@ -3200,12 +3758,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
-    } else {
-      return $dara.cast<CreateTaskResponse>(await this.execute(params, req, runtime), new CreateTaskResponse({}));
-    }
-
+    return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
   /**
@@ -3266,12 +3819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateVocabResponse>(await this.callApi(params, req, runtime), new CreateVocabResponse({}));
-    } else {
-      return $dara.cast<CreateVocabResponse>(await this.execute(params, req, runtime), new CreateVocabResponse({}));
-    }
-
+    return $dara.cast<CreateVocabResponse>(await this.callApi(params, req, runtime), new CreateVocabResponse({}));
   }
 
   /**
@@ -3320,12 +3868,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteVocabResponse>(await this.callApi(params, req, runtime), new DeleteVocabResponse({}));
-    } else {
-      return $dara.cast<DeleteVocabResponse>(await this.execute(params, req, runtime), new DeleteVocabResponse({}));
-    }
-
+    return $dara.cast<DeleteVocabResponse>(await this.callApi(params, req, runtime), new DeleteVocabResponse({}));
   }
 
   /**
@@ -3380,12 +3923,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
-    } else {
-      return $dara.cast<GetTaskResultResponse>(await this.execute(params, req, runtime), new GetTaskResultResponse({}));
-    }
-
+    return $dara.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
   }
 
   /**
@@ -3434,12 +3972,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetVocabResponse>(await this.callApi(params, req, runtime), new GetVocabResponse({}));
-    } else {
-      return $dara.cast<GetVocabResponse>(await this.execute(params, req, runtime), new GetVocabResponse({}));
-    }
-
+    return $dara.cast<GetVocabResponse>(await this.callApi(params, req, runtime), new GetVocabResponse({}));
   }
 
   /**
@@ -3484,12 +4017,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListVocabResponse>(await this.callApi(params, req, runtime), new ListVocabResponse({}));
-    } else {
-      return $dara.cast<ListVocabResponse>(await this.execute(params, req, runtime), new ListVocabResponse({}));
-    }
-
+    return $dara.cast<ListVocabResponse>(await this.callApi(params, req, runtime), new ListVocabResponse({}));
   }
 
   /**
@@ -3539,6 +4067,10 @@ export default class Client extends OpenApi {
       body["TemplateIds"] = request.templateIds;
     }
 
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
     if (!$dara.isNull(request.variables)) {
       body["variables"] = request.variables;
     }
@@ -3558,12 +4090,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
-    } else {
-      return $dara.cast<RunCompletionResponse>(await this.execute(params, req, runtime), new RunCompletionResponse({}));
-    }
-
+    return $dara.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
   }
 
   /**
@@ -3601,6 +4128,10 @@ export default class Client extends OpenApi {
       body["Stream"] = request.stream;
     }
 
+    if (!$dara.isNull(request.responseFormatType)) {
+      body["responseFormatType"] = request.responseFormatType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -3616,12 +4147,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
-    } else {
-      return $dara.cast<RunCompletionMessageResponse>(await this.execute(params, req, runtime), new RunCompletionMessageResponse({}));
-    }
-
+    return $dara.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
   }
 
   /**
@@ -3682,12 +4208,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateVocabResponse>(await this.callApi(params, req, runtime), new UpdateVocabResponse({}));
-    } else {
-      return $dara.cast<UpdateVocabResponse>(await this.execute(params, req, runtime), new UpdateVocabResponse({}));
-    }
-
+    return $dara.cast<UpdateVocabResponse>(await this.callApi(params, req, runtime), new UpdateVocabResponse({}));
   }
 
   /**
