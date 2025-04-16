@@ -1717,13 +1717,6 @@ export class DescribeClusterResponseBodyComponents extends $dara.Model {
 }
 
 export class DescribeClusterResponseBodyNetworks extends $dara.Model {
-  /**
-   * @remarks
-   * VPC Segment ID
-   * 
-   * @example
-   * vpd-iqd7xunc
-   */
   vpdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4968,7 +4961,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
    * @example
    * 5.8G
    */
-  releaseFileSize?: number;
+  releaseFileSize?: string;
   /**
    * @remarks
    * image type
@@ -5002,7 +4995,7 @@ export class ListImagesResponseBodyImages extends $dara.Model {
       nodeCount: 'number',
       platform: 'string',
       releaseFileMd5: 'string',
-      releaseFileSize: 'number',
+      releaseFileSize: 'string',
       type: 'string',
     };
   }
@@ -8131,7 +8124,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
    * @remarks
    * Network Information
    */
-  networks?: DescribeClusterResponseBodyNetworks[];
+  networks?: DescribeClusterResponseBodyNetworks;
   /**
    * @remarks
    * Number of Nodes
@@ -8237,7 +8230,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
       computingIpVersion: 'string',
       createTime: 'string',
       hpnZone: 'string',
-      networks: { 'type': 'array', 'itemType': DescribeClusterResponseBodyNetworks },
+      networks: DescribeClusterResponseBodyNetworks,
       nodeCount: 'number',
       nodeGroupCount: 'number',
       openEniJumboFrame: 'string',
@@ -8254,8 +8247,8 @@ export class DescribeClusterResponseBody extends $dara.Model {
     if(Array.isArray(this.components)) {
       $dara.Model.validateArray(this.components);
     }
-    if(Array.isArray(this.networks)) {
-      $dara.Model.validateArray(this.networks);
+    if(this.networks && typeof (this.networks as any).validate === 'function') {
+      (this.networks as any).validate();
     }
     super.validate();
   }
