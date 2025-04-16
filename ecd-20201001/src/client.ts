@@ -5,6 +5,44 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class CreateMcpSessionResponseBodyData extends $dara.Model {
+  appInstanceId?: string;
+  errMsg?: string;
+  resourceId?: string;
+  resourceUrl?: string;
+  sessionId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceId: 'AppInstanceId',
+      errMsg: 'ErrMsg',
+      resourceId: 'ResourceId',
+      resourceUrl: 'ResourceUrl',
+      sessionId: 'SessionId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceId: 'string',
+      errMsg: 'string',
+      resourceId: 'string',
+      resourceUrl: 'string',
+      sessionId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   diskId?: string;
   diskSize?: number;
@@ -208,6 +246,251 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
     }
     if(Array.isArray(this.dnsAddress)) {
       $dara.Model.validateArray(this.dnsAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMcpResourceResponseBodyData extends $dara.Model {
+  resourceUrl?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceUrl: 'ResourceUrl',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceUrl: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalMcpToolRequest extends $dara.Model {
+  args?: string;
+  authorization?: string;
+  externalUserId?: string;
+  name?: string;
+  server?: string;
+  sessionId?: string;
+  tool?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      authorization: 'Authorization',
+      externalUserId: 'ExternalUserId',
+      name: 'Name',
+      server: 'Server',
+      sessionId: 'SessionId',
+      tool: 'Tool',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      authorization: 'string',
+      externalUserId: 'string',
+      name: 'string',
+      server: 'string',
+      sessionId: 'string',
+      tool: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalMcpToolResponseBody extends $dara.Model {
+  code?: string;
+  data?: any;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'any',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CalMcpToolResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CalMcpToolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CalMcpToolResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMcpSessionRequest extends $dara.Model {
+  authorization?: string;
+  externalUserId?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      externalUserId: 'ExternalUserId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      externalUserId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMcpSessionResponseBody extends $dara.Model {
+  code?: string;
+  data?: CreateMcpSessionResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateMcpSessionResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMcpSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMcpSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMcpSessionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
@@ -571,6 +854,204 @@ export class GetConnectionTicketResponse extends $dara.Model {
   }
 }
 
+export class GetMcpResourceRequest extends $dara.Model {
+  authorization?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMcpResourceResponseBody extends $dara.Model {
+  code?: string;
+  data?: GetMcpResourceResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMcpResourceResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMcpResourceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMcpResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMcpResourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMcpToolsRequest extends $dara.Model {
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMcpToolsResponseBody extends $dara.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMcpToolsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMcpToolsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMcpToolsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RebootDesktopsRequest extends $dara.Model {
   clientOS?: string;
   clientVersion?: string;
@@ -654,6 +1135,102 @@ export class RebootDesktopsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebootDesktopsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseMcpSessionRequest extends $dara.Model {
+  authorization?: string;
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseMcpSessionResponseBody extends $dara.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseMcpSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseMcpSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseMcpSessionResponseBody,
     };
   }
 
@@ -899,6 +1476,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用mcp工具
+   * 
+   * @param request - CalMcpToolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CalMcpToolResponse
+   */
+  async calMcpToolWithOptions(request: CalMcpToolRequest, runtime: $dara.RuntimeOptions): Promise<CalMcpToolResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.args)) {
+      body["Args"] = request.args;
+    }
+
+    if (!$dara.isNull(request.authorization)) {
+      body["Authorization"] = request.authorization;
+    }
+
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.server)) {
+      body["Server"] = request.server;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.tool)) {
+      body["Tool"] = request.tool;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CalMcpTool",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CalMcpToolResponse>(await this.callApi(params, req, runtime), new CalMcpToolResponse({}));
+  }
+
+  /**
+   * 调用mcp工具
+   * 
+   * @param request - CalMcpToolRequest
+   * @returns CalMcpToolResponse
+   */
+  async calMcpTool(request: CalMcpToolRequest): Promise<CalMcpToolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.calMcpToolWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 mcp session
+   * 
+   * @param request - CreateMcpSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcpSessionResponse
+   */
+  async createMcpSessionWithOptions(request: CreateMcpSessionRequest, runtime: $dara.RuntimeOptions): Promise<CreateMcpSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorization)) {
+      body["Authorization"] = request.authorization;
+    }
+
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcpSession",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateMcpSessionResponse>(await this.callApi(params, req, runtime), new CreateMcpSessionResponse({}));
+  }
+
+  /**
+   * 创建 mcp session
+   * 
+   * @param request - CreateMcpSessionRequest
+   * @returns CreateMcpSessionResponse
+   */
+  async createMcpSession(request: CreateMcpSessionRequest): Promise<CreateMcpSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMcpSessionWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDesktopsResponse
@@ -1101,6 +1794,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetMcpResource
+   * 
+   * @param request - GetMcpResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcpResourceResponse
+   */
+  async getMcpResourceWithOptions(request: GetMcpResourceRequest, runtime: $dara.RuntimeOptions): Promise<GetMcpResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorization)) {
+      body["Authorization"] = request.authorization;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMcpResource",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetMcpResourceResponse>(await this.callApi(params, req, runtime), new GetMcpResourceResponse({}));
+  }
+
+  /**
+   * GetMcpResource
+   * 
+   * @param request - GetMcpResourceRequest
+   * @returns GetMcpResourceResponse
+   */
+  async getMcpResource(request: GetMcpResourceRequest): Promise<GetMcpResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMcpResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工具列表
+   * 
+   * @param request - ListMcpToolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpToolsResponse
+   */
+  async listMcpToolsWithOptions(request: ListMcpToolsRequest, runtime: $dara.RuntimeOptions): Promise<ListMcpToolsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorization)) {
+      body["Authorization"] = request.authorization;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpTools",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListMcpToolsResponse>(await this.callApi(params, req, runtime), new ListMcpToolsResponse({}));
+  }
+
+  /**
+   * 获取工具列表
+   * 
+   * @param request - ListMcpToolsRequest
+   * @returns ListMcpToolsResponse
+   */
+  async listMcpTools(request: ListMcpToolsRequest): Promise<ListMcpToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMcpToolsWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - RebootDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RebootDesktopsResponse
@@ -1148,6 +1929,52 @@ export default class Client extends OpenApi {
   async rebootDesktops(request: RebootDesktopsRequest): Promise<RebootDesktopsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebootDesktopsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 mcp session
+   * 
+   * @param request - ReleaseMcpSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseMcpSessionResponse
+   */
+  async releaseMcpSessionWithOptions(request: ReleaseMcpSessionRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseMcpSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorization)) {
+      body["Authorization"] = request.authorization;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseMcpSession",
+      version: "2020-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ReleaseMcpSessionResponse>(await this.callApi(params, req, runtime), new ReleaseMcpSessionResponse({}));
+  }
+
+  /**
+   * 创建 mcp session
+   * 
+   * @param request - ReleaseMcpSessionRequest
+   * @returns ReleaseMcpSessionResponse
+   */
+  async releaseMcpSession(request: ReleaseMcpSessionRequest): Promise<ReleaseMcpSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseMcpSessionWithOptions(request, runtime);
   }
 
   /**
