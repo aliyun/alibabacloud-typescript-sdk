@@ -4374,7 +4374,7 @@ export class CreateJobRequest extends $dara.Model {
   jobSpecs?: JobSpec[];
   /**
    * @remarks
-   * The job type. The value is case-sensitive. Valid values:
+   * The job type. The value is case-sensitive. The following job types are supported:
    * 
    * *   TFJob
    * *   PyTorchJob
@@ -4426,7 +4426,7 @@ export class CreateJobRequest extends $dara.Model {
    * The ID of the resource group. This parameter is optional.
    * 
    * *   If you leave this parameter empty, the job is submitted to a public resource group.
-   * *   If a resource quota is associated with the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+   * *   If a resource quota is bound to the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
    * 
    * @example
    * rs-xxx
@@ -6459,6 +6459,109 @@ export class GetPodLogsResponse extends $dara.Model {
   }
 }
 
+export class GetRayDashboardRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  isShared?: boolean;
+  /**
+   * @example
+   * some_token_value
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isShared: 'isShared',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isShared: 'boolean',
+      token: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRayDashboardResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  metricsEnabled?: string;
+  /**
+   * @example
+   * https://pre-pai-dlc-proxy-cn-hangzhou.aliyun.com/ray/dashboard/dlc1k7426goc7bvy
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricsEnabled: 'metricsEnabled',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricsEnabled: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRayDashboardResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRayDashboardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRayDashboardResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTensorboardRequest extends $dara.Model {
   /**
    * @remarks
@@ -7303,7 +7406,7 @@ export class ListJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The job type. You can query any job type. The default value null indicates any job type. Valid values:
+   * The job type. The default value null indicates any type. Valid values:
    * 
    * *   TFJob
    * *   PyTorchJob
@@ -7349,7 +7452,7 @@ export class ListJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of jobs per page.
    * 
    * @example
    * 50
@@ -7390,7 +7493,7 @@ export class ListJobsRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The sorting field in the returned job list. Valid values:
+   * The sorting field. Valid values:
    * 
    * *   DisplayName
    * *   JobType
@@ -7593,7 +7696,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The job type. You can query any job type. The default value null indicates any job type. Valid values:
+   * The job type. The default value null indicates any type. Valid values:
    * 
    * *   TFJob
    * *   PyTorchJob
@@ -7639,7 +7742,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of jobs per page.
    * 
    * @example
    * 50
@@ -7680,7 +7783,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The sorting field in the returned job list. Valid values:
+   * The sorting field. Valid values:
    * 
    * *   DisplayName
    * *   JobType
@@ -8239,8 +8342,7 @@ export class ListTensorboardsResponse extends $dara.Model {
 export class StartTensorboardRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace ID. 
-   * <props="china">For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * The workspace ID.
    * 
    * @example
    * 380
@@ -8957,12 +9059,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
-    } else {
-      return $dara.cast<CreateJobResponse>(await this.execute(params, req, runtime), new CreateJobResponse({}));
-    }
-
+    return $dara.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
   }
 
   /**
@@ -9086,12 +9183,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
-    } else {
-      return $dara.cast<CreateTensorboardResponse>(await this.execute(params, req, runtime), new CreateTensorboardResponse({}));
-    }
-
+    return $dara.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
   }
 
   /**
@@ -9128,12 +9220,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
-    } else {
-      return $dara.cast<DeleteJobResponse>(await this.execute(params, req, runtime), new DeleteJobResponse({}));
-    }
-
+    return $dara.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
   }
 
   /**
@@ -9176,12 +9263,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
-    } else {
-      return $dara.cast<DeleteTensorboardResponse>(await this.execute(params, req, runtime), new DeleteTensorboardResponse({}));
-    }
-
+    return $dara.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
   }
 
   /**
@@ -9226,12 +9308,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
-    } else {
-      return $dara.cast<GetJobResponse>(await this.execute(params, req, runtime), new GetJobResponse({}));
-    }
-
+    return $dara.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
   }
 
   /**
@@ -9284,12 +9361,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
-    } else {
-      return $dara.cast<GetJobEventsResponse>(await this.execute(params, req, runtime), new GetJobEventsResponse({}));
-    }
-
+    return $dara.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
   }
 
   /**
@@ -9350,12 +9422,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
-    } else {
-      return $dara.cast<GetJobMetricsResponse>(await this.execute(params, req, runtime), new GetJobMetricsResponse({}));
-    }
-
+    return $dara.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
   }
 
   /**
@@ -9408,12 +9475,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
-    } else {
-      return $dara.cast<GetJobSanityCheckResultResponse>(await this.execute(params, req, runtime), new GetJobSanityCheckResultResponse({}));
-    }
-
+    return $dara.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
   }
 
   /**
@@ -9470,12 +9532,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
-    } else {
-      return $dara.cast<GetPodEventsResponse>(await this.execute(params, req, runtime), new GetPodEventsResponse({}));
-    }
-
+    return $dara.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
   }
 
   /**
@@ -9536,12 +9593,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
-    } else {
-      return $dara.cast<GetPodLogsResponse>(await this.execute(params, req, runtime), new GetPodLogsResponse({}));
-    }
-
+    return $dara.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
   }
 
   /**
@@ -9554,6 +9606,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
+  }
+
+  /**
+   * 获取 Ray Dashboard 链接
+   * 
+   * @param request - GetRayDashboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRayDashboardResponse
+   */
+  async getRayDashboardWithOptions(jobId: string, request: GetRayDashboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetRayDashboardResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isShared)) {
+      query["isShared"] = request.isShared;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRayDashboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(jobId)}/rayDashboard`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetRayDashboardResponse>(await this.callApi(params, req, runtime), new GetRayDashboardResponse({}));
+  }
+
+  /**
+   * 获取 Ray Dashboard 链接
+   * 
+   * @param request - GetRayDashboardRequest
+   * @returns GetRayDashboardResponse
+   */
+  async getRayDashboard(jobId: string, request: GetRayDashboardRequest): Promise<GetRayDashboardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRayDashboardWithOptions(jobId, request, headers, runtime);
   }
 
   /**
@@ -9594,12 +9695,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
-    } else {
-      return $dara.cast<GetTensorboardResponse>(await this.execute(params, req, runtime), new GetTensorboardResponse({}));
-    }
-
+    return $dara.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
   }
 
   /**
@@ -9644,12 +9740,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
-    } else {
-      return $dara.cast<GetTensorboardSharedUrlResponse>(await this.execute(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
-    }
-
+    return $dara.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
   }
 
   /**
@@ -9702,12 +9793,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
-    } else {
-      return $dara.cast<GetTokenResponse>(await this.execute(params, req, runtime), new GetTokenResponse({}));
-    }
-
+    return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
   /**
@@ -9756,12 +9842,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
-    } else {
-      return $dara.cast<GetWebTerminalResponse>(await this.execute(params, req, runtime), new GetWebTerminalResponse({}));
-    }
-
+    return $dara.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
   }
 
   /**
@@ -9830,12 +9911,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
-    } else {
-      return $dara.cast<ListEcsSpecsResponse>(await this.execute(params, req, runtime), new ListEcsSpecsResponse({}));
-    }
-
+    return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
   /**
@@ -9880,12 +9956,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
-    } else {
-      return $dara.cast<ListJobSanityCheckResultsResponse>(await this.execute(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
-    }
-
+    return $dara.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
   }
 
   /**
@@ -10028,12 +10099,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
-    } else {
-      return $dara.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
-    }
-
+    return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
   /**
@@ -10154,12 +10220,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
-    } else {
-      return $dara.cast<ListTensorboardsResponse>(await this.execute(params, req, runtime), new ListTensorboardsResponse({}));
-    }
-
+    return $dara.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
   }
 
   /**
@@ -10204,12 +10265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
-    } else {
-      return $dara.cast<StartTensorboardResponse>(await this.execute(params, req, runtime), new StartTensorboardResponse({}));
-    }
-
+    return $dara.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
   }
 
   /**
@@ -10246,12 +10302,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
-    } else {
-      return $dara.cast<StopJobResponse>(await this.execute(params, req, runtime), new StopJobResponse({}));
-    }
-
+    return $dara.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
   }
 
   /**
@@ -10294,12 +10345,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
-    } else {
-      return $dara.cast<StopTensorboardResponse>(await this.execute(params, req, runtime), new StopTensorboardResponse({}));
-    }
-
+    return $dara.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
   }
 
   /**
@@ -10348,12 +10394,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
-    } else {
-      return $dara.cast<UpdateJobResponse>(await this.execute(params, req, runtime), new UpdateJobResponse({}));
-    }
-
+    return $dara.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
   }
 
   /**
@@ -10410,12 +10451,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
-    } else {
-      return $dara.cast<UpdateTensorboardResponse>(await this.execute(params, req, runtime), new UpdateTensorboardResponse({}));
-    }
-
+    return $dara.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
   }
 
   /**
