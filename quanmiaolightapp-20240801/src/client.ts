@@ -3059,6 +3059,7 @@ export class RunMarketingInformationExtractResponseBodyPayload extends $dara.Mod
 }
 
 export class RunMarketingInformationWritingResponseBodyHeader extends $dara.Model {
+  errorMessage?: string;
   /**
    * @example
    * result-generated
@@ -3087,6 +3088,7 @@ export class RunMarketingInformationWritingResponseBodyHeader extends $dara.Mode
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
+      errorMessage: 'errorMessage',
       event: 'event',
       eventInfo: 'eventInfo',
       requestId: 'requestId',
@@ -3098,6 +3100,7 @@ export class RunMarketingInformationWritingResponseBodyHeader extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      errorMessage: 'string',
       event: 'string',
       eventInfo: 'string',
       requestId: 'string',
@@ -7083,6 +7086,8 @@ export class ListHotTopicSummariesResponse extends $dara.Model {
 }
 
 export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
+  akProxy?: string;
+  apiKey?: string;
   /**
    * @remarks
    * 需要进行VOC分析的文本内容（content、contents、url、fileKey 四选一。优先级从小到大）
@@ -7128,6 +7133,8 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      akProxy: 'akProxy',
+      apiKey: 'apiKey',
       content: 'content',
       extraInfo: 'extraInfo',
       filterTags: 'filterTags',
@@ -7140,6 +7147,8 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      akProxy: 'string',
+      apiKey: 'string',
       content: 'string',
       extraInfo: 'string',
       filterTags: { 'type': 'array', 'itemType': RunEnterpriseVocAnalysisRequestFilterTags },
@@ -7166,6 +7175,8 @@ export class RunEnterpriseVocAnalysisRequest extends $dara.Model {
 }
 
 export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
+  akProxy?: string;
+  apiKey?: string;
   /**
    * @remarks
    * 需要进行VOC分析的文本内容（content、contents、url、fileKey 四选一。优先级从小到大）
@@ -7211,6 +7222,8 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      akProxy: 'akProxy',
+      apiKey: 'apiKey',
       content: 'content',
       extraInfo: 'extraInfo',
       filterTagsShrink: 'filterTags',
@@ -7223,6 +7236,8 @@ export class RunEnterpriseVocAnalysisShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      akProxy: 'string',
+      apiKey: 'string',
       content: 'string',
       extraInfo: 'string',
       filterTagsShrink: 'string',
@@ -7894,6 +7909,7 @@ export class RunMarketingInformationExtractResponse extends $dara.Model {
 }
 
 export class RunMarketingInformationWritingRequest extends $dara.Model {
+  apiKey?: string;
   customLimitation?: string;
   customPrompt?: string;
   inputExample?: string;
@@ -7908,6 +7924,7 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
   writingType?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       customLimitation: 'customLimitation',
       customPrompt: 'customPrompt',
       inputExample: 'inputExample',
@@ -7920,6 +7937,7 @@ export class RunMarketingInformationWritingRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       customLimitation: 'string',
       customPrompt: 'string',
       inputExample: 'string',
@@ -8014,6 +8032,7 @@ export class RunMarketingInformationWritingResponse extends $dara.Model {
 }
 
 export class RunNetworkContentAuditRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -8050,6 +8069,7 @@ export class RunNetworkContentAuditRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       content: 'content',
       extraInfo: 'extraInfo',
@@ -8062,6 +8082,7 @@ export class RunNetworkContentAuditRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       content: 'string',
       extraInfo: 'string',
@@ -8085,6 +8106,7 @@ export class RunNetworkContentAuditRequest extends $dara.Model {
 }
 
 export class RunNetworkContentAuditShrinkRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * clueMining
@@ -8121,6 +8143,7 @@ export class RunNetworkContentAuditShrinkRequest extends $dara.Model {
   taskDescription?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       businessType: 'businessType',
       content: 'content',
       extraInfo: 'extraInfo',
@@ -8133,6 +8156,7 @@ export class RunNetworkContentAuditShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       businessType: 'string',
       content: 'string',
       extraInfo: 'string',
@@ -9372,6 +9396,7 @@ export class RunVideoAnalysisResponse extends $dara.Model {
 }
 
 export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
+  apiKey?: string;
   contents?: SubmitEnterpriseVocAnalysisTaskRequestContents[];
   extraInfo?: string;
   /**
@@ -9395,6 +9420,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       contents: 'contents',
       extraInfo: 'extraInfo',
       fileKey: 'fileKey',
@@ -9409,6 +9435,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       contents: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContents },
       extraInfo: 'string',
       fileKey: 'string',
@@ -9440,6 +9467,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
 }
 
 export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
+  apiKey?: string;
   contentsShrink?: string;
   extraInfo?: string;
   /**
@@ -9463,6 +9491,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'apiKey',
       contentsShrink: 'contents',
       extraInfo: 'extraInfo',
       fileKey: 'fileKey',
@@ -9477,6 +9506,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       contentsShrink: 'string',
       extraInfo: 'string',
       fileKey: 'string',
@@ -10783,6 +10813,14 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.akProxy)) {
+      body["akProxy"] = request.akProxy;
+    }
+
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.content)) {
       body["content"] = request.content;
     }
@@ -11085,6 +11123,10 @@ export default class Client extends OpenApi {
   async runMarketingInformationWritingWithOptions(workspaceId: string, request: RunMarketingInformationWritingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunMarketingInformationWritingResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.customLimitation)) {
       body["customLimitation"] = request.customLimitation;
     }
@@ -11160,6 +11202,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       body["businessType"] = request.businessType;
     }
@@ -11752,6 +11798,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.contentsShrink)) {
       body["contents"] = request.contentsShrink;
     }
