@@ -17,12 +17,14 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
    * aps.ailyun.com/file/download?resourceId=1234&type=1
    */
   fileUrl?: string;
+  status?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       billMonth: 'BillMonth',
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      status: 'Status',
       type: 'Type',
     };
   }
@@ -32,6 +34,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
       billMonth: 'string',
       fileName: 'string',
       fileUrl: 'string',
+      status: 'string',
       type: 'string',
     };
   }
@@ -646,15 +649,33 @@ export class GetBillDetailFileListRequest extends $dara.Model {
    * 202502
    */
   billMonth?: string;
+  ossAccessKeyId?: string;
+  ossAccessKeySecret?: string;
+  ossBucketName?: string;
+  ossEndpoint?: string;
+  ossRegion?: string;
+  ossSecurityToken?: string;
   static names(): { [key: string]: string } {
     return {
       billMonth: 'BillMonth',
+      ossAccessKeyId: 'OssAccessKeyId',
+      ossAccessKeySecret: 'OssAccessKeySecret',
+      ossBucketName: 'OssBucketName',
+      ossEndpoint: 'OssEndpoint',
+      ossRegion: 'OssRegion',
+      ossSecurityToken: 'OssSecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       billMonth: 'string',
+      ossAccessKeyId: 'string',
+      ossAccessKeySecret: 'string',
+      ossBucketName: 'string',
+      ossEndpoint: 'string',
+      ossRegion: 'string',
+      ossSecurityToken: 'string',
     };
   }
 
@@ -2034,6 +2055,30 @@ export default class Client extends OpenApi {
       query["BillMonth"] = request.billMonth;
     }
 
+    if (!$dara.isNull(request.ossAccessKeyId)) {
+      query["OssAccessKeyId"] = request.ossAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.ossAccessKeySecret)) {
+      query["OssAccessKeySecret"] = request.ossAccessKeySecret;
+    }
+
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossEndpoint)) {
+      query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.ossRegion)) {
+      query["OssRegion"] = request.ossRegion;
+    }
+
+    if (!$dara.isNull(request.ossSecurityToken)) {
+      query["OssSecurityToken"] = request.ossSecurityToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2048,12 +2093,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetBillDetailFileListResponse>(await this.callApi(params, req, runtime), new GetBillDetailFileListResponse({}));
-    } else {
-      return $dara.cast<GetBillDetailFileListResponse>(await this.execute(params, req, runtime), new GetBillDetailFileListResponse({}));
-    }
-
+    return $dara.cast<GetBillDetailFileListResponse>(await this.callApi(params, req, runtime), new GetBillDetailFileListResponse({}));
   }
 
   /**
@@ -2095,12 +2135,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCommissionDetailFileListResponse>(await this.callApi(params, req, runtime), new GetCommissionDetailFileListResponse({}));
-    } else {
-      return $dara.cast<GetCommissionDetailFileListResponse>(await this.execute(params, req, runtime), new GetCommissionDetailFileListResponse({}));
-    }
-
+    return $dara.cast<GetCommissionDetailFileListResponse>(await this.callApi(params, req, runtime), new GetCommissionDetailFileListResponse({}));
   }
 
   /**
@@ -2216,12 +2251,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCustomerOrderListResponse>(await this.callApi(params, req, runtime), new GetCustomerOrderListResponse({}));
-    } else {
-      return $dara.cast<GetCustomerOrderListResponse>(await this.execute(params, req, runtime), new GetCustomerOrderListResponse({}));
-    }
-
+    return $dara.cast<GetCustomerOrderListResponse>(await this.callApi(params, req, runtime), new GetCustomerOrderListResponse({}));
   }
 
   /**
@@ -2263,12 +2293,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRenewalRateListResponse>(await this.callApi(params, req, runtime), new GetRenewalRateListResponse({}));
-    } else {
-      return $dara.cast<GetRenewalRateListResponse>(await this.execute(params, req, runtime), new GetRenewalRateListResponse({}));
-    }
-
+    return $dara.cast<GetRenewalRateListResponse>(await this.callApi(params, req, runtime), new GetRenewalRateListResponse({}));
   }
 
   /**
@@ -2322,12 +2347,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSubPartnerListResponse>(await this.callApi(params, req, runtime), new GetSubPartnerListResponse({}));
-    } else {
-      return $dara.cast<GetSubPartnerListResponse>(await this.execute(params, req, runtime), new GetSubPartnerListResponse({}));
-    }
-
+    return $dara.cast<GetSubPartnerListResponse>(await this.callApi(params, req, runtime), new GetSubPartnerListResponse({}));
   }
 
   /**
@@ -2439,12 +2459,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSubPartnerOrderListResponse>(await this.callApi(params, req, runtime), new GetSubPartnerOrderListResponse({}));
-    } else {
-      return $dara.cast<GetSubPartnerOrderListResponse>(await this.execute(params, req, runtime), new GetSubPartnerOrderListResponse({}));
-    }
-
+    return $dara.cast<GetSubPartnerOrderListResponse>(await this.callApi(params, req, runtime), new GetSubPartnerOrderListResponse({}));
   }
 
   /**
