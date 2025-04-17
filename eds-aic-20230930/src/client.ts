@@ -3423,6 +3423,38 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy exten
   }
 }
 
+export class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources extends $dara.Model {
+  androidInstanceGroupIds?: string[];
+  cloudPhoneMatrixIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      androidInstanceGroupIds: 'AndroidInstanceGroupIds',
+      cloudPhoneMatrixIds: 'CloudPhoneMatrixIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      androidInstanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      cloudPhoneMatrixIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.androidInstanceGroupIds)) {
+      $dara.Model.validateArray(this.androidInstanceGroupIds);
+    }
+    if(Array.isArray(this.cloudPhoneMatrixIds)) {
+      $dara.Model.validateArray(this.cloudPhoneMatrixIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   /**
    * @remarks
@@ -3522,6 +3554,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * Default Policy
    */
   policyGroupName?: string;
+  policyRelatedResources?: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources;
   /**
    * @remarks
    * The height of the resolution.
@@ -3549,6 +3582,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
       netRedirectPolicy: 'NetRedirectPolicy',
       policyGroupId: 'PolicyGroupId',
       policyGroupName: 'PolicyGroupName',
+      policyRelatedResources: 'PolicyRelatedResources',
       sessionResolutionHeight: 'SessionResolutionHeight',
       sessionResolutionWidth: 'SessionResolutionWidth',
     };
@@ -3565,6 +3599,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
       netRedirectPolicy: ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy,
       policyGroupId: 'string',
       policyGroupName: 'string',
+      policyRelatedResources: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources,
       sessionResolutionHeight: 'number',
       sessionResolutionWidth: 'number',
     };
@@ -3573,6 +3608,9 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   validate() {
     if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
       (this.netRedirectPolicy as any).validate();
+    }
+    if(this.policyRelatedResources && typeof (this.policyRelatedResources as any).validate === 'function') {
+      (this.policyRelatedResources as any).validate();
     }
     super.validate();
   }
@@ -7568,6 +7606,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * name
    */
   androidInstanceName?: string;
+  authorizedUserId?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the regions where Cloud Phone is supported.
@@ -7699,6 +7738,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       androidInstanceName: 'AndroidInstanceName',
+      authorizedUserId: 'AuthorizedUserId',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       instanceGroupId: 'InstanceGroupId',
@@ -7720,6 +7760,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       androidInstanceName: 'string',
+      authorizedUserId: 'string',
       bizRegionId: 'string',
       chargeType: 'string',
       instanceGroupId: 'string',
@@ -15409,6 +15450,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.androidInstanceName)) {
       query["AndroidInstanceName"] = request.androidInstanceName;
+    }
+
+    if (!$dara.isNull(request.authorizedUserId)) {
+      query["AuthorizedUserId"] = request.authorizedUserId;
     }
 
     if (!$dara.isNull(request.bizRegionId)) {
