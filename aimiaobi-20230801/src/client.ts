@@ -42346,6 +42346,7 @@ export class SubmitDocClusterTaskResponse extends $dara.Model {
 }
 
 export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -42392,6 +42393,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'ApiKey',
       contentTags: 'ContentTags',
       contents: 'Contents',
       fileKey: 'FileKey',
@@ -42407,6 +42409,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       contentTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContentTags },
       contents: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContents },
       fileKey: 'string',
@@ -42439,6 +42442,7 @@ export class SubmitEnterpriseVocAnalysisTaskRequest extends $dara.Model {
 }
 
 export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -42485,6 +42489,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'ApiKey',
       contentTagsShrink: 'ContentTags',
       contentsShrink: 'Contents',
       fileKey: 'FileKey',
@@ -42500,6 +42505,7 @@ export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       contentTagsShrink: 'string',
       contentsShrink: 'string',
       fileKey: 'string',
@@ -51885,6 +51891,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.contentTagsShrink)) {
       body["ContentTags"] = request.contentTagsShrink;
     }
