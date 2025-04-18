@@ -8054,6 +8054,7 @@ export class ListFunctionsRequest extends $dara.Model {
    * v3
    */
   fcVersion?: string;
+  functionName?: string;
   /**
    * @remarks
    * The GPU type of the functions to retrieve.
@@ -8103,6 +8104,7 @@ export class ListFunctionsRequest extends $dara.Model {
     return {
       description: 'description',
       fcVersion: 'fcVersion',
+      functionName: 'functionName',
       gpuType: 'gpuType',
       limit: 'limit',
       nextToken: 'nextToken',
@@ -8116,6 +8118,7 @@ export class ListFunctionsRequest extends $dara.Model {
     return {
       description: 'string',
       fcVersion: 'string',
+      functionName: 'string',
       gpuType: 'string',
       limit: 'number',
       nextToken: 'string',
@@ -8159,6 +8162,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
    * v3
    */
   fcVersion?: string;
+  functionName?: string;
   /**
    * @remarks
    * The GPU type of the functions to retrieve.
@@ -8208,6 +8212,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
     return {
       description: 'description',
       fcVersion: 'fcVersion',
+      functionName: 'functionName',
       gpuType: 'gpuType',
       limit: 'limit',
       nextToken: 'nextToken',
@@ -8221,6 +8226,7 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
     return {
       description: 'string',
       fcVersion: 'string',
+      functionName: 'string',
       gpuType: 'string',
       limit: 'number',
       nextToken: 'string',
@@ -11158,7 +11164,7 @@ export default class Client extends OpenApi {
     let res = new InvokeFunctionResponse({ });
     let tmp = await this.callApi(params, req, runtime);
     if (!$dara.isNull(tmp["body"])) {
-      let respBody = Readable.from(tmp["body"]);
+      let respBody = tmp["body"] instanceof Readable ? tmp["body"] : Readable.from(tmp["body"]);
       res.body = respBody;
     }
 
@@ -11555,6 +11561,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fcVersion)) {
       query["fcVersion"] = request.fcVersion;
+    }
+
+    if (!$dara.isNull(request.functionName)) {
+      query["functionName"] = request.functionName;
     }
 
     if (!$dara.isNull(request.gpuType)) {
