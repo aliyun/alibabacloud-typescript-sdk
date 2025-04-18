@@ -8428,6 +8428,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $dara.Model {
 }
 
 export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model {
+  executionType?: string;
   /**
    * @remarks
    * The total amount of input data in the stage. Unit: bytes.
@@ -8502,6 +8503,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      executionType: 'ExecutionType',
       inputDataSize: 'InputDataSize',
       inputRows: 'InputRows',
       operatorCost: 'OperatorCost',
@@ -8516,6 +8518,7 @@ export class DescribeDiagnosisSQLInfoResponseBodyStageInfos extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      executionType: 'string',
       inputDataSize: 'number',
       inputRows: 'number',
       operatorCost: 'number',
@@ -61362,7 +61365,35 @@ export default class Client extends OpenApi {
    */
   async describeDiagnosisSQLInfoWithOptions(request: DescribeDiagnosisSQLInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiagnosisSQLInfoResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.processRcHost)) {
+      query["ProcessRcHost"] = request.processRcHost;
+    }
+
+    if (!$dara.isNull(request.processStartTime)) {
+      query["ProcessStartTime"] = request.processStartTime;
+    }
+
+    if (!$dara.isNull(request.processState)) {
+      query["ProcessState"] = request.processState;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -61371,7 +61402,7 @@ export default class Client extends OpenApi {
       version: "2021-12-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
