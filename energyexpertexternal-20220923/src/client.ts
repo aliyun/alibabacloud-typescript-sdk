@@ -1604,13 +1604,220 @@ export class GetDeviceListResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+export class GetDocExtractionResultResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
   /**
+   * @remarks
+   * Key confidence level
+   * 
    * @example
    * 0.9994202852249146
    */
   keyConfidence?: number;
   /**
+   * @remarks
+   * value confidence level
+   * 
+   * @example
+   * 0.9794202852249146
+   */
+  valueConfidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyConfidence: 'keyConfidence',
+      valueConfidence: 'valueConfidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyConfidence: 'number',
+      valueConfidence: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocExtractionResultResponseBodyDataKvListInfoContext extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence level
+   */
+  confidence?: GetDocExtractionResultResponseBodyDataKvListInfoContextConfidence;
+  /**
+   * @remarks
+   * Details of key recall information
+   */
+  key?: ContentItem[];
+  /**
+   * @remarks
+   * Details of value recall information
+   */
+  value?: ContentItem[];
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'confidence',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: GetDocExtractionResultResponseBodyDataKvListInfoContextConfidence,
+      key: { 'type': 'array', 'itemType': ContentItem },
+      value: { 'type': 'array', 'itemType': ContentItem },
+    };
+  }
+
+  validate() {
+    if(this.confidence && typeof (this.confidence as any).validate === 'function') {
+      (this.confidence as any).validate();
+    }
+    if(Array.isArray(this.key)) {
+      $dara.Model.validateArray(this.key);
+    }
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocExtractionResultResponseBodyDataKvListInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Recalled content
+   */
+  context?: GetDocExtractionResultResponseBodyDataKvListInfoContext;
+  /**
+   * @remarks
+   * Field key name
+   * 
+   * @example
+   * Tenant
+   */
+  keyName?: string;
+  /**
+   * @remarks
+   * Field key value
+   * 
+   * @example
+   * Alibaba Cloud XXX Co., Ltd.
+   */
+  keyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      keyName: 'keyName',
+      keyValue: 'keyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: GetDocExtractionResultResponseBodyDataKvListInfoContext,
+      keyName: 'string',
+      keyValue: 'string',
+    };
+  }
+
+  validate() {
+    if(this.context && typeof (this.context as any).validate === 'function') {
+      (this.context as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocExtractionResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Details of document parsing results
+   */
+  kvListInfo?: GetDocExtractionResultResponseBodyDataKvListInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      kvListInfo: 'kvListInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kvListInfo: { 'type': 'array', 'itemType': GetDocExtractionResultResponseBodyDataKvListInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.kvListInfo)) {
+      $dara.Model.validateArray(this.kvListInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParsingResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * - The parsed content of the document.
+   * - The format (markdown or json) is determined by the returnFormat parameter. For specific format details, refer to: [json return structure](https://www.alibabacloud.com/help/en/energy-expert/developer-reference/interface-attached-information#b644b6255cojj)
+   * 
+   * @example
+   * {\\"doc_info\\":{\\"languages\\":[\\"zh\\",\\"en\\"],\\"doc_type\\":\\"pdf\\",\\"pdf_toc\\":[{\\"title\\":\\"封面\\",\\"level\\":0,\\"page\\":0}],\\"pages\\":366,\\"page_list\\":[{\\"imageWidth\\":596,\\"imageHeight\\":842,\\"pageIdAllDocs\\":0,\\"fileIndex\\":0,\\"pageIdCurDoc\\":0,\\"angle\\":0}],\\"doc_data\\":[{\\"uniqueId\\":\\"about_us_para\\",\\"page_num\\":\\"01\\",\\"index\\":\\"xxx\\",\\"name\\":\\"xxx\\",\\"type\\":\\"xxxx\\",\\"subType\\":\\"xxx\\",\\"text\\":\\"xxx\\",\\"before_text\\":\\"xxx\\",\\"after_text\\":\\"xxx\\",\\"extInfo\\":[{\\"uniqueId\\":\\"b0x1x0\\",\\"pos\\":[{\\"x\\":229,\\"y\\":208},{\\"x\\":421,\\"y\\":208},{\\"x\\":421,\\"y\\":242},{\\"x\\":229,\\"y\\":242}],\\"text\\":\\"Kurt Götze\\",\\"type\\":\\"Text\\",\\"subType\\":\\"Text\\",\\"pageNum\\":[0],\\"index\\":0}]}]}}
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence of Key
+   * 
+   * @example
+   * 0.9994202852249146
+   */
+  keyConfidence?: number;
+  /**
+   * @remarks
+   * Confidence of Value
+   * 
    * @example
    * 0.9794202852249146
    */
@@ -1639,8 +1846,20 @@ export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence
 }
 
 export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence
+   */
   confidence?: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContextConfidence;
+  /**
+   * @remarks
+   * Key Recall Information
+   */
   key?: ContentItem[];
+  /**
+   * @remarks
+   * Value Recall Information
+   */
   value?: ContentItem[];
   static names(): { [key: string]: string } {
     return {
@@ -1677,8 +1896,26 @@ export class GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext extends $
 }
 
 export class GetDocumentAnalyzeResultResponseBodyDataKvListInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Recalled Content
+   */
   context?: GetDocumentAnalyzeResultResponseBodyDataKvListInfoContext;
+  /**
+   * @remarks
+   * Field Key Name
+   * 
+   * @example
+   * Tenant
+   */
   keyName?: string;
+  /**
+   * @remarks
+   * Field Key Value
+   * 
+   * @example
+   * Aliyun XXX Co., Ltd.
+   */
   keyValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1709,6 +1946,10 @@ export class GetDocumentAnalyzeResultResponseBodyDataKvListInfo extends $dara.Mo
 }
 
 export class GetDocumentAnalyzeResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Document Parsing Result
+   */
   kvListInfo?: GetDocumentAnalyzeResultResponseBodyDataKvListInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -4407,6 +4648,176 @@ export class GetReductionProposalResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetVLExtractionResultResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence of Key
+   * 
+   * @example
+   * 0.9994202852249146
+   */
+  keyConfidence?: number;
+  /**
+   * @remarks
+   * Confidence of Value
+   * 
+   * @example
+   * 0.9794202852249146
+   */
+  valueConfidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyConfidence: 'keyConfidence',
+      valueConfidence: 'valueConfidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyConfidence: 'number',
+      valueConfidence: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVLExtractionResultResponseBodyDataKvListInfoContext extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence
+   */
+  confidence?: GetVLExtractionResultResponseBodyDataKvListInfoContextConfidence;
+  /**
+   * @remarks
+   * Key recall information details
+   */
+  key?: ContentItem[];
+  /**
+   * @remarks
+   * Value Recall Information
+   */
+  value?: ContentItem[];
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'confidence',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: GetVLExtractionResultResponseBodyDataKvListInfoContextConfidence,
+      key: { 'type': 'array', 'itemType': ContentItem },
+      value: { 'type': 'array', 'itemType': ContentItem },
+    };
+  }
+
+  validate() {
+    if(this.confidence && typeof (this.confidence as any).validate === 'function') {
+      (this.confidence as any).validate();
+    }
+    if(Array.isArray(this.key)) {
+      $dara.Model.validateArray(this.key);
+    }
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVLExtractionResultResponseBodyDataKvListInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Recall content
+   */
+  context?: GetVLExtractionResultResponseBodyDataKvListInfoContext;
+  /**
+   * @remarks
+   * Field Key name
+   * 
+   * @example
+   * Tenant
+   */
+  keyName?: string;
+  /**
+   * @remarks
+   * Field key value
+   * 
+   * @example
+   * Alibaba Cloud XXX Co., Ltd.
+   */
+  keyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      keyName: 'keyName',
+      keyValue: 'keyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: GetVLExtractionResultResponseBodyDataKvListInfoContext,
+      keyName: 'string',
+      keyValue: 'string',
+    };
+  }
+
+  validate() {
+    if(this.context && typeof (this.context as any).validate === 'function') {
+      (this.context as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVLExtractionResultResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Document Parsing Result
+   */
+  kvListInfo?: GetVLExtractionResultResponseBodyDataKvListInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      kvListInfo: 'kvListInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kvListInfo: { 'type': 'array', 'itemType': GetVLExtractionResultResponseBodyDataKvListInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.kvListInfo)) {
+      $dara.Model.validateArray(this.kvListInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsCompletedResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -4607,7 +5018,18 @@ export class PushItemDataRequestItems extends $dara.Model {
 }
 
 export class SendDocumentAskQuestionResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Q&A result
+   * 
+   * @example
+   * Carbon emissions in 2023 totaled 4.681 million tons
+   */
   answer?: string;
+  /**
+   * @remarks
+   * Documents associated with the answer returned by the query
+   */
   document?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4635,8 +5057,71 @@ export class SendDocumentAskQuestionResponseBodyData extends $dara.Model {
   }
 }
 
+export class SubmitDocExtractionTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Task ID.
+   * 
+   * @example
+   * 864773ec-d35b-4c36-8871-52d07fbe806d
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParsingTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * TaskID
+   * 
+   * @example
+   * ae9d07be-1a11-4d30-be75-cc962b98279c
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocumentAnalyzeJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * adkc-kk2k41-kk2ol-222424
    */
@@ -4650,6 +5135,36 @@ export class SubmitDocumentAnalyzeJobResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVLExtractionTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Task ID.
+   * 
+   * @example
+   * 411ce93a-7eb5-40cf-836a-53c32f097663
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
     };
   }
 
@@ -6733,9 +7248,238 @@ export class GetDeviceListResponse extends $dara.Model {
   }
 }
 
+export class GetDocExtractionResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * - Task ID.
+   * - taskId is obtained from the SubmitDocExtractionTaskAdvance and SubmitDocExtractionTask interfaces.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 97693b4c-17a8-4198-aa28-798d3c855577mhrv
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocExtractionResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data structure.
+   */
+  data?: GetDocExtractionResultResponseBodyData;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDocExtractionResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocExtractionResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocExtractionResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocExtractionResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParsingResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * - The document parsing result supports two formats: markdown and json.
+   * - By default, the result is returned in markdown format.
+   * 
+   * @example
+   * md
+   */
+  returnFormat?: string;
+  /**
+   * @remarks
+   * - Task ID.
+   * - The taskId is obtained from the SubmitDocParsingTaskAdvance or SubmitDocParsingTask interfaces.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2c22388d-e2ed-44fe-99e6-99922f15e7bb
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      returnFormat: 'returnFormat',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      returnFormat: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParsingResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned result.
+   */
+  data?: GetDocParsingResultResponseBodyData;
+  /**
+   * @remarks
+   * ID of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetDocParsingResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocParsingResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocParsingResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocParsingResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocumentAnalyzeResultRequest extends $dara.Model {
   /**
    * @remarks
+   * Job ID, specifying which document\\"s parsing result to query. This is a return parameter from the \\"Submit Document Parsing Job\\" interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6764,8 +7508,15 @@ export class GetDocumentAnalyzeResultRequest extends $dara.Model {
 }
 
 export class GetDocumentAnalyzeResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned Data
+   */
   data?: GetDocumentAnalyzeResultResponseBodyData;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 83A5A7DD-8974-5769-952E-590A97BEA34E
    */
@@ -9121,6 +9872,115 @@ export class GetReductionProposalResponse extends $dara.Model {
   }
 }
 
+export class GetVLExtractionResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * - taskID.
+   * 
+   * - The taskId is obtained from the interfaces SubmitVLExtractionTaskAdvance and SubmitVLExtractionTask.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1436b6f5-ddea-4308-9d1c-60939e5d5ea8
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVLExtractionResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned Data
+   */
+  data?: GetVLExtractionResultResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetVLExtractionResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVLExtractionResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVLExtractionResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVLExtractionResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class IsCompletedRequest extends $dara.Model {
   /**
    * @remarks
@@ -9623,16 +10483,27 @@ export class RecalculateCarbonEmissionResponse extends $dara.Model {
 
 export class SendDocumentAskQuestionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Folder ID, used to specify the range of documents for the query. If it is empty, it indicates that all documents under the tenant will be queried.
+   * 
    * @example
    * 1a851c4a-1d65-11ef-99a7-ssfsfdd
    */
   folderId?: string;
   /**
    * @remarks
+   * The question queried by the user
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Total carbon emissions in 2023
    */
   prompt?: string;
   /**
+   * @remarks
+   * Q&A session ID, used to record multiple Q&A interactions of the same user. If it is empty, it indicates that sessions are not distinguished.
+   * 
    * @example
    * bfce2248-1546-4298-8bcf-70ac26e69646
    */
@@ -9663,8 +10534,15 @@ export class SendDocumentAskQuestionRequest extends $dara.Model {
 }
 
 export class SendDocumentAskQuestionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: SendDocumentAskQuestionResponseBodyData;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 83A5A7DD-8974-5769-952E-590A97BEA34E
    */
@@ -9940,25 +10818,528 @@ export class SetRunningPlanResponse extends $dara.Model {
   }
 }
 
-export class SubmitDocumentAnalyzeJobRequest extends $dara.Model {
-  analysisType?: string;
+export class SubmitDocExtractionTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Document parsing type:
+   * Supports rag and long text understanding types, default is rag.
+   * 
+   * @example
+   * rag
+   */
+  extractType?: string;
+  /**
+   * @remarks
+   * The filename must include the file type extension.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * example.pdf
    */
   fileName?: string;
   /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages, 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages, 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long text understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：FileInputStream generated from a local file
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * - A unique knowledge base folder ID, used when you need to categorize documents and control the scope of documents for online Q&A queries.
+   * - The folder ID needs to be obtained by logging into the intelligent document console.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extractType: 'extractType',
+      fileName: 'fileName',
+      fileUrl: 'fileUrl',
+      folderId: 'folderId',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extractType: 'string',
+      fileName: 'string',
+      fileUrl: 'string',
+      folderId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocExtractionTaskAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Document parsing type:
+   * Supports rag and long text understanding types, default is rag.
+   * 
+   * @example
+   * rag
+   */
+  extractType?: string;
+  /**
+   * @remarks
+   * The filename must include the file type extension.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages, 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages, 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long text understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：FileInputStream generated from a local file
+   */
+  fileUrlObject?: Readable;
+  /**
+   * @remarks
+   * - A unique knowledge base folder ID, used when you need to categorize documents and control the scope of documents for online Q&A queries.
+   * - The folder ID needs to be obtained by logging into the intelligent document console.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extractType: 'extractType',
+      fileName: 'fileName',
+      fileUrlObject: 'fileUrl',
+      folderId: 'folderId',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extractType: 'string',
+      fileName: 'string',
+      fileUrlObject: 'Readable',
+      folderId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocExtractionTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data
+   */
+  data?: SubmitDocExtractionTaskResponseBodyData;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitDocExtractionTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocExtractionTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocExtractionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDocExtractionTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParsingTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filename must include the file type extension.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages and 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, supports up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：FileInputStream generated from a local file
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * - Unique knowledge base folder ID, used when categorizing documents and controlling the scope of documents for online Q&A queries.
+   * - The folder ID needs to be obtained from the Intelligent Document Console after logging in.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * Whether to parse image content within the document.
+   * 
+   * @example
+   * false
+   */
+  needAnalyzeImg?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      fileUrl: 'fileUrl',
+      folderId: 'folderId',
+      needAnalyzeImg: 'needAnalyzeImg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrl: 'string',
+      folderId: 'string',
+      needAnalyzeImg: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParsingTaskAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filename must include the file type extension.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages and 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, supports up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：FileInputStream generated from a local file
+   */
+  fileUrlObject?: Readable;
+  /**
+   * @remarks
+   * - Unique knowledge base folder ID, used when categorizing documents and controlling the scope of documents for online Q&A queries.
+   * - The folder ID needs to be obtained from the Intelligent Document Console after logging in.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * Whether to parse image content within the document.
+   * 
+   * @example
+   * false
+   */
+  needAnalyzeImg?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      fileUrlObject: 'fileUrl',
+      folderId: 'folderId',
+      needAnalyzeImg: 'needAnalyzeImg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrlObject: 'Readable',
+      folderId: 'string',
+      needAnalyzeImg: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParsingTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return result.
+   */
+  data?: SubmitDocParsingTaskResponseBodyData;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitDocParsingTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocParsingTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDocParsingTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitDocParsingTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDocumentAnalyzeJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The default extraction method is "doc", with the following optional values:
+   * 
+   * - vl: Image processing
+   * - doc: Long text RAG (Retrieval-Augmented Generation)
+   * - docUnderstanding: Long text comprehension
+   * - recommender: Recommendation type
+   * 
+   * @example
+   * doc
+   */
+  analysisType?: string;
+  /**
+   * @remarks
+   * The filename must include the file type extension.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one between fileUrl and fileUrlObject:
+   * 
+   * - fileUrl: Use the document URL method for a single document (supports documents with up to 1000 pages and within 100MB).
+   * 
+   * - fileUrlObject: Use when calling the API via local file upload, for a single document (supports documents with up to 1000 pages and 
+   * within 100MB).
+   * 
+   * > Relationship between file parsing methods and supported document types. 
+   * >- Long Text RAG: Supports pdf, doc/docx, and up to 1000 pages
+   * >- Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * >- Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
    * @example
    * https://example.com/example.pdf
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Unique knowledge base folder ID, used for categorizing documents and controlling the scope of online Q&A queries. If empty, the document will be uploaded to the tenant\\"s root directory.
+   * 
    * @example
    * folderCode
    */
   folderId?: string;
   /**
    * @remarks
+   * The unique extraction template ID is used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9995,24 +11376,59 @@ export class SubmitDocumentAnalyzeJobRequest extends $dara.Model {
 }
 
 export class SubmitDocumentAnalyzeJobAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The default extraction method is "doc", with the following optional values:
+   * 
+   * - vl: Image processing
+   * - doc: Long text RAG (Retrieval-Augmented Generation)
+   * - docUnderstanding: Long text comprehension
+   * - recommender: Recommendation type
+   * 
+   * @example
+   * doc
+   */
   analysisType?: string;
   /**
    * @remarks
+   * The filename must include the file type extension.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * example.pdf
    */
   fileName?: string;
   /**
+   * @remarks
+   * Choose one between fileUrl and fileUrlObject:
+   * 
+   * - fileUrl: Use the document URL method for a single document (supports documents with up to 1000 pages and within 100MB).
+   * 
+   * - fileUrlObject: Use when calling the API via local file upload, for a single document (supports documents with up to 1000 pages and 
+   * within 100MB).
+   * 
+   * > Relationship between file parsing methods and supported document types. 
+   * >- Long Text RAG: Supports pdf, doc/docx, and up to 1000 pages
+   * >- Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * >- Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
    * @example
    * https://example.com/example.pdf
    */
   fileUrlObject?: Readable;
   /**
+   * @remarks
+   * Unique knowledge base folder ID, used for categorizing documents and controlling the scope of online Q&A queries. If empty, the document will be uploaded to the tenant\\"s root directory.
+   * 
    * @example
    * folderCode
    */
   folderId?: string;
   /**
    * @remarks
+   * The unique extraction template ID is used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10049,6 +11465,10 @@ export class SubmitDocumentAnalyzeJobAdvanceRequest extends $dara.Model {
 }
 
 export class SubmitDocumentAnalyzeJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitDocumentAnalyzeJobResponseBodyData;
   /**
    * @remarks
@@ -10101,6 +11521,227 @@ export class SubmitDocumentAnalyzeJobResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitDocumentAnalyzeJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVLExtractionTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filename must include the file type suffix.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages and 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：本地文件生成的FileInputStream
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * - Unique knowledge base folder ID, used when you need to categorize documents and control the scope of online Q&A queries.
+   * - The folder ID needs to be obtained from the intelligent document console after logging in.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * Unique parsing template ID, used to specify the key-value pairs to be extracted from the document. You need to configure the template on the template management page and then obtain the corresponding template ID.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      fileUrl: 'fileUrl',
+      folderId: 'folderId',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrl: 'string',
+      folderId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVLExtractionTaskAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filename must include the file type suffix.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.pdf
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use by providing the document URL, for a single document (supports up to 1000 pages and 100MB in size)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB in size)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：本地文件生成的FileInputStream
+   */
+  fileUrlObject?: Readable;
+  /**
+   * @remarks
+   * - Unique knowledge base folder ID, used when you need to categorize documents and control the scope of online Q&A queries.
+   * - The folder ID needs to be obtained from the intelligent document console after logging in.
+   * 
+   * @example
+   * xxxxx
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * Unique parsing template ID, used to specify the key-value pairs to be extracted from the document. You need to configure the template on the template management page and then obtain the corresponding template ID.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'fileName',
+      fileUrlObject: 'fileUrl',
+      folderId: 'folderId',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      fileUrlObject: 'Readable',
+      folderId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVLExtractionTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data structure.
+   */
+  data?: SubmitVLExtractionTaskResponseBodyData;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitVLExtractionTaskResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitVLExtractionTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitVLExtractionTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitVLExtractionTaskResponseBody,
     };
   }
 
@@ -10183,12 +11824,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AnalyzeVlRealtimeResponse>(await this.callApi(params, req, runtime), new AnalyzeVlRealtimeResponse({}));
-    } else {
-      return $dara.cast<AnalyzeVlRealtimeResponse>(await this.execute(params, req, runtime), new AnalyzeVlRealtimeResponse({}));
-    }
-
+    return $dara.cast<AnalyzeVlRealtimeResponse>(await this.callApi(params, req, runtime), new AnalyzeVlRealtimeResponse({}));
   }
 
   /**
@@ -10319,12 +11955,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BatchSaveInstructionStatusResponse>(await this.callApi(params, req, runtime), new BatchSaveInstructionStatusResponse({}));
-    } else {
-      return $dara.cast<BatchSaveInstructionStatusResponse>(await this.execute(params, req, runtime), new BatchSaveInstructionStatusResponse({}));
-    }
-
+    return $dara.cast<BatchSaveInstructionStatusResponse>(await this.callApi(params, req, runtime), new BatchSaveInstructionStatusResponse({}));
   }
 
   /**
@@ -10421,12 +12052,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BatchUpdateSystemRunningPlanResponse>(await this.callApi(params, req, runtime), new BatchUpdateSystemRunningPlanResponse({}));
-    } else {
-      return $dara.cast<BatchUpdateSystemRunningPlanResponse>(await this.execute(params, req, runtime), new BatchUpdateSystemRunningPlanResponse({}));
-    }
-
+    return $dara.cast<BatchUpdateSystemRunningPlanResponse>(await this.callApi(params, req, runtime), new BatchUpdateSystemRunningPlanResponse({}));
   }
 
   /**
@@ -10479,12 +12105,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EditProhibitedDevicesResponse>(await this.callApi(params, req, runtime), new EditProhibitedDevicesResponse({}));
-    } else {
-      return $dara.cast<EditProhibitedDevicesResponse>(await this.execute(params, req, runtime), new EditProhibitedDevicesResponse({}));
-    }
-
+    return $dara.cast<EditProhibitedDevicesResponse>(await this.callApi(params, req, runtime), new EditProhibitedDevicesResponse({}));
   }
 
   /**
@@ -10537,12 +12158,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EditUnfavorableAreaDevicesResponse>(await this.callApi(params, req, runtime), new EditUnfavorableAreaDevicesResponse({}));
-    } else {
-      return $dara.cast<EditUnfavorableAreaDevicesResponse>(await this.execute(params, req, runtime), new EditUnfavorableAreaDevicesResponse({}));
-    }
-
+    return $dara.cast<EditUnfavorableAreaDevicesResponse>(await this.callApi(params, req, runtime), new EditUnfavorableAreaDevicesResponse({}));
   }
 
   /**
@@ -10598,12 +12214,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateResultResponse>(await this.callApi(params, req, runtime), new GenerateResultResponse({}));
-    } else {
-      return $dara.cast<GenerateResultResponse>(await this.execute(params, req, runtime), new GenerateResultResponse({}));
-    }
-
+    return $dara.cast<GenerateResultResponse>(await this.callApi(params, req, runtime), new GenerateResultResponse({}));
   }
 
   /**
@@ -10655,12 +12266,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAreaElecConstituteResponse>(await this.callApi(params, req, runtime), new GetAreaElecConstituteResponse({}));
-    } else {
-      return $dara.cast<GetAreaElecConstituteResponse>(await this.execute(params, req, runtime), new GetAreaElecConstituteResponse({}));
-    }
-
+    return $dara.cast<GetAreaElecConstituteResponse>(await this.callApi(params, req, runtime), new GetAreaElecConstituteResponse({}));
   }
 
   /**
@@ -10721,12 +12327,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCarbonEmissionTrendResponse>(await this.callApi(params, req, runtime), new GetCarbonEmissionTrendResponse({}));
-    } else {
-      return $dara.cast<GetCarbonEmissionTrendResponse>(await this.execute(params, req, runtime), new GetCarbonEmissionTrendResponse({}));
-    }
-
+    return $dara.cast<GetCarbonEmissionTrendResponse>(await this.callApi(params, req, runtime), new GetCarbonEmissionTrendResponse({}));
   }
 
   /**
@@ -10774,12 +12375,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDataItemListResponse>(await this.callApi(params, req, runtime), new GetDataItemListResponse({}));
-    } else {
-      return $dara.cast<GetDataItemListResponse>(await this.execute(params, req, runtime), new GetDataItemListResponse({}));
-    }
-
+    return $dara.cast<GetDataItemListResponse>(await this.callApi(params, req, runtime), new GetDataItemListResponse({}));
   }
 
   /**
@@ -10842,12 +12438,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDataQualityAnalysisResponse>(await this.callApi(params, req, runtime), new GetDataQualityAnalysisResponse({}));
-    } else {
-      return $dara.cast<GetDataQualityAnalysisResponse>(await this.execute(params, req, runtime), new GetDataQualityAnalysisResponse({}));
-    }
-
+    return $dara.cast<GetDataQualityAnalysisResponse>(await this.callApi(params, req, runtime), new GetDataQualityAnalysisResponse({}));
   }
 
   /**
@@ -10910,12 +12501,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeviceInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceInfoResponse({}));
-    } else {
-      return $dara.cast<GetDeviceInfoResponse>(await this.execute(params, req, runtime), new GetDeviceInfoResponse({}));
-    }
-
+    return $dara.cast<GetDeviceInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceInfoResponse({}));
   }
 
   /**
@@ -10974,12 +12560,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeviceListResponse>(await this.callApi(params, req, runtime), new GetDeviceListResponse({}));
-    } else {
-      return $dara.cast<GetDeviceListResponse>(await this.execute(params, req, runtime), new GetDeviceListResponse({}));
-    }
-
+    return $dara.cast<GetDeviceListResponse>(await this.callApi(params, req, runtime), new GetDeviceListResponse({}));
   }
 
   /**
@@ -11002,7 +12583,109 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档结果
+   * For Querying Information Extraction Result.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocExtractionTaskAdvance or SubmitDocExtractionTask.
+   * The query results can reflect one of three statuses: processing, successfully completed, or failed.
+   * 
+   * @param request - GetDocExtractionResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocExtractionResultResponse
+   */
+  async getDocExtractionResultWithOptions(request: GetDocExtractionResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetDocExtractionResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDocExtractionResult",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/getDocExtractionResult`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetDocExtractionResultResponse>(await this.callApi(params, req, runtime), new GetDocExtractionResultResponse({}));
+  }
+
+  /**
+   * For Querying Information Extraction Result.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocExtractionTaskAdvance or SubmitDocExtractionTask.
+   * The query results can reflect one of three statuses: processing, successfully completed, or failed.
+   * 
+   * @param request - GetDocExtractionResultRequest
+   * @returns GetDocExtractionResultResponse
+   */
+  async getDocExtractionResult(request: GetDocExtractionResultRequest): Promise<GetDocExtractionResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDocExtractionResultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * For Querying Document Parsing Results.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocParsingTaskAdvance or SubmitDocParsingTask.
+   * The query results can be one of three statuses: processing, successful, or failed.
+   * 
+   * @param request - GetDocParsingResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocParsingResultResponse
+   */
+  async getDocParsingResultWithOptions(request: GetDocParsingResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetDocParsingResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.returnFormat)) {
+      body["returnFormat"] = request.returnFormat;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDocParsingResult",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/getDocParsingResult`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetDocParsingResultResponse>(await this.callApi(params, req, runtime), new GetDocParsingResultResponse({}));
+  }
+
+  /**
+   * For Querying Document Parsing Results.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitDocParsingTaskAdvance or SubmitDocParsingTask.
+   * The query results can be one of three statuses: processing, successful, or failed.
+   * 
+   * @param request - GetDocParsingResultRequest
+   * @returns GetDocParsingResultResponse
+   */
+  async getDocParsingResult(request: GetDocParsingResultRequest): Promise<GetDocParsingResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDocParsingResultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Get document parsing/extraction result
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @param headers - map
@@ -11031,16 +12714,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDocumentAnalyzeResultResponse>(await this.callApi(params, req, runtime), new GetDocumentAnalyzeResultResponse({}));
-    } else {
-      return $dara.cast<GetDocumentAnalyzeResultResponse>(await this.execute(params, req, runtime), new GetDocumentAnalyzeResultResponse({}));
-    }
-
+    return $dara.cast<GetDocumentAnalyzeResultResponse>(await this.callApi(params, req, runtime), new GetDocumentAnalyzeResultResponse({}));
   }
 
   /**
-   * 获取文档结果
+   * Get document parsing/extraction result
    * 
    * @param request - GetDocumentAnalyzeResultRequest
    * @returns GetDocumentAnalyzeResultResponse
@@ -11085,12 +12763,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetElecConstituteResponse>(await this.callApi(params, req, runtime), new GetElecConstituteResponse({}));
-    } else {
-      return $dara.cast<GetElecConstituteResponse>(await this.execute(params, req, runtime), new GetElecConstituteResponse({}));
-    }
-
+    return $dara.cast<GetElecConstituteResponse>(await this.callApi(params, req, runtime), new GetElecConstituteResponse({}));
   }
 
   /**
@@ -11139,12 +12812,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetElecTrendResponse>(await this.callApi(params, req, runtime), new GetElecTrendResponse({}));
-    } else {
-      return $dara.cast<GetElecTrendResponse>(await this.execute(params, req, runtime), new GetElecTrendResponse({}));
-    }
-
+    return $dara.cast<GetElecTrendResponse>(await this.callApi(params, req, runtime), new GetElecTrendResponse({}));
   }
 
   /**
@@ -11201,12 +12869,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEmissionSourceConstituteResponse>(await this.callApi(params, req, runtime), new GetEmissionSourceConstituteResponse({}));
-    } else {
-      return $dara.cast<GetEmissionSourceConstituteResponse>(await this.execute(params, req, runtime), new GetEmissionSourceConstituteResponse({}));
-    }
-
+    return $dara.cast<GetEmissionSourceConstituteResponse>(await this.callApi(params, req, runtime), new GetEmissionSourceConstituteResponse({}));
   }
 
   /**
@@ -11263,12 +12926,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEmissionSummaryResponse>(await this.callApi(params, req, runtime), new GetEmissionSummaryResponse({}));
-    } else {
-      return $dara.cast<GetEmissionSummaryResponse>(await this.execute(params, req, runtime), new GetEmissionSummaryResponse({}));
-    }
-
+    return $dara.cast<GetEmissionSummaryResponse>(await this.callApi(params, req, runtime), new GetEmissionSummaryResponse({}));
   }
 
   /**
@@ -11324,12 +12982,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEpdInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetEpdInventoryConstituteResponse({}));
-    } else {
-      return $dara.cast<GetEpdInventoryConstituteResponse>(await this.execute(params, req, runtime), new GetEpdInventoryConstituteResponse({}));
-    }
-
+    return $dara.cast<GetEpdInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetEpdInventoryConstituteResponse({}));
   }
 
   /**
@@ -11388,12 +13041,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEpdSummaryResponse>(await this.callApi(params, req, runtime), new GetEpdSummaryResponse({}));
-    } else {
-      return $dara.cast<GetEpdSummaryResponse>(await this.execute(params, req, runtime), new GetEpdSummaryResponse({}));
-    }
-
+    return $dara.cast<GetEpdSummaryResponse>(await this.callApi(params, req, runtime), new GetEpdSummaryResponse({}));
   }
 
   /**
@@ -11456,12 +13104,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetFootprintListResponse>(await this.callApi(params, req, runtime), new GetFootprintListResponse({}));
-    } else {
-      return $dara.cast<GetFootprintListResponse>(await this.execute(params, req, runtime), new GetFootprintListResponse({}));
-    }
-
+    return $dara.cast<GetFootprintListResponse>(await this.callApi(params, req, runtime), new GetFootprintListResponse({}));
   }
 
   /**
@@ -11521,12 +13164,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGasConstituteResponse>(await this.callApi(params, req, runtime), new GetGasConstituteResponse({}));
-    } else {
-      return $dara.cast<GetGasConstituteResponse>(await this.execute(params, req, runtime), new GetGasConstituteResponse({}));
-    }
-
+    return $dara.cast<GetGasConstituteResponse>(await this.callApi(params, req, runtime), new GetGasConstituteResponse({}));
   }
 
   /**
@@ -11582,12 +13220,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGwpBenchmarkListResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkListResponse({}));
-    } else {
-      return $dara.cast<GetGwpBenchmarkListResponse>(await this.execute(params, req, runtime), new GetGwpBenchmarkListResponse({}));
-    }
-
+    return $dara.cast<GetGwpBenchmarkListResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkListResponse({}));
   }
 
   /**
@@ -11646,12 +13279,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGwpBenchmarkSummaryResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkSummaryResponse({}));
-    } else {
-      return $dara.cast<GetGwpBenchmarkSummaryResponse>(await this.execute(params, req, runtime), new GetGwpBenchmarkSummaryResponse({}));
-    }
-
+    return $dara.cast<GetGwpBenchmarkSummaryResponse>(await this.callApi(params, req, runtime), new GetGwpBenchmarkSummaryResponse({}));
   }
 
   /**
@@ -11710,12 +13338,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGwpInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetGwpInventoryConstituteResponse({}));
-    } else {
-      return $dara.cast<GetGwpInventoryConstituteResponse>(await this.execute(params, req, runtime), new GetGwpInventoryConstituteResponse({}));
-    }
-
+    return $dara.cast<GetGwpInventoryConstituteResponse>(await this.callApi(params, req, runtime), new GetGwpInventoryConstituteResponse({}));
   }
 
   /**
@@ -11774,12 +13397,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGwpInventorySummaryResponse>(await this.callApi(params, req, runtime), new GetGwpInventorySummaryResponse({}));
-    } else {
-      return $dara.cast<GetGwpInventorySummaryResponse>(await this.execute(params, req, runtime), new GetGwpInventorySummaryResponse({}));
-    }
-
+    return $dara.cast<GetGwpInventorySummaryResponse>(await this.callApi(params, req, runtime), new GetGwpInventorySummaryResponse({}));
   }
 
   /**
@@ -11850,12 +13468,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInventoryListResponse>(await this.callApi(params, req, runtime), new GetInventoryListResponse({}));
-    } else {
-      return $dara.cast<GetInventoryListResponse>(await this.execute(params, req, runtime), new GetInventoryListResponse({}));
-    }
-
+    return $dara.cast<GetInventoryListResponse>(await this.callApi(params, req, runtime), new GetInventoryListResponse({}));
   }
 
   /**
@@ -11901,12 +13514,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetOrgAndFactoryResponse>(await this.callApi(params, req, runtime), new GetOrgAndFactoryResponse({}));
-    } else {
-      return $dara.cast<GetOrgAndFactoryResponse>(await this.execute(params, req, runtime), new GetOrgAndFactoryResponse({}));
-    }
-
+    return $dara.cast<GetOrgAndFactoryResponse>(await this.callApi(params, req, runtime), new GetOrgAndFactoryResponse({}));
   }
 
   /**
@@ -11967,12 +13575,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetOrgConstituteResponse>(await this.callApi(params, req, runtime), new GetOrgConstituteResponse({}));
-    } else {
-      return $dara.cast<GetOrgConstituteResponse>(await this.execute(params, req, runtime), new GetOrgConstituteResponse({}));
-    }
-
+    return $dara.cast<GetOrgConstituteResponse>(await this.callApi(params, req, runtime), new GetOrgConstituteResponse({}));
   }
 
   /**
@@ -12028,12 +13631,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPcrInfoResponse>(await this.callApi(params, req, runtime), new GetPcrInfoResponse({}));
-    } else {
-      return $dara.cast<GetPcrInfoResponse>(await this.execute(params, req, runtime), new GetPcrInfoResponse({}));
-    }
-
+    return $dara.cast<GetPcrInfoResponse>(await this.callApi(params, req, runtime), new GetPcrInfoResponse({}));
   }
 
   /**
@@ -12096,12 +13694,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetReductionProposalResponse>(await this.callApi(params, req, runtime), new GetReductionProposalResponse({}));
-    } else {
-      return $dara.cast<GetReductionProposalResponse>(await this.execute(params, req, runtime), new GetReductionProposalResponse({}));
-    }
-
+    return $dara.cast<GetReductionProposalResponse>(await this.callApi(params, req, runtime), new GetReductionProposalResponse({}));
   }
 
   /**
@@ -12117,6 +13710,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getReductionProposalWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * For Querying Qwen-VL Model Information Extraction Results.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitVLExtractionTask or SubmitVLExtractionTaskAdvance.
+   * The query results can be in one of three statuses: processing, successfully completed, or failed.
+   * 
+   * @param request - GetVLExtractionResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVLExtractionResultResponse
+   */
+  async getVLExtractionResultWithOptions(request: GetVLExtractionResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetVLExtractionResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVLExtractionResult",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/getVLExtractionResult`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetVLExtractionResultResponse>(await this.callApi(params, req, runtime), new GetVLExtractionResultResponse({}));
+  }
+
+  /**
+   * For Querying Qwen-VL Model Information Extraction Results.
+   * The input parameter taskId is obtained from the taskId returned by the interfaces SubmitVLExtractionTask or SubmitVLExtractionTaskAdvance.
+   * The query results can be in one of three statuses: processing, successfully completed, or failed.
+   * 
+   * @param request - GetVLExtractionResultRequest
+   * @returns GetVLExtractionResultResponse
+   */
+  async getVLExtractionResult(request: GetVLExtractionResultRequest): Promise<GetVLExtractionResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVLExtractionResultWithOptions(request, headers, runtime);
   }
 
   /**
@@ -12160,12 +13802,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<IsCompletedResponse>(await this.callApi(params, req, runtime), new IsCompletedResponse({}));
-    } else {
-      return $dara.cast<IsCompletedResponse>(await this.execute(params, req, runtime), new IsCompletedResponse({}));
-    }
-
+    return $dara.cast<IsCompletedResponse>(await this.callApi(params, req, runtime), new IsCompletedResponse({}));
   }
 
   /**
@@ -12217,12 +13854,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushDeviceDataResponse>(await this.callApi(params, req, runtime), new PushDeviceDataResponse({}));
-    } else {
-      return $dara.cast<PushDeviceDataResponse>(await this.execute(params, req, runtime), new PushDeviceDataResponse({}));
-    }
-
+    return $dara.cast<PushDeviceDataResponse>(await this.callApi(params, req, runtime), new PushDeviceDataResponse({}));
   }
 
   /**
@@ -12280,12 +13912,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushItemDataResponse>(await this.callApi(params, req, runtime), new PushItemDataResponse({}));
-    } else {
-      return $dara.cast<PushItemDataResponse>(await this.execute(params, req, runtime), new PushItemDataResponse({}));
-    }
-
+    return $dara.cast<PushItemDataResponse>(await this.callApi(params, req, runtime), new PushItemDataResponse({}));
   }
 
   /**
@@ -12342,12 +13969,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RecalculateCarbonEmissionResponse>(await this.callApi(params, req, runtime), new RecalculateCarbonEmissionResponse({}));
-    } else {
-      return $dara.cast<RecalculateCarbonEmissionResponse>(await this.execute(params, req, runtime), new RecalculateCarbonEmissionResponse({}));
-    }
-
+    return $dara.cast<RecalculateCarbonEmissionResponse>(await this.callApi(params, req, runtime), new RecalculateCarbonEmissionResponse({}));
   }
 
   /**
@@ -12366,7 +13988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线文档问答
+   * Online Document Q\\&A
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @param headers - map
@@ -12403,16 +14025,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SendDocumentAskQuestionResponse>(await this.callApi(params, req, runtime), new SendDocumentAskQuestionResponse({}));
-    } else {
-      return $dara.cast<SendDocumentAskQuestionResponse>(await this.execute(params, req, runtime), new SendDocumentAskQuestionResponse({}));
-    }
-
+    return $dara.cast<SendDocumentAskQuestionResponse>(await this.callApi(params, req, runtime), new SendDocumentAskQuestionResponse({}));
   }
 
   /**
-   * 在线文档问答
+   * Online Document Q\\&A
    * 
    * @param request - SendDocumentAskQuestionRequest
    * @returns SendDocumentAskQuestionResponse
@@ -12513,12 +14130,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SetRunningPlanResponse>(await this.callApi(params, req, runtime), new SetRunningPlanResponse({}));
-    } else {
-      return $dara.cast<SetRunningPlanResponse>(await this.execute(params, req, runtime), new SetRunningPlanResponse({}));
-    }
-
+    return $dara.cast<SetRunningPlanResponse>(await this.callApi(params, req, runtime), new SetRunningPlanResponse({}));
   }
 
   /**
@@ -12534,7 +14146,287 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档结果
+   * Extracts key information from documents using user-defined Key-Value or prompt templates. A taskId is returned upon successful execution for retrieving extraction results via GetDocExtractionResult.
+   * Supports:
+   * URL Upload: SubmitDocExtractionTask
+   * Local File Upload: SubmitDocExtractionTask
+   * 
+   * @param request - SubmitDocExtractionTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocExtractionTaskResponse
+   */
+  async submitDocExtractionTaskWithOptions(request: SubmitDocExtractionTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitDocExtractionTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extractType)) {
+      query["extractType"] = request.extractType;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["fileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitDocExtractionTask",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/submitDocExtractionTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitDocExtractionTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocExtractionTaskResponse({}));
+  }
+
+  /**
+   * Extracts key information from documents using user-defined Key-Value or prompt templates. A taskId is returned upon successful execution for retrieving extraction results via GetDocExtractionResult.
+   * Supports:
+   * URL Upload: SubmitDocExtractionTask
+   * Local File Upload: SubmitDocExtractionTask
+   * 
+   * @param request - SubmitDocExtractionTaskRequest
+   * @returns SubmitDocExtractionTaskResponse
+   */
+  async submitDocExtractionTask(request: SubmitDocExtractionTaskRequest): Promise<SubmitDocExtractionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitDocExtractionTaskWithOptions(request, headers, runtime);
+  }
+
+  async submitDocExtractionTaskAdvance(request: SubmitDocExtractionTaskAdvanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitDocExtractionTaskResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "energyExpertExternal",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitDocExtractionTaskReq = new SubmitDocExtractionTaskRequest({ });
+    OpenApiUtil.convert(request, submitDocExtractionTaskReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitDocExtractionTaskReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitDocExtractionTaskResp = await this.submitDocExtractionTaskWithOptions(submitDocExtractionTaskReq, headers, runtime);
+    return submitDocExtractionTaskResp;
+  }
+
+  /**
+   * Parses text, tables, images, and more from documents. After execution, a taskId is returned for retrieving document parsing results via GetDocParsingResult.
+   * Supports:
+   * URL Upload: SubmitDocParsingTask
+   * Local File Upload: SubmitDocParsingTaskAdvance
+   * 
+   * @param request - SubmitDocParsingTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocParsingTaskResponse
+   */
+  async submitDocParsingTaskWithOptions(request: SubmitDocParsingTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitDocParsingTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["fileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.needAnalyzeImg)) {
+      query["needAnalyzeImg"] = request.needAnalyzeImg;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitDocParsingTask",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/submitDocParsingTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitDocParsingTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocParsingTaskResponse({}));
+  }
+
+  /**
+   * Parses text, tables, images, and more from documents. After execution, a taskId is returned for retrieving document parsing results via GetDocParsingResult.
+   * Supports:
+   * URL Upload: SubmitDocParsingTask
+   * Local File Upload: SubmitDocParsingTaskAdvance
+   * 
+   * @param request - SubmitDocParsingTaskRequest
+   * @returns SubmitDocParsingTaskResponse
+   */
+  async submitDocParsingTask(request: SubmitDocParsingTaskRequest): Promise<SubmitDocParsingTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitDocParsingTaskWithOptions(request, headers, runtime);
+  }
+
+  async submitDocParsingTaskAdvance(request: SubmitDocParsingTaskAdvanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitDocParsingTaskResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "energyExpertExternal",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitDocParsingTaskReq = new SubmitDocParsingTaskRequest({ });
+    OpenApiUtil.convert(request, submitDocParsingTaskReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitDocParsingTaskReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitDocParsingTaskResp = await this.submitDocParsingTaskWithOptions(submitDocParsingTaskReq, headers, runtime);
+    return submitDocParsingTaskResp;
+  }
+
+  /**
+   * Get document extraction result
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @param headers - map
@@ -12579,16 +14471,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitDocumentAnalyzeJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentAnalyzeJobResponse({}));
-    } else {
-      return $dara.cast<SubmitDocumentAnalyzeJobResponse>(await this.execute(params, req, runtime), new SubmitDocumentAnalyzeJobResponse({}));
-    }
-
+    return $dara.cast<SubmitDocumentAnalyzeJobResponse>(await this.callApi(params, req, runtime), new SubmitDocumentAnalyzeJobResponse({}));
   }
 
   /**
-   * 获取文档结果
+   * Get document extraction result
    * 
    * @param request - SubmitDocumentAnalyzeJobRequest
    * @returns SubmitDocumentAnalyzeJobResponse
@@ -12672,6 +14559,144 @@ export default class Client extends OpenApi {
 
     let submitDocumentAnalyzeJobResp = await this.submitDocumentAnalyzeJobWithOptions(submitDocumentAnalyzeJobReq, headers, runtime);
     return submitDocumentAnalyzeJobResp;
+  }
+
+  /**
+   * Extracts key information from documents using KV templates or prompts with the Qwen-VL model, ideal for image extraction. 
+   * Supports:
+   * URL Upload: SubmitVLExtractionTask.
+   * Local File Upload: SubmitVLExtractionTaskAdvance
+   * 
+   * @param request - SubmitVLExtractionTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVLExtractionTaskResponse
+   */
+  async submitVLExtractionTaskWithOptions(request: SubmitVLExtractionTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitVLExtractionTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["fileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVLExtractionTask",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/submitVLExtractionTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitVLExtractionTaskResponse>(await this.callApi(params, req, runtime), new SubmitVLExtractionTaskResponse({}));
+  }
+
+  /**
+   * Extracts key information from documents using KV templates or prompts with the Qwen-VL model, ideal for image extraction. 
+   * Supports:
+   * URL Upload: SubmitVLExtractionTask.
+   * Local File Upload: SubmitVLExtractionTaskAdvance
+   * 
+   * @param request - SubmitVLExtractionTaskRequest
+   * @returns SubmitVLExtractionTaskResponse
+   */
+  async submitVLExtractionTask(request: SubmitVLExtractionTaskRequest): Promise<SubmitVLExtractionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitVLExtractionTaskWithOptions(request, headers, runtime);
+  }
+
+  async submitVLExtractionTaskAdvance(request: SubmitVLExtractionTaskAdvanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<SubmitVLExtractionTaskResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "energyExpertExternal",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let submitVLExtractionTaskReq = new SubmitVLExtractionTaskRequest({ });
+    OpenApiUtil.convert(request, submitVLExtractionTaskReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      submitVLExtractionTaskReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let submitVLExtractionTaskResp = await this.submitVLExtractionTaskWithOptions(submitVLExtractionTaskReq, headers, runtime);
+    return submitVLExtractionTaskResp;
   }
 
 }
