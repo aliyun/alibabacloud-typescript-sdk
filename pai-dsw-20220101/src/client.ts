@@ -274,6 +274,16 @@ export class ForwardInfoResponseConnectInfo extends $dara.Model {
 }
 
 export class CreateInstanceRequestAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the CPU affinity feature.
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -297,6 +307,10 @@ export class CreateInstanceRequestAffinityCPU extends $dara.Model {
 }
 
 export class CreateInstanceRequestAffinity extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
+   */
   CPU?: CreateInstanceRequestAffinityCPU;
   static names(): { [key: string]: string } {
     return {
@@ -323,8 +337,29 @@ export class CreateInstanceRequestAffinity extends $dara.Model {
 }
 
 export class CreateInstanceRequestCloudDisksStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The available capacity. Unit: bytes.
+   * 
+   * @example
+   * 31841058816
+   */
   available?: number;
+  /**
+   * @remarks
+   * The capacity. Unit: bytes.
+   * 
+   * @example
+   * 32212254720
+   */
   capacity?: number;
+  /**
+   * @remarks
+   * The used capacity. Unit: bytes.
+   * 
+   * @example
+   * 371195904
+   */
   usage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -353,22 +388,54 @@ export class CreateInstanceRequestCloudDisksStatus extends $dara.Model {
 
 export class CreateInstanceRequestCloudDisks extends $dara.Model {
   /**
+   * @remarks
+   * If **Resource Type** is **Public Resource** or if **Resource Quota** is subscription-based general-purpose computing resources (CPU cores ≥ 2 and memory ≥ 4 GB, or configured with GPU):
+   * 
+   * Each instance has a free system disk of 100 GiB for persistent storage. **If the DSW instance is stopped and not launched for more than 15 days, the disk is cleared**. The disk can be expanded. For specific pricing, refer to the console.
+   * 
+   * **
+   * 
+   * **Warning**
+   * 
+   * *   After the expansion, you cannot reduce the storage space. Proceed with caution.
+   * 
+   * *   After the expansion, the disk is not cleared if the instance is stopped for more than 15 days. However, it will continue to incur fees.
+   * 
+   * *   If you delete the instance, the system disk is also released and the data stored in the disk is deleted. Make sure that you have backed up your data before you delete the instance.
+   * 
+   * If you need persistent storage, you can **mount a dataset** or add the OSS, NAS, or CPFS path to the **storage path**.
+   * 
    * @example
-   * 30Gi
+   * 100Gi
    */
   capacity?: string;
   /**
+   * @remarks
+   * The mount path of the cloud disk.
+   * 
    * @example
-   * /mmt/workspace
+   * /mnt/systemDisk
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The subpath of the cloud disk that is mounted to the instance.
+   * 
    * @example
    * workspace
    */
   path?: string;
+  /**
+   * @remarks
+   * The disk or snapshot usage.
+   */
   status?: CreateInstanceRequestCloudDisksStatus;
   /**
+   * @remarks
+   * The cloud disk type.
+   * 
+   * *   rootfs: Mounts the disk as a system disk. The system environment is stored on the disk.
+   * 
    * @example
    * rootfs
    */
@@ -407,31 +474,95 @@ export class CreateInstanceRequestCloudDisks extends $dara.Model {
 
 export class CreateInstanceRequestDatasets extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID. If the dataset is read-only, you cannot change the dataset permission from read-only to read and write by using MountAccess.
+   * 
+   * You can call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to obtain the dataset ID. If you configure the dataset ID, you cannot configure the dataset URI.
+   * 
    * @example
    * d-vsqjvsjp4orp5l206u
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version. You must also configure DatasetId. If you leave this parameter empty, the value v1 is used by default.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable dynamic mounting. Default value: false.
+   * 
+   * *   Currently, only instances using general-purpose computing resources are supported.
+   * *   Currently, only OSS datasets are supported. The mounted datasets are read-only.
+   * *   The mount path of the dynamically mounted dataset must be a subpath of the root path. Example: /mnt/dynamic/data1/
+   * *   A dynamically mounted dataset must be after non-dynamic datasets.
+   * 
+   * @example
+   * true
+   */
+  dynamic?: boolean;
+  /**
+   * @remarks
+   * The read and write permissions of the dataset. If the dataset is read-only, it cannot be changed to read and write.
+   * 
+   * @example
+   * RW
+   */
   mountAccess?: string;
   /**
+   * @remarks
+   * The mount path of the dataset.
+   * 
    * @example
    * /mnt/data
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The mount type. You cannot specify Options at the same time. This is deprecated, and you can use Options instead.
+   * 
+   * @example
+   * ReadOnly
+   * 
    * @deprecated
    */
   optionType?: string;
+  /**
+   * @remarks
+   * The custom dataset mount options. Only OSS is supported. You cannot specify OptionType at the same time. For more information, see [DSW mount configurations](https://help.aliyun.com/zh/pai/user-guide/read-and-write-dataset-data).
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
   options?: string;
   /**
+   * @remarks
+   * The URI of the storage service directory, which can be directly mounted. This parameter is mutually exclusive with DatasetId.
+   * 
+   * URI formats of different types of storage:
+   * 
+   * *   OSS: oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
+   * *   NAS: nas://29\\*\\*d-b12\\*\\*\\*\\*446.cn-hangzhou.nas.aliyuncs.com/data/path/
+   * *   Extreme NAS: nas://29\\*\\*\\*\\*123-y\\*\\*r.cn-hangzhou.extreme.nas.aliyuncs.com/data/path/
+   * *   CPFS: cpfs://cpfs-213\\*\\*\\*\\*87.cn-wulanchabu/ptc-292\\*\\*\\*\\*\\*cbb/exp-290\\*\\*\\*\\*\\*\\*\\*\\*03e/data/path/
+   * *   Lingjun CPFS: bmcpfs://cpfs-290\\*\\*\\*\\*\\*\\*foflh-vpc-x\\*\\*\\*\\*8r.cn-wulanchabu.cpfs.aliyuncs.com/data/path/
+   * 
    * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   * oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
    */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       datasetVersion: 'DatasetVersion',
+      dynamic: 'Dynamic',
       mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       optionType: 'OptionType',
@@ -444,6 +575,7 @@ export class CreateInstanceRequestDatasets extends $dara.Model {
     return {
       datasetId: 'string',
       datasetVersion: 'string',
+      dynamic: 'boolean',
       mountAccess: 'string',
       mountPath: 'string',
       optionType: 'string',
@@ -463,11 +595,17 @@ export class CreateInstanceRequestDatasets extends $dara.Model {
 
 export class CreateInstanceRequestLabels extends $dara.Model {
   /**
+   * @remarks
+   * The custom label key.
+   * 
    * @example
    * stsTokenOwner
    */
   key?: string;
   /**
+   * @remarks
+   * The custom label value.
+   * 
    * @example
    * 123xxxxxxxx
    */
@@ -497,26 +635,47 @@ export class CreateInstanceRequestLabels extends $dara.Model {
 
 export class CreateInstanceRequestRequestedResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 32
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 4
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU memory type. Valid values:
+   * 
+   * *   V100
+   * *   A100
+   * *   T4
+   * *   A10
+   * *   P100
+   * 
    * @example
    * v100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 32
    */
   memory?: string;
   /**
+   * @remarks
+   * The size of the shared memory. Unit: GB.
+   * 
    * @example
    * 32
    */
@@ -551,7 +710,21 @@ export class CreateInstanceRequestRequestedResource extends $dara.Model {
 }
 
 export class CreateInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -577,34 +750,61 @@ export class CreateInstanceRequestTag extends $dara.Model {
 }
 
 export class CreateInstanceRequestUserVpc extends $dara.Model {
+  bandwidthLimit?: BandwidthLimit;
   /**
+   * @remarks
+   * The default route. Valid values:
+   * 
+   * *   eth0: The default network interface is used to access the Internet through the public gateway.
+   * *   eth1: The user\\"s elastic network interface (ENI) is used to access the Internet through the private gateway. For more information about the configuration method, see [Enable Internet access for a DSW instance by using a private Internet NAT gateway](https://help.aliyun.com/document_detail/2525343.html).
+   * 
    * @example
-   * eth0 | eth1
+   * eth0
    */
   defaultRoute?: string;
   /**
+   * @remarks
+   * The extended CIDR blocks.
+   * 
+   * *   If you leave the SwitchId and ExtendedCIDRs parameters empty, the system automatically obtains all CIDR blocks in a VPC.
+   * *   If you configure the SwitchId and ExtendedCIDRs parameters, we recommend that you specify all CIDR blocks in a VPC.
+   * 
    * @example
    * ["192.168.0.1/24", "192.168.1.1/24"]
    */
   extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The forward information.
+   */
   forwardInfos?: ForwardInfo[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxxxx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-xxxxx
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthLimit: 'BandwidthLimit',
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       forwardInfos: 'ForwardInfos',
@@ -616,6 +816,7 @@ export class CreateInstanceRequestUserVpc extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthLimit: BandwidthLimit,
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
@@ -626,6 +827,9 @@ export class CreateInstanceRequestUserVpc extends $dara.Model {
   }
 
   validate() {
+    if(this.bandwidthLimit && typeof (this.bandwidthLimit as any).validate === 'function') {
+      (this.bandwidthLimit as any).validate();
+    }
     if(Array.isArray(this.extendedCIDRs)) {
       $dara.Model.validateArray(this.extendedCIDRs);
     }
@@ -675,6 +879,15 @@ export class CreateInstanceSnapshotRequestLabels extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether CPU affinity is enabled.
+   * 
+   * true false
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -698,6 +911,10 @@ export class GetInstanceResponseBodyAffinityCPU extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyAffinity extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
+   */
   CPU?: GetInstanceResponseBodyAffinityCPU;
   static names(): { [key: string]: string } {
     return {
@@ -725,21 +942,33 @@ export class GetInstanceResponseBodyAffinity extends $dara.Model {
 
 export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
   /**
+   * @remarks
+   * Disk Capacity
+   * 
    * @example
    * 30Gi
    */
   capacity?: string;
   /**
+   * @remarks
+   * The mount path of the cloud disk in the container.
+   * 
    * @example
    * /mmt/workspace
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The directory on the cloud disk that is mounted to the container.
+   * 
    * @example
    * /workspace
    */
   path?: string;
   /**
+   * @remarks
+   * The usage mode of the cloud disk. The value rootfs indicates that the cloud disk is used as the root file system.
+   * 
    * @example
    * rootfs
    */
@@ -773,28 +1002,78 @@ export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
 
 export class GetInstanceResponseBodyDatasets extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-vsqjvsjp4orp5l206u
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether dynamic mounting is enabled. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  dynamic?: boolean;
+  /**
+   * @remarks
+   * The read and write permissions. Valid values: RW and RO.
+   * 
+   * @example
+   * RW
+   */
   mountAccess?: string;
   /**
+   * @remarks
+   * The mount path in the container.
+   * 
    * @example
    * /mnt/data
    */
   mountPath?: string;
+  /**
+   * @remarks
+   * The mount type of the dataset (deprecated).
+   * 
+   * @example
+   * FastReadWrite
+   */
   optionType?: string;
+  /**
+   * @remarks
+   * The mount type of the dataset.
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
   options?: string;
   /**
+   * @remarks
+   * The dataset URI.
+   * 
    * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   * oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
    */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       datasetVersion: 'DatasetVersion',
+      dynamic: 'Dynamic',
       mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       optionType: 'OptionType',
@@ -807,6 +1086,7 @@ export class GetInstanceResponseBodyDatasets extends $dara.Model {
     return {
       datasetId: 'string',
       datasetVersion: 'string',
+      dynamic: 'boolean',
       mountAccess: 'string',
       mountPath: 'string',
       optionType: 'string',
@@ -826,26 +1106,41 @@ export class GetInstanceResponseBodyDatasets extends $dara.Model {
 
 export class GetInstanceResponseBodyIdleInstanceCuller extends $dara.Model {
   /**
+   * @remarks
+   * The CPU utilization threshold. Unit: percentage. Valid values: 1 to 100. If the CPU utilization of the instance is lower than this threshold, the instance is considered idle.
+   * 
    * @example
    * 20
    */
   cpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The GPU utilization threshold. Unit: percentage. Valid values: 1 to 100. This parameter takes effect only if the instance is of the GPU instance type. If both CPU and GPU utilization is lower than the thresholds, the instance is considered idle.
+   * 
    * @example
    * 10
    */
   gpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The current time duration for which the instance is idle. Unit: minutes.
+   * 
    * @example
    * 30
    */
   idleTimeInMinutes?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum time duration for which the instance is idle. Unit: minutes. If the time duration for which the instance is idle exceeds this value, the system automatically stops the instance.
+   * 
    * @example
    * 60
    */
@@ -881,26 +1176,41 @@ export class GetInstanceResponseBodyIdleInstanceCuller extends $dara.Model {
 
 export class GetInstanceResponseBodyInstanceShutdownTimer extends $dara.Model {
   /**
+   * @remarks
+   * The scheduled stop time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   dueTime?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The modified time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The remaining time before the instance is stopped. Unit: milliseconds.
+   * 
    * @example
    * 3600000
    */
@@ -937,7 +1247,7 @@ export class GetInstanceResponseBodyInstanceShutdownTimer extends $dara.Model {
 export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   /**
    * @remarks
-   * 快照创建时间
+   * The time when the snapshot was created.
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -945,7 +1255,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * 快照修改时间
+   * The time when the snapshot was modified.
    * 
    * @example
    * 2021-01-12T14:36:01Z
@@ -953,7 +1263,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * 镜像Id
+   * The image ID.
    * 
    * @example
    * image-05cefd0be2exxxx
@@ -961,7 +1271,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * 镜像名称
+   * The image name.
    * 
    * @example
    * py36_cpu_tf1.12_ubuntu
@@ -969,7 +1279,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * 镜像Url
+   * The image URL.
    * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
@@ -977,7 +1287,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * 实例快照错误代码
+   * The error code of the instance snapshot.
    * 
    * @example
    * Internal Error
@@ -985,7 +1295,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * 实例快照错误消息
+   * The error message of the instance snapshot.
    * 
    * @example
    * ImagePullBackOff
@@ -993,7 +1303,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   reasonMessage?: string;
   /**
    * @remarks
-   * 镜像仓库Url
+   * The image repository URL.
    * 
    * @example
    * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
@@ -1001,7 +1311,7 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
   repositoryUrl?: string;
   /**
    * @remarks
-   * 实例快照状态
+   * The instance snapshot status.
    * 
    * @example
    * Pushing
@@ -1046,11 +1356,17 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $dara.Model {
 
 export class GetInstanceResponseBodyLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * stsTokenOwner
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * 123xxxxxxxx
    */
@@ -1080,33 +1396,48 @@ export class GetInstanceResponseBodyLabels extends $dara.Model {
 
 export class GetInstanceResponseBodyLatestSnapshot extends $dara.Model {
   /**
+   * @remarks
+   * The time when the snapshot was created.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the snapshot was modified.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * py36_cpu_tf1.12_ubuntu
    */
   imageName?: string;
   /**
+   * @remarks
+   * The image URL.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
    * @remarks
-   * 实例快照错误代码
+   * The error code of the instance snapshot.
    * 
    * @example
    * Internal Error
@@ -1114,20 +1445,30 @@ export class GetInstanceResponseBodyLatestSnapshot extends $dara.Model {
   reasonCode?: string;
   /**
    * @remarks
-   * 实例快照错误消息
+   * The error message of the instance snapshot.
    * 
    * @example
    * ImagePullBackOff
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The image repository URL.
+   * 
    * @example
    * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
    */
   repositoryUrl?: string;
   /**
    * @remarks
-   * 实例快照状态
+   * The instance snapshot status.
+   * 
+   * Valid values:
+   * 
+   * *   Committing
+   * *   Pushing
+   * *   Failed
+   * *   Saved
    * 
    * @example
    * Pushing
@@ -1171,8 +1512,29 @@ export class GetInstanceResponseBodyLatestSnapshot extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyNodeErrorRecovery extends $dara.Model {
+  /**
+   * @remarks
+   * The number of seconds to wait before automatic switchover.
+   * 
+   * @example
+   * 30
+   */
   autoSwitchCountdownSeconds?: number;
+  /**
+   * @remarks
+   * Indicates whether to enable automatic switchover when a node error occurs.
+   * 
+   * @example
+   * true
+   */
   enableAutoSwitchOnNodeError?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the node has an error.
+   * 
+   * @example
+   * false
+   */
   hasNodeError?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1201,26 +1563,47 @@ export class GetInstanceResponseBodyNodeErrorRecovery extends $dara.Model {
 
 export class GetInstanceResponseBodyRequestedResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 32
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 4
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU type. Valid values:
+   * 
+   * *   V100
+   * *   A100
+   * *   T4
+   * *   A10
+   * *   P100
+   * 
    * @example
    * v100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 32
    */
   memory?: string;
   /**
+   * @remarks
+   * The shared memory size. Unit: GB.
+   * 
    * @example
    * 32
    */
@@ -1255,7 +1638,21 @@ export class GetInstanceResponseBodyRequestedResource extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1281,30 +1678,50 @@ export class GetInstanceResponseBodyTags extends $dara.Model {
 }
 
 export class GetInstanceResponseBodyUserVpc extends $dara.Model {
+  bandwidthLimit?: BandwidthLimit;
   /**
+   * @remarks
+   * Default Route
+   * 
    * @example
    * eth0 | eth1
    */
   defaultRoute?: string;
   /**
+   * @remarks
+   * The extended CIDR block.
+   * 
+   * *   If you leave VSwitchId empty, this parameter is not required and the system automatically obtains all CIDR blocks in the VPC.
+   * *   If VSwitchId is not empty, this parameter is required. Specify all CIDR blocks in the VPC.
+   * 
    * @example
    * ["192.168.0.1/24", "192.168.1.1/24"]
    */
   extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The forward information.
+   */
   forwardInfos?: ForwardInfoResponse[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxxxx
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * Vpc Id。
+   * The VPC ID.
    * 
    * @example
    * vpc-xxxxx
@@ -1312,6 +1729,7 @@ export class GetInstanceResponseBodyUserVpc extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthLimit: 'BandwidthLimit',
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       forwardInfos: 'ForwardInfos',
@@ -1323,6 +1741,7 @@ export class GetInstanceResponseBodyUserVpc extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthLimit: BandwidthLimit,
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
@@ -1333,6 +1752,9 @@ export class GetInstanceResponseBodyUserVpc extends $dara.Model {
   }
 
   validate() {
+    if(this.bandwidthLimit && typeof (this.bandwidthLimit as any).validate === 'function') {
+      (this.bandwidthLimit as any).validate();
+    }
     if(Array.isArray(this.extendedCIDRs)) {
       $dara.Model.validateArray(this.extendedCIDRs);
     }
@@ -1349,11 +1771,17 @@ export class GetInstanceResponseBodyUserVpc extends $dara.Model {
 
 export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The timestamp corresponding to the metric.
+   * 
    * @example
    * 1670890560
    */
   time?: number;
   /**
+   * @remarks
+   * The metric value.
+   * 
    * @example
    * 25.901031
    */
@@ -1382,8 +1810,15 @@ export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $dara.Model
 }
 
 export class GetInstanceMetricsResponseBodyPodMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metrics of the pod that corresponds to the instance.
+   */
   metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
   /**
+   * @remarks
+   * The ID of the pod that corresponds to the instance.
+   * 
    * @example
    * dsw-15870-695f44c5bc-hd6xm
    */
@@ -1450,21 +1885,50 @@ export class GetInstanceSnapshotResponseBodyLabels extends $dara.Model {
 
 export class GetLifecycleResponseBodyLifecycle extends $dara.Model {
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   Creating
+   * *   SaveFailed: The instance image failed to be saved.
+   * *   Stopped
+   * *   Failed
+   * *   ResourceAllocating
+   * *   Stopping
+   * *   Updating
+   * *   Saving
+   * *   Starting
+   * *   Running
+   * *   Saved
+   * *   EnvPreparing: Preparing environment.
+   * *   ArrearStopping: The service is being stopped due to overdue payments.
+   * *   Arrearge: The service is stopped due to overdue payments.
+   * *   Queuing
+   * *   Recovering
+   * 
    * @example
    * Starting
    */
   status?: string;
   /**
+   * @remarks
+   * The reason code that corresponds to an event.
+   * 
    * @example
    * “”
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The reason message that corresponds to an event.
+   * 
    * @example
    * “”
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The time the status was created, specifically the time the instance transitioned to this status (in GMT).
+   * 
    * @example
    * 2022-10-21T07:27:44Z
    */
@@ -1882,7 +2346,21 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $dara.Model {
 }
 
 export class ListInstancesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1908,6 +2386,15 @@ export class ListInstancesRequestTag extends $dara.Model {
 }
 
 export class ListInstancesResponseBodyInstancesAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the CPU affinity feature was enabled.
+   * 
+   * true false
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1931,6 +2418,10 @@ export class ListInstancesResponseBodyInstancesAffinityCPU extends $dara.Model {
 }
 
 export class ListInstancesResponseBodyInstancesAffinity extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
+   */
   CPU?: ListInstancesResponseBodyInstancesAffinityCPU;
   static names(): { [key: string]: string } {
     return {
@@ -1958,21 +2449,33 @@ export class ListInstancesResponseBodyInstancesAffinity extends $dara.Model {
 
 export class ListInstancesResponseBodyInstancesCloudDisks extends $dara.Model {
   /**
+   * @remarks
+   * The cloud disk capacity.
+   * 
    * @example
    * 30Gi
    */
   capacity?: string;
   /**
+   * @remarks
+   * The mount path of the cloud disk in the container.
+   * 
    * @example
    * /mmt/workspace
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The directory on the cloud disk that is mounted to the container.
+   * 
    * @example
    * /workspace
    */
   path?: string;
   /**
+   * @remarks
+   * The cloud disk type. The value rootfs indicates that the cloud disk is used as the root file system (rootfs).
+   * 
    * @example
    * rootfs
    */
@@ -2006,24 +2509,78 @@ export class ListInstancesResponseBodyInstancesCloudDisks extends $dara.Model {
 
 export class ListInstancesResponseBodyInstancesDatasets extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-vsqjvsjp4orp5l206u
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether dynamic mounting was enabled. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  dynamic?: boolean;
+  /**
+   * @remarks
+   * The read and write permissions. Valid values: RW and RO.
+   * 
+   * @example
+   * RW
+   */
   mountAccess?: string;
   /**
+   * @remarks
+   * The mount path in the container.
+   * 
    * @example
    * /mnt/data
    */
   mountPath?: string;
+  /**
+   * @remarks
+   * The type of the mount option.
+   * 
+   * @example
+   * FastReadWrite
+   */
   optionType?: string;
+  /**
+   * @remarks
+   * The mount type of the dataset.
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
   options?: string;
+  /**
+   * @remarks
+   * The dataset URI.
+   * 
+   * @example
+   * oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       datasetVersion: 'DatasetVersion',
+      dynamic: 'Dynamic',
       mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       optionType: 'OptionType',
@@ -2036,6 +2593,7 @@ export class ListInstancesResponseBodyInstancesDatasets extends $dara.Model {
     return {
       datasetId: 'string',
       datasetVersion: 'string',
+      dynamic: 'boolean',
       mountAccess: 'string',
       mountPath: 'string',
       optionType: 'string',
@@ -2055,26 +2613,41 @@ export class ListInstancesResponseBodyInstancesDatasets extends $dara.Model {
 
 export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $dara.Model {
   /**
+   * @remarks
+   * The CPU utilization threshold. Unit: percentage. Valid values: 1 to 100. If the CPU utilization of the instance is lower than this threshold, the instance is considered idle.
+   * 
    * @example
    * 20
    */
   cpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The GPU utilization threshold. Unit: percentage. Valid values: 1 to 100. This parameter takes effect only if the instance is of the GPU instance type. If both CPU and GPU utilization is lower than the thresholds, the instance is considered idle.
+   * 
    * @example
    * 10
    */
   gpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The time duration for which the instance is idle. Unit: minutes.
+   * 
    * @example
    * 30
    */
   idleTimeInMinutes?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum time duration for which the instance is idle. Unit: minutes. If the time duration for which the instance is idle exceeds this value, the system automatically stops the instance.
+   * 
    * @example
    * 60
    */
@@ -2110,26 +2683,41 @@ export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $dara.
 
 export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $dara.Model {
   /**
+   * @remarks
+   * The scheduled stop time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   dueTime?: string;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the instance was modified.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The remaining time before the instance is stopped.
+   * 
    * @example
    * 3600000
    */
@@ -2165,46 +2753,73 @@ export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $da
 
 export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the snapshot was created.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the snapshot was modified.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * py36_cpu_tf1.12_ubuntu
    */
   imageName?: string;
   /**
+   * @remarks
+   * The image URL.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The error code of the instance snapshot.
+   * 
    * @example
    * Internal Error
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The error message of the instance snapshot.
+   * 
    * @example
    * ImagePullBackOff
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The URL of the image repository.
+   * 
    * @example
    * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
    */
   repositoryUrl?: string;
   /**
+   * @remarks
+   * The status of the instance snapshot.
+   * 
    * @example
    * Pushing
    */
@@ -2248,11 +2863,17 @@ export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $dar
 
 export class ListInstancesResponseBodyInstancesLabels extends $dara.Model {
   /**
+   * @remarks
+   * The custom label key.
+   * 
    * @example
    * stsTokenOwner
    */
   key?: string;
   /**
+   * @remarks
+   * The custom label value.
+   * 
    * @example
    * 123xxxxxxxx
    */
@@ -2282,46 +2903,73 @@ export class ListInstancesResponseBodyInstancesLabels extends $dara.Model {
 
 export class ListInstancesResponseBodyInstancesLatestSnapshot extends $dara.Model {
   /**
+   * @remarks
+   * The time when the snapshot was created.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the snapshot was modified.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * py36_cpu_tf1.12_ubuntu
    */
   imageName?: string;
   /**
+   * @remarks
+   * The image URL.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The error code of the instance snapshot.
+   * 
    * @example
    * Internal Error
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The error message of the instance snapshot.
+   * 
    * @example
    * ImagePullBackOff
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The URL of the image repository.
+   * 
    * @example
    * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
    */
   repositoryUrl?: string;
   /**
+   * @remarks
+   * The status of the instance snapshot.
+   * 
    * @example
    * Pushing
    */
@@ -2365,26 +3013,41 @@ export class ListInstancesResponseBodyInstancesLatestSnapshot extends $dara.Mode
 
 export class ListInstancesResponseBodyInstancesRequestedResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPU cores.
+   * 
    * @example
    * 32
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 4
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU memory type.
+   * 
    * @example
    * v100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The memory size.
+   * 
    * @example
    * 32
    */
   memory?: string;
   /**
+   * @remarks
+   * The size of the shared memory.
+   * 
    * @example
    * 32
    */
@@ -2419,7 +3082,21 @@ export class ListInstancesResponseBodyInstancesRequestedResource extends $dara.M
 }
 
 export class ListInstancesResponseBodyInstancesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2445,34 +3122,55 @@ export class ListInstancesResponseBodyInstancesTags extends $dara.Model {
 }
 
 export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
+  bandwidthLimit?: BandwidthLimit;
   /**
+   * @remarks
+   * The default route.
+   * 
    * @example
    * eth0 | eth1
    */
   defaultRoute?: string;
   /**
+   * @remarks
+   * The extended CIDR blocks.
+   * 
    * @example
    * ["192.168.0.1/24", "192.168.1.1/24"]
    */
   extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The forward information.
+   */
   forwardInfos?: ForwardInfoResponse[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxxxx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-xxxxx
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthLimit: 'BandwidthLimit',
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       forwardInfos: 'ForwardInfos',
@@ -2484,6 +3182,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthLimit: BandwidthLimit,
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
@@ -2494,6 +3193,9 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
   }
 
   validate() {
+    if(this.bandwidthLimit && typeof (this.bandwidthLimit as any).validate === 'function') {
+      (this.bandwidthLimit as any).validate();
+    }
     if(Array.isArray(this.extendedCIDRs)) {
       $dara.Model.validateArray(this.extendedCIDRs);
     }
@@ -2510,185 +3212,335 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
 
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type of the instance. Valid values:
+   * 
+   * *   CPU
+   * *   GPU
+   * 
    * @example
    * CPU
    */
   acceleratorType?: string;
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PRIVATE (default): The instances are accessible only to you and the administrator of the workspace.
+   * *   PUBLIC: The instances are accessible only to all members in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The accumulated running duration. Unit: milliseconds.
+   * 
    * @example
    * 3600000
    */
   accumulatedRunningTimeInMs?: number;
+  /**
+   * @remarks
+   * The affinity configuration.
+   */
   affinity?: ListInstancesResponseBodyInstancesAffinity;
   /**
+   * @remarks
+   * The cloud disks of the instance.
+   * 
    * @example
    * []
    */
   cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
+  /**
+   * @remarks
+   * The credential configuration.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The datasets.
+   */
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
   /**
+   * @remarks
+   * The NVIDIA driver configuration.
+   * 
    * @example
    * 535.54.03
    */
   driver?: string;
   /**
+   * @remarks
+   * The dynamic mount configurations.
+   */
+  dynamicMount?: DynamicMount;
+  /**
+   * @remarks
+   * The ECS instance type of the instance.
+   * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
   /**
+   * @remarks
+   * The environment variables.
+   * 
    * @example
    * {userName: "Chris"}
    */
   environmentVariables?: { [key: string]: string };
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the instance was modified.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The rule for stopping idle instances.
+   * 
    * @example
    * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
    */
   idleInstanceCuller?: ListInstancesResponseBodyInstancesIdleInstanceCuller;
+  /**
+   * @remarks
+   * The Base64-encoded account and password for the user\\"s private image. The password will be hidden.
+   * 
+   * @example
+   * aGFyYm9yYWlAeGltYWxheWE6KioqKioq
+   */
   imageAuth?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * py36_cpu_tf1.12_ubuntu
    */
   imageName?: string;
   /**
+   * @remarks
+   * The image address.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The scheduled stop task.
+   */
   instanceShutdownTimer?: ListInstancesResponseBodyInstancesInstanceShutdownTimer;
   /**
+   * @remarks
+   * The instance snapshots.
+   * 
    * @example
    * []
    */
   instanceSnapshotList?: ListInstancesResponseBodyInstancesInstanceSnapshotList[];
   /**
+   * @remarks
+   * The instance URL.
+   * 
    * @example
    * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
    */
   instanceUrl?: string;
   /**
    * @remarks
-   * Jupyterlab Url。
+   * The JupyterLab URL.
    * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
    */
   jupyterlabUrl?: string;
   /**
+   * @remarks
+   * The custom labels.
+   * 
    * @example
    * {\\"foo\\": \\"bar\\"}
    */
   labels?: ListInstancesResponseBodyInstancesLabels[];
-  latestSnapshot?: ListInstancesResponseBodyInstancesLatestSnapshot;
   /**
+   * @remarks
+   * The user image that was latest saved.
+   */
+  latestSnapshot?: ListInstancesResponseBodyInstancesLatestSnapshot;
+  oversoldInfo?: string;
+  oversoldType?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The priority based on which resources are allocated to instances. Resources are preferentially allocated to instances with higher priorities.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The error code of the instance.
+   * 
    * @example
    * Internal Error
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The cause of the instance error.
+   * 
    * @example
    * ImagePullBackOff
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The resource configurations.
+   * 
    * @example
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: ListInstancesResponseBodyInstancesRequestedResource;
   /**
+   * @remarks
+   * The resource ID. This parameter is valid only if you set PaymentType to Subscription.
+   * 
    * @example
    * dsw-123456789
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The specifications.
+   * 
+   * *   In pay-as-you-go scenarios, the value is the specifications of the purchased ECS instance type.
+   * *   In subscription scenarios, the value is the requested number of CPU cores and memory size.
+   * 
    * @example
    * resource_group
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListInstancesResponseBodyInstancesTags[];
   /**
+   * @remarks
+   * The terminal URL.
+   * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
    */
   terminalUrl?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1612285282502324
    */
   userId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * 测试用户
    */
   userName?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configurations.
+   */
   userVpc?: ListInstancesResponseBodyInstancesUserVpc;
   /**
    * @remarks
-   * Web IDE url。
+   * The Web IDE URL.
    * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
    */
   webIDEUrl?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 40823
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * training_data
    */
   workspaceName?: string;
   /**
+   * @remarks
+   * The storage for the workspace. If you leave this parameter empty, the workspace uses File Storage NAS (NAS) storage, cloud disks, or local disks in sequence.
+   * 
    * @example
    * d-123456789
    */
@@ -2703,6 +3555,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
+      dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       gmtCreateTime: 'GmtCreateTime',
@@ -2720,6 +3573,8 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       jupyterlabUrl: 'JupyterlabUrl',
       labels: 'Labels',
       latestSnapshot: 'LatestSnapshot',
+      oversoldInfo: 'OversoldInfo',
+      oversoldType: 'OversoldType',
       paymentType: 'PaymentType',
       priority: 'Priority',
       reasonCode: 'ReasonCode',
@@ -2750,6 +3605,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesDatasets },
       driver: 'string',
+      dynamicMount: DynamicMount,
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
@@ -2767,6 +3623,8 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       jupyterlabUrl: 'string',
       labels: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesLabels },
       latestSnapshot: ListInstancesResponseBodyInstancesLatestSnapshot,
+      oversoldInfo: 'string',
+      oversoldType: 'string',
       paymentType: 'string',
       priority: 'number',
       reasonCode: 'string',
@@ -2799,6 +3657,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
     }
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
+    }
+    if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
+      (this.dynamicMount as any).validate();
     }
     if(this.environmentVariables) {
       $dara.Model.validateMap(this.environmentVariables);
@@ -2836,6 +3697,16 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 }
 
 export class UpdateInstanceRequestAffinityCPU extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether CPU affinity is enabled.
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2859,6 +3730,10 @@ export class UpdateInstanceRequestAffinityCPU extends $dara.Model {
 }
 
 export class UpdateInstanceRequestAffinity extends $dara.Model {
+  /**
+   * @remarks
+   * The CPU affinity configuration. Only subscription instances that use general-purpose computing resources support CPU affinity configuration.
+   */
   CPU?: UpdateInstanceRequestAffinityCPU;
   static names(): { [key: string]: string } {
     return {
@@ -2886,11 +3761,33 @@ export class UpdateInstanceRequestAffinity extends $dara.Model {
 
 export class UpdateInstanceRequestCloudDisks extends $dara.Model {
   /**
+   * @remarks
+   * If **Resource Type** is **Public Resource** or if **Resource Quota** is subscription-based general-purpose computing resources (CPU cores ≥ 2 and memory ≥ 4 GB, or configured with GPU):
+   * 
+   * Each instance has a free system disk quota of 100 GiB for persistent storage. **If the DSW instance is stopped and not launched for more than 15 days, the disk is cleared**. The disk can be expanded. For specific pricing, refer to the console.
+   * 
+   * **
+   * 
+   * **Warning**
+   * 
+   * *   After the expansion, you cannot reduce the storage space. Proceed with caution.
+   * 
+   * *   After the expansion, the disk is not cleared if the instance is stopped for more than 15 days. However, it will continue to incur fees.
+   * 
+   * *   If you delete the instance, the system disk is also released and the data stored in the disk is deleted. Make sure that you have backed up your data before you delete the instance.
+   * 
+   * If you need persistent storage, you can **mount a dataset** or add the OSS, NAS, or CPFS path to the **storage path**.
+   * 
    * @example
-   * 30Gi
+   * 100Gi
    */
   capacity?: string;
   /**
+   * @remarks
+   * Disk type:
+   * 
+   * *   rootfs: Mounts the disk as a system disk. The system environment is stored on the disk.
+   * 
    * @example
    * rootfs
    */
@@ -2920,31 +3817,95 @@ export class UpdateInstanceRequestCloudDisks extends $dara.Model {
 
 export class UpdateInstanceRequestDatasets extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID. If the dataset is read-only, you cannot change the dataset pemission from read-only to read and write by using MountAccess.
+   * 
+   * You can call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to obtain the dataset ID. If you configure the dataset ID, you cannot configure the dataset URI.
+   * 
    * @example
    * d-vsqjvsjp4orp5l206u
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version. You must also configure DatasetId. If you leave this parameter empty, the value v1 is used by default.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether dynamic mounting is enabled. Default value: false.
+   * 
+   * *   Currently, only instances using general-purpose computing resources are supported.
+   * *   Currently, only OSS datasets are supported. The mounted datasets are read-only.
+   * *   The MountPath of the dynamically mounted dataset must be a subpath of the root path. Example: /mnt/dynamic/data1/
+   * *   A dynamically mounted dataset must be after non-dynamic datasets.
+   * 
+   * @example
+   * false
+   */
+  dynamic?: boolean;
+  /**
+   * @remarks
+   * The read and write permissions of the dataset. If the dataset is read-only, it cannot be changed to read and write.
+   * 
+   * @example
+   * RW
+   */
   mountAccess?: string;
   /**
+   * @remarks
+   * The mount path of the dataset.
+   * 
    * @example
    * /mnt/data
    */
   mountPath?: string;
   /**
+   * @remarks
+   * The mount type. You cannot specify Options at the same time. This is deprecated, you can use Options instead.
+   * 
+   * @example
+   * ReadOnly
+   * 
    * @deprecated
    */
   optionType?: string;
+  /**
+   * @remarks
+   * The custom dataset mount options. Only OSS is supported. You cannot specify OptionType at the same time. For more information, see [DSW mount configurations](https://help.aliyun.com/zh/pai/user-guide/read-and-write-dataset-data).
+   * 
+   * @example
+   * {
+   *   "fs.oss.download.thread.concurrency": "10",
+   *   "fs.oss.upload.thread.concurrency": "10",
+   *   "fs.jindo.args": "-oattr_timeout=3 -oentry_timeout=0 -onegative_timeout=0 -oauto_cache -ono_symlink"
+   * }
+   */
   options?: string;
   /**
+   * @remarks
+   * The URI of the storage service directory, which can be directly mounted. This parameter is mutually exclusive with DatasetId.
+   * 
+   * URI formats of different types of storage:
+   * 
+   * *   OSS: oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
+   * *   NAS: nas://29\\*\\*d-b12\\*\\*\\*\\*446.cn-hangzhou.nas.aliyuncs.com/data/path/
+   * *   Extreme NAS: nas://29\\*\\*\\*\\*123-y\\*\\*r.cn-hangzhou.extreme.nas.aliyuncs.com/data/path/
+   * *   CPFS: cpfs://cpfs-213\\*\\*\\*\\*87.cn-wulanchabu/ptc-292\\*\\*\\*\\*\\*cbb/exp-290\\*\\*\\*\\*\\*\\*\\*\\*03e/data/path/
+   * *   Lingjun CPFS: bmcpfs://cpfs-290\\*\\*\\*\\*\\*\\*foflh-vpc-x\\*\\*\\*\\*8r.cn-wulanchabu.cpfs.aliyuncs.com/data/path/
+   * 
    * @example
-   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   * oss://bucket-name.oss-cn-shanghai-internal.aliyuncs.com/data/path/
    */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       datasetVersion: 'DatasetVersion',
+      dynamic: 'Dynamic',
       mountAccess: 'MountAccess',
       mountPath: 'MountPath',
       optionType: 'OptionType',
@@ -2957,6 +3918,7 @@ export class UpdateInstanceRequestDatasets extends $dara.Model {
     return {
       datasetId: 'string',
       datasetVersion: 'string',
+      dynamic: 'boolean',
       mountAccess: 'string',
       mountPath: 'string',
       optionType: 'string',
@@ -2976,26 +3938,41 @@ export class UpdateInstanceRequestDatasets extends $dara.Model {
 
 export class UpdateInstanceRequestRequestedResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPU cores.
+   * 
    * @example
    * 32
    */
   CPU?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 4
    */
   GPU?: string;
   /**
+   * @remarks
+   * The GPU type.
+   * 
    * @example
    * v100
    */
   GPUType?: string;
   /**
+   * @remarks
+   * The memory size. Unit: GB.
+   * 
    * @example
    * 32
    */
   memory?: string;
   /**
+   * @remarks
+   * The shared memory size. Unit: GB.
+   * 
    * @example
    * 32
    */
@@ -3030,34 +4007,61 @@ export class UpdateInstanceRequestRequestedResource extends $dara.Model {
 }
 
 export class UpdateInstanceRequestUserVpc extends $dara.Model {
+  bandwidthLimit?: BandwidthLimit;
   /**
+   * @remarks
+   * The default route. Valid values:
+   * 
+   * *   eth0: The default network interface is used to access the Internet through the public gateway.
+   * *   eth1: The user\\"s Elastic Network Interface is used to access the Internet through the private gateway.
+   * 
    * @example
-   * eth0 | eth1
+   * eth0
    */
   defaultRoute?: string;
   /**
+   * @remarks
+   * The extended CIDR blocks.
+   * 
+   * *   If you leave VSwitchId empty, this parameter is not required and the system automatically obtains all CIDR blocks in the VPC.
+   * *   If VSwitchId is not empty, this parameter is required. Specify all CIDR blocks in the VPC.
+   * 
    * @example
    * ["192.168.0.1/24", "192.168.1.1/24"]
    */
   extendedCIDRs?: string[];
+  /**
+   * @remarks
+   * The forward configuration of the instance.
+   */
   forwardInfos?: ForwardInfo[];
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxxxx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-xxxxx
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidthLimit: 'BandwidthLimit',
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       forwardInfos: 'ForwardInfos',
@@ -3069,6 +4073,7 @@ export class UpdateInstanceRequestUserVpc extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidthLimit: BandwidthLimit,
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       forwardInfos: { 'type': 'array', 'itemType': ForwardInfo },
@@ -3079,6 +4084,9 @@ export class UpdateInstanceRequestUserVpc extends $dara.Model {
   }
 
   validate() {
+    if(this.bandwidthLimit && typeof (this.bandwidthLimit as any).validate === 'function') {
+      (this.bandwidthLimit as any).validate();
+    }
     if(Array.isArray(this.extendedCIDRs)) {
       $dara.Model.validateArray(this.extendedCIDRs);
     }
@@ -3096,6 +4104,8 @@ export class UpdateInstanceRequestUserVpc extends $dara.Model {
 export class UpdateInstanceLabelsRequestLabels extends $dara.Model {
   /**
    * @remarks
+   * The key of the custom tag.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3104,6 +4114,8 @@ export class UpdateInstanceLabelsRequestLabels extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The value of the custom tag.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3125,6 +4137,44 @@ export class UpdateInstanceLabelsRequestLabels extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BandwidthLimit extends $dara.Model {
+  egressRate?: string;
+  egressWhitelists?: string[];
+  ingressRate?: string;
+  ingressWhitelists?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      egressRate: 'EgressRate',
+      egressWhitelists: 'EgressWhitelists',
+      ingressRate: 'IngressRate',
+      ingressWhitelists: 'IngressWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      egressRate: 'string',
+      egressWhitelists: { 'type': 'array', 'itemType': 'string' },
+      ingressRate: 'string',
+      ingressWhitelists: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.egressWhitelists)) {
+      $dara.Model.validateArray(this.egressWhitelists);
+    }
+    if(Array.isArray(this.ingressWhitelists)) {
+      $dara.Model.validateArray(this.ingressWhitelists);
+    }
     super.validate();
   }
 
@@ -3212,6 +4262,65 @@ export class DemoCategory extends $dara.Model {
     if(Array.isArray(this.subCategories)) {
       $dara.Model.validateArray(this.subCategories);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DynamicMount extends $dara.Model {
+  enable?: boolean;
+  mountPoints?: DynamicMountPoint[];
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      mountPoints: 'MountPoints',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      mountPoints: { 'type': 'array', 'itemType': DynamicMountPoint },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mountPoints)) {
+      $dara.Model.validateArray(this.mountPoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DynamicMountPoint extends $dara.Model {
+  options?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  rootPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      options: 'Options',
+      rootPath: 'RootPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      options: 'string',
+      rootPath: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3384,16 +4493,25 @@ export class ForwardInfoResponse extends $dara.Model {
 
 export class CreateIdleInstanceCullerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The CPU utilization threshold. Unit: percentage. Valid values: 1 to 100. If the CPU utilization of the instance is lower than this threshold, the instance is considered idle.
+   * 
    * @example
    * 20
    */
   cpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The GPU utilization threshold. Unit: percentage. Valid values: 1 to 100. This parameter takes effect only if the instance is of the GPU instance type. If both CPU and GPU utilization is lower than the thresholds, the instance is considered idle.
+   * 
    * @example
    * 10
    */
   gpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The maximum time duration for which the instance is idle. Unit: minutes. If the time duration for which the instance is idle exceeds this value, the system automatically stops the instance.
+   * 
    * @example
    * 60
    */
@@ -3425,26 +4543,47 @@ export class CreateIdleInstanceCullerRequest extends $dara.Model {
 
 export class CreateIdleInstanceCullerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3515,84 +4654,184 @@ export class CreateIdleInstanceCullerResponse extends $dara.Model {
 
 export class CreateInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance accessibility.
+   * 
+   * Valid values:
+   * 
+   * *   PUBLIC: The instances are accessible to all members in the workspace.
+   * *   PRIVATE: The instances are accessible only to you and the administrator of the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The affinity configuration.
+   */
   affinity?: CreateInstanceRequestAffinity;
   /**
+   * @remarks
+   * The cloud disks.
+   * 
    * @example
    * []
    */
   cloudDisks?: CreateInstanceRequestCloudDisks[];
+  /**
+   * @remarks
+   * The credential configuration.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The datasets.
+   */
   datasets?: CreateInstanceRequestDatasets[];
   /**
+   * @remarks
+   * The NVIDIA driver configuration.
+   * 
    * @example
    * 535.54.03
    */
   driver?: string;
   /**
+   * @remarks
+   * The dynamic mount configuration.
+   */
+  dynamicMount?: DynamicMount;
+  /**
+   * @remarks
+   * The ECS instance type of the instance. You can call [ListEcsSpecs](https://help.aliyun.com/document_detail/470423.html) to obtain the ECS instance type.
+   * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
   /**
+   * @remarks
+   * The environment variables.
+   * 
    * @example
    * {userName: "Chris"}
    */
   environmentVariables?: { [key: string]: string };
+  /**
+   * @remarks
+   * The Base64-encoded account and password for the user\\"s private image. The password will be hidden.
+   * 
+   * @example
+   * ****
+   */
   imageAuth?: string;
   /**
+   * @remarks
+   * The image ID. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image address. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image address.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The instance name. The name must meet the following requirements:
+   * 
+   * *   The name can contain only letters, digits, and underscores (_).
+   * *   The name can be up to 27 characters in length.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The custom labels.
+   * 
    * @example
    * {\\"foo\\": \\"bar\\"}
    */
   labels?: CreateInstanceRequestLabels[];
   /**
+   * @remarks
+   * The priority based on which resources are allocated to instances. Valid values: 1 to 9.
+   * 
+   * *   1: the lowest priority.
+   * *   9: the highest priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The resource configurations.
+   * 
    * @example
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: CreateInstanceRequestRequestedResource;
   /**
+   * @remarks
+   * The ID of the resource group. This parameter is configured during prepayment. For information about how to create a dedicated resource group, see [Create a dedicated resource group and purchase general computing resources](https://help.aliyun.com/document_detail/202827.html).
+   * 
    * @example
    * dsw-123456789
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateInstanceRequestTag[];
   /**
+   * @remarks
+   * The ID of the instance owner. Valid values: Alibaba Cloud account and RAM user.
+   * 
    * @example
-   * 1612285282502324
+   * 161228528250****
    */
   userId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configurations.
+   */
   userVpc?: CreateInstanceRequestUserVpc;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 40823
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The storage corresponding to the working directory. You can mount disks or datasets to /mnt/workspace at the same time. OSS datasets and dynamically mounted datasets are not supported.
+   * 
+   * Valid values:
+   * 
+   * *   rootfsCloudDisk: Mount the disk to the working directory.
+   * *   Mount path of the dataset, such as /mnt/data: Datasets in URI format only support this method.
+   * *   Dataset ID, such as d-vsqjvs\\*\\*\\*\\*rp5l206u: If a single dataset is mounted to multiple paths, the first path is selected. We recommend that you do not use this method, use the mount path instead.
+   * 
+   * If you leave this parameter empty:
+   * 
+   * *   If the instance uses cloud disks, cloud disks are selected by default.
+   * *   if no cloud disks are available, the first NAS or CPFS dataset is selected as the working directory.
+   * *   If no cloud disks, and NAS or CPFS datasets are available, the host space is used.
+   * 
    * @example
-   * d-123456789
+   * rootfsCloudDisk
    */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
@@ -3603,6 +4842,7 @@ export class CreateInstanceRequest extends $dara.Model {
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
+      dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       imageAuth: 'ImageAuth',
@@ -3629,6 +4869,7 @@ export class CreateInstanceRequest extends $dara.Model {
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
       driver: 'string',
+      dynamicMount: DynamicMount,
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       imageAuth: 'string',
@@ -3660,6 +4901,9 @@ export class CreateInstanceRequest extends $dara.Model {
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
     }
+    if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
+      (this.dynamicMount as any).validate();
+    }
     if(this.environmentVariables) {
       $dara.Model.validateMap(this.environmentVariables);
     }
@@ -3685,31 +4929,59 @@ export class CreateInstanceRequest extends $dara.Model {
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * *   200
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3782,11 +5054,17 @@ export class CreateInstanceResponse extends $dara.Model {
 
 export class CreateInstanceShutdownTimerRequest extends $dara.Model {
   /**
+   * @remarks
+   * The scheduled stop time.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   dueTime?: string;
   /**
+   * @remarks
+   * The time duration before the instance is stopped. Unit: milliseconds.
+   * 
    * @example
    * 3600000
    */
@@ -3816,31 +5094,58 @@ export class CreateInstanceShutdownTimerRequest extends $dara.Model {
 
 export class CreateInstanceShutdownTimerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4083,26 +5388,50 @@ export class CreateInstanceSnapshotResponse extends $dara.Model {
 
 export class DeleteIdleInstanceCullerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * ValidationError
    */
   code?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
+   * *   If the request is successful, null is returned.
+   * *   If the request fails, the failure cause is returned.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4173,31 +5502,59 @@ export class DeleteIdleInstanceCullerResponse extends $dara.Model {
 
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * *   200
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4271,6 +5628,8 @@ export class DeleteInstanceResponse extends $dara.Model {
 export class DeleteInstanceLabelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The keys of the tags that you want to delete. Separate multiple tags with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4300,6 +5659,9 @@ export class DeleteInstanceLabelsRequest extends $dara.Model {
 
 export class DeleteInstanceLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
    */
@@ -4362,31 +5724,58 @@ export class DeleteInstanceLabelsResponse extends $dara.Model {
 
 export class DeleteInstanceShutdownTimerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4563,46 +5952,79 @@ export class DeleteInstanceSnapshotResponse extends $dara.Model {
 
 export class GetIdleInstanceCullerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * ValidationError
    */
   code?: string;
   /**
+   * @remarks
+   * The CPU utilization threshold. Unit: percentage. Valid values: 1 to 100. If the CPU utilization of the instance is lower than this threshold, the instance is considered idle.
+   * 
    * @example
    * 20
    */
   cpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The GPU utilization threshold. Unit: percentage. Valid values: 1 to 100. This parameter takes effect only if the instance is of the GPU instance type. If both CPU and GPU utilization is lower than the thresholds, the instance is considered idle.
+   * 
    * @example
    * 10
    */
   gpuPercentThreshold?: number;
   /**
+   * @remarks
+   * The time duration for which the instance is idle. Unit: minutes.
+   * 
    * @example
    * 30
    */
   idleTimeInMinutes?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The maximum time duration for which the instance is idle. Unit: minutes. If the time duration for which the instance is idle exceeds this value, the system automatically stops the instance.
+   * 
    * @example
    * 60
    */
   maxIdleTimeInMinutes?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -4680,6 +6102,13 @@ export class GetIdleInstanceCullerResponse extends $dara.Model {
 }
 
 export class GetInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The sharing token information.
+   * 
+   * @example
+   * WUzWCMr325LV0bH2JH4C4HoDaKIU6C4S
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4704,212 +6133,418 @@ export class GetInstanceRequest extends $dara.Model {
 
 export class GetInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   CPU
+   * *   GPU
+   * 
    * @example
    * CPU
    */
   acceleratorType?: string;
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PRIVATE: Accessible only to you and the administrator of the workspace.
+   * *   PUBLIC: Accessible to all members in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The accumulated running duration. Unit: milliseconds.
+   * 
    * @example
    * 3600000
    */
   accumulatedRunningTimeInMs?: number;
+  /**
+   * @remarks
+   * The affinity configuration.
+   */
   affinity?: GetInstanceResponseBodyAffinity;
   /**
+   * @remarks
+   * The cloud disks of the instance.
+   * 
    * @example
    * []
    */
   cloudDisks?: GetInstanceResponseBodyCloudDisks[];
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: All errors, except for parameter validation errors, are internal errors.
+   * *   ValidationError: A parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
+  /**
+   * @remarks
+   * The credential injection configuration.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The datasets.
+   */
   datasets?: GetInstanceResponseBodyDatasets[];
   /**
+   * @remarks
+   * The NVIDIA driver configuration.
+   * 
    * @example
    * 535.54.03
    */
   driver?: string;
   /**
+   * @remarks
+   * The dynamic mount configuration.
+   */
+  dynamicMount?: DynamicMount;
+  /**
+   * @remarks
+   * The ECS instance type of the instance.
+   * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
   /**
+   * @remarks
+   * The environment variables.
+   * 
    * @example
    * {userName: "Chris"}
    */
   environmentVariables?: { [key: string]: string };
   /**
+   * @remarks
+   * The creation time of the instance.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The last modified time of the instance.
+   * 
    * @example
    * 2021-01-12T14:36:01Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The automatic shutdown settings.
+   * 
    * @example
    * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
    */
   idleInstanceCuller?: GetInstanceResponseBodyIdleInstanceCuller;
+  /**
+   * @remarks
+   * The Base64-encoded account and password for the user‘s private image. The password will be hidden.
+   * 
+   * @example
+   * YWxpeXVuNjUzMzM5MjIwMzoqKioqKio=
+   */
   imageAuth?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * py36_cpu_tf1.12_ubuntu
    */
   imageName?: string;
   /**
+   * @remarks
+   * The image address.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The scheduled stop tasks.
+   */
   instanceShutdownTimer?: GetInstanceResponseBodyInstanceShutdownTimer;
   /**
+   * @remarks
+   * The instance snapshots.
+   * 
    * @example
    * []
    */
   instanceSnapshotList?: GetInstanceResponseBodyInstanceSnapshotList[];
   /**
+   * @remarks
+   * The instance URL.
+   * 
    * @example
    * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
    */
   instanceUrl?: string;
   /**
    * @remarks
-   * Jupyterlab Url。
+   * The JupyterLab URL.
    * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
    */
   jupyterlabUrl?: string;
   /**
+   * @remarks
+   * The custom tags.
+   * 
    * @example
    * {\\"foo\\": \\"bar\\"}
    */
   labels?: GetInstanceResponseBodyLabels[];
+  /**
+   * @remarks
+   * The latest user image saved.
+   */
   latestSnapshot?: GetInstanceResponseBodyLatestSnapshot;
   /**
+   * @remarks
+   * The error message. Valid values:
+   * 
+   * *   If the request is successful, null is returned.
+   * *   If the request fails, the cause for the failure is returned.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
+  /**
+   * @remarks
+   * The error recovery configuration of the node.
+   */
   nodeErrorRecovery?: GetInstanceResponseBodyNodeErrorRecovery;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The priority based on which resources are allocated to instances.
+   * 
    * @example
    * 1
    */
   priority?: number;
+  /**
+   * @remarks
+   * The proxy path.
+   * 
+   * @example
+   * dsw-170197/proxy/
+   */
   proxyPath?: string;
   /**
+   * @remarks
+   * The error code of the instance.
+   * 
    * @example
    * Internal Error
    */
   reasonCode?: string;
   /**
+   * @remarks
+   * The cause of the instance error.
+   * 
    * @example
    * ImagePullBackOff
    */
   reasonMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * The resource configurations in subscription scenarios.
+   * 
    * @example
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: GetInstanceResponseBodyRequestedResource;
   /**
+   * @remarks
+   * The resource ID. This parameter is available if the billing method is subscription.
+   * 
    * @example
    * dsw-123456789
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The specification type.
+   * 
+   * *   For subscription, this is the requested CPU and memory size.
+   * *   For pay-as-you-go, this is the selected ECS instance type.
+   * 
    * @example
    * ecs.g7.xlarge
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   SaveFailed
+   * *   Stopped
+   * *   Failed
+   * *   ResourceAllocating
+   * *   Stopping
+   * *   Updating
+   * *   Saving
+   * *   Queuing
+   * *   Recovering
+   * *   Starting
+   * *   Running
+   * *   Saved
+   * *   Deleting
+   * *   EnvPreparing
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetInstanceResponseBodyTags[];
   /**
+   * @remarks
+   * The terminal URL.
+   * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
    */
   terminalUrl?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1612285282502324
    */
   userId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * 测试用户
    */
   userName?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configurations.
+   */
   userVpc?: GetInstanceResponseBodyUserVpc;
   /**
    * @remarks
-   * Web IDE url。
+   * The Web IDE URL.
    * 
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
    */
   webIDEUrl?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 40823
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * training_data
    */
   workspaceName?: string;
   /**
+   * @remarks
+   * The storage for the workspace. If you leave this parameter empty, the workspace uses File Storage NAS (NAS) storage, cloud disks, or local disks in sequence.
+   * 
    * @example
    * d-123456789
    */
@@ -4925,6 +6560,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
+      dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
       environmentVariables: 'EnvironmentVariables',
       gmtCreateTime: 'GmtCreateTime',
@@ -4979,6 +6615,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': GetInstanceResponseBodyDatasets },
       driver: 'string',
+      dynamicMount: DynamicMount,
       ecsSpec: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreateTime: 'string',
@@ -5034,6 +6671,9 @@ export class GetInstanceResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
+    }
+    if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
+      (this.dynamicMount as any).validate();
     }
     if(this.environmentVariables) {
       $dara.Model.validateMap(this.environmentVariables);
@@ -5110,20 +6750,33 @@ export class GetInstanceResponse extends $dara.Model {
 
 export class GetInstanceEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The maximum number of events. Default value: 2000.
+   * 
    * @example
    * 2000
    */
   maxEventsNum?: number;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The token used to share the URL.
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5154,32 +6807,64 @@ export class GetInstanceEventsRequest extends $dara.Model {
 
 export class GetInstanceEventsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * None
    */
   code?: string;
+  /**
+   * @remarks
+   * The events.
+   */
   events?: string[];
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400: One or more parameters are invalid.
+   * *   404: The instance does not exist.
+   * *   200: The request is normal.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * XXX
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5257,12 +6942,26 @@ export class GetInstanceEventsResponse extends $dara.Model {
 
 export class GetInstanceMetricsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   endTime?: string;
   /**
    * @remarks
+   * The metric type. Valid values:
+   * 
+   * *   GpuCoreUsage: the GPU utilization.
+   * *   GpuMemoryUsage: the GPU memory utilization.
+   * *   CpuCoreUsage: the CPU utilization.
+   * *   MemoryUsage: the memory utilization.
+   * *   NetworkInputRate: the network ingress rate.
+   * *   NetworkOutputRate: the network egress rate.
+   * *   DiskReadRate: the disk read rate.
+   * *   DiskWriteRate: the disk write rate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5270,11 +6969,17 @@ export class GetInstanceMetricsRequest extends $dara.Model {
    */
   metricType?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The interval at which metrics are returned. Unit: minutes.
+   * 
    * @example
    * 15m
    */
@@ -5308,32 +7013,63 @@ export class GetInstanceMetricsRequest extends $dara.Model {
 
 export class GetInstanceMetricsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
+  /**
+   * @remarks
+   * The information about the metrics of the pod that corresponds to the instance.
+   */
   podMetrics?: GetInstanceMetricsResponseBodyPodMetrics[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -5712,30 +7448,52 @@ export class GetInstanceSnapshotResponse extends $dara.Model {
 
 export class GetLifecycleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The number of sessions to query.
+   * 
    * @example
    * 1
    */
   limit?: number;
   /**
+   * @remarks
+   * The sorting order of the results. Valid values:
+   * 
+   * *   ASC: sorted by time in ascending order.
+   * *   DESC: sorted by time in descending order.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * A session refers to the process of an instance from startup to failure or shutdown. The sessionNumber indicates the offset value for the instance\\"s session sequence.
+   * 
    * @example
    * 1
    */
   sessionNumber?: number;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2020-11-08T15:00:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The token used to share the URL.
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5770,31 +7528,55 @@ export class GetLifecycleRequest extends $dara.Model {
 
 export class GetLifecycleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: All errors, except for parameter validation errors, are internal errors.
+   * *   ValidationError: A parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The lifecycle details.
+   * 
    * @example
    * [[{"Status":"Creating","GmtCreateTime":"2022-09-19T22:38:00Z","Reason":"","ReasonCode":""}]]
    */
   lifecycle?: GetLifecycleResponseBodyLifecycle[][];
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of queried sessions.
+   * 
    * @example
    * 35
    */
@@ -6202,12 +7984,17 @@ export class GetResourceGroupStatisticsResponse extends $dara.Model {
 
 export class GetTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The validity period. Unit: seconds.
+   * 
    * @example
    * 60
    */
   expireTime?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6239,26 +8026,47 @@ export class GetTokenRequest extends $dara.Model {
 
 export class GetTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: All errors, except for parameter validation errors, are internal errors.
+   * *   ValidationError: A parameter validation error.
+   * 
    * @example
    * ValidationError
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The temporary authentication information of the DSW instance.
+   * 
    * @example
    * *******
    */
@@ -6884,74 +8692,244 @@ export class ListInstanceStatisticsResponse extends $dara.Model {
 
 export class ListInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type.
+   * 
+   * *   CPU: Only CPU computing is used.
+   * *   GPU: GPUs are used to accelerate computing.
+   * 
    * @example
-   * AcceleratorType
+   * CPU
    */
   acceleratorType?: string;
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PRIVATE (default): The instances are accessible only to you and the administrator of the workspace.
+   * *   PUBLIC: The instances are accessible only to all members in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The UID of the creator.
+   * 
+   * @example
+   * 12345*****67890
+   */
   createUserId?: string;
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * NVIDIA A10
+   */
   gpuType?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * modelscope:1.9.4-pytorch2.0.1tensorflow2.13.0-cpu-py38-ubuntu20.04
+   */
   imageName?: string;
   /**
+   * @remarks
+   * The instance ID. You can call [ListInstances](https://help.aliyun.com/document_detail/470439.html) to obtain the instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The labels. A maximum of four labels are supported.
+   * 
+   * @example
+   * {
+   *   "key1": "value1",
+   *   "key2": "value2",
+   *   "key3": "value3"
+   * }
+   */
   labels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The maximum number of CPUs. Unit: 0.001 CPU. The value 1000 indicates one CPU.
+   * 
+   * @example
+   * 30000
+   */
   maxCpu?: string;
+  /**
+   * @remarks
+   * The maximum number of GPUs. Unit: 0.001 GPU. The value 1000 indicates one GPU.
+   * 
+   * @example
+   * 8000
+   */
   maxGpu?: string;
+  /**
+   * @remarks
+   * The maximum memory size per GPU card. Unit: GB.
+   * 
+   * @example
+   * 16
+   */
   maxGpuMemory?: string;
+  /**
+   * @remarks
+   * The maximum memory size. Unit: GB.
+   * 
+   * @example
+   * 48
+   */
   maxMemory?: string;
+  /**
+   * @remarks
+   * The minimum number of CPUs. Unit: 0.001 CPU. The value 1000 indicates one CPU.
+   * 
+   * @example
+   * 2000
+   */
   minCpu?: string;
+  /**
+   * @remarks
+   * The minimum number of GPUs. Unit: 0.001 GPU. The value 1000 indicates one GPU.
+   * 
+   * @example
+   * 100
+   */
   minGpu?: string;
+  /**
+   * @remarks
+   * The minimum memory size per GPU card. Unit: GB.
+   * 
+   * @example
+   * 8
+   */
   minGpuMemory?: string;
+  /**
+   * @remarks
+   * The minimum memory size. Unit: GB.
+   * 
+   * @example
+   * 4
+   */
   minMemory?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
+  oversoldInfo?: string;
+  oversoldType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The billing method.
+   * 
+   * Valid values:
+   * 
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The resource group ID. If you leave this parameter empty, the instances in the pay-as-you-go resource group are queried. If you set this parameter to ALL, all instances are queried.
+   * 
    * @example
    * rg-123456789
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   Priority
+   * *   GmtCreateTime
+   * *   GmtModifiedTime
+   * 
    * @example
    * gmtCreate
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   SaveFailed
+   * *   Stopped
+   * *   Failed
+   * *   ResourceAllocating
+   * *   Stopping
+   * *   Updating
+   * *   Saving
+   * *   Queuing
+   * *   Recovering
+   * *   Starting
+   * *   Running
+   * *   Saved
+   * *   Deleting
+   * *   EnvPreparing
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: ListInstancesRequestTag[];
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 40823
    */
@@ -6975,6 +8953,8 @@ export class ListInstancesRequest extends $dara.Model {
       minGpuMemory: 'MinGpuMemory',
       minMemory: 'MinMemory',
       order: 'Order',
+      oversoldInfo: 'OversoldInfo',
+      oversoldType: 'OversoldType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
@@ -7005,6 +8985,8 @@ export class ListInstancesRequest extends $dara.Model {
       minGpuMemory: 'string',
       minMemory: 'string',
       order: 'string',
+      oversoldInfo: 'string',
+      oversoldType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
@@ -7033,74 +9015,244 @@ export class ListInstancesRequest extends $dara.Model {
 
 export class ListInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accelerator type.
+   * 
+   * *   CPU: Only CPU computing is used.
+   * *   GPU: GPUs are used to accelerate computing.
+   * 
    * @example
-   * AcceleratorType
+   * CPU
    */
   acceleratorType?: string;
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PRIVATE (default): The instances are accessible only to you and the administrator of the workspace.
+   * *   PUBLIC: The instances are accessible only to all members in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The UID of the creator.
+   * 
+   * @example
+   * 12345*****67890
+   */
   createUserId?: string;
+  /**
+   * @remarks
+   * The GPU type.
+   * 
+   * @example
+   * NVIDIA A10
+   */
   gpuType?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * modelscope:1.9.4-pytorch2.0.1tensorflow2.13.0-cpu-py38-ubuntu20.04
+   */
   imageName?: string;
   /**
+   * @remarks
+   * The instance ID. You can call [ListInstances](https://help.aliyun.com/document_detail/470439.html) to obtain the instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The labels. A maximum of four labels are supported.
+   * 
+   * @example
+   * {
+   *   "key1": "value1",
+   *   "key2": "value2",
+   *   "key3": "value3"
+   * }
+   */
   labelsShrink?: string;
+  /**
+   * @remarks
+   * The maximum number of CPUs. Unit: 0.001 CPU. The value 1000 indicates one CPU.
+   * 
+   * @example
+   * 30000
+   */
   maxCpu?: string;
+  /**
+   * @remarks
+   * The maximum number of GPUs. Unit: 0.001 GPU. The value 1000 indicates one GPU.
+   * 
+   * @example
+   * 8000
+   */
   maxGpu?: string;
+  /**
+   * @remarks
+   * The maximum memory size per GPU card. Unit: GB.
+   * 
+   * @example
+   * 16
+   */
   maxGpuMemory?: string;
+  /**
+   * @remarks
+   * The maximum memory size. Unit: GB.
+   * 
+   * @example
+   * 48
+   */
   maxMemory?: string;
+  /**
+   * @remarks
+   * The minimum number of CPUs. Unit: 0.001 CPU. The value 1000 indicates one CPU.
+   * 
+   * @example
+   * 2000
+   */
   minCpu?: string;
+  /**
+   * @remarks
+   * The minimum number of GPUs. Unit: 0.001 GPU. The value 1000 indicates one GPU.
+   * 
+   * @example
+   * 100
+   */
   minGpu?: string;
+  /**
+   * @remarks
+   * The minimum memory size per GPU card. Unit: GB.
+   * 
+   * @example
+   * 8
+   */
   minGpuMemory?: string;
+  /**
+   * @remarks
+   * The minimum memory size. Unit: GB.
+   * 
+   * @example
+   * 4
+   */
   minMemory?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
+  oversoldInfo?: string;
+  oversoldType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The billing method.
+   * 
+   * Valid values:
+   * 
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
    * @example
    * PayAsYouGo
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The resource group ID. If you leave this parameter empty, the instances in the pay-as-you-go resource group are queried. If you set this parameter to ALL, all instances are queried.
+   * 
    * @example
    * rg-123456789
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   Priority
+   * *   GmtCreateTime
+   * *   GmtModifiedTime
+   * 
    * @example
    * gmtCreate
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   SaveFailed
+   * *   Stopped
+   * *   Failed
+   * *   ResourceAllocating
+   * *   Stopping
+   * *   Updating
+   * *   Saving
+   * *   Queuing
+   * *   Recovering
+   * *   Starting
+   * *   Running
+   * *   Saved
+   * *   Deleting
+   * *   EnvPreparing
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagShrink?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 40823
    */
@@ -7124,6 +9276,8 @@ export class ListInstancesShrinkRequest extends $dara.Model {
       minGpuMemory: 'MinGpuMemory',
       minMemory: 'MinMemory',
       order: 'Order',
+      oversoldInfo: 'OversoldInfo',
+      oversoldType: 'OversoldType',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
@@ -7154,6 +9308,8 @@ export class ListInstancesShrinkRequest extends $dara.Model {
       minGpuMemory: 'string',
       minMemory: 'string',
       order: 'string',
+      oversoldInfo: 'string',
+      oversoldType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
@@ -7176,32 +9332,63 @@ export class ListInstancesShrinkRequest extends $dara.Model {
 
 export class ListInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The instances returned on this page.
+   */
   instances?: ListInstancesResponseBodyInstances[];
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of instances.
+   * 
    * @example
    * 35
    */
@@ -7500,84 +9687,190 @@ export class StopInstanceResponse extends $dara.Model {
 
 export class UpdateInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   PUBLIC: Accessible to all members in the workspace.
+   * *   PRIVATE: Accessible only to you and the administrator of the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The affinity configuration.
+   */
   affinity?: UpdateInstanceRequestAffinity;
   /**
+   * @remarks
+   * The cloud disks.
+   * 
    * @example
    * []
    */
   cloudDisks?: UpdateInstanceRequestCloudDisks[];
+  /**
+   * @remarks
+   * The credential configuration.
+   */
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * The datasets.
+   */
   datasets?: UpdateInstanceRequestDatasets[];
+  /**
+   * @remarks
+   * Specifies whether to delete the credential injection information.
+   * 
+   * @example
+   * false
+   */
   disassociateCredential?: boolean;
   /**
+   * @remarks
+   * Specifies whether to delete the associated datasets.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   disassociateDatasets?: boolean;
   /**
+   * @remarks
+   * Specifies whether to delete the NVIDIA driver configuration.
+   * 
    * @example
    * false
    */
   disassociateDriver?: boolean;
   /**
+   * @remarks
+   * Specifies whether to delete the associated forward information.
+   * 
    * @example
    * false
    */
   disassociateForwardInfos?: boolean;
   /**
+   * @remarks
+   * Specifies whether to delete the associated user VPC.
+   * 
    * @example
    * false
    */
   disassociateVpc?: boolean;
   /**
+   * @remarks
+   * The NVIDIA driver configuration.
+   * 
    * @example
    * 535.54.03
    */
   driver?: string;
   /**
+   * @remarks
+   * The dynamic mount configuration.
+   */
+  dynamicMount?: DynamicMount;
+  /**
+   * @remarks
+   * The ECS instance type of the instance. You can call [ListEcsSpecs](https://help.aliyun.com/document_detail/470423.html) to obtain the ECS instance type.
+   * 
    * @example
    * ecs.c6.large
    */
   ecsSpec?: string;
+  /**
+   * @remarks
+   * The Base64-encoded account and password for the user‘s private image. The password will be hidden.
+   * 
+   * @example
+   * ****
+   */
   imageAuth?: string;
   /**
+   * @remarks
+   * The image ID. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image ID.
+   * 
    * @example
    * image-05cefd0be2exxxx
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image address. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image address.
+   * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The instance name. Format requirements:
+   * 
+   * *   The name can contain only letters, digits, and underscores (_).
+   * *   The name can be up to 27 characters in length.
+   * 
    * @example
    * training_data
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The priority based on which resources are allocated to instances. Valid values: 1 to 9.
+   * 
+   * *   1: the lowest priority.
+   * *   9 is the highest priority.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The resource configurations.
+   * 
    * @example
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: UpdateInstanceRequestRequestedResource;
   /**
+   * @remarks
+   * the User ID of the instance.
+   * 
    * @example
-   * 1612285282502324
+   * 16122**********
    */
   userId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configurations.
+   */
   userVpc?: UpdateInstanceRequestUserVpc;
   /**
+   * @remarks
+   * Specifies the storage corresponding to the working directory. You can mount disks or datasets to /mnt/workspace at the same time. OSS datasets and dynamically mounted datasets are not supported.
+   * 
+   * Valid values:
+   * 
+   * *   rootfsCloudDisk: Mount disk to the working directory.
+   * *   Mount path of the dataset, such as /mnt/data: Datasets in URI format only support this method.
+   * *   Dataset ID, such as d-vsqjvs\\*\\*\\*\\*rp5l206u: If a single dataset is mounted to multiple paths, the first path is selected. We recommend that you do not use this method, use the mount path instead.
+   * 
+   * If you leave this parameter empty:
+   * 
+   * *   If the instance uses cloud disks, cloud disks are selected by default.
+   * *   if no disks are available, the first NAS or CPFS dataset is selected as the working directory.
+   * *   If no disk, NAS, or CPFS datasets is available, the host space is used.
+   * 
    * @example
-   * d-123456789
+   * /mnt/data
    */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
@@ -7593,6 +9886,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateForwardInfos: 'DisassociateForwardInfos',
       disassociateVpc: 'DisassociateVpc',
       driver: 'Driver',
+      dynamicMount: 'DynamicMount',
       ecsSpec: 'EcsSpec',
       imageAuth: 'ImageAuth',
       imageId: 'ImageId',
@@ -7619,6 +9913,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       disassociateForwardInfos: 'boolean',
       disassociateVpc: 'boolean',
       driver: 'string',
+      dynamicMount: DynamicMount,
       ecsSpec: 'string',
       imageAuth: 'string',
       imageId: 'string',
@@ -7645,6 +9940,9 @@ export class UpdateInstanceRequest extends $dara.Model {
     if(Array.isArray(this.datasets)) {
       $dara.Model.validateArray(this.datasets);
     }
+    if(this.dynamicMount && typeof (this.dynamicMount as any).validate === 'function') {
+      (this.dynamicMount as any).validate();
+    }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
     }
@@ -7661,31 +9959,58 @@ export class UpdateInstanceRequest extends $dara.Model {
 
 export class UpdateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. Valid values:
+   * 
+   * *   InternalError: an internal error. All errors, except for parameter validation errors, are classified as internal errors.
+   * *   ValidationError: a parameter validation error.
+   * 
    * @example
    * null
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   400
+   * *   404
+   * 
    * @example
    * null
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * "XXX"
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -7759,6 +10084,8 @@ export class UpdateInstanceResponse extends $dara.Model {
 export class UpdateInstanceLabelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The tags that you want to update.
+   * 
    * This parameter is required.
    */
   labels?: UpdateInstanceLabelsRequestLabels[];
@@ -7788,6 +10115,9 @@ export class UpdateInstanceLabelsRequest extends $dara.Model {
 
 export class UpdateInstanceLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948
    */
@@ -7872,6 +10202,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an automatic stop policy for a specific Data Science Workshop (DSW) instance. When the conditions are met, the instance is automatically stopped. You can create only one automatic stop policy for an idle DSW instance. If the specific instance has an automatic stop policy, call DeleteIdleInstanceCuller to delete it first.
+   * 
    * @param request - CreateIdleInstanceCullerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7907,15 +10239,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
-    } else {
-      return $dara.cast<CreateIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
-    }
-
+    return $dara.cast<CreateIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new CreateIdleInstanceCullerResponse({}));
   }
 
   /**
+   * Creates an automatic stop policy for a specific Data Science Workshop (DSW) instance. When the conditions are met, the instance is automatically stopped. You can create only one automatic stop policy for an idle DSW instance. If the specific instance has an automatic stop policy, call DeleteIdleInstanceCuller to delete it first.
+   * 
    * @param request - CreateIdleInstanceCullerRequest
    * @returns CreateIdleInstanceCullerResponse
    */
@@ -7926,7 +10255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例
+   * Creates a Data Science Workshop (DSW) instance.
    * 
    * @param request - CreateInstanceRequest
    * @param headers - map
@@ -7958,6 +10287,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.driver)) {
       body["Driver"] = request.driver;
+    }
+
+    if (!$dara.isNull(request.dynamicMount)) {
+      body["DynamicMount"] = request.dynamicMount;
     }
 
     if (!$dara.isNull(request.ecsSpec)) {
@@ -8035,16 +10368,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
-    } else {
-      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
-    }
-
+    return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
   /**
-   * 创建实例
+   * Creates a Data Science Workshop (DSW) instance.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -8056,7 +10384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定时关机任务
+   * Creates a scheduled stop task for an instance.
    * 
    * @param request - CreateInstanceShutdownTimerRequest
    * @param headers - map
@@ -8089,16 +10417,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
-    } else {
-      return $dara.cast<CreateInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
-    }
-
+    return $dara.cast<CreateInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new CreateInstanceShutdownTimerResponse({}));
   }
 
   /**
-   * 创建定时关机任务
+   * Creates a scheduled stop task for an instance.
    * 
    * @param request - CreateInstanceShutdownTimerRequest
    * @returns CreateInstanceShutdownTimerResponse
@@ -8159,12 +10482,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
-    } else {
-      return $dara.cast<CreateInstanceSnapshotResponse>(await this.execute(params, req, runtime), new CreateInstanceSnapshotResponse({}));
-    }
-
+    return $dara.cast<CreateInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new CreateInstanceSnapshotResponse({}));
   }
 
   /**
@@ -8180,6 +10498,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the automatic stop policy of an instance.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIdleInstanceCullerResponse
@@ -8199,15 +10519,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
-    } else {
-      return $dara.cast<DeleteIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
-    }
-
+    return $dara.cast<DeleteIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new DeleteIdleInstanceCullerResponse({}));
   }
 
   /**
+   * Deletes the automatic stop policy of an instance.
    * @returns DeleteIdleInstanceCullerResponse
    */
   async deleteIdleInstanceCuller(InstanceId: string): Promise<DeleteIdleInstanceCullerResponse> {
@@ -8217,7 +10533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例
+   * Deletes a specific instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8238,16 +10554,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
-    } else {
-      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
-    }
-
+    return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
   /**
-   * 删除实例
+   * Deletes a specific instance.
    * @returns DeleteInstanceResponse
    */
   async deleteInstance(InstanceId: string): Promise<DeleteInstanceResponse> {
@@ -8257,7 +10568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DSW实例的标签
+   * Delete tags from a Data Science Workshop (DSW) instance.
    * 
    * @param request - DeleteInstanceLabelsRequest
    * @param headers - map
@@ -8286,16 +10597,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteInstanceLabelsResponse>(await this.callApi(params, req, runtime), new DeleteInstanceLabelsResponse({}));
-    } else {
-      return $dara.cast<DeleteInstanceLabelsResponse>(await this.execute(params, req, runtime), new DeleteInstanceLabelsResponse({}));
-    }
-
+    return $dara.cast<DeleteInstanceLabelsResponse>(await this.callApi(params, req, runtime), new DeleteInstanceLabelsResponse({}));
   }
 
   /**
-   * 删除DSW实例的标签
+   * Delete tags from a Data Science Workshop (DSW) instance.
    * 
    * @param request - DeleteInstanceLabelsRequest
    * @returns DeleteInstanceLabelsResponse
@@ -8307,7 +10613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定时关机任务
+   * Deletes a scheduled stop task of an instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8328,16 +10634,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
-    } else {
-      return $dara.cast<DeleteInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
-    }
-
+    return $dara.cast<DeleteInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new DeleteInstanceShutdownTimerResponse({}));
   }
 
   /**
-   * 删除定时关机任务
+   * Deletes a scheduled stop task of an instance.
    * @returns DeleteInstanceShutdownTimerResponse
    */
   async deleteInstanceShutdownTimer(InstanceId: string): Promise<DeleteInstanceShutdownTimerResponse> {
@@ -8368,12 +10669,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
-    } else {
-      return $dara.cast<DeleteInstanceSnapshotResponse>(await this.execute(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
-    }
-
+    return $dara.cast<DeleteInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSnapshotResponse({}));
   }
 
   /**
@@ -8387,6 +10683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about an auto stop policy for a specific idle instance.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIdleInstanceCullerResponse
@@ -8406,15 +10704,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new GetIdleInstanceCullerResponse({}));
-    } else {
-      return $dara.cast<GetIdleInstanceCullerResponse>(await this.execute(params, req, runtime), new GetIdleInstanceCullerResponse({}));
-    }
-
+    return $dara.cast<GetIdleInstanceCullerResponse>(await this.callApi(params, req, runtime), new GetIdleInstanceCullerResponse({}));
   }
 
   /**
+   * Queries the information about an auto stop policy for a specific idle instance.
    * @returns GetIdleInstanceCullerResponse
    */
   async getIdleInstanceCuller(InstanceId: string): Promise<GetIdleInstanceCullerResponse> {
@@ -8424,7 +10718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例详情
+   * Queries the details of a DSW instance.
    * 
    * @param request - GetInstanceRequest
    * @param headers - map
@@ -8453,16 +10747,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
-    } else {
-      return $dara.cast<GetInstanceResponse>(await this.execute(params, req, runtime), new GetInstanceResponse({}));
-    }
-
+    return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
   /**
-   * 获取实例详情
+   * Queries the details of a DSW instance.
    * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
@@ -8474,6 +10763,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of system events for a Data Science Workshop (DSW) instance.
+   * 
    * @param request - GetInstanceEventsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8513,15 +10804,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
-    } else {
-      return $dara.cast<GetInstanceEventsResponse>(await this.execute(params, req, runtime), new GetInstanceEventsResponse({}));
-    }
-
+    return $dara.cast<GetInstanceEventsResponse>(await this.callApi(params, req, runtime), new GetInstanceEventsResponse({}));
   }
 
   /**
+   * Queries a list of system events for a Data Science Workshop (DSW) instance.
+   * 
    * @param request - GetInstanceEventsRequest
    * @returns GetInstanceEventsResponse
    */
@@ -8532,6 +10820,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the resource metrics of an instance.
+   * 
    * @param request - GetInstanceMetricsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8571,15 +10861,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
-    } else {
-      return $dara.cast<GetInstanceMetricsResponse>(await this.execute(params, req, runtime), new GetInstanceMetricsResponse({}));
-    }
-
+    return $dara.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
   }
 
   /**
+   * Queries the resource metrics of an instance.
+   * 
    * @param request - GetInstanceMetricsRequest
    * @returns GetInstanceMetricsResponse
    */
@@ -8611,12 +10898,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
-    } else {
-      return $dara.cast<GetInstanceShutdownTimerResponse>(await this.execute(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
-    }
-
+    return $dara.cast<GetInstanceShutdownTimerResponse>(await this.callApi(params, req, runtime), new GetInstanceShutdownTimerResponse({}));
   }
 
   /**
@@ -8651,12 +10933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
-    } else {
-      return $dara.cast<GetInstanceSnapshotResponse>(await this.execute(params, req, runtime), new GetInstanceSnapshotResponse({}));
-    }
-
+    return $dara.cast<GetInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new GetInstanceSnapshotResponse({}));
   }
 
   /**
@@ -8670,6 +10947,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the lifecycle of an instance
+   * 
+   * @remarks
+   * Obtains the lifecycle transition information for an instance, including details on the status an instance transitions to at a specific point in time.
+   * 
    * @param request - GetLifecycleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8717,15 +10999,15 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetLifecycleResponse>(await this.callApi(params, req, runtime), new GetLifecycleResponse({}));
-    } else {
-      return $dara.cast<GetLifecycleResponse>(await this.execute(params, req, runtime), new GetLifecycleResponse({}));
-    }
-
+    return $dara.cast<GetLifecycleResponse>(await this.callApi(params, req, runtime), new GetLifecycleResponse({}));
   }
 
   /**
+   * Obtains the lifecycle of an instance
+   * 
+   * @remarks
+   * Obtains the lifecycle transition information for an instance, including details on the status an instance transitions to at a specific point in time.
+   * 
    * @param request - GetLifecycleRequest
    * @returns GetLifecycleResponse
    */
@@ -8793,12 +11075,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMetricsResponse>(await this.callApi(params, req, runtime), new GetMetricsResponse({}));
-    } else {
-      return $dara.cast<GetMetricsResponse>(await this.execute(params, req, runtime), new GetMetricsResponse({}));
-    }
-
+    return $dara.cast<GetMetricsResponse>(await this.callApi(params, req, runtime), new GetMetricsResponse({}));
   }
 
   /**
@@ -8853,12 +11130,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetResourceGroupStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
-    } else {
-      return $dara.cast<GetResourceGroupStatisticsResponse>(await this.execute(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
-    }
-
+    return $dara.cast<GetResourceGroupStatisticsResponse>(await this.callApi(params, req, runtime), new GetResourceGroupStatisticsResponse({}));
   }
 
   /**
@@ -8872,6 +11144,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the temporary authentication information of a DSW instance.
+   * 
    * @param request - GetTokenRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8903,15 +11177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
-    } else {
-      return $dara.cast<GetTokenResponse>(await this.execute(params, req, runtime), new GetTokenResponse({}));
-    }
-
+    return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
   /**
+   * Obtains the temporary authentication information of a DSW instance.
+   * 
    * @param request - GetTokenRequest
    * @returns GetTokenResponse
    */
@@ -8943,12 +11214,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetUserConfigResponse>(await this.callApi(params, req, runtime), new GetUserConfigResponse({}));
-    } else {
-      return $dara.cast<GetUserConfigResponse>(await this.execute(params, req, runtime), new GetUserConfigResponse({}));
-    }
-
+    return $dara.cast<GetUserConfigResponse>(await this.callApi(params, req, runtime), new GetUserConfigResponse({}));
   }
 
   /**
@@ -9007,12 +11273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
-    } else {
-      return $dara.cast<ListEcsSpecsResponse>(await this.execute(params, req, runtime), new ListEcsSpecsResponse({}));
-    }
-
+    return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
   }
 
   /**
@@ -9069,12 +11330,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotResponse({}));
-    } else {
-      return $dara.cast<ListInstanceSnapshotResponse>(await this.execute(params, req, runtime), new ListInstanceSnapshotResponse({}));
-    }
-
+    return $dara.cast<ListInstanceSnapshotResponse>(await this.callApi(params, req, runtime), new ListInstanceSnapshotResponse({}));
   }
 
   /**
@@ -9119,12 +11375,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new ListInstanceStatisticsResponse({}));
-    } else {
-      return $dara.cast<ListInstanceStatisticsResponse>(await this.execute(params, req, runtime), new ListInstanceStatisticsResponse({}));
-    }
-
+    return $dara.cast<ListInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new ListInstanceStatisticsResponse({}));
   }
 
   /**
@@ -9140,6 +11391,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of Data Science Workshop (DSW) instances.
+   * 
    * @param tmpReq - ListInstancesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9226,6 +11479,14 @@ export default class Client extends OpenApi {
       query["Order"] = request.order;
     }
 
+    if (!$dara.isNull(request.oversoldInfo)) {
+      query["OversoldInfo"] = request.oversoldInfo;
+    }
+
+    if (!$dara.isNull(request.oversoldType)) {
+      query["OversoldType"] = request.oversoldType;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -9273,15 +11534,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
-    } else {
-      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
-    }
-
+    return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   /**
+   * Queries a list of Data Science Workshop (DSW) instances.
+   * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
    */
@@ -9313,12 +11571,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
-    } else {
-      return $dara.cast<StartInstanceResponse>(await this.execute(params, req, runtime), new StartInstanceResponse({}));
-    }
-
+    return $dara.cast<StartInstanceResponse>(await this.callApi(params, req, runtime), new StartInstanceResponse({}));
   }
 
   /**
@@ -9361,12 +11614,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
-    } else {
-      return $dara.cast<StopInstanceResponse>(await this.execute(params, req, runtime), new StopInstanceResponse({}));
-    }
-
+    return $dara.cast<StopInstanceResponse>(await this.callApi(params, req, runtime), new StopInstanceResponse({}));
   }
 
   /**
@@ -9382,7 +11630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例
+   * Updates the properties of a DSW instance.
    * 
    * @param request - UpdateInstanceRequest
    * @param headers - map
@@ -9434,6 +11682,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.driver)) {
       body["Driver"] = request.driver;
+    }
+
+    if (!$dara.isNull(request.dynamicMount)) {
+      body["DynamicMount"] = request.dynamicMount;
     }
 
     if (!$dara.isNull(request.ecsSpec)) {
@@ -9491,16 +11743,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
-    } else {
-      return $dara.cast<UpdateInstanceResponse>(await this.execute(params, req, runtime), new UpdateInstanceResponse({}));
-    }
-
+    return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
   }
 
   /**
-   * 更新实例
+   * Updates the properties of a DSW instance.
    * 
    * @param request - UpdateInstanceRequest
    * @returns UpdateInstanceResponse
@@ -9512,7 +11759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改DSW实例的标签
+   * Updates the tags of a Data Science Workshop (DSW) instance. If the tags do not exist, the system adds tags.
    * 
    * @param request - UpdateInstanceLabelsRequest
    * @param headers - map
@@ -9541,16 +11788,11 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateInstanceLabelsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceLabelsResponse({}));
-    } else {
-      return $dara.cast<UpdateInstanceLabelsResponse>(await this.execute(params, req, runtime), new UpdateInstanceLabelsResponse({}));
-    }
-
+    return $dara.cast<UpdateInstanceLabelsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceLabelsResponse({}));
   }
 
   /**
-   * 修改DSW实例的标签
+   * Updates the tags of a Data Science Workshop (DSW) instance. If the tags do not exist, the system adds tags.
    * 
    * @param request - UpdateInstanceLabelsRequest
    * @returns UpdateInstanceLabelsResponse
