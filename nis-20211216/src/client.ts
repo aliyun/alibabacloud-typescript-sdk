@@ -1,13 +1,1640 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
+export class CreateNetworkPathRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * You can add up to 20 tags in each call.
+   * 
+   * @example
+   * role
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * ops
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkReachableAnalysisRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag to add to the resource. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * 
+   * You can add up to 20 tags in each call.
+   * 
+   * @example
+   * Team
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag to add to the resource. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`. The tag value can be an empty string.
+   * 
+   * You can add up to 20 tag values in each call.
+   * 
+   * @example
+   * ops
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionRecommendationResourcesResponseBodyResourceList extends $dara.Model {
+  /**
+   * @example
+   * {ResourceId: "ngw-p0wn04hi4****q2us6q7q"}
+   */
+  analysisData?: string;
+  /**
+   * @example
+   * ngw-p0wn04hi4****q2us6q7q
+   */
+  resourceId?: string;
+  resourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisData: 'AnalysisData',
+      resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisData: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  count?: number;
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      riskLevel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList extends $dara.Model {
+  abnormality?: string;
+  metadata?: string;
+  reason?: string;
+  reasonCode?: string;
+  /**
+   * @example
+   * nat_snat_cross_az_warn
+   */
+  recommendationCode?: string;
+  riskLevel?: string;
+  suggestion?: string;
+  suggestionCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormality: 'Abnormality',
+      metadata: 'Metadata',
+      reason: 'Reason',
+      reasonCode: 'ReasonCode',
+      recommendationCode: 'RecommendationCode',
+      riskLevel: 'RiskLevel',
+      suggestion: 'Suggestion',
+      suggestionCode: 'SuggestionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormality: 'string',
+      metadata: 'string',
+      reason: 'string',
+      reasonCode: 'string',
+      recommendationCode: 'string',
+      riskLevel: 'string',
+      suggestion: 'string',
+      suggestionCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList extends $dara.Model {
+  /**
+   * @example
+   * stability
+   */
+  categoryCode?: string;
+  /**
+   * @example
+   * item_nat_water_level_check
+   */
+  checkItemCode?: string;
+  checkItemName?: string;
+  checkResultList?: DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList[];
+  description?: string;
+  recommendationList?: DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList[];
+  /**
+   * @example
+   * NAT
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'CategoryCode',
+      checkItemCode: 'CheckItemCode',
+      checkItemName: 'CheckItemName',
+      checkResultList: 'CheckResultList',
+      description: 'Description',
+      recommendationList: 'RecommendationList',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'string',
+      checkItemCode: 'string',
+      checkItemName: 'string',
+      checkResultList: { 'type': 'array', 'itemType': DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList },
+      description: 'string',
+      recommendationList: { 'type': 'array', 'itemType': DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.checkResultList)) {
+      $dara.Model.validateArray(this.checkResultList);
+    }
+    if(Array.isArray(this.recommendationList)) {
+      $dara.Model.validateArray(this.recommendationList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary extends $dara.Model {
+  /**
+   * @example
+   * 0.98
+   */
+  passRate?: number;
+  /**
+   * @example
+   * Stability
+   */
+  passRateScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passRate: 'PassRate',
+      passRateScope: 'PassRateScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passRate: 'number',
+      passRateScope: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  resourceCount?: number;
+  /**
+   * @example
+   * 3
+   */
+  riskCount?: number;
+  /**
+   * @example
+   * HighRisk
+   */
+  riskLevel?: string;
+  /**
+   * @example
+   * StabilityRisk
+   */
+  riskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceCount: 'ResourceCount',
+      riskCount: 'RiskCount',
+      riskLevel: 'RiskLevel',
+      riskType: 'RiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceCount: 'number',
+      riskCount: 'number',
+      riskLevel: 'string',
+      riskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionReportSummaryResponseBodySummary extends $dara.Model {
+  /**
+   * @example
+   * 11
+   */
+  checkItemCount?: number;
+  /**
+   * @example
+   * 123
+   */
+  checkResourceCount?: number;
+  passRateSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary[];
+  riskSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary[];
+  static names(): { [key: string]: string } {
+    return {
+      checkItemCount: 'CheckItemCount',
+      checkResourceCount: 'CheckResourceCount',
+      passRateSummary: 'PassRateSummary',
+      riskSummary: 'RiskSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkItemCount: 'number',
+      checkResourceCount: 'number',
+      passRateSummary: { 'type': 'array', 'itemType': DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary },
+      riskSummary: { 'type': 'array', 'itemType': DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.passRateSummary)) {
+      $dara.Model.validateArray(this.passRateSummary);
+    }
+    if(Array.isArray(this.riskSummary)) {
+      $dara.Model.validateArray(this.riskSummary);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNisInspectionTaskResponseBodyCheckResourceList extends $dara.Model {
+  /**
+   * @example
+   * CheckAll
+   */
+  checkScope?: string;
+  /**
+   * @example
+   * EIP
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkScope: 'CheckScope',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkScope: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInternetTupleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The access point of Alibaba Cloud.
+   * 
+   * >  This parameter is valid only if you set **InstanceId** to the instance ID of an Anycast elastic IP address (EIP).
+   * 
+   * @example
+   * cn-hongkong-pop
+   */
+  accessRegion?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that you queried. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1684373600099
+   */
+  beginTime?: string;
+  /**
+   * @remarks
+   * The traffic volume. Unit: bytes.
+   * 
+   * @example
+   * 88
+   */
+  byteCount?: number;
+  /**
+   * @remarks
+   * The local city.
+   * 
+   * @example
+   * Nanjing
+   */
+  cloudCity?: string;
+  /**
+   * @remarks
+   * The local country or region.
+   * 
+   * @example
+   * China
+   */
+  cloudCountry?: string;
+  /**
+   * @remarks
+   * The local IP address.
+   * 
+   * @example
+   * 112.74.XX.XX
+   */
+  cloudIp?: string;
+  /**
+   * @remarks
+   * The local ISP.
+   * 
+   * @example
+   * China Mobile
+   */
+  cloudIsp?: string;
+  /**
+   * @remarks
+   * The local port.
+   * 
+   * @example
+   * 443
+   */
+  cloudPort?: string;
+  /**
+   * @remarks
+   * The service code of the instance to which the local IP address belongs.
+   * 
+   * @example
+   * EIP
+   */
+  cloudProduct?: string;
+  /**
+   * @remarks
+   * The local province.
+   * 
+   * @example
+   * Jiangsu
+   */
+  cloudProvince?: string;
+  /**
+   * @remarks
+   * The direction of Internet traffic. Valid values:
+   * 
+   * *   **in**: inbound
+   * *   **out**: outbound
+   * 
+   * @example
+   * in
+   */
+  direction?: string;
+  /**
+   * @remarks
+   * The inbound traffic volume. Unit: bytes.
+   * 
+   * @example
+   * 88
+   */
+  inByteCount?: number;
+  /**
+   * @remarks
+   * The number of inbound disordered packets.
+   * 
+   * @example
+   * 2
+   */
+  inOutOrderCount?: number;
+  /**
+   * @remarks
+   * The number of inbound packets.
+   * 
+   * @example
+   * 33
+   */
+  inPacketCount?: number;
+  /**
+   * @remarks
+   * The number of inbound repeated packets.
+   * 
+   * @example
+   * 0
+   */
+  inRetranCount?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the local IP address belongs.
+   * 
+   * @example
+   * eip-sample*
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The remote city. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
+   * 
+   * @example
+   * Austin
+   */
+  otherCity?: string;
+  /**
+   * @remarks
+   * The remote country or region.
+   * 
+   * @example
+   * United States
+   */
+  otherCountry?: string;
+  /**
+   * @remarks
+   * The remote IP address.
+   * 
+   * @example
+   * 122.112.XX.XX
+   */
+  otherIp?: string;
+  /**
+   * @remarks
+   * The remote ISP.
+   * 
+   * @example
+   * amazon.com
+   */
+  otherIsp?: string;
+  /**
+   * @remarks
+   * The remote port.
+   * 
+   * @example
+   * 40002
+   */
+  otherPort?: string;
+  /**
+   * @remarks
+   * The service code of the instance to which the remote IP address belongs. If the IP address is not on the cloud, this parameter is empty.
+   * 
+   * @example
+   * ECS
+   */
+  otherProduct?: string;
+  /**
+   * @remarks
+   * The remote province. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
+   * 
+   * @example
+   * Texas
+   */
+  otherProvince?: string;
+  /**
+   * @remarks
+   * The outbound traffic volume. Unit: bytes.
+   * 
+   * @example
+   * 66
+   */
+  outByteCount?: number;
+  /**
+   * @remarks
+   * The number of disordered packets.
+   * 
+   * @example
+   * 1
+   */
+  outOrderCount?: number;
+  /**
+   * @remarks
+   * The number of outbound disordered packets.
+   * 
+   * @example
+   * 1
+   */
+  outOutOrderCount?: number;
+  /**
+   * @remarks
+   * The number of outbound packets.
+   * 
+   * @example
+   * 22
+   */
+  outPacketCount?: number;
+  /**
+   * @remarks
+   * The number of outbound repeated packets.
+   * 
+   * @example
+   * 1
+   */
+  outRetranCount?: number;
+  /**
+   * @remarks
+   * The number of packets.
+   * 
+   * @example
+   * 66
+   */
+  packetCount?: number;
+  /**
+   * @remarks
+   * The protocol number.
+   * 
+   * @example
+   * 6
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The retransmission rate of TCP packets.
+   * 
+   * @example
+   * 0.1
+   */
+  retransmitRate?: number;
+  /**
+   * @remarks
+   * The round-trip time (RTT). Unit: milliseconds.
+   * 
+   * @example
+   * 10000
+   */
+  rtt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessRegion: 'AccessRegion',
+      beginTime: 'BeginTime',
+      byteCount: 'ByteCount',
+      cloudCity: 'CloudCity',
+      cloudCountry: 'CloudCountry',
+      cloudIp: 'CloudIp',
+      cloudIsp: 'CloudIsp',
+      cloudPort: 'CloudPort',
+      cloudProduct: 'CloudProduct',
+      cloudProvince: 'CloudProvince',
+      direction: 'Direction',
+      inByteCount: 'InByteCount',
+      inOutOrderCount: 'InOutOrderCount',
+      inPacketCount: 'InPacketCount',
+      inRetranCount: 'InRetranCount',
+      instanceId: 'InstanceId',
+      otherCity: 'OtherCity',
+      otherCountry: 'OtherCountry',
+      otherIp: 'OtherIp',
+      otherIsp: 'OtherIsp',
+      otherPort: 'OtherPort',
+      otherProduct: 'OtherProduct',
+      otherProvince: 'OtherProvince',
+      outByteCount: 'OutByteCount',
+      outOrderCount: 'OutOrderCount',
+      outOutOrderCount: 'OutOutOrderCount',
+      outPacketCount: 'OutPacketCount',
+      outRetranCount: 'OutRetranCount',
+      packetCount: 'PacketCount',
+      protocol: 'Protocol',
+      retransmitRate: 'RetransmitRate',
+      rtt: 'Rtt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessRegion: 'string',
+      beginTime: 'string',
+      byteCount: 'number',
+      cloudCity: 'string',
+      cloudCountry: 'string',
+      cloudIp: 'string',
+      cloudIsp: 'string',
+      cloudPort: 'string',
+      cloudProduct: 'string',
+      cloudProvince: 'string',
+      direction: 'string',
+      inByteCount: 'number',
+      inOutOrderCount: 'number',
+      inPacketCount: 'number',
+      inRetranCount: 'number',
+      instanceId: 'string',
+      otherCity: 'string',
+      otherCountry: 'string',
+      otherIp: 'string',
+      otherIsp: 'string',
+      otherPort: 'string',
+      otherProduct: 'string',
+      otherProvince: 'string',
+      outByteCount: 'number',
+      outOrderCount: 'number',
+      outOutOrderCount: 'number',
+      outPacketCount: 'number',
+      outRetranCount: 'number',
+      packetCount: 'number',
+      protocol: 'string',
+      retransmitRate: 'number',
+      rtt: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNatTopNResponseBodyNatGatewayTopN extends $dara.Model {
+  /**
+   * @remarks
+   * The number of concurrent connections. Unit: connections.
+   * 
+   * @example
+   * 8
+   */
+  activeSessionCount?: number;
+  /**
+   * @remarks
+   * The inbound data transfer. Unit: bit/s.
+   * 
+   * @example
+   * 100
+   */
+  inBps?: number;
+  /**
+   * @remarks
+   * This field is reserved and not in use.
+   * 
+   * @example
+   * 10
+   */
+  inFlowPerMinute?: number;
+  /**
+   * @remarks
+   * The inbound packet forwarding rate. Unit: packets per second.
+   * 
+   * @example
+   * 10
+   */
+  inPps?: number;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 192.168.156.101
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The new connection creation rate. Unit: connections per second.
+   * 
+   * @example
+   * 2
+   */
+  newSessionPerSecond?: number;
+  /**
+   * @remarks
+   * The outbound data transfer. Unit: bit/s.
+   * 
+   * @example
+   * 200
+   */
+  outBps?: number;
+  /**
+   * @remarks
+   * This field is reserved and not in use.
+   * 
+   * @example
+   * 10
+   */
+  outFlowPerMinute?: number;
+  /**
+   * @remarks
+   * The outbound packet forwarding rate. Unit: packets per second.
+   * 
+   * @example
+   * 20
+   */
+  outPps?: number;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionCount: 'ActiveSessionCount',
+      inBps: 'InBps',
+      inFlowPerMinute: 'InFlowPerMinute',
+      inPps: 'InPps',
+      ip: 'Ip',
+      newSessionPerSecond: 'NewSessionPerSecond',
+      outBps: 'OutBps',
+      outFlowPerMinute: 'OutFlowPerMinute',
+      outPps: 'OutPps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionCount: 'number',
+      inBps: 'number',
+      inFlowPerMinute: 'number',
+      inPps: 'number',
+      ip: 'string',
+      newSessionPerSecond: 'number',
+      outBps: 'number',
+      outFlowPerMinute: 'number',
+      outPps: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsRequestDimensions extends $dara.Model {
+  /**
+   * @example
+   * instanceId
+   */
+  name?: string;
+  /**
+   * @example
+   * eip-sample*
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponseBodyDataMetrics extends $dara.Model {
+  /**
+   * @example
+   * 1690684091100
+   */
+  timeStamp?: number;
+  /**
+   * @example
+   * 88
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'number',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkMetricsResponseBodyData extends $dara.Model {
+  metrics?: GetNisNetworkMetricsResponseBodyDataMetrics[];
+  /**
+   * @example
+   * Bits/Second
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'Metrics',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': GetNisNetworkMetricsResponseBodyDataMetrics },
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * instanceId
+   */
+  name?: string;
+  /**
+   * @example
+   * lb-2zxxxxz1d
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNisNetworkRankingResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 66
+   */
+  activeSessionCount?: number;
+  /**
+   * @example
+   * 129103
+   */
+  asn?: string;
+  /**
+   * @example
+   * tr-sample*
+   */
+  attachmentId?: string;
+  /**
+   * @example
+   * cbwp-sample*
+   */
+  bandwidthPackageId?: string;
+  /**
+   * @example
+   * 1024
+   */
+  byteCount?: number;
+  city?: string;
+  country?: string;
+  /**
+   * @example
+   * 2.2.XX.XX
+   */
+  destinationIp?: string;
+  destinationIsp?: string;
+  /**
+   * @example
+   * 80
+   */
+  destinationPort?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  destinationRegionNo?: string;
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
+  destinationZone?: string;
+  /**
+   * @example
+   * 120.238.XX.XX
+   */
+  IP?: string;
+  /**
+   * @example
+   * 10
+   */
+  inBps?: number;
+  /**
+   * @example
+   * 3
+   */
+  inPps?: number;
+  /**
+   * @example
+   * eip-sample*
+   */
+  instanceId?: string;
+  isp?: string;
+  /**
+   * @example
+   * 18
+   */
+  newSessionPerSecond?: number;
+  /**
+   * @example
+   * 88
+   */
+  outBps?: number;
+  /**
+   * @example
+   * 8
+   */
+  outPps?: number;
+  /**
+   * @example
+   * 66
+   */
+  packetCount?: number;
+  /**
+   * @example
+   * 6
+   */
+  protocol?: string;
+  province?: string;
+  /**
+   * @example
+   * 23
+   */
+  RTT?: number;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionNo?: string;
+  /**
+   * @example
+   * 0.1
+   */
+  retransmitRate?: number;
+  /**
+   * @example
+   * 42.120.XX.XX
+   */
+  sourceIp?: string;
+  sourceIsp?: string;
+  /**
+   * @example
+   * 443
+   */
+  sourcePort?: string;
+  /**
+   * @example
+   * cn-hangzhou-a
+   */
+  sourceZone?: string;
+  /**
+   * @example
+   * vbr-sample*
+   */
+  vbrId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeSessionCount: 'ActiveSessionCount',
+      asn: 'Asn',
+      attachmentId: 'AttachmentId',
+      bandwidthPackageId: 'BandwidthPackageId',
+      byteCount: 'ByteCount',
+      city: 'City',
+      country: 'Country',
+      destinationIp: 'DestinationIp',
+      destinationIsp: 'DestinationIsp',
+      destinationPort: 'DestinationPort',
+      destinationRegionNo: 'DestinationRegionNo',
+      destinationZone: 'DestinationZone',
+      IP: 'IP',
+      inBps: 'InBps',
+      inPps: 'InPps',
+      instanceId: 'InstanceId',
+      isp: 'Isp',
+      newSessionPerSecond: 'NewSessionPerSecond',
+      outBps: 'OutBps',
+      outPps: 'OutPps',
+      packetCount: 'PacketCount',
+      protocol: 'Protocol',
+      province: 'Province',
+      RTT: 'RTT',
+      regionNo: 'RegionNo',
+      retransmitRate: 'RetransmitRate',
+      sourceIp: 'SourceIp',
+      sourceIsp: 'SourceIsp',
+      sourcePort: 'SourcePort',
+      sourceZone: 'SourceZone',
+      vbrId: 'VbrId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeSessionCount: 'number',
+      asn: 'string',
+      attachmentId: 'string',
+      bandwidthPackageId: 'string',
+      byteCount: 'number',
+      city: 'string',
+      country: 'string',
+      destinationIp: 'string',
+      destinationIsp: 'string',
+      destinationPort: 'string',
+      destinationRegionNo: 'string',
+      destinationZone: 'string',
+      IP: 'string',
+      inBps: 'number',
+      inPps: 'number',
+      instanceId: 'string',
+      isp: 'string',
+      newSessionPerSecond: 'number',
+      outBps: 'number',
+      outPps: 'number',
+      packetCount: 'number',
+      protocol: 'string',
+      province: 'string',
+      RTT: 'number',
+      regionNo: 'string',
+      retransmitRate: 'number',
+      sourceIp: 'string',
+      sourceIsp: 'string',
+      sourcePort: 'string',
+      sourceZone: 'string',
+      vbrId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN extends $dara.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 118639953821xxxx
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The ID of the CEN bandwidth plan.
+   * 
+   * @example
+   * cenbwp-ia8kw1zjv4hyal****
+   */
+  bandwithPackageId?: string;
+  /**
+   * @remarks
+   * The total volume of traffic in the specified time range.
+   * 
+   * @example
+   * 188
+   */
+  bytes?: number;
+  /**
+   * @remarks
+   * The CEN instance ID.
+   * 
+   * @example
+   * cen-ia8kw1zjv4hyal****
+   */
+  cenId?: string;
+  /**
+   * @remarks
+   * The end of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-01-31T06:40:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The remote IP address.
+   * 
+   * @example
+   * 47.216.XX.XX
+   */
+  otherIp?: string;
+  /**
+   * @remarks
+   * The remote port.
+   * 
+   * @example
+   * 53470
+   */
+  otherPort?: string;
+  /**
+   * @remarks
+   * The remote region where the **remote IP address** resides.
+   * 
+   * @example
+   * ap-southeast-1
+   */
+  otherRegion?: string;
+  /**
+   * @remarks
+   * The total number of packets in the specified time range.
+   * 
+   * @example
+   * 88
+   */
+  packets?: number;
+  /**
+   * @remarks
+   * The protocol number.
+   * 
+   * @example
+   * 6
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The beginning of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-01-31T05:40:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The local IP address.
+   * 
+   * @example
+   * 1.8.XX.XX
+   */
+  thisIp?: string;
+  /**
+   * @remarks
+   * The local port.
+   * 
+   * @example
+   * 80
+   */
+  thisPort?: string;
+  /**
+   * @remarks
+   * The local region where the **local IP address** resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  thisRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      bandwithPackageId: 'BandwithPackageId',
+      bytes: 'Bytes',
+      cenId: 'CenId',
+      endTime: 'EndTime',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      otherRegion: 'OtherRegion',
+      packets: 'Packets',
+      protocol: 'Protocol',
+      startTime: 'StartTime',
+      thisIp: 'ThisIp',
+      thisPort: 'ThisPort',
+      thisRegion: 'ThisRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      bandwithPackageId: 'string',
+      bytes: 'number',
+      cenId: 'string',
+      endTime: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      otherRegion: 'string',
+      packets: 'number',
+      protocol: 'string',
+      startTime: 'string',
+      thisIp: 'string',
+      thisPort: 'string',
+      thisRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN extends $dara.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 156237031628****
+   */
+  accountId?: string;
+  /**
+   * @remarks
+   * The CEN connection ID.
+   * 
+   * @example
+   * tr-attach-u6v1j3jre0fe9h****
+   */
+  attachmentId?: string;
+  /**
+   * @remarks
+   * The total volume of traffic in the specified time range.
+   * 
+   * @example
+   * 108
+   */
+  bytes?: number;
+  /**
+   * @remarks
+   * The local IP address.
+   * 
+   * @example
+   * 120.24.X.X
+   */
+  cloudIp?: string;
+  /**
+   * @remarks
+   * The local port.
+   * 
+   * @example
+   * 80
+   */
+  cloudPort?: string;
+  /**
+   * @remarks
+   * The local region where the local IP address resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  cloudRegion?: string;
+  /**
+   * @remarks
+   * The remote IP address.
+   * 
+   * @example
+   * 222.85.X.X
+   */
+  otherIp?: string;
+  /**
+   * @remarks
+   * The remote port.
+   * 
+   * @example
+   * 10965
+   */
+  otherPort?: string;
+  /**
+   * @remarks
+   * The total number of packets in the specified time range.
+   * 
+   * @example
+   * 66
+   */
+  packets?: number;
+  /**
+   * @remarks
+   * The protocol number.
+   * 
+   * @example
+   * 6
+   */
+  protocol?: string;
+  /**
+   * @remarks
+   * The ID of the VBR that is associated with the Express Connect circuit.
+   * 
+   * @example
+   * vbr-k1atj46citwuek42j****
+   */
+  virtualBorderRouterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      attachmentId: 'AttachmentId',
+      bytes: 'Bytes',
+      cloudIp: 'CloudIp',
+      cloudPort: 'CloudPort',
+      cloudRegion: 'CloudRegion',
+      otherIp: 'OtherIp',
+      otherPort: 'OtherPort',
+      packets: 'Packets',
+      protocol: 'Protocol',
+      virtualBorderRouterId: 'VirtualBorderRouterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      attachmentId: 'string',
+      bytes: 'number',
+      cloudIp: 'string',
+      cloudPort: 'string',
+      cloudRegion: 'string',
+      otherIp: 'string',
+      otherPort: 'string',
+      packets: 'number',
+      protocol: 'string',
+      virtualBorderRouterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNisInspectionResourceTypeResponseBodyResourceTypeList extends $dara.Model {
+  /**
+   * @example
+   * EIP
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNisInspectionTaskReportsResponseBodyInspectionReportList extends $dara.Model {
+  /**
+   * @example
+   * nir-7c3dd178738a429abe6d
+   */
+  inspectionReportId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inspectionReportId: 'InspectionReportId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionReportId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNisInspectionTasksResponseBodyInspectionTaskList extends $dara.Model {
+  /**
+   * @example
+   * 2024-06-18 00:14:46
+   */
+  createTime?: string;
+  inspectionName?: string;
+  /**
+   * @example
+   * basic
+   */
+  inspectionProject?: string;
+  /**
+   * @example
+   * ni-8svm******hzr7fh79
+   */
+  inspectionTaskId?: string;
+  /**
+   * @example
+   * nir-b4c4c9******8a25e
+   */
+  lastUpdateReportId?: string;
+  /**
+   * @example
+   * Active
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      inspectionName: 'InspectionName',
+      inspectionProject: 'InspectionProject',
+      inspectionTaskId: 'InspectionTaskId',
+      lastUpdateReportId: 'LastUpdateReportId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      inspectionName: 'string',
+      inspectionProject: 'string',
+      inspectionTaskId: 'string',
+      lastUpdateReportId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndAnalyzeNetworkPathRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
@@ -139,12 +1766,16 @@ export class CreateAndAnalyzeNetworkPathRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAndAnalyzeNetworkPathResponseBody extends $tea.Model {
+export class CreateAndAnalyzeNetworkPathResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the task for analyzing network reachability that you initiated.
@@ -265,12 +1896,16 @@ export class CreateAndAnalyzeNetworkPathResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAndAnalyzeNetworkPathResponse extends $tea.Model {
+export class CreateAndAnalyzeNetworkPathResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAndAnalyzeNetworkPathResponseBody;
@@ -290,12 +1925,22 @@ export class CreateAndAnalyzeNetworkPathResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkPathRequest extends $tea.Model {
+export class CreateNetworkPathRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the network path.
@@ -466,12 +2111,19 @@ export class CreateNetworkPathRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkPathResponseBody extends $tea.Model {
+export class CreateNetworkPathResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the network path.
@@ -502,12 +2154,16 @@ export class CreateNetworkPathResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkPathResponse extends $tea.Model {
+export class CreateNetworkPathResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateNetworkPathResponseBody;
@@ -527,12 +2183,22 @@ export class CreateNetworkPathResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
+export class CreateNetworkReachableAnalysisRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the network path. You can call the [CreateNetworkPath](https://help.aliyun.com/document_detail/2366522.html) operation to obtain the ID of the network path.
@@ -572,12 +2238,19 @@ export class CreateNetworkReachableAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkReachableAnalysisResponseBody extends $tea.Model {
+export class CreateNetworkReachableAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the task for analyzing network reachability.
@@ -608,12 +2281,16 @@ export class CreateNetworkReachableAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNetworkReachableAnalysisResponse extends $tea.Model {
+export class CreateNetworkReachableAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateNetworkReachableAnalysisResponseBody;
@@ -633,12 +2310,22 @@ export class CreateNetworkReachableAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkPathRequest extends $tea.Model {
+export class DeleteNetworkPathRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of network paths.
@@ -668,12 +2355,19 @@ export class DeleteNetworkPathRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networkPathIds)) {
+      $dara.Model.validateArray(this.networkPathIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkPathShrinkRequest extends $tea.Model {
+export class DeleteNetworkPathShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of network paths.
@@ -703,12 +2397,16 @@ export class DeleteNetworkPathShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkPathResponseBody extends $tea.Model {
+export class DeleteNetworkPathResponseBody extends $dara.Model {
   /**
    * @remarks
    * Result of operation.
@@ -742,12 +2440,16 @@ export class DeleteNetworkPathResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkPathResponse extends $tea.Model {
+export class DeleteNetworkPathResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteNetworkPathResponseBody;
@@ -767,12 +2469,22 @@ export class DeleteNetworkPathResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkReachableAnalysisRequest extends $tea.Model {
+export class DeleteNetworkReachableAnalysisRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the tasks for analyzing network reachability.
@@ -802,12 +2514,19 @@ export class DeleteNetworkReachableAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.networkReachableAnalysisIds)) {
+      $dara.Model.validateArray(this.networkReachableAnalysisIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkReachableAnalysisShrinkRequest extends $tea.Model {
+export class DeleteNetworkReachableAnalysisShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the tasks for analyzing network reachability.
@@ -837,12 +2556,16 @@ export class DeleteNetworkReachableAnalysisShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkReachableAnalysisResponseBody extends $tea.Model {
+export class DeleteNetworkReachableAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
    * Result of operation.
@@ -875,12 +2598,16 @@ export class DeleteNetworkReachableAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNetworkReachableAnalysisResponse extends $tea.Model {
+export class DeleteNetworkReachableAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteNetworkReachableAnalysisResponseBody;
@@ -900,12 +2627,22 @@ export class DeleteNetworkReachableAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionReportRequest extends $tea.Model {
+export class DeleteNisInspectionReportRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -926,12 +2663,16 @@ export class DeleteNisInspectionReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionReportResponseBody extends $tea.Model {
+export class DeleteNisInspectionReportResponseBody extends $dara.Model {
   /**
    * @example
    * True
@@ -956,12 +2697,16 @@ export class DeleteNisInspectionReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionReportResponse extends $tea.Model {
+export class DeleteNisInspectionReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteNisInspectionReportResponseBody;
@@ -981,12 +2726,22 @@ export class DeleteNisInspectionReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionTaskRequest extends $tea.Model {
+export class DeleteNisInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1007,12 +2762,16 @@ export class DeleteNisInspectionTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionTaskResponseBody extends $tea.Model {
+export class DeleteNisInspectionTaskResponseBody extends $dara.Model {
   /**
    * @example
    * True
@@ -1037,12 +2796,16 @@ export class DeleteNisInspectionTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNisInspectionTaskResponse extends $tea.Model {
+export class DeleteNisInspectionTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteNisInspectionTaskResponseBody;
@@ -1062,12 +2825,22 @@ export class DeleteNisInspectionTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionRecommendationResourcesRequest extends $tea.Model {
+export class DescribeNisInspectionRecommendationResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1119,12 +2892,16 @@ export class DescribeNisInspectionRecommendationResourcesRequest extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionRecommendationResourcesResponseBody extends $tea.Model {
+export class DescribeNisInspectionRecommendationResourcesResponseBody extends $dara.Model {
   /**
    * @example
    * nir-ffd1af****196d0
@@ -1173,12 +2950,19 @@ export class DescribeNisInspectionRecommendationResourcesResponseBody extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceList)) {
+      $dara.Model.validateArray(this.resourceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionRecommendationResourcesResponse extends $tea.Model {
+export class DescribeNisInspectionRecommendationResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeNisInspectionRecommendationResourcesResponseBody;
@@ -1198,12 +2982,22 @@ export class DescribeNisInspectionRecommendationResourcesResponse extends $tea.M
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportCheckItemsRequest extends $tea.Model {
+export class DescribeNisInspectionReportCheckItemsRequest extends $dara.Model {
   /**
    * @example
    * stability
@@ -1258,12 +3052,22 @@ export class DescribeNisInspectionReportCheckItemsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceType)) {
+      $dara.Model.validateArray(this.resourceType);
+    }
+    if(Array.isArray(this.riskLevel)) {
+      $dara.Model.validateArray(this.riskLevel);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportCheckItemsShrinkRequest extends $tea.Model {
+export class DescribeNisInspectionReportCheckItemsShrinkRequest extends $dara.Model {
   /**
    * @example
    * stability
@@ -1318,12 +3122,16 @@ export class DescribeNisInspectionReportCheckItemsShrinkRequest extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportCheckItemsResponseBody extends $tea.Model {
+export class DescribeNisInspectionReportCheckItemsResponseBody extends $dara.Model {
   checkItemList?: DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList[];
   /**
    * @example
@@ -1372,12 +3180,19 @@ export class DescribeNisInspectionReportCheckItemsResponseBody extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.checkItemList)) {
+      $dara.Model.validateArray(this.checkItemList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportCheckItemsResponse extends $tea.Model {
+export class DescribeNisInspectionReportCheckItemsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeNisInspectionReportCheckItemsResponseBody;
@@ -1397,12 +3212,22 @@ export class DescribeNisInspectionReportCheckItemsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportStatusRequest extends $tea.Model {
+export class DescribeNisInspectionReportStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1423,12 +3248,16 @@ export class DescribeNisInspectionReportStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportStatusResponseBody extends $tea.Model {
+export class DescribeNisInspectionReportStatusResponseBody extends $dara.Model {
   /**
    * @example
    * 2024-07-18 15:13:07
@@ -1491,12 +3320,16 @@ export class DescribeNisInspectionReportStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportStatusResponse extends $tea.Model {
+export class DescribeNisInspectionReportStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeNisInspectionReportStatusResponseBody;
@@ -1516,12 +3349,22 @@ export class DescribeNisInspectionReportStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportSummaryRequest extends $tea.Model {
+export class DescribeNisInspectionReportSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1542,12 +3385,16 @@ export class DescribeNisInspectionReportSummaryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportSummaryResponseBody extends $tea.Model {
+export class DescribeNisInspectionReportSummaryResponseBody extends $dara.Model {
   /**
    * @example
    * 2024-06-03 09:36:00
@@ -1603,12 +3450,19 @@ export class DescribeNisInspectionReportSummaryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.summary && typeof (this.summary as any).validate === 'function') {
+      (this.summary as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionReportSummaryResponse extends $tea.Model {
+export class DescribeNisInspectionReportSummaryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeNisInspectionReportSummaryResponseBody;
@@ -1628,12 +3482,22 @@ export class DescribeNisInspectionReportSummaryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionTaskRequest extends $tea.Model {
+export class DescribeNisInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1654,12 +3518,16 @@ export class DescribeNisInspectionTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionTaskResponseBody extends $tea.Model {
+export class DescribeNisInspectionTaskResponseBody extends $dara.Model {
   checkResourceList?: DescribeNisInspectionTaskResponseBodyCheckResourceList[];
   /**
    * @example
@@ -1743,12 +3611,19 @@ export class DescribeNisInspectionTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.checkResourceList)) {
+      $dara.Model.validateArray(this.checkResourceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNisInspectionTaskResponse extends $tea.Model {
+export class DescribeNisInspectionTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeNisInspectionTaskResponseBody;
@@ -1768,12 +3643,22 @@ export class DescribeNisInspectionTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInternetTupleRequest extends $tea.Model {
+export class GetInternetTupleRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of member accounts.
@@ -2040,12 +3925,25 @@ export class GetInternetTupleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.cloudIpList)) {
+      $dara.Model.validateArray(this.cloudIpList);
+    }
+    if(Array.isArray(this.instanceList)) {
+      $dara.Model.validateArray(this.instanceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInternetTupleShrinkRequest extends $tea.Model {
+export class GetInternetTupleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of member accounts.
@@ -2312,12 +4210,19 @@ export class GetInternetTupleShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInternetTupleResponseBody extends $tea.Model {
+export class GetInternetTupleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ranking result of Internet traffic data.
@@ -2345,12 +4250,19 @@ export class GetInternetTupleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInternetTupleResponse extends $tea.Model {
+export class GetInternetTupleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInternetTupleResponseBody;
@@ -2370,12 +4282,22 @@ export class GetInternetTupleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNatTopNRequest extends $tea.Model {
+export class GetNatTopNRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query in milliseconds. If you do not specify **EndTime**, the point in time specified by **BeginTime** is queried.
@@ -2467,12 +4389,16 @@ export class GetNatTopNRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNatTopNResponseBody extends $tea.Model {
+export class GetNatTopNResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether Network Intelligence Service (NIS) is activated. The NatGatewayTopN parameter returns an empty array when NIS is not activated.
@@ -2513,12 +4439,19 @@ export class GetNatTopNResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.natGatewayTopN)) {
+      $dara.Model.validateArray(this.natGatewayTopN);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNatTopNResponse extends $tea.Model {
+export class GetNatTopNResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetNatTopNResponseBody;
@@ -2538,12 +4471,22 @@ export class GetNatTopNResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkReachableAnalysisRequest extends $tea.Model {
+export class GetNetworkReachableAnalysisRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the task for analyzing network reachability. You can call the **CreateNetworkRearchableAnalysis** operation to obtain the ID of the task for analyzing network reachability.
@@ -2576,12 +4519,16 @@ export class GetNetworkReachableAnalysisRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkReachableAnalysisResponseBody extends $tea.Model {
+export class GetNetworkReachableAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
    * The unique ID (UID) of the Alibaba Cloud account.
@@ -2970,12 +4917,16 @@ export class GetNetworkReachableAnalysisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNetworkReachableAnalysisResponse extends $tea.Model {
+export class GetNetworkReachableAnalysisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetNetworkReachableAnalysisResponseBody;
@@ -2995,12 +4946,22 @@ export class GetNetworkReachableAnalysisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkMetricsRequest extends $tea.Model {
+export class GetNisNetworkMetricsRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @example
@@ -3079,12 +5040,22 @@ export class GetNisNetworkMetricsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.dimensions)) {
+      $dara.Model.validateArray(this.dimensions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkMetricsShrinkRequest extends $tea.Model {
+export class GetNisNetworkMetricsShrinkRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @example
@@ -3163,12 +5134,19 @@ export class GetNisNetworkMetricsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkMetricsResponseBody extends $tea.Model {
+export class GetNisNetworkMetricsResponseBody extends $dara.Model {
   data?: GetNisNetworkMetricsResponseBodyData;
   /**
    * @example
@@ -3189,12 +5167,19 @@ export class GetNisNetworkMetricsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkMetricsResponse extends $tea.Model {
+export class GetNisNetworkMetricsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetNisNetworkMetricsResponseBody;
@@ -3214,12 +5199,22 @@ export class GetNisNetworkMetricsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkRankingRequest extends $tea.Model {
+export class GetNisNetworkRankingRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @example
@@ -3321,12 +5316,22 @@ export class GetNisNetworkRankingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkRankingShrinkRequest extends $tea.Model {
+export class GetNisNetworkRankingShrinkRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @example
@@ -3428,12 +5433,19 @@ export class GetNisNetworkRankingShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkRankingResponseBody extends $tea.Model {
+export class GetNisNetworkRankingResponseBody extends $dara.Model {
   data?: GetNisNetworkRankingResponseBodyData[];
   /**
    * @example
@@ -3454,12 +5466,19 @@ export class GetNisNetworkRankingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNisNetworkRankingResponse extends $tea.Model {
+export class GetNisNetworkRankingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetNisNetworkRankingResponseBody;
@@ -3479,12 +5498,22 @@ export class GetNisNetworkRankingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTransitRouterFlowTopNRequest extends $tea.Model {
+export class GetTransitRouterFlowTopNRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the member accounts.
@@ -3698,12 +5727,19 @@ export class GetTransitRouterFlowTopNRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTransitRouterFlowTopNShrinkRequest extends $tea.Model {
+export class GetTransitRouterFlowTopNShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the member accounts.
@@ -3917,12 +5953,16 @@ export class GetTransitRouterFlowTopNShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTransitRouterFlowTopNResponseBody extends $tea.Model {
+export class GetTransitRouterFlowTopNResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -3950,12 +5990,19 @@ export class GetTransitRouterFlowTopNResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.transitRouterFlowTopN)) {
+      $dara.Model.validateArray(this.transitRouterFlowTopN);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTransitRouterFlowTopNResponse extends $tea.Model {
+export class GetTransitRouterFlowTopNResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTransitRouterFlowTopNResponseBody;
@@ -3975,12 +6022,22 @@ export class GetTransitRouterFlowTopNResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVbrFlowTopNRequest extends $tea.Model {
+export class GetVbrFlowTopNRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of member accounts.
@@ -4199,12 +6256,19 @@ export class GetVbrFlowTopNRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVbrFlowTopNShrinkRequest extends $tea.Model {
+export class GetVbrFlowTopNShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of member accounts.
@@ -4423,12 +6487,16 @@ export class GetVbrFlowTopNShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVbrFlowTopNResponseBody extends $tea.Model {
+export class GetVbrFlowTopNResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -4456,12 +6524,19 @@ export class GetVbrFlowTopNResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.virtualBorderRouterFlowlogTopN)) {
+      $dara.Model.validateArray(this.virtualBorderRouterFlowlogTopN);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetVbrFlowTopNResponse extends $tea.Model {
+export class GetVbrFlowTopNResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetVbrFlowTopNResponseBody;
@@ -4481,12 +6556,22 @@ export class GetVbrFlowTopNResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionResourceTypeResponseBody extends $tea.Model {
+export class ListNisInspectionResourceTypeResponseBody extends $dara.Model {
   /**
    * @example
    * D5E98683-355B-5867-8D3D-A24755F6895B
@@ -4507,12 +6592,19 @@ export class ListNisInspectionResourceTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceTypeList)) {
+      $dara.Model.validateArray(this.resourceTypeList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionResourceTypeResponse extends $tea.Model {
+export class ListNisInspectionResourceTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListNisInspectionResourceTypeResponseBody;
@@ -4532,12 +6624,22 @@ export class ListNisInspectionResourceTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTaskReportsRequest extends $tea.Model {
+export class ListNisInspectionTaskReportsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4572,12 +6674,16 @@ export class ListNisInspectionTaskReportsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTaskReportsResponseBody extends $tea.Model {
+export class ListNisInspectionTaskReportsResponseBody extends $dara.Model {
   inspectionReportList?: ListNisInspectionTaskReportsResponseBodyInspectionReportList[];
   /**
    * @example
@@ -4619,12 +6725,19 @@ export class ListNisInspectionTaskReportsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.inspectionReportList)) {
+      $dara.Model.validateArray(this.inspectionReportList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTaskReportsResponse extends $tea.Model {
+export class ListNisInspectionTaskReportsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListNisInspectionTaskReportsResponseBody;
@@ -4644,12 +6757,22 @@ export class ListNisInspectionTaskReportsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTasksRequest extends $tea.Model {
+export class ListNisInspectionTasksRequest extends $dara.Model {
   inspectionName?: string;
   /**
    * @example
@@ -4698,12 +6821,16 @@ export class ListNisInspectionTasksRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTasksResponseBody extends $tea.Model {
+export class ListNisInspectionTasksResponseBody extends $dara.Model {
   inspectionTaskList?: ListNisInspectionTasksResponseBodyInspectionTaskList[];
   /**
    * @example
@@ -4745,12 +6872,19 @@ export class ListNisInspectionTasksResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.inspectionTaskList)) {
+      $dara.Model.validateArray(this.inspectionTaskList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNisInspectionTasksResponse extends $tea.Model {
+export class ListNisInspectionTasksResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListNisInspectionTasksResponseBody;
@@ -4770,12 +6904,22 @@ export class ListNisInspectionTasksResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartNisInspectionTaskRequest extends $tea.Model {
+export class StartNisInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4796,12 +6940,16 @@ export class StartNisInspectionTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartNisInspectionTaskResponseBody extends $tea.Model {
+export class StartNisInspectionTaskResponseBody extends $dara.Model {
   /**
    * @example
    * nir-9923e262c106461d86ad
@@ -4826,12 +6974,16 @@ export class StartNisInspectionTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartNisInspectionTaskResponse extends $tea.Model {
+export class StartNisInspectionTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartNisInspectionTaskResponseBody;
@@ -4851,12 +7003,22 @@ export class StartNisInspectionTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNisInspectionTaskRequest extends $tea.Model {
+export class UpdateNisInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4884,12 +7046,16 @@ export class UpdateNisInspectionTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNisInspectionTaskResponseBody extends $tea.Model {
+export class UpdateNisInspectionTaskResponseBody extends $dara.Model {
   /**
    * @example
    * True
@@ -4914,12 +7080,16 @@ export class UpdateNisInspectionTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNisInspectionTaskResponse extends $tea.Model {
+export class UpdateNisInspectionTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateNisInspectionTaskResponseBody;
@@ -4939,1524 +7109,14 @@ export class UpdateNisInspectionTaskResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNetworkPathRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of tag N to add to the resource. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
-   * 
-   * You can add up to 20 tags in each call.
-   * 
-   * @example
-   * role
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * ops
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNetworkReachableAnalysisRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag to add to the resource. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
-   * 
-   * You can add up to 20 tags in each call.
-   * 
-   * @example
-   * Team
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag to add to the resource. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`. The tag value can be an empty string.
-   * 
-   * You can add up to 20 tag values in each call.
-   * 
-   * @example
-   * ops
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionRecommendationResourcesResponseBodyResourceList extends $tea.Model {
-  /**
-   * @example
-   * {ResourceId: "ngw-p0wn04hi4****q2us6q7q"}
-   */
-  analysisData?: string;
-  /**
-   * @example
-   * ngw-p0wn04hi4****q2us6q7q
-   */
-  resourceId?: string;
-  resourceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      analysisData: 'AnalysisData',
-      resourceId: 'ResourceId',
-      resourceName: 'ResourceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      analysisData: 'string',
-      resourceId: 'string',
-      resourceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  count?: number;
-  riskLevel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      riskLevel: 'RiskLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      riskLevel: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList extends $tea.Model {
-  abnormality?: string;
-  metadata?: string;
-  reason?: string;
-  /**
-   * @example
-   * nat_snat_cross_az_warn
-   */
-  recommendationCode?: string;
-  riskLevel?: string;
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      abnormality: 'Abnormality',
-      metadata: 'Metadata',
-      reason: 'Reason',
-      recommendationCode: 'RecommendationCode',
-      riskLevel: 'RiskLevel',
-      suggestion: 'Suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      abnormality: 'string',
-      metadata: 'string',
-      reason: 'string',
-      recommendationCode: 'string',
-      riskLevel: 'string',
-      suggestion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportCheckItemsResponseBodyCheckItemList extends $tea.Model {
-  /**
-   * @example
-   * stability
-   */
-  categoryCode?: string;
-  /**
-   * @example
-   * item_nat_water_level_check
-   */
-  checkItemCode?: string;
-  checkItemName?: string;
-  checkResultList?: DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList[];
-  description?: string;
-  recommendationList?: DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList[];
-  /**
-   * @example
-   * NAT
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categoryCode: 'CategoryCode',
-      checkItemCode: 'CheckItemCode',
-      checkItemName: 'CheckItemName',
-      checkResultList: 'CheckResultList',
-      description: 'Description',
-      recommendationList: 'RecommendationList',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryCode: 'string',
-      checkItemCode: 'string',
-      checkItemName: 'string',
-      checkResultList: { 'type': 'array', 'itemType': DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListCheckResultList },
-      description: 'string',
-      recommendationList: { 'type': 'array', 'itemType': DescribeNisInspectionReportCheckItemsResponseBodyCheckItemListRecommendationList },
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary extends $tea.Model {
-  /**
-   * @example
-   * 0.98
-   */
-  passRate?: number;
-  /**
-   * @example
-   * Stability
-   */
-  passRateScope?: string;
-  static names(): { [key: string]: string } {
-    return {
-      passRate: 'PassRate',
-      passRateScope: 'PassRateScope',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passRate: 'number',
-      passRateScope: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  resourceCount?: number;
-  /**
-   * @example
-   * 3
-   */
-  riskCount?: number;
-  /**
-   * @example
-   * HighRisk
-   */
-  riskLevel?: string;
-  /**
-   * @example
-   * StabilityRisk
-   */
-  riskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceCount: 'ResourceCount',
-      riskCount: 'RiskCount',
-      riskLevel: 'RiskLevel',
-      riskType: 'RiskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceCount: 'number',
-      riskCount: 'number',
-      riskLevel: 'string',
-      riskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionReportSummaryResponseBodySummary extends $tea.Model {
-  /**
-   * @example
-   * 11
-   */
-  checkItemCount?: number;
-  /**
-   * @example
-   * 123
-   */
-  checkResourceCount?: number;
-  passRateSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary[];
-  riskSummary?: DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary[];
-  static names(): { [key: string]: string } {
-    return {
-      checkItemCount: 'CheckItemCount',
-      checkResourceCount: 'CheckResourceCount',
-      passRateSummary: 'PassRateSummary',
-      riskSummary: 'RiskSummary',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkItemCount: 'number',
-      checkResourceCount: 'number',
-      passRateSummary: { 'type': 'array', 'itemType': DescribeNisInspectionReportSummaryResponseBodySummaryPassRateSummary },
-      riskSummary: { 'type': 'array', 'itemType': DescribeNisInspectionReportSummaryResponseBodySummaryRiskSummary },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNisInspectionTaskResponseBodyCheckResourceList extends $tea.Model {
-  /**
-   * @example
-   * CheckAll
-   */
-  checkScope?: string;
-  /**
-   * @example
-   * EIP
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkScope: 'CheckScope',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkScope: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInternetTupleResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The access point of Alibaba Cloud.
-   * 
-   * >  This parameter is valid only if you set **InstanceId** to the instance ID of an Anycast elastic IP address (EIP).
-   * 
-   * @example
-   * cn-hongkong-pop
-   */
-  accessRegion?: string;
-  /**
-   * @remarks
-   * The beginning of the time range that you queried. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1684373600099
-   */
-  beginTime?: string;
-  /**
-   * @remarks
-   * The traffic volume. Unit: bytes.
-   * 
-   * @example
-   * 88
-   */
-  byteCount?: number;
-  /**
-   * @remarks
-   * The local city.
-   * 
-   * @example
-   * Nanjing
-   */
-  cloudCity?: string;
-  /**
-   * @remarks
-   * The local country or region.
-   * 
-   * @example
-   * China
-   */
-  cloudCountry?: string;
-  /**
-   * @remarks
-   * The local IP address.
-   * 
-   * @example
-   * 112.74.XX.XX
-   */
-  cloudIp?: string;
-  /**
-   * @remarks
-   * The local ISP.
-   * 
-   * @example
-   * China Mobile
-   */
-  cloudIsp?: string;
-  /**
-   * @remarks
-   * The local port.
-   * 
-   * @example
-   * 443
-   */
-  cloudPort?: string;
-  /**
-   * @remarks
-   * The service code of the instance to which the local IP address belongs.
-   * 
-   * @example
-   * EIP
-   */
-  cloudProduct?: string;
-  /**
-   * @remarks
-   * The local province.
-   * 
-   * @example
-   * Jiangsu
-   */
-  cloudProvince?: string;
-  /**
-   * @remarks
-   * The direction of Internet traffic. Valid values:
-   * 
-   * *   **in**: inbound
-   * *   **out**: outbound
-   * 
-   * @example
-   * in
-   */
-  direction?: string;
-  /**
-   * @remarks
-   * The inbound traffic volume. Unit: bytes.
-   * 
-   * @example
-   * 88
-   */
-  inByteCount?: number;
-  /**
-   * @remarks
-   * The number of inbound disordered packets.
-   * 
-   * @example
-   * 2
-   */
-  inOutOrderCount?: number;
-  /**
-   * @remarks
-   * The number of inbound packets.
-   * 
-   * @example
-   * 33
-   */
-  inPacketCount?: number;
-  /**
-   * @remarks
-   * The number of inbound repeated packets.
-   * 
-   * @example
-   * 0
-   */
-  inRetranCount?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which the local IP address belongs.
-   * 
-   * @example
-   * eip-sample*
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The remote city. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
-   * 
-   * @example
-   * Austin
-   */
-  otherCity?: string;
-  /**
-   * @remarks
-   * The remote country or region.
-   * 
-   * @example
-   * United States
-   */
-  otherCountry?: string;
-  /**
-   * @remarks
-   * The remote IP address.
-   * 
-   * @example
-   * 122.112.XX.XX
-   */
-  otherIp?: string;
-  /**
-   * @remarks
-   * The remote ISP.
-   * 
-   * @example
-   * amazon.com
-   */
-  otherIsp?: string;
-  /**
-   * @remarks
-   * The remote port.
-   * 
-   * @example
-   * 40002
-   */
-  otherPort?: string;
-  /**
-   * @remarks
-   * The service code of the instance to which the remote IP address belongs. If the IP address is not on the cloud, this parameter is empty.
-   * 
-   * @example
-   * ECS
-   */
-  otherProduct?: string;
-  /**
-   * @remarks
-   * The remote province. In most cases, this parameter is empty if you set **OtherCountry** to a country except China.
-   * 
-   * @example
-   * Texas
-   */
-  otherProvince?: string;
-  /**
-   * @remarks
-   * The outbound traffic volume. Unit: bytes.
-   * 
-   * @example
-   * 66
-   */
-  outByteCount?: number;
-  /**
-   * @remarks
-   * The number of disordered packets.
-   * 
-   * @example
-   * 1
-   */
-  outOrderCount?: number;
-  /**
-   * @remarks
-   * The number of outbound disordered packets.
-   * 
-   * @example
-   * 1
-   */
-  outOutOrderCount?: number;
-  /**
-   * @remarks
-   * The number of outbound packets.
-   * 
-   * @example
-   * 22
-   */
-  outPacketCount?: number;
-  /**
-   * @remarks
-   * The number of outbound repeated packets.
-   * 
-   * @example
-   * 1
-   */
-  outRetranCount?: number;
-  /**
-   * @remarks
-   * The number of packets.
-   * 
-   * @example
-   * 66
-   */
-  packetCount?: number;
-  /**
-   * @remarks
-   * The protocol number.
-   * 
-   * @example
-   * 6
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The retransmission rate of TCP packets.
-   * 
-   * @example
-   * 0.1
-   */
-  retransmitRate?: number;
-  /**
-   * @remarks
-   * The round-trip time (RTT). Unit: milliseconds.
-   * 
-   * @example
-   * 10000
-   */
-  rtt?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessRegion: 'AccessRegion',
-      beginTime: 'BeginTime',
-      byteCount: 'ByteCount',
-      cloudCity: 'CloudCity',
-      cloudCountry: 'CloudCountry',
-      cloudIp: 'CloudIp',
-      cloudIsp: 'CloudIsp',
-      cloudPort: 'CloudPort',
-      cloudProduct: 'CloudProduct',
-      cloudProvince: 'CloudProvince',
-      direction: 'Direction',
-      inByteCount: 'InByteCount',
-      inOutOrderCount: 'InOutOrderCount',
-      inPacketCount: 'InPacketCount',
-      inRetranCount: 'InRetranCount',
-      instanceId: 'InstanceId',
-      otherCity: 'OtherCity',
-      otherCountry: 'OtherCountry',
-      otherIp: 'OtherIp',
-      otherIsp: 'OtherIsp',
-      otherPort: 'OtherPort',
-      otherProduct: 'OtherProduct',
-      otherProvince: 'OtherProvince',
-      outByteCount: 'OutByteCount',
-      outOrderCount: 'OutOrderCount',
-      outOutOrderCount: 'OutOutOrderCount',
-      outPacketCount: 'OutPacketCount',
-      outRetranCount: 'OutRetranCount',
-      packetCount: 'PacketCount',
-      protocol: 'Protocol',
-      retransmitRate: 'RetransmitRate',
-      rtt: 'Rtt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessRegion: 'string',
-      beginTime: 'string',
-      byteCount: 'number',
-      cloudCity: 'string',
-      cloudCountry: 'string',
-      cloudIp: 'string',
-      cloudIsp: 'string',
-      cloudPort: 'string',
-      cloudProduct: 'string',
-      cloudProvince: 'string',
-      direction: 'string',
-      inByteCount: 'number',
-      inOutOrderCount: 'number',
-      inPacketCount: 'number',
-      inRetranCount: 'number',
-      instanceId: 'string',
-      otherCity: 'string',
-      otherCountry: 'string',
-      otherIp: 'string',
-      otherIsp: 'string',
-      otherPort: 'string',
-      otherProduct: 'string',
-      otherProvince: 'string',
-      outByteCount: 'number',
-      outOrderCount: 'number',
-      outOutOrderCount: 'number',
-      outPacketCount: 'number',
-      outRetranCount: 'number',
-      packetCount: 'number',
-      protocol: 'string',
-      retransmitRate: 'number',
-      rtt: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNatTopNResponseBodyNatGatewayTopN extends $tea.Model {
-  /**
-   * @remarks
-   * The number of concurrent connections. Unit: connections.
-   * 
-   * @example
-   * 8
-   */
-  activeSessionCount?: number;
-  /**
-   * @remarks
-   * The inbound data transfer. Unit: bit/s.
-   * 
-   * @example
-   * 100
-   */
-  inBps?: number;
-  /**
-   * @remarks
-   * This field is reserved and not in use.
-   * 
-   * @example
-   * 10
-   */
-  inFlowPerMinute?: number;
-  /**
-   * @remarks
-   * The inbound packet forwarding rate. Unit: packets per second.
-   * 
-   * @example
-   * 10
-   */
-  inPps?: number;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 192.168.156.101
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The new connection creation rate. Unit: connections per second.
-   * 
-   * @example
-   * 2
-   */
-  newSessionPerSecond?: number;
-  /**
-   * @remarks
-   * The outbound data transfer. Unit: bit/s.
-   * 
-   * @example
-   * 200
-   */
-  outBps?: number;
-  /**
-   * @remarks
-   * This field is reserved and not in use.
-   * 
-   * @example
-   * 10
-   */
-  outFlowPerMinute?: number;
-  /**
-   * @remarks
-   * The outbound packet forwarding rate. Unit: packets per second.
-   * 
-   * @example
-   * 20
-   */
-  outPps?: number;
-  static names(): { [key: string]: string } {
-    return {
-      activeSessionCount: 'ActiveSessionCount',
-      inBps: 'InBps',
-      inFlowPerMinute: 'InFlowPerMinute',
-      inPps: 'InPps',
-      ip: 'Ip',
-      newSessionPerSecond: 'NewSessionPerSecond',
-      outBps: 'OutBps',
-      outFlowPerMinute: 'OutFlowPerMinute',
-      outPps: 'OutPps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activeSessionCount: 'number',
-      inBps: 'number',
-      inFlowPerMinute: 'number',
-      inPps: 'number',
-      ip: 'string',
-      newSessionPerSecond: 'number',
-      outBps: 'number',
-      outFlowPerMinute: 'number',
-      outPps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNisNetworkMetricsRequestDimensions extends $tea.Model {
-  /**
-   * @example
-   * instanceId
-   */
-  name?: string;
-  /**
-   * @example
-   * eip-sample*
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNisNetworkMetricsResponseBodyDataMetrics extends $tea.Model {
-  /**
-   * @example
-   * 1690684091100
-   */
-  timeStamp?: number;
-  /**
-   * @example
-   * 88
-   */
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      timeStamp: 'TimeStamp',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeStamp: 'number',
-      value: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNisNetworkMetricsResponseBodyData extends $tea.Model {
-  metrics?: GetNisNetworkMetricsResponseBodyDataMetrics[];
-  /**
-   * @example
-   * Bits/Second
-   */
-  unit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metrics: 'Metrics',
-      unit: 'Unit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metrics: { 'type': 'array', 'itemType': GetNisNetworkMetricsResponseBodyDataMetrics },
-      unit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNisNetworkRankingRequestFilter extends $tea.Model {
-  /**
-   * @example
-   * instanceId
-   */
-  name?: string;
-  /**
-   * @example
-   * lb-2zxxxxz1d
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNisNetworkRankingResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 66
-   */
-  activeSessionCount?: number;
-  /**
-   * @example
-   * 129103
-   */
-  asn?: string;
-  /**
-   * @example
-   * tr-sample*
-   */
-  attachmentId?: string;
-  /**
-   * @example
-   * cbwp-sample*
-   */
-  bandwidthPackageId?: string;
-  /**
-   * @example
-   * 1024
-   */
-  byteCount?: number;
-  city?: string;
-  country?: string;
-  /**
-   * @example
-   * 2.2.XX.XX
-   */
-  destinationIp?: string;
-  destinationIsp?: string;
-  /**
-   * @example
-   * 80
-   */
-  destinationPort?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  destinationRegionNo?: string;
-  /**
-   * @example
-   * cn-hangzhou-b
-   */
-  destinationZone?: string;
-  /**
-   * @example
-   * 120.238.XX.XX
-   */
-  IP?: string;
-  /**
-   * @example
-   * 10
-   */
-  inBps?: number;
-  /**
-   * @example
-   * 3
-   */
-  inPps?: number;
-  /**
-   * @example
-   * eip-sample*
-   */
-  instanceId?: string;
-  isp?: string;
-  /**
-   * @example
-   * 18
-   */
-  newSessionPerSecond?: number;
-  /**
-   * @example
-   * 88
-   */
-  outBps?: number;
-  /**
-   * @example
-   * 8
-   */
-  outPps?: number;
-  /**
-   * @example
-   * 66
-   */
-  packetCount?: number;
-  /**
-   * @example
-   * 6
-   */
-  protocol?: string;
-  province?: string;
-  /**
-   * @example
-   * 23
-   */
-  RTT?: number;
-  /**
-   * @example
-   * cn-shenzhen
-   */
-  regionNo?: string;
-  /**
-   * @example
-   * 0.1
-   */
-  retransmitRate?: number;
-  /**
-   * @example
-   * 42.120.XX.XX
-   */
-  sourceIp?: string;
-  sourceIsp?: string;
-  /**
-   * @example
-   * 443
-   */
-  sourcePort?: string;
-  /**
-   * @example
-   * cn-hangzhou-a
-   */
-  sourceZone?: string;
-  /**
-   * @example
-   * vbr-sample*
-   */
-  vbrId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activeSessionCount: 'ActiveSessionCount',
-      asn: 'Asn',
-      attachmentId: 'AttachmentId',
-      bandwidthPackageId: 'BandwidthPackageId',
-      byteCount: 'ByteCount',
-      city: 'City',
-      country: 'Country',
-      destinationIp: 'DestinationIp',
-      destinationIsp: 'DestinationIsp',
-      destinationPort: 'DestinationPort',
-      destinationRegionNo: 'DestinationRegionNo',
-      destinationZone: 'DestinationZone',
-      IP: 'IP',
-      inBps: 'InBps',
-      inPps: 'InPps',
-      instanceId: 'InstanceId',
-      isp: 'Isp',
-      newSessionPerSecond: 'NewSessionPerSecond',
-      outBps: 'OutBps',
-      outPps: 'OutPps',
-      packetCount: 'PacketCount',
-      protocol: 'Protocol',
-      province: 'Province',
-      RTT: 'RTT',
-      regionNo: 'RegionNo',
-      retransmitRate: 'RetransmitRate',
-      sourceIp: 'SourceIp',
-      sourceIsp: 'SourceIsp',
-      sourcePort: 'SourcePort',
-      sourceZone: 'SourceZone',
-      vbrId: 'VbrId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activeSessionCount: 'number',
-      asn: 'string',
-      attachmentId: 'string',
-      bandwidthPackageId: 'string',
-      byteCount: 'number',
-      city: 'string',
-      country: 'string',
-      destinationIp: 'string',
-      destinationIsp: 'string',
-      destinationPort: 'string',
-      destinationRegionNo: 'string',
-      destinationZone: 'string',
-      IP: 'string',
-      inBps: 'number',
-      inPps: 'number',
-      instanceId: 'string',
-      isp: 'string',
-      newSessionPerSecond: 'number',
-      outBps: 'number',
-      outPps: 'number',
-      packetCount: 'number',
-      protocol: 'string',
-      province: 'string',
-      RTT: 'number',
-      regionNo: 'string',
-      retransmitRate: 'number',
-      sourceIp: 'string',
-      sourceIsp: 'string',
-      sourcePort: 'string',
-      sourceZone: 'string',
-      vbrId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN extends $tea.Model {
-  /**
-   * @remarks
-   * The account ID.
-   * 
-   * @example
-   * 118639953821xxxx
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The ID of the CEN bandwidth plan.
-   * 
-   * @example
-   * cenbwp-ia8kw1zjv4hyal****
-   */
-  bandwithPackageId?: string;
-  /**
-   * @remarks
-   * The total volume of traffic in the specified time range.
-   * 
-   * @example
-   * 188
-   */
-  bytes?: number;
-  /**
-   * @remarks
-   * The CEN instance ID.
-   * 
-   * @example
-   * cen-ia8kw1zjv4hyal****
-   */
-  cenId?: string;
-  /**
-   * @remarks
-   * The end of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-01-31T06:40:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The remote IP address.
-   * 
-   * @example
-   * 47.216.XX.XX
-   */
-  otherIp?: string;
-  /**
-   * @remarks
-   * The remote port.
-   * 
-   * @example
-   * 53470
-   */
-  otherPort?: string;
-  /**
-   * @remarks
-   * The remote region where the **remote IP address** resides.
-   * 
-   * @example
-   * ap-southeast-1
-   */
-  otherRegion?: string;
-  /**
-   * @remarks
-   * The total number of packets in the specified time range.
-   * 
-   * @example
-   * 88
-   */
-  packets?: number;
-  /**
-   * @remarks
-   * The protocol number.
-   * 
-   * @example
-   * 6
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The beginning of the time range that you queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-01-31T05:40:00Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The local IP address.
-   * 
-   * @example
-   * 1.8.XX.XX
-   */
-  thisIp?: string;
-  /**
-   * @remarks
-   * The local port.
-   * 
-   * @example
-   * 80
-   */
-  thisPort?: string;
-  /**
-   * @remarks
-   * The local region where the **local IP address** resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  thisRegion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      bandwithPackageId: 'BandwithPackageId',
-      bytes: 'Bytes',
-      cenId: 'CenId',
-      endTime: 'EndTime',
-      otherIp: 'OtherIp',
-      otherPort: 'OtherPort',
-      otherRegion: 'OtherRegion',
-      packets: 'Packets',
-      protocol: 'Protocol',
-      startTime: 'StartTime',
-      thisIp: 'ThisIp',
-      thisPort: 'ThisPort',
-      thisRegion: 'ThisRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      bandwithPackageId: 'string',
-      bytes: 'number',
-      cenId: 'string',
-      endTime: 'string',
-      otherIp: 'string',
-      otherPort: 'string',
-      otherRegion: 'string',
-      packets: 'number',
-      protocol: 'string',
-      startTime: 'string',
-      thisIp: 'string',
-      thisPort: 'string',
-      thisRegion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN extends $tea.Model {
-  /**
-   * @remarks
-   * The account ID.
-   * 
-   * @example
-   * 156237031628****
-   */
-  accountId?: string;
-  /**
-   * @remarks
-   * The CEN connection ID.
-   * 
-   * @example
-   * tr-attach-u6v1j3jre0fe9h****
-   */
-  attachmentId?: string;
-  /**
-   * @remarks
-   * The total volume of traffic in the specified time range.
-   * 
-   * @example
-   * 108
-   */
-  bytes?: number;
-  /**
-   * @remarks
-   * The local IP address.
-   * 
-   * @example
-   * 120.24.X.X
-   */
-  cloudIp?: string;
-  /**
-   * @remarks
-   * The local port.
-   * 
-   * @example
-   * 80
-   */
-  cloudPort?: string;
-  /**
-   * @remarks
-   * The local region where the local IP address resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  cloudRegion?: string;
-  /**
-   * @remarks
-   * The remote IP address.
-   * 
-   * @example
-   * 222.85.X.X
-   */
-  otherIp?: string;
-  /**
-   * @remarks
-   * The remote port.
-   * 
-   * @example
-   * 10965
-   */
-  otherPort?: string;
-  /**
-   * @remarks
-   * The total number of packets in the specified time range.
-   * 
-   * @example
-   * 66
-   */
-  packets?: number;
-  /**
-   * @remarks
-   * The protocol number.
-   * 
-   * @example
-   * 6
-   */
-  protocol?: string;
-  /**
-   * @remarks
-   * The ID of the VBR that is associated with the Express Connect circuit.
-   * 
-   * @example
-   * vbr-k1atj46citwuek42j****
-   */
-  virtualBorderRouterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      attachmentId: 'AttachmentId',
-      bytes: 'Bytes',
-      cloudIp: 'CloudIp',
-      cloudPort: 'CloudPort',
-      cloudRegion: 'CloudRegion',
-      otherIp: 'OtherIp',
-      otherPort: 'OtherPort',
-      packets: 'Packets',
-      protocol: 'Protocol',
-      virtualBorderRouterId: 'VirtualBorderRouterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      attachmentId: 'string',
-      bytes: 'number',
-      cloudIp: 'string',
-      cloudPort: 'string',
-      cloudRegion: 'string',
-      otherIp: 'string',
-      otherPort: 'string',
-      packets: 'number',
-      protocol: 'string',
-      virtualBorderRouterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNisInspectionResourceTypeResponseBodyResourceTypeList extends $tea.Model {
-  /**
-   * @example
-   * EIP
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNisInspectionTaskReportsResponseBodyInspectionReportList extends $tea.Model {
-  /**
-   * @example
-   * nir-7c3dd178738a429abe6d
-   */
-  inspectionReportId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inspectionReportId: 'InspectionReportId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inspectionReportId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNisInspectionTasksResponseBodyInspectionTaskList extends $tea.Model {
-  /**
-   * @example
-   * 2024-06-18 00:14:46
-   */
-  createTime?: string;
-  inspectionName?: string;
-  /**
-   * @example
-   * basic
-   */
-  inspectionProject?: string;
-  /**
-   * @example
-   * ni-8svm******hzr7fh79
-   */
-  inspectionTaskId?: string;
-  /**
-   * @example
-   * nir-b4c4c9******8a25e
-   */
-  lastUpdateReportId?: string;
-  /**
-   * @example
-   * Active
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      inspectionName: 'InspectionName',
-      inspectionProject: 'InspectionProject',
-      inspectionTaskId: 'InspectionTaskId',
-      lastUpdateReportId: 'LastUpdateReportId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      inspectionName: 'string',
-      inspectionProject: 'string',
-      inspectionTaskId: 'string',
-      lastUpdateReportId: 'string',
-      status: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6467,7 +7127,7 @@ export class ListNisInspectionTasksResponseBodyInspectionTaskList extends $tea.M
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -6476,15 +7136,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -6497,13 +7157,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAndAnalyzeNetworkPathResponse
    */
-  async createAndAnalyzeNetworkPathWithOptions(request: CreateAndAnalyzeNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndAnalyzeNetworkPathResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async createAndAnalyzeNetworkPathWithOptions(request: CreateAndAnalyzeNetworkPathRequest, runtime: $dara.RuntimeOptions): Promise<CreateAndAnalyzeNetworkPathResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAndAnalyzeNetworkPath",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6514,7 +7174,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAndAnalyzeNetworkPathResponse>(await this.callApi(params, req, runtime), new CreateAndAnalyzeNetworkPathResponse({}));
+    return $dara.cast<CreateAndAnalyzeNetworkPathResponse>(await this.callApi(params, req, runtime), new CreateAndAnalyzeNetworkPathResponse({}));
   }
 
   /**
@@ -6527,7 +7187,7 @@ export default class Client extends OpenApi {
    * @returns CreateAndAnalyzeNetworkPathResponse
    */
   async createAndAnalyzeNetworkPath(request: CreateAndAnalyzeNetworkPathRequest): Promise<CreateAndAnalyzeNetworkPathResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAndAnalyzeNetworkPathWithOptions(request, runtime);
   }
 
@@ -6542,69 +7202,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNetworkPathResponse
    */
-  async createNetworkPathWithOptions(request: CreateNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkPathResponse> {
-    Util.validateModel(request);
+  async createNetworkPathWithOptions(request: CreateNetworkPathRequest, runtime: $dara.RuntimeOptions): Promise<CreateNetworkPathResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.networkPathDescription)) {
+    if (!$dara.isNull(request.networkPathDescription)) {
       query["NetworkPathDescription"] = request.networkPathDescription;
     }
 
-    if (!Util.isUnset(request.networkPathName)) {
+    if (!$dara.isNull(request.networkPathName)) {
       query["NetworkPathName"] = request.networkPathName;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.sourceId)) {
+    if (!$dara.isNull(request.sourceId)) {
       query["SourceId"] = request.sourceId;
     }
 
-    if (!Util.isUnset(request.sourceIpAddress)) {
+    if (!$dara.isNull(request.sourceIpAddress)) {
       query["SourceIpAddress"] = request.sourceIpAddress;
     }
 
-    if (!Util.isUnset(request.sourcePort)) {
+    if (!$dara.isNull(request.sourcePort)) {
       query["SourcePort"] = request.sourcePort;
     }
 
-    if (!Util.isUnset(request.sourceType)) {
+    if (!$dara.isNull(request.sourceType)) {
       query["SourceType"] = request.sourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetIpAddress)) {
+    if (!$dara.isNull(request.targetIpAddress)) {
       query["TargetIpAddress"] = request.targetIpAddress;
     }
 
-    if (!Util.isUnset(request.targetPort)) {
+    if (!$dara.isNull(request.targetPort)) {
       query["TargetPort"] = request.targetPort;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateNetworkPath",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6615,7 +7275,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNetworkPathResponse>(await this.callApi(params, req, runtime), new CreateNetworkPathResponse({}));
+    return $dara.cast<CreateNetworkPathResponse>(await this.callApi(params, req, runtime), new CreateNetworkPathResponse({}));
   }
 
   /**
@@ -6629,7 +7289,7 @@ export default class Client extends OpenApi {
    * @returns CreateNetworkPathResponse
    */
   async createNetworkPath(request: CreateNetworkPathRequest): Promise<CreateNetworkPathResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createNetworkPathWithOptions(request, runtime);
   }
 
@@ -6645,25 +7305,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNetworkReachableAnalysisResponse
    */
-  async createNetworkReachableAnalysisWithOptions(request: CreateNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkReachableAnalysisResponse> {
-    Util.validateModel(request);
+  async createNetworkReachableAnalysisWithOptions(request: CreateNetworkReachableAnalysisRequest, runtime: $dara.RuntimeOptions): Promise<CreateNetworkReachableAnalysisResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.networkPathId)) {
+    if (!$dara.isNull(request.networkPathId)) {
       query["NetworkPathId"] = request.networkPathId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateNetworkReachableAnalysis",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6674,7 +7334,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new CreateNetworkReachableAnalysisResponse({}));
+    return $dara.cast<CreateNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new CreateNetworkReachableAnalysisResponse({}));
   }
 
   /**
@@ -6689,7 +7349,7 @@ export default class Client extends OpenApi {
    * @returns CreateNetworkReachableAnalysisResponse
    */
   async createNetworkReachableAnalysis(request: CreateNetworkReachableAnalysisRequest): Promise<CreateNetworkReachableAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
@@ -6700,27 +7360,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNetworkPathResponse
    */
-  async deleteNetworkPathWithOptions(tmpReq: DeleteNetworkPathRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkPathResponse> {
-    Util.validateModel(tmpReq);
+  async deleteNetworkPathWithOptions(tmpReq: DeleteNetworkPathRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNetworkPathResponse> {
+    tmpReq.validate();
     let request = new DeleteNetworkPathShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.networkPathIds)) {
+    if (!$dara.isNull(tmpReq.networkPathIds)) {
       request.networkPathIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkPathIds, "NetworkPathIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.networkPathIdsShrink)) {
+    if (!$dara.isNull(request.networkPathIdsShrink)) {
       query["NetworkPathIds"] = request.networkPathIdsShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNetworkPath",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6731,7 +7391,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNetworkPathResponse>(await this.callApi(params, req, runtime), new DeleteNetworkPathResponse({}));
+    return $dara.cast<DeleteNetworkPathResponse>(await this.callApi(params, req, runtime), new DeleteNetworkPathResponse({}));
   }
 
   /**
@@ -6741,7 +7401,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNetworkPathResponse
    */
   async deleteNetworkPath(request: DeleteNetworkPathRequest): Promise<DeleteNetworkPathResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNetworkPathWithOptions(request, runtime);
   }
 
@@ -6752,27 +7412,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNetworkReachableAnalysisResponse
    */
-  async deleteNetworkReachableAnalysisWithOptions(tmpReq: DeleteNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkReachableAnalysisResponse> {
-    Util.validateModel(tmpReq);
+  async deleteNetworkReachableAnalysisWithOptions(tmpReq: DeleteNetworkReachableAnalysisRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNetworkReachableAnalysisResponse> {
+    tmpReq.validate();
     let request = new DeleteNetworkReachableAnalysisShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.networkReachableAnalysisIds)) {
+    if (!$dara.isNull(tmpReq.networkReachableAnalysisIds)) {
       request.networkReachableAnalysisIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkReachableAnalysisIds, "NetworkReachableAnalysisIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.networkReachableAnalysisIdsShrink)) {
+    if (!$dara.isNull(request.networkReachableAnalysisIdsShrink)) {
       query["NetworkReachableAnalysisIds"] = request.networkReachableAnalysisIdsShrink;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNetworkReachableAnalysis",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6783,7 +7443,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new DeleteNetworkReachableAnalysisResponse({}));
+    return $dara.cast<DeleteNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new DeleteNetworkReachableAnalysisResponse({}));
   }
 
   /**
@@ -6793,7 +7453,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNetworkReachableAnalysisResponse
    */
   async deleteNetworkReachableAnalysis(request: DeleteNetworkReachableAnalysisRequest): Promise<DeleteNetworkReachableAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
@@ -6804,17 +7464,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNisInspectionReportResponse
    */
-  async deleteNisInspectionReportWithOptions(request: DeleteNisInspectionReportRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNisInspectionReportResponse> {
-    Util.validateModel(request);
+  async deleteNisInspectionReportWithOptions(request: DeleteNisInspectionReportRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNisInspectionReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionReportId)) {
+    if (!$dara.isNull(request.inspectionReportId)) {
       query["InspectionReportId"] = request.inspectionReportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNisInspectionReport",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6825,7 +7485,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNisInspectionReportResponse>(await this.callApi(params, req, runtime), new DeleteNisInspectionReportResponse({}));
+    return $dara.cast<DeleteNisInspectionReportResponse>(await this.callApi(params, req, runtime), new DeleteNisInspectionReportResponse({}));
   }
 
   /**
@@ -6835,7 +7495,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNisInspectionReportResponse
    */
   async deleteNisInspectionReport(request: DeleteNisInspectionReportRequest): Promise<DeleteNisInspectionReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNisInspectionReportWithOptions(request, runtime);
   }
 
@@ -6846,17 +7506,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNisInspectionTaskResponse
    */
-  async deleteNisInspectionTaskWithOptions(request: DeleteNisInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNisInspectionTaskResponse> {
-    Util.validateModel(request);
+  async deleteNisInspectionTaskWithOptions(request: DeleteNisInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNisInspectionTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNisInspectionTask",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6867,7 +7527,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new DeleteNisInspectionTaskResponse({}));
+    return $dara.cast<DeleteNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new DeleteNisInspectionTaskResponse({}));
   }
 
   /**
@@ -6877,7 +7537,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNisInspectionTaskResponse
    */
   async deleteNisInspectionTask(request: DeleteNisInspectionTaskRequest): Promise<DeleteNisInspectionTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNisInspectionTaskWithOptions(request, runtime);
   }
 
@@ -6888,33 +7548,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNisInspectionRecommendationResourcesResponse
    */
-  async describeNisInspectionRecommendationResourcesWithOptions(request: DescribeNisInspectionRecommendationResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNisInspectionRecommendationResourcesResponse> {
-    Util.validateModel(request);
+  async describeNisInspectionRecommendationResourcesWithOptions(request: DescribeNisInspectionRecommendationResourcesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNisInspectionRecommendationResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionReportId)) {
+    if (!$dara.isNull(request.inspectionReportId)) {
       query["InspectionReportId"] = request.inspectionReportId;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.recommendationCode)) {
+    if (!$dara.isNull(request.recommendationCode)) {
       query["RecommendationCode"] = request.recommendationCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNisInspectionRecommendationResources",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -6925,7 +7585,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNisInspectionRecommendationResourcesResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionRecommendationResourcesResponse({}));
+    return $dara.cast<DescribeNisInspectionRecommendationResourcesResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionRecommendationResourcesResponse({}));
   }
 
   /**
@@ -6935,7 +7595,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNisInspectionRecommendationResourcesResponse
    */
   async describeNisInspectionRecommendationResources(request: DescribeNisInspectionRecommendationResourcesRequest): Promise<DescribeNisInspectionRecommendationResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNisInspectionRecommendationResourcesWithOptions(request, runtime);
   }
 
@@ -6946,51 +7606,51 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNisInspectionReportCheckItemsResponse
    */
-  async describeNisInspectionReportCheckItemsWithOptions(tmpReq: DescribeNisInspectionReportCheckItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNisInspectionReportCheckItemsResponse> {
-    Util.validateModel(tmpReq);
+  async describeNisInspectionReportCheckItemsWithOptions(tmpReq: DescribeNisInspectionReportCheckItemsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNisInspectionReportCheckItemsResponse> {
+    tmpReq.validate();
     let request = new DescribeNisInspectionReportCheckItemsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceType)) {
+    if (!$dara.isNull(tmpReq.resourceType)) {
       request.resourceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceType, "ResourceType", "json");
     }
 
-    if (!Util.isUnset(tmpReq.riskLevel)) {
+    if (!$dara.isNull(tmpReq.riskLevel)) {
       request.riskLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.riskLevel, "RiskLevel", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.categoryCode)) {
+    if (!$dara.isNull(request.categoryCode)) {
       query["CategoryCode"] = request.categoryCode;
     }
 
-    if (!Util.isUnset(request.inspectionReportId)) {
+    if (!$dara.isNull(request.inspectionReportId)) {
       query["InspectionReportId"] = request.inspectionReportId;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceTypeShrink)) {
+    if (!$dara.isNull(request.resourceTypeShrink)) {
       query["ResourceType"] = request.resourceTypeShrink;
     }
 
-    if (!Util.isUnset(request.riskLevelShrink)) {
+    if (!$dara.isNull(request.riskLevelShrink)) {
       query["RiskLevel"] = request.riskLevelShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNisInspectionReportCheckItems",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7001,7 +7661,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNisInspectionReportCheckItemsResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportCheckItemsResponse({}));
+    return $dara.cast<DescribeNisInspectionReportCheckItemsResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportCheckItemsResponse({}));
   }
 
   /**
@@ -7011,7 +7671,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNisInspectionReportCheckItemsResponse
    */
   async describeNisInspectionReportCheckItems(request: DescribeNisInspectionReportCheckItemsRequest): Promise<DescribeNisInspectionReportCheckItemsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNisInspectionReportCheckItemsWithOptions(request, runtime);
   }
 
@@ -7022,17 +7682,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNisInspectionReportStatusResponse
    */
-  async describeNisInspectionReportStatusWithOptions(request: DescribeNisInspectionReportStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNisInspectionReportStatusResponse> {
-    Util.validateModel(request);
+  async describeNisInspectionReportStatusWithOptions(request: DescribeNisInspectionReportStatusRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNisInspectionReportStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionReportId)) {
+    if (!$dara.isNull(request.inspectionReportId)) {
       query["InspectionReportId"] = request.inspectionReportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNisInspectionReportStatus",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7043,7 +7703,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNisInspectionReportStatusResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportStatusResponse({}));
+    return $dara.cast<DescribeNisInspectionReportStatusResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportStatusResponse({}));
   }
 
   /**
@@ -7053,7 +7713,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNisInspectionReportStatusResponse
    */
   async describeNisInspectionReportStatus(request: DescribeNisInspectionReportStatusRequest): Promise<DescribeNisInspectionReportStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNisInspectionReportStatusWithOptions(request, runtime);
   }
 
@@ -7064,17 +7724,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNisInspectionReportSummaryResponse
    */
-  async describeNisInspectionReportSummaryWithOptions(request: DescribeNisInspectionReportSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNisInspectionReportSummaryResponse> {
-    Util.validateModel(request);
+  async describeNisInspectionReportSummaryWithOptions(request: DescribeNisInspectionReportSummaryRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNisInspectionReportSummaryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionReportId)) {
+    if (!$dara.isNull(request.inspectionReportId)) {
       query["InspectionReportId"] = request.inspectionReportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNisInspectionReportSummary",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7085,7 +7745,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNisInspectionReportSummaryResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportSummaryResponse({}));
+    return $dara.cast<DescribeNisInspectionReportSummaryResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionReportSummaryResponse({}));
   }
 
   /**
@@ -7095,7 +7755,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNisInspectionReportSummaryResponse
    */
   async describeNisInspectionReportSummary(request: DescribeNisInspectionReportSummaryRequest): Promise<DescribeNisInspectionReportSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNisInspectionReportSummaryWithOptions(request, runtime);
   }
 
@@ -7106,17 +7766,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNisInspectionTaskResponse
    */
-  async describeNisInspectionTaskWithOptions(request: DescribeNisInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNisInspectionTaskResponse> {
-    Util.validateModel(request);
+  async describeNisInspectionTaskWithOptions(request: DescribeNisInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNisInspectionTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNisInspectionTask",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7127,7 +7787,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionTaskResponse({}));
+    return $dara.cast<DescribeNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new DescribeNisInspectionTaskResponse({}));
   }
 
   /**
@@ -7137,7 +7797,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNisInspectionTaskResponse
    */
   async describeNisInspectionTask(request: DescribeNisInspectionTaskRequest): Promise<DescribeNisInspectionTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNisInspectionTaskWithOptions(request, runtime);
   }
 
@@ -7151,111 +7811,111 @@ export default class Client extends OpenApi {
    * @returns GetInternetTupleResponse
    */
   // Deprecated
-  async getInternetTupleWithOptions(tmpReq: GetInternetTupleRequest, runtime: $Util.RuntimeOptions): Promise<GetInternetTupleResponse> {
-    Util.validateModel(tmpReq);
+  async getInternetTupleWithOptions(tmpReq: GetInternetTupleRequest, runtime: $dara.RuntimeOptions): Promise<GetInternetTupleResponse> {
+    tmpReq.validate();
     let request = new GetInternetTupleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.cloudIpList)) {
+    if (!$dara.isNull(tmpReq.cloudIpList)) {
       request.cloudIpListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cloudIpList, "CloudIpList", "json");
     }
 
-    if (!Util.isUnset(tmpReq.instanceList)) {
+    if (!$dara.isNull(tmpReq.instanceList)) {
       request.instanceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceList, "InstanceList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIds)) {
+    if (!$dara.isNull(request.accountIds)) {
       query["AccountIds"] = request.accountIds;
     }
 
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.cloudIp)) {
+    if (!$dara.isNull(request.cloudIp)) {
       query["CloudIp"] = request.cloudIp;
     }
 
-    if (!Util.isUnset(request.cloudIpListShrink)) {
+    if (!$dara.isNull(request.cloudIpListShrink)) {
       query["CloudIpList"] = request.cloudIpListShrink;
     }
 
-    if (!Util.isUnset(request.cloudIsp)) {
+    if (!$dara.isNull(request.cloudIsp)) {
       query["CloudIsp"] = request.cloudIsp;
     }
 
-    if (!Util.isUnset(request.cloudPort)) {
+    if (!$dara.isNull(request.cloudPort)) {
       query["CloudPort"] = request.cloudPort;
     }
 
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceListShrink)) {
+    if (!$dara.isNull(request.instanceListShrink)) {
       query["InstanceList"] = request.instanceListShrink;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.otherCity)) {
+    if (!$dara.isNull(request.otherCity)) {
       query["OtherCity"] = request.otherCity;
     }
 
-    if (!Util.isUnset(request.otherCountry)) {
+    if (!$dara.isNull(request.otherCountry)) {
       query["OtherCountry"] = request.otherCountry;
     }
 
-    if (!Util.isUnset(request.otherIp)) {
+    if (!$dara.isNull(request.otherIp)) {
       query["OtherIp"] = request.otherIp;
     }
 
-    if (!Util.isUnset(request.otherIsp)) {
+    if (!$dara.isNull(request.otherIsp)) {
       query["OtherIsp"] = request.otherIsp;
     }
 
-    if (!Util.isUnset(request.otherPort)) {
+    if (!$dara.isNull(request.otherPort)) {
       query["OtherPort"] = request.otherPort;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.topN)) {
+    if (!$dara.isNull(request.topN)) {
       query["TopN"] = request.topN;
     }
 
-    if (!Util.isUnset(request.tupleType)) {
+    if (!$dara.isNull(request.tupleType)) {
       query["TupleType"] = request.tupleType;
     }
 
-    if (!Util.isUnset(request.useMultiAccount)) {
+    if (!$dara.isNull(request.useMultiAccount)) {
       query["UseMultiAccount"] = request.useMultiAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInternetTuple",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7266,7 +7926,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInternetTupleResponse>(await this.callApi(params, req, runtime), new GetInternetTupleResponse({}));
+    return $dara.cast<GetInternetTupleResponse>(await this.callApi(params, req, runtime), new GetInternetTupleResponse({}));
   }
 
   /**
@@ -7279,7 +7939,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async getInternetTuple(request: GetInternetTupleRequest): Promise<GetInternetTupleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getInternetTupleWithOptions(request, runtime);
   }
 
@@ -7293,41 +7953,41 @@ export default class Client extends OpenApi {
    * @returns GetNatTopNResponse
    */
   // Deprecated
-  async getNatTopNWithOptions(request: GetNatTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetNatTopNResponse> {
-    Util.validateModel(request);
+  async getNatTopNWithOptions(request: GetNatTopNRequest, runtime: $dara.RuntimeOptions): Promise<GetNatTopNResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.natGatewayId)) {
+    if (!$dara.isNull(request.natGatewayId)) {
       query["NatGatewayId"] = request.natGatewayId;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.topN)) {
+    if (!$dara.isNull(request.topN)) {
       query["TopN"] = request.topN;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNatTopN",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7338,7 +7998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNatTopNResponse>(await this.callApi(params, req, runtime), new GetNatTopNResponse({}));
+    return $dara.cast<GetNatTopNResponse>(await this.callApi(params, req, runtime), new GetNatTopNResponse({}));
   }
 
   /**
@@ -7351,7 +8011,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async getNatTopN(request: GetNatTopNRequest): Promise<GetNatTopNResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNatTopNWithOptions(request, runtime);
   }
 
@@ -7367,21 +8027,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNetworkReachableAnalysisResponse
    */
-  async getNetworkReachableAnalysisWithOptions(request: GetNetworkReachableAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<GetNetworkReachableAnalysisResponse> {
-    Util.validateModel(request);
+  async getNetworkReachableAnalysisWithOptions(request: GetNetworkReachableAnalysisRequest, runtime: $dara.RuntimeOptions): Promise<GetNetworkReachableAnalysisResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.networkReachableAnalysisId)) {
+    if (!$dara.isNull(request.networkReachableAnalysisId)) {
       query["NetworkReachableAnalysisId"] = request.networkReachableAnalysisId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNetworkReachableAnalysis",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7392,7 +8052,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new GetNetworkReachableAnalysisResponse({}));
+    return $dara.cast<GetNetworkReachableAnalysisResponse>(await this.callApi(params, req, runtime), new GetNetworkReachableAnalysisResponse({}));
   }
 
   /**
@@ -7407,7 +8067,7 @@ export default class Client extends OpenApi {
    * @returns GetNetworkReachableAnalysisResponse
    */
   async getNetworkReachableAnalysis(request: GetNetworkReachableAnalysisRequest): Promise<GetNetworkReachableAnalysisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNetworkReachableAnalysisWithOptions(request, runtime);
   }
 
@@ -7418,55 +8078,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNisNetworkMetricsResponse
    */
-  async getNisNetworkMetricsWithOptions(tmpReq: GetNisNetworkMetricsRequest, runtime: $Util.RuntimeOptions): Promise<GetNisNetworkMetricsResponse> {
-    Util.validateModel(tmpReq);
+  async getNisNetworkMetricsWithOptions(tmpReq: GetNisNetworkMetricsRequest, runtime: $dara.RuntimeOptions): Promise<GetNisNetworkMetricsResponse> {
+    tmpReq.validate();
     let request = new GetNisNetworkMetricsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.dimensions)) {
+    if (!$dara.isNull(tmpReq.dimensions)) {
       request.dimensionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dimensions, "Dimensions", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIds)) {
+    if (!$dara.isNull(request.accountIds)) {
       query["AccountIds"] = request.accountIds;
     }
 
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.dimensionsShrink)) {
+    if (!$dara.isNull(request.dimensionsShrink)) {
       query["Dimensions"] = request.dimensionsShrink;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.metricName)) {
+    if (!$dara.isNull(request.metricName)) {
       query["MetricName"] = request.metricName;
     }
 
-    if (!Util.isUnset(request.regionNo)) {
+    if (!$dara.isNull(request.regionNo)) {
       query["RegionNo"] = request.regionNo;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.scanBy)) {
+    if (!$dara.isNull(request.scanBy)) {
       query["ScanBy"] = request.scanBy;
     }
 
-    if (!Util.isUnset(request.useCrossAccount)) {
+    if (!$dara.isNull(request.useCrossAccount)) {
       query["UseCrossAccount"] = request.useCrossAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNisNetworkMetrics",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7477,7 +8137,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNisNetworkMetricsResponse>(await this.callApi(params, req, runtime), new GetNisNetworkMetricsResponse({}));
+    return $dara.cast<GetNisNetworkMetricsResponse>(await this.callApi(params, req, runtime), new GetNisNetworkMetricsResponse({}));
   }
 
   /**
@@ -7487,7 +8147,7 @@ export default class Client extends OpenApi {
    * @returns GetNisNetworkMetricsResponse
    */
   async getNisNetworkMetrics(request: GetNisNetworkMetricsRequest): Promise<GetNisNetworkMetricsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNisNetworkMetricsWithOptions(request, runtime);
   }
 
@@ -7498,67 +8158,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNisNetworkRankingResponse
    */
-  async getNisNetworkRankingWithOptions(tmpReq: GetNisNetworkRankingRequest, runtime: $Util.RuntimeOptions): Promise<GetNisNetworkRankingResponse> {
-    Util.validateModel(tmpReq);
+  async getNisNetworkRankingWithOptions(tmpReq: GetNisNetworkRankingRequest, runtime: $dara.RuntimeOptions): Promise<GetNisNetworkRankingResponse> {
+    tmpReq.validate();
     let request = new GetNisNetworkRankingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filter)) {
+    if (!$dara.isNull(tmpReq.filter)) {
       request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIds)) {
+    if (!$dara.isNull(request.accountIds)) {
       query["AccountIds"] = request.accountIds;
     }
 
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.filterShrink)) {
+    if (!$dara.isNull(request.filterShrink)) {
       query["Filter"] = request.filterShrink;
     }
 
-    if (!Util.isUnset(request.groupBy)) {
+    if (!$dara.isNull(request.groupBy)) {
       query["GroupBy"] = request.groupBy;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.regionNo)) {
+    if (!$dara.isNull(request.regionNo)) {
       query["RegionNo"] = request.regionNo;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.topN)) {
+    if (!$dara.isNull(request.topN)) {
       query["TopN"] = request.topN;
     }
 
-    if (!Util.isUnset(request.useCrossAccount)) {
+    if (!$dara.isNull(request.useCrossAccount)) {
       query["UseCrossAccount"] = request.useCrossAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNisNetworkRanking",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7569,7 +8229,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNisNetworkRankingResponse>(await this.callApi(params, req, runtime), new GetNisNetworkRankingResponse({}));
+    return $dara.cast<GetNisNetworkRankingResponse>(await this.callApi(params, req, runtime), new GetNisNetworkRankingResponse({}));
   }
 
   /**
@@ -7579,7 +8239,7 @@ export default class Client extends OpenApi {
    * @returns GetNisNetworkRankingResponse
    */
   async getNisNetworkRanking(request: GetNisNetworkRankingRequest): Promise<GetNisNetworkRankingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNisNetworkRankingWithOptions(request, runtime);
   }
 
@@ -7593,91 +8253,91 @@ export default class Client extends OpenApi {
    * @returns GetTransitRouterFlowTopNResponse
    */
   // Deprecated
-  async getTransitRouterFlowTopNWithOptions(tmpReq: GetTransitRouterFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetTransitRouterFlowTopNResponse> {
-    Util.validateModel(tmpReq);
+  async getTransitRouterFlowTopNWithOptions(tmpReq: GetTransitRouterFlowTopNRequest, runtime: $dara.RuntimeOptions): Promise<GetTransitRouterFlowTopNResponse> {
+    tmpReq.validate();
     let request = new GetTransitRouterFlowTopNShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.bandwithPackageId)) {
+    if (!$dara.isNull(request.bandwithPackageId)) {
       query["BandwithPackageId"] = request.bandwithPackageId;
     }
 
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.cenId)) {
+    if (!$dara.isNull(request.cenId)) {
       query["CenId"] = request.cenId;
     }
 
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.groupBy)) {
+    if (!$dara.isNull(request.groupBy)) {
       query["GroupBy"] = request.groupBy;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.otherIp)) {
+    if (!$dara.isNull(request.otherIp)) {
       query["OtherIp"] = request.otherIp;
     }
 
-    if (!Util.isUnset(request.otherPort)) {
+    if (!$dara.isNull(request.otherPort)) {
       query["OtherPort"] = request.otherPort;
     }
 
-    if (!Util.isUnset(request.otherRegion)) {
+    if (!$dara.isNull(request.otherRegion)) {
       query["OtherRegion"] = request.otherRegion;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.thisIp)) {
+    if (!$dara.isNull(request.thisIp)) {
       query["ThisIp"] = request.thisIp;
     }
 
-    if (!Util.isUnset(request.thisPort)) {
+    if (!$dara.isNull(request.thisPort)) {
       query["ThisPort"] = request.thisPort;
     }
 
-    if (!Util.isUnset(request.thisRegion)) {
+    if (!$dara.isNull(request.thisRegion)) {
       query["ThisRegion"] = request.thisRegion;
     }
 
-    if (!Util.isUnset(request.topN)) {
+    if (!$dara.isNull(request.topN)) {
       query["TopN"] = request.topN;
     }
 
-    if (!Util.isUnset(request.useMultiAccount)) {
+    if (!$dara.isNull(request.useMultiAccount)) {
       query["UseMultiAccount"] = request.useMultiAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTransitRouterFlowTopN",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7688,7 +8348,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTransitRouterFlowTopNResponse>(await this.callApi(params, req, runtime), new GetTransitRouterFlowTopNResponse({}));
+    return $dara.cast<GetTransitRouterFlowTopNResponse>(await this.callApi(params, req, runtime), new GetTransitRouterFlowTopNResponse({}));
   }
 
   /**
@@ -7701,7 +8361,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async getTransitRouterFlowTopN(request: GetTransitRouterFlowTopNRequest): Promise<GetTransitRouterFlowTopNResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTransitRouterFlowTopNWithOptions(request, runtime);
   }
 
@@ -7715,91 +8375,91 @@ export default class Client extends OpenApi {
    * @returns GetVbrFlowTopNResponse
    */
   // Deprecated
-  async getVbrFlowTopNWithOptions(tmpReq: GetVbrFlowTopNRequest, runtime: $Util.RuntimeOptions): Promise<GetVbrFlowTopNResponse> {
-    Util.validateModel(tmpReq);
+  async getVbrFlowTopNWithOptions(tmpReq: GetVbrFlowTopNRequest, runtime: $dara.RuntimeOptions): Promise<GetVbrFlowTopNResponse> {
+    tmpReq.validate();
     let request = new GetVbrFlowTopNShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.accountIds)) {
+    if (!$dara.isNull(tmpReq.accountIds)) {
       request.accountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accountIds, "AccountIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.accountIdsShrink)) {
+    if (!$dara.isNull(request.accountIdsShrink)) {
       query["AccountIds"] = request.accountIdsShrink;
     }
 
-    if (!Util.isUnset(request.attachmentId)) {
+    if (!$dara.isNull(request.attachmentId)) {
       query["AttachmentId"] = request.attachmentId;
     }
 
-    if (!Util.isUnset(request.beginTime)) {
+    if (!$dara.isNull(request.beginTime)) {
       query["BeginTime"] = request.beginTime;
     }
 
-    if (!Util.isUnset(request.cenId)) {
+    if (!$dara.isNull(request.cenId)) {
       query["CenId"] = request.cenId;
     }
 
-    if (!Util.isUnset(request.cloudIp)) {
+    if (!$dara.isNull(request.cloudIp)) {
       query["CloudIp"] = request.cloudIp;
     }
 
-    if (!Util.isUnset(request.cloudPort)) {
+    if (!$dara.isNull(request.cloudPort)) {
       query["CloudPort"] = request.cloudPort;
     }
 
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["Direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.groupBy)) {
+    if (!$dara.isNull(request.groupBy)) {
       query["GroupBy"] = request.groupBy;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.otherIp)) {
+    if (!$dara.isNull(request.otherIp)) {
       query["OtherIp"] = request.otherIp;
     }
 
-    if (!Util.isUnset(request.otherPort)) {
+    if (!$dara.isNull(request.otherPort)) {
       query["OtherPort"] = request.otherPort;
     }
 
-    if (!Util.isUnset(request.protocol)) {
+    if (!$dara.isNull(request.protocol)) {
       query["Protocol"] = request.protocol;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.topN)) {
+    if (!$dara.isNull(request.topN)) {
       query["TopN"] = request.topN;
     }
 
-    if (!Util.isUnset(request.useMultiAccount)) {
+    if (!$dara.isNull(request.useMultiAccount)) {
       query["UseMultiAccount"] = request.useMultiAccount;
     }
 
-    if (!Util.isUnset(request.virtualBorderRouterId)) {
+    if (!$dara.isNull(request.virtualBorderRouterId)) {
       query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetVbrFlowTopN",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7810,7 +8470,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetVbrFlowTopNResponse>(await this.callApi(params, req, runtime), new GetVbrFlowTopNResponse({}));
+    return $dara.cast<GetVbrFlowTopNResponse>(await this.callApi(params, req, runtime), new GetVbrFlowTopNResponse({}));
   }
 
   /**
@@ -7823,7 +8483,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async getVbrFlowTopN(request: GetVbrFlowTopNRequest): Promise<GetVbrFlowTopNResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getVbrFlowTopNWithOptions(request, runtime);
   }
 
@@ -7834,9 +8494,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNisInspectionResourceTypeResponse
    */
-  async listNisInspectionResourceTypeWithOptions(runtime: $Util.RuntimeOptions): Promise<ListNisInspectionResourceTypeResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listNisInspectionResourceTypeWithOptions(runtime: $dara.RuntimeOptions): Promise<ListNisInspectionResourceTypeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListNisInspectionResourceType",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7847,7 +8507,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNisInspectionResourceTypeResponse>(await this.callApi(params, req, runtime), new ListNisInspectionResourceTypeResponse({}));
+    return $dara.cast<ListNisInspectionResourceTypeResponse>(await this.callApi(params, req, runtime), new ListNisInspectionResourceTypeResponse({}));
   }
 
   /**
@@ -7855,7 +8515,7 @@ export default class Client extends OpenApi {
    * @returns ListNisInspectionResourceTypeResponse
    */
   async listNisInspectionResourceType(): Promise<ListNisInspectionResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNisInspectionResourceTypeWithOptions(runtime);
   }
 
@@ -7866,25 +8526,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNisInspectionTaskReportsResponse
    */
-  async listNisInspectionTaskReportsWithOptions(request: ListNisInspectionTaskReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListNisInspectionTaskReportsResponse> {
-    Util.validateModel(request);
+  async listNisInspectionTaskReportsWithOptions(request: ListNisInspectionTaskReportsRequest, runtime: $dara.RuntimeOptions): Promise<ListNisInspectionTaskReportsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNisInspectionTaskReports",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7895,7 +8555,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNisInspectionTaskReportsResponse>(await this.callApi(params, req, runtime), new ListNisInspectionTaskReportsResponse({}));
+    return $dara.cast<ListNisInspectionTaskReportsResponse>(await this.callApi(params, req, runtime), new ListNisInspectionTaskReportsResponse({}));
   }
 
   /**
@@ -7905,7 +8565,7 @@ export default class Client extends OpenApi {
    * @returns ListNisInspectionTaskReportsResponse
    */
   async listNisInspectionTaskReports(request: ListNisInspectionTaskReportsRequest): Promise<ListNisInspectionTaskReportsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNisInspectionTaskReportsWithOptions(request, runtime);
   }
 
@@ -7916,37 +8576,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNisInspectionTasksResponse
    */
-  async listNisInspectionTasksWithOptions(request: ListNisInspectionTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListNisInspectionTasksResponse> {
-    Util.validateModel(request);
+  async listNisInspectionTasksWithOptions(request: ListNisInspectionTasksRequest, runtime: $dara.RuntimeOptions): Promise<ListNisInspectionTasksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionName)) {
+    if (!$dara.isNull(request.inspectionName)) {
       query["InspectionName"] = request.inspectionName;
     }
 
-    if (!Util.isUnset(request.inspectionProject)) {
+    if (!$dara.isNull(request.inspectionProject)) {
       query["InspectionProject"] = request.inspectionProject;
     }
 
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNisInspectionTasks",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7957,7 +8617,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNisInspectionTasksResponse>(await this.callApi(params, req, runtime), new ListNisInspectionTasksResponse({}));
+    return $dara.cast<ListNisInspectionTasksResponse>(await this.callApi(params, req, runtime), new ListNisInspectionTasksResponse({}));
   }
 
   /**
@@ -7967,7 +8627,7 @@ export default class Client extends OpenApi {
    * @returns ListNisInspectionTasksResponse
    */
   async listNisInspectionTasks(request: ListNisInspectionTasksRequest): Promise<ListNisInspectionTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNisInspectionTasksWithOptions(request, runtime);
   }
 
@@ -7978,17 +8638,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartNisInspectionTaskResponse
    */
-  async startNisInspectionTaskWithOptions(request: StartNisInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartNisInspectionTaskResponse> {
-    Util.validateModel(request);
+  async startNisInspectionTaskWithOptions(request: StartNisInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<StartNisInspectionTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartNisInspectionTask",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -7999,7 +8659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new StartNisInspectionTaskResponse({}));
+    return $dara.cast<StartNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new StartNisInspectionTaskResponse({}));
   }
 
   /**
@@ -8009,7 +8669,7 @@ export default class Client extends OpenApi {
    * @returns StartNisInspectionTaskResponse
    */
   async startNisInspectionTask(request: StartNisInspectionTaskRequest): Promise<StartNisInspectionTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startNisInspectionTaskWithOptions(request, runtime);
   }
 
@@ -8020,21 +8680,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNisInspectionTaskResponse
    */
-  async updateNisInspectionTaskWithOptions(request: UpdateNisInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNisInspectionTaskResponse> {
-    Util.validateModel(request);
+  async updateNisInspectionTaskWithOptions(request: UpdateNisInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNisInspectionTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inspectionTaskId)) {
+    if (!$dara.isNull(request.inspectionTaskId)) {
       query["InspectionTaskId"] = request.inspectionTaskId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateNisInspectionTask",
       version: "2021-12-16",
       protocol: "HTTPS",
@@ -8045,7 +8705,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new UpdateNisInspectionTaskResponse({}));
+    return $dara.cast<UpdateNisInspectionTaskResponse>(await this.callApi(params, req, runtime), new UpdateNisInspectionTaskResponse({}));
   }
 
   /**
@@ -8055,7 +8715,7 @@ export default class Client extends OpenApi {
    * @returns UpdateNisInspectionTaskResponse
    */
   async updateNisInspectionTask(request: UpdateNisInspectionTaskRequest): Promise<UpdateNisInspectionTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateNisInspectionTaskWithOptions(request, runtime);
   }
 
