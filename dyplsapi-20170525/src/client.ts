@@ -6238,9 +6238,7 @@ export class CreateFixedNoAReportRequest extends $dara.Model {
   custName?: string;
   /**
    * @remarks
-   * 法人/经办人手机号
-   * 
-   * This parameter is required.
+   * 经办人/法人电话
    * 
    * @example
    * 130*****8888
