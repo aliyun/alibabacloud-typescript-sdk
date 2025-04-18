@@ -23850,6 +23850,7 @@ export class LlmSmartCallRequest extends $dara.Model {
    * F32XXX2CF9
    */
   applicationCode?: string;
+  bizParam?: { [key: string]: any };
   /**
    * @remarks
    * This parameter is required.
@@ -23873,6 +23874,7 @@ export class LlmSmartCallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationCode: 'ApplicationCode',
+      bizParam: 'BizParam',
       calledNumber: 'CalledNumber',
       callerNumber: 'CallerNumber',
       outId: 'OutId',
@@ -23884,6 +23886,7 @@ export class LlmSmartCallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationCode: 'string',
+      bizParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       calledNumber: 'string',
       callerNumber: 'string',
       outId: 'string',
@@ -23893,6 +23896,9 @@ export class LlmSmartCallRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.bizParam) {
+      $dara.Model.validateMap(this.bizParam);
+    }
     if(this.promptParam) {
       $dara.Model.validateMap(this.promptParam);
     }
@@ -23916,6 +23922,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
    * F32XXX2CF9
    */
   applicationCode?: string;
+  bizParamShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -23939,6 +23946,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationCode: 'ApplicationCode',
+      bizParamShrink: 'BizParam',
       calledNumber: 'CalledNumber',
       callerNumber: 'CallerNumber',
       outId: 'OutId',
@@ -23950,6 +23958,7 @@ export class LlmSmartCallShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationCode: 'string',
+      bizParamShrink: 'string',
       calledNumber: 'string',
       callerNumber: 'string',
       outId: 'string',
@@ -36163,6 +36172,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new LlmSmartCallShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizParam)) {
+      request.bizParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizParam, "BizParam", "json");
+    }
+
     if (!$dara.isNull(tmpReq.promptParam)) {
       request.promptParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptParam, "PromptParam", "json");
     }
@@ -36174,6 +36187,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.applicationCode)) {
       query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.bizParamShrink)) {
+      query["BizParam"] = request.bizParamShrink;
     }
 
     if (!$dara.isNull(request.calledNumber)) {
