@@ -7,26 +7,47 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   /**
+   * @remarks
+   * The connection method.
+   * 
+   * Valid values:
+   * 
+   * *   VPC: End users connect to cloud computers over an enterprise virtual private cloud (VPC).
+   * *   INTERNET: End users connect to cloud computers over the Internet.
+   * *   ANY: End users connect to cloud computers over the Internet or an enterprise VPC.
+   * 
    * @example
    * INTERNET
    */
   desktopAccessType?: string;
   /**
+   * @remarks
+   * The directory ID.
+   * 
    * @example
    * cn-hangzhou+dir-gx2x1dhsmu52rd****
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The directory type.
+   * 
    * @example
    * AD_CONNECTOR
    */
   directoryType?: string;
   /**
+   * @remarks
+   * The provider ID.
+   * 
    * @example
    * 26842
    */
   providerId?: string;
   /**
+   * @remarks
+   * The URL of the SSO service.
+   * 
    * @example
    * https://eds-cn-shanghai-67726****
    */
@@ -62,36 +83,57 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
 
 export class DescribeFingerPrintTemplatesResponseBodyFingerPrintTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * @example
    * 2258a3d5-b8f8-4d79-a221-eaecf211****
    */
   clientId?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-03-13T13:26:29Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the template.
+   * 
    * @example
    * Finger 1
    */
   description?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * liming
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The index.
+   * 
    * @example
    * 1
    */
   index?: number;
   /**
+   * @remarks
+   * The logon time.
+   * 
    * @example
    * 2022-03-13T13:26:29Z
    */
   loginTime?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hangzhou+dir-074949****
    */
@@ -725,11 +767,17 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
+   * @remarks
+   * The region endpoint.
+   * 
    * @example
    * ecd.cn-hangzhou.aliyuncs.com
    */
   regionEndpoint?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2015,6 +2063,8 @@ export class ApproveFotaUpdateResponse extends $dara.Model {
 export class ChangePasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2023,6 +2073,8 @@ export class ChangePasswordRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2031,6 +2083,8 @@ export class ChangePasswordRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2039,6 +2093,8 @@ export class ChangePasswordRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The new password.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2047,6 +2103,8 @@ export class ChangePasswordRequest extends $dara.Model {
   newPassword?: string;
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2055,6 +2113,8 @@ export class ChangePasswordRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The current password.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2063,6 +2123,8 @@ export class ChangePasswordRequest extends $dara.Model {
   oldPassword?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2070,6 +2132,9 @@ export class ChangePasswordRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 1
    */
@@ -2111,11 +2176,17 @@ export class ChangePasswordRequest extends $dara.Model {
 
 export class ChangePasswordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The logon token.
+   * 
    * @example
    * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 484256DA-D816-44D2-9D86-B6EE4D5B****
    */
@@ -2320,15 +2391,23 @@ export class DeleteFingerPrintTemplateResponse extends $dara.Model {
 export class DescribeDirectoriesRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
    * 54c17e1d-2d72-4b87-aa33-25f3b3f2****
    */
   clientId?: string;
+  /**
+   * @remarks
+   * The directory IDs.
+   */
   directoryId?: string[];
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2364,8 +2443,15 @@ export class DescribeDirectoriesRequest extends $dara.Model {
 }
 
 export class DescribeDirectoriesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The directories.
+   */
   directories?: DescribeDirectoriesResponseBodyDirectories[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F369A091-002F-49C8-AD55-02A77629****
    */
@@ -2434,6 +2520,8 @@ export class DescribeDirectoriesResponse extends $dara.Model {
 export class DescribeFingerPrintTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2442,6 +2530,8 @@ export class DescribeFingerPrintTemplatesRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2450,6 +2540,8 @@ export class DescribeFingerPrintTemplatesRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The region ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2458,6 +2550,8 @@ export class DescribeFingerPrintTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2492,8 +2586,15 @@ export class DescribeFingerPrintTemplatesRequest extends $dara.Model {
 }
 
 export class DescribeFingerPrintTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The fingerprint templates.
+   */
   fingerPrintTemplates?: DescribeFingerPrintTemplatesResponseBodyFingerPrintTemplates[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9C1D3FBE-84E1-5ABB-AD98-2003AC71****
    */
@@ -2915,6 +3016,8 @@ export class DescribeOfficeSitesResponse extends $dara.Model {
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2922,6 +3025,9 @@ export class DescribeRegionsRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -2950,8 +3056,15 @@ export class DescribeRegionsRequest extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The regions.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -3472,6 +3585,8 @@ export class DescribeUserResourcesResponse extends $dara.Model {
 export class EncryptPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the client. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3479,12 +3594,17 @@ export class EncryptPasswordRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The directory ID.
+   * 
    * @example
    * cn-beijing+dir-131196****
    */
   directoryId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3492,12 +3612,17 @@ export class EncryptPasswordRequest extends $dara.Model {
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-beijing+dir-131196****
    */
   officeSiteId?: string;
   /**
    * @remarks
+   * The password that you want to encrypt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3506,6 +3631,8 @@ export class EncryptPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3514,6 +3641,8 @@ export class EncryptPasswordRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3555,11 +3684,17 @@ export class EncryptPasswordRequest extends $dara.Model {
 
 export class EncryptPasswordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The encrypted password.
+   * 
    * @example
    * d34601bc-e6b1-4433-b0cc-8f6c5e52;n4apvGub3OBoj4Grwg==;thhO4UEomJfdvwnwlA==
    */
   encryptedPassword?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AF538DA8-FFC6-52DA-8FF8-7B92579F****
    */
@@ -5222,6 +5357,8 @@ export class ReportSessionStatusResponse extends $dara.Model {
 export class ResetPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5229,17 +5366,25 @@ export class ResetPasswordRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
    * @example
    * 2f00ab32-a473-4c90-9aae-dd8842ae****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The email address of the user.
+   * 
    * @example
    * a***@example.edu
    */
   email?: string;
   /**
    * @remarks
+   * The user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5248,6 +5393,8 @@ export class ResetPasswordRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5256,6 +5403,8 @@ export class ResetPasswordRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5263,6 +5412,9 @@ export class ResetPasswordRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The phone number of the user.
+   * 
    * @example
    * 1827912****
    */
@@ -5302,6 +5454,9 @@ export class ResetPasswordRequest extends $dara.Model {
 
 export class ResetPasswordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A00477A5-167F-56D2-A315-EA77E4BD****
    */
@@ -5365,15 +5520,26 @@ export class ResetPasswordResponse extends $dara.Model {
 export class ResetSnapshotRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
    * b9d8ddfd-65d4-4857-9e97-56477d1f****
    */
   clientId?: string;
+  /**
+   * @remarks
+   * The cloud computer ID.
+   * 
+   * @example
+   * ecd-e964cr92klwqb****
+   */
   desktopId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5382,6 +5548,8 @@ export class ResetSnapshotRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5389,18 +5557,30 @@ export class ResetSnapshotRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * 05182b8c-bb0d-49d3-963c-ee63a507****
    */
   sessionId?: string;
   /**
    * @remarks
+   * The snapshot ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * s-2zeipxmnhej803x7****
    */
   snapshotId?: string;
+  /**
+   * @remarks
+   * Specifies whether to stop the cloud computer.
+   * 
+   * @example
+   * true
+   */
   stopDesktop?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5437,6 +5617,9 @@ export class ResetSnapshotRequest extends $dara.Model {
 
 export class ResetSnapshotResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -5500,6 +5683,8 @@ export class ResetSnapshotResponse extends $dara.Model {
 export class SendTokenCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID. The system generates a unique ID for each client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5507,36 +5692,57 @@ export class SendTokenCodeRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The operating system on which the client runs.
+   * 
    * @example
    * Windows_NT 10.0.18363 x64
    */
   clientOS?: string;
   /**
+   * @remarks
+   * The client version. If you use an Alibaba Cloud Workspace client, you can view the client version in the "About" dialog box on the client logon page.
+   * 
    * @example
    * 2.1.0-R-20210731.151756
    */
   clientVersion?: string;
   /**
+   * @remarks
+   * The username of the account.
+   * 
    * @example
    * alice
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The logon token.
+   * 
    * @example
    * v28101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hangzhou+dir-2925105532
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * cd45e873-650d-4d70-acb9-f996187a****
    */
   sessionId?: string;
   /**
+   * @remarks
+   * If two-factor authentication is enabled for clients in the Elastic Desktop Service (EDS) Enterprise console, the system will send a verification code to the user\\"s email address if it detects that the current logged-on user is at risk. This parameter is required if you set `CurrentStage` to `TokenVerify`.
+   * 
    * @example
    * 63****
    */
@@ -5578,6 +5784,9 @@ export class SendTokenCodeRequest extends $dara.Model {
 
 export class SendTokenCodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 134BD0B2-B848-5743-9CE2-C1FD3D5F****
    */
@@ -6356,6 +6565,7 @@ export class StopDesktopsRequest extends $dara.Model {
    * 04b7b80a0b020715c5c1b4175fc4771698****9e2a759557a4624665fd53ae40
    */
   sessionToken?: string;
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -6368,6 +6578,7 @@ export class StopDesktopsRequest extends $dara.Model {
       regionId: 'RegionId',
       sessionId: 'SessionId',
       sessionToken: 'SessionToken',
+      uuid: 'Uuid',
     };
   }
 
@@ -6383,6 +6594,7 @@ export class StopDesktopsRequest extends $dara.Model {
       regionId: 'string',
       sessionId: 'string',
       sessionToken: 'string',
+      uuid: 'string',
     };
   }
 
@@ -6585,6 +6797,8 @@ export class StopRecordContentResponse extends $dara.Model {
 export class UnbindUserDesktopRequest extends $dara.Model {
   /**
    * @remarks
+   * The client ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6592,17 +6806,30 @@ export class UnbindUserDesktopRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client type.
+   * 
    * @example
    * windows
    */
   clientType?: string;
   /**
+   * @remarks
+   * Specifies whether to enable forced unbinding.
+   * 
+   * Valid values:
+   * 
+   * *   true: Even when end users connect to cloud computers, the forced unbinding is still enforced.
+   * *   false: Forced unbinding is only enforced when end users are disconnected from cloud computers.
+   * 
    * @example
    * true
    */
   force?: boolean;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6611,6 +6838,8 @@ export class UnbindUserDesktopRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6619,6 +6848,8 @@ export class UnbindUserDesktopRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6627,6 +6858,8 @@ export class UnbindUserDesktopRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * The cloud computer ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6668,6 +6901,9 @@ export class UnbindUserDesktopRequest extends $dara.Model {
 
 export class UnbindUserDesktopResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5B7CF35-E078-5EBF-A010-****
    */
@@ -6961,12 +7197,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
-    } else {
-      return $dara.cast<ApproveFotaUpdateResponse>(await this.execute(params, req, runtime), new ApproveFotaUpdateResponse({}));
-    }
-
+    return $dara.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
   }
 
   /**
@@ -6981,6 +7212,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the password of a user account.
+   * 
    * @param request - ChangePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangePasswordResponse
@@ -7034,15 +7267,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
-    } else {
-      return $dara.cast<ChangePasswordResponse>(await this.execute(params, req, runtime), new ChangePasswordResponse({}));
-    }
-
+    return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
   /**
+   * Changes the password of a user account.
+   * 
    * @param request - ChangePasswordRequest
    * @returns ChangePasswordResponse
    */
@@ -7097,12 +7327,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
-    } else {
-      return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.execute(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
-    }
-
+    return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
   }
 
   /**
@@ -7115,6 +7340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries directory details.
+   * 
    * @param request - DescribeDirectoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDirectoriesResponse
@@ -7148,15 +7375,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
-    } else {
-      return $dara.cast<DescribeDirectoriesResponse>(await this.execute(params, req, runtime), new DescribeDirectoriesResponse({}));
-    }
-
+    return $dara.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
   }
 
   /**
+   * Queries directory details.
+   * 
    * @param request - DescribeDirectoriesRequest
    * @returns DescribeDirectoriesResponse
    */
@@ -7166,6 +7390,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries fingerprint templates.
+   * 
    * @param request - DescribeFingerPrintTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFingerPrintTemplatesResponse
@@ -7203,15 +7429,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
-    } else {
-      return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.execute(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
-    }
-
+    return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
   }
 
   /**
+   * Queries fingerprint templates.
+   * 
    * @param request - DescribeFingerPrintTemplatesRequest
    * @returns DescribeFingerPrintTemplatesResponse
    */
@@ -7322,12 +7545,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
-    } else {
-      return $dara.cast<DescribeGlobalDesktopsResponse>(await this.execute(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
-    }
-
+    return $dara.cast<DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
   }
 
   /**
@@ -7373,12 +7591,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
-    } else {
-      return $dara.cast<DescribeOfficeSitesResponse>(await this.execute(params, req, runtime), new DescribeOfficeSitesResponse({}));
-    }
-
+    return $dara.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
   }
 
   /**
@@ -7420,12 +7633,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
-    } else {
-      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
-    }
-
+    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   /**
@@ -7493,12 +7701,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
-    } else {
-      return $dara.cast<DescribeSnapshotsResponse>(await this.execute(params, req, runtime), new DescribeSnapshotsResponse({}));
-    }
-
+    return $dara.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
   }
 
   /**
@@ -7640,12 +7843,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeUserResourcesResponse>(await this.callApi(params, req, runtime), new DescribeUserResourcesResponse({}));
-    } else {
-      return $dara.cast<DescribeUserResourcesResponse>(await this.execute(params, req, runtime), new DescribeUserResourcesResponse({}));
-    }
-
+    return $dara.cast<DescribeUserResourcesResponse>(await this.callApi(params, req, runtime), new DescribeUserResourcesResponse({}));
   }
 
   /**
@@ -7660,6 +7858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Encrypts a password.
+   * 
    * @param request - EncryptPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EncryptPasswordResponse
@@ -7709,15 +7909,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EncryptPasswordResponse>(await this.callApi(params, req, runtime), new EncryptPasswordResponse({}));
-    } else {
-      return $dara.cast<EncryptPasswordResponse>(await this.execute(params, req, runtime), new EncryptPasswordResponse({}));
-    }
-
+    return $dara.cast<EncryptPasswordResponse>(await this.callApi(params, req, runtime), new EncryptPasswordResponse({}));
   }
 
   /**
+   * Encrypts a password.
+   * 
    * @param request - EncryptPasswordRequest
    * @returns EncryptPasswordResponse
    */
@@ -7770,12 +7967,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
-    } else {
-      return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.execute(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
-    }
-
+    return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
   }
 
   /**
@@ -7871,12 +8063,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
-    } else {
-      return $dara.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
-    }
-
+    return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
   }
 
   /**
@@ -7984,12 +8171,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
-    } else {
-      return $dara.cast<GetLoginTokenResponse>(await this.execute(params, req, runtime), new GetLoginTokenResponse({}));
-    }
-
+    return $dara.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
   }
 
   /**
@@ -8039,12 +8221,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<IsKeepAliveResponse>(await this.callApi(params, req, runtime), new IsKeepAliveResponse({}));
-    } else {
-      return $dara.cast<IsKeepAliveResponse>(await this.execute(params, req, runtime), new IsKeepAliveResponse({}));
-    }
-
+    return $dara.cast<IsKeepAliveResponse>(await this.callApi(params, req, runtime), new IsKeepAliveResponse({}));
   }
 
   /**
@@ -8094,12 +8271,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
-    } else {
-      return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.execute(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
-    }
-
+    return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
   }
 
   /**
@@ -8181,12 +8353,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
-    } else {
-      return $dara.cast<RebootDesktopsResponse>(await this.execute(params, req, runtime), new RebootDesktopsResponse({}));
-    }
-
+    return $dara.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
   }
 
   /**
@@ -8250,12 +8417,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
-    } else {
-      return $dara.cast<RefreshLoginTokenResponse>(await this.execute(params, req, runtime), new RefreshLoginTokenResponse({}));
-    }
-
+    return $dara.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
   }
 
   /**
@@ -8307,12 +8469,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
-    } else {
-      return $dara.cast<ReportEdsAgentInfoResponse>(await this.execute(params, req, runtime), new ReportEdsAgentInfoResponse({}));
-    }
-
+    return $dara.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
   }
 
   /**
@@ -8372,12 +8529,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new ReportSessionStatusResponse({}));
-    } else {
-      return $dara.cast<ReportSessionStatusResponse>(await this.execute(params, req, runtime), new ReportSessionStatusResponse({}));
-    }
-
+    return $dara.cast<ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new ReportSessionStatusResponse({}));
   }
 
   /**
@@ -8390,6 +8542,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets a password.
+   * 
    * @param request - ResetPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetPasswordResponse
@@ -8439,15 +8593,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetPasswordResponse>(await this.callApi(params, req, runtime), new ResetPasswordResponse({}));
-    } else {
-      return $dara.cast<ResetPasswordResponse>(await this.execute(params, req, runtime), new ResetPasswordResponse({}));
-    }
-
+    return $dara.cast<ResetPasswordResponse>(await this.callApi(params, req, runtime), new ResetPasswordResponse({}));
   }
 
   /**
+   * Resets a password.
+   * 
    * @param request - ResetPasswordRequest
    * @returns ResetPasswordResponse
    */
@@ -8457,7 +8608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 还原快照
+   * Restores the data of a disk from a snapshot.
    * 
    * @param request - ResetSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8508,16 +8659,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetSnapshotResponse>(await this.callApi(params, req, runtime), new ResetSnapshotResponse({}));
-    } else {
-      return $dara.cast<ResetSnapshotResponse>(await this.execute(params, req, runtime), new ResetSnapshotResponse({}));
-    }
-
+    return $dara.cast<ResetSnapshotResponse>(await this.callApi(params, req, runtime), new ResetSnapshotResponse({}));
   }
 
   /**
-   * 还原快照
+   * Restores the data of a disk from a snapshot.
    * 
    * @param request - ResetSnapshotRequest
    * @returns ResetSnapshotResponse
@@ -8528,6 +8674,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sends a logon verification code.
+   * 
    * @param request - SendTokenCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendTokenCodeResponse
@@ -8581,15 +8729,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SendTokenCodeResponse>(await this.callApi(params, req, runtime), new SendTokenCodeResponse({}));
-    } else {
-      return $dara.cast<SendTokenCodeResponse>(await this.execute(params, req, runtime), new SendTokenCodeResponse({}));
-    }
-
+    return $dara.cast<SendTokenCodeResponse>(await this.callApi(params, req, runtime), new SendTokenCodeResponse({}));
   }
 
   /**
+   * Sends a logon verification code.
+   * 
    * @param request - SendTokenCodeRequest
    * @returns SendTokenCodeResponse
    */
@@ -8660,12 +8805,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateResponse({}));
-    } else {
-      return $dara.cast<SetFingerPrintTemplateResponse>(await this.execute(params, req, runtime), new SetFingerPrintTemplateResponse({}));
-    }
-
+    return $dara.cast<SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateResponse({}));
   }
 
   /**
@@ -8727,12 +8867,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
-    } else {
-      return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.execute(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
-    }
-
+    return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
   }
 
   /**
@@ -8807,12 +8942,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartDesktopsResponse>(await this.callApi(params, req, runtime), new StartDesktopsResponse({}));
-    } else {
-      return $dara.cast<StartDesktopsResponse>(await this.execute(params, req, runtime), new StartDesktopsResponse({}));
-    }
-
+    return $dara.cast<StartDesktopsResponse>(await this.callApi(params, req, runtime), new StartDesktopsResponse({}));
   }
 
   /**
@@ -8883,12 +9013,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartRecordContentResponse>(await this.callApi(params, req, runtime), new StartRecordContentResponse({}));
-    } else {
-      return $dara.cast<StartRecordContentResponse>(await this.execute(params, req, runtime), new StartRecordContentResponse({}));
-    }
-
+    return $dara.cast<StartRecordContentResponse>(await this.callApi(params, req, runtime), new StartRecordContentResponse({}));
   }
 
   /**
@@ -8953,6 +9078,10 @@ export default class Client extends OpenApi {
       query["SessionToken"] = request.sessionToken;
     }
 
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8967,12 +9096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopDesktopsResponse>(await this.callApi(params, req, runtime), new StopDesktopsResponse({}));
-    } else {
-      return $dara.cast<StopDesktopsResponse>(await this.execute(params, req, runtime), new StopDesktopsResponse({}));
-    }
-
+    return $dara.cast<StopDesktopsResponse>(await this.callApi(params, req, runtime), new StopDesktopsResponse({}));
   }
 
   /**
@@ -9039,12 +9163,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopRecordContentResponse>(await this.callApi(params, req, runtime), new StopRecordContentResponse({}));
-    } else {
-      return $dara.cast<StopRecordContentResponse>(await this.execute(params, req, runtime), new StopRecordContentResponse({}));
-    }
-
+    return $dara.cast<StopRecordContentResponse>(await this.callApi(params, req, runtime), new StopRecordContentResponse({}));
   }
 
   /**
@@ -9057,7 +9176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑用户桌面
+   * Unbinds end users from cloud computers.
    * 
    * @param request - UnbindUserDesktopRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9108,16 +9227,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
-    } else {
-      return $dara.cast<UnbindUserDesktopResponse>(await this.execute(params, req, runtime), new UnbindUserDesktopResponse({}));
-    }
-
+    return $dara.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
   }
 
   /**
-   * 解绑用户桌面
+   * Unbinds end users from cloud computers.
    * 
    * @param request - UnbindUserDesktopRequest
    * @returns UnbindUserDesktopResponse
@@ -9181,12 +9295,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<VerifyCredentialResponse>(await this.callApi(params, req, runtime), new VerifyCredentialResponse({}));
-    } else {
-      return $dara.cast<VerifyCredentialResponse>(await this.execute(params, req, runtime), new VerifyCredentialResponse({}));
-    }
-
+    return $dara.cast<VerifyCredentialResponse>(await this.callApi(params, req, runtime), new VerifyCredentialResponse({}));
   }
 
   /**
