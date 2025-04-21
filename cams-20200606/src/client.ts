@@ -1,13 +1,5921 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddChatappPhoneNumberRequest extends $tea.Model {
+export class BeeBotAssociateResponseBodyDataAssociate extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata.
+   * 
+   * @example
+   * {}
+   */
+  meta?: string;
+  /**
+   * @remarks
+   * The title of the related question.
+   * 
+   * @example
+   * Policy on Withdrawal of Housing Provident Fund
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      meta: 'Meta',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meta: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotAssociateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of associated recommendations.
+   */
+  associate?: BeeBotAssociateResponseBodyDataAssociate[];
+  /**
+   * @remarks
+   * The ID of the response message.
+   * 
+   * @example
+   * 1eb47d7a1706429081e90c83c62c2f00
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * The ID of the session.
+   * 
+   * @example
+   * 93f11165a2a24289a6f869760e8cb3f3
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      associate: 'Associate',
+      messageId: 'MessageId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      associate: { 'type': 'array', 'itemType': BeeBotAssociateResponseBodyDataAssociate },
+      messageId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.associate)) {
+      $dara.Model.validateArray(this.associate);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of knowledge associated with knowledge.
+   * 
+   * @example
+   * 735899
+   */
+  knowledgeId?: string;
+  /**
+   * @remarks
+   * The title of related knowledge.
+   * 
+   * @example
+   * Withdrawal of housing provident fund.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      knowledgeId: 'KnowledgeId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      knowledgeId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesKnowledge extends $dara.Model {
+  /**
+   * @remarks
+   * Distinguish answer types.
+   * 
+   * @example
+   * KnowledgeBase
+   */
+  answerSource?: string;
+  /**
+   * @remarks
+   * Knowledge category.
+   * 
+   * @example
+   * provident fund.
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Hit the content of the problem.
+   * 
+   * @example
+   * Provident fund withdrawal, please search for provident fund withdrawal on the homepage and submit the form for handling the matter.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Indication of plain/rich text answers.
+   * 
+   * @example
+   * PLAIN_TEXT
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * Hit statement.
+   * 
+   * @example
+   * provident fund
+   */
+  hitStatement?: string;
+  /**
+   * @remarks
+   * The ID of the hit problem in the knowledge base.
+   * 
+   * @example
+   * 735898
+   */
+  id?: string;
+  /**
+   * @remarks
+   * Related knowledge list.
+   */
+  relatedKnowledges?: BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges[];
+  /**
+   * @remarks
+   * Introduction to hit problems.
+   * 
+   * @example
+   * Withdrawal of housing provident fund
+   */
+  summary?: string;
+  /**
+   * @remarks
+   * Hit the title of the problem.
+   * 
+   * @example
+   * Withdrawal of housing provident fund.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      category: 'Category',
+      content: 'Content',
+      contentType: 'ContentType',
+      hitStatement: 'HitStatement',
+      id: 'Id',
+      relatedKnowledges: 'RelatedKnowledges',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      category: 'string',
+      content: 'string',
+      contentType: 'string',
+      hitStatement: 'string',
+      id: 'string',
+      relatedKnowledges: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges },
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedKnowledges)) {
+      $dara.Model.validateArray(this.relatedKnowledges);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesRecommends extends $dara.Model {
+  /**
+   * @remarks
+   * Clarify the identification of the source.
+   * 
+   * @example
+   * KNOWLEDGE
+   */
+  answerSource?: string;
+  /**
+   * @remarks
+   * Clarify the knowledge ID.
+   * 
+   * @example
+   * 4548
+   */
+  knowledgeId?: string;
+  /**
+   * @remarks
+   * Clarify the content, which may be the entities of graph Q&A, the knowledge titles of knowledge Q&A, or the column values of table Q&A.
+   * 
+   * @example
+   * Test plain text.
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      knowledgeId: 'KnowledgeId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      knowledgeId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesTextSlots extends $dara.Model {
+  /**
+   * @remarks
+   * Whether it hits.
+   * 
+   * @example
+   * false
+   */
+  hit?: boolean;
+  /**
+   * @remarks
+   * Name.
+   * 
+   * @example
+   * Check weather intentions. city
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Original value.
+   * 
+   * @example
+   * Beijing
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * Specific values.
+   * 
+   * @example
+   * Beijing
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hit: 'Hit',
+      name: 'Name',
+      origin: 'Origin',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hit: 'boolean',
+      name: 'string',
+      origin: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessagesText extends $dara.Model {
+  /**
+   * @remarks
+   * Distinguish answer types.
+   * 
+   * @example
+   * BotFramework
+   */
+  answerSource?: string;
+  /**
+   * @remarks
+   * The content of the text message.
+   * 
+   * @example
+   * May I ask where you want to check the weather?
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Indication of plain/rich text answers.
+   * 
+   * @example
+   * PLAIN_TEXT
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * When AnswerSource is BotFramework, this field returns the name of the dialogue unit.
+   * 
+   * @example
+   * Example: Checking Weather
+   */
+  dialogName?: string;
+  /**
+   * @remarks
+   * This field returns transparent parameters.
+   */
+  ext?: { [key: string]: any };
+  /**
+   * @remarks
+   * When AnswerSource is BotFramework, this field returns a transparent parameter.
+   */
+  externalFlags?: { [key: string]: any };
+  /**
+   * @remarks
+   * Hit statement.
+   * 
+   * @example
+   * Check the weather.
+   */
+  hitStatement?: string;
+  /**
+   * @remarks
+   * When AnswerSource is BotFramework, this field returns the intent name.
+   * 
+   * @example
+   * Check weather intention.
+   */
+  intentName?: string;
+  /**
+   * @remarks
+   * Metadata.
+   * 
+   * @example
+   * [[{\\"columnName\\":\\"name\\",\\"stringValue\\":\\"wangshanshan\\"}]]
+   */
+  metaData?: string;
+  /**
+   * @remarks
+   * When AnswerSource is BotFramework, this field returns the node ID.
+   * 
+   * @example
+   * 1410-c7a72a78.__city
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * When AnswerSource is BotFramework, this field returns the node name.
+   * 
+   * @example
+   * Example: Checking Weather Check the weather and fill in the slots__ city
+   */
+  nodeName?: string;
+  /**
+   * @remarks
+   * Slot information list.
+   */
+  slots?: BeeBotChatResponseBodyDataMessagesTextSlots[];
+  /**
+   * @remarks
+   * Custom Chat Topic Title.
+   * 
+   * @example
+   * greet.
+   */
+  userDefinedChatTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      content: 'Content',
+      contentType: 'ContentType',
+      dialogName: 'DialogName',
+      ext: 'Ext',
+      externalFlags: 'ExternalFlags',
+      hitStatement: 'HitStatement',
+      intentName: 'IntentName',
+      metaData: 'MetaData',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      slots: 'Slots',
+      userDefinedChatTitle: 'UserDefinedChatTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      content: 'string',
+      contentType: 'string',
+      dialogName: 'string',
+      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      externalFlags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      hitStatement: 'string',
+      intentName: 'string',
+      metaData: 'string',
+      nodeId: 'string',
+      nodeName: 'string',
+      slots: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesTextSlots },
+      userDefinedChatTitle: 'string',
+    };
+  }
+
+  validate() {
+    if(this.ext) {
+      $dara.Model.validateMap(this.ext);
+    }
+    if(this.externalFlags) {
+      $dara.Model.validateMap(this.externalFlags);
+    }
+    if(Array.isArray(this.slots)) {
+      $dara.Model.validateArray(this.slots);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyDataMessages extends $dara.Model {
+  /**
+   * @remarks
+   * When AnswerType is Recommended, this field indicates the source of the recommended answer.
+   * 
+   * @example
+   * KNOWLEDGE
+   */
+  answerSource?: string;
+  /**
+   * @remarks
+   * The type of this message.
+   * 
+   * @example
+   * Text
+   */
+  answerType?: string;
+  /**
+   * @remarks
+   * When AnswerType is Knowledge, this field contains the Knowledge object returned by the robot.
+   */
+  knowledge?: BeeBotChatResponseBodyDataMessagesKnowledge;
+  /**
+   * @remarks
+   * When AnswerType is Recommended, this field contains a list of Recommendations returned by the robot.
+   */
+  recommends?: BeeBotChatResponseBodyDataMessagesRecommends[];
+  /**
+   * @remarks
+   * When AnswerType is Text, this field contains the Text object returned by the robot.
+   */
+  text?: BeeBotChatResponseBodyDataMessagesText;
+  static names(): { [key: string]: string } {
+    return {
+      answerSource: 'AnswerSource',
+      answerType: 'AnswerType',
+      knowledge: 'Knowledge',
+      recommends: 'Recommends',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerSource: 'string',
+      answerType: 'string',
+      knowledge: BeeBotChatResponseBodyDataMessagesKnowledge,
+      recommends: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesRecommends },
+      text: BeeBotChatResponseBodyDataMessagesText,
+    };
+  }
+
+  validate() {
+    if(this.knowledge && typeof (this.knowledge as any).validate === 'function') {
+      (this.knowledge as any).validate();
+    }
+    if(Array.isArray(this.recommends)) {
+      $dara.Model.validateArray(this.recommends);
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BeeBotChatResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the recommended knowledge.
+   * 
+   * @example
+   * ab6be8af-cee4-40c3-9919-2ac7461d7d98
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * The source of the recommended answer. When AnswerType is set to Recommend, a value is returned for this parameter.
+   */
+  messages?: BeeBotChatResponseBodyDataMessages[];
+  /**
+   * @remarks
+   * The source of the recommended answer.
+   * 
+   * @example
+   * 1234
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageId: 'MessageId',
+      messages: 'Messages',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageId: 'string',
+      messages: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessages },
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappBindWabaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
+   * @example
+   * C02029392939939
+   */
+  custSpaceId?: string;
+  /**
+   * @remarks
+   * The ID of the WhatsApp Business Account (WABA).
+   * 
+   * @example
+   * 2939828282
+   */
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappEmbedSignUpResponseBodyWabas extends $dara.Model {
+  /**
+   * @remarks
+   * The review state of the WABA.
+   * 
+   * @example
+   * VERIFIED
+   */
+  accountReviewStatus?: string;
+  /**
+   * @remarks
+   * The currency.
+   * 
+   * @example
+   * USD
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * The ID of the WABA.
+   * 
+   * @example
+   * 2939933992*****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The namespace of the message template.
+   * 
+   * @example
+   * alals-lsslls-slslsos-slsl
+   */
+  messageTemplateNamespace?: string;
+  /**
+   * @remarks
+   * The name of the WABA.
+   * 
+   * @example
+   * Alibaba
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountReviewStatus: 'AccountReviewStatus',
+      currency: 'Currency',
+      id: 'Id',
+      messageTemplateNamespace: 'MessageTemplateNamespace',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountReviewStatus: 'string',
+      currency: 'string',
+      id: 'string',
+      messageTemplateNamespace: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappMigrationVerifiedResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the phone number.
+   * 
+   * @example
+   * 82828893332
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613800001234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * The verification status.
+   * 
+   * @example
+   * VERIFIED
+   */
+  codeVerificationStatus?: string;
+  /**
+   * @example
+   * N
+   */
+  isOfficial?: string;
+  /**
+   * @remarks
+   * The number of phone numbers to which messages can be sent in a day.
+   * 
+   * @example
+   * TIER_10
+   */
+  messagingLimitTier?: string;
+  /**
+   * @remarks
+   * The review status of the business display name.
+   * 
+   * @example
+   * Approval
+   */
+  nameStatus?: string;
+  /**
+   * @remarks
+   * The review status of the new business display name.
+   * 
+   * @example
+   * Approval
+   */
+  newNameStatus?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613800001234
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The quality rating of the phone number. Valid values: GREEN, YELLOW, and RED.
+   * 
+   * @example
+   * GREEN
+   */
+  qualityRating?: string;
+  /**
+   * @remarks
+   * The status of the phone number.
+   * 
+   * @example
+   * PENDING
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The callback URL to which status reports are sent by using HTTP callbacks.
+   * 
+   * @example
+   * https://www.alibaba.com/status
+   */
+  statusCallbackUrl?: string;
+  /**
+   * @remarks
+   * The status report queue.
+   * 
+   * @example
+   * alicom-09399200-queue
+   */
+  statusQueue?: string;
+  /**
+   * @remarks
+   * The callback URL to which MO messages are sent by using HTTP callbacks.
+   * 
+   * @example
+   * https://www.alibaba.com/inbound
+   */
+  upCallbackUrl?: string;
+  /**
+   * @remarks
+   * The mobile originated (MO) message queue.
+   * 
+   * @example
+   * alicom-09399200-queue
+   */
+  upQueue?: string;
+  /**
+   * @remarks
+   * The display name of the business to which the phone number belongs.
+   * 
+   * @example
+   * Alibaba
+   */
+  verifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      isOfficial: 'IsOfficial',
+      messagingLimitTier: 'MessagingLimitTier',
+      nameStatus: 'NameStatus',
+      newNameStatus: 'NewNameStatus',
+      phoneNumber: 'PhoneNumber',
+      qualityRating: 'QualityRating',
+      status: 'Status',
+      statusCallbackUrl: 'StatusCallbackUrl',
+      statusQueue: 'StatusQueue',
+      upCallbackUrl: 'UpCallbackUrl',
+      upQueue: 'UpQueue',
+      verifiedName: 'VerifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      isOfficial: 'string',
+      messagingLimitTier: 'string',
+      nameStatus: 'string',
+      newNameStatus: 'string',
+      phoneNumber: 'string',
+      qualityRating: 'string',
+      status: 'string',
+      statusCallbackUrl: 'string',
+      statusQueue: 'string',
+      upCallbackUrl: 'string',
+      upQueue: 'string',
+      verifiedName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappMigrationInitiateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the mobile number.
+   * 
+   * @example
+   * 82828893332
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The mobile number.
+   * 
+   * @example
+   * 8613900001234
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The state of the mobile number. Only MIGRATING may be returned, which indicates that the mobile number is being migrated.
+   * 
+   * @example
+   * MIGRATING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsButtonsSupportedApps extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Android application package. This parameter is required if you create an Android application.
+   * 
+   * @example
+   * com.kuaidian.waimaistaff
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * WhatsApp template is required when Category is Authoritative and Button Type is ONE_TAP/ZERO-TAP, indicating the signature hash value of the WhatsApp application.
+   * 
+   * @example
+   * ieid83kdiek
+   */
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * Autofill
+   */
+  autofillText?: string;
+  /**
+   * @remarks
+   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+   * 
+   * @example
+   * 120293
+   */
+  couponCode?: string;
+  /**
+   * @remarks
+   * The Flow action.
+   * 
+   * Valid values:
+   * 
+   * *   DATA_EXCHANGE
+   * *   NAVIGATE
+   * 
+   * @example
+   * NAVIGATE
+   */
+  flowAction?: string;
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 479884093605183
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
+   * 
+   * @example
+   * false
+   */
+  isOptOut?: boolean;
+  /**
+   * @remarks
+   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+   * 
+   * @example
+   * DETAILS
+   */
+  navigateScreen?: string;
+  /**
+   * @remarks
+   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * com.demo
+   * 
+   * @deprecated
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * The phone number. This parameter is valid only when the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
+   * 
+   * @example
+   * +861368897****
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * wi299382
+   * 
+   * @deprecated
+   */
+  signatureHash?: string;
+  /**
+   * @remarks
+   * List of supported apps.
+   */
+  supportedApps?: CreateChatappTemplateRequestComponentsButtonsSupportedApps[];
+  /**
+   * @remarks
+   * The display name of the button.
+   * 
+   * @example
+   * Call Me
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The type of the button. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * *   **COPY_CODE**: copy code button
+   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
+   * 
+   * > 
+   * 
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+   * 
+   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to be accessed when you click the URL button.
+   * 
+   * @example
+   * https://example.com
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The type of the URL. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
+   * @example
+   * static
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
+      isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
+      packageName: 'PackageName',
+      phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autofillText: 'string',
+      couponCode: 'string',
+      flowAction: 'string',
+      flowId: 'string',
+      isOptOut: 'boolean',
+      navigateScreen: 'string',
+      packageName: 'string',
+      phoneNumber: 'string',
+      signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtonsSupportedApps },
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedApps)) {
+      $dara.Model.validateArray(this.supportedApps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * +8613800
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The text of the button.
+   * 
+   * @example
+   * Call me
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The type of the button. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
+   * @example
+   * https://alibaba.com/xx
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The type of the URL. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
+   * @example
+   * static
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+   */
+  buttons?: CreateChatappTemplateRequestComponentsCardsCardComponentsButtons[];
+  /**
+   * @remarks
+   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+   * 
+   * *   **IMAGE**
+   * *   **VIDEO**
+   * 
+   * @example
+   * IMAGE
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The body content of the carousel card.
+   * 
+   * @example
+   * Who is the very powerful team
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The type of the component. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **BUTTONS**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BODY
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the media resource.
+   * 
+   * @example
+   * https://alibaba.com/img.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponentsCards extends $dara.Model {
+  /**
+   * @remarks
+   * The components of the carousel card.
+   * 
+   * This parameter is required.
+   */
+  cardComponents?: CreateChatappTemplateRequestComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponents },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cardComponents)) {
+      $dara.Model.validateArray(this.cardComponents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateRequestComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+   * 
+   * @example
+   * true
+   */
+  addSecretRecommendation?: boolean;
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
+   * 
+   * >  ####
+   * 
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
+   * 
+   * *   A WhatsApp message template can contain only one phone call button.
+   * 
+   * *   A WhatsApp message template can contain up to two URL buttons.
+   * 
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
+   */
+  buttons?: CreateChatappTemplateRequestComponentsButtons[];
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * This is a video
+   */
+  caption?: string;
+  /**
+   * @remarks
+   * The carousel cards of the carousel template.
+   */
+  cards?: CreateChatappTemplateRequestComponentsCards[];
+  /**
+   * @remarks
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
+   * 
+   * @example
+   * 5
+   */
+  codeExpirationMinutes?: number;
+  /**
+   * @remarks
+   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
+   * 
+   * @example
+   * 120
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * The name of the document.
+   * 
+   * @example
+   * video name
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The type of the document attached in the Viber message template.
+   * 
+   * @example
+   * docx
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * The type of the media resource. Valid values:
+   * 
+   * *   **TEXT**
+   * *   **IMAGE**
+   * *   **DOCUMENT**
+   * *   **VIDEO**
+   * 
+   * @example
+   * TEXT
+   */
+  format?: string;
+  /**
+   * @remarks
+   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
+   * 
+   * @example
+   * true
+   */
+  hasExpiration?: boolean;
+  /**
+   * @remarks
+   * The text of the message that you want to send.
+   * 
+   * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter must be empty.
+   * 
+   * @example
+   * hello whatsapp
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The thumbnail URL of the video in the Viber message template.
+   * 
+   * @example
+   * https://cdn.multiplymall.mobiapp.cloud/yunmall/B-LM-LMALL202207130001/20220730/d712a057-a6af-4513-bbe6-7ee57ea60983.png?x-oss-process=image/resize,w_100
+   */
+  thumbUrl?: string;
+  /**
+   * @remarks
+   * The type of the component. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **FOOTER**
+   * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
+   * 
+   * > 
+   * 
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * 
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
+   * 
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BODY
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the media resource.
+   * 
+   * >  We recommend that you use 800 × 800 images in Viber message templates.
+   * 
+   * @example
+   * https://image.developer.aliyundoc.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addSecretRecommendation: 'AddSecretRecommendation',
+      buttons: 'Buttons',
+      caption: 'Caption',
+      cards: 'Cards',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      format: 'Format',
+      hasExpiration: 'HasExpiration',
+      text: 'Text',
+      thumbUrl: 'ThumbUrl',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addSecretRecommendation: 'boolean',
+      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
+      caption: 'string',
+      cards: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCards },
+      codeExpirationMinutes: 'number',
+      duration: 'number',
+      fileName: 'string',
+      fileType: 'string',
+      format: 'string',
+      hasExpiration: 'boolean',
+      text: 'string',
+      thumbUrl: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    if(Array.isArray(this.cards)) {
+      $dara.Model.validateArray(this.cards);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatappTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * SMS_232907****
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * hello_whatsapp
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The categories of the Flow.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 333993838***
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The name of the Flow.
+   * 
+   * @example
+   * test1
+   */
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePhoneMessageQrdlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the deep link.
+   * 
+   * @example
+   * https://wa.qrdl/
+   */
+  deepLinkUrl?: string;
+  /**
+   * @remarks
+   * The format of the generated image.
+   * 
+   * @example
+   * PNG
+   */
+  generateQrImage?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613800
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The message content.
+   * 
+   * @example
+   * Hello
+   */
+  prefilledMessage?: string;
+  /**
+   * @remarks
+   * The URL of the QR code.
+   * 
+   * @example
+   * http://img.png
+   */
+  qrImageUrl?: string;
+  /**
+   * @remarks
+   * The mode of the quick-response (QR) code.
+   * 
+   * @example
+   * D9II3***
+   */
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappPhoneNumberMetricResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of delivered messages.
+   * 
+   * @example
+   * 5
+   */
+  deliveredCount?: number;
+  /**
+   * @remarks
+   * The end of the time range that you queried.
+   * 
+   * @example
+   * 1667196043904
+   */
+  end?: number;
+  /**
+   * @remarks
+   * The granularity of the metric.
+   * 
+   * Valid values:
+   * 
+   * *   DAILY
+   * *   HALF_HOUR
+   * 
+   * @example
+   * DAILY
+   */
+  granularity?: string;
+  /**
+   * @remarks
+   * The business phone number.
+   * 
+   * @example
+   * 861380000
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The number of sent messages.
+   * 
+   * @example
+   * 10
+   */
+  sentCount?: number;
+  /**
+   * @remarks
+   * The beginning of the time range that you queried.
+   * 
+   * @example
+   * 1669619491000
+   */
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deliveredCount: 'DeliveredCount',
+      end: 'End',
+      granularity: 'Granularity',
+      phoneNumber: 'PhoneNumber',
+      sentCount: 'SentCount',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliveredCount: 'number',
+      end: 'number',
+      granularity: 'string',
+      phoneNumber: 'string',
+      sentCount: 'number',
+      start: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs extends $dara.Model {
+  /**
+   * @remarks
+   * The event type.
+   * 
+   * @example
+   * nextCard
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The intent code.
+   * 
+   * @example
+   * test
+   */
+  intentCode?: string;
+  /**
+   * @remarks
+   * The language of the next template.
+   * 
+   * @example
+   * en
+   */
+  nextLanguageCode?: string;
+  /**
+   * @remarks
+   * The code of the next template.
+   * 
+   * @example
+   * 20939920093993
+   */
+  nextTemplateCode?: string;
+  /**
+   * @remarks
+   * The name of the next template.
+   * 
+   * @example
+   * abc
+   */
+  nextTemplateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      intentCode: 'IntentCode',
+      nextLanguageCode: 'NextLanguageCode',
+      nextTemplateCode: 'NextTemplateCode',
+      nextTemplateName: 'NextTemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      intentCode: 'string',
+      nextLanguageCode: 'string',
+      nextTemplateCode: 'string',
+      nextTemplateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps extends $dara.Model {
+  /**
+   * @remarks
+   * The app package name.
+   * 
+   * @example
+   * com.test
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * The app signing key hash.
+   * 
+   * @example
+   * 29kdkeik939
+   */
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+   * 
+   * @example
+   * Autofill
+   */
+  autofillText?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 202039ksjs
+   */
+  couponCode?: string;
+  /**
+   * @remarks
+   * The extended fields.
+   */
+  extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
+  /**
+   * @remarks
+   * The Flow action. Valid values: NAVIGATE and DATA_EXCHANGE.
+   * 
+   * @example
+   * NAVIGATE
+   */
+  flowAction?: string;
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 3838292983
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
+   * 
+   * @example
+   * false
+   */
+  isOptOut?: boolean;
+  /**
+   * @remarks
+   * The first screen in the Flow. This parameter is returned if FlowAction is set to NAVIGATE.
+   * 
+   * @example
+   * DETAILS
+   */
+  navigateScreen?: string;
+  /**
+   * @remarks
+   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+   * 
+   * @example
+   * com.aliyun
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * The phone number. This parameter is valid only if the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
+   * 
+   * @example
+   * 861398745****
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+   * 
+   * @example
+   * 2993839
+   */
+  signatureHash?: string;
+  /**
+   * @remarks
+   * The apps that support one-tap authentication and zero-tap authentication.
+   */
+  supportedApps?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps[];
+  /**
+   * @remarks
+   * The display name of the button.
+   * 
+   * @example
+   * Call
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The button type. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * *   **COPY_CODE**: copy code button
+   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
+   * 
+   * > 
+   * 
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+   * 
+   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
+   * @example
+   * https://example.com
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The URL type. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
+   * @example
+   * static
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
+      extendAttrs: 'ExtendAttrs',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
+      isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
+      packageName: 'PackageName',
+      phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autofillText: 'string',
+      couponCode: 'string',
+      extendAttrs: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs,
+      flowAction: 'string',
+      flowId: 'string',
+      isOptOut: 'boolean',
+      navigateScreen: 'string',
+      packageName: 'string',
+      phoneNumber: 'string',
+      signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps },
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extendAttrs && typeof (this.extendAttrs as any).validate === 'function') {
+      (this.extendAttrs as any).validate();
+    }
+    if(Array.isArray(this.supportedApps)) {
+      $dara.Model.validateArray(this.supportedApps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * +86138000
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The button text.
+   * 
+   * @example
+   * Button text
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The type of the button in the carousel template. Valid values: URL, PHONE_NUMBER, and QUICK_REQLY.
+   * 
+   * @example
+   * URL
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
+   * @example
+   * https://aliyun.com
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The type of the URL. Valid values: static and dynamic.
+   * 
+   * @example
+   * static
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The buttons of the carousel card.
+   */
+  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons[];
+  /**
+   * @remarks
+   * The type of the header in the carousel template. The header can only be an image or a video. The headers of all carousel cards must be the same. The type of the media resources that are included in the message. Valid values: IMGAGE and VIDEO.
+   * 
+   * @example
+   * HEADER
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The text of the carousel card.
+   * 
+   * @example
+   * Body
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The component type.
+   * 
+   * @example
+   * HEADER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL.
+   * 
+   * @example
+   * https://aliyun.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $dara.Model {
+  /**
+   * @remarks
+   * The components of the carousel card.
+   */
+  cardComponents?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cardComponents)) {
+      $dara.Model.validateArray(this.cardComponents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+   * 
+   * @example
+   * false
+   */
+  addSecretRecommendation?: boolean;
+  /**
+   * @remarks
+   * The buttons. This parameter is returned only if the Type sub-parameter of the Components parameter is set to **BUTTONS**.
+   * 
+   * >  ####
+   * 
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
+   * 
+   * *   A WhatsApp message template can contain only one phone call button.
+   * 
+   * *   A WhatsApp message template can contain up to two URL buttons.
+   * 
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
+   */
+  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
+  /**
+   * @remarks
+   * The description of the document.
+   * 
+   * @example
+   * The new file has been uploaded.
+   */
+  caption?: string;
+  /**
+   * @remarks
+   * The carousel cards.
+   */
+  cards?: GetChatappTemplateDetailResponseBodyDataComponentsCards[];
+  /**
+   * @remarks
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER for a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+   * 
+   * @example
+   * 5
+   */
+  codeExpirationMinutes?: number;
+  /**
+   * @remarks
+   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
+   * 
+   * @example
+   * 50
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * The name of the document.
+   * 
+   * @example
+   * Express file
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The type of the document attached in the Viber message template.
+   * 
+   * @example
+   * docx
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * The format.
+   * 
+   * @example
+   * TEXT
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The latitude of the location.
+   * 
+   * @example
+   * 28.001
+   */
+  latitude?: string;
+  /**
+   * @remarks
+   * The address of the location.
+   * 
+   * @example
+   * Hangzhou
+   */
+  locationAddress?: string;
+  /**
+   * @remarks
+   * The name of the location.
+   * 
+   * @example
+   * Hangzhou
+   */
+  locationName?: string;
+  /**
+   * @remarks
+   * The longitude of the location.
+   * 
+   * @example
+   * 120.002
+   */
+  longitude?: string;
+  /**
+   * @remarks
+   * The variable when the coupon code expires in the limited-time offer template.
+   * 
+   * @example
+   * $(offerExpirationTimeMs)
+   */
+  offerExpirationTimeMs?: string;
+  /**
+   * @remarks
+   * The text of the message that you want to send.
+   * 
+   * @example
+   * Hello
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The thumbnail URL of the video in the Viber message template.
+   * 
+   * @example
+   * https://img.png
+   */
+  thumbUrl?: string;
+  /**
+   * @remarks
+   * The component type. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **FOOTER**
+   * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
+   * 
+   * > 
+   * 
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * 
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
+   * 
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
+   * 
+   * @example
+   * BODY
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the media resource.
+   * 
+   * @example
+   * https://image.developer.aliyundoc.com
+   */
+  url?: string;
+  /**
+   * @remarks
+   * Indicates whether the coupon code has an expiration time in the limited-time offer template.
+   * 
+   * @example
+   * true
+   */
+  hasExpiration?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addSecretRecommendation: 'AddSecretRecommendation',
+      buttons: 'Buttons',
+      caption: 'Caption',
+      cards: 'Cards',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      format: 'Format',
+      latitude: 'Latitude',
+      locationAddress: 'LocationAddress',
+      locationName: 'LocationName',
+      longitude: 'Longitude',
+      offerExpirationTimeMs: 'OfferExpirationTimeMs',
+      text: 'Text',
+      thumbUrl: 'ThumbUrl',
+      type: 'Type',
+      url: 'Url',
+      hasExpiration: 'hasExpiration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addSecretRecommendation: 'boolean',
+      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
+      caption: 'string',
+      cards: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCards },
+      codeExpirationMinutes: 'number',
+      duration: 'number',
+      fileName: 'string',
+      fileType: 'string',
+      format: 'string',
+      latitude: 'string',
+      locationAddress: 'string',
+      locationName: 'string',
+      longitude: 'string',
+      offerExpirationTimeMs: 'string',
+      text: 'string',
+      thumbUrl: 'string',
+      type: 'string',
+      url: 'string',
+      hasExpiration: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    if(Array.isArray(this.cards)) {
+      $dara.Model.validateArray(this.cards);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The review status of the message template. Valid values:
+   * 
+   * *   **pass**: The message template is approved.
+   * *   **fail**: The message template is rejected.
+   * *   **auditing**: The message template is being reviewed.
+   * *   **unaudit**: The review is suspended.
+   * 
+   * @example
+   * pass
+   */
+  auditStatus?: string;
+  /**
+   * @remarks
+   * The category of the template when the returned value of TemplateType is WHATSAPP. Valid values:
+   * 
+   * *   **UTILITY**: a transactional template
+   * *   **MARKETING**: a marketing template
+   * *   **AUTHENTICATION**: an identity authentication template
+   * 
+   * The category of the template when the returned value of the TemplateType parameter is VIBER. Valid values:
+   * 
+   * *   **text**: a template that contains only text
+   * *   **image**: a template that contains only images
+   * *   **text_image_button**: a template that contains text, images, and buttons
+   * *   **text_button**: a template that contains text and buttons
+   * *   **document**: a template that contains only files
+   * *   **video**: a template that contains only videos
+   * *   **text_video**: a template that contains text and videos
+   * *   **text_video_button**: a template that contains text, videos, and buttons
+   * *   **text_image**: a template that contains text and images
+   * 
+   * > If Category is set to text_video_button, users cannot open a web page by clicking the button. Users can open only the video in the message. In this case, you do not need to specify the Url parameter for the URL button in the template.
+   * 
+   * @example
+   * TRANSACTIONAL
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The components of the message template.
+   */
+  components?: GetChatappTemplateDetailResponseBodyDataComponents[];
+  /**
+   * @remarks
+   * The examples of variables.
+   */
+  example?: { [key: string]: string };
+  /**
+   * @remarks
+   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
+   * @example
+   * en_US
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The validity period of the WhatsApp authentication message.
+   * 
+   * @example
+   * 120
+   */
+  messageSendTtlSeconds?: number;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * hello_whatsapp
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The quality of the template.
+   * 
+   * @example
+   * GREEN
+   */
+  qualityScore?: string;
+  /**
+   * @remarks
+   * The reason why the template was rejected.
+   * 
+   * @example
+   * None
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * 744c4b5c79c9432497a075bdfca3****
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The type of the message template. Valid values:
+   * 
+   * *   **WHATSAPP**
+   * *   **VIBER**
+   * *   LINE (developing)
+   * 
+   * @example
+   * WHATSAPP
+   */
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      category: 'Category',
+      components: 'Components',
+      example: 'Example',
+      language: 'Language',
+      messageSendTtlSeconds: 'MessageSendTtlSeconds',
+      name: 'Name',
+      qualityScore: 'QualityScore',
+      reason: 'Reason',
+      templateCode: 'TemplateCode',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      category: 'string',
+      components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
+      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      language: 'string',
+      messageSendTtlSeconds: 'number',
+      name: 'string',
+      qualityScore: 'string',
+      reason: 'string',
+      templateCode: 'string',
+      templateType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(this.example) {
+      $dara.Model.validateMap(this.example);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponseBodyDataCliented extends $dara.Model {
+  /**
+   * @remarks
+   * The text on the button.
+   * 
+   * @example
+   * Open url
+   */
+  buttonContent?: string;
+  /**
+   * @remarks
+   * The number of clicks.
+   * 
+   * @example
+   * 20
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The button type.
+   * 
+   * Valid values:
+   * 
+   * *   phone_number_button
+   * *   url_button
+   * *   quick_relpy_button
+   * 
+   * @example
+   * quick_reply_button
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttonContent: 'ButtonContent',
+      count: 'Count',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttonContent: 'string',
+      count: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappTemplateMetricResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics on button clicks.
+   */
+  cliented?: GetChatappTemplateMetricResponseBodyDataCliented[];
+  /**
+   * @remarks
+   * The number of delivered messages.
+   * 
+   * @example
+   * 6
+   */
+  deliveredCount?: number;
+  /**
+   * @remarks
+   * The end of the time range you queried.
+   * 
+   * @example
+   * 1668138331485
+   */
+  end?: number;
+  /**
+   * @remarks
+   * The template language.
+   * 
+   * @example
+   * en
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The number of read messages.
+   * 
+   * @example
+   * 3
+   */
+  readCount?: number;
+  /**
+   * @remarks
+   * The number of sent messages.
+   * 
+   * @example
+   * 10
+   */
+  sentCount?: number;
+  /**
+   * @remarks
+   * The beginning of the time range you queried.
+   * 
+   * @example
+   * 1673919240001
+   */
+  start?: number;
+  /**
+   * @remarks
+   * The template code.
+   * 
+   * @example
+   * 83837774838*****
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cliented: 'Cliented',
+      deliveredCount: 'DeliveredCount',
+      end: 'End',
+      language: 'Language',
+      readCount: 'ReadCount',
+      sentCount: 'SentCount',
+      start: 'Start',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cliented: { 'type': 'array', 'itemType': GetChatappTemplateMetricResponseBodyDataCliented },
+      deliveredCount: 'number',
+      end: 'number',
+      language: 'string',
+      readCount: 'number',
+      sentCount: 'number',
+      start: 'number',
+      templateCode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cliented)) {
+      $dara.Model.validateArray(this.cliented);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatappUploadAuthorizationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AccessKey ID that is used to authorize a user to upload a file to Object Storage Service (OSS).
+   * 
+   * @example
+   * 2skeuurfj****
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to authorize a user to upload a file to OSS.
+   * 
+   * @example
+   * skdkdukeuuuu****
+   */
+  accessKeySecret?: string;
+  /**
+   * @remarks
+   * The name of the bucket to which a file is uploaded in OSS.
+   * 
+   * @example
+   * oss
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * The directory to which the file is uploaded in Object Storage Service (OSS).
+   * 
+   * @example
+   * 1000102939
+   */
+  dir?: string;
+  /**
+   * @remarks
+   * The address of the OSS server to which a file is uploaded.
+   * 
+   * @example
+   * https://oss.com
+   */
+  endPoint?: string;
+  /**
+   * @remarks
+   * The timeout period.
+   * 
+   * @example
+   * 3600
+   */
+  expire?: number;
+  /**
+   * @remarks
+   * The security token.
+   * 
+   * @example
+   * dkdieiii**
+   */
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      accessKeySecret: 'AccessKeySecret',
+      bucketName: 'BucketName',
+      dir: 'Dir',
+      endPoint: 'EndPoint',
+      expire: 'Expire',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      accessKeySecret: 'string',
+      bucketName: 'string',
+      dir: 'string',
+      endPoint: 'string',
+      expire: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommerceSettingResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the shopping cart button is displayed. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  cartEnable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the catalog button is displayed. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  catalogVisible?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cartEnable: 'CartEnable',
+      catalogVisible: 'CatalogVisible',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cartEnable: 'boolean',
+      catalogVisible: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversationalAutomationResponseBodyDataCommands extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the command.
+   * 
+   * @example
+   * description
+   */
+  commandDescription?: string;
+  /**
+   * @remarks
+   * The name of the command.
+   * 
+   * @example
+   * common1
+   */
+  commandName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDescription: 'CommandDescription',
+      commandName: 'CommandName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDescription: 'string',
+      commandName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversationalAutomationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The commands.
+   */
+  commands?: GetConversationalAutomationResponseBodyDataCommands[];
+  /**
+   * @remarks
+   * Indicates whether the welcoming message is enabled.
+   * 
+   * @example
+   * true
+   */
+  enableWelcomeMessage?: boolean;
+  /**
+   * @remarks
+   * The phone number of the enterprise.
+   * 
+   * @example
+   * 86138****
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The opening remarks.
+   */
+  prompts?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+      enableWelcomeMessage: 'EnableWelcomeMessage',
+      phoneNumber: 'PhoneNumber',
+      prompts: 'Prompts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': GetConversationalAutomationResponseBodyDataCommands },
+      enableWelcomeMessage: 'boolean',
+      phoneNumber: 'string',
+      prompts: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.prompts)) {
+      $dara.Model.validateArray(this.prompts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The categories of the Flow.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The version number of the API.
+   * 
+   * @example
+   * 3.0
+   */
+  dataApiVersion?: string;
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * flow_id_arms
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The Flow name.
+   * 
+   * @example
+   * dnjn
+   */
+  flowName?: string;
+  /**
+   * @remarks
+   * The JSON version.
+   * 
+   * @example
+   * 2.1
+   */
+  JSONVersion?: string;
+  /**
+   * @remarks
+   * The temporary preview URL.
+   * 
+   * @example
+   * https://pre-url
+   */
+  previewUrl?: string;
+  /**
+   * @remarks
+   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1700617436633
+   */
+  previewUrlExpires?: number;
+  /**
+   * @remarks
+   * The state of the Flow.
+   * 
+   * Valid values:
+   * 
+   * *   PUBLISHED
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DRAFT
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DEPRECATED
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * DRAFT
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      dataApiVersion: 'DataApiVersion',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+      JSONVersion: 'JSONVersion',
+      previewUrl: 'PreviewUrl',
+      previewUrlExpires: 'PreviewUrlExpires',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      dataApiVersion: 'string',
+      flowId: 'string',
+      flowName: 'string',
+      JSONVersion: 'string',
+      previewUrl: 'string',
+      previewUrlExpires: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowJSONAssestResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The file path.
+   * 
+   * @example
+   * https://url.com/json.json
+   */
+  filePath?: string;
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * flow_id_arms
+   */
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      flowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowPreviewUrlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 6dd31e1b7cc940fc99e293d9952b5b79
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The temporary preview URL.
+   * 
+   * @example
+   * https://url
+   */
+  previewUrl?: string;
+  /**
+   * @remarks
+   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1700617436633
+   */
+  previewUrlExpires?: number;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      previewUrl: 'PreviewUrl',
+      previewUrlExpires: 'PreviewUrlExpires',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      previewUrl: 'string',
+      previewUrlExpires: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationVerifyCodeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the number.
+   * 
+   * @example
+   * 82828893332
+   */
+  id?: string;
+  /**
+   * @remarks
+   * Phone number.
+   * 
+   * @example
+   * 8613800001234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneEncryptionPublicKeyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The public key.
+   * 
+   * @example
+   * -----BEGIN PUBLIC KEY-----
+   * AAA
+   * BBB
+   * CCC
+   * DDD
+   * EEE
+   * FFF
+   * GGG
+   * -----END PUBLIC KEY-----
+   */
+  encryptionPublicKey?: string;
+  /**
+   * @remarks
+   * The validity state of the public key. Valid values:
+   * 
+   * *   MISMATCH: The public key is invalid.
+   * *   VALID: The public key is valid.
+   * 
+   * @example
+   * VALID
+   */
+  encryptionPublicKeyStatus?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 86138000**
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionPublicKey: 'EncryptionPublicKey',
+      encryptionPublicKeyStatus: 'EncryptionPublicKeyStatus',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionPublicKey: 'string',
+      encryptionPublicKeyStatus: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The verification status.
+   * 
+   * @example
+   * VERIFIED
+   */
+  codeVerificationStatus?: string;
+  /**
+   * @remarks
+   * The ID of the number.
+   * 
+   * @example
+   * 2224342624
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613900001234
+   */
+  phoneNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      id: 'Id',
+      phoneNumber: 'PhoneNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      id: 'string',
+      phoneNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPreValidatePhoneIdResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 929833
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The ID of the phone number.
+   * 
+   * @example
+   * 8613800000000
+   */
+  phoneNumberId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      phoneNumberId: 'PhoneNumberId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      phoneNumberId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 141006
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The description of the error.
+   * 
+   * @example
+   * There is an error with the payment method.
+   */
+  errorDescription?: string;
+  /**
+   * @remarks
+   * The possible solution to the error.
+   * 
+   * @example
+   * There was an error with your payment method. Please add a new payment method to the account.
+   */
+  possibleSolution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorDescription: 'ErrorDescription',
+      possibleSolution: 'PossibleSolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorDescription: 'string',
+      possibleSolution: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model {
+  /**
+   * @remarks
+   * The Business Manager ID.
+   * 
+   * @example
+   * 3992****
+   */
+  businessId?: string;
+  /**
+   * @remarks
+   * Indicates whether the messages can be sent.
+   * 
+   * @example
+   * AVAILABLE
+   */
+  canSendMessage?: string;
+  /**
+   * @remarks
+   * The entity type.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  entityType?: string;
+  /**
+   * @remarks
+   * The reasons why the messages failed to be sent.
+   */
+  errors?: GetWhatsappHealthStatusResponseBodyDataEntitiesErrors[];
+  /**
+   * @remarks
+   * The template language.
+   * 
+   * @example
+   * en
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The phone number to which the messages are sent.
+   * 
+   * @example
+   * 86138****
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The template code. This parameter is returned when the NodeType parameter is set to **template**.
+   * 
+   * @example
+   * 939928****
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The WABA ID. You can view the WABA ID in the Chat App Message Service console after you create the WABA.
+   * 
+   * @example
+   * 39939***
+   */
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessId: 'BusinessId',
+      canSendMessage: 'CanSendMessage',
+      entityType: 'EntityType',
+      errors: 'Errors',
+      language: 'Language',
+      phoneNumber: 'PhoneNumber',
+      templateCode: 'TemplateCode',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessId: 'string',
+      canSendMessage: 'string',
+      entityType: 'string',
+      errors: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntitiesErrors },
+      language: 'string',
+      phoneNumber: 'string',
+      templateCode: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.errors)) {
+      $dara.Model.validateArray(this.errors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the messages can be sent.
+   * 
+   * @example
+   * AVAILABLE
+   */
+  canSendMessage?: string;
+  /**
+   * @remarks
+   * The queried entities.
+   */
+  entities?: GetWhatsappHealthStatusResponseBodyDataEntities[];
+  static names(): { [key: string]: string } {
+    return {
+      canSendMessage: 'CanSendMessage',
+      entities: 'Entities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canSendMessage: 'string',
+      entities: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntities },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entities)) {
+      $dara.Model.validateArray(this.entities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateRequestPage extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * The review state of the message template. Valid values:
+   * 
+   * *   **pass**: The message template is approved.
+   * *   **fail**: The message template is rejected.
+   * *   **auditing**: The message template is being reviewed.
+   * *   **unaudit**: The review is suspended.
+   * 
+   * @example
+   * pass
+   */
+  auditStatus?: string;
+  /**
+   * @remarks
+   * The category of the WhatsApp template. Valid values:
+   * 
+   * *   **UTILITY**: utility template
+   * *   **MARKETING**: marketing template
+   * *   **AUTHENTICATION**: authentication template
+   * 
+   * The category of the Viber template. Valid values:
+   * 
+   * *   **text**: template that contains only text
+   * *   **image**: template that contains only an image
+   * *   **text_image_button**: template that contains text, an image, and a button
+   * *   **text_button**: template that contains text and a button
+   * *   **document**: template that contains only a document
+   * *   **video**: template that contains only a video
+   * *   **text_video**: template that contains text and a video
+   * *   **text_video_button**: template that contains text, a video, and a button
+   * *   **text_image**: template that contains text and an image
+   * 
+   * @example
+   * TRANSACTIONAL
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * 
+   * @example
+   * en
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The time when the template was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1711006633000
+   */
+  lastUpdateTime?: number;
+  /**
+   * @remarks
+   * The reason for the review failure.
+   * 
+   * @example
+   * None
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * 744c4b5c79c9432497a075bdfca3****
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * hello_whatsapp
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The type of the template. Valid values: WHATSAPP and VIBER.
+   * 
+   * @example
+   * WHATSAPP
+   */
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      category: 'Category',
+      language: 'Language',
+      lastUpdateTime: 'LastUpdateTime',
+      reason: 'Reason',
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'string',
+      category: 'string',
+      language: 'string',
+      lastUpdateTime: 'number',
+      reason: 'string',
+      templateCode: 'string',
+      templateName: 'string',
+      templateType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowRequestPage extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      index: 'Index',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      index: 'number',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The categories of the Flows.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 3939393***
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The Flow name.
+   * 
+   * @example
+   * flow-02020
+   */
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPhoneMessageQrdlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the deep link.
+   * 
+   * @example
+   * https://wa.msg/
+   */
+  deepLinkUrl?: string;
+  /**
+   * @remarks
+   * The format of the generated image.
+   * 
+   * @example
+   * PNG
+   */
+  generateQrImage?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613800
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The message content.
+   * 
+   * @example
+   * Hello
+   */
+  prefilledMessage?: string;
+  /**
+   * @remarks
+   * The URL of the QR code.
+   * 
+   * @example
+   * https://img.png
+   */
+  qrImageUrl?: string;
+  /**
+   * @remarks
+   * The mode of the quick-response (QR) code.
+   * 
+   * @example
+   * IUIED999
+   */
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModelPagingCursors extends $dara.Model {
+  /**
+   * @remarks
+   * The cursor that points to the end of the page of the returned data.
+   * 
+   * @example
+   * sjsuueu83838
+   */
+  after?: string;
+  /**
+   * @remarks
+   * The cursor that points to the beginning of the page of the returned data.
+   * 
+   * @example
+   * sjjsjdjjdjd83883
+   */
+  before?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModelPaging extends $dara.Model {
+  /**
+   * @remarks
+   * The cursors for pagination.
+   */
+  cursors?: ListProductResponseBodyModelPagingCursors;
+  static names(): { [key: string]: string } {
+    return {
+      cursors: 'Cursors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursors: ListProductResponseBodyModelPagingCursors,
+    };
+  }
+
+  validate() {
+    if(this.cursors && typeof (this.cursors as any).validate === 'function') {
+      (this.cursors as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The pagination details.
+   */
+  paging?: ListProductResponseBodyModelPaging;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      paging: 'Paging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      paging: ListProductResponseBodyModelPaging,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.paging && typeof (this.paging as any).validate === 'function') {
+      (this.paging as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Model {
+  /**
+   * @remarks
+   * The cursor that points to the end of the page of the returned data.
+   * 
+   * @example
+   * sjsuueu83838
+   */
+  after?: string;
+  /**
+   * @remarks
+   * The cursor that points to the beginning of the page of the returned data.
+   * 
+   * @example
+   * sjjsjdjjdjd83883
+   */
+  before?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      before: 'Before',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: 'string',
+      before: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModelPaging extends $dara.Model {
+  /**
+   * @remarks
+   * The cursors for pagination.
+   */
+  cursors?: ListProductCatalogResponseBodyModelPagingCursors;
+  static names(): { [key: string]: string } {
+    return {
+      cursors: 'Cursors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cursors: ListProductCatalogResponseBodyModelPagingCursors,
+    };
+  }
+
+  validate() {
+    if(this.cursors && typeof (this.cursors as any).validate === 'function') {
+      (this.cursors as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductCatalogResponseBodyModel extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The pagination details.
+   */
+  paging?: ListProductCatalogResponseBodyModelPaging;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      paging: 'Paging',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      paging: ListProductCatalogResponseBodyModelPaging,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    if(this.paging && typeof (this.paging as any).validate === 'function') {
+      (this.paging as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends $dara.Model {
+  /**
+   * @remarks
+   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+   * 
+   * @example
+   * com.example.myapplication
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+   * 
+   * @example
+   * fk39kd93ks9
+   */
+  signatureHash?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packageName: 'PackageName',
+      signatureHash: 'SignatureHash',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packageName: 'string',
+      signatureHash: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * Autofill
+   */
+  autofillText?: string;
+  /**
+   * @remarks
+   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+   * 
+   * @example
+   * 120293
+   */
+  couponCode?: string;
+  /**
+   * @remarks
+   * The Flow action.
+   * 
+   * Valid values:
+   * 
+   * *   DATA_EXCHANGE
+   * *   NAVIGATE
+   * 
+   * @example
+   * NAVIGATE
+   */
+  flowAction?: string;
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 664597077870605
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
+   * 
+   * @example
+   * false
+   */
+  isOptOut?: boolean;
+  /**
+   * @remarks
+   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+   * 
+   * @example
+   * DETAILS
+   */
+  navigateScreen?: string;
+  /**
+   * @remarks
+   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * com.demo
+   * 
+   * @deprecated
+   */
+  packageName?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * +8613888887889
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
+   * 
+   * @example
+   * 29dkeke
+   * 
+   * @deprecated
+   */
+  signatureHash?: string;
+  /**
+   * @remarks
+   * List of supported apps.
+   */
+  supportedApps?: ModifyChatappTemplateRequestComponentsButtonsSupportedApps[];
+  /**
+   * @remarks
+   * The text of the button.
+   * 
+   * @example
+   * phone-button-text
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The button type. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * *   **COPY_CODE**: copy code button
+   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
+   * 
+   * > 
+   * 
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+   * 
+   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
+   * @example
+   * https://www.website.com/
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The URL type. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
+   * @example
+   * dynamic
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autofillText: 'AutofillText',
+      couponCode: 'CouponCode',
+      flowAction: 'FlowAction',
+      flowId: 'FlowId',
+      isOptOut: 'IsOptOut',
+      navigateScreen: 'NavigateScreen',
+      packageName: 'PackageName',
+      phoneNumber: 'PhoneNumber',
+      signatureHash: 'SignatureHash',
+      supportedApps: 'SupportedApps',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autofillText: 'string',
+      couponCode: 'string',
+      flowAction: 'string',
+      flowId: 'string',
+      isOptOut: 'boolean',
+      navigateScreen: 'string',
+      packageName: 'string',
+      phoneNumber: 'string',
+      signatureHash: 'string',
+      supportedApps: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtonsSupportedApps },
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportedApps)) {
+      $dara.Model.validateArray(this.supportedApps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons extends $dara.Model {
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * +8613800
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The text of the button.
+   * 
+   * @example
+   * Call me
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The button type. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PHONE_NUMBER
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
+   * @example
+   * https://alibaba.com/xx
+   */
+  url?: string;
+  /**
+   * @remarks
+   * The URL type. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
+   * @example
+   * static
+   */
+  urlType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+      urlType: 'UrlType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+      urlType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+   */
+  buttons?: ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons[];
+  /**
+   * @remarks
+   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+   * 
+   * *   **IMAGE**
+   * *   **VIDEO**
+   * 
+   * @example
+   * IMAGE
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The body content of the carousel card.
+   * 
+   * @example
+   * Who is the very powerful team
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The component type. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **BUTTONS**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BODY
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the media resource.
+   * 
+   * @example
+   * https://alibaba.com/img.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buttons: 'Buttons',
+      format: 'Format',
+      text: 'Text',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons },
+      format: 'string',
+      text: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponentsCards extends $dara.Model {
+  /**
+   * @remarks
+   * The components of the carousel card.
+   * 
+   * This parameter is required.
+   */
+  cardComponents?: ModifyChatappTemplateRequestComponentsCardsCardComponents[];
+  static names(): { [key: string]: string } {
+    return {
+      cardComponents: 'CardComponents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardComponents: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponents },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cardComponents)) {
+      $dara.Model.validateArray(this.cardComponents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateRequestComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+   * 
+   * @example
+   * false
+   */
+  addSecretRecommendation?: boolean;
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
+   * 
+   * >  ####
+   * 
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
+   * 
+   * *   A WhatsApp message template can contain only one phone call button.
+   * 
+   * *   A WhatsApp message template can contain up to two URL buttons.
+   * 
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
+   */
+  buttons?: ModifyChatappTemplateRequestComponentsButtons[];
+  /**
+   * @remarks
+   * The description of the media resource.
+   * 
+   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
+   * 
+   * @example
+   * This is a video
+   */
+  caption?: string;
+  /**
+   * @remarks
+   * The carousel cards of the carousel template.
+   */
+  cards?: ModifyChatappTemplateRequestComponentsCards[];
+  /**
+   * @remarks
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
+   * 
+   * @example
+   * 5
+   */
+  codeExpirationMinutes?: number;
+  /**
+   * @remarks
+   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
+   * 
+   * @example
+   * 120
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * The name of the document.
+   * 
+   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify this parameter.
+   * 
+   * @example
+   * video name
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The type of the document attached in the Viber message template.
+   * 
+   * @example
+   * docx
+   */
+  fileType?: string;
+  /**
+   * @remarks
+   * The type of the media resource. Valid values:
+   * 
+   * *   **TEXT**
+   * *   **IMAGE**
+   * *   **DOCUMENT**
+   * *   **VIDEO**
+   * 
+   * @example
+   * TEXT
+   */
+  format?: string;
+  /**
+   * @remarks
+   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
+   * 
+   * @example
+   * true
+   */
+  hasExpiration?: boolean;
+  /**
+   * @remarks
+   * The text of the message that you want to send.
+   * 
+   * >  If Category is set to AUTHENTICATION, do not specify the Text sub-parameter of the Components parameter.
+   * 
+   * @example
+   * hello chatapp
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The thumbnail URL of the video in the Viber message template.
+   * 
+   * @example
+   * https://cdn.multiplymall.mobiapp.cloud/cloudcode/yc-165407506207478-165511576113195/20220905/ec5b9737-1507-4208-bb27-8da3958da961.jpg?x-oss-process=image/resize,w_100
+   */
+  thumbUrl?: string;
+  /**
+   * @remarks
+   * The component type. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **FOOTER**
+   * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
+   * 
+   * > 
+   * 
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * 
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
+   * 
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BODY
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The URL of the media resource.
+   * 
+   * @example
+   * https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addSecretRecommendation: 'AddSecretRecommendation',
+      buttons: 'Buttons',
+      caption: 'Caption',
+      cards: 'Cards',
+      codeExpirationMinutes: 'CodeExpirationMinutes',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileType: 'FileType',
+      format: 'Format',
+      hasExpiration: 'HasExpiration',
+      text: 'Text',
+      thumbUrl: 'ThumbUrl',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addSecretRecommendation: 'boolean',
+      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
+      caption: 'string',
+      cards: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCards },
+      codeExpirationMinutes: 'number',
+      duration: 'number',
+      fileName: 'string',
+      fileType: 'string',
+      format: 'string',
+      hasExpiration: 'boolean',
+      text: 'string',
+      thumbUrl: 'string',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.buttons)) {
+      $dara.Model.validateArray(this.buttons);
+    }
+    if(Array.isArray(this.cards)) {
+      $dara.Model.validateArray(this.cards);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyChatappTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the message template.
+   * 
+   * @example
+   * 8472929283883
+   */
+  templateCode?: string;
+  /**
+   * @remarks
+   * The name of the message template.
+   * 
+   * @example
+   * hello_whatsapp
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyFlowResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The categories of the Flow.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 3939399****
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * The Flow name.
+   * 
+   * @example
+   * flow-00203
+   */
+  flowName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      flowId: 'string',
+      flowName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The review state of the WhatsApp Business account (WABA).
+   * 
+   * >  Valid values:
+   * 
+   * *   PENDING: The WABA is to be reviewed.
+   * 
+   * *   APPROVED: The WABA was approved.
+   * 
+   * *   REJECTED: The WABA was rejected.
+   * 
+   * *   DISABLED: The WABA was forbidden.
+   * 
+   * @example
+   * APPROVED
+   */
+  accountReviewStatus?: string;
+  /**
+   * @remarks
+   * WABA related information.
+   */
+  authInternationalRateEligibility?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the business platform.
+   * 
+   * @example
+   * 19293988***
+   */
+  businessId?: string;
+  /**
+   * @remarks
+   * The name of the business platform.
+   * 
+   * @example
+   * Alibaba
+   */
+  businessName?: string;
+  /**
+   * @remarks
+   * The currency.
+   * 
+   * @example
+   * USD
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * The ID of the WhatsApp Business account.
+   * 
+   * @example
+   * 20393988393993***
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The namespace of the message template.
+   * 
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  messageTemplateNamespace?: string;
+  /**
+   * @remarks
+   * The name of the WhatsApp Business account.
+   * 
+   * @example
+   * Alibaba
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The start time when the authentication-international rate applies.
+   * 
+   * @example
+   * "start_time":1721952000
+   */
+  primaryBusinessLocation?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountReviewStatus: 'AccountReviewStatus',
+      authInternationalRateEligibility: 'AuthInternationalRateEligibility',
+      businessId: 'BusinessId',
+      businessName: 'BusinessName',
+      currency: 'Currency',
+      id: 'Id',
+      messageTemplateNamespace: 'MessageTemplateNamespace',
+      name: 'Name',
+      primaryBusinessLocation: 'PrimaryBusinessLocation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountReviewStatus: 'string',
+      authInternationalRateEligibility: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      businessId: 'string',
+      businessName: 'string',
+      currency: 'string',
+      id: 'string',
+      messageTemplateNamespace: 'string',
+      name: 'string',
+      primaryBusinessLocation: 'string',
+    };
+  }
+
+  validate() {
+    if(this.authInternationalRateEligibility) {
+      $dara.Model.validateMap(this.authInternationalRateEligibility);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * The verification status of the phone number.
+   * 
+   * @example
+   * VERIFIED
+   */
+  codeVerificationStatus?: string;
+  /**
+   * @example
+   * N
+   */
+  isOfficial?: string;
+  /**
+   * @remarks
+   * The number of phone numbers to which messages can be sent in a day.
+   * 
+   * Valid values:
+   * 
+   * *   TIER_100K: 100,000
+   * *   TIER_UNLIMITED: unlimited
+   * *   TIER_250: 250
+   * *   TIER_1K: 1,000
+   * *   TIER_50: 50
+   * *   TIER_10K: 10,000
+   * 
+   * @example
+   * TIER_10
+   */
+  messagingLimitTier?: string;
+  /**
+   * @remarks
+   * The status of the business name.
+   * 
+   * @example
+   * Approval
+   */
+  nameStatus?: string;
+  /**
+   * @remarks
+   * The review status of the new business name.
+   * 
+   * @example
+   * Approval
+   */
+  newNameStatus?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 8613800000
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * The quality rating of the phone number.
+   * 
+   * Valid values:
+   * 
+   * *   RED
+   * *   YELLOW
+   * *   UNKNOWN
+   * *   GREEN
+   * 
+   * @example
+   * GREEN
+   */
+  qualityRating?: string;
+  /**
+   * @remarks
+   * The state of the phone number.
+   * 
+   * Valid values:
+   * 
+   * *   MIGRATED
+   * *   FLAGGED
+   * *   DISCONNECTED
+   * *   UNVERIFIED
+   * *   BANNED
+   * *   RATE_LIMITED
+   * *   PENDING
+   * *   CONNECTED
+   * *   UNKNOWN
+   * *   DELETED
+   * *   RESTRICTED
+   * 
+   * @example
+   * CONNECTED
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The callback URL to which status reports are sent by using HTTP callbacks.
+   * 
+   * @example
+   * https://ali.com/status
+   */
+  statusCallbackUrl?: string;
+  /**
+   * @remarks
+   * The status report queue.
+   * 
+   * @example
+   * Alicom-Queue-****-ChatAppStatus
+   */
+  statusQueue?: string;
+  /**
+   * @remarks
+   * The callback URL to which MO messages are sent by using HTTP callbacks.
+   * 
+   * @example
+   * https://ali.com/inbound
+   */
+  upCallbackUrl?: string;
+  /**
+   * @remarks
+   * The mobile originated (MO) message notification queue.
+   * 
+   * @example
+   * Alicom-Queue-****-ChatAppInbound
+   */
+  upQueue?: string;
+  /**
+   * @remarks
+   * The name of the company with which the phone number is associated.
+   * 
+   * @example
+   * Alibaba
+   */
+  verifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVerificationStatus: 'CodeVerificationStatus',
+      isOfficial: 'IsOfficial',
+      messagingLimitTier: 'MessagingLimitTier',
+      nameStatus: 'NameStatus',
+      newNameStatus: 'NewNameStatus',
+      phoneNumber: 'PhoneNumber',
+      qualityRating: 'QualityRating',
+      status: 'Status',
+      statusCallbackUrl: 'StatusCallbackUrl',
+      statusQueue: 'StatusQueue',
+      upCallbackUrl: 'UpCallbackUrl',
+      upQueue: 'UpQueue',
+      verifiedName: 'VerifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVerificationStatus: 'string',
+      isOfficial: 'string',
+      messagingLimitTier: 'string',
+      nameStatus: 'string',
+      newNameStatus: 'string',
+      phoneNumber: 'string',
+      qualityRating: 'string',
+      status: 'string',
+      statusCallbackUrl: 'string',
+      statusQueue: 'string',
+      upCallbackUrl: 'string',
+      upQueue: 'string',
+      verifiedName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Regarding.
+   * 
+   * @example
+   * business profile
+   */
+  about?: string;
+  /**
+   * @remarks
+   * The address.
+   * 
+   * @example
+   * Changsha
+   */
+  address?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * aa@aliyun.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * The profile picture.
+   * 
+   * @example
+   * https://....img
+   */
+  profilePictureUrl?: string;
+  /**
+   * @remarks
+   * The industry.
+   * 
+   * @example
+   * Retail
+   */
+  vertical?: string;
+  /**
+   * @remarks
+   * The website.
+   */
+  websites?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      about: 'About',
+      address: 'Address',
+      description: 'Description',
+      email: 'Email',
+      profilePictureUrl: 'ProfilePictureUrl',
+      vertical: 'Vertical',
+      websites: 'Websites',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      about: 'string',
+      address: 'string',
+      description: 'string',
+      email: 'string',
+      profilePictureUrl: 'string',
+      vertical: 'string',
+      websites: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.websites)) {
+      $dara.Model.validateArray(this.websites);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryWabaBusinessInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The Business Manager ID.
+   * 
+   * @example
+   * 192882828733
+   */
+  businessId?: string;
+  /**
+   * @remarks
+   * The Business Manager name.
+   * 
+   * @example
+   * Alibaba
+   */
+  businessName?: string;
+  /**
+   * @remarks
+   * The verification status.
+   * 
+   * @example
+   * verified
+   */
+  verificationStatus?: string;
+  /**
+   * @remarks
+   * The industry.
+   * 
+   * @example
+   * Retail
+   * 
+   * @deprecated
+   */
+  vertical?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessId: 'BusinessId',
+      businessName: 'BusinessName',
+      verificationStatus: 'VerificationStatus',
+      vertical: 'Vertical',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessId: 'string',
+      businessName: 'string',
+      verificationStatus: 'string',
+      vertical: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListFlowAction extends $dara.Model {
+  /**
+   * @remarks
+   * The default parameter of the Flow.
+   */
+  flowActionData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The information about the Flow token.
+   * 
+   * @example
+   * kde****
+   */
+  flowToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowActionData: 'FlowActionData',
+      flowToken: 'FlowToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      flowToken: 'string',
+    };
+  }
+
+  validate() {
+    if(this.flowActionData) {
+      $dara.Model.validateMap(this.flowActionData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems extends $dara.Model {
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * ksi399d8
+   */
+  productRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productRetailerId: 'ProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListProductActionSections extends $dara.Model {
+  /**
+   * @remarks
+   * The products.
+   */
+  productItems?: SendChatappMassMessageRequestSenderListProductActionSectionsProductItems[];
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * abcd
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productItems: 'ProductItems',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItems: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSectionsProductItems },
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productItems)) {
+      $dara.Model.validateArray(this.productItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderListProductAction extends $dara.Model {
+  /**
+   * @remarks
+   * The products. Up to 30 products and 10 categories can be added.
+   */
+  sections?: SendChatappMassMessageRequestSenderListProductActionSections[];
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * skkks999393
+   */
+  thumbnailProductRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sections: 'Sections',
+      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sections: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSections },
+      thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sections)) {
+      $dara.Model.validateArray(this.sections);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMassMessageRequestSenderList extends $dara.Model {
+  /**
+   * @remarks
+   * The Flow action.
+   */
+  flowAction?: SendChatappMassMessageRequestSenderListFlowAction;
+  /**
+   * @remarks
+   * The payload of the button.
+   */
+  payload?: string[];
+  /**
+   * @remarks
+   * The information about the product.
+   */
+  productAction?: SendChatappMassMessageRequestSenderListProductAction;
+  /**
+   * @remarks
+   * The parameters of the template.
+   */
+  templateParams?: { [key: string]: string };
+  /**
+   * @remarks
+   * The mobile phone number of the message receiver.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 861388988****
+   */
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowAction: 'FlowAction',
+      payload: 'Payload',
+      productAction: 'ProductAction',
+      templateParams: 'TemplateParams',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowAction: SendChatappMassMessageRequestSenderListFlowAction,
+      payload: { 'type': 'array', 'itemType': 'string' },
+      productAction: SendChatappMassMessageRequestSenderListProductAction,
+      templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      to: 'string',
+    };
+  }
+
+  validate() {
+    if(this.flowAction && typeof (this.flowAction as any).validate === 'function') {
+      (this.flowAction as any).validate();
+    }
+    if(Array.isArray(this.payload)) {
+      $dara.Model.validateArray(this.payload);
+    }
+    if(this.productAction && typeof (this.productAction as any).validate === 'function') {
+      (this.productAction as any).validate();
+    }
+    if(this.templateParams) {
+      $dara.Model.validateMap(this.templateParams);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestFlowAction extends $dara.Model {
+  /**
+   * @remarks
+   * The default parameter of the Flow.
+   */
+  flowActionData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The Flow token.
+   * 
+   * @example
+   * 1122***
+   */
+  flowToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowActionData: 'FlowActionData',
+      flowToken: 'FlowToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      flowToken: 'string',
+    };
+  }
+
+  validate() {
+    if(this.flowActionData) {
+      $dara.Model.validateMap(this.flowActionData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSectionsProductItems extends $dara.Model {
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * 9I39E9E
+   */
+  productRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productRetailerId: 'ProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductActionSections extends $dara.Model {
+  /**
+   * @remarks
+   * The products.
+   */
+  productItems?: SendChatappMessageRequestProductActionSectionsProductItems[];
+  /**
+   * @remarks
+   * The name of the category.
+   * 
+   * @example
+   * Test
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productItems: 'ProductItems',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItems: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSectionsProductItems },
+      title: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productItems)) {
+      $dara.Model.validateArray(this.productItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendChatappMessageRequestProductAction extends $dara.Model {
+  /**
+   * @remarks
+   * The products. Up to 30 products and 10 categories can be added.
+   */
+  sections?: SendChatappMessageRequestProductActionSections[];
+  /**
+   * @remarks
+   * The retailer ID of the product.
+   * 
+   * @example
+   * S238SK
+   */
+  thumbnailProductRetailerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sections: 'Sections',
+      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
+      thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sections)) {
+      $dara.Model.validateArray(this.sections);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the command.
+   * 
+   * @example
+   * Command 1.
+   */
+  commandDescription?: string;
+  /**
+   * @remarks
+   * The command name.
+   * 
+   * @example
+   * test
+   */
+  commandName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDescription: 'CommandDescription',
+      commandName: 'CommandName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDescription: 'string',
+      commandName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowJSONAssetResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The Flow ID.
+   * 
+   * @example
+   * 84848847****
+   */
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePhoneMessageQrdlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Deep link address.
+   * 
+   * @example
+   * https://wa.msg/
+   */
+  deepLinkUrl?: string;
+  /**
+   * @remarks
+   * Generate image types.
+   * 
+   * @example
+   * PNG
+   */
+  generateQrImage?: string;
+  /**
+   * @remarks
+   * Number.
+   * 
+   * @example
+   * 8613800
+   */
+  phoneNumber?: string;
+  /**
+   * @remarks
+   * Message content.
+   * 
+   * @example
+   * Hello
+   */
+  prefilledMessage?: string;
+  /**
+   * @remarks
+   * QR code address.
+   * 
+   * @example
+   * https://img.png
+   */
+  qrImageUrl?: string;
+  /**
+   * @remarks
+   * QR code encoding.
+   * 
+   * @example
+   * DEDEE998
+   */
+  qrdlCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deepLinkUrl: 'DeepLinkUrl',
+      generateQrImage: 'GenerateQrImage',
+      phoneNumber: 'PhoneNumber',
+      prefilledMessage: 'PrefilledMessage',
+      qrImageUrl: 'QrImageUrl',
+      qrdlCode: 'QrdlCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deepLinkUrl: 'string',
+      generateQrImage: 'string',
+      phoneNumber: 'string',
+      prefilledMessage: 'string',
+      qrImageUrl: 'string',
+      qrdlCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddChatappPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -87,12 +5995,16 @@ export class AddChatappPhoneNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddChatappPhoneNumberResponseBody extends $tea.Model {
+export class AddChatappPhoneNumberResponseBody extends $dara.Model {
   /**
    * @remarks
    * com.alicom.access.oxs.client.channel.aliyun.flow.AyFlowExecuteService
@@ -153,12 +6065,16 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddChatappPhoneNumberResponse extends $tea.Model {
+export class AddChatappPhoneNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddChatappPhoneNumberResponseBody;
@@ -178,12 +6094,22 @@ export class AddChatappPhoneNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotAssociateRequest extends $tea.Model {
+export class BeeBotAssociateRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of a bot instance.
@@ -263,12 +6189,19 @@ export class BeeBotAssociateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.perspective)) {
+      $dara.Model.validateArray(this.perspective);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotAssociateShrinkRequest extends $tea.Model {
+export class BeeBotAssociateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of a bot instance.
@@ -348,12 +6281,16 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotAssociateResponseBody extends $tea.Model {
+export class BeeBotAssociateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The access denied for detailed information.
@@ -411,12 +6348,19 @@ export class BeeBotAssociateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotAssociateResponse extends $tea.Model {
+export class BeeBotAssociateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BeeBotAssociateResponseBody;
@@ -436,12 +6380,22 @@ export class BeeBotAssociateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotChatRequest extends $tea.Model {
+export class BeeBotChatRequest extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the answer is in plain text or rich text.
@@ -563,12 +6517,22 @@ export class BeeBotChatRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.perspective)) {
+      $dara.Model.validateArray(this.perspective);
+    }
+    if(this.vendorParam) {
+      $dara.Model.validateMap(this.vendorParam);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotChatShrinkRequest extends $tea.Model {
+export class BeeBotChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the answer is in plain text or rich text.
@@ -690,12 +6654,16 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotChatResponseBody extends $tea.Model {
+export class BeeBotChatResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied for detailed information.
@@ -753,12 +6721,19 @@ export class BeeBotChatResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BeeBotChatResponse extends $tea.Model {
+export class BeeBotChatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BeeBotChatResponseBody;
@@ -778,12 +6753,22 @@ export class BeeBotChatResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappBindWabaRequest extends $tea.Model {
+export class ChatappBindWabaRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -813,12 +6798,16 @@ export class ChatappBindWabaRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappBindWabaResponseBody extends $tea.Model {
+export class ChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -892,12 +6881,19 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappBindWabaResponse extends $tea.Model {
+export class ChatappBindWabaResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappBindWabaResponseBody;
@@ -917,12 +6913,22 @@ export class ChatappBindWabaResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappEmbedSignUpRequest extends $tea.Model {
+export class ChatappEmbedSignUpRequest extends $dara.Model {
   /**
    * @remarks
    * The InputToken returned after the embedded signup flow is complete.
@@ -945,12 +6951,16 @@ export class ChatappEmbedSignUpRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappEmbedSignUpResponseBody extends $tea.Model {
+export class ChatappEmbedSignUpResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -1011,12 +7021,19 @@ export class ChatappEmbedSignUpResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.wabas)) {
+      $dara.Model.validateArray(this.wabas);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappEmbedSignUpResponse extends $tea.Model {
+export class ChatappEmbedSignUpResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappEmbedSignUpResponseBody;
@@ -1036,12 +7053,22 @@ export class ChatappEmbedSignUpResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationRegisterRequest extends $tea.Model {
+export class ChatappMigrationRegisterRequest extends $dara.Model {
   /**
    * @remarks
    * None
@@ -1076,12 +7103,16 @@ export class ChatappMigrationRegisterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationRegisterResponseBody extends $tea.Model {
+export class ChatappMigrationRegisterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -1135,12 +7166,16 @@ export class ChatappMigrationRegisterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationRegisterResponse extends $tea.Model {
+export class ChatappMigrationRegisterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappMigrationRegisterResponseBody;
@@ -1160,12 +7195,22 @@ export class ChatappMigrationRegisterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationVerifiedRequest extends $tea.Model {
+export class ChatappMigrationVerifiedRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the independent software vendor (ISV) account.
@@ -1212,12 +7257,16 @@ export class ChatappMigrationVerifiedRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
+export class ChatappMigrationVerifiedResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -1271,12 +7320,19 @@ export class ChatappMigrationVerifiedResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappMigrationVerifiedResponse extends $tea.Model {
+export class ChatappMigrationVerifiedResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappMigrationVerifiedResponseBody;
@@ -1296,12 +7352,22 @@ export class ChatappMigrationVerifiedResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberDeregisterRequest extends $tea.Model {
+export class ChatappPhoneNumberDeregisterRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -1336,12 +7402,16 @@ export class ChatappPhoneNumberDeregisterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
+export class ChatappPhoneNumberDeregisterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -1395,12 +7465,16 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberDeregisterResponse extends $tea.Model {
+export class ChatappPhoneNumberDeregisterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappPhoneNumberDeregisterResponseBody;
@@ -1420,12 +7494,22 @@ export class ChatappPhoneNumberDeregisterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
+export class ChatappPhoneNumberRegisterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1465,12 +7549,16 @@ export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
+export class ChatappPhoneNumberRegisterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -1537,12 +7625,16 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappPhoneNumberRegisterResponse extends $tea.Model {
+export class ChatappPhoneNumberRegisterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappPhoneNumberRegisterResponseBody;
@@ -1562,12 +7654,22 @@ export class ChatappPhoneNumberRegisterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappSyncPhoneNumberRequest extends $tea.Model {
+export class ChatappSyncPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the independent software vendor (ISV) account.
@@ -1599,12 +7701,16 @@ export class ChatappSyncPhoneNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
+export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -1665,12 +7771,19 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.phoneNumbers)) {
+      $dara.Model.validateArray(this.phoneNumbers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappSyncPhoneNumberResponse extends $tea.Model {
+export class ChatappSyncPhoneNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappSyncPhoneNumberResponseBody;
@@ -1690,12 +7803,22 @@ export class ChatappSyncPhoneNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappVerifyAndRegisterRequest extends $tea.Model {
+export class ChatappVerifyAndRegisterRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1745,12 +7868,16 @@ export class ChatappVerifyAndRegisterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
+export class ChatappVerifyAndRegisterResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -1804,12 +7931,16 @@ export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChatappVerifyAndRegisterResponse extends $tea.Model {
+export class ChatappVerifyAndRegisterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChatappVerifyAndRegisterResponseBody;
@@ -1829,12 +7960,22 @@ export class ChatappVerifyAndRegisterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappMigrationInitiateRequest extends $tea.Model {
+export class CreateChatappMigrationInitiateRequest extends $dara.Model {
   /**
    * @remarks
    * The code of the country or region.
@@ -1881,12 +8022,16 @@ export class CreateChatappMigrationInitiateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
+export class CreateChatappMigrationInitiateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the request denial..
@@ -1947,12 +8092,19 @@ export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappMigrationInitiateResponse extends $tea.Model {
+export class CreateChatappMigrationInitiateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateChatappMigrationInitiateResponseBody;
@@ -1972,12 +8124,22 @@ export class CreateChatappMigrationInitiateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappTemplateRequest extends $tea.Model {
+export class CreateChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only when TemplateType is set to WHATSAPP.
@@ -2130,12 +8292,22 @@ export class CreateChatappTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(this.example) {
+      $dara.Model.validateMap(this.example);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappTemplateShrinkRequest extends $tea.Model {
+export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only when TemplateType is set to WHATSAPP.
@@ -2288,12 +8460,16 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappTemplateResponseBody extends $tea.Model {
+export class CreateChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -2357,12 +8533,19 @@ export class CreateChatappTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateChatappTemplateResponse extends $tea.Model {
+export class CreateChatappTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateChatappTemplateResponseBody;
@@ -2382,12 +8565,22 @@ export class CreateChatappTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowRequest extends $tea.Model {
+export class CreateFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The categories of the Flow.
@@ -2429,12 +8622,19 @@ export class CreateFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowShrinkRequest extends $tea.Model {
+export class CreateFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The categories of the Flow.
@@ -2476,12 +8676,16 @@ export class CreateFlowShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowResponseBody extends $tea.Model {
+export class CreateFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -2529,12 +8733,19 @@ export class CreateFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowResponse extends $tea.Model {
+export class CreateFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateFlowResponseBody;
@@ -2554,12 +8765,22 @@ export class CreateFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePhoneMessageQrdlRequest extends $tea.Model {
+export class CreatePhoneMessageQrdlRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -2616,12 +8837,16 @@ export class CreatePhoneMessageQrdlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
+export class CreatePhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -2669,12 +8894,19 @@ export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePhoneMessageQrdlResponse extends $tea.Model {
+export class CreatePhoneMessageQrdlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreatePhoneMessageQrdlResponseBody;
@@ -2694,12 +8926,22 @@ export class CreatePhoneMessageQrdlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChatappTemplateRequest extends $tea.Model {
+export class DeleteChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the ISV account.
@@ -2791,12 +9033,16 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChatappTemplateResponseBody extends $tea.Model {
+export class DeleteChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -2863,12 +9109,16 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteChatappTemplateResponse extends $tea.Model {
+export class DeleteChatappTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteChatappTemplateResponseBody;
@@ -2888,12 +9138,22 @@ export class DeleteChatappTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowRequest extends $tea.Model {
+export class DeleteFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -2926,12 +9186,16 @@ export class DeleteFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowResponseBody extends $tea.Model {
+export class DeleteFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -2972,12 +9236,16 @@ export class DeleteFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowResponse extends $tea.Model {
+export class DeleteFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteFlowResponseBody;
@@ -2997,12 +9265,22 @@ export class DeleteFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePhoneMessageQrdlRequest extends $tea.Model {
+export class DeletePhoneMessageQrdlRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -3047,12 +9325,16 @@ export class DeletePhoneMessageQrdlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePhoneMessageQrdlResponseBody extends $tea.Model {
+export class DeletePhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -3096,12 +9378,16 @@ export class DeletePhoneMessageQrdlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePhoneMessageQrdlResponse extends $tea.Model {
+export class DeletePhoneMessageQrdlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeletePhoneMessageQrdlResponseBody;
@@ -3121,12 +9407,22 @@ export class DeletePhoneMessageQrdlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeprecateFlowRequest extends $tea.Model {
+export class DeprecateFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -3159,12 +9455,16 @@ export class DeprecateFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeprecateFlowResponseBody extends $tea.Model {
+export class DeprecateFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result returns OK as normal.
@@ -3205,12 +9505,16 @@ export class DeprecateFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeprecateFlowResponse extends $tea.Model {
+export class DeprecateFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeprecateFlowResponseBody;
@@ -3230,12 +9534,22 @@ export class DeprecateFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnableWhatsappROIMetricRequest extends $tea.Model {
+export class EnableWhatsappROIMetricRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the ISV account.
@@ -3266,12 +9580,16 @@ export class EnableWhatsappROIMetricRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnableWhatsappROIMetricResponseBody extends $tea.Model {
+export class EnableWhatsappROIMetricResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -3322,12 +9640,16 @@ export class EnableWhatsappROIMetricResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnableWhatsappROIMetricResponse extends $tea.Model {
+export class EnableWhatsappROIMetricResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EnableWhatsappROIMetricResponseBody;
@@ -3347,12 +9669,22 @@ export class EnableWhatsappROIMetricResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappPhoneNumberMetricRequest extends $tea.Model {
+export class GetChatappPhoneNumberMetricRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the ISV account.
@@ -3432,12 +9764,16 @@ export class GetChatappPhoneNumberMetricRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappPhoneNumberMetricResponseBody extends $tea.Model {
+export class GetChatappPhoneNumberMetricResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -3495,12 +9831,19 @@ export class GetChatappPhoneNumberMetricResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappPhoneNumberMetricResponse extends $tea.Model {
+export class GetChatappPhoneNumberMetricResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChatappPhoneNumberMetricResponseBody;
@@ -3520,12 +9863,22 @@ export class GetChatappPhoneNumberMetricResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateDetailRequest extends $tea.Model {
+export class GetChatappTemplateDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the ISV account.
@@ -3616,12 +9969,16 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateDetailResponseBody extends $tea.Model {
+export class GetChatappTemplateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied details.
@@ -3685,12 +10042,19 @@ export class GetChatappTemplateDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateDetailResponse extends $tea.Model {
+export class GetChatappTemplateDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChatappTemplateDetailResponseBody;
@@ -3710,12 +10074,22 @@ export class GetChatappTemplateDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateMetricRequest extends $tea.Model {
+export class GetChatappTemplateMetricRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the ISV account.
@@ -3822,12 +10196,16 @@ export class GetChatappTemplateMetricRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateMetricResponseBody extends $tea.Model {
+export class GetChatappTemplateMetricResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -3885,12 +10263,19 @@ export class GetChatappTemplateMetricResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappTemplateMetricResponse extends $tea.Model {
+export class GetChatappTemplateMetricResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChatappTemplateMetricResponseBody;
@@ -3910,12 +10295,22 @@ export class GetChatappTemplateMetricResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappUploadAuthorizationRequest extends $tea.Model {
+export class GetChatappUploadAuthorizationRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -3938,12 +10333,16 @@ export class GetChatappUploadAuthorizationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
+export class GetChatappUploadAuthorizationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied for detailed information.
@@ -4004,12 +10403,19 @@ export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappUploadAuthorizationResponse extends $tea.Model {
+export class GetChatappUploadAuthorizationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChatappUploadAuthorizationResponseBody;
@@ -4029,12 +10435,22 @@ export class GetChatappUploadAuthorizationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappVerifyCodeRequest extends $tea.Model {
+export class GetChatappVerifyCodeRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4094,12 +10510,16 @@ export class GetChatappVerifyCodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappVerifyCodeResponseBody extends $tea.Model {
+export class GetChatappVerifyCodeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -4153,12 +10573,16 @@ export class GetChatappVerifyCodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetChatappVerifyCodeResponse extends $tea.Model {
+export class GetChatappVerifyCodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetChatappVerifyCodeResponseBody;
@@ -4178,12 +10602,22 @@ export class GetChatappVerifyCodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommerceSettingRequest extends $tea.Model {
+export class GetCommerceSettingRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the independent software vendor (ISV) account.
@@ -4227,12 +10661,16 @@ export class GetCommerceSettingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommerceSettingResponseBody extends $tea.Model {
+export class GetCommerceSettingResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied for detailed information.
@@ -4306,12 +10744,19 @@ export class GetCommerceSettingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommerceSettingResponse extends $tea.Model {
+export class GetCommerceSettingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCommerceSettingResponseBody;
@@ -4331,12 +10776,22 @@ export class GetCommerceSettingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConversationalAutomationRequest extends $tea.Model {
+export class GetConversationalAutomationRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
@@ -4380,12 +10835,16 @@ export class GetConversationalAutomationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConversationalAutomationResponseBody extends $tea.Model {
+export class GetConversationalAutomationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -4459,12 +10918,19 @@ export class GetConversationalAutomationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConversationalAutomationResponse extends $tea.Model {
+export class GetConversationalAutomationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetConversationalAutomationResponseBody;
@@ -4484,12 +10950,22 @@ export class GetConversationalAutomationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowRequest extends $tea.Model {
+export class GetFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -4522,12 +10998,16 @@ export class GetFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowResponseBody extends $tea.Model {
+export class GetFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -4575,12 +11055,19 @@ export class GetFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowResponse extends $tea.Model {
+export class GetFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetFlowResponseBody;
@@ -4600,12 +11087,22 @@ export class GetFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowJSONAssestRequest extends $tea.Model {
+export class GetFlowJSONAssestRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the independent software vendor (ISV) account.
@@ -4638,12 +11135,16 @@ export class GetFlowJSONAssestRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowJSONAssestResponseBody extends $tea.Model {
+export class GetFlowJSONAssestResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -4691,12 +11192,19 @@ export class GetFlowJSONAssestResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowJSONAssestResponse extends $tea.Model {
+export class GetFlowJSONAssestResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetFlowJSONAssestResponseBody;
@@ -4716,12 +11224,22 @@ export class GetFlowJSONAssestResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowPreviewUrlRequest extends $tea.Model {
+export class GetFlowPreviewUrlRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -4754,12 +11272,16 @@ export class GetFlowPreviewUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowPreviewUrlResponseBody extends $tea.Model {
+export class GetFlowPreviewUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -4807,12 +11329,19 @@ export class GetFlowPreviewUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFlowPreviewUrlResponse extends $tea.Model {
+export class GetFlowPreviewUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetFlowPreviewUrlResponseBody;
@@ -4832,12 +11361,22 @@ export class GetFlowPreviewUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMigrationVerifyCodeRequest extends $tea.Model {
+export class GetMigrationVerifyCodeRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the independent software vendor (ISV) account.
@@ -4896,12 +11435,16 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
+export class GetMigrationVerifyCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -4962,12 +11505,19 @@ export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMigrationVerifyCodeResponse extends $tea.Model {
+export class GetMigrationVerifyCodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetMigrationVerifyCodeResponseBody;
@@ -4987,12 +11537,22 @@ export class GetMigrationVerifyCodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPermissionByCodeRequest extends $tea.Model {
+export class GetPermissionByCodeRequest extends $dara.Model {
   /**
    * @remarks
    * Authorize code information.
@@ -5032,12 +11592,19 @@ export class GetPermissionByCodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.permissions)) {
+      $dara.Model.validateArray(this.permissions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPermissionByCodeShrinkRequest extends $tea.Model {
+export class GetPermissionByCodeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Authorize code information.
@@ -5077,12 +11644,16 @@ export class GetPermissionByCodeShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPermissionByCodeResponseBody extends $tea.Model {
+export class GetPermissionByCodeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5126,12 +11697,16 @@ export class GetPermissionByCodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPermissionByCodeResponse extends $tea.Model {
+export class GetPermissionByCodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPermissionByCodeResponseBody;
@@ -5151,12 +11726,22 @@ export class GetPermissionByCodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneEncryptionPublicKeyRequest extends $tea.Model {
+export class GetPhoneEncryptionPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the independent software vendor (ISV) account.
@@ -5189,12 +11774,16 @@ export class GetPhoneEncryptionPublicKeyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
+export class GetPhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5245,12 +11834,19 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneEncryptionPublicKeyResponse extends $tea.Model {
+export class GetPhoneEncryptionPublicKeyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPhoneEncryptionPublicKeyResponseBody;
@@ -5270,12 +11866,22 @@ export class GetPhoneEncryptionPublicKeyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneNumberVerificationStatusRequest extends $tea.Model {
+export class GetPhoneNumberVerificationStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the ISV account.
@@ -5310,12 +11916,16 @@ export class GetPhoneNumberVerificationStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneNumberVerificationStatusResponseBody extends $tea.Model {
+export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code returned.
@@ -5366,12 +11976,19 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPhoneNumberVerificationStatusResponse extends $tea.Model {
+export class GetPhoneNumberVerificationStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPhoneNumberVerificationStatusResponseBody;
@@ -5391,12 +12008,22 @@ export class GetPhoneNumberVerificationStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPreValidatePhoneIdRequest extends $tea.Model {
+export class GetPreValidatePhoneIdRequest extends $dara.Model {
   /**
    * @remarks
    * The phone number.
@@ -5431,12 +12058,16 @@ export class GetPreValidatePhoneIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPreValidatePhoneIdResponseBody extends $tea.Model {
+export class GetPreValidatePhoneIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5487,12 +12118,19 @@ export class GetPreValidatePhoneIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPreValidatePhoneIdResponse extends $tea.Model {
+export class GetPreValidatePhoneIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPreValidatePhoneIdResponseBody;
@@ -5512,12 +12150,22 @@ export class GetPreValidatePhoneIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappConnectionCatalogRequest extends $tea.Model {
+export class GetWhatsappConnectionCatalogRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the ISV account.
@@ -5559,12 +12207,16 @@ export class GetWhatsappConnectionCatalogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappConnectionCatalogResponseBody extends $tea.Model {
+export class GetWhatsappConnectionCatalogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -5641,12 +12293,19 @@ export class GetWhatsappConnectionCatalogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.model) {
+      $dara.Model.validateMap(this.model);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
+export class GetWhatsappConnectionCatalogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetWhatsappConnectionCatalogResponseBody;
@@ -5666,12 +12325,22 @@ export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappHealthStatusRequest extends $tea.Model {
+export class GetWhatsappHealthStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
@@ -5761,12 +12430,16 @@ export class GetWhatsappHealthStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappHealthStatusResponseBody extends $tea.Model {
+export class GetWhatsappHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -5840,12 +12513,19 @@ export class GetWhatsappHealthStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWhatsappHealthStatusResponse extends $tea.Model {
+export class GetWhatsappHealthStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetWhatsappHealthStatusResponseBody;
@@ -5865,12 +12545,22 @@ export class GetWhatsappHealthStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class IsvGetAppIdRequest extends $tea.Model {
+export class IsvGetAppIdRequest extends $dara.Model {
   /**
    * @remarks
    * The permission.
@@ -5909,12 +12599,16 @@ export class IsvGetAppIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class IsvGetAppIdResponseBody extends $tea.Model {
+export class IsvGetAppIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -5988,12 +12682,16 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class IsvGetAppIdResponse extends $tea.Model {
+export class IsvGetAppIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: IsvGetAppIdResponseBody;
@@ -6013,12 +12711,22 @@ export class IsvGetAppIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChatappTemplateRequest extends $tea.Model {
+export class ListChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The review status of the message template. Valid values:
@@ -6032,6 +12740,11 @@ export class ListChatappTemplateRequest extends $tea.Model {
    * pass
    */
   auditStatus?: string;
+  /**
+   * @example
+   * AUTHENTICATION
+   */
+  category?: string;
   /**
    * @remarks
    * Template encoding.
@@ -6084,6 +12797,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
    * hello_whatsapp
    */
   name?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The pagination settings.
@@ -6092,6 +12806,8 @@ export class ListChatappTemplateRequest extends $tea.Model {
    * "page": "{\\"index\\": 1,\\"size\\": 20}
    */
   page?: ListChatappTemplateRequestPage;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The type of the message template.
@@ -6107,13 +12823,17 @@ export class ListChatappTemplateRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      category: 'Category',
       code: 'Code',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
       name: 'Name',
+      ownerId: 'OwnerId',
       page: 'Page',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       templateType: 'TemplateType',
     };
   }
@@ -6121,15 +12841,26 @@ export class ListChatappTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      category: 'string',
       code: 'string',
       custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
       name: 'string',
+      ownerId: 'number',
       page: ListChatappTemplateRequestPage,
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       templateType: 'string',
     };
+  }
+
+  validate() {
+    if(this.page && typeof (this.page as any).validate === 'function') {
+      (this.page as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6137,7 +12868,7 @@ export class ListChatappTemplateRequest extends $tea.Model {
   }
 }
 
-export class ListChatappTemplateShrinkRequest extends $tea.Model {
+export class ListChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The review status of the message template. Valid values:
@@ -6151,6 +12882,11 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
    * pass
    */
   auditStatus?: string;
+  /**
+   * @example
+   * AUTHENTICATION
+   */
+  category?: string;
   /**
    * @remarks
    * Template encoding.
@@ -6203,6 +12939,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
    * hello_whatsapp
    */
   name?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The pagination settings.
@@ -6211,6 +12948,8 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
    * "page": "{\\"index\\": 1,\\"size\\": 20}
    */
   pageShrink?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
    * The type of the message template.
@@ -6226,13 +12965,17 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
+      category: 'Category',
       code: 'Code',
       custSpaceId: 'CustSpaceId',
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
       name: 'Name',
+      ownerId: 'OwnerId',
       pageShrink: 'Page',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       templateType: 'TemplateType',
     };
   }
@@ -6240,15 +12983,23 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
+      category: 'string',
       code: 'string',
       custSpaceId: 'string',
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
       name: 'string',
+      ownerId: 'number',
       pageShrink: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       templateType: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6256,7 +13007,7 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
   }
 }
 
-export class ListChatappTemplateResponseBody extends $tea.Model {
+export class ListChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -6298,6 +13049,11 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @example
+   * false
+   */
+  success?: boolean;
+  /**
    * @remarks
    * The total number of entries returned.
    * 
@@ -6312,6 +13068,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
       listTemplate: 'ListTemplate',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
       total: 'Total',
     };
   }
@@ -6323,8 +13080,16 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
       listTemplate: { 'type': 'array', 'itemType': ListChatappTemplateResponseBodyListTemplate },
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
       total: 'number',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.listTemplate)) {
+      $dara.Model.validateArray(this.listTemplate);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6332,7 +13097,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
   }
 }
 
-export class ListChatappTemplateResponse extends $tea.Model {
+export class ListChatappTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListChatappTemplateResponseBody;
@@ -6352,12 +13117,22 @@ export class ListChatappTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowRequest extends $tea.Model {
+export class ListFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -6395,12 +13170,19 @@ export class ListFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.page && typeof (this.page as any).validate === 'function') {
+      (this.page as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowShrinkRequest extends $tea.Model {
+export class ListFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -6438,12 +13220,16 @@ export class ListFlowShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowResponseBody extends $tea.Model {
+export class ListFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -6491,12 +13277,19 @@ export class ListFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowResponse extends $tea.Model {
+export class ListFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListFlowResponseBody;
@@ -6516,12 +13309,22 @@ export class ListFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPhoneMessageQrdlRequest extends $tea.Model {
+export class ListPhoneMessageQrdlRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the independent software vendor (ISV) account.
@@ -6554,12 +13357,16 @@ export class ListPhoneMessageQrdlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
+export class ListPhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -6607,12 +13414,19 @@ export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPhoneMessageQrdlResponse extends $tea.Model {
+export class ListPhoneMessageQrdlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPhoneMessageQrdlResponseBody;
@@ -6632,12 +13446,22 @@ export class ListPhoneMessageQrdlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductRequest extends $tea.Model {
+export class ListProductRequest extends $dara.Model {
   /**
    * @remarks
    * The cursor that points to the end of the page of the returned data.
@@ -6733,12 +13557,16 @@ export class ListProductRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductResponseBody extends $tea.Model {
+export class ListProductResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -6812,12 +13640,19 @@ export class ListProductResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductResponse extends $tea.Model {
+export class ListProductResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListProductResponseBody;
@@ -6837,12 +13672,22 @@ export class ListProductResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductCatalogRequest extends $tea.Model {
+export class ListProductCatalogRequest extends $dara.Model {
   /**
    * @remarks
    * The cursor that points to the end of the page of the returned data.
@@ -6925,12 +13770,16 @@ export class ListProductCatalogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductCatalogResponseBody extends $tea.Model {
+export class ListProductCatalogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -7004,12 +13853,19 @@ export class ListProductCatalogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductCatalogResponse extends $tea.Model {
+export class ListProductCatalogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListProductCatalogResponseBody;
@@ -7029,12 +13885,22 @@ export class ListProductCatalogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyChatappTemplateRequest extends $tea.Model {
+export class ModifyChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The category of the Viber message template. Valid values:
@@ -7177,12 +14043,22 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(this.example) {
+      $dara.Model.validateMap(this.example);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
+export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The category of the Viber message template. Valid values:
@@ -7325,12 +14201,16 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyChatappTemplateResponseBody extends $tea.Model {
+export class ModifyChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -7391,12 +14271,19 @@ export class ModifyChatappTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyChatappTemplateResponse extends $tea.Model {
+export class ModifyChatappTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyChatappTemplateResponseBody;
@@ -7416,12 +14303,22 @@ export class ModifyChatappTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyFlowRequest extends $tea.Model {
+export class ModifyFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the categories of the Flow.
@@ -7473,12 +14370,19 @@ export class ModifyFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyFlowShrinkRequest extends $tea.Model {
+export class ModifyFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the categories of the Flow.
@@ -7530,12 +14434,16 @@ export class ModifyFlowShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyFlowResponseBody extends $tea.Model {
+export class ModifyFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -7583,12 +14491,19 @@ export class ModifyFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyFlowResponse extends $tea.Model {
+export class ModifyFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyFlowResponseBody;
@@ -7608,12 +14523,22 @@ export class ModifyFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
+export class ModifyPhoneBusinessProfileRequest extends $dara.Model {
   /**
    * @remarks
    * The business information.
@@ -7726,12 +14651,19 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.websites)) {
+      $dara.Model.validateArray(this.websites);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
+export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The business information.
@@ -7844,12 +14776,16 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
+export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -7913,12 +14849,16 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPhoneBusinessProfileResponse extends $tea.Model {
+export class ModifyPhoneBusinessProfileResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyPhoneBusinessProfileResponseBody;
@@ -7938,12 +14878,22 @@ export class ModifyPhoneBusinessProfileResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishFlowRequest extends $tea.Model {
+export class PublishFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the independent software vendor (ISV) account.
@@ -7976,12 +14926,16 @@ export class PublishFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishFlowResponseBody extends $tea.Model {
+export class PublishFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * If OK is returned, the request was successful.
@@ -8022,12 +14976,16 @@ export class PublishFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishFlowResponse extends $tea.Model {
+export class PublishFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PublishFlowResponseBody;
@@ -8047,12 +15005,22 @@ export class PublishFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappBindWabaRequest extends $tea.Model {
+export class QueryChatappBindWabaRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user under the ISV account.
@@ -8092,12 +15060,16 @@ export class QueryChatappBindWabaRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappBindWabaResponseBody extends $tea.Model {
+export class QueryChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -8171,12 +15143,19 @@ export class QueryChatappBindWabaResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappBindWabaResponse extends $tea.Model {
+export class QueryChatappBindWabaResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryChatappBindWabaResponseBody;
@@ -8196,12 +15175,22 @@ export class QueryChatappBindWabaResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappPhoneNumbersRequest extends $tea.Model {
+export class QueryChatappPhoneNumbersRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the ISV account.
@@ -8251,12 +15240,16 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
+export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -8324,12 +15317,19 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.phoneNumbers)) {
+      $dara.Model.validateArray(this.phoneNumbers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryChatappPhoneNumbersResponse extends $tea.Model {
+export class QueryChatappPhoneNumbersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryChatappPhoneNumbersResponseBody;
@@ -8349,12 +15349,22 @@ export class QueryChatappPhoneNumbersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneBusinessProfileRequest extends $tea.Model {
+export class QueryPhoneBusinessProfileRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the user within the independent software vendor (ISV) account.
@@ -8398,12 +15408,16 @@ export class QueryPhoneBusinessProfileRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
+export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -8477,12 +15491,19 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneBusinessProfileResponse extends $tea.Model {
+export class QueryPhoneBusinessProfileResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryPhoneBusinessProfileResponseBody;
@@ -8502,12 +15523,22 @@ export class QueryPhoneBusinessProfileResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryWabaBusinessInfoRequest extends $tea.Model {
+export class QueryWabaBusinessInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -8551,12 +15582,16 @@ export class QueryWabaBusinessInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
+export class QueryWabaBusinessInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -8630,12 +15665,19 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryWabaBusinessInfoResponse extends $tea.Model {
+export class QueryWabaBusinessInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryWabaBusinessInfoResponseBody;
@@ -8655,12 +15697,22 @@ export class QueryWabaBusinessInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMassMessageRequest extends $tea.Model {
+export class SendChatappMassMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the channel. Valid values:
@@ -8860,12 +15912,19 @@ export class SendChatappMassMessageRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.senderList)) {
+      $dara.Model.validateArray(this.senderList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMassMessageShrinkRequest extends $tea.Model {
+export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the channel. Valid values:
@@ -9065,12 +16124,16 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMassMessageResponseBody extends $tea.Model {
+export class SendChatappMassMessageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -9134,12 +16197,16 @@ export class SendChatappMassMessageResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMassMessageResponse extends $tea.Model {
+export class SendChatappMassMessageResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendChatappMassMessageResponseBody;
@@ -9159,12 +16226,22 @@ export class SendChatappMassMessageResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMessageRequest extends $tea.Model {
+export class SendChatappMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The channel type. Valid values:
@@ -9504,12 +16581,28 @@ export class SendChatappMessageRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.flowAction && typeof (this.flowAction as any).validate === 'function') {
+      (this.flowAction as any).validate();
+    }
+    if(Array.isArray(this.payload)) {
+      $dara.Model.validateArray(this.payload);
+    }
+    if(this.productAction && typeof (this.productAction as any).validate === 'function') {
+      (this.productAction as any).validate();
+    }
+    if(this.templateParams) {
+      $dara.Model.validateMap(this.templateParams);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMessageShrinkRequest extends $tea.Model {
+export class SendChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The channel type. Valid values:
@@ -9849,12 +16942,16 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMessageResponseBody extends $tea.Model {
+export class SendChatappMessageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The HTTP status code returned.
@@ -9908,12 +17005,16 @@ export class SendChatappMessageResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendChatappMessageResponse extends $tea.Model {
+export class SendChatappMessageResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendChatappMessageResponseBody;
@@ -9933,12 +17034,22 @@ export class SendChatappMessageResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SubmitIsvCustomerTermsRequest extends $tea.Model {
+export class SubmitIsvCustomerTermsRequest extends $dara.Model {
   /**
    * @remarks
    * The business scenario.
@@ -10035,12 +17146,16 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
+export class SubmitIsvCustomerTermsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -10094,12 +17209,16 @@ export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SubmitIsvCustomerTermsResponse extends $tea.Model {
+export class SubmitIsvCustomerTermsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SubmitIsvCustomerTermsResponseBody;
@@ -10119,12 +17238,22 @@ export class SubmitIsvCustomerTermsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TriggerChatFlowRequest extends $tea.Model {
+export class TriggerChatFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The declared occurrence time of the event, usually the time when the request was constructed, in milliseconds timestamp.
@@ -10206,12 +17335,19 @@ export class TriggerChatFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TriggerChatFlowShrinkRequest extends $tea.Model {
+export class TriggerChatFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The declared occurrence time of the event, usually the time when the request was constructed, in milliseconds timestamp.
@@ -10293,12 +17429,16 @@ export class TriggerChatFlowShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TriggerChatFlowResponseBody extends $tea.Model {
+export class TriggerChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * Details of access denial
@@ -10371,12 +17511,19 @@ export class TriggerChatFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TriggerChatFlowResponse extends $tea.Model {
+export class TriggerChatFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TriggerChatFlowResponseBody;
@@ -10396,12 +17543,22 @@ export class TriggerChatFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountWebhookRequest extends $tea.Model {
+export class UpdateAccountWebhookRequest extends $dara.Model {
   /**
    * @remarks
    * The space ID of the RAM user within the independent software vendor (ISV) account.
@@ -10460,12 +17617,16 @@ export class UpdateAccountWebhookRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountWebhookResponseBody extends $tea.Model {
+export class UpdateAccountWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -10519,12 +17680,16 @@ export class UpdateAccountWebhookResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAccountWebhookResponse extends $tea.Model {
+export class UpdateAccountWebhookResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateAccountWebhookResponseBody;
@@ -10544,12 +17709,22 @@ export class UpdateAccountWebhookResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCommerceSettingRequest extends $tea.Model {
+export class UpdateCommerceSettingRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to display the shopping cart button. Valid values:
@@ -10623,12 +17798,16 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCommerceSettingResponseBody extends $tea.Model {
+export class UpdateCommerceSettingResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -10695,12 +17874,16 @@ export class UpdateCommerceSettingResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCommerceSettingResponse extends $tea.Model {
+export class UpdateCommerceSettingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateCommerceSettingResponseBody;
@@ -10720,12 +17903,22 @@ export class UpdateCommerceSettingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateConversationalAutomationRequest extends $tea.Model {
+export class UpdateConversationalAutomationRequest extends $dara.Model {
   /**
    * @remarks
    * The commands.
@@ -10793,12 +17986,22 @@ export class UpdateConversationalAutomationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.prompts)) {
+      $dara.Model.validateArray(this.prompts);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
+export class UpdateConversationalAutomationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The commands.
@@ -10866,12 +18069,16 @@ export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateConversationalAutomationResponseBody extends $tea.Model {
+export class UpdateConversationalAutomationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the access denial.
@@ -10938,12 +18145,16 @@ export class UpdateConversationalAutomationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateConversationalAutomationResponse extends $tea.Model {
+export class UpdateConversationalAutomationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateConversationalAutomationResponseBody;
@@ -10963,12 +18174,22 @@ export class UpdateConversationalAutomationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowJSONAssetRequest extends $tea.Model {
+export class UpdateFlowJSONAssetRequest extends $dara.Model {
   /**
    * @remarks
    * SpaceId/instance ID of ISV sub customer.
@@ -11013,12 +18234,16 @@ export class UpdateFlowJSONAssetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
+export class UpdateFlowJSONAssetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result returns OK as normal.
@@ -11066,12 +18291,19 @@ export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowJSONAssetResponse extends $tea.Model {
+export class UpdateFlowJSONAssetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateFlowJSONAssetResponseBody;
@@ -11091,12 +18323,22 @@ export class UpdateFlowJSONAssetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneEncryptionPublicKeyRequest extends $tea.Model {
+export class UpdatePhoneEncryptionPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
    * SpaceId/instanceId of ISV sub clients.
@@ -11149,12 +18391,16 @@ export class UpdatePhoneEncryptionPublicKeyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneEncryptionPublicKeyResponseBody extends $tea.Model {
+export class UpdatePhoneEncryptionPublicKeyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result returns OK as normal.
@@ -11195,12 +18441,16 @@ export class UpdatePhoneEncryptionPublicKeyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneEncryptionPublicKeyResponse extends $tea.Model {
+export class UpdatePhoneEncryptionPublicKeyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdatePhoneEncryptionPublicKeyResponseBody;
@@ -11220,12 +18470,22 @@ export class UpdatePhoneEncryptionPublicKeyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
+export class UpdatePhoneMessageQrdlRequest extends $dara.Model {
   /**
    * @remarks
    * SpaceId/instance ID of ISV sub customer.
@@ -11294,12 +18554,16 @@ export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneMessageQrdlResponseBody extends $tea.Model {
+export class UpdatePhoneMessageQrdlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result returns OK as normal.
@@ -11347,12 +18611,19 @@ export class UpdatePhoneMessageQrdlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneMessageQrdlResponse extends $tea.Model {
+export class UpdatePhoneMessageQrdlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdatePhoneMessageQrdlResponseBody;
@@ -11372,12 +18643,22 @@ export class UpdatePhoneMessageQrdlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneWebhookRequest extends $tea.Model {
+export class UpdatePhoneWebhookRequest extends $dara.Model {
   /**
    * @remarks
    * SpaceId for ISV sub clients.
@@ -11456,12 +18737,16 @@ export class UpdatePhoneWebhookRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneWebhookResponseBody extends $tea.Model {
+export class UpdatePhoneWebhookResponseBody extends $dara.Model {
   /**
    * @remarks
    * Access denied for detailed information.
@@ -11515,12 +18800,16 @@ export class UpdatePhoneWebhookResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdatePhoneWebhookResponse extends $tea.Model {
+export class UpdatePhoneWebhookResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdatePhoneWebhookResponseBody;
@@ -11540,5420 +18829,14 @@ export class UpdatePhoneWebhookResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotAssociateResponseBodyDataAssociate extends $tea.Model {
-  /**
-   * @remarks
-   * The metadata.
-   * 
-   * @example
-   * {}
-   */
-  meta?: string;
-  /**
-   * @remarks
-   * The title of the related question.
-   * 
-   * @example
-   * Policy on Withdrawal of Housing Provident Fund
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      meta: 'Meta',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      meta: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotAssociateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The list of associated recommendations.
-   */
-  associate?: BeeBotAssociateResponseBodyDataAssociate[];
-  /**
-   * @remarks
-   * The ID of the response message.
-   * 
-   * @example
-   * 1eb47d7a1706429081e90c83c62c2f00
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * The ID of the session.
-   * 
-   * @example
-   * 93f11165a2a24289a6f869760e8cb3f3
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      associate: 'Associate',
-      messageId: 'MessageId',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      associate: { 'type': 'array', 'itemType': BeeBotAssociateResponseBodyDataAssociate },
-      messageId: 'string',
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of knowledge associated with knowledge.
-   * 
-   * @example
-   * 735899
-   */
-  knowledgeId?: string;
-  /**
-   * @remarks
-   * The title of related knowledge.
-   * 
-   * @example
-   * Withdrawal of housing provident fund.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      knowledgeId: 'KnowledgeId',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      knowledgeId: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
-  /**
-   * @remarks
-   * Distinguish answer types.
-   * 
-   * @example
-   * KnowledgeBase
-   */
-  answerSource?: string;
-  /**
-   * @remarks
-   * Knowledge category.
-   * 
-   * @example
-   * provident fund.
-   */
-  category?: string;
-  /**
-   * @remarks
-   * Hit the content of the problem.
-   * 
-   * @example
-   * Provident fund withdrawal, please search for provident fund withdrawal on the homepage and submit the form for handling the matter.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * Indication of plain/rich text answers.
-   * 
-   * @example
-   * PLAIN_TEXT
-   */
-  contentType?: string;
-  /**
-   * @remarks
-   * Hit statement.
-   * 
-   * @example
-   * provident fund
-   */
-  hitStatement?: string;
-  /**
-   * @remarks
-   * The ID of the hit problem in the knowledge base.
-   * 
-   * @example
-   * 735898
-   */
-  id?: string;
-  /**
-   * @remarks
-   * Related knowledge list.
-   */
-  relatedKnowledges?: BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges[];
-  /**
-   * @remarks
-   * Introduction to hit problems.
-   * 
-   * @example
-   * Withdrawal of housing provident fund
-   */
-  summary?: string;
-  /**
-   * @remarks
-   * Hit the title of the problem.
-   * 
-   * @example
-   * Withdrawal of housing provident fund.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      answerSource: 'AnswerSource',
-      category: 'Category',
-      content: 'Content',
-      contentType: 'ContentType',
-      hitStatement: 'HitStatement',
-      id: 'Id',
-      relatedKnowledges: 'RelatedKnowledges',
-      summary: 'Summary',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answerSource: 'string',
-      category: 'string',
-      content: 'string',
-      contentType: 'string',
-      hitStatement: 'string',
-      id: 'string',
-      relatedKnowledges: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges },
-      summary: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
-  /**
-   * @remarks
-   * Clarify the identification of the source.
-   * 
-   * @example
-   * KNOWLEDGE
-   */
-  answerSource?: string;
-  /**
-   * @remarks
-   * Clarify the knowledge ID.
-   * 
-   * @example
-   * 4548
-   */
-  knowledgeId?: string;
-  /**
-   * @remarks
-   * Clarify the content, which may be the entities of graph Q&A, the knowledge titles of knowledge Q&A, or the column values of table Q&A.
-   * 
-   * @example
-   * Test plain text.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      answerSource: 'AnswerSource',
-      knowledgeId: 'KnowledgeId',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answerSource: 'string',
-      knowledgeId: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
-  /**
-   * @remarks
-   * Whether it hits.
-   * 
-   * @example
-   * false
-   */
-  hit?: boolean;
-  /**
-   * @remarks
-   * Name.
-   * 
-   * @example
-   * Check weather intentions. city
-   */
-  name?: string;
-  /**
-   * @remarks
-   * Original value.
-   * 
-   * @example
-   * Beijing
-   */
-  origin?: string;
-  /**
-   * @remarks
-   * Specific values.
-   * 
-   * @example
-   * Beijing
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hit: 'Hit',
-      name: 'Name',
-      origin: 'Origin',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hit: 'boolean',
-      name: 'string',
-      origin: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
-  /**
-   * @remarks
-   * Distinguish answer types.
-   * 
-   * @example
-   * BotFramework
-   */
-  answerSource?: string;
-  /**
-   * @remarks
-   * The content of the text message.
-   * 
-   * @example
-   * May I ask where you want to check the weather?
-   */
-  content?: string;
-  /**
-   * @remarks
-   * Indication of plain/rich text answers.
-   * 
-   * @example
-   * PLAIN_TEXT
-   */
-  contentType?: string;
-  /**
-   * @remarks
-   * When AnswerSource is BotFramework, this field returns the name of the dialogue unit.
-   * 
-   * @example
-   * Example: Checking Weather
-   */
-  dialogName?: string;
-  /**
-   * @remarks
-   * This field returns transparent parameters.
-   */
-  ext?: { [key: string]: any };
-  /**
-   * @remarks
-   * When AnswerSource is BotFramework, this field returns a transparent parameter.
-   */
-  externalFlags?: { [key: string]: any };
-  /**
-   * @remarks
-   * Hit statement.
-   * 
-   * @example
-   * Check the weather.
-   */
-  hitStatement?: string;
-  /**
-   * @remarks
-   * When AnswerSource is BotFramework, this field returns the intent name.
-   * 
-   * @example
-   * Check weather intention.
-   */
-  intentName?: string;
-  /**
-   * @remarks
-   * Metadata.
-   * 
-   * @example
-   * [[{\\"columnName\\":\\"name\\",\\"stringValue\\":\\"wangshanshan\\"}]]
-   */
-  metaData?: string;
-  /**
-   * @remarks
-   * When AnswerSource is BotFramework, this field returns the node ID.
-   * 
-   * @example
-   * 1410-c7a72a78.__city
-   */
-  nodeId?: string;
-  /**
-   * @remarks
-   * When AnswerSource is BotFramework, this field returns the node name.
-   * 
-   * @example
-   * Example: Checking Weather Check the weather and fill in the slots__ city
-   */
-  nodeName?: string;
-  /**
-   * @remarks
-   * Slot information list.
-   */
-  slots?: BeeBotChatResponseBodyDataMessagesTextSlots[];
-  /**
-   * @remarks
-   * Custom Chat Topic Title.
-   * 
-   * @example
-   * greet.
-   */
-  userDefinedChatTitle?: string;
-  static names(): { [key: string]: string } {
-    return {
-      answerSource: 'AnswerSource',
-      content: 'Content',
-      contentType: 'ContentType',
-      dialogName: 'DialogName',
-      ext: 'Ext',
-      externalFlags: 'ExternalFlags',
-      hitStatement: 'HitStatement',
-      intentName: 'IntentName',
-      metaData: 'MetaData',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      slots: 'Slots',
-      userDefinedChatTitle: 'UserDefinedChatTitle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answerSource: 'string',
-      content: 'string',
-      contentType: 'string',
-      dialogName: 'string',
-      ext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      externalFlags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      hitStatement: 'string',
-      intentName: 'string',
-      metaData: 'string',
-      nodeId: 'string',
-      nodeName: 'string',
-      slots: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesTextSlots },
-      userDefinedChatTitle: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
-  /**
-   * @remarks
-   * When AnswerType is Recommended, this field indicates the source of the recommended answer.
-   * 
-   * @example
-   * KNOWLEDGE
-   */
-  answerSource?: string;
-  /**
-   * @remarks
-   * The type of this message.
-   * 
-   * @example
-   * Text
-   */
-  answerType?: string;
-  /**
-   * @remarks
-   * When AnswerType is Knowledge, this field contains the Knowledge object returned by the robot.
-   */
-  knowledge?: BeeBotChatResponseBodyDataMessagesKnowledge;
-  /**
-   * @remarks
-   * When AnswerType is Recommended, this field contains a list of Recommendations returned by the robot.
-   */
-  recommends?: BeeBotChatResponseBodyDataMessagesRecommends[];
-  /**
-   * @remarks
-   * When AnswerType is Text, this field contains the Text object returned by the robot.
-   */
-  text?: BeeBotChatResponseBodyDataMessagesText;
-  static names(): { [key: string]: string } {
-    return {
-      answerSource: 'AnswerSource',
-      answerType: 'AnswerType',
-      knowledge: 'Knowledge',
-      recommends: 'Recommends',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      answerSource: 'string',
-      answerType: 'string',
-      knowledge: BeeBotChatResponseBodyDataMessagesKnowledge,
-      recommends: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessagesRecommends },
-      text: BeeBotChatResponseBodyDataMessagesText,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeeBotChatResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the recommended knowledge.
-   * 
-   * @example
-   * ab6be8af-cee4-40c3-9919-2ac7461d7d98
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * The source of the recommended answer. When AnswerType is set to Recommend, a value is returned for this parameter.
-   */
-  messages?: BeeBotChatResponseBodyDataMessages[];
-  /**
-   * @remarks
-   * The source of the recommended answer.
-   * 
-   * @example
-   * 1234
-   */
-  sessionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      messages: 'Messages',
-      sessionId: 'SessionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      messages: { 'type': 'array', 'itemType': BeeBotChatResponseBodyDataMessages },
-      sessionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChatappBindWabaResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The space ID of the user within the independent software vendor (ISV) account.
-   * 
-   * @example
-   * C02029392939939
-   */
-  custSpaceId?: string;
-  /**
-   * @remarks
-   * The ID of the WhatsApp Business Account (WABA).
-   * 
-   * @example
-   * 2939828282
-   */
-  wabaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      custSpaceId: 'CustSpaceId',
-      wabaId: 'WabaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      custSpaceId: 'string',
-      wabaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChatappEmbedSignUpResponseBodyWabas extends $tea.Model {
-  /**
-   * @remarks
-   * The review state of the WABA.
-   * 
-   * @example
-   * VERIFIED
-   */
-  accountReviewStatus?: string;
-  /**
-   * @remarks
-   * The currency.
-   * 
-   * @example
-   * USD
-   */
-  currency?: string;
-  /**
-   * @remarks
-   * The ID of the WABA.
-   * 
-   * @example
-   * 2939933992*****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The namespace of the message template.
-   * 
-   * @example
-   * alals-lsslls-slslsos-slsl
-   */
-  messageTemplateNamespace?: string;
-  /**
-   * @remarks
-   * The name of the WABA.
-   * 
-   * @example
-   * Alibaba
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountReviewStatus: 'AccountReviewStatus',
-      currency: 'Currency',
-      id: 'Id',
-      messageTemplateNamespace: 'MessageTemplateNamespace',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountReviewStatus: 'string',
-      currency: 'string',
-      id: 'string',
-      messageTemplateNamespace: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChatappMigrationVerifiedResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the phone number.
-   * 
-   * @example
-   * 82828893332
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613800001234
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
-  /**
-   * @remarks
-   * The verification status.
-   * 
-   * @example
-   * VERIFIED
-   */
-  codeVerificationStatus?: string;
-  /**
-   * @example
-   * N
-   */
-  isOfficial?: string;
-  /**
-   * @remarks
-   * The number of phone numbers to which messages can be sent in a day.
-   * 
-   * @example
-   * TIER_10
-   */
-  messagingLimitTier?: string;
-  /**
-   * @remarks
-   * The review status of the business display name.
-   * 
-   * @example
-   * Approval
-   */
-  nameStatus?: string;
-  /**
-   * @remarks
-   * The review status of the new business display name.
-   * 
-   * @example
-   * Approval
-   */
-  newNameStatus?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613800001234
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The quality rating of the phone number. Valid values: GREEN, YELLOW, and RED.
-   * 
-   * @example
-   * GREEN
-   */
-  qualityRating?: string;
-  /**
-   * @remarks
-   * The status of the phone number.
-   * 
-   * @example
-   * PENDING
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The callback URL to which status reports are sent by using HTTP callbacks.
-   * 
-   * @example
-   * https://www.alibaba.com/status
-   */
-  statusCallbackUrl?: string;
-  /**
-   * @remarks
-   * The status report queue.
-   * 
-   * @example
-   * alicom-09399200-queue
-   */
-  statusQueue?: string;
-  /**
-   * @remarks
-   * The callback URL to which MO messages are sent by using HTTP callbacks.
-   * 
-   * @example
-   * https://www.alibaba.com/inbound
-   */
-  upCallbackUrl?: string;
-  /**
-   * @remarks
-   * The mobile originated (MO) message queue.
-   * 
-   * @example
-   * alicom-09399200-queue
-   */
-  upQueue?: string;
-  /**
-   * @remarks
-   * The display name of the business to which the phone number belongs.
-   * 
-   * @example
-   * Alibaba
-   */
-  verifiedName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeVerificationStatus: 'CodeVerificationStatus',
-      isOfficial: 'IsOfficial',
-      messagingLimitTier: 'MessagingLimitTier',
-      nameStatus: 'NameStatus',
-      newNameStatus: 'NewNameStatus',
-      phoneNumber: 'PhoneNumber',
-      qualityRating: 'QualityRating',
-      status: 'Status',
-      statusCallbackUrl: 'StatusCallbackUrl',
-      statusQueue: 'StatusQueue',
-      upCallbackUrl: 'UpCallbackUrl',
-      upQueue: 'UpQueue',
-      verifiedName: 'VerifiedName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeVerificationStatus: 'string',
-      isOfficial: 'string',
-      messagingLimitTier: 'string',
-      nameStatus: 'string',
-      newNameStatus: 'string',
-      phoneNumber: 'string',
-      qualityRating: 'string',
-      status: 'string',
-      statusCallbackUrl: 'string',
-      statusQueue: 'string',
-      upCallbackUrl: 'string',
-      upQueue: 'string',
-      verifiedName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the mobile number.
-   * 
-   * @example
-   * 82828893332
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The mobile number.
-   * 
-   * @example
-   * 8613900001234
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The state of the mobile number. Only MIGRATING may be returned, which indicates that the mobile number is being migrated.
-   * 
-   * @example
-   * MIGRATING
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      phoneNumber: 'PhoneNumber',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      phoneNumber: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the Android application package. This parameter is required if you create an Android application.
-   * 
-   * @example
-   * com.kuaidian.waimaistaff
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * WhatsApp template is required when Category is Authoritative and Button Type is ONE_TAP/ZERO-TAP, indicating the signature hash value of the WhatsApp application.
-   * 
-   * @example
-   * ieid83kdiek
-   */
-  signatureHash?: string;
-  static names(): { [key: string]: string } {
-    return {
-      packageName: 'PackageName',
-      signatureHash: 'SignatureHash',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      packageName: 'string',
-      signatureHash: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * Autofill
-   */
-  autofillText?: string;
-  /**
-   * @remarks
-   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
-   * 
-   * @example
-   * 120293
-   */
-  couponCode?: string;
-  /**
-   * @remarks
-   * The Flow action.
-   * 
-   * Valid values:
-   * 
-   * *   DATA_EXCHANGE
-   * *   NAVIGATE
-   * 
-   * @example
-   * NAVIGATE
-   */
-  flowAction?: string;
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 479884093605183
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
-   * 
-   * @example
-   * false
-   */
-  isOptOut?: boolean;
-  /**
-   * @remarks
-   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
-   * 
-   * @example
-   * DETAILS
-   */
-  navigateScreen?: string;
-  /**
-   * @remarks
-   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * com.demo
-   * 
-   * @deprecated
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The phone number. This parameter is valid only when the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
-   * 
-   * @example
-   * +861368897****
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * wi299382
-   * 
-   * @deprecated
-   */
-  signatureHash?: string;
-  /**
-   * @remarks
-   * List of supported apps.
-   */
-  supportedApps?: CreateChatappTemplateRequestComponentsButtonsSupportedApps[];
-  /**
-   * @remarks
-   * The display name of the button.
-   * 
-   * @example
-   * Call Me
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The type of the button. Valid values:
-   * 
-   * *   **PHONE_NUMBER**: phone call button
-   * *   **URL**: URL button
-   * *   **QUICK_REPLY**: quick reply button
-   * *   **COPY_CODE**: copy code button
-   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
-   * 
-   * > 
-   * 
-   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
-   * 
-   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to be accessed when you click the URL button.
-   * 
-   * @example
-   * https://example.com
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The type of the URL. Valid values:
-   * 
-   * *   **static**
-   * *   **dynamic**
-   * 
-   * @example
-   * static
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autofillText: 'AutofillText',
-      couponCode: 'CouponCode',
-      flowAction: 'FlowAction',
-      flowId: 'FlowId',
-      isOptOut: 'IsOptOut',
-      navigateScreen: 'NavigateScreen',
-      packageName: 'PackageName',
-      phoneNumber: 'PhoneNumber',
-      signatureHash: 'SignatureHash',
-      supportedApps: 'SupportedApps',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autofillText: 'string',
-      couponCode: 'string',
-      flowAction: 'string',
-      flowId: 'string',
-      isOptOut: 'boolean',
-      navigateScreen: 'string',
-      packageName: 'string',
-      phoneNumber: 'string',
-      signatureHash: 'string',
-      supportedApps: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtonsSupportedApps },
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * +8613800
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The text of the button.
-   * 
-   * @example
-   * Call me
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The type of the button. Valid values:
-   * 
-   * *   **PHONE_NUMBER**: phone call button
-   * *   **URL**: URL button
-   * *   **QUICK_REPLY**: quick reply button
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to which you are redirected when you click the URL button.
-   * 
-   * @example
-   * https://alibaba.com/xx
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The type of the URL. Valid values:
-   * 
-   * *   **static**
-   * *   **dynamic**
-   * 
-   * @example
-   * static
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'PhoneNumber',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
-   */
-  buttons?: CreateChatappTemplateRequestComponentsCardsCardComponentsButtons[];
-  /**
-   * @remarks
-   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
-   * 
-   * *   **IMAGE**
-   * *   **VIDEO**
-   * 
-   * @example
-   * IMAGE
-   */
-  format?: string;
-  /**
-   * @remarks
-   * The body content of the carousel card.
-   * 
-   * @example
-   * Who is the very powerful team
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The type of the component. Valid values:
-   * 
-   * *   **BODY**
-   * *   **HEADER**
-   * *   **BUTTONS**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * BODY
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL of the media resource.
-   * 
-   * @example
-   * https://alibaba.com/img.png
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttons: 'Buttons',
-      format: 'Format',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponentsButtons },
-      format: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponentsCards extends $tea.Model {
-  /**
-   * @remarks
-   * The components of the carousel card.
-   * 
-   * This parameter is required.
-   */
-  cardComponents?: CreateChatappTemplateRequestComponentsCardsCardComponents[];
-  static names(): { [key: string]: string } {
-    return {
-      cardComponents: 'CardComponents',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cardComponents: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCardsCardComponents },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateRequestComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
-   * 
-   * @example
-   * true
-   */
-  addSecretRecommendation?: boolean;
-  /**
-   * @remarks
-   * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
-   * 
-   * >  ####
-   * 
-   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
-   * 
-   * *   A WhatsApp message template can contain only one phone call button.
-   * 
-   * *   A WhatsApp message template can contain up to two URL buttons.
-   * 
-   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   */
-  buttons?: CreateChatappTemplateRequestComponentsButtons[];
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * This is a video
-   */
-  caption?: string;
-  /**
-   * @remarks
-   * The carousel cards of the carousel template.
-   */
-  cards?: CreateChatappTemplateRequestComponentsCards[];
-  /**
-   * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
-   * 
-   * @example
-   * 5
-   */
-  codeExpirationMinutes?: number;
-  /**
-   * @remarks
-   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
-   * 
-   * @example
-   * 120
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * The name of the document.
-   * 
-   * @example
-   * video name
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * The type of the document attached in the Viber message template.
-   * 
-   * @example
-   * docx
-   */
-  fileType?: string;
-  /**
-   * @remarks
-   * The type of the media resource. Valid values:
-   * 
-   * *   **TEXT**
-   * *   **IMAGE**
-   * *   **DOCUMENT**
-   * *   **VIDEO**
-   * 
-   * @example
-   * TEXT
-   */
-  format?: string;
-  /**
-   * @remarks
-   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
-   * 
-   * @example
-   * true
-   */
-  hasExpiration?: boolean;
-  /**
-   * @remarks
-   * The text of the message that you want to send.
-   * 
-   * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter must be empty.
-   * 
-   * @example
-   * hello whatsapp
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The thumbnail URL of the video in the Viber message template.
-   * 
-   * @example
-   * https://cdn.multiplymall.mobiapp.cloud/yunmall/B-LM-LMALL202207130001/20220730/d712a057-a6af-4513-bbe6-7ee57ea60983.png?x-oss-process=image/resize,w_100
-   */
-  thumbUrl?: string;
-  /**
-   * @remarks
-   * The type of the component. Valid values:
-   * 
-   * *   **BODY**
-   * *   **HEADER**
-   * *   **FOOTER**
-   * *   **BUTTONS**
-   * *   **CAROUSEL**
-   * *   **LIMITED_TIME_OFFER**
-   * 
-   * > 
-   * 
-   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
-   * 
-   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
-   * 
-   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * BODY
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL of the media resource.
-   * 
-   * >  We recommend that you use 800 × 800 images in Viber message templates.
-   * 
-   * @example
-   * https://image.developer.aliyundoc.com
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addSecretRecommendation: 'AddSecretRecommendation',
-      buttons: 'Buttons',
-      caption: 'Caption',
-      cards: 'Cards',
-      codeExpirationMinutes: 'CodeExpirationMinutes',
-      duration: 'Duration',
-      fileName: 'FileName',
-      fileType: 'FileType',
-      format: 'Format',
-      hasExpiration: 'HasExpiration',
-      text: 'Text',
-      thumbUrl: 'ThumbUrl',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addSecretRecommendation: 'boolean',
-      buttons: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsButtons },
-      caption: 'string',
-      cards: { 'type': 'array', 'itemType': CreateChatappTemplateRequestComponentsCards },
-      codeExpirationMinutes: 'number',
-      duration: 'number',
-      fileName: 'string',
-      fileType: 'string',
-      format: 'string',
-      hasExpiration: 'boolean',
-      text: 'string',
-      thumbUrl: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateChatappTemplateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * SMS_232907****
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The name of the message template.
-   * 
-   * @example
-   * hello_whatsapp
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCode: 'TemplateCode',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCode: 'string',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFlowResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The categories of the Flow.
-   */
-  categories?: string[];
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 333993838***
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The name of the Flow.
-   * 
-   * @example
-   * test1
-   */
-  flowName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      flowId: 'FlowId',
-      flowName: 'FlowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      flowId: 'string',
-      flowName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePhoneMessageQrdlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The URL of the deep link.
-   * 
-   * @example
-   * https://wa.qrdl/
-   */
-  deepLinkUrl?: string;
-  /**
-   * @remarks
-   * The format of the generated image.
-   * 
-   * @example
-   * PNG
-   */
-  generateQrImage?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613800
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The message content.
-   * 
-   * @example
-   * Hello
-   */
-  prefilledMessage?: string;
-  /**
-   * @remarks
-   * The URL of the QR code.
-   * 
-   * @example
-   * http://img.png
-   */
-  qrImageUrl?: string;
-  /**
-   * @remarks
-   * The mode of the quick-response (QR) code.
-   * 
-   * @example
-   * D9II3***
-   */
-  qrdlCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deepLinkUrl: 'DeepLinkUrl',
-      generateQrImage: 'GenerateQrImage',
-      phoneNumber: 'PhoneNumber',
-      prefilledMessage: 'PrefilledMessage',
-      qrImageUrl: 'QrImageUrl',
-      qrdlCode: 'QrdlCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deepLinkUrl: 'string',
-      generateQrImage: 'string',
-      phoneNumber: 'string',
-      prefilledMessage: 'string',
-      qrImageUrl: 'string',
-      qrdlCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappPhoneNumberMetricResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The number of delivered messages.
-   * 
-   * @example
-   * 5
-   */
-  deliveredCount?: number;
-  /**
-   * @remarks
-   * The end of the time range that you queried.
-   * 
-   * @example
-   * 1667196043904
-   */
-  end?: number;
-  /**
-   * @remarks
-   * The granularity of the metric.
-   * 
-   * Valid values:
-   * 
-   * *   DAILY
-   * *   HALF_HOUR
-   * 
-   * @example
-   * DAILY
-   */
-  granularity?: string;
-  /**
-   * @remarks
-   * The business phone number.
-   * 
-   * @example
-   * 861380000
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The number of sent messages.
-   * 
-   * @example
-   * 10
-   */
-  sentCount?: number;
-  /**
-   * @remarks
-   * The beginning of the time range that you queried.
-   * 
-   * @example
-   * 1669619491000
-   */
-  start?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deliveredCount: 'DeliveredCount',
-      end: 'End',
-      granularity: 'Granularity',
-      phoneNumber: 'PhoneNumber',
-      sentCount: 'SentCount',
-      start: 'Start',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deliveredCount: 'number',
-      end: 'number',
-      granularity: 'string',
-      phoneNumber: 'string',
-      sentCount: 'number',
-      start: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs extends $tea.Model {
-  /**
-   * @remarks
-   * The event type.
-   * 
-   * @example
-   * nextCard
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The intent code.
-   * 
-   * @example
-   * test
-   */
-  intentCode?: string;
-  /**
-   * @remarks
-   * The language of the next template.
-   * 
-   * @example
-   * en
-   */
-  nextLanguageCode?: string;
-  /**
-   * @remarks
-   * The code of the next template.
-   * 
-   * @example
-   * 20939920093993
-   */
-  nextTemplateCode?: string;
-  /**
-   * @remarks
-   * The name of the next template.
-   * 
-   * @example
-   * abc
-   */
-  nextTemplateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      intentCode: 'IntentCode',
-      nextLanguageCode: 'NextLanguageCode',
-      nextTemplateCode: 'NextTemplateCode',
-      nextTemplateName: 'NextTemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      intentCode: 'string',
-      nextLanguageCode: 'string',
-      nextTemplateCode: 'string',
-      nextTemplateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps extends $tea.Model {
-  /**
-   * @remarks
-   * The app package name.
-   * 
-   * @example
-   * com.test
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The app signing key hash.
-   * 
-   * @example
-   * 29kdkeik939
-   */
-  signatureHash?: string;
-  static names(): { [key: string]: string } {
-    return {
-      packageName: 'PackageName',
-      signatureHash: 'SignatureHash',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      packageName: 'string',
-      signatureHash: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
-   * 
-   * @example
-   * Autofill
-   */
-  autofillText?: string;
-  /**
-   * @remarks
-   * The coupon code.
-   * 
-   * @example
-   * 202039ksjs
-   */
-  couponCode?: string;
-  /**
-   * @remarks
-   * The extended fields.
-   */
-  extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
-  /**
-   * @remarks
-   * The Flow action. Valid values: NAVIGATE and DATA_EXCHANGE.
-   * 
-   * @example
-   * NAVIGATE
-   */
-  flowAction?: string;
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 3838292983
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
-   * 
-   * @example
-   * false
-   */
-  isOptOut?: boolean;
-  /**
-   * @remarks
-   * The first screen in the Flow. This parameter is returned if FlowAction is set to NAVIGATE.
-   * 
-   * @example
-   * DETAILS
-   */
-  navigateScreen?: string;
-  /**
-   * @remarks
-   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
-   * 
-   * @example
-   * com.aliyun
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The phone number. This parameter is valid only if the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
-   * 
-   * @example
-   * 861398745****
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
-   * 
-   * @example
-   * 2993839
-   */
-  signatureHash?: string;
-  /**
-   * @remarks
-   * The apps that support one-tap authentication and zero-tap authentication.
-   */
-  supportedApps?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps[];
-  /**
-   * @remarks
-   * The display name of the button.
-   * 
-   * @example
-   * Call
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The button type. Valid values:
-   * 
-   * *   **PHONE_NUMBER**: phone call button
-   * *   **URL**: URL button
-   * *   **QUICK_REPLY**: quick reply button
-   * *   **COPY_CODE**: copy code button
-   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
-   * 
-   * > 
-   * 
-   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
-   * 
-   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to which you are redirected when you click the URL button.
-   * 
-   * @example
-   * https://example.com
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The URL type. Valid values:
-   * 
-   * *   **static**
-   * *   **dynamic**
-   * 
-   * @example
-   * static
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autofillText: 'AutofillText',
-      couponCode: 'CouponCode',
-      extendAttrs: 'ExtendAttrs',
-      flowAction: 'FlowAction',
-      flowId: 'FlowId',
-      isOptOut: 'IsOptOut',
-      navigateScreen: 'NavigateScreen',
-      packageName: 'PackageName',
-      phoneNumber: 'PhoneNumber',
-      signatureHash: 'SignatureHash',
-      supportedApps: 'SupportedApps',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autofillText: 'string',
-      couponCode: 'string',
-      extendAttrs: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs,
-      flowAction: 'string',
-      flowId: 'string',
-      isOptOut: 'boolean',
-      navigateScreen: 'string',
-      packageName: 'string',
-      phoneNumber: 'string',
-      signatureHash: 'string',
-      supportedApps: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps },
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * +86138000
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The button text.
-   * 
-   * @example
-   * Button text
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The type of the button in the carousel template. Valid values: URL, PHONE_NUMBER, and QUICK_REQLY.
-   * 
-   * @example
-   * URL
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to which you are redirected when you click the URL button.
-   * 
-   * @example
-   * https://aliyun.com
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The type of the URL. Valid values: static and dynamic.
-   * 
-   * @example
-   * static
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'PhoneNumber',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The buttons of the carousel card.
-   */
-  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons[];
-  /**
-   * @remarks
-   * The type of the header in the carousel template. The header can only be an image or a video. The headers of all carousel cards must be the same. The type of the media resources that are included in the message. Valid values: IMGAGE and VIDEO.
-   * 
-   * @example
-   * HEADER
-   */
-  format?: string;
-  /**
-   * @remarks
-   * The text of the carousel card.
-   * 
-   * @example
-   * Body
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The component type.
-   * 
-   * @example
-   * HEADER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL.
-   * 
-   * @example
-   * https://aliyun.com
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttons: 'Buttons',
-      format: 'Format',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons },
-      format: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $tea.Model {
-  /**
-   * @remarks
-   * The components of the carousel card.
-   */
-  cardComponents?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents[];
-  static names(): { [key: string]: string } {
-    return {
-      cardComponents: 'CardComponents',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cardComponents: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
-   * 
-   * @example
-   * false
-   */
-  addSecretRecommendation?: boolean;
-  /**
-   * @remarks
-   * The buttons. This parameter is returned only if the Type sub-parameter of the Components parameter is set to **BUTTONS**.
-   * 
-   * >  ####
-   * 
-   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
-   * 
-   * *   A WhatsApp message template can contain only one phone call button.
-   * 
-   * *   A WhatsApp message template can contain up to two URL buttons.
-   * 
-   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   */
-  buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
-  /**
-   * @remarks
-   * The description of the document.
-   * 
-   * @example
-   * The new file has been uploaded.
-   */
-  caption?: string;
-  /**
-   * @remarks
-   * The carousel cards.
-   */
-  cards?: GetChatappTemplateDetailResponseBodyDataComponentsCards[];
-  /**
-   * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER for a WhatsApp message template. The validity period of the verification code is displayed in the footer.
-   * 
-   * @example
-   * 5
-   */
-  codeExpirationMinutes?: number;
-  /**
-   * @remarks
-   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
-   * 
-   * @example
-   * 50
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * The name of the document.
-   * 
-   * @example
-   * Express file
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * The type of the document attached in the Viber message template.
-   * 
-   * @example
-   * docx
-   */
-  fileType?: string;
-  /**
-   * @remarks
-   * The format.
-   * 
-   * @example
-   * TEXT
-   */
-  format?: string;
-  /**
-   * @remarks
-   * The latitude of the location.
-   * 
-   * @example
-   * 28.001
-   */
-  latitude?: string;
-  /**
-   * @remarks
-   * The address of the location.
-   * 
-   * @example
-   * Hangzhou
-   */
-  locationAddress?: string;
-  /**
-   * @remarks
-   * The name of the location.
-   * 
-   * @example
-   * Hangzhou
-   */
-  locationName?: string;
-  /**
-   * @remarks
-   * The longitude of the location.
-   * 
-   * @example
-   * 120.002
-   */
-  longitude?: string;
-  /**
-   * @remarks
-   * The variable when the coupon code expires in the limited-time offer template.
-   * 
-   * @example
-   * $(offerExpirationTimeMs)
-   */
-  offerExpirationTimeMs?: string;
-  /**
-   * @remarks
-   * The text of the message that you want to send.
-   * 
-   * @example
-   * Hello
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The thumbnail URL of the video in the Viber message template.
-   * 
-   * @example
-   * https://img.png
-   */
-  thumbUrl?: string;
-  /**
-   * @remarks
-   * The component type. Valid values:
-   * 
-   * *   **BODY**
-   * *   **HEADER**
-   * *   **FOOTER**
-   * *   **BUTTONS**
-   * *   **CAROUSEL**
-   * *   **LIMITED_TIME_OFFER**
-   * 
-   * > 
-   * 
-   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
-   * 
-   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
-   * 
-   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
-   * 
-   * @example
-   * BODY
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL of the media resource.
-   * 
-   * @example
-   * https://image.developer.aliyundoc.com
-   */
-  url?: string;
-  /**
-   * @remarks
-   * Indicates whether the coupon code has an expiration time in the limited-time offer template.
-   * 
-   * @example
-   * true
-   */
-  hasExpiration?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      addSecretRecommendation: 'AddSecretRecommendation',
-      buttons: 'Buttons',
-      caption: 'Caption',
-      cards: 'Cards',
-      codeExpirationMinutes: 'CodeExpirationMinutes',
-      duration: 'Duration',
-      fileName: 'FileName',
-      fileType: 'FileType',
-      format: 'Format',
-      latitude: 'Latitude',
-      locationAddress: 'LocationAddress',
-      locationName: 'LocationName',
-      longitude: 'Longitude',
-      offerExpirationTimeMs: 'OfferExpirationTimeMs',
-      text: 'Text',
-      thumbUrl: 'ThumbUrl',
-      type: 'Type',
-      url: 'Url',
-      hasExpiration: 'hasExpiration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addSecretRecommendation: 'boolean',
-      buttons: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtons },
-      caption: 'string',
-      cards: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsCards },
-      codeExpirationMinutes: 'number',
-      duration: 'number',
-      fileName: 'string',
-      fileType: 'string',
-      format: 'string',
-      latitude: 'string',
-      locationAddress: 'string',
-      locationName: 'string',
-      longitude: 'string',
-      offerExpirationTimeMs: 'string',
-      text: 'string',
-      thumbUrl: 'string',
-      type: 'string',
-      url: 'string',
-      hasExpiration: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateDetailResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The review status of the message template. Valid values:
-   * 
-   * *   **pass**: The message template is approved.
-   * *   **fail**: The message template is rejected.
-   * *   **auditing**: The message template is being reviewed.
-   * *   **unaudit**: The review is suspended.
-   * 
-   * @example
-   * pass
-   */
-  auditStatus?: string;
-  /**
-   * @remarks
-   * The category of the template when the returned value of TemplateType is WHATSAPP. Valid values:
-   * 
-   * *   **UTILITY**: a transactional template
-   * *   **MARKETING**: a marketing template
-   * *   **AUTHENTICATION**: an identity authentication template
-   * 
-   * The category of the template when the returned value of the TemplateType parameter is VIBER. Valid values:
-   * 
-   * *   **text**: a template that contains only text
-   * *   **image**: a template that contains only images
-   * *   **text_image_button**: a template that contains text, images, and buttons
-   * *   **text_button**: a template that contains text and buttons
-   * *   **document**: a template that contains only files
-   * *   **video**: a template that contains only videos
-   * *   **text_video**: a template that contains text and videos
-   * *   **text_video_button**: a template that contains text, videos, and buttons
-   * *   **text_image**: a template that contains text and images
-   * 
-   * > If Category is set to text_video_button, users cannot open a web page by clicking the button. Users can open only the video in the message. In this case, you do not need to specify the Url parameter for the URL button in the template.
-   * 
-   * @example
-   * TRANSACTIONAL
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The components of the message template.
-   */
-  components?: GetChatappTemplateDetailResponseBodyDataComponents[];
-  /**
-   * @remarks
-   * The examples of variables.
-   */
-  example?: { [key: string]: string };
-  /**
-   * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
-   * 
-   * @example
-   * en_US
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The validity period of the WhatsApp authentication message.
-   * 
-   * @example
-   * 120
-   */
-  messageSendTtlSeconds?: number;
-  /**
-   * @remarks
-   * The name of the message template.
-   * 
-   * @example
-   * hello_whatsapp
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The quality of the template.
-   * 
-   * @example
-   * GREEN
-   */
-  qualityScore?: string;
-  /**
-   * @remarks
-   * The reason why the template was rejected.
-   * 
-   * @example
-   * None
-   */
-  reason?: string;
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * 744c4b5c79c9432497a075bdfca3****
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The type of the message template. Valid values:
-   * 
-   * *   **WHATSAPP**
-   * *   **VIBER**
-   * *   LINE (developing)
-   * 
-   * @example
-   * WHATSAPP
-   */
-  templateType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      category: 'Category',
-      components: 'Components',
-      example: 'Example',
-      language: 'Language',
-      messageSendTtlSeconds: 'MessageSendTtlSeconds',
-      name: 'Name',
-      qualityScore: 'QualityScore',
-      reason: 'Reason',
-      templateCode: 'TemplateCode',
-      templateType: 'TemplateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      category: 'string',
-      components: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponents },
-      example: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      language: 'string',
-      messageSendTtlSeconds: 'number',
-      name: 'string',
-      qualityScore: 'string',
-      reason: 'string',
-      templateCode: 'string',
-      templateType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateMetricResponseBodyDataCliented extends $tea.Model {
-  /**
-   * @remarks
-   * The text on the button.
-   * 
-   * @example
-   * Open url
-   */
-  buttonContent?: string;
-  /**
-   * @remarks
-   * The number of clicks.
-   * 
-   * @example
-   * 20
-   */
-  count?: number;
-  /**
-   * @remarks
-   * The button type.
-   * 
-   * Valid values:
-   * 
-   * *   phone_number_button
-   * *   url_button
-   * *   quick_relpy_button
-   * 
-   * @example
-   * quick_reply_button
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttonContent: 'ButtonContent',
-      count: 'Count',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttonContent: 'string',
-      count: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappTemplateMetricResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The statistics on button clicks.
-   */
-  cliented?: GetChatappTemplateMetricResponseBodyDataCliented[];
-  /**
-   * @remarks
-   * The number of delivered messages.
-   * 
-   * @example
-   * 6
-   */
-  deliveredCount?: number;
-  /**
-   * @remarks
-   * The end of the time range you queried.
-   * 
-   * @example
-   * 1668138331485
-   */
-  end?: number;
-  /**
-   * @remarks
-   * The template language.
-   * 
-   * @example
-   * en
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The number of read messages.
-   * 
-   * @example
-   * 3
-   */
-  readCount?: number;
-  /**
-   * @remarks
-   * The number of sent messages.
-   * 
-   * @example
-   * 10
-   */
-  sentCount?: number;
-  /**
-   * @remarks
-   * The beginning of the time range you queried.
-   * 
-   * @example
-   * 1673919240001
-   */
-  start?: number;
-  /**
-   * @remarks
-   * The template code.
-   * 
-   * @example
-   * 83837774838*****
-   */
-  templateCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cliented: 'Cliented',
-      deliveredCount: 'DeliveredCount',
-      end: 'End',
-      language: 'Language',
-      readCount: 'ReadCount',
-      sentCount: 'SentCount',
-      start: 'Start',
-      templateCode: 'TemplateCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cliented: { 'type': 'array', 'itemType': GetChatappTemplateMetricResponseBodyDataCliented },
-      deliveredCount: 'number',
-      end: 'number',
-      language: 'string',
-      readCount: 'number',
-      sentCount: 'number',
-      start: 'number',
-      templateCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The AccessKey ID that is used to authorize a user to upload a file to Object Storage Service (OSS).
-   * 
-   * @example
-   * 2skeuurfj****
-   */
-  accessKeyId?: string;
-  /**
-   * @remarks
-   * The AccessKey secret that is used to authorize a user to upload a file to OSS.
-   * 
-   * @example
-   * skdkdukeuuuu****
-   */
-  accessKeySecret?: string;
-  /**
-   * @remarks
-   * The name of the bucket to which a file is uploaded in OSS.
-   * 
-   * @example
-   * oss
-   */
-  bucketName?: string;
-  /**
-   * @remarks
-   * The directory to which the file is uploaded in Object Storage Service (OSS).
-   * 
-   * @example
-   * 1000102939
-   */
-  dir?: string;
-  /**
-   * @remarks
-   * The address of the OSS server to which a file is uploaded.
-   * 
-   * @example
-   * https://oss.com
-   */
-  endPoint?: string;
-  /**
-   * @remarks
-   * The timeout period.
-   * 
-   * @example
-   * 3600
-   */
-  expire?: number;
-  /**
-   * @remarks
-   * The security token.
-   * 
-   * @example
-   * dkdieiii**
-   */
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessKeyId: 'AccessKeyId',
-      accessKeySecret: 'AccessKeySecret',
-      bucketName: 'BucketName',
-      dir: 'Dir',
-      endPoint: 'EndPoint',
-      expire: 'Expire',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessKeyId: 'string',
-      accessKeySecret: 'string',
-      bucketName: 'string',
-      dir: 'string',
-      endPoint: 'string',
-      expire: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCommerceSettingResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the shopping cart button is displayed. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  cartEnable?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the catalog button is displayed. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  catalogVisible?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      cartEnable: 'CartEnable',
-      catalogVisible: 'CatalogVisible',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cartEnable: 'boolean',
-      catalogVisible: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConversationalAutomationResponseBodyDataCommands extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the command.
-   * 
-   * @example
-   * description
-   */
-  commandDescription?: string;
-  /**
-   * @remarks
-   * The name of the command.
-   * 
-   * @example
-   * common1
-   */
-  commandName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commandDescription: 'CommandDescription',
-      commandName: 'CommandName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commandDescription: 'string',
-      commandName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConversationalAutomationResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The commands.
-   */
-  commands?: GetConversationalAutomationResponseBodyDataCommands[];
-  /**
-   * @remarks
-   * Indicates whether the welcoming message is enabled.
-   * 
-   * @example
-   * true
-   */
-  enableWelcomeMessage?: boolean;
-  /**
-   * @remarks
-   * The phone number of the enterprise.
-   * 
-   * @example
-   * 86138****
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The opening remarks.
-   */
-  prompts?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      commands: 'Commands',
-      enableWelcomeMessage: 'EnableWelcomeMessage',
-      phoneNumber: 'PhoneNumber',
-      prompts: 'Prompts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commands: { 'type': 'array', 'itemType': GetConversationalAutomationResponseBodyDataCommands },
-      enableWelcomeMessage: 'boolean',
-      phoneNumber: 'string',
-      prompts: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFlowResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The categories of the Flow.
-   */
-  categories?: string[];
-  /**
-   * @remarks
-   * The version number of the API.
-   * 
-   * @example
-   * 3.0
-   */
-  dataApiVersion?: string;
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * flow_id_arms
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The Flow name.
-   * 
-   * @example
-   * dnjn
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The JSON version.
-   * 
-   * @example
-   * 2.1
-   */
-  JSONVersion?: string;
-  /**
-   * @remarks
-   * The temporary preview URL.
-   * 
-   * @example
-   * https://pre-url
-   */
-  previewUrl?: string;
-  /**
-   * @remarks
-   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1700617436633
-   */
-  previewUrlExpires?: number;
-  /**
-   * @remarks
-   * The state of the Flow.
-   * 
-   * Valid values:
-   * 
-   * *   PUBLISHED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DRAFT
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DEPRECATED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * DRAFT
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      dataApiVersion: 'DataApiVersion',
-      flowId: 'FlowId',
-      flowName: 'FlowName',
-      JSONVersion: 'JSONVersion',
-      previewUrl: 'PreviewUrl',
-      previewUrlExpires: 'PreviewUrlExpires',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      dataApiVersion: 'string',
-      flowId: 'string',
-      flowName: 'string',
-      JSONVersion: 'string',
-      previewUrl: 'string',
-      previewUrlExpires: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFlowJSONAssestResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The file path.
-   * 
-   * @example
-   * https://url.com/json.json
-   */
-  filePath?: string;
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * flow_id_arms
-   */
-  flowId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filePath: 'FilePath',
-      flowId: 'FlowId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filePath: 'string',
-      flowId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFlowPreviewUrlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 6dd31e1b7cc940fc99e293d9952b5b79
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The temporary preview URL.
-   * 
-   * @example
-   * https://url
-   */
-  previewUrl?: string;
-  /**
-   * @remarks
-   * The time when the preview URL expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1700617436633
-   */
-  previewUrlExpires?: number;
-  static names(): { [key: string]: string } {
-    return {
-      flowId: 'FlowId',
-      previewUrl: 'PreviewUrl',
-      previewUrlExpires: 'PreviewUrlExpires',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowId: 'string',
-      previewUrl: 'string',
-      previewUrlExpires: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMigrationVerifyCodeResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the number.
-   * 
-   * @example
-   * 82828893332
-   */
-  id?: string;
-  /**
-   * @remarks
-   * Phone number.
-   * 
-   * @example
-   * 8613800001234
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneEncryptionPublicKeyResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The public key.
-   * 
-   * @example
-   * -----BEGIN PUBLIC KEY-----
-   * AAA
-   * BBB
-   * CCC
-   * DDD
-   * EEE
-   * FFF
-   * GGG
-   * -----END PUBLIC KEY-----
-   */
-  encryptionPublicKey?: string;
-  /**
-   * @remarks
-   * The validity state of the public key. Valid values:
-   * 
-   * *   MISMATCH: The public key is invalid.
-   * *   VALID: The public key is valid.
-   * 
-   * @example
-   * VALID
-   */
-  encryptionPublicKeyStatus?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 86138000**
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      encryptionPublicKey: 'EncryptionPublicKey',
-      encryptionPublicKeyStatus: 'EncryptionPublicKeyStatus',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      encryptionPublicKey: 'string',
-      encryptionPublicKeyStatus: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPhoneNumberVerificationStatusResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The verification status.
-   * 
-   * @example
-   * VERIFIED
-   */
-  codeVerificationStatus?: string;
-  /**
-   * @remarks
-   * The ID of the number.
-   * 
-   * @example
-   * 2224342624
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613900001234
-   */
-  phoneNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeVerificationStatus: 'CodeVerificationStatus',
-      id: 'Id',
-      phoneNumber: 'PhoneNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeVerificationStatus: 'string',
-      id: 'string',
-      phoneNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPreValidatePhoneIdResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 929833
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The ID of the phone number.
-   * 
-   * @example
-   * 8613800000000
-   */
-  phoneNumberId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'PhoneNumber',
-      phoneNumberId: 'PhoneNumberId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-      phoneNumberId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * 141006
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The description of the error.
-   * 
-   * @example
-   * There is an error with the payment method.
-   */
-  errorDescription?: string;
-  /**
-   * @remarks
-   * The possible solution to the error.
-   * 
-   * @example
-   * There was an error with your payment method. Please add a new payment method to the account.
-   */
-  possibleSolution?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorDescription: 'ErrorDescription',
-      possibleSolution: 'PossibleSolution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorDescription: 'string',
-      possibleSolution: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhatsappHealthStatusResponseBodyDataEntities extends $tea.Model {
-  /**
-   * @remarks
-   * The Business Manager ID.
-   * 
-   * @example
-   * 3992****
-   */
-  businessId?: string;
-  /**
-   * @remarks
-   * Indicates whether the messages can be sent.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  canSendMessage?: string;
-  /**
-   * @remarks
-   * The entity type.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  entityType?: string;
-  /**
-   * @remarks
-   * The reasons why the messages failed to be sent.
-   */
-  errors?: GetWhatsappHealthStatusResponseBodyDataEntitiesErrors[];
-  /**
-   * @remarks
-   * The template language.
-   * 
-   * @example
-   * en
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The phone number to which the messages are sent.
-   * 
-   * @example
-   * 86138****
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The template code. This parameter is returned when the NodeType parameter is set to **template**.
-   * 
-   * @example
-   * 939928****
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The WABA ID. You can view the WABA ID in the Chat App Message Service console after you create the WABA.
-   * 
-   * @example
-   * 39939***
-   */
-  wabaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      businessId: 'BusinessId',
-      canSendMessage: 'CanSendMessage',
-      entityType: 'EntityType',
-      errors: 'Errors',
-      language: 'Language',
-      phoneNumber: 'PhoneNumber',
-      templateCode: 'TemplateCode',
-      wabaId: 'WabaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessId: 'string',
-      canSendMessage: 'string',
-      entityType: 'string',
-      errors: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntitiesErrors },
-      language: 'string',
-      phoneNumber: 'string',
-      templateCode: 'string',
-      wabaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWhatsappHealthStatusResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the messages can be sent.
-   * 
-   * @example
-   * AVAILABLE
-   */
-  canSendMessage?: string;
-  /**
-   * @remarks
-   * The queried entities.
-   */
-  entities?: GetWhatsappHealthStatusResponseBodyDataEntities[];
-  static names(): { [key: string]: string } {
-    return {
-      canSendMessage: 'CanSendMessage',
-      entities: 'Entities',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canSendMessage: 'string',
-      entities: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntities },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateRequestPage extends $tea.Model {
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  index?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 10.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
-  /**
-   * @remarks
-   * The review state of the message template. Valid values:
-   * 
-   * *   **pass**: The message template is approved.
-   * *   **fail**: The message template is rejected.
-   * *   **auditing**: The message template is being reviewed.
-   * *   **unaudit**: The review is suspended.
-   * 
-   * @example
-   * pass
-   */
-  auditStatus?: string;
-  /**
-   * @remarks
-   * The category of the WhatsApp template. Valid values:
-   * 
-   * *   **UTILITY**: utility template
-   * *   **MARKETING**: marketing template
-   * *   **AUTHENTICATION**: authentication template
-   * 
-   * The category of the Viber template. Valid values:
-   * 
-   * *   **text**: template that contains only text
-   * *   **image**: template that contains only an image
-   * *   **text_image_button**: template that contains text, an image, and a button
-   * *   **text_button**: template that contains text and a button
-   * *   **document**: template that contains only a document
-   * *   **video**: template that contains only a video
-   * *   **text_video**: template that contains text and a video
-   * *   **text_video_button**: template that contains text, a video, and a button
-   * *   **text_image**: template that contains text and an image
-   * 
-   * @example
-   * TRANSACTIONAL
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
-   * 
-   * @example
-   * en
-   */
-  language?: string;
-  /**
-   * @remarks
-   * The time when the template was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1711006633000
-   */
-  lastUpdateTime?: number;
-  /**
-   * @remarks
-   * The reason for the review failure.
-   * 
-   * @example
-   * None
-   */
-  reason?: string;
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * 744c4b5c79c9432497a075bdfca3****
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The name of the message template.
-   * 
-   * @example
-   * hello_whatsapp
-   */
-  templateName?: string;
-  /**
-   * @remarks
-   * The type of the template. Valid values: WHATSAPP and VIBER.
-   * 
-   * @example
-   * WHATSAPP
-   */
-  templateType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      category: 'Category',
-      language: 'Language',
-      lastUpdateTime: 'LastUpdateTime',
-      reason: 'Reason',
-      templateCode: 'TemplateCode',
-      templateName: 'TemplateName',
-      templateType: 'TemplateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'string',
-      category: 'string',
-      language: 'string',
-      lastUpdateTime: 'number',
-      reason: 'string',
-      templateCode: 'string',
-      templateName: 'string',
-      templateType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowRequestPage extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  index?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      index: 'Index',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      index: 'number',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The categories of the Flows.
-   */
-  categories?: string[];
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 3939393***
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The Flow name.
-   * 
-   * @example
-   * flow-02020
-   */
-  flowName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      flowId: 'FlowId',
-      flowName: 'FlowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      flowId: 'string',
-      flowName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPhoneMessageQrdlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The URL of the deep link.
-   * 
-   * @example
-   * https://wa.msg/
-   */
-  deepLinkUrl?: string;
-  /**
-   * @remarks
-   * The format of the generated image.
-   * 
-   * @example
-   * PNG
-   */
-  generateQrImage?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613800
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The message content.
-   * 
-   * @example
-   * Hello
-   */
-  prefilledMessage?: string;
-  /**
-   * @remarks
-   * The URL of the QR code.
-   * 
-   * @example
-   * https://img.png
-   */
-  qrImageUrl?: string;
-  /**
-   * @remarks
-   * The mode of the quick-response (QR) code.
-   * 
-   * @example
-   * IUIED999
-   */
-  qrdlCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deepLinkUrl: 'DeepLinkUrl',
-      generateQrImage: 'GenerateQrImage',
-      phoneNumber: 'PhoneNumber',
-      prefilledMessage: 'PrefilledMessage',
-      qrImageUrl: 'QrImageUrl',
-      qrdlCode: 'QrdlCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deepLinkUrl: 'string',
-      generateQrImage: 'string',
-      phoneNumber: 'string',
-      prefilledMessage: 'string',
-      qrImageUrl: 'string',
-      qrdlCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductResponseBodyModelPagingCursors extends $tea.Model {
-  /**
-   * @remarks
-   * The cursor that points to the end of the page of the returned data.
-   * 
-   * @example
-   * sjsuueu83838
-   */
-  after?: string;
-  /**
-   * @remarks
-   * The cursor that points to the beginning of the page of the returned data.
-   * 
-   * @example
-   * sjjsjdjjdjd83883
-   */
-  before?: string;
-  static names(): { [key: string]: string } {
-    return {
-      after: 'After',
-      before: 'Before',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      after: 'string',
-      before: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductResponseBodyModelPaging extends $tea.Model {
-  /**
-   * @remarks
-   * The cursors for pagination.
-   */
-  cursors?: ListProductResponseBodyModelPagingCursors;
-  static names(): { [key: string]: string } {
-    return {
-      cursors: 'Cursors',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cursors: ListProductResponseBodyModelPagingCursors,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductResponseBodyModel extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The pagination details.
-   */
-  paging?: ListProductResponseBodyModelPaging;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      paging: 'Paging',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      paging: ListProductResponseBodyModelPaging,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductCatalogResponseBodyModelPagingCursors extends $tea.Model {
-  /**
-   * @remarks
-   * The cursor that points to the end of the page of the returned data.
-   * 
-   * @example
-   * sjsuueu83838
-   */
-  after?: string;
-  /**
-   * @remarks
-   * The cursor that points to the beginning of the page of the returned data.
-   * 
-   * @example
-   * sjjsjdjjdjd83883
-   */
-  before?: string;
-  static names(): { [key: string]: string } {
-    return {
-      after: 'After',
-      before: 'Before',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      after: 'string',
-      before: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductCatalogResponseBodyModelPaging extends $tea.Model {
-  /**
-   * @remarks
-   * The cursors for pagination.
-   */
-  cursors?: ListProductCatalogResponseBodyModelPagingCursors;
-  static names(): { [key: string]: string } {
-    return {
-      cursors: 'Cursors',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cursors: ListProductCatalogResponseBodyModelPagingCursors,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductCatalogResponseBodyModel extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The pagination details.
-   */
-  paging?: ListProductCatalogResponseBodyModelPaging;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      paging: 'Paging',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      paging: ListProductCatalogResponseBodyModelPaging,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
-  /**
-   * @remarks
-   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
-   * 
-   * @example
-   * com.example.myapplication
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
-   * 
-   * @example
-   * fk39kd93ks9
-   */
-  signatureHash?: string;
-  static names(): { [key: string]: string } {
-    return {
-      packageName: 'PackageName',
-      signatureHash: 'SignatureHash',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      packageName: 'string',
-      signatureHash: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * Autofill
-   */
-  autofillText?: string;
-  /**
-   * @remarks
-   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
-   * 
-   * @example
-   * 120293
-   */
-  couponCode?: string;
-  /**
-   * @remarks
-   * The Flow action.
-   * 
-   * Valid values:
-   * 
-   * *   DATA_EXCHANGE
-   * *   NAVIGATE
-   * 
-   * @example
-   * NAVIGATE
-   */
-  flowAction?: string;
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 664597077870605
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
-   * 
-   * @example
-   * false
-   */
-  isOptOut?: boolean;
-  /**
-   * @remarks
-   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
-   * 
-   * @example
-   * DETAILS
-   */
-  navigateScreen?: string;
-  /**
-   * @remarks
-   * The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * com.demo
-   * 
-   * @deprecated
-   */
-  packageName?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * +8613888887889
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP for a WhatsApp message template.
-   * 
-   * @example
-   * 29dkeke
-   * 
-   * @deprecated
-   */
-  signatureHash?: string;
-  /**
-   * @remarks
-   * List of supported apps.
-   */
-  supportedApps?: ModifyChatappTemplateRequestComponentsButtonsSupportedApps[];
-  /**
-   * @remarks
-   * The text of the button.
-   * 
-   * @example
-   * phone-button-text
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The button type. Valid values:
-   * 
-   * *   **PHONE_NUMBER**: phone call button
-   * *   **URL**: URL button
-   * *   **QUICK_REPLY**: quick reply button
-   * *   **COPY_CODE**: copy code button
-   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
-   * 
-   * > 
-   * 
-   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
-   * 
-   * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to which you are redirected when you click the URL button.
-   * 
-   * @example
-   * https://www.website.com/
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The URL type. Valid values:
-   * 
-   * *   **static**
-   * *   **dynamic**
-   * 
-   * @example
-   * dynamic
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autofillText: 'AutofillText',
-      couponCode: 'CouponCode',
-      flowAction: 'FlowAction',
-      flowId: 'FlowId',
-      isOptOut: 'IsOptOut',
-      navigateScreen: 'NavigateScreen',
-      packageName: 'PackageName',
-      phoneNumber: 'PhoneNumber',
-      signatureHash: 'SignatureHash',
-      supportedApps: 'SupportedApps',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autofillText: 'string',
-      couponCode: 'string',
-      flowAction: 'string',
-      flowId: 'string',
-      isOptOut: 'boolean',
-      navigateScreen: 'string',
-      packageName: 'string',
-      phoneNumber: 'string',
-      signatureHash: 'string',
-      supportedApps: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtonsSupportedApps },
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * +8613800
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The text of the button.
-   * 
-   * @example
-   * Call me
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The button type. Valid values:
-   * 
-   * *   **PHONE_NUMBER**: phone call button
-   * *   **URL**: URL button
-   * *   **QUICK_REPLY**: quick reply button
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PHONE_NUMBER
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL to which you are redirected when you click the URL button.
-   * 
-   * @example
-   * https://alibaba.com/xx
-   */
-  url?: string;
-  /**
-   * @remarks
-   * The URL type. Valid values:
-   * 
-   * *   **static**
-   * *   **dynamic**
-   * 
-   * @example
-   * static
-   */
-  urlType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phoneNumber: 'PhoneNumber',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-      urlType: 'UrlType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phoneNumber: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-      urlType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
-   */
-  buttons?: ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons[];
-  /**
-   * @remarks
-   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
-   * 
-   * *   **IMAGE**
-   * *   **VIDEO**
-   * 
-   * @example
-   * IMAGE
-   */
-  format?: string;
-  /**
-   * @remarks
-   * The body content of the carousel card.
-   * 
-   * @example
-   * Who is the very powerful team
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The component type. Valid values:
-   * 
-   * *   **BODY**
-   * *   **HEADER**
-   * *   **BUTTONS**
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * BODY
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL of the media resource.
-   * 
-   * @example
-   * https://alibaba.com/img.png
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buttons: 'Buttons',
-      format: 'Format',
-      text: 'Text',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons },
-      format: 'string',
-      text: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponentsCards extends $tea.Model {
-  /**
-   * @remarks
-   * The components of the carousel card.
-   * 
-   * This parameter is required.
-   */
-  cardComponents?: ModifyChatappTemplateRequestComponentsCardsCardComponents[];
-  static names(): { [key: string]: string } {
-    return {
-      cardComponents: 'CardComponents',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cardComponents: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCardsCardComponents },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateRequestComponents extends $tea.Model {
-  /**
-   * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
-   * 
-   * @example
-   * false
-   */
-  addSecretRecommendation?: boolean;
-  /**
-   * @remarks
-   * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
-   * 
-   * >  ####
-   * 
-   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
-   * 
-   * *   A WhatsApp message template can contain only one phone call button.
-   * 
-   * *   A WhatsApp message template can contain up to two URL buttons.
-   * 
-   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   */
-  buttons?: ModifyChatappTemplateRequestComponentsButtons[];
-  /**
-   * @remarks
-   * The description of the media resource.
-   * 
-   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
-   * 
-   * @example
-   * This is a video
-   */
-  caption?: string;
-  /**
-   * @remarks
-   * The carousel cards of the carousel template.
-   */
-  cards?: ModifyChatappTemplateRequestComponentsCards[];
-  /**
-   * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
-   * 
-   * @example
-   * 5
-   */
-  codeExpirationMinutes?: number;
-  /**
-   * @remarks
-   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
-   * 
-   * @example
-   * 120
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * The name of the document.
-   * 
-   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify this parameter.
-   * 
-   * @example
-   * video name
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * The type of the document attached in the Viber message template.
-   * 
-   * @example
-   * docx
-   */
-  fileType?: string;
-  /**
-   * @remarks
-   * The type of the media resource. Valid values:
-   * 
-   * *   **TEXT**
-   * *   **IMAGE**
-   * *   **DOCUMENT**
-   * *   **VIDEO**
-   * 
-   * @example
-   * TEXT
-   */
-  format?: string;
-  /**
-   * @remarks
-   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
-   * 
-   * @example
-   * true
-   */
-  hasExpiration?: boolean;
-  /**
-   * @remarks
-   * The text of the message that you want to send.
-   * 
-   * >  If Category is set to AUTHENTICATION, do not specify the Text sub-parameter of the Components parameter.
-   * 
-   * @example
-   * hello chatapp
-   */
-  text?: string;
-  /**
-   * @remarks
-   * The thumbnail URL of the video in the Viber message template.
-   * 
-   * @example
-   * https://cdn.multiplymall.mobiapp.cloud/cloudcode/yc-165407506207478-165511576113195/20220905/ec5b9737-1507-4208-bb27-8da3958da961.jpg?x-oss-process=image/resize,w_100
-   */
-  thumbUrl?: string;
-  /**
-   * @remarks
-   * The component type. Valid values:
-   * 
-   * *   **BODY**
-   * *   **HEADER**
-   * *   **FOOTER**
-   * *   **BUTTONS**
-   * *   **CAROUSEL**
-   * *   **LIMITED_TIME_OFFER**
-   * 
-   * > 
-   * 
-   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
-   * 
-   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
-   * 
-   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * BODY
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The URL of the media resource.
-   * 
-   * @example
-   * https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addSecretRecommendation: 'AddSecretRecommendation',
-      buttons: 'Buttons',
-      caption: 'Caption',
-      cards: 'Cards',
-      codeExpirationMinutes: 'CodeExpirationMinutes',
-      duration: 'Duration',
-      fileName: 'FileName',
-      fileType: 'FileType',
-      format: 'Format',
-      hasExpiration: 'HasExpiration',
-      text: 'Text',
-      thumbUrl: 'ThumbUrl',
-      type: 'Type',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addSecretRecommendation: 'boolean',
-      buttons: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsButtons },
-      caption: 'string',
-      cards: { 'type': 'array', 'itemType': ModifyChatappTemplateRequestComponentsCards },
-      codeExpirationMinutes: 'number',
-      duration: 'number',
-      fileName: 'string',
-      fileType: 'string',
-      format: 'string',
-      hasExpiration: 'boolean',
-      text: 'string',
-      thumbUrl: 'string',
-      type: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyChatappTemplateResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the message template.
-   * 
-   * @example
-   * 8472929283883
-   */
-  templateCode?: string;
-  /**
-   * @remarks
-   * The name of the message template.
-   * 
-   * @example
-   * hello_whatsapp
-   */
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCode: 'TemplateCode',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCode: 'string',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyFlowResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The categories of the Flow.
-   */
-  categories?: string[];
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 3939399****
-   */
-  flowId?: string;
-  /**
-   * @remarks
-   * The Flow name.
-   * 
-   * @example
-   * flow-00203
-   */
-  flowName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categories: 'Categories',
-      flowId: 'FlowId',
-      flowName: 'FlowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categories: { 'type': 'array', 'itemType': 'string' },
-      flowId: 'string',
-      flowName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChatappBindWabaResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The review state of the WhatsApp Business account (WABA).
-   * 
-   * >  Valid values:
-   * 
-   * *   PENDING: The WABA is to be reviewed.
-   * 
-   * *   APPROVED: The WABA was approved.
-   * 
-   * *   REJECTED: The WABA was rejected.
-   * 
-   * *   DISABLED: The WABA was forbidden.
-   * 
-   * @example
-   * APPROVED
-   */
-  accountReviewStatus?: string;
-  /**
-   * @remarks
-   * WABA related information.
-   */
-  authInternationalRateEligibility?: { [key: string]: any };
-  /**
-   * @remarks
-   * The ID of the business platform.
-   * 
-   * @example
-   * 19293988***
-   */
-  businessId?: string;
-  /**
-   * @remarks
-   * The name of the business platform.
-   * 
-   * @example
-   * Alibaba
-   */
-  businessName?: string;
-  /**
-   * @remarks
-   * The currency.
-   * 
-   * @example
-   * USD
-   */
-  currency?: string;
-  /**
-   * @remarks
-   * The ID of the WhatsApp Business account.
-   * 
-   * @example
-   * 20393988393993***
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The namespace of the message template.
-   * 
-   * @example
-   * 90E63D28-E31D-1EB2-8939-A9486641****
-   */
-  messageTemplateNamespace?: string;
-  /**
-   * @remarks
-   * The name of the WhatsApp Business account.
-   * 
-   * @example
-   * Alibaba
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The start time when the authentication-international rate applies.
-   * 
-   * @example
-   * "start_time":1721952000
-   */
-  primaryBusinessLocation?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountReviewStatus: 'AccountReviewStatus',
-      authInternationalRateEligibility: 'AuthInternationalRateEligibility',
-      businessId: 'BusinessId',
-      businessName: 'BusinessName',
-      currency: 'Currency',
-      id: 'Id',
-      messageTemplateNamespace: 'MessageTemplateNamespace',
-      name: 'Name',
-      primaryBusinessLocation: 'PrimaryBusinessLocation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountReviewStatus: 'string',
-      authInternationalRateEligibility: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      businessId: 'string',
-      businessName: 'string',
-      currency: 'string',
-      id: 'string',
-      messageTemplateNamespace: 'string',
-      name: 'string',
-      primaryBusinessLocation: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model {
-  /**
-   * @remarks
-   * The verification status of the phone number.
-   * 
-   * @example
-   * VERIFIED
-   */
-  codeVerificationStatus?: string;
-  /**
-   * @example
-   * N
-   */
-  isOfficial?: string;
-  /**
-   * @remarks
-   * The number of phone numbers to which messages can be sent in a day.
-   * 
-   * Valid values:
-   * 
-   * *   TIER_100K: 100,000
-   * *   TIER_UNLIMITED: unlimited
-   * *   TIER_250: 250
-   * *   TIER_1K: 1,000
-   * *   TIER_50: 50
-   * *   TIER_10K: 10,000
-   * 
-   * @example
-   * TIER_10
-   */
-  messagingLimitTier?: string;
-  /**
-   * @remarks
-   * The status of the business name.
-   * 
-   * @example
-   * Approval
-   */
-  nameStatus?: string;
-  /**
-   * @remarks
-   * The review status of the new business name.
-   * 
-   * @example
-   * Approval
-   */
-  newNameStatus?: string;
-  /**
-   * @remarks
-   * The phone number.
-   * 
-   * @example
-   * 8613800000
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * The quality rating of the phone number.
-   * 
-   * Valid values:
-   * 
-   * *   RED
-   * *   YELLOW
-   * *   UNKNOWN
-   * *   GREEN
-   * 
-   * @example
-   * GREEN
-   */
-  qualityRating?: string;
-  /**
-   * @remarks
-   * The state of the phone number.
-   * 
-   * Valid values:
-   * 
-   * *   MIGRATED
-   * *   FLAGGED
-   * *   DISCONNECTED
-   * *   UNVERIFIED
-   * *   BANNED
-   * *   RATE_LIMITED
-   * *   PENDING
-   * *   CONNECTED
-   * *   UNKNOWN
-   * *   DELETED
-   * *   RESTRICTED
-   * 
-   * @example
-   * CONNECTED
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The callback URL to which status reports are sent by using HTTP callbacks.
-   * 
-   * @example
-   * https://ali.com/status
-   */
-  statusCallbackUrl?: string;
-  /**
-   * @remarks
-   * The status report queue.
-   * 
-   * @example
-   * Alicom-Queue-****-ChatAppStatus
-   */
-  statusQueue?: string;
-  /**
-   * @remarks
-   * The callback URL to which MO messages are sent by using HTTP callbacks.
-   * 
-   * @example
-   * https://ali.com/inbound
-   */
-  upCallbackUrl?: string;
-  /**
-   * @remarks
-   * The mobile originated (MO) message notification queue.
-   * 
-   * @example
-   * Alicom-Queue-****-ChatAppInbound
-   */
-  upQueue?: string;
-  /**
-   * @remarks
-   * The name of the company with which the phone number is associated.
-   * 
-   * @example
-   * Alibaba
-   */
-  verifiedName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      codeVerificationStatus: 'CodeVerificationStatus',
-      isOfficial: 'IsOfficial',
-      messagingLimitTier: 'MessagingLimitTier',
-      nameStatus: 'NameStatus',
-      newNameStatus: 'NewNameStatus',
-      phoneNumber: 'PhoneNumber',
-      qualityRating: 'QualityRating',
-      status: 'Status',
-      statusCallbackUrl: 'StatusCallbackUrl',
-      statusQueue: 'StatusQueue',
-      upCallbackUrl: 'UpCallbackUrl',
-      upQueue: 'UpQueue',
-      verifiedName: 'VerifiedName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      codeVerificationStatus: 'string',
-      isOfficial: 'string',
-      messagingLimitTier: 'string',
-      nameStatus: 'string',
-      newNameStatus: 'string',
-      phoneNumber: 'string',
-      qualityRating: 'string',
-      status: 'string',
-      statusCallbackUrl: 'string',
-      statusQueue: 'string',
-      upCallbackUrl: 'string',
-      upQueue: 'string',
-      verifiedName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Regarding.
-   * 
-   * @example
-   * business profile
-   */
-  about?: string;
-  /**
-   * @remarks
-   * The address.
-   * 
-   * @example
-   * Changsha
-   */
-  address?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * Description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The email address.
-   * 
-   * @example
-   * aa@aliyun.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * The profile picture.
-   * 
-   * @example
-   * https://....img
-   */
-  profilePictureUrl?: string;
-  /**
-   * @remarks
-   * The industry.
-   * 
-   * @example
-   * Retail
-   */
-  vertical?: string;
-  /**
-   * @remarks
-   * The website.
-   */
-  websites?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      about: 'About',
-      address: 'Address',
-      description: 'Description',
-      email: 'Email',
-      profilePictureUrl: 'ProfilePictureUrl',
-      vertical: 'Vertical',
-      websites: 'Websites',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      about: 'string',
-      address: 'string',
-      description: 'string',
-      email: 'string',
-      profilePictureUrl: 'string',
-      vertical: 'string',
-      websites: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The Business Manager ID.
-   * 
-   * @example
-   * 192882828733
-   */
-  businessId?: string;
-  /**
-   * @remarks
-   * The Business Manager name.
-   * 
-   * @example
-   * Alibaba
-   */
-  businessName?: string;
-  /**
-   * @remarks
-   * The verification status.
-   * 
-   * @example
-   * verified
-   */
-  verificationStatus?: string;
-  /**
-   * @remarks
-   * The industry.
-   * 
-   * @example
-   * Retail
-   * 
-   * @deprecated
-   */
-  vertical?: string;
-  static names(): { [key: string]: string } {
-    return {
-      businessId: 'BusinessId',
-      businessName: 'BusinessName',
-      verificationStatus: 'VerificationStatus',
-      vertical: 'Vertical',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessId: 'string',
-      businessName: 'string',
-      verificationStatus: 'string',
-      vertical: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMassMessageRequestSenderListFlowAction extends $tea.Model {
-  /**
-   * @remarks
-   * The default parameter of the Flow.
-   */
-  flowActionData?: { [key: string]: string };
-  /**
-   * @remarks
-   * The information about the Flow token.
-   * 
-   * @example
-   * kde****
-   */
-  flowToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowActionData: 'FlowActionData',
-      flowToken: 'FlowToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      flowToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems extends $tea.Model {
-  /**
-   * @remarks
-   * The retailer ID of the product.
-   * 
-   * @example
-   * ksi399d8
-   */
-  productRetailerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productRetailerId: 'ProductRetailerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productRetailerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMassMessageRequestSenderListProductActionSections extends $tea.Model {
-  /**
-   * @remarks
-   * The products.
-   */
-  productItems?: SendChatappMassMessageRequestSenderListProductActionSectionsProductItems[];
-  /**
-   * @remarks
-   * The name of the category.
-   * 
-   * @example
-   * abcd
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productItems: 'ProductItems',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productItems: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSectionsProductItems },
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMassMessageRequestSenderListProductAction extends $tea.Model {
-  /**
-   * @remarks
-   * The products. Up to 30 products and 10 categories can be added.
-   */
-  sections?: SendChatappMassMessageRequestSenderListProductActionSections[];
-  /**
-   * @remarks
-   * The retailer ID of the product.
-   * 
-   * @example
-   * skkks999393
-   */
-  thumbnailProductRetailerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sections: 'Sections',
-      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sections: { 'type': 'array', 'itemType': SendChatappMassMessageRequestSenderListProductActionSections },
-      thumbnailProductRetailerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMassMessageRequestSenderList extends $tea.Model {
-  /**
-   * @remarks
-   * The Flow action.
-   */
-  flowAction?: SendChatappMassMessageRequestSenderListFlowAction;
-  /**
-   * @remarks
-   * The payload of the button.
-   */
-  payload?: string[];
-  /**
-   * @remarks
-   * The information about the product.
-   */
-  productAction?: SendChatappMassMessageRequestSenderListProductAction;
-  /**
-   * @remarks
-   * The parameters of the template.
-   */
-  templateParams?: { [key: string]: string };
-  /**
-   * @remarks
-   * The mobile phone number of the message receiver.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 861388988****
-   */
-  to?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowAction: 'FlowAction',
-      payload: 'Payload',
-      productAction: 'ProductAction',
-      templateParams: 'TemplateParams',
-      to: 'To',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowAction: SendChatappMassMessageRequestSenderListFlowAction,
-      payload: { 'type': 'array', 'itemType': 'string' },
-      productAction: SendChatappMassMessageRequestSenderListProductAction,
-      templateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      to: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMessageRequestFlowAction extends $tea.Model {
-  /**
-   * @remarks
-   * The default parameter of the Flow.
-   */
-  flowActionData?: { [key: string]: string };
-  /**
-   * @remarks
-   * The Flow token.
-   * 
-   * @example
-   * 1122***
-   */
-  flowToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowActionData: 'FlowActionData',
-      flowToken: 'FlowToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowActionData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      flowToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMessageRequestProductActionSectionsProductItems extends $tea.Model {
-  /**
-   * @remarks
-   * The retailer ID of the product.
-   * 
-   * @example
-   * 9I39E9E
-   */
-  productRetailerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productRetailerId: 'ProductRetailerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productRetailerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMessageRequestProductActionSections extends $tea.Model {
-  /**
-   * @remarks
-   * The products.
-   */
-  productItems?: SendChatappMessageRequestProductActionSectionsProductItems[];
-  /**
-   * @remarks
-   * The name of the category.
-   * 
-   * @example
-   * Test
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productItems: 'ProductItems',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productItems: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSectionsProductItems },
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendChatappMessageRequestProductAction extends $tea.Model {
-  /**
-   * @remarks
-   * The products. Up to 30 products and 10 categories can be added.
-   */
-  sections?: SendChatappMessageRequestProductActionSections[];
-  /**
-   * @remarks
-   * The retailer ID of the product.
-   * 
-   * @example
-   * S238SK
-   */
-  thumbnailProductRetailerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sections: 'Sections',
-      thumbnailProductRetailerId: 'ThumbnailProductRetailerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
-      thumbnailProductRetailerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConversationalAutomationRequestCommands extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the command.
-   * 
-   * @example
-   * Command 1.
-   */
-  commandDescription?: string;
-  /**
-   * @remarks
-   * The command name.
-   * 
-   * @example
-   * test
-   */
-  commandName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commandDescription: 'CommandDescription',
-      commandName: 'CommandName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commandDescription: 'string',
-      commandName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFlowJSONAssetResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The Flow ID.
-   * 
-   * @example
-   * 84848847****
-   */
-  flowId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowId: 'FlowId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePhoneMessageQrdlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Deep link address.
-   * 
-   * @example
-   * https://wa.msg/
-   */
-  deepLinkUrl?: string;
-  /**
-   * @remarks
-   * Generate image types.
-   * 
-   * @example
-   * PNG
-   */
-  generateQrImage?: string;
-  /**
-   * @remarks
-   * Number.
-   * 
-   * @example
-   * 8613800
-   */
-  phoneNumber?: string;
-  /**
-   * @remarks
-   * Message content.
-   * 
-   * @example
-   * Hello
-   */
-  prefilledMessage?: string;
-  /**
-   * @remarks
-   * QR code address.
-   * 
-   * @example
-   * https://img.png
-   */
-  qrImageUrl?: string;
-  /**
-   * @remarks
-   * QR code encoding.
-   * 
-   * @example
-   * DEDEE998
-   */
-  qrdlCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deepLinkUrl: 'DeepLinkUrl',
-      generateQrImage: 'GenerateQrImage',
-      phoneNumber: 'PhoneNumber',
-      prefilledMessage: 'PrefilledMessage',
-      qrImageUrl: 'QrImageUrl',
-      qrdlCode: 'QrdlCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deepLinkUrl: 'string',
-      generateQrImage: 'string',
-      phoneNumber: 'string',
-      prefilledMessage: 'string',
-      qrImageUrl: 'string',
-      qrdlCode: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -16964,7 +18847,7 @@ export class UpdatePhoneMessageQrdlResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -16973,15 +18856,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -16991,45 +18874,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddChatappPhoneNumberResponse
    */
-  async addChatappPhoneNumberWithOptions(request: AddChatappPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddChatappPhoneNumberResponse> {
-    Util.validateModel(request);
+  async addChatappPhoneNumberWithOptions(request: AddChatappPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<AddChatappPhoneNumberResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cc)) {
+    if (!$dara.isNull(request.cc)) {
       query["Cc"] = request.cc;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.preValidateId)) {
+    if (!$dara.isNull(request.preValidateId)) {
       query["PreValidateId"] = request.preValidateId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.verifiedName)) {
+    if (!$dara.isNull(request.verifiedName)) {
       query["VerifiedName"] = request.verifiedName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddChatappPhoneNumber",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17040,12 +18923,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
-    } else {
-      return $tea.cast<AddChatappPhoneNumberResponse>(await this.execute(params, req, runtime), new AddChatappPhoneNumberResponse({}));
-    }
-
+    return $dara.cast<AddChatappPhoneNumberResponse>(await this.callApi(params, req, runtime), new AddChatappPhoneNumberResponse({}));
   }
 
   /**
@@ -17055,7 +18933,7 @@ export default class Client extends OpenApi {
    * @returns AddChatappPhoneNumberResponse
    */
   async addChatappPhoneNumber(request: AddChatappPhoneNumberRequest): Promise<AddChatappPhoneNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addChatappPhoneNumberWithOptions(request, runtime);
   }
 
@@ -17069,47 +18947,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BeeBotAssociateResponse
    */
-  async beeBotAssociateWithOptions(tmpReq: BeeBotAssociateRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotAssociateResponse> {
-    Util.validateModel(tmpReq);
+  async beeBotAssociateWithOptions(tmpReq: BeeBotAssociateRequest, runtime: $dara.RuntimeOptions): Promise<BeeBotAssociateResponse> {
+    tmpReq.validate();
     let request = new BeeBotAssociateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.perspective)) {
+    if (!$dara.isNull(tmpReq.perspective)) {
       request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chatBotInstanceId)) {
+    if (!$dara.isNull(request.chatBotInstanceId)) {
       body["ChatBotInstanceId"] = request.chatBotInstanceId;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.perspectiveShrink)) {
+    if (!$dara.isNull(request.perspectiveShrink)) {
       body["Perspective"] = request.perspectiveShrink;
     }
 
-    if (!Util.isUnset(request.recommendNum)) {
+    if (!$dara.isNull(request.recommendNum)) {
       body["RecommendNum"] = request.recommendNum;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.utterance)) {
+    if (!$dara.isNull(request.utterance)) {
       body["Utterance"] = request.utterance;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BeeBotAssociate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17120,12 +18998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
-    } else {
-      return $tea.cast<BeeBotAssociateResponse>(await this.execute(params, req, runtime), new BeeBotAssociateResponse({}));
-    }
-
+    return $dara.cast<BeeBotAssociateResponse>(await this.callApi(params, req, runtime), new BeeBotAssociateResponse({}));
   }
 
   /**
@@ -17138,7 +19011,7 @@ export default class Client extends OpenApi {
    * @returns BeeBotAssociateResponse
    */
   async beeBotAssociate(request: BeeBotAssociateRequest): Promise<BeeBotAssociateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.beeBotAssociateWithOptions(request, runtime);
   }
 
@@ -17152,67 +19025,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BeeBotChatResponse
    */
-  async beeBotChatWithOptions(tmpReq: BeeBotChatRequest, runtime: $Util.RuntimeOptions): Promise<BeeBotChatResponse> {
-    Util.validateModel(tmpReq);
+  async beeBotChatWithOptions(tmpReq: BeeBotChatRequest, runtime: $dara.RuntimeOptions): Promise<BeeBotChatResponse> {
+    tmpReq.validate();
     let request = new BeeBotChatShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.perspective)) {
+    if (!$dara.isNull(tmpReq.perspective)) {
       request.perspectiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.perspective, "Perspective", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vendorParam)) {
+    if (!$dara.isNull(tmpReq.vendorParam)) {
       request.vendorParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vendorParam, "VendorParam", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chatBotInstanceId)) {
+    if (!$dara.isNull(request.chatBotInstanceId)) {
       body["ChatBotInstanceId"] = request.chatBotInstanceId;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.intentName)) {
+    if (!$dara.isNull(request.intentName)) {
       body["IntentName"] = request.intentName;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.knowledgeId)) {
+    if (!$dara.isNull(request.knowledgeId)) {
       body["KnowledgeId"] = request.knowledgeId;
     }
 
-    if (!Util.isUnset(request.perspectiveShrink)) {
+    if (!$dara.isNull(request.perspectiveShrink)) {
       body["Perspective"] = request.perspectiveShrink;
     }
 
-    if (!Util.isUnset(request.senderId)) {
+    if (!$dara.isNull(request.senderId)) {
       body["SenderId"] = request.senderId;
     }
 
-    if (!Util.isUnset(request.senderNick)) {
+    if (!$dara.isNull(request.senderNick)) {
       body["SenderNick"] = request.senderNick;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.utterance)) {
+    if (!$dara.isNull(request.utterance)) {
       body["Utterance"] = request.utterance;
     }
 
-    if (!Util.isUnset(request.vendorParamShrink)) {
+    if (!$dara.isNull(request.vendorParamShrink)) {
       body["VendorParam"] = request.vendorParamShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BeeBotChat",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17223,12 +19096,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
-    } else {
-      return $tea.cast<BeeBotChatResponse>(await this.execute(params, req, runtime), new BeeBotChatResponse({}));
-    }
-
+    return $dara.cast<BeeBotChatResponse>(await this.callApi(params, req, runtime), new BeeBotChatResponse({}));
   }
 
   /**
@@ -17241,7 +19109,7 @@ export default class Client extends OpenApi {
    * @returns BeeBotChatResponse
    */
   async beeBotChat(request: BeeBotChatRequest): Promise<BeeBotChatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.beeBotChatWithOptions(request, runtime);
   }
 
@@ -17255,29 +19123,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappBindWabaResponse
    */
-  async chatappBindWabaWithOptions(request: ChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<ChatappBindWabaResponse> {
-    Util.validateModel(request);
+  async chatappBindWabaWithOptions(request: ChatappBindWabaRequest, runtime: $dara.RuntimeOptions): Promise<ChatappBindWabaResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.wabaId)) {
+    if (!$dara.isNull(request.wabaId)) {
       query["WabaId"] = request.wabaId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappBindWaba",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17288,12 +19156,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
-    } else {
-      return $tea.cast<ChatappBindWabaResponse>(await this.execute(params, req, runtime), new ChatappBindWabaResponse({}));
-    }
-
+    return $dara.cast<ChatappBindWabaResponse>(await this.callApi(params, req, runtime), new ChatappBindWabaResponse({}));
   }
 
   /**
@@ -17306,7 +19169,7 @@ export default class Client extends OpenApi {
    * @returns ChatappBindWabaResponse
    */
   async chatappBindWaba(request: ChatappBindWabaRequest): Promise<ChatappBindWabaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappBindWabaWithOptions(request, runtime);
   }
 
@@ -17320,17 +19183,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappEmbedSignUpResponse
    */
-  async chatappEmbedSignUpWithOptions(request: ChatappEmbedSignUpRequest, runtime: $Util.RuntimeOptions): Promise<ChatappEmbedSignUpResponse> {
-    Util.validateModel(request);
+  async chatappEmbedSignUpWithOptions(request: ChatappEmbedSignUpRequest, runtime: $dara.RuntimeOptions): Promise<ChatappEmbedSignUpResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.inputToken)) {
+    if (!$dara.isNull(request.inputToken)) {
       body["InputToken"] = request.inputToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappEmbedSignUp",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17341,12 +19204,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
-    } else {
-      return $tea.cast<ChatappEmbedSignUpResponse>(await this.execute(params, req, runtime), new ChatappEmbedSignUpResponse({}));
-    }
-
+    return $dara.cast<ChatappEmbedSignUpResponse>(await this.callApi(params, req, runtime), new ChatappEmbedSignUpResponse({}));
   }
 
   /**
@@ -17359,7 +19217,7 @@ export default class Client extends OpenApi {
    * @returns ChatappEmbedSignUpResponse
    */
   async chatappEmbedSignUp(request: ChatappEmbedSignUpRequest): Promise<ChatappEmbedSignUpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappEmbedSignUpWithOptions(request, runtime);
   }
 
@@ -17373,21 +19231,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappMigrationRegisterResponse
    */
-  async chatappMigrationRegisterWithOptions(request: ChatappMigrationRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationRegisterResponse> {
-    Util.validateModel(request);
+  async chatappMigrationRegisterWithOptions(request: ChatappMigrationRegisterRequest, runtime: $dara.RuntimeOptions): Promise<ChatappMigrationRegisterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappMigrationRegister",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17398,12 +19256,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
-    } else {
-      return $tea.cast<ChatappMigrationRegisterResponse>(await this.execute(params, req, runtime), new ChatappMigrationRegisterResponse({}));
-    }
-
+    return $dara.cast<ChatappMigrationRegisterResponse>(await this.callApi(params, req, runtime), new ChatappMigrationRegisterResponse({}));
   }
 
   /**
@@ -17416,7 +19269,7 @@ export default class Client extends OpenApi {
    * @returns ChatappMigrationRegisterResponse
    */
   async chatappMigrationRegister(request: ChatappMigrationRegisterRequest): Promise<ChatappMigrationRegisterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappMigrationRegisterWithOptions(request, runtime);
   }
 
@@ -17430,25 +19283,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappMigrationVerifiedResponse
    */
-  async chatappMigrationVerifiedWithOptions(request: ChatappMigrationVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<ChatappMigrationVerifiedResponse> {
-    Util.validateModel(request);
+  async chatappMigrationVerifiedWithOptions(request: ChatappMigrationVerifiedRequest, runtime: $dara.RuntimeOptions): Promise<ChatappMigrationVerifiedResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.verifyCode)) {
+    if (!$dara.isNull(request.verifyCode)) {
       query["VerifyCode"] = request.verifyCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappMigrationVerified",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17459,12 +19312,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
-    } else {
-      return $tea.cast<ChatappMigrationVerifiedResponse>(await this.execute(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
-    }
-
+    return $dara.cast<ChatappMigrationVerifiedResponse>(await this.callApi(params, req, runtime), new ChatappMigrationVerifiedResponse({}));
   }
 
   /**
@@ -17477,7 +19325,7 @@ export default class Client extends OpenApi {
    * @returns ChatappMigrationVerifiedResponse
    */
   async chatappMigrationVerified(request: ChatappMigrationVerifiedRequest): Promise<ChatappMigrationVerifiedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappMigrationVerifiedWithOptions(request, runtime);
   }
 
@@ -17491,21 +19339,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappPhoneNumberDeregisterResponse
    */
-  async chatappPhoneNumberDeregisterWithOptions(request: ChatappPhoneNumberDeregisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberDeregisterResponse> {
-    Util.validateModel(request);
+  async chatappPhoneNumberDeregisterWithOptions(request: ChatappPhoneNumberDeregisterRequest, runtime: $dara.RuntimeOptions): Promise<ChatappPhoneNumberDeregisterResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappPhoneNumberDeregister",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17516,12 +19364,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
-    } else {
-      return $tea.cast<ChatappPhoneNumberDeregisterResponse>(await this.execute(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
-    }
-
+    return $dara.cast<ChatappPhoneNumberDeregisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberDeregisterResponse({}));
   }
 
   /**
@@ -17534,7 +19377,7 @@ export default class Client extends OpenApi {
    * @returns ChatappPhoneNumberDeregisterResponse
    */
   async chatappPhoneNumberDeregister(request: ChatappPhoneNumberDeregisterRequest): Promise<ChatappPhoneNumberDeregisterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappPhoneNumberDeregisterWithOptions(request, runtime);
   }
 
@@ -17548,33 +19391,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappPhoneNumberRegisterResponse
    */
-  async chatappPhoneNumberRegisterWithOptions(request: ChatappPhoneNumberRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberRegisterResponse> {
-    Util.validateModel(request);
+  async chatappPhoneNumberRegisterWithOptions(request: ChatappPhoneNumberRegisterRequest, runtime: $dara.RuntimeOptions): Promise<ChatappPhoneNumberRegisterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappPhoneNumberRegister",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17585,12 +19428,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
-    } else {
-      return $tea.cast<ChatappPhoneNumberRegisterResponse>(await this.execute(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
-    }
-
+    return $dara.cast<ChatappPhoneNumberRegisterResponse>(await this.callApi(params, req, runtime), new ChatappPhoneNumberRegisterResponse({}));
   }
 
   /**
@@ -17603,7 +19441,7 @@ export default class Client extends OpenApi {
    * @returns ChatappPhoneNumberRegisterResponse
    */
   async chatappPhoneNumberRegister(request: ChatappPhoneNumberRegisterRequest): Promise<ChatappPhoneNumberRegisterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappPhoneNumberRegisterWithOptions(request, runtime);
   }
 
@@ -17617,29 +19455,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappSyncPhoneNumberResponse
    */
-  async chatappSyncPhoneNumberWithOptions(request: ChatappSyncPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ChatappSyncPhoneNumberResponse> {
-    Util.validateModel(request);
+  async chatappSyncPhoneNumberWithOptions(request: ChatappSyncPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<ChatappSyncPhoneNumberResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappSyncPhoneNumber",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17650,12 +19488,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
-    } else {
-      return $tea.cast<ChatappSyncPhoneNumberResponse>(await this.execute(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
-    }
-
+    return $dara.cast<ChatappSyncPhoneNumberResponse>(await this.callApi(params, req, runtime), new ChatappSyncPhoneNumberResponse({}));
   }
 
   /**
@@ -17668,7 +19501,7 @@ export default class Client extends OpenApi {
    * @returns ChatappSyncPhoneNumberResponse
    */
   async chatappSyncPhoneNumber(request: ChatappSyncPhoneNumberRequest): Promise<ChatappSyncPhoneNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappSyncPhoneNumberWithOptions(request, runtime);
   }
 
@@ -17682,37 +19515,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatappVerifyAndRegisterResponse
    */
-  async chatappVerifyAndRegisterWithOptions(request: ChatappVerifyAndRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappVerifyAndRegisterResponse> {
-    Util.validateModel(request);
+  async chatappVerifyAndRegisterWithOptions(request: ChatappVerifyAndRegisterRequest, runtime: $dara.RuntimeOptions): Promise<ChatappVerifyAndRegisterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.verifyCode)) {
+    if (!$dara.isNull(request.verifyCode)) {
       query["VerifyCode"] = request.verifyCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChatappVerifyAndRegister",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17723,12 +19556,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
-    } else {
-      return $tea.cast<ChatappVerifyAndRegisterResponse>(await this.execute(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
-    }
-
+    return $dara.cast<ChatappVerifyAndRegisterResponse>(await this.callApi(params, req, runtime), new ChatappVerifyAndRegisterResponse({}));
   }
 
   /**
@@ -17741,7 +19569,7 @@ export default class Client extends OpenApi {
    * @returns ChatappVerifyAndRegisterResponse
    */
   async chatappVerifyAndRegister(request: ChatappVerifyAndRegisterRequest): Promise<ChatappVerifyAndRegisterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.chatappVerifyAndRegisterWithOptions(request, runtime);
   }
 
@@ -17755,25 +19583,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateChatappMigrationInitiateResponse
    */
-  async createChatappMigrationInitiateWithOptions(request: CreateChatappMigrationInitiateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappMigrationInitiateResponse> {
-    Util.validateModel(request);
+  async createChatappMigrationInitiateWithOptions(request: CreateChatappMigrationInitiateRequest, runtime: $dara.RuntimeOptions): Promise<CreateChatappMigrationInitiateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.countryCode)) {
+    if (!$dara.isNull(request.countryCode)) {
       query["CountryCode"] = request.countryCode;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.mobileNumber)) {
+    if (!$dara.isNull(request.mobileNumber)) {
       query["MobileNumber"] = request.mobileNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateChatappMigrationInitiate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17784,12 +19612,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
-    } else {
-      return $tea.cast<CreateChatappMigrationInitiateResponse>(await this.execute(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
-    }
-
+    return $dara.cast<CreateChatappMigrationInitiateResponse>(await this.callApi(params, req, runtime), new CreateChatappMigrationInitiateResponse({}));
   }
 
   /**
@@ -17802,7 +19625,7 @@ export default class Client extends OpenApi {
    * @returns CreateChatappMigrationInitiateResponse
    */
   async createChatappMigrationInitiate(request: CreateChatappMigrationInitiateRequest): Promise<CreateChatappMigrationInitiateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createChatappMigrationInitiateWithOptions(request, runtime);
   }
 
@@ -17819,67 +19642,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateChatappTemplateResponse
    */
-  async createChatappTemplateWithOptions(tmpReq: CreateChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async createChatappTemplateWithOptions(tmpReq: CreateChatappTemplateRequest, runtime: $dara.RuntimeOptions): Promise<CreateChatappTemplateResponse> {
+    tmpReq.validate();
     let request = new CreateChatappTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.components)) {
+    if (!$dara.isNull(tmpReq.components)) {
       request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
     }
 
-    if (!Util.isUnset(tmpReq.example)) {
+    if (!$dara.isNull(tmpReq.example)) {
       request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.allowCategoryChange)) {
+    if (!$dara.isNull(request.allowCategoryChange)) {
       body["AllowCategoryChange"] = request.allowCategoryChange;
     }
 
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       body["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.componentsShrink)) {
+    if (!$dara.isNull(request.componentsShrink)) {
       body["Components"] = request.componentsShrink;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.exampleShrink)) {
+    if (!$dara.isNull(request.exampleShrink)) {
       body["Example"] = request.exampleShrink;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       body["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.messageSendTtlSeconds)) {
+    if (!$dara.isNull(request.messageSendTtlSeconds)) {
       body["MessageSendTtlSeconds"] = request.messageSendTtlSeconds;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       body["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateChatappTemplate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17890,12 +19713,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateChatappTemplateResponse>(await this.callApi(params, req, runtime), new CreateChatappTemplateResponse({}));
-    } else {
-      return $tea.cast<CreateChatappTemplateResponse>(await this.execute(params, req, runtime), new CreateChatappTemplateResponse({}));
-    }
-
+    return $dara.cast<CreateChatappTemplateResponse>(await this.callApi(params, req, runtime), new CreateChatappTemplateResponse({}));
   }
 
   /**
@@ -17911,7 +19729,7 @@ export default class Client extends OpenApi {
    * @returns CreateChatappTemplateResponse
    */
   async createChatappTemplate(request: CreateChatappTemplateRequest): Promise<CreateChatappTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createChatappTemplateWithOptions(request, runtime);
   }
 
@@ -17925,31 +19743,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFlowResponse
    */
-  async createFlowWithOptions(tmpReq: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
-    Util.validateModel(tmpReq);
+  async createFlowWithOptions(tmpReq: CreateFlowRequest, runtime: $dara.RuntimeOptions): Promise<CreateFlowResponse> {
+    tmpReq.validate();
     let request = new CreateFlowShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.categories)) {
+    if (!$dara.isNull(tmpReq.categories)) {
       request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.categoriesShrink)) {
+    if (!$dara.isNull(request.categoriesShrink)) {
       body["Categories"] = request.categoriesShrink;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -17960,12 +19778,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
-    } else {
-      return $tea.cast<CreateFlowResponse>(await this.execute(params, req, runtime), new CreateFlowResponse({}));
-    }
-
+    return $dara.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
   }
 
   /**
@@ -17978,7 +19791,7 @@ export default class Client extends OpenApi {
    * @returns CreateFlowResponse
    */
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
   }
 
@@ -17989,29 +19802,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePhoneMessageQrdlResponse
    */
-  async createPhoneMessageQrdlWithOptions(request: CreatePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhoneMessageQrdlResponse> {
-    Util.validateModel(request);
+  async createPhoneMessageQrdlWithOptions(request: CreatePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<CreatePhoneMessageQrdlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.generateQrImage)) {
+    if (!$dara.isNull(request.generateQrImage)) {
       body["GenerateQrImage"] = request.generateQrImage;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.prefilledMessage)) {
+    if (!$dara.isNull(request.prefilledMessage)) {
       body["PrefilledMessage"] = request.prefilledMessage;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePhoneMessageQrdl",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18022,12 +19835,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
-    } else {
-      return $tea.cast<CreatePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
-    }
-
+    return $dara.cast<CreatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new CreatePhoneMessageQrdlResponse({}));
   }
 
   /**
@@ -18037,7 +19845,7 @@ export default class Client extends OpenApi {
    * @returns CreatePhoneMessageQrdlResponse
    */
   async createPhoneMessageQrdl(request: CreatePhoneMessageQrdlRequest): Promise<CreatePhoneMessageQrdlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPhoneMessageQrdlWithOptions(request, runtime);
   }
 
@@ -18052,53 +19860,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteChatappTemplateResponse
    */
-  async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
-    Util.validateModel(request);
+  async deleteChatappTemplateWithOptions(request: DeleteChatappTemplateRequest, runtime: $dara.RuntimeOptions): Promise<DeleteChatappTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       query["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteChatappTemplate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18109,12 +19917,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteChatappTemplateResponse>(await this.callApi(params, req, runtime), new DeleteChatappTemplateResponse({}));
-    } else {
-      return $tea.cast<DeleteChatappTemplateResponse>(await this.execute(params, req, runtime), new DeleteChatappTemplateResponse({}));
-    }
-
+    return $dara.cast<DeleteChatappTemplateResponse>(await this.callApi(params, req, runtime), new DeleteChatappTemplateResponse({}));
   }
 
   /**
@@ -18128,7 +19931,7 @@ export default class Client extends OpenApi {
    * @returns DeleteChatappTemplateResponse
    */
   async deleteChatappTemplate(request: DeleteChatappTemplateRequest): Promise<DeleteChatappTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteChatappTemplateWithOptions(request, runtime);
   }
 
@@ -18142,21 +19945,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFlowResponse
    */
-  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
-    Util.validateModel(request);
+  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $dara.RuntimeOptions): Promise<DeleteFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18167,12 +19970,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
-    } else {
-      return $tea.cast<DeleteFlowResponse>(await this.execute(params, req, runtime), new DeleteFlowResponse({}));
-    }
-
+    return $dara.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
   }
 
   /**
@@ -18185,7 +19983,7 @@ export default class Client extends OpenApi {
    * @returns DeleteFlowResponse
    */
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
   }
 
@@ -18196,25 +19994,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePhoneMessageQrdlResponse
    */
-  async deletePhoneMessageQrdlWithOptions(request: DeletePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhoneMessageQrdlResponse> {
-    Util.validateModel(request);
+  async deletePhoneMessageQrdlWithOptions(request: DeletePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<DeletePhoneMessageQrdlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.qrdlCode)) {
+    if (!$dara.isNull(request.qrdlCode)) {
       body["QrdlCode"] = request.qrdlCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePhoneMessageQrdl",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18225,12 +20023,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
-    } else {
-      return $tea.cast<DeletePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
-    }
-
+    return $dara.cast<DeletePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new DeletePhoneMessageQrdlResponse({}));
   }
 
   /**
@@ -18240,7 +20033,7 @@ export default class Client extends OpenApi {
    * @returns DeletePhoneMessageQrdlResponse
    */
   async deletePhoneMessageQrdl(request: DeletePhoneMessageQrdlRequest): Promise<DeletePhoneMessageQrdlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePhoneMessageQrdlWithOptions(request, runtime);
   }
 
@@ -18251,21 +20044,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeprecateFlowResponse
    */
-  async deprecateFlowWithOptions(request: DeprecateFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeprecateFlowResponse> {
-    Util.validateModel(request);
+  async deprecateFlowWithOptions(request: DeprecateFlowRequest, runtime: $dara.RuntimeOptions): Promise<DeprecateFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeprecateFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18276,12 +20069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeprecateFlowResponse>(await this.callApi(params, req, runtime), new DeprecateFlowResponse({}));
-    } else {
-      return $tea.cast<DeprecateFlowResponse>(await this.execute(params, req, runtime), new DeprecateFlowResponse({}));
-    }
-
+    return $dara.cast<DeprecateFlowResponse>(await this.callApi(params, req, runtime), new DeprecateFlowResponse({}));
   }
 
   /**
@@ -18291,7 +20079,7 @@ export default class Client extends OpenApi {
    * @returns DeprecateFlowResponse
    */
   async deprecateFlow(request: DeprecateFlowRequest): Promise<DeprecateFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deprecateFlowWithOptions(request, runtime);
   }
 
@@ -18305,21 +20093,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableWhatsappROIMetricResponse
    */
-  async enableWhatsappROIMetricWithOptions(request: EnableWhatsappROIMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableWhatsappROIMetricResponse> {
-    Util.validateModel(request);
+  async enableWhatsappROIMetricWithOptions(request: EnableWhatsappROIMetricRequest, runtime: $dara.RuntimeOptions): Promise<EnableWhatsappROIMetricResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnableWhatsappROIMetric",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18330,12 +20118,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
-    } else {
-      return $tea.cast<EnableWhatsappROIMetricResponse>(await this.execute(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
-    }
-
+    return $dara.cast<EnableWhatsappROIMetricResponse>(await this.callApi(params, req, runtime), new EnableWhatsappROIMetricResponse({}));
   }
 
   /**
@@ -18348,7 +20131,7 @@ export default class Client extends OpenApi {
    * @returns EnableWhatsappROIMetricResponse
    */
   async enableWhatsappROIMetric(request: EnableWhatsappROIMetricRequest): Promise<EnableWhatsappROIMetricResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enableWhatsappROIMetricWithOptions(request, runtime);
   }
 
@@ -18362,37 +20145,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatappPhoneNumberMetricResponse
    */
-  async getChatappPhoneNumberMetricWithOptions(request: GetChatappPhoneNumberMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappPhoneNumberMetricResponse> {
-    Util.validateModel(request);
+  async getChatappPhoneNumberMetricWithOptions(request: GetChatappPhoneNumberMetricRequest, runtime: $dara.RuntimeOptions): Promise<GetChatappPhoneNumberMetricResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.end)) {
+    if (!$dara.isNull(request.end)) {
       query["End"] = request.end;
     }
 
-    if (!Util.isUnset(request.granularity)) {
+    if (!$dara.isNull(request.granularity)) {
       query["Granularity"] = request.granularity;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.start)) {
+    if (!$dara.isNull(request.start)) {
       query["Start"] = request.start;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChatappPhoneNumberMetric",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18403,12 +20186,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
-    } else {
-      return $tea.cast<GetChatappPhoneNumberMetricResponse>(await this.execute(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
-    }
-
+    return $dara.cast<GetChatappPhoneNumberMetricResponse>(await this.callApi(params, req, runtime), new GetChatappPhoneNumberMetricResponse({}));
   }
 
   /**
@@ -18421,7 +20199,7 @@ export default class Client extends OpenApi {
    * @returns GetChatappPhoneNumberMetricResponse
    */
   async getChatappPhoneNumberMetric(request: GetChatappPhoneNumberMetricRequest): Promise<GetChatappPhoneNumberMetricResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappPhoneNumberMetricWithOptions(request, runtime);
   }
 
@@ -18436,41 +20214,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatappTemplateDetailResponse
    */
-  async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
-    Util.validateModel(request);
+  async getChatappTemplateDetailWithOptions(request: GetChatappTemplateDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetChatappTemplateDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       query["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       query["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChatappTemplateDetail",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18481,12 +20259,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
-    } else {
-      return $tea.cast<GetChatappTemplateDetailResponse>(await this.execute(params, req, runtime), new GetChatappTemplateDetailResponse({}));
-    }
-
+    return $dara.cast<GetChatappTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateDetailResponse({}));
   }
 
   /**
@@ -18500,7 +20273,7 @@ export default class Client extends OpenApi {
    * @returns GetChatappTemplateDetailResponse
    */
   async getChatappTemplateDetail(request: GetChatappTemplateDetailRequest): Promise<GetChatappTemplateDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappTemplateDetailWithOptions(request, runtime);
   }
 
@@ -18514,45 +20287,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatappTemplateMetricResponse
    */
-  async getChatappTemplateMetricWithOptions(request: GetChatappTemplateMetricRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappTemplateMetricResponse> {
-    Util.validateModel(request);
+  async getChatappTemplateMetricWithOptions(request: GetChatappTemplateMetricRequest, runtime: $dara.RuntimeOptions): Promise<GetChatappTemplateMetricResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.end)) {
+    if (!$dara.isNull(request.end)) {
       query["End"] = request.end;
     }
 
-    if (!Util.isUnset(request.granularity)) {
+    if (!$dara.isNull(request.granularity)) {
       query["Granularity"] = request.granularity;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.start)) {
+    if (!$dara.isNull(request.start)) {
       query["Start"] = request.start;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChatappTemplateMetric",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18563,12 +20336,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
-    } else {
-      return $tea.cast<GetChatappTemplateMetricResponse>(await this.execute(params, req, runtime), new GetChatappTemplateMetricResponse({}));
-    }
-
+    return $dara.cast<GetChatappTemplateMetricResponse>(await this.callApi(params, req, runtime), new GetChatappTemplateMetricResponse({}));
   }
 
   /**
@@ -18581,7 +20349,7 @@ export default class Client extends OpenApi {
    * @returns GetChatappTemplateMetricResponse
    */
   async getChatappTemplateMetric(request: GetChatappTemplateMetricRequest): Promise<GetChatappTemplateMetricResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappTemplateMetricWithOptions(request, runtime);
   }
 
@@ -18595,17 +20363,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatappUploadAuthorizationResponse
    */
-  async getChatappUploadAuthorizationWithOptions(request: GetChatappUploadAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappUploadAuthorizationResponse> {
-    Util.validateModel(request);
+  async getChatappUploadAuthorizationWithOptions(request: GetChatappUploadAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<GetChatappUploadAuthorizationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChatappUploadAuthorization",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18616,12 +20384,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
-    } else {
-      return $tea.cast<GetChatappUploadAuthorizationResponse>(await this.execute(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
-    }
-
+    return $dara.cast<GetChatappUploadAuthorizationResponse>(await this.callApi(params, req, runtime), new GetChatappUploadAuthorizationResponse({}));
   }
 
   /**
@@ -18634,7 +20397,7 @@ export default class Client extends OpenApi {
    * @returns GetChatappUploadAuthorizationResponse
    */
   async getChatappUploadAuthorization(request: GetChatappUploadAuthorizationRequest): Promise<GetChatappUploadAuthorizationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappUploadAuthorizationWithOptions(request, runtime);
   }
 
@@ -18648,41 +20411,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChatappVerifyCodeResponse
    */
-  async getChatappVerifyCodeWithOptions(request: GetChatappVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappVerifyCodeResponse> {
-    Util.validateModel(request);
+  async getChatappVerifyCodeWithOptions(request: GetChatappVerifyCodeRequest, runtime: $dara.RuntimeOptions): Promise<GetChatappVerifyCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.locale)) {
+    if (!$dara.isNull(request.locale)) {
       query["Locale"] = request.locale;
     }
 
-    if (!Util.isUnset(request.method)) {
+    if (!$dara.isNull(request.method)) {
       query["Method"] = request.method;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetChatappVerifyCode",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18693,12 +20456,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
-    } else {
-      return $tea.cast<GetChatappVerifyCodeResponse>(await this.execute(params, req, runtime), new GetChatappVerifyCodeResponse({}));
-    }
-
+    return $dara.cast<GetChatappVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetChatappVerifyCodeResponse({}));
   }
 
   /**
@@ -18711,7 +20469,7 @@ export default class Client extends OpenApi {
    * @returns GetChatappVerifyCodeResponse
    */
   async getChatappVerifyCode(request: GetChatappVerifyCodeRequest): Promise<GetChatappVerifyCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatappVerifyCodeWithOptions(request, runtime);
   }
 
@@ -18725,33 +20483,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCommerceSettingResponse
    */
-  async getCommerceSettingWithOptions(request: GetCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<GetCommerceSettingResponse> {
-    Util.validateModel(request);
+  async getCommerceSettingWithOptions(request: GetCommerceSettingRequest, runtime: $dara.RuntimeOptions): Promise<GetCommerceSettingResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCommerceSetting",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18762,12 +20520,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
-    } else {
-      return $tea.cast<GetCommerceSettingResponse>(await this.execute(params, req, runtime), new GetCommerceSettingResponse({}));
-    }
-
+    return $dara.cast<GetCommerceSettingResponse>(await this.callApi(params, req, runtime), new GetCommerceSettingResponse({}));
   }
 
   /**
@@ -18780,7 +20533,7 @@ export default class Client extends OpenApi {
    * @returns GetCommerceSettingResponse
    */
   async getCommerceSetting(request: GetCommerceSettingRequest): Promise<GetCommerceSettingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCommerceSettingWithOptions(request, runtime);
   }
 
@@ -18796,33 +20549,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConversationalAutomationResponse
    */
-  async getConversationalAutomationWithOptions(request: GetConversationalAutomationRequest, runtime: $Util.RuntimeOptions): Promise<GetConversationalAutomationResponse> {
-    Util.validateModel(request);
+  async getConversationalAutomationWithOptions(request: GetConversationalAutomationRequest, runtime: $dara.RuntimeOptions): Promise<GetConversationalAutomationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConversationalAutomation",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18833,12 +20586,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetConversationalAutomationResponse>(await this.callApi(params, req, runtime), new GetConversationalAutomationResponse({}));
-    } else {
-      return $tea.cast<GetConversationalAutomationResponse>(await this.execute(params, req, runtime), new GetConversationalAutomationResponse({}));
-    }
-
+    return $dara.cast<GetConversationalAutomationResponse>(await this.callApi(params, req, runtime), new GetConversationalAutomationResponse({}));
   }
 
   /**
@@ -18853,7 +20601,7 @@ export default class Client extends OpenApi {
    * @returns GetConversationalAutomationResponse
    */
   async getConversationalAutomation(request: GetConversationalAutomationRequest): Promise<GetConversationalAutomationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getConversationalAutomationWithOptions(request, runtime);
   }
 
@@ -18867,21 +20615,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFlowResponse
    */
-  async getFlowWithOptions(request: GetFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowResponse> {
-    Util.validateModel(request);
+  async getFlowWithOptions(request: GetFlowRequest, runtime: $dara.RuntimeOptions): Promise<GetFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18892,12 +20640,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
-    } else {
-      return $tea.cast<GetFlowResponse>(await this.execute(params, req, runtime), new GetFlowResponse({}));
-    }
-
+    return $dara.cast<GetFlowResponse>(await this.callApi(params, req, runtime), new GetFlowResponse({}));
   }
 
   /**
@@ -18910,7 +20653,7 @@ export default class Client extends OpenApi {
    * @returns GetFlowResponse
    */
   async getFlow(request: GetFlowRequest): Promise<GetFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFlowWithOptions(request, runtime);
   }
 
@@ -18921,21 +20664,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFlowJSONAssestResponse
    */
-  async getFlowJSONAssestWithOptions(request: GetFlowJSONAssestRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowJSONAssestResponse> {
-    Util.validateModel(request);
+  async getFlowJSONAssestWithOptions(request: GetFlowJSONAssestRequest, runtime: $dara.RuntimeOptions): Promise<GetFlowJSONAssestResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFlowJSONAssest",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -18946,12 +20689,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetFlowJSONAssestResponse>(await this.callApi(params, req, runtime), new GetFlowJSONAssestResponse({}));
-    } else {
-      return $tea.cast<GetFlowJSONAssestResponse>(await this.execute(params, req, runtime), new GetFlowJSONAssestResponse({}));
-    }
-
+    return $dara.cast<GetFlowJSONAssestResponse>(await this.callApi(params, req, runtime), new GetFlowJSONAssestResponse({}));
   }
 
   /**
@@ -18961,7 +20699,7 @@ export default class Client extends OpenApi {
    * @returns GetFlowJSONAssestResponse
    */
   async getFlowJSONAssest(request: GetFlowJSONAssestRequest): Promise<GetFlowJSONAssestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFlowJSONAssestWithOptions(request, runtime);
   }
 
@@ -18975,21 +20713,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFlowPreviewUrlResponse
    */
-  async getFlowPreviewUrlWithOptions(request: GetFlowPreviewUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowPreviewUrlResponse> {
-    Util.validateModel(request);
+  async getFlowPreviewUrlWithOptions(request: GetFlowPreviewUrlRequest, runtime: $dara.RuntimeOptions): Promise<GetFlowPreviewUrlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFlowPreviewUrl",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19000,12 +20738,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
-    } else {
-      return $tea.cast<GetFlowPreviewUrlResponse>(await this.execute(params, req, runtime), new GetFlowPreviewUrlResponse({}));
-    }
-
+    return $dara.cast<GetFlowPreviewUrlResponse>(await this.callApi(params, req, runtime), new GetFlowPreviewUrlResponse({}));
   }
 
   /**
@@ -19018,7 +20751,7 @@ export default class Client extends OpenApi {
    * @returns GetFlowPreviewUrlResponse
    */
   async getFlowPreviewUrl(request: GetFlowPreviewUrlRequest): Promise<GetFlowPreviewUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFlowPreviewUrlWithOptions(request, runtime);
   }
 
@@ -19032,29 +20765,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMigrationVerifyCodeResponse
    */
-  async getMigrationVerifyCodeWithOptions(request: GetMigrationVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationVerifyCodeResponse> {
-    Util.validateModel(request);
+  async getMigrationVerifyCodeWithOptions(request: GetMigrationVerifyCodeRequest, runtime: $dara.RuntimeOptions): Promise<GetMigrationVerifyCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.locale)) {
+    if (!$dara.isNull(request.locale)) {
       query["Locale"] = request.locale;
     }
 
-    if (!Util.isUnset(request.method)) {
+    if (!$dara.isNull(request.method)) {
       query["Method"] = request.method;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMigrationVerifyCode",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19065,12 +20798,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
-    } else {
-      return $tea.cast<GetMigrationVerifyCodeResponse>(await this.execute(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
-    }
-
+    return $dara.cast<GetMigrationVerifyCodeResponse>(await this.callApi(params, req, runtime), new GetMigrationVerifyCodeResponse({}));
   }
 
   /**
@@ -19083,7 +20811,7 @@ export default class Client extends OpenApi {
    * @returns GetMigrationVerifyCodeResponse
    */
   async getMigrationVerifyCode(request: GetMigrationVerifyCodeRequest): Promise<GetMigrationVerifyCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMigrationVerifyCodeWithOptions(request, runtime);
   }
 
@@ -19094,31 +20822,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPermissionByCodeResponse
    */
-  async getPermissionByCodeWithOptions(tmpReq: GetPermissionByCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionByCodeResponse> {
-    Util.validateModel(tmpReq);
+  async getPermissionByCodeWithOptions(tmpReq: GetPermissionByCodeRequest, runtime: $dara.RuntimeOptions): Promise<GetPermissionByCodeResponse> {
+    tmpReq.validate();
     let request = new GetPermissionByCodeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.permissions)) {
+    if (!$dara.isNull(tmpReq.permissions)) {
       request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.code)) {
+    if (!$dara.isNull(request.code)) {
       body["Code"] = request.code;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.permissionsShrink)) {
+    if (!$dara.isNull(request.permissionsShrink)) {
       body["Permissions"] = request.permissionsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPermissionByCode",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19129,12 +20857,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPermissionByCodeResponse>(await this.callApi(params, req, runtime), new GetPermissionByCodeResponse({}));
-    } else {
-      return $tea.cast<GetPermissionByCodeResponse>(await this.execute(params, req, runtime), new GetPermissionByCodeResponse({}));
-    }
-
+    return $dara.cast<GetPermissionByCodeResponse>(await this.callApi(params, req, runtime), new GetPermissionByCodeResponse({}));
   }
 
   /**
@@ -19144,7 +20867,7 @@ export default class Client extends OpenApi {
    * @returns GetPermissionByCodeResponse
    */
   async getPermissionByCode(request: GetPermissionByCodeRequest): Promise<GetPermissionByCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPermissionByCodeWithOptions(request, runtime);
   }
 
@@ -19155,21 +20878,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPhoneEncryptionPublicKeyResponse
    */
-  async getPhoneEncryptionPublicKeyWithOptions(request: GetPhoneEncryptionPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneEncryptionPublicKeyResponse> {
-    Util.validateModel(request);
+  async getPhoneEncryptionPublicKeyWithOptions(request: GetPhoneEncryptionPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<GetPhoneEncryptionPublicKeyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPhoneEncryptionPublicKey",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19180,12 +20903,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
-    } else {
-      return $tea.cast<GetPhoneEncryptionPublicKeyResponse>(await this.execute(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
-    }
-
+    return $dara.cast<GetPhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new GetPhoneEncryptionPublicKeyResponse({}));
   }
 
   /**
@@ -19195,7 +20913,7 @@ export default class Client extends OpenApi {
    * @returns GetPhoneEncryptionPublicKeyResponse
    */
   async getPhoneEncryptionPublicKey(request: GetPhoneEncryptionPublicKeyRequest): Promise<GetPhoneEncryptionPublicKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPhoneEncryptionPublicKeyWithOptions(request, runtime);
   }
 
@@ -19209,21 +20927,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPhoneNumberVerificationStatusResponse
    */
-  async getPhoneNumberVerificationStatusWithOptions(request: GetPhoneNumberVerificationStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhoneNumberVerificationStatusResponse> {
-    Util.validateModel(request);
+  async getPhoneNumberVerificationStatusWithOptions(request: GetPhoneNumberVerificationStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetPhoneNumberVerificationStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPhoneNumberVerificationStatus",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19234,12 +20952,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
-    } else {
-      return $tea.cast<GetPhoneNumberVerificationStatusResponse>(await this.execute(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
-    }
-
+    return $dara.cast<GetPhoneNumberVerificationStatusResponse>(await this.callApi(params, req, runtime), new GetPhoneNumberVerificationStatusResponse({}));
   }
 
   /**
@@ -19252,7 +20965,7 @@ export default class Client extends OpenApi {
    * @returns GetPhoneNumberVerificationStatusResponse
    */
   async getPhoneNumberVerificationStatus(request: GetPhoneNumberVerificationStatusRequest): Promise<GetPhoneNumberVerificationStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPhoneNumberVerificationStatusWithOptions(request, runtime);
   }
 
@@ -19266,21 +20979,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPreValidatePhoneIdResponse
    */
-  async getPreValidatePhoneIdWithOptions(request: GetPreValidatePhoneIdRequest, runtime: $Util.RuntimeOptions): Promise<GetPreValidatePhoneIdResponse> {
-    Util.validateModel(request);
+  async getPreValidatePhoneIdWithOptions(request: GetPreValidatePhoneIdRequest, runtime: $dara.RuntimeOptions): Promise<GetPreValidatePhoneIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.verifyCode)) {
+    if (!$dara.isNull(request.verifyCode)) {
       body["VerifyCode"] = request.verifyCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPreValidatePhoneId",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19291,12 +21004,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
-    } else {
-      return $tea.cast<GetPreValidatePhoneIdResponse>(await this.execute(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
-    }
-
+    return $dara.cast<GetPreValidatePhoneIdResponse>(await this.callApi(params, req, runtime), new GetPreValidatePhoneIdResponse({}));
   }
 
   /**
@@ -19309,7 +21017,7 @@ export default class Client extends OpenApi {
    * @returns GetPreValidatePhoneIdResponse
    */
   async getPreValidatePhoneId(request: GetPreValidatePhoneIdRequest): Promise<GetPreValidatePhoneIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPreValidatePhoneIdWithOptions(request, runtime);
   }
 
@@ -19323,33 +21031,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWhatsappConnectionCatalogResponse
    */
-  async getWhatsappConnectionCatalogWithOptions(request: GetWhatsappConnectionCatalogRequest, runtime: $Util.RuntimeOptions): Promise<GetWhatsappConnectionCatalogResponse> {
-    Util.validateModel(request);
+  async getWhatsappConnectionCatalogWithOptions(request: GetWhatsappConnectionCatalogRequest, runtime: $dara.RuntimeOptions): Promise<GetWhatsappConnectionCatalogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.wabaId)) {
+    if (!$dara.isNull(request.wabaId)) {
       query["WabaId"] = request.wabaId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWhatsappConnectionCatalog",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19360,12 +21068,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
-    } else {
-      return $tea.cast<GetWhatsappConnectionCatalogResponse>(await this.execute(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
-    }
-
+    return $dara.cast<GetWhatsappConnectionCatalogResponse>(await this.callApi(params, req, runtime), new GetWhatsappConnectionCatalogResponse({}));
   }
 
   /**
@@ -19378,7 +21081,7 @@ export default class Client extends OpenApi {
    * @returns GetWhatsappConnectionCatalogResponse
    */
   async getWhatsappConnectionCatalog(request: GetWhatsappConnectionCatalogRequest): Promise<GetWhatsappConnectionCatalogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getWhatsappConnectionCatalogWithOptions(request, runtime);
   }
 
@@ -19394,49 +21097,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWhatsappHealthStatusResponse
    */
-  async getWhatsappHealthStatusWithOptions(request: GetWhatsappHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetWhatsappHealthStatusResponse> {
-    Util.validateModel(request);
+  async getWhatsappHealthStatusWithOptions(request: GetWhatsappHealthStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetWhatsappHealthStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.nodeType)) {
+    if (!$dara.isNull(request.nodeType)) {
       query["NodeType"] = request.nodeType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.wabaId)) {
+    if (!$dara.isNull(request.wabaId)) {
       query["WabaId"] = request.wabaId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWhatsappHealthStatus",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19447,12 +21150,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetWhatsappHealthStatusResponse>(await this.callApi(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
-    } else {
-      return $tea.cast<GetWhatsappHealthStatusResponse>(await this.execute(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
-    }
-
+    return $dara.cast<GetWhatsappHealthStatusResponse>(await this.callApi(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
   }
 
   /**
@@ -19467,7 +21165,7 @@ export default class Client extends OpenApi {
    * @returns GetWhatsappHealthStatusResponse
    */
   async getWhatsappHealthStatus(request: GetWhatsappHealthStatusRequest): Promise<GetWhatsappHealthStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getWhatsappHealthStatusWithOptions(request, runtime);
   }
 
@@ -19481,21 +21179,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns IsvGetAppIdResponse
    */
-  async isvGetAppIdWithOptions(request: IsvGetAppIdRequest, runtime: $Util.RuntimeOptions): Promise<IsvGetAppIdResponse> {
-    Util.validateModel(request);
+  async isvGetAppIdWithOptions(request: IsvGetAppIdRequest, runtime: $dara.RuntimeOptions): Promise<IsvGetAppIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.permissions)) {
+    if (!$dara.isNull(request.permissions)) {
       body["Permissions"] = request.permissions;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "IsvGetAppId",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19506,12 +21204,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
-    } else {
-      return $tea.cast<IsvGetAppIdResponse>(await this.execute(params, req, runtime), new IsvGetAppIdResponse({}));
-    }
-
+    return $dara.cast<IsvGetAppIdResponse>(await this.callApi(params, req, runtime), new IsvGetAppIdResponse({}));
   }
 
   /**
@@ -19524,7 +21217,7 @@ export default class Client extends OpenApi {
    * @returns IsvGetAppIdResponse
    */
   async isvGetAppId(request: IsvGetAppIdRequest): Promise<IsvGetAppIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.isvGetAppIdWithOptions(request, runtime);
   }
 
@@ -19539,55 +21232,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListChatappTemplateResponse
    */
-  async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListChatappTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async listChatappTemplateWithOptions(tmpReq: ListChatappTemplateRequest, runtime: $dara.RuntimeOptions): Promise<ListChatappTemplateResponse> {
+    tmpReq.validate();
     let request = new ListChatappTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.page)) {
+    if (!$dara.isNull(tmpReq.page)) {
       request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.code)) {
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.code)) {
       query["Code"] = request.code;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       query["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageShrink)) {
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageShrink)) {
       query["Page"] = request.pageShrink;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListChatappTemplate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19598,12 +21307,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
-    } else {
-      return $tea.cast<ListChatappTemplateResponse>(await this.execute(params, req, runtime), new ListChatappTemplateResponse({}));
-    }
-
+    return $dara.cast<ListChatappTemplateResponse>(await this.callApi(params, req, runtime), new ListChatappTemplateResponse({}));
   }
 
   /**
@@ -19617,7 +21321,7 @@ export default class Client extends OpenApi {
    * @returns ListChatappTemplateResponse
    */
   async listChatappTemplate(request: ListChatappTemplateRequest): Promise<ListChatappTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listChatappTemplateWithOptions(request, runtime);
   }
 
@@ -19631,31 +21335,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlowResponse
    */
-  async listFlowWithOptions(tmpReq: ListFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowResponse> {
-    Util.validateModel(tmpReq);
+  async listFlowWithOptions(tmpReq: ListFlowRequest, runtime: $dara.RuntimeOptions): Promise<ListFlowResponse> {
+    tmpReq.validate();
     let request = new ListFlowShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.page)) {
+    if (!$dara.isNull(tmpReq.page)) {
       request.pageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.page, "Page", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.pageShrink)) {
+    if (!$dara.isNull(request.pageShrink)) {
       body["Page"] = request.pageShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19666,12 +21370,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
-    } else {
-      return $tea.cast<ListFlowResponse>(await this.execute(params, req, runtime), new ListFlowResponse({}));
-    }
-
+    return $dara.cast<ListFlowResponse>(await this.callApi(params, req, runtime), new ListFlowResponse({}));
   }
 
   /**
@@ -19684,7 +21383,7 @@ export default class Client extends OpenApi {
    * @returns ListFlowResponse
    */
   async listFlow(request: ListFlowRequest): Promise<ListFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowWithOptions(request, runtime);
   }
 
@@ -19695,21 +21394,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPhoneMessageQrdlResponse
    */
-  async listPhoneMessageQrdlWithOptions(request: ListPhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneMessageQrdlResponse> {
-    Util.validateModel(request);
+  async listPhoneMessageQrdlWithOptions(request: ListPhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<ListPhoneMessageQrdlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPhoneMessageQrdl",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19720,12 +21419,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListPhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
-    } else {
-      return $tea.cast<ListPhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
-    }
-
+    return $dara.cast<ListPhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new ListPhoneMessageQrdlResponse({}));
   }
 
   /**
@@ -19735,7 +21429,7 @@ export default class Client extends OpenApi {
    * @returns ListPhoneMessageQrdlResponse
    */
   async listPhoneMessageQrdl(request: ListPhoneMessageQrdlRequest): Promise<ListPhoneMessageQrdlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPhoneMessageQrdlWithOptions(request, runtime);
   }
 
@@ -19749,53 +21443,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProductResponse
    */
-  async listProductWithOptions(request: ListProductRequest, runtime: $Util.RuntimeOptions): Promise<ListProductResponse> {
-    Util.validateModel(request);
+  async listProductWithOptions(request: ListProductRequest, runtime: $dara.RuntimeOptions): Promise<ListProductResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.after)) {
+    if (!$dara.isNull(request.after)) {
       query["After"] = request.after;
     }
 
-    if (!Util.isUnset(request.before)) {
+    if (!$dara.isNull(request.before)) {
       query["Before"] = request.before;
     }
 
-    if (!Util.isUnset(request.catalogId)) {
+    if (!$dara.isNull(request.catalogId)) {
       query["CatalogId"] = request.catalogId;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.fields)) {
+    if (!$dara.isNull(request.fields)) {
       query["Fields"] = request.fields;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.wabaId)) {
+    if (!$dara.isNull(request.wabaId)) {
       query["WabaId"] = request.wabaId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProduct",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19806,12 +21500,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
-    } else {
-      return $tea.cast<ListProductResponse>(await this.execute(params, req, runtime), new ListProductResponse({}));
-    }
-
+    return $dara.cast<ListProductResponse>(await this.callApi(params, req, runtime), new ListProductResponse({}));
   }
 
   /**
@@ -19824,7 +21513,7 @@ export default class Client extends OpenApi {
    * @returns ListProductResponse
    */
   async listProduct(request: ListProductRequest): Promise<ListProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listProductWithOptions(request, runtime);
   }
 
@@ -19838,49 +21527,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProductCatalogResponse
    */
-  async listProductCatalogWithOptions(request: ListProductCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListProductCatalogResponse> {
-    Util.validateModel(request);
+  async listProductCatalogWithOptions(request: ListProductCatalogRequest, runtime: $dara.RuntimeOptions): Promise<ListProductCatalogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.after)) {
+    if (!$dara.isNull(request.after)) {
       query["After"] = request.after;
     }
 
-    if (!Util.isUnset(request.before)) {
+    if (!$dara.isNull(request.before)) {
       query["Before"] = request.before;
     }
 
-    if (!Util.isUnset(request.businessId)) {
+    if (!$dara.isNull(request.businessId)) {
       query["BusinessId"] = request.businessId;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.fields)) {
+    if (!$dara.isNull(request.fields)) {
       query["Fields"] = request.fields;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProductCatalog",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19891,12 +21580,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
-    } else {
-      return $tea.cast<ListProductCatalogResponse>(await this.execute(params, req, runtime), new ListProductCatalogResponse({}));
-    }
-
+    return $dara.cast<ListProductCatalogResponse>(await this.callApi(params, req, runtime), new ListProductCatalogResponse({}));
   }
 
   /**
@@ -19909,7 +21593,7 @@ export default class Client extends OpenApi {
    * @returns ListProductCatalogResponse
    */
   async listProductCatalog(request: ListProductCatalogRequest): Promise<ListProductCatalogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listProductCatalogWithOptions(request, runtime);
   }
 
@@ -19923,67 +21607,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyChatappTemplateResponse
    */
-  async modifyChatappTemplateWithOptions(tmpReq: ModifyChatappTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyChatappTemplateResponse> {
-    Util.validateModel(tmpReq);
+  async modifyChatappTemplateWithOptions(tmpReq: ModifyChatappTemplateRequest, runtime: $dara.RuntimeOptions): Promise<ModifyChatappTemplateResponse> {
+    tmpReq.validate();
     let request = new ModifyChatappTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.components)) {
+    if (!$dara.isNull(tmpReq.components)) {
       request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
     }
 
-    if (!Util.isUnset(tmpReq.example)) {
+    if (!$dara.isNull(tmpReq.example)) {
       request.exampleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.example, "Example", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       body["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.componentsShrink)) {
+    if (!$dara.isNull(request.componentsShrink)) {
       body["Components"] = request.componentsShrink;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.exampleShrink)) {
+    if (!$dara.isNull(request.exampleShrink)) {
       body["Example"] = request.exampleShrink;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       body["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.messageSendTtlSeconds)) {
+    if (!$dara.isNull(request.messageSendTtlSeconds)) {
       body["MessageSendTtlSeconds"] = request.messageSendTtlSeconds;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateType)) {
+    if (!$dara.isNull(request.templateType)) {
       body["TemplateType"] = request.templateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyChatappTemplate",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -19994,12 +21678,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
-    } else {
-      return $tea.cast<ModifyChatappTemplateResponse>(await this.execute(params, req, runtime), new ModifyChatappTemplateResponse({}));
-    }
-
+    return $dara.cast<ModifyChatappTemplateResponse>(await this.callApi(params, req, runtime), new ModifyChatappTemplateResponse({}));
   }
 
   /**
@@ -20012,7 +21691,7 @@ export default class Client extends OpenApi {
    * @returns ModifyChatappTemplateResponse
    */
   async modifyChatappTemplate(request: ModifyChatappTemplateRequest): Promise<ModifyChatappTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyChatappTemplateWithOptions(request, runtime);
   }
 
@@ -20026,35 +21705,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyFlowResponse
    */
-  async modifyFlowWithOptions(tmpReq: ModifyFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowResponse> {
-    Util.validateModel(tmpReq);
+  async modifyFlowWithOptions(tmpReq: ModifyFlowRequest, runtime: $dara.RuntimeOptions): Promise<ModifyFlowResponse> {
+    tmpReq.validate();
     let request = new ModifyFlowShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.categories)) {
+    if (!$dara.isNull(tmpReq.categories)) {
       request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.categoriesShrink)) {
+    if (!$dara.isNull(request.categoriesShrink)) {
       body["Categories"] = request.categoriesShrink;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20065,12 +21744,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
-    } else {
-      return $tea.cast<ModifyFlowResponse>(await this.execute(params, req, runtime), new ModifyFlowResponse({}));
-    }
-
+    return $dara.cast<ModifyFlowResponse>(await this.callApi(params, req, runtime), new ModifyFlowResponse({}));
   }
 
   /**
@@ -20083,7 +21757,7 @@ export default class Client extends OpenApi {
    * @returns ModifyFlowResponse
    */
   async modifyFlow(request: ModifyFlowRequest): Promise<ModifyFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyFlowWithOptions(request, runtime);
   }
 
@@ -20097,67 +21771,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPhoneBusinessProfileResponse
    */
-  async modifyPhoneBusinessProfileWithOptions(tmpReq: ModifyPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhoneBusinessProfileResponse> {
-    Util.validateModel(tmpReq);
+  async modifyPhoneBusinessProfileWithOptions(tmpReq: ModifyPhoneBusinessProfileRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPhoneBusinessProfileResponse> {
+    tmpReq.validate();
     let request = new ModifyPhoneBusinessProfileShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.websites)) {
+    if (!$dara.isNull(tmpReq.websites)) {
       request.websitesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.websites, "Websites", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.about)) {
+    if (!$dara.isNull(request.about)) {
       query["About"] = request.about;
     }
 
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.profilePictureUrl)) {
+    if (!$dara.isNull(request.profilePictureUrl)) {
       query["ProfilePictureUrl"] = request.profilePictureUrl;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.vertical)) {
+    if (!$dara.isNull(request.vertical)) {
       query["Vertical"] = request.vertical;
     }
 
-    if (!Util.isUnset(request.websitesShrink)) {
+    if (!$dara.isNull(request.websitesShrink)) {
       query["Websites"] = request.websitesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPhoneBusinessProfile",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20168,12 +21842,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
-    } else {
-      return $tea.cast<ModifyPhoneBusinessProfileResponse>(await this.execute(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
-    }
-
+    return $dara.cast<ModifyPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new ModifyPhoneBusinessProfileResponse({}));
   }
 
   /**
@@ -20186,7 +21855,7 @@ export default class Client extends OpenApi {
    * @returns ModifyPhoneBusinessProfileResponse
    */
   async modifyPhoneBusinessProfile(request: ModifyPhoneBusinessProfileRequest): Promise<ModifyPhoneBusinessProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPhoneBusinessProfileWithOptions(request, runtime);
   }
 
@@ -20200,21 +21869,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishFlowResponse
    */
-  async publishFlowWithOptions(request: PublishFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishFlowResponse> {
-    Util.validateModel(request);
+  async publishFlowWithOptions(request: PublishFlowRequest, runtime: $dara.RuntimeOptions): Promise<PublishFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PublishFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20225,12 +21894,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
-    } else {
-      return $tea.cast<PublishFlowResponse>(await this.execute(params, req, runtime), new PublishFlowResponse({}));
-    }
-
+    return $dara.cast<PublishFlowResponse>(await this.callApi(params, req, runtime), new PublishFlowResponse({}));
   }
 
   /**
@@ -20243,7 +21907,7 @@ export default class Client extends OpenApi {
    * @returns PublishFlowResponse
    */
   async publishFlow(request: PublishFlowRequest): Promise<PublishFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.publishFlowWithOptions(request, runtime);
   }
 
@@ -20257,33 +21921,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryChatappBindWabaResponse
    */
-  async queryChatappBindWabaWithOptions(request: QueryChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappBindWabaResponse> {
-    Util.validateModel(request);
+  async queryChatappBindWabaWithOptions(request: QueryChatappBindWabaRequest, runtime: $dara.RuntimeOptions): Promise<QueryChatappBindWabaResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryChatappBindWaba",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20294,12 +21958,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
-    } else {
-      return $tea.cast<QueryChatappBindWabaResponse>(await this.execute(params, req, runtime), new QueryChatappBindWabaResponse({}));
-    }
-
+    return $dara.cast<QueryChatappBindWabaResponse>(await this.callApi(params, req, runtime), new QueryChatappBindWabaResponse({}));
   }
 
   /**
@@ -20312,7 +21971,7 @@ export default class Client extends OpenApi {
    * @returns QueryChatappBindWabaResponse
    */
   async queryChatappBindWaba(request: QueryChatappBindWabaRequest): Promise<QueryChatappBindWabaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryChatappBindWabaWithOptions(request, runtime);
   }
 
@@ -20326,37 +21985,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryChatappPhoneNumbersResponse
    */
-  async queryChatappPhoneNumbersWithOptions(request: QueryChatappPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<QueryChatappPhoneNumbersResponse> {
-    Util.validateModel(request);
+  async queryChatappPhoneNumbersWithOptions(request: QueryChatappPhoneNumbersRequest, runtime: $dara.RuntimeOptions): Promise<QueryChatappPhoneNumbersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       query["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryChatappPhoneNumbers",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20367,12 +22026,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
-    } else {
-      return $tea.cast<QueryChatappPhoneNumbersResponse>(await this.execute(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
-    }
-
+    return $dara.cast<QueryChatappPhoneNumbersResponse>(await this.callApi(params, req, runtime), new QueryChatappPhoneNumbersResponse({}));
   }
 
   /**
@@ -20385,7 +22039,7 @@ export default class Client extends OpenApi {
    * @returns QueryChatappPhoneNumbersResponse
    */
   async queryChatappPhoneNumbers(request: QueryChatappPhoneNumbersRequest): Promise<QueryChatappPhoneNumbersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryChatappPhoneNumbersWithOptions(request, runtime);
   }
 
@@ -20399,33 +22053,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPhoneBusinessProfileResponse
    */
-  async queryPhoneBusinessProfileWithOptions(request: QueryPhoneBusinessProfileRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneBusinessProfileResponse> {
-    Util.validateModel(request);
+  async queryPhoneBusinessProfileWithOptions(request: QueryPhoneBusinessProfileRequest, runtime: $dara.RuntimeOptions): Promise<QueryPhoneBusinessProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPhoneBusinessProfile",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20436,12 +22090,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
-    } else {
-      return $tea.cast<QueryPhoneBusinessProfileResponse>(await this.execute(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
-    }
-
+    return $dara.cast<QueryPhoneBusinessProfileResponse>(await this.callApi(params, req, runtime), new QueryPhoneBusinessProfileResponse({}));
   }
 
   /**
@@ -20454,7 +22103,7 @@ export default class Client extends OpenApi {
    * @returns QueryPhoneBusinessProfileResponse
    */
   async queryPhoneBusinessProfile(request: QueryPhoneBusinessProfileRequest): Promise<QueryPhoneBusinessProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPhoneBusinessProfileWithOptions(request, runtime);
   }
 
@@ -20468,33 +22117,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryWabaBusinessInfoResponse
    */
-  async queryWabaBusinessInfoWithOptions(request: QueryWabaBusinessInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryWabaBusinessInfoResponse> {
-    Util.validateModel(request);
+  async queryWabaBusinessInfoWithOptions(request: QueryWabaBusinessInfoRequest, runtime: $dara.RuntimeOptions): Promise<QueryWabaBusinessInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.wabaId)) {
+    if (!$dara.isNull(request.wabaId)) {
       query["WabaId"] = request.wabaId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryWabaBusinessInfo",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20505,12 +22154,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
-    } else {
-      return $tea.cast<QueryWabaBusinessInfoResponse>(await this.execute(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
-    }
-
+    return $dara.cast<QueryWabaBusinessInfoResponse>(await this.callApi(params, req, runtime), new QueryWabaBusinessInfoResponse({}));
   }
 
   /**
@@ -20523,7 +22167,7 @@ export default class Client extends OpenApi {
    * @returns QueryWabaBusinessInfoResponse
    */
   async queryWabaBusinessInfo(request: QueryWabaBusinessInfoRequest): Promise<QueryWabaBusinessInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryWabaBusinessInfoWithOptions(request, runtime);
   }
 
@@ -20538,87 +22182,87 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendChatappMassMessageResponse
    */
-  async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
-    Util.validateModel(tmpReq);
+  async sendChatappMassMessageWithOptions(tmpReq: SendChatappMassMessageRequest, runtime: $dara.RuntimeOptions): Promise<SendChatappMassMessageResponse> {
+    tmpReq.validate();
     let request = new SendChatappMassMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.senderList)) {
+    if (!$dara.isNull(tmpReq.senderList)) {
       request.senderListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.senderList, "SenderList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       body["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.fallBackContent)) {
+    if (!$dara.isNull(request.fallBackContent)) {
       body["FallBackContent"] = request.fallBackContent;
     }
 
-    if (!Util.isUnset(request.fallBackDuration)) {
+    if (!$dara.isNull(request.fallBackDuration)) {
       body["FallBackDuration"] = request.fallBackDuration;
     }
 
-    if (!Util.isUnset(request.fallBackId)) {
+    if (!$dara.isNull(request.fallBackId)) {
       body["FallBackId"] = request.fallBackId;
     }
 
-    if (!Util.isUnset(request.fallBackRule)) {
+    if (!$dara.isNull(request.fallBackRule)) {
       body["FallBackRule"] = request.fallBackRule;
     }
 
-    if (!Util.isUnset(request.from)) {
+    if (!$dara.isNull(request.from)) {
       body["From"] = request.from;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       body["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.senderListShrink)) {
+    if (!$dara.isNull(request.senderListShrink)) {
       body["SenderList"] = request.senderListShrink;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.ttl)) {
+    if (!$dara.isNull(request.ttl)) {
       body["Ttl"] = request.ttl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendChatappMassMessage",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20629,12 +22273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
-    } else {
-      return $tea.cast<SendChatappMassMessageResponse>(await this.execute(params, req, runtime), new SendChatappMassMessageResponse({}));
-    }
-
+    return $dara.cast<SendChatappMassMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMassMessageResponse({}));
   }
 
   /**
@@ -20648,7 +22287,7 @@ export default class Client extends OpenApi {
    * @returns SendChatappMassMessageResponse
    */
   async sendChatappMassMessage(request: SendChatappMassMessageRequest): Promise<SendChatappMassMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendChatappMassMessageWithOptions(request, runtime);
   }
 
@@ -20662,137 +22301,137 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendChatappMessageResponse
    */
-  async sendChatappMessageWithOptions(tmpReq: SendChatappMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendChatappMessageResponse> {
-    Util.validateModel(tmpReq);
+  async sendChatappMessageWithOptions(tmpReq: SendChatappMessageRequest, runtime: $dara.RuntimeOptions): Promise<SendChatappMessageResponse> {
+    tmpReq.validate();
     let request = new SendChatappMessageShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.flowAction)) {
+    if (!$dara.isNull(tmpReq.flowAction)) {
       request.flowActionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.flowAction, "FlowAction", "json");
     }
 
-    if (!Util.isUnset(tmpReq.payload)) {
+    if (!$dara.isNull(tmpReq.payload)) {
       request.payloadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.payload, "Payload", "json");
     }
 
-    if (!Util.isUnset(tmpReq.productAction)) {
+    if (!$dara.isNull(tmpReq.productAction)) {
       request.productActionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.productAction, "ProductAction", "json");
     }
 
-    if (!Util.isUnset(tmpReq.templateParams)) {
+    if (!$dara.isNull(tmpReq.templateParams)) {
       request.templateParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateParams, "TemplateParams", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.payloadShrink)) {
+    if (!$dara.isNull(request.payloadShrink)) {
       query["Payload"] = request.payloadShrink;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       body["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.contextMessageId)) {
+    if (!$dara.isNull(request.contextMessageId)) {
       body["ContextMessageId"] = request.contextMessageId;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.custWabaId)) {
+    if (!$dara.isNull(request.custWabaId)) {
       body["CustWabaId"] = request.custWabaId;
     }
 
-    if (!Util.isUnset(request.fallBackContent)) {
+    if (!$dara.isNull(request.fallBackContent)) {
       body["FallBackContent"] = request.fallBackContent;
     }
 
-    if (!Util.isUnset(request.fallBackDuration)) {
+    if (!$dara.isNull(request.fallBackDuration)) {
       body["FallBackDuration"] = request.fallBackDuration;
     }
 
-    if (!Util.isUnset(request.fallBackId)) {
+    if (!$dara.isNull(request.fallBackId)) {
       body["FallBackId"] = request.fallBackId;
     }
 
-    if (!Util.isUnset(request.fallBackRule)) {
+    if (!$dara.isNull(request.fallBackRule)) {
       body["FallBackRule"] = request.fallBackRule;
     }
 
-    if (!Util.isUnset(request.flowActionShrink)) {
+    if (!$dara.isNull(request.flowActionShrink)) {
       body["FlowAction"] = request.flowActionShrink;
     }
 
-    if (!Util.isUnset(request.from)) {
+    if (!$dara.isNull(request.from)) {
       body["From"] = request.from;
     }
 
-    if (!Util.isUnset(request.isvCode)) {
+    if (!$dara.isNull(request.isvCode)) {
       body["IsvCode"] = request.isvCode;
     }
 
-    if (!Util.isUnset(request.label)) {
+    if (!$dara.isNull(request.label)) {
       body["Label"] = request.label;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       body["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.messageType)) {
+    if (!$dara.isNull(request.messageType)) {
       body["MessageType"] = request.messageType;
     }
 
-    if (!Util.isUnset(request.productActionShrink)) {
+    if (!$dara.isNull(request.productActionShrink)) {
       body["ProductAction"] = request.productActionShrink;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.templateCode)) {
+    if (!$dara.isNull(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
 
-    if (!Util.isUnset(request.templateName)) {
+    if (!$dara.isNull(request.templateName)) {
       body["TemplateName"] = request.templateName;
     }
 
-    if (!Util.isUnset(request.templateParamsShrink)) {
+    if (!$dara.isNull(request.templateParamsShrink)) {
       body["TemplateParams"] = request.templateParamsShrink;
     }
 
-    if (!Util.isUnset(request.to)) {
+    if (!$dara.isNull(request.to)) {
       body["To"] = request.to;
     }
 
-    if (!Util.isUnset(request.trackingData)) {
+    if (!$dara.isNull(request.trackingData)) {
       body["TrackingData"] = request.trackingData;
     }
 
-    if (!Util.isUnset(request.ttl)) {
+    if (!$dara.isNull(request.ttl)) {
       body["Ttl"] = request.ttl;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendChatappMessage",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20803,12 +22442,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
-    } else {
-      return $tea.cast<SendChatappMessageResponse>(await this.execute(params, req, runtime), new SendChatappMessageResponse({}));
-    }
-
+    return $dara.cast<SendChatappMessageResponse>(await this.callApi(params, req, runtime), new SendChatappMessageResponse({}));
   }
 
   /**
@@ -20821,7 +22455,7 @@ export default class Client extends OpenApi {
    * @returns SendChatappMessageResponse
    */
   async sendChatappMessage(request: SendChatappMessageRequest): Promise<SendChatappMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendChatappMessageWithOptions(request, runtime);
   }
 
@@ -20836,41 +22470,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitIsvCustomerTermsResponse
    */
-  async submitIsvCustomerTermsWithOptions(request: SubmitIsvCustomerTermsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIsvCustomerTermsResponse> {
-    Util.validateModel(request);
+  async submitIsvCustomerTermsWithOptions(request: SubmitIsvCustomerTermsRequest, runtime: $dara.RuntimeOptions): Promise<SubmitIsvCustomerTermsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.businessDesc)) {
+    if (!$dara.isNull(request.businessDesc)) {
       query["BusinessDesc"] = request.businessDesc;
     }
 
-    if (!Util.isUnset(request.contactMail)) {
+    if (!$dara.isNull(request.contactMail)) {
       query["ContactMail"] = request.contactMail;
     }
 
-    if (!Util.isUnset(request.countryId)) {
+    if (!$dara.isNull(request.countryId)) {
       query["CountryId"] = request.countryId;
     }
 
-    if (!Util.isUnset(request.custName)) {
+    if (!$dara.isNull(request.custName)) {
       query["CustName"] = request.custName;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.isvTerms)) {
+    if (!$dara.isNull(request.isvTerms)) {
       query["IsvTerms"] = request.isvTerms;
     }
 
-    if (!Util.isUnset(request.officeAddress)) {
+    if (!$dara.isNull(request.officeAddress)) {
       query["OfficeAddress"] = request.officeAddress;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitIsvCustomerTerms",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20881,12 +22515,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
-    } else {
-      return $tea.cast<SubmitIsvCustomerTermsResponse>(await this.execute(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
-    }
-
+    return $dara.cast<SubmitIsvCustomerTermsResponse>(await this.callApi(params, req, runtime), new SubmitIsvCustomerTermsResponse({}));
   }
 
   /**
@@ -20900,7 +22529,7 @@ export default class Client extends OpenApi {
    * @returns SubmitIsvCustomerTermsResponse
    */
   async submitIsvCustomerTerms(request: SubmitIsvCustomerTermsRequest): Promise<SubmitIsvCustomerTermsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitIsvCustomerTermsWithOptions(request, runtime);
   }
 
@@ -20914,55 +22543,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TriggerChatFlowResponse
    */
-  async triggerChatFlowWithOptions(tmpReq: TriggerChatFlowRequest, runtime: $Util.RuntimeOptions): Promise<TriggerChatFlowResponse> {
-    Util.validateModel(tmpReq);
+  async triggerChatFlowWithOptions(tmpReq: TriggerChatFlowRequest, runtime: $dara.RuntimeOptions): Promise<TriggerChatFlowResponse> {
+    tmpReq.validate();
     let request = new TriggerChatFlowShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.data)) {
+    if (!$dara.isNull(tmpReq.data)) {
       request.dataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.data, "Data", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.claimTimeMillis)) {
+    if (!$dara.isNull(request.claimTimeMillis)) {
       query["ClaimTimeMillis"] = request.claimTimeMillis;
     }
 
-    if (!Util.isUnset(request.dataShrink)) {
+    if (!$dara.isNull(request.dataShrink)) {
       query["Data"] = request.dataShrink;
     }
 
-    if (!Util.isUnset(request.discardTimeMillis)) {
+    if (!$dara.isNull(request.discardTimeMillis)) {
       query["DiscardTimeMillis"] = request.discardTimeMillis;
     }
 
-    if (!Util.isUnset(request.flowCode)) {
+    if (!$dara.isNull(request.flowCode)) {
       query["FlowCode"] = request.flowCode;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TriggerChatFlow",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -20973,12 +22602,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<TriggerChatFlowResponse>(await this.callApi(params, req, runtime), new TriggerChatFlowResponse({}));
-    } else {
-      return $tea.cast<TriggerChatFlowResponse>(await this.execute(params, req, runtime), new TriggerChatFlowResponse({}));
-    }
-
+    return $dara.cast<TriggerChatFlowResponse>(await this.callApi(params, req, runtime), new TriggerChatFlowResponse({}));
   }
 
   /**
@@ -20991,7 +22615,7 @@ export default class Client extends OpenApi {
    * @returns TriggerChatFlowResponse
    */
   async triggerChatFlow(request: TriggerChatFlowRequest): Promise<TriggerChatFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.triggerChatFlowWithOptions(request, runtime);
   }
 
@@ -21005,29 +22629,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAccountWebhookResponse
    */
-  async updateAccountWebhookWithOptions(request: UpdateAccountWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountWebhookResponse> {
-    Util.validateModel(request);
+  async updateAccountWebhookWithOptions(request: UpdateAccountWebhookRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAccountWebhookResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.httpFlag)) {
+    if (!$dara.isNull(request.httpFlag)) {
       query["HttpFlag"] = request.httpFlag;
     }
 
-    if (!Util.isUnset(request.queueFlag)) {
+    if (!$dara.isNull(request.queueFlag)) {
       query["QueueFlag"] = request.queueFlag;
     }
 
-    if (!Util.isUnset(request.statusCallbackUrl)) {
+    if (!$dara.isNull(request.statusCallbackUrl)) {
       query["StatusCallbackUrl"] = request.statusCallbackUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAccountWebhook",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21038,12 +22662,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
-    } else {
-      return $tea.cast<UpdateAccountWebhookResponse>(await this.execute(params, req, runtime), new UpdateAccountWebhookResponse({}));
-    }
-
+    return $dara.cast<UpdateAccountWebhookResponse>(await this.callApi(params, req, runtime), new UpdateAccountWebhookResponse({}));
   }
 
   /**
@@ -21056,7 +22675,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAccountWebhookResponse
    */
   async updateAccountWebhook(request: UpdateAccountWebhookRequest): Promise<UpdateAccountWebhookResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAccountWebhookWithOptions(request, runtime);
   }
 
@@ -21070,41 +22689,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCommerceSettingResponse
    */
-  async updateCommerceSettingWithOptions(request: UpdateCommerceSettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCommerceSettingResponse> {
-    Util.validateModel(request);
+  async updateCommerceSettingWithOptions(request: UpdateCommerceSettingRequest, runtime: $dara.RuntimeOptions): Promise<UpdateCommerceSettingResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cartEnable)) {
+    if (!$dara.isNull(request.cartEnable)) {
       query["CartEnable"] = request.cartEnable;
     }
 
-    if (!Util.isUnset(request.catalogVisible)) {
+    if (!$dara.isNull(request.catalogVisible)) {
       query["CatalogVisible"] = request.catalogVisible;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateCommerceSetting",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21115,12 +22734,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
-    } else {
-      return $tea.cast<UpdateCommerceSettingResponse>(await this.execute(params, req, runtime), new UpdateCommerceSettingResponse({}));
-    }
-
+    return $dara.cast<UpdateCommerceSettingResponse>(await this.callApi(params, req, runtime), new UpdateCommerceSettingResponse({}));
   }
 
   /**
@@ -21133,7 +22747,7 @@ export default class Client extends OpenApi {
    * @returns UpdateCommerceSettingResponse
    */
   async updateCommerceSetting(request: UpdateCommerceSettingRequest): Promise<UpdateCommerceSettingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCommerceSettingWithOptions(request, runtime);
   }
 
@@ -21149,55 +22763,55 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateConversationalAutomationResponse
    */
-  async updateConversationalAutomationWithOptions(tmpReq: UpdateConversationalAutomationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConversationalAutomationResponse> {
-    Util.validateModel(tmpReq);
+  async updateConversationalAutomationWithOptions(tmpReq: UpdateConversationalAutomationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateConversationalAutomationResponse> {
+    tmpReq.validate();
     let request = new UpdateConversationalAutomationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.commands)) {
+    if (!$dara.isNull(tmpReq.commands)) {
       request.commandsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commands, "Commands", "json");
     }
 
-    if (!Util.isUnset(tmpReq.prompts)) {
+    if (!$dara.isNull(tmpReq.prompts)) {
       request.promptsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.prompts, "Prompts", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.commandsShrink)) {
+    if (!$dara.isNull(request.commandsShrink)) {
       query["Commands"] = request.commandsShrink;
     }
 
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.enableWelcomeMessage)) {
+    if (!$dara.isNull(request.enableWelcomeMessage)) {
       query["EnableWelcomeMessage"] = request.enableWelcomeMessage;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.promptsShrink)) {
+    if (!$dara.isNull(request.promptsShrink)) {
       query["Prompts"] = request.promptsShrink;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateConversationalAutomation",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21208,12 +22822,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateConversationalAutomationResponse>(await this.callApi(params, req, runtime), new UpdateConversationalAutomationResponse({}));
-    } else {
-      return $tea.cast<UpdateConversationalAutomationResponse>(await this.execute(params, req, runtime), new UpdateConversationalAutomationResponse({}));
-    }
-
+    return $dara.cast<UpdateConversationalAutomationResponse>(await this.callApi(params, req, runtime), new UpdateConversationalAutomationResponse({}));
   }
 
   /**
@@ -21228,7 +22837,7 @@ export default class Client extends OpenApi {
    * @returns UpdateConversationalAutomationResponse
    */
   async updateConversationalAutomation(request: UpdateConversationalAutomationRequest): Promise<UpdateConversationalAutomationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConversationalAutomationWithOptions(request, runtime);
   }
 
@@ -21239,25 +22848,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFlowJSONAssetResponse
    */
-  async updateFlowJSONAssetWithOptions(request: UpdateFlowJSONAssetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowJSONAssetResponse> {
-    Util.validateModel(request);
+  async updateFlowJSONAssetWithOptions(request: UpdateFlowJSONAssetRequest, runtime: $dara.RuntimeOptions): Promise<UpdateFlowJSONAssetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.filePath)) {
+    if (!$dara.isNull(request.filePath)) {
       body["FilePath"] = request.filePath;
     }
 
-    if (!Util.isUnset(request.flowId)) {
+    if (!$dara.isNull(request.flowId)) {
       body["FlowId"] = request.flowId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateFlowJSONAsset",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21268,12 +22877,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateFlowJSONAssetResponse>(await this.callApi(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
-    } else {
-      return $tea.cast<UpdateFlowJSONAssetResponse>(await this.execute(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
-    }
-
+    return $dara.cast<UpdateFlowJSONAssetResponse>(await this.callApi(params, req, runtime), new UpdateFlowJSONAssetResponse({}));
   }
 
   /**
@@ -21283,7 +22887,7 @@ export default class Client extends OpenApi {
    * @returns UpdateFlowJSONAssetResponse
    */
   async updateFlowJSONAsset(request: UpdateFlowJSONAssetRequest): Promise<UpdateFlowJSONAssetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFlowJSONAssetWithOptions(request, runtime);
   }
 
@@ -21294,25 +22898,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePhoneEncryptionPublicKeyResponse
    */
-  async updatePhoneEncryptionPublicKeyWithOptions(request: UpdatePhoneEncryptionPublicKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneEncryptionPublicKeyResponse> {
-    Util.validateModel(request);
+  async updatePhoneEncryptionPublicKeyWithOptions(request: UpdatePhoneEncryptionPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePhoneEncryptionPublicKeyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.encryptionPublicKey)) {
+    if (!$dara.isNull(request.encryptionPublicKey)) {
       body["EncryptionPublicKey"] = request.encryptionPublicKey;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePhoneEncryptionPublicKey",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21323,12 +22927,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
-    } else {
-      return $tea.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.execute(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
-    }
-
+    return $dara.cast<UpdatePhoneEncryptionPublicKeyResponse>(await this.callApi(params, req, runtime), new UpdatePhoneEncryptionPublicKeyResponse({}));
   }
 
   /**
@@ -21338,7 +22937,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePhoneEncryptionPublicKeyResponse
    */
   async updatePhoneEncryptionPublicKey(request: UpdatePhoneEncryptionPublicKeyRequest): Promise<UpdatePhoneEncryptionPublicKeyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePhoneEncryptionPublicKeyWithOptions(request, runtime);
   }
 
@@ -21349,33 +22948,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePhoneMessageQrdlResponse
    */
-  async updatePhoneMessageQrdlWithOptions(request: UpdatePhoneMessageQrdlRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneMessageQrdlResponse> {
-    Util.validateModel(request);
+  async updatePhoneMessageQrdlWithOptions(request: UpdatePhoneMessageQrdlRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePhoneMessageQrdlResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       body["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.generateQrImage)) {
+    if (!$dara.isNull(request.generateQrImage)) {
       body["GenerateQrImage"] = request.generateQrImage;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       body["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.prefilledMessage)) {
+    if (!$dara.isNull(request.prefilledMessage)) {
       body["PrefilledMessage"] = request.prefilledMessage;
     }
 
-    if (!Util.isUnset(request.qrdlCode)) {
+    if (!$dara.isNull(request.qrdlCode)) {
       body["QrdlCode"] = request.qrdlCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePhoneMessageQrdl",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21386,12 +22985,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
-    } else {
-      return $tea.cast<UpdatePhoneMessageQrdlResponse>(await this.execute(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
-    }
-
+    return $dara.cast<UpdatePhoneMessageQrdlResponse>(await this.callApi(params, req, runtime), new UpdatePhoneMessageQrdlResponse({}));
   }
 
   /**
@@ -21401,7 +22995,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePhoneMessageQrdlResponse
    */
   async updatePhoneMessageQrdl(request: UpdatePhoneMessageQrdlRequest): Promise<UpdatePhoneMessageQrdlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePhoneMessageQrdlWithOptions(request, runtime);
   }
 
@@ -21417,37 +23011,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePhoneWebhookResponse
    */
-  async updatePhoneWebhookWithOptions(request: UpdatePhoneWebhookRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePhoneWebhookResponse> {
-    Util.validateModel(request);
+  async updatePhoneWebhookWithOptions(request: UpdatePhoneWebhookRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePhoneWebhookResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.custSpaceId)) {
+    if (!$dara.isNull(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
-    if (!Util.isUnset(request.httpFlag)) {
+    if (!$dara.isNull(request.httpFlag)) {
       query["HttpFlag"] = request.httpFlag;
     }
 
-    if (!Util.isUnset(request.phoneNumber)) {
+    if (!$dara.isNull(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
-    if (!Util.isUnset(request.queueFlag)) {
+    if (!$dara.isNull(request.queueFlag)) {
       query["QueueFlag"] = request.queueFlag;
     }
 
-    if (!Util.isUnset(request.statusCallbackUrl)) {
+    if (!$dara.isNull(request.statusCallbackUrl)) {
       query["StatusCallbackUrl"] = request.statusCallbackUrl;
     }
 
-    if (!Util.isUnset(request.upCallbackUrl)) {
+    if (!$dara.isNull(request.upCallbackUrl)) {
       query["UpCallbackUrl"] = request.upCallbackUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePhoneWebhook",
       version: "2020-06-06",
       protocol: "HTTPS",
@@ -21458,12 +23052,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
-    } else {
-      return $tea.cast<UpdatePhoneWebhookResponse>(await this.execute(params, req, runtime), new UpdatePhoneWebhookResponse({}));
-    }
-
+    return $dara.cast<UpdatePhoneWebhookResponse>(await this.callApi(params, req, runtime), new UpdatePhoneWebhookResponse({}));
   }
 
   /**
@@ -21478,7 +23067,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePhoneWebhookResponse
    */
   async updatePhoneWebhook(request: UpdatePhoneWebhookRequest): Promise<UpdatePhoneWebhookResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePhoneWebhookWithOptions(request, runtime);
   }
 
