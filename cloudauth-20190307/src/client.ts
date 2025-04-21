@@ -321,6 +321,170 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   }
 }
 
+export class CredentialVerifyV2RequestMerchantDetail extends $dara.Model {
+  /**
+   * @example
+   * MerchantName
+   */
+  key?: string;
+  /**
+   * @example
+   * ***
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2AdvanceRequestMerchantDetail extends $dara.Model {
+  /**
+   * @example
+   * MerchantName
+   */
+  key?: string;
+  /**
+   * @example
+   * ***
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2ResponseBodyResultObjectVlResult extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  vlContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'Success',
+      vlContent: 'VlContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+      vlContent: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2ResponseBodyResultObject extends $dara.Model {
+  materialInfo?: string;
+  ocrInfo?: string;
+  /**
+   * @example
+   * 1
+   */
+  result?: string;
+  riskScore?: { [key: string]: string };
+  /**
+   * @example
+   * PS,SCREEN_PHOTO
+   */
+  riskTag?: string;
+  /**
+   * @example
+   * **
+   */
+  verifyDetail?: string;
+  /**
+   * @example
+   * *
+   */
+  verifyResult?: string;
+  vlResult?: CredentialVerifyV2ResponseBodyResultObjectVlResult;
+  static names(): { [key: string]: string } {
+    return {
+      materialInfo: 'MaterialInfo',
+      ocrInfo: 'OcrInfo',
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+      verifyDetail: 'VerifyDetail',
+      verifyResult: 'VerifyResult',
+      vlResult: 'VlResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialInfo: 'string',
+      ocrInfo: 'string',
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+      verifyDetail: 'string',
+      verifyResult: 'string',
+      vlResult: CredentialVerifyV2ResponseBodyResultObjectVlResult,
+    };
+  }
+
+  validate() {
+    if(this.riskScore) {
+      $dara.Model.validateMap(this.riskScore);
+    }
+    if(this.vlResult && typeof (this.vlResult as any).validate === 'function') {
+      (this.vlResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
   /**
    * @example
@@ -3646,6 +3810,388 @@ export class CredentialVerifyResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CredentialVerifyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2Request extends $dara.Model {
+  /**
+   * @example
+   * 4601*****
+   */
+  certNum?: string;
+  /**
+   * @example
+   * 0104
+   */
+  credName?: string;
+  /**
+   * @example
+   * 01
+   */
+  credType?: string;
+  /**
+   * @example
+   * 4****************1
+   */
+  identifyNum?: string;
+  imageFile?: string;
+  /**
+   * @example
+   * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  isCheck?: string;
+  /**
+   * @example
+   * 0
+   */
+  isOcr?: string;
+  merchantDetail?: CredentialVerifyV2RequestMerchantDetail[];
+  merchantId?: string;
+  /**
+   * @example
+   * ANTI_FAKE_CHECK
+   */
+  productCode?: string;
+  prompt?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
+  promptModel?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNum: 'CertNum',
+      credName: 'CredName',
+      credType: 'CredType',
+      identifyNum: 'IdentifyNum',
+      imageFile: 'ImageFile',
+      imageUrl: 'ImageUrl',
+      isCheck: 'IsCheck',
+      isOcr: 'IsOcr',
+      merchantDetail: 'MerchantDetail',
+      merchantId: 'MerchantId',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      promptModel: 'PromptModel',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNum: 'string',
+      credName: 'string',
+      credType: 'string',
+      identifyNum: 'string',
+      imageFile: 'string',
+      imageUrl: 'string',
+      isCheck: 'string',
+      isOcr: 'string',
+      merchantDetail: { 'type': 'array', 'itemType': CredentialVerifyV2RequestMerchantDetail },
+      merchantId: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      promptModel: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.merchantDetail)) {
+      $dara.Model.validateArray(this.merchantDetail);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2AdvanceRequest extends $dara.Model {
+  /**
+   * @example
+   * 4601*****
+   */
+  certNum?: string;
+  /**
+   * @example
+   * 0104
+   */
+  credName?: string;
+  /**
+   * @example
+   * 01
+   */
+  credType?: string;
+  /**
+   * @example
+   * 4****************1
+   */
+  identifyNum?: string;
+  imageFileObject?: Readable;
+  /**
+   * @example
+   * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  isCheck?: string;
+  /**
+   * @example
+   * 0
+   */
+  isOcr?: string;
+  merchantDetail?: CredentialVerifyV2AdvanceRequestMerchantDetail[];
+  merchantId?: string;
+  /**
+   * @example
+   * ANTI_FAKE_CHECK
+   */
+  productCode?: string;
+  prompt?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
+  promptModel?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNum: 'CertNum',
+      credName: 'CredName',
+      credType: 'CredType',
+      identifyNum: 'IdentifyNum',
+      imageFileObject: 'ImageFile',
+      imageUrl: 'ImageUrl',
+      isCheck: 'IsCheck',
+      isOcr: 'IsOcr',
+      merchantDetail: 'MerchantDetail',
+      merchantId: 'MerchantId',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      promptModel: 'PromptModel',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNum: 'string',
+      credName: 'string',
+      credType: 'string',
+      identifyNum: 'string',
+      imageFileObject: 'Readable',
+      imageUrl: 'string',
+      isCheck: 'string',
+      isOcr: 'string',
+      merchantDetail: { 'type': 'array', 'itemType': CredentialVerifyV2AdvanceRequestMerchantDetail },
+      merchantId: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      promptModel: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.merchantDetail)) {
+      $dara.Model.validateArray(this.merchantDetail);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2ShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 4601*****
+   */
+  certNum?: string;
+  /**
+   * @example
+   * 0104
+   */
+  credName?: string;
+  /**
+   * @example
+   * 01
+   */
+  credType?: string;
+  /**
+   * @example
+   * 4****************1
+   */
+  identifyNum?: string;
+  imageFile?: string;
+  /**
+   * @example
+   * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  isCheck?: string;
+  /**
+   * @example
+   * 0
+   */
+  isOcr?: string;
+  merchantDetailShrink?: string;
+  merchantId?: string;
+  /**
+   * @example
+   * ANTI_FAKE_CHECK
+   */
+  productCode?: string;
+  prompt?: string;
+  /**
+   * @example
+   * DEFAULT
+   */
+  promptModel?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certNum: 'CertNum',
+      credName: 'CredName',
+      credType: 'CredType',
+      identifyNum: 'IdentifyNum',
+      imageFile: 'ImageFile',
+      imageUrl: 'ImageUrl',
+      isCheck: 'IsCheck',
+      isOcr: 'IsOcr',
+      merchantDetailShrink: 'MerchantDetail',
+      merchantId: 'MerchantId',
+      productCode: 'ProductCode',
+      prompt: 'Prompt',
+      promptModel: 'PromptModel',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certNum: 'string',
+      credName: 'string',
+      credType: 'string',
+      identifyNum: 'string',
+      imageFile: 'string',
+      imageUrl: 'string',
+      isCheck: 'string',
+      isOcr: 'string',
+      merchantDetailShrink: 'string',
+      merchantId: 'string',
+      productCode: 'string',
+      prompt: 'string',
+      promptModel: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  resultObject?: CredentialVerifyV2ResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: CredentialVerifyV2ResponseBodyResultObject,
+    };
+  }
+
+  validate() {
+    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
+      (this.resultObject as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyV2Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CredentialVerifyV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CredentialVerifyV2ResponseBody,
     };
   }
 
@@ -9092,6 +9638,183 @@ export default class Client extends OpenApi {
   async credentialVerify(request: CredentialVerifyRequest): Promise<CredentialVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.credentialVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 凭证核验
+   * 
+   * @param tmpReq - CredentialVerifyV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialVerifyV2Response
+   */
+  async credentialVerifyV2WithOptions(tmpReq: CredentialVerifyV2Request, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyV2Response> {
+    tmpReq.validate();
+    let request = new CredentialVerifyV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.merchantDetail)) {
+      request.merchantDetailShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.merchantDetail, "MerchantDetail", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.certNum)) {
+      query["CertNum"] = request.certNum;
+    }
+
+    if (!$dara.isNull(request.credName)) {
+      query["CredName"] = request.credName;
+    }
+
+    if (!$dara.isNull(request.credType)) {
+      query["CredType"] = request.credType;
+    }
+
+    if (!$dara.isNull(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.isCheck)) {
+      query["IsCheck"] = request.isCheck;
+    }
+
+    if (!$dara.isNull(request.isOcr)) {
+      query["IsOcr"] = request.isOcr;
+    }
+
+    if (!$dara.isNull(request.merchantDetailShrink)) {
+      query["MerchantDetail"] = request.merchantDetailShrink;
+    }
+
+    if (!$dara.isNull(request.merchantId)) {
+      query["MerchantId"] = request.merchantId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.promptModel)) {
+      query["PromptModel"] = request.promptModel;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageFile)) {
+      body["ImageFile"] = request.imageFile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialVerifyV2",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CredentialVerifyV2Response>(await this.callApi(params, req, runtime), new CredentialVerifyV2Response({}));
+  }
+
+  /**
+   * 凭证核验
+   * 
+   * @param request - CredentialVerifyV2Request
+   * @returns CredentialVerifyV2Response
+   */
+  async credentialVerifyV2(request: CredentialVerifyV2Request): Promise<CredentialVerifyV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialVerifyV2WithOptions(request, runtime);
+  }
+
+  async credentialVerifyV2Advance(request: CredentialVerifyV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyV2Response> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "Cloudauth",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let credentialVerifyV2Req = new CredentialVerifyV2Request({ });
+    OpenApiUtil.convert(request, credentialVerifyV2Req);
+    if (!$dara.isNull(request.imageFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      credentialVerifyV2Req.imageFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let credentialVerifyV2Resp = await this.credentialVerifyV2WithOptions(credentialVerifyV2Req, runtime);
+    return credentialVerifyV2Resp;
   }
 
   /**
