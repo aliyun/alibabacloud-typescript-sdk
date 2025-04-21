@@ -821,6 +821,7 @@ export class CreateFunctionInput extends $dara.Model {
    * python3.10
    */
   runtime?: string;
+  sessionAffinity?: string;
   tags?: Tag[];
   /**
    * @example
@@ -853,6 +854,7 @@ export class CreateFunctionInput extends $dara.Model {
       ossMountConfig: 'ossMountConfig',
       role: 'role',
       runtime: 'runtime',
+      sessionAffinity: 'sessionAffinity',
       tags: 'tags',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
@@ -884,6 +886,7 @@ export class CreateFunctionInput extends $dara.Model {
       ossMountConfig: OSSMountConfig,
       role: 'string',
       runtime: 'string',
+      sessionAffinity: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       timeout: 'number',
       tracingConfig: TracingConfig,
@@ -1982,6 +1985,7 @@ export class Function extends $dara.Model {
    * python3.10
    */
   runtime?: string;
+  sessionAffinity?: string;
   /**
    * @example
    * Pending
@@ -2038,6 +2042,7 @@ export class Function extends $dara.Model {
       ossMountConfig: 'ossMountConfig',
       role: 'role',
       runtime: 'runtime',
+      sessionAffinity: 'sessionAffinity',
       state: 'state',
       stateReason: 'stateReason',
       stateReasonCode: 'stateReasonCode',
@@ -2081,6 +2086,7 @@ export class Function extends $dara.Model {
       ossMountConfig: OSSMountConfig,
       role: 'string',
       runtime: 'string',
+      sessionAffinity: 'string',
       state: 'string',
       stateReason: 'string',
       stateReasonCode: 'string',
@@ -2716,6 +2722,7 @@ export class Layer extends $dara.Model {
 }
 
 export class LifecycleHook extends $dara.Model {
+  command?: string[];
   /**
    * @example
    * index.initializer
@@ -2728,6 +2735,7 @@ export class LifecycleHook extends $dara.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      command: 'command',
       handler: 'handler',
       timeout: 'timeout',
     };
@@ -2735,12 +2743,16 @@ export class LifecycleHook extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      command: { 'type': 'array', 'itemType': 'string' },
       handler: 'string',
       timeout: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
     super.validate();
   }
 
@@ -5483,6 +5495,7 @@ export class UpdateFunctionInput extends $dara.Model {
    */
   role?: string;
   runtime?: string;
+  sessionAffinity?: string;
   /**
    * @example
    * 60
@@ -5513,6 +5526,7 @@ export class UpdateFunctionInput extends $dara.Model {
       ossMountConfig: 'ossMountConfig',
       role: 'role',
       runtime: 'runtime',
+      sessionAffinity: 'sessionAffinity',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -5542,6 +5556,7 @@ export class UpdateFunctionInput extends $dara.Model {
       ossMountConfig: OSSMountConfig,
       role: 'string',
       runtime: 'string',
+      sessionAffinity: 'string',
       timeout: 'number',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
