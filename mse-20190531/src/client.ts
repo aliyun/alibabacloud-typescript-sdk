@@ -40514,16 +40514,6 @@ export class CreatePluginConfigRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
-  /**
-   * @remarks
-   * The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
-   * 
-   * @example
-   * status_code: 200
-   * headers:
-   * - Content-Type=application/json
-   * body: "{\\"rule\\": \\"global\\"}"
-   */
   config?: string;
   /**
    * @remarks
@@ -40619,16 +40609,6 @@ export class CreatePluginConfigShrinkRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
-  /**
-   * @remarks
-   * The plug-in configuration. The configuration content of the WebAssembly (Wasm) plug-in is in the YAML format. The configuration content of the Lua plug-in is Lua code.
-   * 
-   * @example
-   * status_code: 200
-   * headers:
-   * - Content-Type=application/json
-   * body: "{\\"rule\\": \\"global\\"}"
-   */
   config?: string;
   /**
    * @remarks
@@ -81503,13 +81483,6 @@ export class UpdatePluginConfigRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
-  /**
-   * @remarks
-   * The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
-   * 
-   * @example
-   * \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
-   */
   config?: string;
   /**
    * @remarks
@@ -81641,13 +81614,6 @@ export class UpdatePluginConfigShrinkRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
-  /**
-   * @remarks
-   * The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
-   * 
-   * @example
-   * \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
-   */
   config?: string;
   /**
    * @remarks
@@ -85994,10 +85960,6 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    if (!$dara.isNull(request.config)) {
-      query["Config"] = request.config;
-    }
-
     if (!$dara.isNull(request.configLevel)) {
       query["ConfigLevel"] = request.configLevel;
     }
@@ -86018,8 +85980,14 @@ export default class Client extends OpenApi {
       query["ResourceIdList"] = request.resourceIdListShrink;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreatePluginConfig",
@@ -98040,10 +98008,6 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    if (!$dara.isNull(request.config)) {
-      query["Config"] = request.config;
-    }
-
     if (!$dara.isNull(request.configLevel)) {
       query["ConfigLevel"] = request.configLevel;
     }
@@ -98080,8 +98044,14 @@ export default class Client extends OpenApi {
       query["ResourceIdList"] = request.resourceIdListShrink;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdatePluginConfig",
