@@ -105,6 +105,53 @@ export class AddSmsSignRequestSignFileList extends $dara.Model {
   }
 }
 
+export class ChangeSignatureQualificationResponseBodyData extends $dara.Model {
+  data?: { [key: string]: any };
+  /**
+   * @example
+   * 示例值
+   */
+  errCode?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errCode: 'ErrCode',
+      errMessage: 'ErrMessage',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errCode: 'string',
+      errMessage: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckMobilesCardSupportResponseBodyDataQueryResult extends $dara.Model {
   /**
    * @remarks
@@ -737,6 +784,86 @@ export class GetOSSInfoForUploadFileResponseBodyModel extends $dara.Model {
     return {
       accessKeyId: 'string',
       expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+      startPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualificationOssInfoResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * ak
+   * 
+   * @example
+   * bypFNbG******
+   */
+  accessKeyId?: string;
+  /**
+   * @remarks
+   * 过期时间
+   * 
+   * @example
+   * 1741521339
+   */
+  expire?: number;
+  /**
+   * @remarks
+   * 域名
+   * 
+   * @example
+   * http://***.oss-cn-zhangjiakou.aliyuncs.com
+   */
+  host?: string;
+  /**
+   * @remarks
+   * 策略
+   * 
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyNS0wMy0wOVQxMTo1NTozOS4wMDFaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF0seyJidWNrZXQiOiJhbGljb20tZmMtbWVkaWEifSxbImVxIiwiJGtleSIsIjEwMDAwMDM1ODA4MjA2M1wv********
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * @example
+   * QvNTGC9DSLTeByP+ZWW******
+   */
+  signature?: string;
+  /**
+   * @remarks
+   * 前缀
+   * 
+   * @example
+   * 1000********001
+   */
+  startPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+      startPath: 'StartPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expire: 'number',
       host: 'string',
       policy: 'string',
       signature: 'string',
@@ -1775,6 +1902,123 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   }
 }
 
+export class QuerySmsAuthorizationLetterResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 委托授权方
+   * 
+   * @example
+   * 示例值示例值
+   */
+  authorization?: string;
+  /**
+   * @remarks
+   * 委托授权书有效期
+   * 
+   * @example
+   * 2023-01-01~2026-01-01
+   */
+  authorizationLetterExpDate?: string;
+  /**
+   * @remarks
+   * 委托授权书id
+   * 
+   * @example
+   * 10000******
+   */
+  authorizationLetterId?: number;
+  /**
+   * @remarks
+   * 委托授权书命名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  authorizationLetterName?: string;
+  /**
+   * @remarks
+   * 委托授权书图片地址
+   */
+  authorizationLetterPic?: string;
+  /**
+   * @remarks
+   * 授权方统一社会信用代码
+   * 
+   * @example
+   * 9****************A
+   */
+  organizationCode?: string;
+  /**
+   * @remarks
+   * 被委托授权方
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  proxyAuthorization?: string;
+  /**
+   * @remarks
+   * 委托授权签名范围
+   * 
+   * @example
+   * 示例值
+   */
+  signScope?: string;
+  /**
+   * @remarks
+   * 委托授权书审核状态（初始化INT/审核通过PASSED）
+   * 
+   * @example
+   * PASSED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * 委托授权书可用状态（可用VALID/不可用INVALID）
+   * 
+   * @example
+   * VALID
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      authorizationLetterExpDate: 'AuthorizationLetterExpDate',
+      authorizationLetterId: 'AuthorizationLetterId',
+      authorizationLetterName: 'AuthorizationLetterName',
+      authorizationLetterPic: 'AuthorizationLetterPic',
+      organizationCode: 'OrganizationCode',
+      proxyAuthorization: 'ProxyAuthorization',
+      signScope: 'SignScope',
+      state: 'State',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      authorizationLetterExpDate: 'string',
+      authorizationLetterId: 'number',
+      authorizationLetterName: 'string',
+      authorizationLetterPic: 'string',
+      organizationCode: 'string',
+      proxyAuthorization: 'string',
+      signScope: 'string',
+      state: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmsSignListResponseBodySmsSignListReason extends $dara.Model {
   /**
    * @remarks
@@ -1839,7 +2083,7 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
    * AUDIT_STATE_NOT_PASS
    */
   auditStatus?: string;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * The type of the signature scenario. The return value ends with "type". Valid values:
@@ -1900,7 +2144,7 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       auditStatus: 'string',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       businessType: 'string',
       createDate: 'string',
       orderId: 'string',
@@ -3060,6 +3304,161 @@ export class AddSmsTemplateResponse extends $dara.Model {
   }
 }
 
+export class ChangeSignatureQualificationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 授权委托书id
+   * 
+   * @example
+   * 1000********1234
+   */
+  authorizationLetterId?: number;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1*****2
+   */
+  qualificationId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signatureName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationLetterId: 'AuthorizationLetterId',
+      ownerId: 'OwnerId',
+      qualificationId: 'QualificationId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signatureName: 'SignatureName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationLetterId: 'number',
+      ownerId: 'number',
+      qualificationId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signatureName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeSignatureQualificationResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ChangeSignatureQualificationResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 0A974B78-02BF-4C79-ADF3-90CFBA1B55B1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ChangeSignatureQualificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeSignatureQualificationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeSignatureQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeSignatureQualificationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckMobilesCardSupportRequest extends $dara.Model {
   /**
    * @remarks
@@ -3849,6 +4248,316 @@ export class CreateSmartShortUrlResponse extends $dara.Model {
   }
 }
 
+export class CreateSmsAuthorizationLetterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 授权方，授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 阿里云有限公司
+   */
+  authorization?: string;
+  /**
+   * @remarks
+   * 委托授权书有效期
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2026-01-01
+   */
+  authorizationLetterExpDate?: string;
+  /**
+   * @remarks
+   * 委托授权书命名非空，不超过100个字符，支持中文、英文或与数字组合进行命名，暂不支持任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx公司授权书
+   */
+  authorizationLetterName?: string;
+  /**
+   * @remarks
+   * 上传oss的委托授权书图片标识
+   * 
+   * This parameter is required.
+   */
+  authorizationLetterPic?: string;
+  /**
+   * @remarks
+   * 授权方社会统一信用代码，长度不超过150个字符
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9****************A
+   */
+  organizationCode?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 被授权方，被授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx公司
+   */
+  proxyAuthorization?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 委托授权签名列表，签名数量限制100个以内
+   * 
+   * This parameter is required.
+   */
+  signList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      authorizationLetterExpDate: 'AuthorizationLetterExpDate',
+      authorizationLetterName: 'AuthorizationLetterName',
+      authorizationLetterPic: 'AuthorizationLetterPic',
+      organizationCode: 'OrganizationCode',
+      ownerId: 'OwnerId',
+      proxyAuthorization: 'ProxyAuthorization',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signList: 'SignList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      authorizationLetterExpDate: 'string',
+      authorizationLetterName: 'string',
+      authorizationLetterPic: 'string',
+      organizationCode: 'string',
+      ownerId: 'number',
+      proxyAuthorization: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.signList)) {
+      $dara.Model.validateArray(this.signList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsAuthorizationLetterShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 授权方，授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 阿里云有限公司
+   */
+  authorization?: string;
+  /**
+   * @remarks
+   * 委托授权书有效期
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2026-01-01
+   */
+  authorizationLetterExpDate?: string;
+  /**
+   * @remarks
+   * 委托授权书命名非空，不超过100个字符，支持中文、英文或与数字组合进行命名，暂不支持任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx公司授权书
+   */
+  authorizationLetterName?: string;
+  /**
+   * @remarks
+   * 上传oss的委托授权书图片标识
+   * 
+   * This parameter is required.
+   */
+  authorizationLetterPic?: string;
+  /**
+   * @remarks
+   * 授权方社会统一信用代码，长度不超过150个字符
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9****************A
+   */
+  organizationCode?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 被授权方，被授权方命名长度不超过1000个字符，暂不支持包含除中点（·）、空格、中文括号【】、英文括号()外的任何符号或纯数字输入
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx公司
+   */
+  proxyAuthorization?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 委托授权签名列表，签名数量限制100个以内
+   * 
+   * This parameter is required.
+   */
+  signListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorization: 'Authorization',
+      authorizationLetterExpDate: 'AuthorizationLetterExpDate',
+      authorizationLetterName: 'AuthorizationLetterName',
+      authorizationLetterPic: 'AuthorizationLetterPic',
+      organizationCode: 'OrganizationCode',
+      ownerId: 'OwnerId',
+      proxyAuthorization: 'ProxyAuthorization',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signListShrink: 'SignList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorization: 'string',
+      authorizationLetterExpDate: 'string',
+      authorizationLetterName: 'string',
+      authorizationLetterPic: 'string',
+      organizationCode: 'string',
+      ownerId: 'number',
+      proxyAuthorization: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signListShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsAuthorizationLetterResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 10000****
+   */
+  data?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * F655A8D5-B967-440B-8683-DAD6FF8DE990
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsAuthorizationLetterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSmsAuthorizationLetterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSmsAuthorizationLetterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSmsSignRequest extends $dara.Model {
   /**
    * @remarks
@@ -3865,7 +4574,7 @@ export class CreateSmsSignRequest extends $dara.Model {
    * http://www.aliyun.com/
    */
   applySceneContent?: string;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * Additional information to supplement uploaded business proof documents or screenshots, which helps reviewers understand your business details.
@@ -3980,7 +4689,7 @@ export class CreateSmsSignRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applySceneContent: 'string',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       moreData: { 'type': 'array', 'itemType': 'string' },
       ownerId: 'number',
       qualificationId: 'number',
@@ -4022,7 +4731,7 @@ export class CreateSmsSignShrinkRequest extends $dara.Model {
    * http://www.aliyun.com/
    */
   applySceneContent?: string;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * Additional information to supplement uploaded business proof documents or screenshots, which helps reviewers understand your business details.
@@ -4137,7 +4846,7 @@ export class CreateSmsSignShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applySceneContent: 'string',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       moreDataShrink: 'string',
       ownerId: 'number',
       qualificationId: 'number',
@@ -6145,6 +6854,139 @@ export class GetOSSInfoForUploadFileResponse extends $dara.Model {
   }
 }
 
+export class GetQualificationOssInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 业务，非空
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dysms
+   */
+  bizType?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualificationOssInfoResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: GetQualificationOssInfoResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetQualificationOssInfoResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualificationOssInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualificationOssInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetQualificationOssInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSmsSignRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -6204,7 +7046,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
    */
   auditInfo?: GetSmsSignResponseBodyAuditInfo;
   authorizationLetterAuditPass?: boolean;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * Request status code.
@@ -6363,7 +7205,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
       applyScene: 'string',
       auditInfo: GetSmsSignResponseBodyAuditInfo,
       authorizationLetterAuditPass: 'boolean',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       code: 'string',
       createDate: 'string',
       fileUrlList: { 'type': 'array', 'itemType': 'string' },
@@ -8696,6 +9538,253 @@ export class QueryShortUrlResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryShortUrlResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsAuthorizationLetterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 委托授权书id列表
+   */
+  authorizationLetterIdList?: number[];
+  /**
+   * @remarks
+   * 授权方社会统一信用代码
+   * 
+   * @example
+   * 9****************A
+   */
+  organizationCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名名称（支持命中签名范围查询）
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signName?: string;
+  /**
+   * @remarks
+   * 授权书审核状态，INT:审核中，PASSED:审核通过
+   * 
+   * @example
+   * PASSED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * 授权书可用状态，VALID可用，INVALID不可用
+   * 
+   * @example
+   * VALID
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationLetterIdList: 'AuthorizationLetterIdList',
+      organizationCode: 'OrganizationCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      state: 'State',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationLetterIdList: { 'type': 'array', 'itemType': 'number' },
+      organizationCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      state: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizationLetterIdList)) {
+      $dara.Model.validateArray(this.authorizationLetterIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsAuthorizationLetterShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 委托授权书id列表
+   */
+  authorizationLetterIdListShrink?: string;
+  /**
+   * @remarks
+   * 授权方社会统一信用代码
+   * 
+   * @example
+   * 9****************A
+   */
+  organizationCode?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 签名名称（支持命中签名范围查询）
+   * 
+   * @example
+   * 示例值示例值
+   */
+  signName?: string;
+  /**
+   * @remarks
+   * 授权书审核状态，INT:审核中，PASSED:审核通过
+   * 
+   * @example
+   * PASSED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * 授权书可用状态，VALID可用，INVALID不可用
+   * 
+   * @example
+   * VALID
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationLetterIdListShrink: 'AuthorizationLetterIdList',
+      organizationCode: 'OrganizationCode',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signName: 'SignName',
+      state: 'State',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationLetterIdListShrink: 'string',
+      organizationCode: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      signName: 'string',
+      state: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsAuthorizationLetterResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: QuerySmsAuthorizationLetterResponseBodyData[];
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QuerySmsAuthorizationLetterResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsAuthorizationLetterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsAuthorizationLetterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySmsAuthorizationLetterResponseBody,
     };
   }
 
@@ -11140,7 +12229,7 @@ export class UpdateSmsSignRequest extends $dara.Model {
    * http://www.aliyun.com/
    */
   applySceneContent?: string;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * Additional materials, such as uploading business proof documents or screenshots of business operations, to help reviewers understand your business details.
@@ -11242,7 +12331,7 @@ export class UpdateSmsSignRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applySceneContent: 'string',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       moreData: { 'type': 'array', 'itemType': 'string' },
       ownerId: 'number',
       qualificationId: 'number',
@@ -11281,7 +12370,7 @@ export class UpdateSmsSignShrinkRequest extends $dara.Model {
    * http://www.aliyun.com/
    */
   applySceneContent?: string;
-  authorizationLetterId?: string;
+  authorizationLetterId?: number;
   /**
    * @remarks
    * Additional materials, such as uploading business proof documents or screenshots of business operations, to help reviewers understand your business details.
@@ -11383,7 +12472,7 @@ export class UpdateSmsSignShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applySceneContent: 'string',
-      authorizationLetterId: 'string',
+      authorizationLetterId: 'number',
       moreDataShrink: 'string',
       ownerId: 'number',
       qualificationId: 'number',
@@ -12299,6 +13388,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更换签名的资质和授权书
+   * 
+   * @param request - ChangeSignatureQualificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeSignatureQualificationResponse
+   */
+  async changeSignatureQualificationWithOptions(request: ChangeSignatureQualificationRequest, runtime: $dara.RuntimeOptions): Promise<ChangeSignatureQualificationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizationLetterId)) {
+      query["AuthorizationLetterId"] = request.authorizationLetterId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signatureName)) {
+      query["SignatureName"] = request.signatureName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeSignatureQualification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ChangeSignatureQualificationResponse>(await this.callApi(params, req, runtime), new ChangeSignatureQualificationResponse({}));
+  }
+
+  /**
+   * 更换签名的资质和授权书
+   * 
+   * @param request - ChangeSignatureQualificationRequest
+   * @returns ChangeSignatureQualificationResponse
+   */
+  async changeSignatureQualification(request: ChangeSignatureQualificationRequest): Promise<ChangeSignatureQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeSignatureQualificationWithOptions(request, runtime);
+  }
+
+  /**
    * Checks whether a mobile phone number can receive card messages.
    * 
    * @remarks
@@ -12544,6 +13695,90 @@ export default class Client extends OpenApi {
   async createSmartShortUrl(request: CreateSmartShortUrlRequest): Promise<CreateSmartShortUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmartShortUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建委托授权书
+   * 
+   * @param tmpReq - CreateSmsAuthorizationLetterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSmsAuthorizationLetterResponse
+   */
+  async createSmsAuthorizationLetterWithOptions(tmpReq: CreateSmsAuthorizationLetterRequest, runtime: $dara.RuntimeOptions): Promise<CreateSmsAuthorizationLetterResponse> {
+    tmpReq.validate();
+    let request = new CreateSmsAuthorizationLetterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.signList)) {
+      request.signListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.signList, "SignList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.authorization)) {
+      query["Authorization"] = request.authorization;
+    }
+
+    if (!$dara.isNull(request.authorizationLetterExpDate)) {
+      query["AuthorizationLetterExpDate"] = request.authorizationLetterExpDate;
+    }
+
+    if (!$dara.isNull(request.authorizationLetterName)) {
+      query["AuthorizationLetterName"] = request.authorizationLetterName;
+    }
+
+    if (!$dara.isNull(request.authorizationLetterPic)) {
+      query["AuthorizationLetterPic"] = request.authorizationLetterPic;
+    }
+
+    if (!$dara.isNull(request.organizationCode)) {
+      query["OrganizationCode"] = request.organizationCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.proxyAuthorization)) {
+      query["ProxyAuthorization"] = request.proxyAuthorization;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signListShrink)) {
+      query["SignList"] = request.signListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSmsAuthorizationLetter",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateSmsAuthorizationLetterResponse>(await this.callApi(params, req, runtime), new CreateSmsAuthorizationLetterResponse({}));
+  }
+
+  /**
+   * 创建委托授权书
+   * 
+   * @param request - CreateSmsAuthorizationLetterRequest
+   * @returns CreateSmsAuthorizationLetterResponse
+   */
+  async createSmsAuthorizationLetter(request: CreateSmsAuthorizationLetterRequest): Promise<CreateSmsAuthorizationLetterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSmsAuthorizationLetterWithOptions(request, runtime);
   }
 
   /**
@@ -13342,6 +14577,60 @@ export default class Client extends OpenApi {
   async getOSSInfoForUploadFile(request: GetOSSInfoForUploadFileRequest): Promise<GetOSSInfoForUploadFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getOSSInfoForUploadFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传文件获取oss配置
+   * 
+   * @param request - GetQualificationOssInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualificationOssInfoResponse
+   */
+  async getQualificationOssInfoWithOptions(request: GetQualificationOssInfoRequest, runtime: $dara.RuntimeOptions): Promise<GetQualificationOssInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetQualificationOssInfo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<GetQualificationOssInfoResponse>(await this.callApi(params, req, runtime), new GetQualificationOssInfoResponse({}));
+  }
+
+  /**
+   * 上传文件获取oss配置
+   * 
+   * @param request - GetQualificationOssInfoRequest
+   * @returns GetQualificationOssInfoResponse
+   */
+  async getQualificationOssInfo(request: GetQualificationOssInfoRequest): Promise<GetQualificationOssInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getQualificationOssInfoWithOptions(request, runtime);
   }
 
   /**
@@ -14262,6 +15551,82 @@ export default class Client extends OpenApi {
   async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryShortUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询委托授权书
+   * 
+   * @param tmpReq - QuerySmsAuthorizationLetterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsAuthorizationLetterResponse
+   */
+  async querySmsAuthorizationLetterWithOptions(tmpReq: QuerySmsAuthorizationLetterRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsAuthorizationLetterResponse> {
+    tmpReq.validate();
+    let request = new QuerySmsAuthorizationLetterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.authorizationLetterIdList)) {
+      request.authorizationLetterIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authorizationLetterIdList, "AuthorizationLetterIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.authorizationLetterIdListShrink)) {
+      query["AuthorizationLetterIdList"] = request.authorizationLetterIdListShrink;
+    }
+
+    if (!$dara.isNull(request.organizationCode)) {
+      query["OrganizationCode"] = request.organizationCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySmsAuthorizationLetter",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<QuerySmsAuthorizationLetterResponse>(await this.callApi(params, req, runtime), new QuerySmsAuthorizationLetterResponse({}));
+  }
+
+  /**
+   * 查询委托授权书
+   * 
+   * @param request - QuerySmsAuthorizationLetterRequest
+   * @returns QuerySmsAuthorizationLetterResponse
+   */
+  async querySmsAuthorizationLetter(request: QuerySmsAuthorizationLetterRequest): Promise<QuerySmsAuthorizationLetterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySmsAuthorizationLetterWithOptions(request, runtime);
   }
 
   /**
