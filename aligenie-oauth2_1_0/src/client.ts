@@ -5,6 +5,191 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class CreatePlayingListRequestDeviceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  encodeKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UC_CLIENT_ID
+   */
+  encodeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OPEN_ID
+   */
+  idType?: string;
+  /**
+   * @example
+   * 1
+   */
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListRequestOpenCreatePlayingListRequestContentList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  rawId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ximalayaH5
+   */
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rawId: 'RawId',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rawId: 'string',
+      source: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListRequestOpenCreatePlayingListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contentList?: CreatePlayingListRequestOpenCreatePlayingListRequestContentList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * content
+   */
+  contentType?: string;
+  /**
+   * @example
+   * {}
+   */
+  extendInfo?: { [key: string]: any };
+  /**
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @example
+   * true
+   */
+  needAlbumContinued?: boolean;
+  /**
+   * @example
+   * default
+   */
+  playFrom?: string;
+  /**
+   * @example
+   * Normal
+   */
+  playMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentList: 'ContentList',
+      contentType: 'ContentType',
+      extendInfo: 'ExtendInfo',
+      index: 'Index',
+      needAlbumContinued: 'NeedAlbumContinued',
+      playFrom: 'PlayFrom',
+      playMode: 'PlayMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentList: { 'type': 'array', 'itemType': CreatePlayingListRequestOpenCreatePlayingListRequestContentList },
+      contentType: 'string',
+      extendInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      index: 'number',
+      needAlbumContinued: 'boolean',
+      playFrom: 'string',
+      playMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.contentList)) {
+      $dara.Model.validateArray(this.contentList);
+    }
+    if(this.extendInfo) {
+      $dara.Model.validateMap(this.extendInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSceneListResponseBodySceneList extends $dara.Model {
   /**
    * @example
@@ -269,6 +454,142 @@ export class QueryDeviceListResponseBodyDeviceList extends $dara.Model {
   validate() {
     if(Array.isArray(this.deviceUnionIds)) {
       $dara.Model.validateArray(this.deviceUnionIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deviceInfo?: CreatePlayingListRequestDeviceInfo;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  openCreatePlayingListRequest?: CreatePlayingListRequestOpenCreatePlayingListRequest;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+      openCreatePlayingListRequest: 'OpenCreatePlayingListRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: CreatePlayingListRequestDeviceInfo,
+      openCreatePlayingListRequest: CreatePlayingListRequestOpenCreatePlayingListRequest,
+    };
+  }
+
+  validate() {
+    if(this.deviceInfo && typeof (this.deviceInfo as any).validate === 'function') {
+      (this.deviceInfo as any).validate();
+    }
+    if(this.openCreatePlayingListRequest && typeof (this.openCreatePlayingListRequest as any).validate === 'function') {
+      (this.openCreatePlayingListRequest as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  openCreatePlayingListRequestShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfoShrink: 'DeviceInfo',
+      openCreatePlayingListRequestShrink: 'OpenCreatePlayingListRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfoShrink: 'string',
+      openCreatePlayingListRequestShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 10002398812
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePlayingListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePlayingListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePlayingListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
@@ -1130,6 +1451,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建播放列表
+   * 
+   * @param tmpReq - CreatePlayingListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePlayingListResponse
+   */
+  async createPlayingListWithOptions(tmpReq: CreatePlayingListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreatePlayingListResponse> {
+    tmpReq.validate();
+    let request = new CreatePlayingListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deviceInfo)) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo, "DeviceInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.openCreatePlayingListRequest)) {
+      request.openCreatePlayingListRequestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openCreatePlayingListRequest, "OpenCreatePlayingListRequest", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.openCreatePlayingListRequestShrink)) {
+      body["OpenCreatePlayingListRequest"] = request.openCreatePlayingListRequestShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePlayingList",
+      version: "oauth2_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/oauth2/content/playing/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreatePlayingListResponse>(await this.callApi(params, req, runtime), new CreatePlayingListResponse({}));
+  }
+
+  /**
+   * 创建播放列表
+   * 
+   * @param request - CreatePlayingListRequest
+   * @returns CreatePlayingListResponse
+   */
+  async createPlayingList(request: CreatePlayingListRequest): Promise<CreatePlayingListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPlayingListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 执行场景
    * 
    * @param request - ExecuteSceneRequest
@@ -1159,12 +1541,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ExecuteSceneResponse>(await this.callApi(params, req, runtime), new ExecuteSceneResponse({}));
-    } else {
-      return $dara.cast<ExecuteSceneResponse>(await this.execute(params, req, runtime), new ExecuteSceneResponse({}));
-    }
-
+    return $dara.cast<ExecuteSceneResponse>(await this.callApi(params, req, runtime), new ExecuteSceneResponse({}));
   }
 
   /**
@@ -1201,12 +1578,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSceneListResponse>(await this.callApi(params, req, runtime), new GetSceneListResponse({}));
-    } else {
-      return $dara.cast<GetSceneListResponse>(await this.execute(params, req, runtime), new GetSceneListResponse({}));
-    }
-
+    return $dara.cast<GetSceneListResponse>(await this.callApi(params, req, runtime), new GetSceneListResponse({}));
   }
 
   /**
@@ -1241,12 +1613,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetUserBasicInfoResponse>(await this.callApi(params, req, runtime), new GetUserBasicInfoResponse({}));
-    } else {
-      return $dara.cast<GetUserBasicInfoResponse>(await this.execute(params, req, runtime), new GetUserBasicInfoResponse({}));
-    }
-
+    return $dara.cast<GetUserBasicInfoResponse>(await this.callApi(params, req, runtime), new GetUserBasicInfoResponse({}));
   }
 
   /**
@@ -1281,12 +1648,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetUserPhoneResponse>(await this.callApi(params, req, runtime), new GetUserPhoneResponse({}));
-    } else {
-      return $dara.cast<GetUserPhoneResponse>(await this.execute(params, req, runtime), new GetUserPhoneResponse({}));
-    }
-
+    return $dara.cast<GetUserPhoneResponse>(await this.callApi(params, req, runtime), new GetUserPhoneResponse({}));
   }
 
   /**
@@ -1346,12 +1708,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<OAuth2RevocationEndpointResponse>(await this.callApi(params, req, runtime), new OAuth2RevocationEndpointResponse({}));
-    } else {
-      return $dara.cast<OAuth2RevocationEndpointResponse>(await this.execute(params, req, runtime), new OAuth2RevocationEndpointResponse({}));
-    }
-
+    return $dara.cast<OAuth2RevocationEndpointResponse>(await this.callApi(params, req, runtime), new OAuth2RevocationEndpointResponse({}));
   }
 
   /**
@@ -1421,12 +1778,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<OAuth2TokenEndpointResponse>(await this.callApi(params, req, runtime), new OAuth2TokenEndpointResponse({}));
-    } else {
-      return $dara.cast<OAuth2TokenEndpointResponse>(await this.execute(params, req, runtime), new OAuth2TokenEndpointResponse({}));
-    }
-
+    return $dara.cast<OAuth2TokenEndpointResponse>(await this.callApi(params, req, runtime), new OAuth2TokenEndpointResponse({}));
   }
 
   /**
@@ -1485,12 +1837,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PushDeviceNotificationResponse>(await this.callApi(params, req, runtime), new PushDeviceNotificationResponse({}));
-    } else {
-      return $dara.cast<PushDeviceNotificationResponse>(await this.execute(params, req, runtime), new PushDeviceNotificationResponse({}));
-    }
-
+    return $dara.cast<PushDeviceNotificationResponse>(await this.callApi(params, req, runtime), new PushDeviceNotificationResponse({}));
   }
 
   /**
@@ -1527,12 +1874,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryDeviceListResponse>(await this.callApi(params, req, runtime), new QueryDeviceListResponse({}));
-    } else {
-      return $dara.cast<QueryDeviceListResponse>(await this.execute(params, req, runtime), new QueryDeviceListResponse({}));
-    }
-
+    return $dara.cast<QueryDeviceListResponse>(await this.callApi(params, req, runtime), new QueryDeviceListResponse({}));
   }
 
   /**
