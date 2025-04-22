@@ -2276,6 +2276,7 @@ export class Product extends $dara.Model {
    * 3239281273464326823
    */
   requestId?: string;
+  servicePromises?: string[];
   /**
    * @example
    * 21000017
@@ -2324,6 +2325,7 @@ export class Product extends $dara.Model {
       properties: 'properties',
       quantity: 'quantity',
       requestId: 'requestId',
+      servicePromises: 'servicePromises',
       shopId: 'shopId',
       skus: 'skus',
       soldQuantity: 'soldQuantity',
@@ -2355,6 +2357,7 @@ export class Product extends $dara.Model {
       properties: { 'type': 'array', 'itemType': ProductProperty },
       quantity: 'number',
       requestId: 'string',
+      servicePromises: { 'type': 'array', 'itemType': 'string' },
       shopId: 'string',
       skus: { 'type': 'array', 'itemType': Sku },
       soldQuantity: 'string',
@@ -2382,6 +2385,9 @@ export class Product extends $dara.Model {
     }
     if(Array.isArray(this.properties)) {
       $dara.Model.validateArray(this.properties);
+    }
+    if(Array.isArray(this.servicePromises)) {
+      $dara.Model.validateArray(this.servicePromises);
     }
     if(Array.isArray(this.skus)) {
       $dara.Model.validateArray(this.skus);
@@ -6462,12 +6468,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CancelRefundOrderResponse>(await this.callApi(params, req, runtime), new CancelRefundOrderResponse({}));
-    } else {
-      return $dara.cast<CancelRefundOrderResponse>(await this.execute(params, req, runtime), new CancelRefundOrderResponse({}));
-    }
-
+    return $dara.cast<CancelRefundOrderResponse>(await this.callApi(params, req, runtime), new CancelRefundOrderResponse({}));
   }
 
   /**
@@ -6505,12 +6506,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ConfirmDisburseResponse>(await this.callApi(params, req, runtime), new ConfirmDisburseResponse({}));
-    } else {
-      return $dara.cast<ConfirmDisburseResponse>(await this.execute(params, req, runtime), new ConfirmDisburseResponse({}));
-    }
-
+    return $dara.cast<ConfirmDisburseResponse>(await this.callApi(params, req, runtime), new ConfirmDisburseResponse({}));
   }
 
   /**
@@ -6550,12 +6546,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateGoodsShippingNoticeResponse>(await this.callApi(params, req, runtime), new CreateGoodsShippingNoticeResponse({}));
-    } else {
-      return $dara.cast<CreateGoodsShippingNoticeResponse>(await this.execute(params, req, runtime), new CreateGoodsShippingNoticeResponse({}));
-    }
-
+    return $dara.cast<CreateGoodsShippingNoticeResponse>(await this.callApi(params, req, runtime), new CreateGoodsShippingNoticeResponse({}));
   }
 
   /**
@@ -6595,12 +6586,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreatePurchaseOrderResponse>(await this.callApi(params, req, runtime), new CreatePurchaseOrderResponse({}));
-    } else {
-      return $dara.cast<CreatePurchaseOrderResponse>(await this.execute(params, req, runtime), new CreatePurchaseOrderResponse({}));
-    }
-
+    return $dara.cast<CreatePurchaseOrderResponse>(await this.callApi(params, req, runtime), new CreatePurchaseOrderResponse({}));
   }
 
   /**
@@ -6640,12 +6626,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateRefundOrderResponse>(await this.callApi(params, req, runtime), new CreateRefundOrderResponse({}));
-    } else {
-      return $dara.cast<CreateRefundOrderResponse>(await this.execute(params, req, runtime), new CreateRefundOrderResponse({}));
-    }
-
+    return $dara.cast<CreateRefundOrderResponse>(await this.callApi(params, req, runtime), new CreateRefundOrderResponse({}));
   }
 
   /**
@@ -6682,12 +6663,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetOrderResponse>(await this.callApi(params, req, runtime), new GetOrderResponse({}));
-    } else {
-      return $dara.cast<GetOrderResponse>(await this.execute(params, req, runtime), new GetOrderResponse({}));
-    }
-
+    return $dara.cast<GetOrderResponse>(await this.callApi(params, req, runtime), new GetOrderResponse({}));
   }
 
   /**
@@ -6722,12 +6698,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPurchaseOrderStatusResponse>(await this.callApi(params, req, runtime), new GetPurchaseOrderStatusResponse({}));
-    } else {
-      return $dara.cast<GetPurchaseOrderStatusResponse>(await this.execute(params, req, runtime), new GetPurchaseOrderStatusResponse({}));
-    }
-
+    return $dara.cast<GetPurchaseOrderStatusResponse>(await this.callApi(params, req, runtime), new GetPurchaseOrderStatusResponse({}));
   }
 
   /**
@@ -6762,12 +6733,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPurchaserShopResponse>(await this.callApi(params, req, runtime), new GetPurchaserShopResponse({}));
-    } else {
-      return $dara.cast<GetPurchaserShopResponse>(await this.execute(params, req, runtime), new GetPurchaserShopResponse({}));
-    }
-
+    return $dara.cast<GetPurchaserShopResponse>(await this.callApi(params, req, runtime), new GetPurchaserShopResponse({}));
   }
 
   /**
@@ -6802,12 +6768,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRefundOrderResponse>(await this.callApi(params, req, runtime), new GetRefundOrderResponse({}));
-    } else {
-      return $dara.cast<GetRefundOrderResponse>(await this.execute(params, req, runtime), new GetRefundOrderResponse({}));
-    }
-
+    return $dara.cast<GetRefundOrderResponse>(await this.callApi(params, req, runtime), new GetRefundOrderResponse({}));
   }
 
   /**
@@ -6854,12 +6815,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSelectionProductResponse>(await this.callApi(params, req, runtime), new GetSelectionProductResponse({}));
-    } else {
-      return $dara.cast<GetSelectionProductResponse>(await this.execute(params, req, runtime), new GetSelectionProductResponse({}));
-    }
-
+    return $dara.cast<GetSelectionProductResponse>(await this.callApi(params, req, runtime), new GetSelectionProductResponse({}));
   }
 
   /**
@@ -6908,12 +6864,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSelectionProductSaleInfoResponse>(await this.callApi(params, req, runtime), new GetSelectionProductSaleInfoResponse({}));
-    } else {
-      return $dara.cast<GetSelectionProductSaleInfoResponse>(await this.execute(params, req, runtime), new GetSelectionProductSaleInfoResponse({}));
-    }
-
+    return $dara.cast<GetSelectionProductSaleInfoResponse>(await this.callApi(params, req, runtime), new GetSelectionProductSaleInfoResponse({}));
   }
 
   /**
@@ -6953,12 +6904,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListCategoriesResponse>(await this.callApi(params, req, runtime), new ListCategoriesResponse({}));
-    } else {
-      return $dara.cast<ListCategoriesResponse>(await this.execute(params, req, runtime), new ListCategoriesResponse({}));
-    }
-
+    return $dara.cast<ListCategoriesResponse>(await this.callApi(params, req, runtime), new ListCategoriesResponse({}));
   }
 
   /**
@@ -6995,12 +6941,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListLogisticsOrdersResponse>(await this.callApi(params, req, runtime), new ListLogisticsOrdersResponse({}));
-    } else {
-      return $dara.cast<ListLogisticsOrdersResponse>(await this.execute(params, req, runtime), new ListLogisticsOrdersResponse({}));
-    }
-
+    return $dara.cast<ListLogisticsOrdersResponse>(await this.callApi(params, req, runtime), new ListLogisticsOrdersResponse({}));
   }
 
   /**
@@ -7047,12 +6988,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPurchaserShopsResponse>(await this.callApi(params, req, runtime), new ListPurchaserShopsResponse({}));
-    } else {
-      return $dara.cast<ListPurchaserShopsResponse>(await this.execute(params, req, runtime), new ListPurchaserShopsResponse({}));
-    }
-
+    return $dara.cast<ListPurchaserShopsResponse>(await this.callApi(params, req, runtime), new ListPurchaserShopsResponse({}));
   }
 
   /**
@@ -7092,12 +7028,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSelectionProductSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionProductSaleInfosResponse({}));
-    } else {
-      return $dara.cast<ListSelectionProductSaleInfosResponse>(await this.execute(params, req, runtime), new ListSelectionProductSaleInfosResponse({}));
-    }
-
+    return $dara.cast<ListSelectionProductSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionProductSaleInfosResponse({}));
   }
 
   /**
@@ -7150,12 +7081,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSelectionProductsResponse>(await this.callApi(params, req, runtime), new ListSelectionProductsResponse({}));
-    } else {
-      return $dara.cast<ListSelectionProductsResponse>(await this.execute(params, req, runtime), new ListSelectionProductsResponse({}));
-    }
-
+    return $dara.cast<ListSelectionProductsResponse>(await this.callApi(params, req, runtime), new ListSelectionProductsResponse({}));
   }
 
   /**
@@ -7195,12 +7121,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSelectionSkuSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionSkuSaleInfosResponse({}));
-    } else {
-      return $dara.cast<ListSelectionSkuSaleInfosResponse>(await this.execute(params, req, runtime), new ListSelectionSkuSaleInfosResponse({}));
-    }
-
+    return $dara.cast<ListSelectionSkuSaleInfosResponse>(await this.callApi(params, req, runtime), new ListSelectionSkuSaleInfosResponse({}));
   }
 
   /**
@@ -7240,12 +7161,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryChildDivisionCodeResponse>(await this.callApi(params, req, runtime), new QueryChildDivisionCodeResponse({}));
-    } else {
-      return $dara.cast<QueryChildDivisionCodeResponse>(await this.execute(params, req, runtime), new QueryChildDivisionCodeResponse({}));
-    }
-
+    return $dara.cast<QueryChildDivisionCodeResponse>(await this.callApi(params, req, runtime), new QueryChildDivisionCodeResponse({}));
   }
 
   /**
@@ -7285,12 +7201,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryOrdersResponse>(await this.callApi(params, req, runtime), new QueryOrdersResponse({}));
-    } else {
-      return $dara.cast<QueryOrdersResponse>(await this.execute(params, req, runtime), new QueryOrdersResponse({}));
-    }
-
+    return $dara.cast<QueryOrdersResponse>(await this.callApi(params, req, runtime), new QueryOrdersResponse({}));
   }
 
   /**
@@ -7330,12 +7241,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RenderPurchaseOrderResponse>(await this.callApi(params, req, runtime), new RenderPurchaseOrderResponse({}));
-    } else {
-      return $dara.cast<RenderPurchaseOrderResponse>(await this.execute(params, req, runtime), new RenderPurchaseOrderResponse({}));
-    }
-
+    return $dara.cast<RenderPurchaseOrderResponse>(await this.callApi(params, req, runtime), new RenderPurchaseOrderResponse({}));
   }
 
   /**
@@ -7375,12 +7281,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RenderRefundOrderResponse>(await this.callApi(params, req, runtime), new RenderRefundOrderResponse({}));
-    } else {
-      return $dara.cast<RenderRefundOrderResponse>(await this.execute(params, req, runtime), new RenderRefundOrderResponse({}));
-    }
-
+    return $dara.cast<RenderRefundOrderResponse>(await this.callApi(params, req, runtime), new RenderRefundOrderResponse({}));
   }
 
   /**
@@ -7541,12 +7442,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SearchProductsResponse>(await this.callApi(params, req, runtime), new SearchProductsResponse({}));
-    } else {
-      return $dara.cast<SearchProductsResponse>(await this.execute(params, req, runtime), new SearchProductsResponse({}));
-    }
-
+    return $dara.cast<SearchProductsResponse>(await this.callApi(params, req, runtime), new SearchProductsResponse({}));
   }
 
   /**
@@ -7595,12 +7491,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SelectionGroupAddProductResponse>(await this.callApi(params, req, runtime), new SelectionGroupAddProductResponse({}));
-    } else {
-      return $dara.cast<SelectionGroupAddProductResponse>(await this.execute(params, req, runtime), new SelectionGroupAddProductResponse({}));
-    }
-
+    return $dara.cast<SelectionGroupAddProductResponse>(await this.callApi(params, req, runtime), new SelectionGroupAddProductResponse({}));
   }
 
   /**
@@ -7649,12 +7540,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SelectionGroupRemoveProductResponse>(await this.callApi(params, req, runtime), new SelectionGroupRemoveProductResponse({}));
-    } else {
-      return $dara.cast<SelectionGroupRemoveProductResponse>(await this.execute(params, req, runtime), new SelectionGroupRemoveProductResponse({}));
-    }
-
+    return $dara.cast<SelectionGroupRemoveProductResponse>(await this.callApi(params, req, runtime), new SelectionGroupRemoveProductResponse({}));
   }
 
   /**
@@ -7694,12 +7580,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SplitPurchaseOrderResponse>(await this.callApi(params, req, runtime), new SplitPurchaseOrderResponse({}));
-    } else {
-      return $dara.cast<SplitPurchaseOrderResponse>(await this.execute(params, req, runtime), new SplitPurchaseOrderResponse({}));
-    }
-
+    return $dara.cast<SplitPurchaseOrderResponse>(await this.callApi(params, req, runtime), new SplitPurchaseOrderResponse({}));
   }
 
   /**
