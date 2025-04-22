@@ -297,6 +297,32 @@ export class PermissionConditionStringNotLike extends $dara.Model {
   }
 }
 
+export class ReceivedMsgMsgContent extends $dara.Model {
+  msgData?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      msgData: 'msg_data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      msgData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.msgData) {
+      $dara.Model.validateMap(this.msgData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadPartInfoParallelSha1Ctx extends $dara.Model {
   h?: number[];
   partOffset?: number;
@@ -3988,6 +4014,11 @@ export class Domain extends $dara.Model {
   sizeQuota?: number;
   sizeQuotaUsed?: number;
   status?: number;
+  /**
+   * @example
+   * LRS
+   */
+  storeRedundancyType?: string;
   updatedAt?: string;
   usedSize?: number;
   userCountQuota?: number;
@@ -4006,6 +4037,7 @@ export class Domain extends $dara.Model {
       sizeQuota: 'size_quota',
       sizeQuotaUsed: 'size_quota_used',
       status: 'status',
+      storeRedundancyType: 'store_redundancy_type',
       updatedAt: 'updated_at',
       usedSize: 'used_size',
       userCountQuota: 'user_count_quota',
@@ -4027,6 +4059,7 @@ export class Domain extends $dara.Model {
       sizeQuota: 'number',
       sizeQuotaUsed: 'number',
       status: 'number',
+      storeRedundancyType: 'string',
       updatedAt: 'string',
       usedSize: 'number',
       userCountQuota: 'number',
@@ -6236,6 +6269,191 @@ export class PersonalSpaceInfo extends $dara.Model {
   }
 }
 
+export class ReceivedMsg extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  hasRead?: boolean;
+  /**
+   * @example
+   * system
+   */
+  msgCategory?: string;
+  msgContent?: ReceivedMsgMsgContent;
+  /**
+   * @example
+   * 50d6f2aaa16525c7d053998e48fac265962f585f
+   */
+  msgId?: string;
+  /**
+   * @example
+   * change_user_setting
+   */
+  msgSubCategory?: string;
+  /**
+   * @example
+   * edit_user
+   */
+  msgType?: string;
+  /**
+   * @example
+   * 1716363191123
+   */
+  publishAt?: number;
+  /**
+   * @example
+   * 1716363191123
+   */
+  readAt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasRead: 'has_read',
+      msgCategory: 'msg_category',
+      msgContent: 'msg_content',
+      msgId: 'msg_id',
+      msgSubCategory: 'msg_sub_category',
+      msgType: 'msg_type',
+      publishAt: 'publish_at',
+      readAt: 'read_at',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasRead: 'boolean',
+      msgCategory: 'string',
+      msgContent: ReceivedMsgMsgContent,
+      msgId: 'string',
+      msgSubCategory: 'string',
+      msgType: 'string',
+      publishAt: 'number',
+      readAt: 'number',
+    };
+  }
+
+  validate() {
+    if(this.msgContent && typeof (this.msgContent as any).validate === 'function') {
+      (this.msgContent as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecentActedFile extends $dara.Model {
+  actionList?: string[];
+  /**
+   * @example
+   * doc
+   */
+  category?: string;
+  /**
+   * @example
+   * true
+   */
+  deleted?: boolean;
+  /**
+   * @example
+   * 50d6f2aaa16525c7d053998e48fac265962f585f
+   */
+  driveId?: string;
+  /**
+   * @example
+   * false
+   */
+  driveIsHandover?: boolean;
+  /**
+   * @example
+   * group drive
+   */
+  driveName?: string;
+  /**
+   * @example
+   * 50d6f2aaa16525c7d053998e48fac265962f585f
+   */
+  driveOwnerId?: string;
+  /**
+   * @example
+   * group
+   */
+  driveOwnerType?: string;
+  /**
+   * @example
+   * 50d6f2aaa16525c7d053998e48fac265962f585f
+   */
+  fileId?: string;
+  /**
+   * @example
+   * a.jpg
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 100
+   */
+  size?: number;
+  /**
+   * @example
+   * https://xxx.jpg
+   */
+  thumbnail?: string;
+  /**
+   * @example
+   * true
+   */
+  trashed?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      actionList: 'action_list',
+      category: 'category',
+      deleted: 'deleted',
+      driveId: 'drive_id',
+      driveIsHandover: 'drive_is_handover',
+      driveName: 'drive_name',
+      driveOwnerId: 'drive_owner_id',
+      driveOwnerType: 'drive_owner_type',
+      fileId: 'file_id',
+      fileName: 'file_name',
+      size: 'size',
+      thumbnail: 'thumbnail',
+      trashed: 'trashed',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionList: { 'type': 'array', 'itemType': 'string' },
+      category: 'string',
+      deleted: 'boolean',
+      driveId: 'string',
+      driveIsHandover: 'boolean',
+      driveName: 'string',
+      driveOwnerId: 'string',
+      driveOwnerType: 'string',
+      fileId: 'string',
+      fileName: 'string',
+      size: 'number',
+      thumbnail: 'string',
+      trashed: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actionList)) {
+      $dara.Model.validateArray(this.actionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecycleBinConfig extends $dara.Model {
   autoDeleteEnabled?: boolean;
   autoDeleteKeepSecond?: number;
@@ -8303,21 +8521,44 @@ export class AssignRoleResponse extends $dara.Model {
 
 export class AuditLogExportRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the exported file. The name can be up to 1,024 characters in length. The default name suffix is log.csv.
+   * 
    * @example
    * 2024-01-log.csv
    */
   fileName?: string;
   /**
+   * @remarks
+   * The export language. Default value: zh-CN. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en_US: English
+   * 
    * @example
    * zh_CN
    */
   language?: string;
   /**
+   * @remarks
+   * The sort order based on the operation time. If you leave this parameter empty, the value acted_at DESC is used. Valid values:
+   * 
+   * *   acted_at DESC: sorts the entries by operation time in descending order
+   * *   acted_at ASC: sorts the entries by operation time in ascending order
+   * 
    * @example
    * acted_at DESC
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The fields used for query. You can specify one or more of the following fields:
+   * 
+   * *   drive_id (space ID, in the form of a string)
+   * *   actor_id (operator ID, in the form of a string)
+   * *   acted_at (operation time, in the yyyy-MM-ddTHH:mm:ssZ format in UTC, for example, 2006-01-02T00:00:00)
+   * *   action_type (operation type, in the form of a string)
+   * 
    * @example
    * acted_at > \\"2025-03-10T16:00:00\\" and acted_at < \\"2025-03-17T15:59:59\\"
    */
@@ -8351,6 +8592,9 @@ export class AuditLogExportRequest extends $dara.Model {
 
 export class AuditLogExportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the asynchronous task used to export audit logs.
+   * 
    * @example
    * 4221bf6e6ab43c255edc4463bf3a6f5f5d31****
    */
@@ -14384,6 +14628,7 @@ export class GetShareLinkByAnonymousResponseBody extends $dara.Model {
    * 2020-08-20T06:51:27.292Z
    */
   expiration?: string;
+  hasPwd?: boolean;
   /**
    * @remarks
    * The number of times that the shared files are previewed.
@@ -14466,6 +14711,7 @@ export class GetShareLinkByAnonymousResponseBody extends $dara.Model {
       downloadCount: 'download_count',
       downloadLimit: 'download_limit',
       expiration: 'expiration',
+      hasPwd: 'has_pwd',
       previewCount: 'preview_count',
       previewLimit: 'preview_limit',
       reportCount: 'report_count',
@@ -14491,6 +14737,7 @@ export class GetShareLinkByAnonymousResponseBody extends $dara.Model {
       downloadCount: 'number',
       downloadLimit: 'number',
       expiration: 'string',
+      hasPwd: 'boolean',
       previewCount: 'number',
       previewLimit: 'number',
       reportCount: 'number',
@@ -16823,9 +17070,9 @@ export class ListFacegroupsResponse extends $dara.Model {
 export class ListFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the file. Valid values:
+   * The file category. Valid values:
    * 
-   * app: installation package. zip: compressed package. image: image. doc: document. video: video. audio: audio. others: other files.
+   * app: installation package zip: compressed package image doc: document video audio others
    * 
    * By default, files of all categories are returned.
    * 
@@ -16843,13 +17090,19 @@ export class ListFileRequest extends $dara.Model {
   driveId?: string;
   /**
    * @remarks
-   * The fields to return.
+   * The field that is used to return additional information about a child subject. Valid values:
    * 
-   * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
-   * 2.  If only specific fields are required, you can specify the following fields: url, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,exif.
-   * 3.  The investigation_info field is returned only if you specify this field.
+   * *   url: returns the URL of the thumbnail of a file in the response.
+   * *   exif: returns the Exchangeable Image File Format (EXIF) data of a file in the response.
+   * *   cropping_suggestion: returns the cropping suggestion on a file in the response.
+   * *   characteristic_hash: returns the characteristic hash value of a file in the response.
+   * *   video_metadata: returns the metadata of a video file, such as the video duration, bitrate, height, and width, in the response.
+   * *   video_preview_metadata: returns the transcoding information of a video file, such as the transcoding specification for each definition, in the response.
+   * *   investigation_info: returns the investigation information in the response.
+   * *   dir_size: returns the statistics on each subfolder in the response.
+   * *   user_tags: returns the user tags of each child subject in the response.
    * 
-   * By default, all fields except the fields that must be specified are returned.
+   * You can specify multiple fields by separating them with commas (,). Example: "url,dir_size,user_tags".
    * 
    * @example
    * *
@@ -16859,7 +17112,7 @@ export class ListFileRequest extends $dara.Model {
    * @remarks
    * The maximum number of results to return. Valid values: 1 to 100.
    * 
-   * The number of returned results must be less than or equal to the specified number.
+   * The number of returned entries must be less than or equal to the value of this parameter.
    * 
    * @example
    * 50
@@ -16867,8 +17120,8 @@ export class ListFileRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
-   * By default, this parameter is empty.
+   * The name of the entry after which the list begins. Entries whose names are alphabetically after the value of this parameter are returned. If you do not specify this parameter, all entries are returned.\\
+   * This parameter is left empty by default.
    * 
    * @example
    * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
@@ -16876,67 +17129,18 @@ export class ListFileRequest extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The sorting field.
+   * The sorting field. Valid values:
+   * 
+   * created_at: sorts the entries by creation time. updated_at: sorts the entries by update time. size: sorts the entries by file size. name: sorts the entries by file name.
    * 
    * Default value: created_at.
    * 
-   * Valid values:
+   * Enumeration:
    * 
-   * *   updated_at
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts the results based on the time when the file was last modified
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   size
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts the results based on the size of the file
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   name
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts the results based on the name of the file
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   created_at
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts the results based on the time when the file was created
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * *   updated_at: update time
+   * *   size: file size
+   * *   name: file name
+   * *   created_at: creation time
    * 
    * @example
    * updated_at
@@ -16946,7 +17150,7 @@ export class ListFileRequest extends $dara.Model {
    * @remarks
    * The sorting direction. Valid values:
    * 
-   * ASC: ascending order. DESC: descending order.
+   * ASC: ascending order DESC: descending order
    * 
    * Default value: ASC.
    * 
@@ -16966,7 +17170,7 @@ export class ListFileRequest extends $dara.Model {
   parentFileId?: string;
   /**
    * @remarks
-   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * The share ID. If you want to share a file, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
    * 
    * @example
    * 7JQX1FswpQ8
@@ -16974,9 +17178,9 @@ export class ListFileRequest extends $dara.Model {
   shareId?: string;
   /**
    * @remarks
-   * The state of the file. Valid values:
+   * The state of the files to return. Valid values:
    * 
-   * available: Only normal files are returned. uploading: Only files that are being uploaded are returned.
+   * available: returns only normal files. uploading: returns only files that are being uploaded.
    * 
    * By default, only files in the available state are returned.
    * 
@@ -16991,9 +17195,9 @@ export class ListFileRequest extends $dara.Model {
   thumbnailProcesses?: { [key: string]: ImageProcess };
   /**
    * @remarks
-   * The type of the file. Valid values:
+   * The file type. Valid values:
    * 
-   * file: Only files are returned. folder: Only folders are returned.
+   * file: returns only files. folder: returns only folders.
    * 
    * By default, files of all types are returned.
    * 
@@ -20301,15 +20505,13 @@ export class SearchFileRequest extends $dara.Model {
   /**
    * @example
    * url,thumbnail
-   * 
-   * @deprecated
    */
   fields?: string;
   /**
    * @remarks
-   * The maximum number of results to return. Valid values: 1 to 100.
+   * The maximum number of entries to return. Valid values: 1 to 100.
    * 
-   * The number of returned results must be less than or equal to the specified number.
+   * The number of returned entries must be less than or equal to the value of this parameter.
    * 
    * @example
    * 50
@@ -20317,8 +20519,8 @@ export class SearchFileRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
-   * By default, this parameter is left empty.
+   * The name of the entry after which the list begins. Entries whose names are alphabetically after the value of this parameter are returned. If you do not specify this parameter, all entries are returned.\\
+   * This parameter is left empty by default.
    * 
    * @example
    * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
@@ -20326,23 +20528,23 @@ export class SearchFileRequest extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The field by which to sort the returned results. Default value: created_at. Valid values:
+   * The field by which to sort the returned entries. Default value: created_at. Valid values:
    * 
-   * *   created_at: sorts the results by the time when the file was created.
-   * *   updated_at: sorts the results by the time when the file was modified.
-   * *   size: sorts the results by the size of the file.
-   * *   name: sorts the results by the name of the file.
+   * *   created_at: sorts the entries by creation time.
+   * *   updated_at: sorts the entries by update time.
+   * *   size: sorts the entries by file size.
+   * *   name: sorts the entries by file name.
    * 
-   * The order in which you want to sort the returned results. Valid values:
+   * The order in which you want to sort the returned entries. Valid values:
    * 
-   * *   ASC: sorts the results in ascending order.
-   * *   DESC: sorts the results in descending order.
+   * *   ASC: ascending order
+   * *   DESC: descending order
    * 
-   * You must specify this parameter in the \\<field name> \\<ASC or DESC> format. Separate multiple field names with commas (,). A preceding field has a higher priority than a following field. Examples:
+   * You must specify this parameter in the \\<field> \\<ASC or DESC> format. Separate multiple fields with commas (,). A preceding field has a higher priority than a following field. Examples:
    * 
-   * *   If you want to sort the results based on the file name in ascending order, set this parameter to "name ASC".
-   * *   If you want to sort the results based on the creation time in descending order, set this parameter to "created_at DESC".
-   * *   If you want to sort the results based on the creation time in descending order first, and then sort the results based on the file name in ascending order if the creation time is the same, set this parameter to "created_at DESC,name ASC".
+   * *   If you want to sort the entries by file name in ascending order, set this parameter to "name ASC".
+   * *   If you want to sort the entries by creation time in descending order, set this parameter to "created_at DESC".
+   * *   If you want to sort the entries by creation time in descending order and sort the entries by file name in ascending order in case of the same creation time, set this parameter to "created_at DESC,name ASC".
    * 
    * @example
    * name
@@ -20350,7 +20552,7 @@ export class SearchFileRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The search condition. Fuzzy searches based on the file name or directory name are supported. The search condition can be up to 4,096 characters in length.
+   * The search conditions. Fuzzy searches based on the file name or directory name are supported. The value of this parameter can be up to 4,096 characters in length.
    * 
    * This parameter is required.
    * 
@@ -20358,6 +20560,13 @@ export class SearchFileRequest extends $dara.Model {
    * not name=123
    */
   query?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform recursive search on a folder that is specified by setting parent_file_id in the query parameter.
+   * 
+   * @example
+   * true
+   */
   recursive?: boolean;
   /**
    * @remarks
@@ -20367,6 +20576,10 @@ export class SearchFileRequest extends $dara.Model {
    * true
    */
   returnTotalCount?: boolean;
+  /**
+   * @remarks
+   * The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
+   */
   thumbnailProcesses?: { [key: string]: ImageProcess };
   static names(): { [key: string]: string } {
     return {
@@ -23316,7 +23529,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出审计日志
+   * Exports audit logs.
+   * 
+   * @remarks
+   * Log audit is a value-added feature that is provided by Drive and Photo Service (PDS) Developer Edition. Before you call this operation, make sure that you learn about the [value-added billable items](https://www.alibabacloud.com/help/document_detail/425220.html).
    * 
    * @param request - AuditLogExportRequest
    * @param headers - map
@@ -23361,7 +23577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出审计日志
+   * Exports audit logs.
+   * 
+   * @remarks
+   * Log audit is a value-added feature that is provided by Drive and Photo Service (PDS) Developer Edition. Before you call this operation, make sure that you learn about the [value-added billable items](https://www.alibabacloud.com/help/document_detail/425220.html).
    * 
    * @param request - AuditLogExportRequest
    * @returns AuditLogExportResponse
@@ -28594,7 +28813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   * Searches for files.
    * 
    * @param request - SearchFileRequest
    * @param headers - map
@@ -28659,7 +28878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   * Searches for files.
    * 
    * @param request - SearchFileRequest
    * @returns SearchFileResponse
