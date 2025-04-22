@@ -31777,6 +31777,90 @@ export class SubscribeEventRequestTenantContext extends $dara.Model {
   }
 }
 
+export class SwitchMainOrgHeadersAccountContext extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgResponseBodyContent extends $dara.Model {
+  /**
+   * @example
+   * null
+   */
+  data?: any;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncDingTypeHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
@@ -86830,6 +86914,228 @@ export class SubscribeEventResponse extends $dara.Model {
   }
 }
 
+export class SwitchMainOrgHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SwitchMainOrgHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SwitchMainOrgHeadersAccountContext,
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    if(this.accountContext && typeof (this.accountContext as any).validate === 'function') {
+      (this.accountContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgShrinkHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgRequest extends $dara.Model {
+  /**
+   * @example
+   * 21001
+   */
+  targetOrgId?: number;
+  tenantContext?: SwitchMainOrgRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      targetOrgId: 'TargetOrgId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetOrgId: 'number',
+      tenantContext: SwitchMainOrgRequestTenantContext,
+    };
+  }
+
+  validate() {
+    if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
+      (this.tenantContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 21001
+   */
+  targetOrgId?: number;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetOrgId: 'TargetOrgId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetOrgId: 'number',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgResponseBody extends $dara.Model {
+  content?: SwitchMainOrgResponseBodyContent;
+  /**
+   * @example
+   * 0
+   */
+  errorCode?: string;
+  errorCtx?: { [key: string]: any };
+  errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      errorCode: 'errorCode',
+      errorCtx: 'errorCtx',
+      errorMsg: 'errorMsg',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: SwitchMainOrgResponseBodyContent,
+      errorCode: 'string',
+      errorCtx: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorMsg: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    if(this.errorCtx) {
+      $dara.Model.validateMap(this.errorCtx);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchMainOrgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchMainOrgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchMainOrgResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncDingTypeHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: SyncDingTypeHeadersAccountContext;
@@ -110200,6 +110506,72 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new SubscribeEventHeaders({ });
     return await this.subscribeEventWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param tmpReq - SwitchMainOrgRequest
+   * @param tmpHeader - SwitchMainOrgHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchMainOrgResponse
+   */
+  async switchMainOrgWithOptions(tmpReq: SwitchMainOrgRequest, tmpHeader: SwitchMainOrgHeaders, runtime: $dara.RuntimeOptions): Promise<SwitchMainOrgResponse> {
+    tmpReq.validate();
+    let request = new SwitchMainOrgShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SwitchMainOrgShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.targetOrgId)) {
+      body["TargetOrgId"] = request.targetOrgId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchMainOrg",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/user/switchMainOrg`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<SwitchMainOrgResponse>(await this.callApi(params, req, runtime), new SwitchMainOrgResponse({}));
+  }
+
+  /**
+   * @param request - SwitchMainOrgRequest
+   * @returns SwitchMainOrgResponse
+   */
+  async switchMainOrg(request: SwitchMainOrgRequest): Promise<SwitchMainOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new SwitchMainOrgHeaders({ });
+    return await this.switchMainOrgWithOptions(request, headers, runtime);
   }
 
   /**
