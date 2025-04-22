@@ -2115,6 +2115,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
    * 4
    */
   GPU?: number;
+  GPUMemorySize?: number;
   /**
    * @example
    * v100
@@ -2150,6 +2151,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
    * 22.8
    */
   price?: number;
+  spotStockStatus?: string;
   /**
    * @example
    * 500
@@ -2161,6 +2163,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
       CPU: 'CPU',
       currency: 'Currency',
       GPU: 'GPU',
+      GPUMemorySize: 'GPUMemorySize',
       GPUType: 'GPUType',
       instanceBandwidthRx: 'InstanceBandwidthRx',
       instanceType: 'InstanceType',
@@ -2168,6 +2171,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
       labels: 'Labels',
       memory: 'Memory',
       price: 'Price',
+      spotStockStatus: 'SpotStockStatus',
       systemDiskCapacity: 'SystemDiskCapacity',
     };
   }
@@ -2178,6 +2182,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
       CPU: 'number',
       currency: 'string',
       GPU: 'number',
+      GPUMemorySize: 'number',
       GPUType: 'string',
       instanceBandwidthRx: 'number',
       instanceType: 'string',
@@ -2185,6 +2190,7 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $dara.Model {
       labels: { 'type': 'array', 'itemType': ListEcsSpecsResponseBodyEcsSpecsLabels },
       memory: 'number',
       price: 'number',
+      spotStockStatus: 'string',
       systemDiskCapacity: 'number',
     };
   }
