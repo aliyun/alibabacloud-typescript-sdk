@@ -49,7 +49,9 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
 }
 
 export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.Model {
+  bucketSyncStatus?: string;
   commissionPolicyName?: string;
+  fileName?: string;
   fileType?: string;
   /**
    * @example
@@ -58,7 +60,9 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      bucketSyncStatus: 'BucketSyncStatus',
       commissionPolicyName: 'CommissionPolicyName',
+      fileName: 'FileName',
       fileType: 'FileType',
       fileUrl: 'FileUrl',
     };
@@ -66,7 +70,9 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      bucketSyncStatus: 'string',
       commissionPolicyName: 'string',
+      fileName: 'string',
       fileType: 'string',
       fileUrl: 'string',
     };
@@ -785,15 +791,33 @@ export class GetCommissionDetailFileListRequest extends $dara.Model {
    * 202501
    */
   billMonth?: string;
+  ossAccessKeyId?: string;
+  ossAccessKeySecret?: string;
+  ossBucketName?: string;
+  ossEndpoint?: string;
+  ossRegion?: string;
+  ossSecurityToken?: string;
   static names(): { [key: string]: string } {
     return {
       billMonth: 'BillMonth',
+      ossAccessKeyId: 'OssAccessKeyId',
+      ossAccessKeySecret: 'OssAccessKeySecret',
+      ossBucketName: 'OssBucketName',
+      ossEndpoint: 'OssEndpoint',
+      ossRegion: 'OssRegion',
+      ossSecurityToken: 'OssSecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       billMonth: 'string',
+      ossAccessKeyId: 'string',
+      ossAccessKeySecret: 'string',
+      ossBucketName: 'string',
+      ossEndpoint: 'string',
+      ossRegion: 'string',
+      ossSecurityToken: 'string',
     };
   }
 
@@ -2119,6 +2143,30 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.billMonth)) {
       query["BillMonth"] = request.billMonth;
+    }
+
+    if (!$dara.isNull(request.ossAccessKeyId)) {
+      query["OssAccessKeyId"] = request.ossAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.ossAccessKeySecret)) {
+      query["OssAccessKeySecret"] = request.ossAccessKeySecret;
+    }
+
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossEndpoint)) {
+      query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.ossRegion)) {
+      query["OssRegion"] = request.ossRegion;
+    }
+
+    if (!$dara.isNull(request.ossSecurityToken)) {
+      query["OssSecurityToken"] = request.ossSecurityToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
