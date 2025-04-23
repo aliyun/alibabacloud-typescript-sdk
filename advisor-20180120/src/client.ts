@@ -1516,11 +1516,14 @@ export class DescribeCostOptimizationOverviewResponseBodyData extends $dara.Mode
    * 100
    */
   optResourceNum?: string;
+  processedResourceCount?: string;
+  processedSaveAmount?: string;
   /**
    * @example
    * 95***135
    */
   taskId?: number;
+  waitProcessResourceCount?: string;
   static names(): { [key: string]: string } {
     return {
       billingCycleDate: 'BillingCycleDate',
@@ -1529,7 +1532,10 @@ export class DescribeCostOptimizationOverviewResponseBodyData extends $dara.Mode
       gmtModified: 'GmtModified',
       optCheckItemNum: 'OptCheckItemNum',
       optResourceNum: 'OptResourceNum',
+      processedResourceCount: 'ProcessedResourceCount',
+      processedSaveAmount: 'ProcessedSaveAmount',
       taskId: 'TaskId',
+      waitProcessResourceCount: 'WaitProcessResourceCount',
     };
   }
 
@@ -1541,7 +1547,10 @@ export class DescribeCostOptimizationOverviewResponseBodyData extends $dara.Mode
       gmtModified: 'number',
       optCheckItemNum: 'string',
       optResourceNum: 'string',
+      processedResourceCount: 'string',
+      processedSaveAmount: 'string',
       taskId: 'number',
+      waitProcessResourceCount: 'string',
     };
   }
 
@@ -3076,6 +3085,7 @@ export class DescribeCostCheckAdvicesRequest extends $dara.Model {
    * EcsCostLowUtilizationCheck
    */
   checkId?: string;
+  checkPlanId?: number;
   /**
    * @example
    * zh
@@ -3092,6 +3102,8 @@ export class DescribeCostCheckAdvicesRequest extends $dara.Model {
    */
   pageSize?: number;
   regionIds?: string[];
+  resourceGroupIdList?: string[];
+  resourceId?: string;
   resourceIds?: string[];
   /**
    * @example
@@ -3110,10 +3122,13 @@ export class DescribeCostCheckAdvicesRequest extends $dara.Model {
     return {
       assumeAliyunIdList: 'AssumeAliyunIdList',
       checkId: 'CheckId',
+      checkPlanId: 'CheckPlanId',
       language: 'Language',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionIds: 'RegionIds',
+      resourceGroupIdList: 'ResourceGroupIdList',
+      resourceId: 'ResourceId',
       resourceIds: 'ResourceIds',
       resourceName: 'ResourceName',
       severity: 'Severity',
@@ -3127,10 +3142,13 @@ export class DescribeCostCheckAdvicesRequest extends $dara.Model {
     return {
       assumeAliyunIdList: { 'type': 'array', 'itemType': 'number' },
       checkId: 'string',
+      checkPlanId: 'number',
       language: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionIds: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      resourceId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceName: 'string',
       severity: 'string',
@@ -3146,6 +3164,9 @@ export class DescribeCostCheckAdvicesRequest extends $dara.Model {
     }
     if(Array.isArray(this.regionIds)) {
       $dara.Model.validateArray(this.regionIds);
+    }
+    if(Array.isArray(this.resourceGroupIdList)) {
+      $dara.Model.validateArray(this.resourceGroupIdList);
     }
     if(Array.isArray(this.resourceIds)) {
       $dara.Model.validateArray(this.resourceIds);
@@ -3174,6 +3195,7 @@ export class DescribeCostCheckAdvicesShrinkRequest extends $dara.Model {
    * EcsCostLowUtilizationCheck
    */
   checkId?: string;
+  checkPlanId?: number;
   /**
    * @example
    * zh
@@ -3190,6 +3212,8 @@ export class DescribeCostCheckAdvicesShrinkRequest extends $dara.Model {
    */
   pageSize?: number;
   regionIdsShrink?: string;
+  resourceGroupIdListShrink?: string;
+  resourceId?: string;
   resourceIdsShrink?: string;
   /**
    * @example
@@ -3208,10 +3232,13 @@ export class DescribeCostCheckAdvicesShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'AssumeAliyunIdList',
       checkId: 'CheckId',
+      checkPlanId: 'CheckPlanId',
       language: 'Language',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionIdsShrink: 'RegionIds',
+      resourceGroupIdListShrink: 'ResourceGroupIdList',
+      resourceId: 'ResourceId',
       resourceIdsShrink: 'ResourceIds',
       resourceName: 'ResourceName',
       severity: 'Severity',
@@ -3225,10 +3252,13 @@ export class DescribeCostCheckAdvicesShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'string',
       checkId: 'string',
+      checkPlanId: 'number',
       language: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionIdsShrink: 'string',
+      resourceGroupIdListShrink: 'string',
+      resourceId: 'string',
       resourceIdsShrink: 'string',
       resourceName: 'string',
       severity: 'string',
@@ -3342,6 +3372,7 @@ export class DescribeCostCheckAdvicesResponse extends $dara.Model {
 export class DescribeCostCheckResultsRequest extends $dara.Model {
   assumeAliyunIdList?: number[];
   checkIds?: string[];
+  checkPlanId?: number;
   /**
    * @example
    * Category
@@ -3354,6 +3385,7 @@ export class DescribeCostCheckResultsRequest extends $dara.Model {
   product?: string;
   regionIds?: string[];
   resourceGroupIdList?: string[];
+  resourceId?: string;
   resourceIds?: string[];
   /**
    * @example
@@ -3372,10 +3404,12 @@ export class DescribeCostCheckResultsRequest extends $dara.Model {
     return {
       assumeAliyunIdList: 'AssumeAliyunIdList',
       checkIds: 'CheckIds',
+      checkPlanId: 'CheckPlanId',
       groupBy: 'GroupBy',
       product: 'Product',
       regionIds: 'RegionIds',
       resourceGroupIdList: 'ResourceGroupIdList',
+      resourceId: 'ResourceId',
       resourceIds: 'ResourceIds',
       resourceName: 'ResourceName',
       severity: 'Severity',
@@ -3389,10 +3423,12 @@ export class DescribeCostCheckResultsRequest extends $dara.Model {
     return {
       assumeAliyunIdList: { 'type': 'array', 'itemType': 'number' },
       checkIds: { 'type': 'array', 'itemType': 'string' },
+      checkPlanId: 'number',
       groupBy: 'string',
       product: 'string',
       regionIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      resourceId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceName: 'string',
       severity: 'number',
@@ -3438,6 +3474,7 @@ export class DescribeCostCheckResultsRequest extends $dara.Model {
 export class DescribeCostCheckResultsShrinkRequest extends $dara.Model {
   assumeAliyunIdListShrink?: string;
   checkIdsShrink?: string;
+  checkPlanId?: number;
   /**
    * @example
    * Category
@@ -3450,6 +3487,7 @@ export class DescribeCostCheckResultsShrinkRequest extends $dara.Model {
   product?: string;
   regionIdsShrink?: string;
   resourceGroupIdListShrink?: string;
+  resourceId?: string;
   resourceIdsShrink?: string;
   /**
    * @example
@@ -3468,10 +3506,12 @@ export class DescribeCostCheckResultsShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'AssumeAliyunIdList',
       checkIdsShrink: 'CheckIds',
+      checkPlanId: 'CheckPlanId',
       groupBy: 'GroupBy',
       product: 'Product',
       regionIdsShrink: 'RegionIds',
       resourceGroupIdListShrink: 'ResourceGroupIdList',
+      resourceId: 'ResourceId',
       resourceIdsShrink: 'ResourceIds',
       resourceName: 'ResourceName',
       severity: 'Severity',
@@ -3485,10 +3525,12 @@ export class DescribeCostCheckResultsShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'string',
       checkIdsShrink: 'string',
+      checkPlanId: 'number',
       groupBy: 'string',
       product: 'string',
       regionIdsShrink: 'string',
       resourceGroupIdListShrink: 'string',
+      resourceId: 'string',
       resourceIdsShrink: 'string',
       resourceName: 'string',
       severity: 'number',
@@ -3606,6 +3648,7 @@ export class DescribeCostOptimizationOverviewRequest extends $dara.Model {
    */
   assumeAliyunId?: number;
   assumeAliyunIdList?: number[];
+  checkPlanId?: number;
   /**
    * @example
    * ***
@@ -3615,6 +3658,7 @@ export class DescribeCostOptimizationOverviewRequest extends $dara.Model {
     return {
       assumeAliyunId: 'AssumeAliyunId',
       assumeAliyunIdList: 'AssumeAliyunIdList',
+      checkPlanId: 'CheckPlanId',
       token: 'Token',
     };
   }
@@ -3623,6 +3667,7 @@ export class DescribeCostOptimizationOverviewRequest extends $dara.Model {
     return {
       assumeAliyunId: 'number',
       assumeAliyunIdList: { 'type': 'array', 'itemType': 'number' },
+      checkPlanId: 'number',
       token: 'string',
     };
   }
@@ -3646,6 +3691,7 @@ export class DescribeCostOptimizationOverviewShrinkRequest extends $dara.Model {
    */
   assumeAliyunId?: number;
   assumeAliyunIdListShrink?: string;
+  checkPlanId?: number;
   /**
    * @example
    * ***
@@ -3655,6 +3701,7 @@ export class DescribeCostOptimizationOverviewShrinkRequest extends $dara.Model {
     return {
       assumeAliyunId: 'AssumeAliyunId',
       assumeAliyunIdListShrink: 'AssumeAliyunIdList',
+      checkPlanId: 'CheckPlanId',
       token: 'Token',
     };
   }
@@ -3663,6 +3710,7 @@ export class DescribeCostOptimizationOverviewShrinkRequest extends $dara.Model {
     return {
       assumeAliyunId: 'number',
       assumeAliyunIdListShrink: 'string',
+      checkPlanId: 'number',
       token: 'string',
     };
   }
@@ -4472,6 +4520,7 @@ export class RefreshAdvisorCheckResponse extends $dara.Model {
 export class RefreshAdvisorCostCheckRequest extends $dara.Model {
   assumeAliyunIdList?: number[];
   checkIds?: string[];
+  checkPlanId?: number;
   /**
    * @example
    * ecs
@@ -4487,6 +4536,7 @@ export class RefreshAdvisorCostCheckRequest extends $dara.Model {
     return {
       assumeAliyunIdList: 'AssumeAliyunIdList',
       checkIds: 'CheckIds',
+      checkPlanId: 'CheckPlanId',
       product: 'Product',
       refreshResource: 'RefreshResource',
       resourceIds: 'ResourceIds',
@@ -4497,6 +4547,7 @@ export class RefreshAdvisorCostCheckRequest extends $dara.Model {
     return {
       assumeAliyunIdList: { 'type': 'array', 'itemType': 'number' },
       checkIds: { 'type': 'array', 'itemType': 'string' },
+      checkPlanId: 'number',
       product: 'string',
       refreshResource: 'boolean',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
@@ -4524,6 +4575,7 @@ export class RefreshAdvisorCostCheckRequest extends $dara.Model {
 export class RefreshAdvisorCostCheckShrinkRequest extends $dara.Model {
   assumeAliyunIdListShrink?: string;
   checkIdsShrink?: string;
+  checkPlanId?: number;
   /**
    * @example
    * ecs
@@ -4539,6 +4591,7 @@ export class RefreshAdvisorCostCheckShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'AssumeAliyunIdList',
       checkIdsShrink: 'CheckIds',
+      checkPlanId: 'CheckPlanId',
       product: 'Product',
       refreshResource: 'RefreshResource',
       resourceIdsShrink: 'ResourceIds',
@@ -4549,6 +4602,7 @@ export class RefreshAdvisorCostCheckShrinkRequest extends $dara.Model {
     return {
       assumeAliyunIdListShrink: 'string',
       checkIdsShrink: 'string',
+      checkPlanId: 'number',
       product: 'string',
       refreshResource: 'boolean',
       resourceIdsShrink: 'string',
@@ -5025,12 +5079,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvicesResponse>(await this.execute(params, req, runtime), new DescribeAdvicesResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesResponse({}));
   }
 
   /**
@@ -5096,12 +5145,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvicesFlatPageResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesFlatPageResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvicesFlatPageResponse>(await this.execute(params, req, runtime), new DescribeAdvicesFlatPageResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvicesFlatPageResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesFlatPageResponse({}));
   }
 
   /**
@@ -5171,12 +5215,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvicesPageResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesPageResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvicesPageResponse>(await this.execute(params, req, runtime), new DescribeAdvicesPageResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvicesPageResponse>(await this.callApi(params, req, runtime), new DescribeAdvicesPageResponse({}));
   }
 
   /**
@@ -5220,12 +5259,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvisorChecksResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorChecksResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvisorChecksResponse>(await this.execute(params, req, runtime), new DescribeAdvisorChecksResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvisorChecksResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorChecksResponse({}));
   }
 
   /**
@@ -5311,12 +5345,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvisorChecksFoPagesResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorChecksFoPagesResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvisorChecksFoPagesResponse>(await this.execute(params, req, runtime), new DescribeAdvisorChecksFoPagesResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvisorChecksFoPagesResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorChecksFoPagesResponse({}));
   }
 
   /**
@@ -5376,12 +5405,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeAdvisorResourcesResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorResourcesResponse({}));
-    } else {
-      return $dara.cast<DescribeAdvisorResourcesResponse>(await this.execute(params, req, runtime), new DescribeAdvisorResourcesResponse({}));
-    }
-
+    return $dara.cast<DescribeAdvisorResourcesResponse>(await this.callApi(params, req, runtime), new DescribeAdvisorResourcesResponse({}));
   }
 
   /**
@@ -5412,6 +5436,10 @@ export default class Client extends OpenApi {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
+    if (!$dara.isNull(tmpReq.resourceGroupIdList)) {
+      request.resourceGroupIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceGroupIdList, "ResourceGroupIdList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.resourceIds)) {
       request.resourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIds, "ResourceIds", "json");
     }
@@ -5437,6 +5465,10 @@ export default class Client extends OpenApi {
       query["CheckId"] = request.checkId;
     }
 
+    if (!$dara.isNull(request.checkPlanId)) {
+      query["CheckPlanId"] = request.checkPlanId;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
@@ -5451,6 +5483,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionIdsShrink)) {
       query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdListShrink)) {
+      query["ResourceGroupIdList"] = request.resourceGroupIdListShrink;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
     }
 
     if (!$dara.isNull(request.resourceIdsShrink)) {
@@ -5491,12 +5531,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeCostCheckAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeCostCheckAdvicesResponse({}));
-    } else {
-      return $dara.cast<DescribeCostCheckAdvicesResponse>(await this.execute(params, req, runtime), new DescribeCostCheckAdvicesResponse({}));
-    }
-
+    return $dara.cast<DescribeCostCheckAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeCostCheckAdvicesResponse({}));
   }
 
   /**
@@ -5562,6 +5597,10 @@ export default class Client extends OpenApi {
       query["CheckIds"] = request.checkIdsShrink;
     }
 
+    if (!$dara.isNull(request.checkPlanId)) {
+      query["CheckPlanId"] = request.checkPlanId;
+    }
+
     if (!$dara.isNull(request.groupBy)) {
       query["GroupBy"] = request.groupBy;
     }
@@ -5576,6 +5615,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupIdListShrink)) {
       query["ResourceGroupIdList"] = request.resourceGroupIdListShrink;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
     }
 
     if (!$dara.isNull(request.resourceIdsShrink)) {
@@ -5616,12 +5659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeCostCheckResultsResponse>(await this.callApi(params, req, runtime), new DescribeCostCheckResultsResponse({}));
-    } else {
-      return $dara.cast<DescribeCostCheckResultsResponse>(await this.execute(params, req, runtime), new DescribeCostCheckResultsResponse({}));
-    }
-
+    return $dara.cast<DescribeCostCheckResultsResponse>(await this.callApi(params, req, runtime), new DescribeCostCheckResultsResponse({}));
   }
 
   /**
@@ -5659,6 +5697,10 @@ export default class Client extends OpenApi {
       query["AssumeAliyunIdList"] = request.assumeAliyunIdListShrink;
     }
 
+    if (!$dara.isNull(request.checkPlanId)) {
+      query["CheckPlanId"] = request.checkPlanId;
+    }
+
     if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
@@ -5677,12 +5719,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeCostOptimizationOverviewResponse>(await this.callApi(params, req, runtime), new DescribeCostOptimizationOverviewResponse({}));
-    } else {
-      return $dara.cast<DescribeCostOptimizationOverviewResponse>(await this.execute(params, req, runtime), new DescribeCostOptimizationOverviewResponse({}));
-    }
-
+    return $dara.cast<DescribeCostOptimizationOverviewResponse>(await this.callApi(params, req, runtime), new DescribeCostOptimizationOverviewResponse({}));
   }
 
   /**
@@ -5750,12 +5787,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetHistoryAdvicesResponse>(await this.callApi(params, req, runtime), new GetHistoryAdvicesResponse({}));
-    } else {
-      return $dara.cast<GetHistoryAdvicesResponse>(await this.execute(params, req, runtime), new GetHistoryAdvicesResponse({}));
-    }
-
+    return $dara.cast<GetHistoryAdvicesResponse>(await this.callApi(params, req, runtime), new GetHistoryAdvicesResponse({}));
   }
 
   /**
@@ -5803,12 +5835,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInspectProgressResponse>(await this.callApi(params, req, runtime), new GetInspectProgressResponse({}));
-    } else {
-      return $dara.cast<GetInspectProgressResponse>(await this.execute(params, req, runtime), new GetInspectProgressResponse({}));
-    }
-
+    return $dara.cast<GetInspectProgressResponse>(await this.callApi(params, req, runtime), new GetInspectProgressResponse({}));
   }
 
   /**
@@ -5850,12 +5877,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetProductListResponse>(await this.callApi(params, req, runtime), new GetProductListResponse({}));
-    } else {
-      return $dara.cast<GetProductListResponse>(await this.execute(params, req, runtime), new GetProductListResponse({}));
-    }
-
+    return $dara.cast<GetProductListResponse>(await this.callApi(params, req, runtime), new GetProductListResponse({}));
   }
 
   /**
@@ -5893,12 +5915,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTaskStatusByIdResponse>(await this.callApi(params, req, runtime), new GetTaskStatusByIdResponse({}));
-    } else {
-      return $dara.cast<GetTaskStatusByIdResponse>(await this.execute(params, req, runtime), new GetTaskStatusByIdResponse({}));
-    }
-
+    return $dara.cast<GetTaskStatusByIdResponse>(await this.callApi(params, req, runtime), new GetTaskStatusByIdResponse({}));
   }
 
   /**
@@ -5976,12 +5993,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RefreshAdvisorCheckResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorCheckResponse({}));
-    } else {
-      return $dara.cast<RefreshAdvisorCheckResponse>(await this.execute(params, req, runtime), new RefreshAdvisorCheckResponse({}));
-    }
-
+    return $dara.cast<RefreshAdvisorCheckResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorCheckResponse({}));
   }
 
   /**
@@ -6027,6 +6039,10 @@ export default class Client extends OpenApi {
       query["CheckIds"] = request.checkIdsShrink;
     }
 
+    if (!$dara.isNull(request.checkPlanId)) {
+      query["CheckPlanId"] = request.checkPlanId;
+    }
+
     if (!$dara.isNull(request.product)) {
       query["Product"] = request.product;
     }
@@ -6053,12 +6069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RefreshAdvisorCostCheckResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorCostCheckResponse({}));
-    } else {
-      return $dara.cast<RefreshAdvisorCostCheckResponse>(await this.execute(params, req, runtime), new RefreshAdvisorCostCheckResponse({}));
-    }
-
+    return $dara.cast<RefreshAdvisorCostCheckResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorCostCheckResponse({}));
   }
 
   /**
@@ -6073,6 +6084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RefreshAdvisorResource
+   * 
    * @param request - RefreshAdvisorResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshAdvisorResourceResponse
@@ -6102,15 +6115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RefreshAdvisorResourceResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorResourceResponse({}));
-    } else {
-      return $dara.cast<RefreshAdvisorResourceResponse>(await this.execute(params, req, runtime), new RefreshAdvisorResourceResponse({}));
-    }
-
+    return $dara.cast<RefreshAdvisorResourceResponse>(await this.callApi(params, req, runtime), new RefreshAdvisorResourceResponse({}));
   }
 
   /**
+   * RefreshAdvisorResource
+   * 
    * @param request - RefreshAdvisorResourceRequest
    * @returns RefreshAdvisorResourceResponse
    */
@@ -6181,12 +6191,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReportBizAlertInfoResponse>(await this.callApi(params, req, runtime), new ReportBizAlertInfoResponse({}));
-    } else {
-      return $dara.cast<ReportBizAlertInfoResponse>(await this.execute(params, req, runtime), new ReportBizAlertInfoResponse({}));
-    }
-
+    return $dara.cast<ReportBizAlertInfoResponse>(await this.callApi(params, req, runtime), new ReportBizAlertInfoResponse({}));
   }
 
   /**
