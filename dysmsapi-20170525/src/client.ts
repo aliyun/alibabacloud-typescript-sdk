@@ -1902,6 +1902,348 @@ export class QueryShortUrlResponseBodyData extends $dara.Model {
   }
 }
 
+export class QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics extends $dara.Model {
+  /**
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  /**
+   * @remarks
+   * 文件的完整路径
+   * 
+   * @example
+   * https://******.aliyuncs.com/******
+   */
+  picUrl?: string;
+  /**
+   * @example
+   * businessLicense
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+      picUrl: 'PicUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
+      picUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySingleSmsQualificationResponseBodyDataOtherFiles extends $dara.Model {
+  /**
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  /**
+   * @remarks
+   * 文件的完整路径
+   * 
+   * @example
+   * https://******.aliyuncs.com/******
+   */
+  picUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+      picUrl: 'PicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
+      picUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySingleSmsQualificationResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 经办人身份证有效期
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  adminIDCardExpDate?: string;
+  /**
+   * @remarks
+   * 经办人身份证国徽面，产品需求，要求身份证可以分正反面上传
+   * 
+   * @example
+   * https://******.aliyuncs.com/******
+   */
+  adminIDCardFrontFace?: string;
+  /**
+   * @remarks
+   * 经办人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  adminIDCardNo?: string;
+  /**
+   * @remarks
+   * 经办人身份证图片地址，正反面合一
+   * 
+   * @example
+   * https://******.aliyuncs.com/******
+   */
+  adminIDCardPic?: string;
+  /**
+   * @remarks
+   * 管理员身份证类型
+   * 
+   * @example
+   * identityCard
+   */
+  adminIDCardType?: string;
+  /**
+   * @remarks
+   * 经办人姓名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  adminName?: string;
+  /**
+   * @remarks
+   * 经办人手机号码
+   * 
+   * @example
+   * 137*******
+   */
+  adminPhoneNo?: string;
+  /**
+   * @remarks
+   * 证件信息
+   */
+  businessLicensePics?: QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics[];
+  /**
+   * @remarks
+   * 行业类型，在当前模式下是可以用产品线code来区分
+   * 
+   * @example
+   * dysms
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * 公司名称
+   * 
+   * @example
+   * 示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 企业类型, COMPANY:公司，政府或者事业单位:NON_PROFIT_ORGANIZATION
+   * 
+   * @example
+   * COMPANY
+   */
+  companyType?: string;
+  /**
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  effTimeStr?: string;
+  /**
+   * @remarks
+   * 法人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  legalPersonIDCardNo?: string;
+  /**
+   * @remarks
+   * 法人身份证类型
+   * 
+   * @example
+   * identityCard
+   */
+  legalPersonIDCardType?: string;
+  /**
+   * @remarks
+   * 法人身份证有效期
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  legalPersonIdCardEffTime?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * @example
+   * 示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 社会统一信用代码
+   * 
+   * @example
+   * 910X********0012
+   */
+  organizationCode?: string;
+  /**
+   * @remarks
+   * 更多资料
+   */
+  otherFiles?: QuerySingleSmsQualificationResponseBodyDataOtherFiles[];
+  /**
+   * @example
+   * 10000****
+   */
+  qualificationGroupId?: number;
+  /**
+   * @remarks
+   * 资质名称
+   * 
+   * @example
+   * 示例值示例值
+   */
+  qualificationName?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值示例值
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * 当前审核状态
+   * 
+   * @example
+   * PASSED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * 是否自用
+   * 
+   * @example
+   * false
+   */
+  useBySelf?: boolean;
+  /**
+   * @example
+   * false
+   */
+  whetherShare?: boolean;
+  /**
+   * @remarks
+   * 乾坤袋工单ID
+   * 
+   * @example
+   * 2001****
+   */
+  workOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adminIDCardExpDate: 'AdminIDCardExpDate',
+      adminIDCardFrontFace: 'AdminIDCardFrontFace',
+      adminIDCardNo: 'AdminIDCardNo',
+      adminIDCardPic: 'AdminIDCardPic',
+      adminIDCardType: 'AdminIDCardType',
+      adminName: 'AdminName',
+      adminPhoneNo: 'AdminPhoneNo',
+      businessLicensePics: 'BusinessLicensePics',
+      businessType: 'BusinessType',
+      companyName: 'CompanyName',
+      companyType: 'CompanyType',
+      effTimeStr: 'EffTimeStr',
+      legalPersonIDCardNo: 'LegalPersonIDCardNo',
+      legalPersonIDCardType: 'LegalPersonIDCardType',
+      legalPersonIdCardEffTime: 'LegalPersonIdCardEffTime',
+      legalPersonName: 'LegalPersonName',
+      organizationCode: 'OrganizationCode',
+      otherFiles: 'OtherFiles',
+      qualificationGroupId: 'QualificationGroupId',
+      qualificationName: 'QualificationName',
+      remark: 'Remark',
+      state: 'State',
+      useBySelf: 'UseBySelf',
+      whetherShare: 'WhetherShare',
+      workOrderId: 'WorkOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminIDCardExpDate: 'string',
+      adminIDCardFrontFace: 'string',
+      adminIDCardNo: 'string',
+      adminIDCardPic: 'string',
+      adminIDCardType: 'string',
+      adminName: 'string',
+      adminPhoneNo: 'string',
+      businessLicensePics: { 'type': 'array', 'itemType': QuerySingleSmsQualificationResponseBodyDataBusinessLicensePics },
+      businessType: 'string',
+      companyName: 'string',
+      companyType: 'string',
+      effTimeStr: 'string',
+      legalPersonIDCardNo: 'string',
+      legalPersonIDCardType: 'string',
+      legalPersonIdCardEffTime: 'string',
+      legalPersonName: 'string',
+      organizationCode: 'string',
+      otherFiles: { 'type': 'array', 'itemType': QuerySingleSmsQualificationResponseBodyDataOtherFiles },
+      qualificationGroupId: 'number',
+      qualificationName: 'string',
+      remark: 'string',
+      state: 'string',
+      useBySelf: 'boolean',
+      whetherShare: 'boolean',
+      workOrderId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.businessLicensePics)) {
+      $dara.Model.validateArray(this.businessLicensePics);
+    }
+    if(Array.isArray(this.otherFiles)) {
+      $dara.Model.validateArray(this.otherFiles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmsAuthorizationLetterResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -2011,6 +2353,173 @@ export class QuerySmsAuthorizationLetterResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsQualificationRecordResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * 审核备注
+   * 
+   * @example
+   * 示例值示例值
+   */
+  auditRemark?: string;
+  /**
+   * @remarks
+   * 审核时间
+   * 
+   * @example
+   * 2024-12-26 17:29:04
+   */
+  auditTime?: string;
+  /**
+   * @remarks
+   * 公司名称或实人认证姓名
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2025-02-20 11:59:30
+   */
+  createDate?: string;
+  /**
+   * @remarks
+   * 资质组ID
+   * 
+   * @example
+   * 10000****
+   */
+  groupId?: number;
+  /**
+   * @remarks
+   * 法人名称
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 资质组名称
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  qualificationGroupName?: string;
+  /**
+   * @remarks
+   * 审核状态名
+   * 
+   * @example
+   * INT
+   */
+  stateName?: string;
+  /**
+   * @remarks
+   * 是否自用
+   * 
+   * @example
+   * true
+   */
+  useBySelf?: string;
+  /**
+   * @remarks
+   * 工单ID
+   * 
+   * @example
+   * 2001****
+   */
+  workOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      auditRemark: 'AuditRemark',
+      auditTime: 'AuditTime',
+      companyName: 'CompanyName',
+      createDate: 'CreateDate',
+      groupId: 'GroupId',
+      legalPersonName: 'LegalPersonName',
+      qualificationGroupName: 'QualificationGroupName',
+      stateName: 'StateName',
+      useBySelf: 'UseBySelf',
+      workOrderId: 'WorkOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditRemark: 'string',
+      auditTime: 'string',
+      companyName: 'string',
+      createDate: 'string',
+      groupId: 'number',
+      legalPersonName: 'string',
+      qualificationGroupName: 'string',
+      stateName: 'string',
+      useBySelf: 'string',
+      workOrderId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsQualificationRecordResponseBodyData extends $dara.Model {
+  list?: QuerySmsQualificationRecordResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 25
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': QuerySmsQualificationRecordResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
     super.validate();
   }
 
@@ -2572,6 +3081,73 @@ export class SendCardSmsResponseBodyData extends $dara.Model {
   }
 }
 
+export class SubmitSmsQualificationRequestBusinessLicensePics extends $dara.Model {
+  /**
+   * @remarks
+   * 营业证件图片标识的osskey
+   * 
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  /**
+   * @remarks
+   * 营业证件类型，businessLicense:营业执照;organizationCodeLicense:组织机构代码证;taxRegistrationLicense:税务登记证;socialCreditLicense:社会信用代码证书;newStyleBusinessLicense:三证合一;signLegalLicense:签名归属方的事业单位法人证书;otherLicense:其他类型执照证书
+   * 
+   * @example
+   * businessLicense
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmsQualificationRequestOtherFiles extends $dara.Model {
+  /**
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -2600,6 +3176,73 @@ export class TagResourcesRequestTag extends $dara.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationRequestBusinessLicensePics extends $dara.Model {
+  /**
+   * @remarks
+   * 证件图片标识的osskey
+   * 
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  /**
+   * @remarks
+   * 企业证件类型，businessLicense:营业执照;organizationCodeLicense:组织机构代码证;taxRegistrationLicense:税务登记证;socialCreditLicense:社会信用代码证书;newStyleBusinessLicense:三证合一;signLegalLicense:签名归属方的事业单位法人证书;otherLicense:其他类型执照证书
+   * 
+   * @example
+   * businessLicense
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationRequestOtherFiles extends $dara.Model {
+  /**
+   * @example
+   * 123456/111.png
+   */
+  licensePic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licensePic: 'LicensePic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licensePic: 'string',
     };
   }
 
@@ -5645,6 +6288,152 @@ export class DeleteShortUrlResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteShortUrlResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmsQualificationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 工单ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2001****
+   */
+  orderId?: number;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质组ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000****
+   */
+  qualificationGroupId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      ownerId: 'OwnerId',
+      qualificationGroupId: 'QualificationGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      ownerId: 'number',
+      qualificationGroupId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmsQualificationResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSmsQualificationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSmsQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSmsQualificationResponseBody,
     };
   }
 
@@ -9556,6 +10345,149 @@ export class QueryShortUrlResponse extends $dara.Model {
   }
 }
 
+export class QuerySingleSmsQualificationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 工单id
+   * 
+   * @example
+   * 2001****
+   */
+  orderId?: number;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000****
+   */
+  qualificationGroupId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      ownerId: 'OwnerId',
+      qualificationGroupId: 'QualificationGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      ownerId: 'number',
+      qualificationGroupId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySingleSmsQualificationResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: QuerySingleSmsQualificationResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: QuerySingleSmsQualificationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySingleSmsQualificationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySingleSmsQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySingleSmsQualificationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySmsAuthorizationLetterRequest extends $dara.Model {
   /**
    * @remarks
@@ -9785,6 +10717,201 @@ export class QuerySmsAuthorizationLetterResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySmsAuthorizationLetterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsQualificationRecordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 公司名
+   * 
+   * @example
+   * 示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * 资质组名称
+   * 
+   * @example
+   * 示例值示例值
+   */
+  qualificationGroupName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 审核状态。INT:审核中FAILED:审核失败,PASSED:审核通过,NOT_FINISH:资料待补充,CANCELED:已撤回
+   * 
+   * @example
+   * PASSED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * 是否自用
+   * 
+   * @example
+   * true
+   */
+  useBySelf?: boolean;
+  /**
+   * @remarks
+   * 工单ID
+   * 
+   * @example
+   * 2001****
+   */
+  workOrderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      companyName: 'CompanyName',
+      legalPersonName: 'LegalPersonName',
+      ownerId: 'OwnerId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      qualificationGroupName: 'QualificationGroupName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      state: 'State',
+      useBySelf: 'UseBySelf',
+      workOrderId: 'WorkOrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      companyName: 'string',
+      legalPersonName: 'string',
+      ownerId: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      qualificationGroupName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      state: 'string',
+      useBySelf: 'boolean',
+      workOrderId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsQualificationRecordResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: QuerySmsQualificationRecordResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: QuerySmsQualificationRecordResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySmsQualificationRecordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySmsQualificationRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QuerySmsQualificationRecordResponseBody,
     };
   }
 
@@ -10530,6 +11657,138 @@ export class QuerySmsTemplateListResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QuerySmsTemplateListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequiredPhoneCodeRequest extends $dara.Model {
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 137****1234
+   */
+  phoneNo?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      phoneNo: 'PhoneNo',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      phoneNo: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequiredPhoneCodeResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  data?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequiredPhoneCodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RequiredPhoneCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RequiredPhoneCodeResponseBody,
     };
   }
 
@@ -11686,6 +12945,707 @@ export class SmsConversionIntlResponse extends $dara.Model {
   }
 }
 
+export class SubmitSmsQualificationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  adminIDCardExpDate?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片国徽面
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardFrontFace?: string;
+  /**
+   * @remarks
+   * 经办人身份证号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 511391********5123
+   */
+  adminIDCardNo?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片人像面
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardPic?: string;
+  /**
+   * @remarks
+   * 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * identityCard
+   */
+  adminIDCardType?: string;
+  /**
+   * @remarks
+   * 经办人姓名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  adminName?: string;
+  /**
+   * @remarks
+   * 经办人手机号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 137****1234
+   */
+  adminPhoneNo?: string;
+  /**
+   * @remarks
+   * 企业营业证件信息，非大客户必填
+   */
+  businessLicensePics?: SubmitSmsQualificationRequestBusinessLicensePics[];
+  /**
+   * @remarks
+   * 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  bussinessLicenseExpDate?: string;
+  /**
+   * @remarks
+   * 手机号验证码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  certifyCode?: string;
+  /**
+   * @remarks
+   * 公司名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 企业类型, COMPANY:公司;NON_PROFIT_ORGANIZATION:政府或者事业单位
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * COMPANY
+   */
+  companyType?: string;
+  /**
+   * @remarks
+   * 法人身份证号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 511391********5123
+   */
+  legalPersonIDCardNo?: string;
+  /**
+   * @remarks
+   * 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * identityCard
+   */
+  legalPersonIDCardType?: string;
+  /**
+   * @remarks
+   * 法人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardBackSide?: string;
+  /**
+   * @remarks
+   * 法人身份证有效期
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  legalPersonIdCardEffTime?: string;
+  /**
+   * @remarks
+   * 法人身份证照片国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardFrontSide?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 社会统一信用代码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 910X********0012
+   */
+  organizationCode?: string;
+  /**
+   * @remarks
+   * 更多资料
+   */
+  otherFiles?: SubmitSmsQualificationRequestOtherFiles[];
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质名称,名称不能重复
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  qualificationName?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值示例值
+   */
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 资质是自用还是他用，true：自用，false：他用
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  useBySelf?: boolean;
+  /**
+   * @remarks
+   * 是否同意与其他业务线共享
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  whetherShare?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      adminIDCardExpDate: 'AdminIDCardExpDate',
+      adminIDCardFrontFace: 'AdminIDCardFrontFace',
+      adminIDCardNo: 'AdminIDCardNo',
+      adminIDCardPic: 'AdminIDCardPic',
+      adminIDCardType: 'AdminIDCardType',
+      adminName: 'AdminName',
+      adminPhoneNo: 'AdminPhoneNo',
+      businessLicensePics: 'BusinessLicensePics',
+      bussinessLicenseExpDate: 'BussinessLicenseExpDate',
+      certifyCode: 'CertifyCode',
+      companyName: 'CompanyName',
+      companyType: 'CompanyType',
+      legalPersonIDCardNo: 'LegalPersonIDCardNo',
+      legalPersonIDCardType: 'LegalPersonIDCardType',
+      legalPersonIdCardBackSide: 'LegalPersonIdCardBackSide',
+      legalPersonIdCardEffTime: 'LegalPersonIdCardEffTime',
+      legalPersonIdCardFrontSide: 'LegalPersonIdCardFrontSide',
+      legalPersonName: 'LegalPersonName',
+      organizationCode: 'OrganizationCode',
+      otherFiles: 'OtherFiles',
+      ownerId: 'OwnerId',
+      qualificationName: 'QualificationName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      useBySelf: 'UseBySelf',
+      whetherShare: 'WhetherShare',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminIDCardExpDate: 'string',
+      adminIDCardFrontFace: 'string',
+      adminIDCardNo: 'string',
+      adminIDCardPic: 'string',
+      adminIDCardType: 'string',
+      adminName: 'string',
+      adminPhoneNo: 'string',
+      businessLicensePics: { 'type': 'array', 'itemType': SubmitSmsQualificationRequestBusinessLicensePics },
+      bussinessLicenseExpDate: 'string',
+      certifyCode: 'string',
+      companyName: 'string',
+      companyType: 'string',
+      legalPersonIDCardNo: 'string',
+      legalPersonIDCardType: 'string',
+      legalPersonIdCardBackSide: 'string',
+      legalPersonIdCardEffTime: 'string',
+      legalPersonIdCardFrontSide: 'string',
+      legalPersonName: 'string',
+      organizationCode: 'string',
+      otherFiles: { 'type': 'array', 'itemType': SubmitSmsQualificationRequestOtherFiles },
+      ownerId: 'number',
+      qualificationName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      useBySelf: 'boolean',
+      whetherShare: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.businessLicensePics)) {
+      $dara.Model.validateArray(this.businessLicensePics);
+    }
+    if(Array.isArray(this.otherFiles)) {
+      $dara.Model.validateArray(this.otherFiles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmsQualificationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  adminIDCardExpDate?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片国徽面
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardFrontFace?: string;
+  /**
+   * @remarks
+   * 经办人身份证号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 511391********5123
+   */
+  adminIDCardNo?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片人像面
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardPic?: string;
+  /**
+   * @remarks
+   * 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * identityCard
+   */
+  adminIDCardType?: string;
+  /**
+   * @remarks
+   * 经办人姓名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  adminName?: string;
+  /**
+   * @remarks
+   * 经办人手机号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 137****1234
+   */
+  adminPhoneNo?: string;
+  /**
+   * @remarks
+   * 企业营业证件信息，非大客户必填
+   */
+  businessLicensePicsShrink?: string;
+  /**
+   * @remarks
+   * 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  bussinessLicenseExpDate?: string;
+  /**
+   * @remarks
+   * 手机号验证码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  certifyCode?: string;
+  /**
+   * @remarks
+   * 公司名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 企业类型, COMPANY:公司;NON_PROFIT_ORGANIZATION:政府或者事业单位
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * COMPANY
+   */
+  companyType?: string;
+  /**
+   * @remarks
+   * 法人身份证号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 511391********5123
+   */
+  legalPersonIDCardNo?: string;
+  /**
+   * @remarks
+   * 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * identityCard
+   */
+  legalPersonIDCardType?: string;
+  /**
+   * @remarks
+   * 法人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardBackSide?: string;
+  /**
+   * @remarks
+   * 法人身份证有效期
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  legalPersonIdCardEffTime?: string;
+  /**
+   * @remarks
+   * 法人身份证照片国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardFrontSide?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 社会统一信用代码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 910X********0012
+   */
+  organizationCode?: string;
+  /**
+   * @remarks
+   * 更多资料
+   */
+  otherFilesShrink?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质名称,名称不能重复
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  qualificationName?: string;
+  /**
+   * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值示例值
+   */
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * 资质是自用还是他用，true：自用，false：他用
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  useBySelf?: boolean;
+  /**
+   * @remarks
+   * 是否同意与其他业务线共享
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
+  whetherShare?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      adminIDCardExpDate: 'AdminIDCardExpDate',
+      adminIDCardFrontFace: 'AdminIDCardFrontFace',
+      adminIDCardNo: 'AdminIDCardNo',
+      adminIDCardPic: 'AdminIDCardPic',
+      adminIDCardType: 'AdminIDCardType',
+      adminName: 'AdminName',
+      adminPhoneNo: 'AdminPhoneNo',
+      businessLicensePicsShrink: 'BusinessLicensePics',
+      bussinessLicenseExpDate: 'BussinessLicenseExpDate',
+      certifyCode: 'CertifyCode',
+      companyName: 'CompanyName',
+      companyType: 'CompanyType',
+      legalPersonIDCardNo: 'LegalPersonIDCardNo',
+      legalPersonIDCardType: 'LegalPersonIDCardType',
+      legalPersonIdCardBackSide: 'LegalPersonIdCardBackSide',
+      legalPersonIdCardEffTime: 'LegalPersonIdCardEffTime',
+      legalPersonIdCardFrontSide: 'LegalPersonIdCardFrontSide',
+      legalPersonName: 'LegalPersonName',
+      organizationCode: 'OrganizationCode',
+      otherFilesShrink: 'OtherFiles',
+      ownerId: 'OwnerId',
+      qualificationName: 'QualificationName',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      useBySelf: 'UseBySelf',
+      whetherShare: 'WhetherShare',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminIDCardExpDate: 'string',
+      adminIDCardFrontFace: 'string',
+      adminIDCardNo: 'string',
+      adminIDCardPic: 'string',
+      adminIDCardType: 'string',
+      adminName: 'string',
+      adminPhoneNo: 'string',
+      businessLicensePicsShrink: 'string',
+      bussinessLicenseExpDate: 'string',
+      certifyCode: 'string',
+      companyName: 'string',
+      companyType: 'string',
+      legalPersonIDCardNo: 'string',
+      legalPersonIDCardType: 'string',
+      legalPersonIdCardBackSide: 'string',
+      legalPersonIdCardEffTime: 'string',
+      legalPersonIdCardFrontSide: 'string',
+      legalPersonName: 'string',
+      organizationCode: 'string',
+      otherFilesShrink: 'string',
+      ownerId: 'number',
+      qualificationName: 'string',
+      remark: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      useBySelf: 'boolean',
+      whetherShare: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmsQualificationResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 1000****
+   */
+  data?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmsQualificationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSmsQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitSmsQualificationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
@@ -12198,6 +14158,567 @@ export class UpdateExtCodeSignResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateExtCodeSignResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  adminIDCardExpDate?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardFrontFace?: string;
+  /**
+   * @remarks
+   * 经办人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  adminIDCardNo?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardPic?: string;
+  /**
+   * @remarks
+   * 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * @example
+   * identityCard
+   */
+  adminIDCardType?: string;
+  /**
+   * @remarks
+   * 经办人姓名
+   * 
+   * @example
+   * 示例值
+   */
+  adminName?: string;
+  /**
+   * @remarks
+   * 经办人手机号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 137********
+   */
+  adminPhoneNo?: string;
+  /**
+   * @remarks
+   * 企业证件信息
+   */
+  businessLicensePics?: UpdateSmsQualificationRequestBusinessLicensePics[];
+  /**
+   * @remarks
+   * 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  bussinessLicenseExpDate?: string;
+  /**
+   * @remarks
+   * 手机号验证码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  certifyCode?: string;
+  /**
+   * @remarks
+   * 公司名称
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 法人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  legalPersonIDCardNo?: string;
+  /**
+   * @remarks
+   * 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * @example
+   * identityCard
+   */
+  legalPersonIDCardType?: string;
+  /**
+   * @remarks
+   * 法人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardBackSide?: string;
+  /**
+   * @remarks
+   * 法人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  legalPersonIdCardEffTime?: string;
+  /**
+   * @remarks
+   * 法人身份照片证国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardFrontSide?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 工单ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2001*****
+   */
+  orderId?: number;
+  /**
+   * @remarks
+   * 更多资料
+   */
+  otherFiles?: UpdateSmsQualificationRequestOtherFiles[];
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质组ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000****
+   */
+  qualificationGroupId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adminIDCardExpDate: 'AdminIDCardExpDate',
+      adminIDCardFrontFace: 'AdminIDCardFrontFace',
+      adminIDCardNo: 'AdminIDCardNo',
+      adminIDCardPic: 'AdminIDCardPic',
+      adminIDCardType: 'AdminIDCardType',
+      adminName: 'AdminName',
+      adminPhoneNo: 'AdminPhoneNo',
+      businessLicensePics: 'BusinessLicensePics',
+      bussinessLicenseExpDate: 'BussinessLicenseExpDate',
+      certifyCode: 'CertifyCode',
+      companyName: 'CompanyName',
+      legalPersonIDCardNo: 'LegalPersonIDCardNo',
+      legalPersonIDCardType: 'LegalPersonIDCardType',
+      legalPersonIdCardBackSide: 'LegalPersonIdCardBackSide',
+      legalPersonIdCardEffTime: 'LegalPersonIdCardEffTime',
+      legalPersonIdCardFrontSide: 'LegalPersonIdCardFrontSide',
+      legalPersonName: 'LegalPersonName',
+      orderId: 'OrderId',
+      otherFiles: 'OtherFiles',
+      ownerId: 'OwnerId',
+      qualificationGroupId: 'QualificationGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminIDCardExpDate: 'string',
+      adminIDCardFrontFace: 'string',
+      adminIDCardNo: 'string',
+      adminIDCardPic: 'string',
+      adminIDCardType: 'string',
+      adminName: 'string',
+      adminPhoneNo: 'string',
+      businessLicensePics: { 'type': 'array', 'itemType': UpdateSmsQualificationRequestBusinessLicensePics },
+      bussinessLicenseExpDate: 'string',
+      certifyCode: 'string',
+      companyName: 'string',
+      legalPersonIDCardNo: 'string',
+      legalPersonIDCardType: 'string',
+      legalPersonIdCardBackSide: 'string',
+      legalPersonIdCardEffTime: 'string',
+      legalPersonIdCardFrontSide: 'string',
+      legalPersonName: 'string',
+      orderId: 'number',
+      otherFiles: { 'type': 'array', 'itemType': UpdateSmsQualificationRequestOtherFiles },
+      ownerId: 'number',
+      qualificationGroupId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.businessLicensePics)) {
+      $dara.Model.validateArray(this.businessLicensePics);
+    }
+    if(Array.isArray(this.otherFiles)) {
+      $dara.Model.validateArray(this.otherFiles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 经办人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  adminIDCardExpDate?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardFrontFace?: string;
+  /**
+   * @remarks
+   * 经办人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  adminIDCardNo?: string;
+  /**
+   * @remarks
+   * 经办人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  adminIDCardPic?: string;
+  /**
+   * @remarks
+   * 管理员身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * @example
+   * identityCard
+   */
+  adminIDCardType?: string;
+  /**
+   * @remarks
+   * 经办人姓名
+   * 
+   * @example
+   * 示例值
+   */
+  adminName?: string;
+  /**
+   * @remarks
+   * 经办人手机号码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 137********
+   */
+  adminPhoneNo?: string;
+  /**
+   * @remarks
+   * 企业证件信息
+   */
+  businessLicensePicsShrink?: string;
+  /**
+   * @remarks
+   * 企业营业时间开始和结束字符串，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  bussinessLicenseExpDate?: string;
+  /**
+   * @remarks
+   * 手机号验证码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  certifyCode?: string;
+  /**
+   * @remarks
+   * 公司名称
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  companyName?: string;
+  /**
+   * @remarks
+   * 法人身份证号码
+   * 
+   * @example
+   * 511391********5123
+   */
+  legalPersonIDCardNo?: string;
+  /**
+   * @remarks
+   * 法人身份证类型。identityCard:中国居民身份证;passport:护照;homeReturnPermit:港澳居民来往内地通行证;TaiwanCompatriotPermit:台湾居民来往大陆通行证;residencePermit:港澳台居民居住证";other:其他
+   * 
+   * @example
+   * identityCard
+   */
+  legalPersonIDCardType?: string;
+  /**
+   * @remarks
+   * 法人身份证照片人像面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardBackSide?: string;
+  /**
+   * @remarks
+   * 法人身份证有效期，格式示例2023-01-01~2033-01-01
+   * 
+   * @example
+   * 2023-01-01~2033-01-01
+   */
+  legalPersonIdCardEffTime?: string;
+  /**
+   * @remarks
+   * 法人身份照片证国徽面
+   * 
+   * @example
+   * 123456/111.png
+   */
+  legalPersonIdCardFrontSide?: string;
+  /**
+   * @remarks
+   * 法人姓名
+   * 
+   * @example
+   * 示例值示例值
+   */
+  legalPersonName?: string;
+  /**
+   * @remarks
+   * 工单ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2001*****
+   */
+  orderId?: number;
+  /**
+   * @remarks
+   * 更多资料
+   */
+  otherFilesShrink?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 资质组ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000****
+   */
+  qualificationGroupId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      adminIDCardExpDate: 'AdminIDCardExpDate',
+      adminIDCardFrontFace: 'AdminIDCardFrontFace',
+      adminIDCardNo: 'AdminIDCardNo',
+      adminIDCardPic: 'AdminIDCardPic',
+      adminIDCardType: 'AdminIDCardType',
+      adminName: 'AdminName',
+      adminPhoneNo: 'AdminPhoneNo',
+      businessLicensePicsShrink: 'BusinessLicensePics',
+      bussinessLicenseExpDate: 'BussinessLicenseExpDate',
+      certifyCode: 'CertifyCode',
+      companyName: 'CompanyName',
+      legalPersonIDCardNo: 'LegalPersonIDCardNo',
+      legalPersonIDCardType: 'LegalPersonIDCardType',
+      legalPersonIdCardBackSide: 'LegalPersonIdCardBackSide',
+      legalPersonIdCardEffTime: 'LegalPersonIdCardEffTime',
+      legalPersonIdCardFrontSide: 'LegalPersonIdCardFrontSide',
+      legalPersonName: 'LegalPersonName',
+      orderId: 'OrderId',
+      otherFilesShrink: 'OtherFiles',
+      ownerId: 'OwnerId',
+      qualificationGroupId: 'QualificationGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adminIDCardExpDate: 'string',
+      adminIDCardFrontFace: 'string',
+      adminIDCardNo: 'string',
+      adminIDCardPic: 'string',
+      adminIDCardType: 'string',
+      adminName: 'string',
+      adminPhoneNo: 'string',
+      businessLicensePicsShrink: 'string',
+      bussinessLicenseExpDate: 'string',
+      certifyCode: 'string',
+      companyName: 'string',
+      legalPersonIDCardNo: 'string',
+      legalPersonIDCardType: 'string',
+      legalPersonIdCardBackSide: 'string',
+      legalPersonIdCardEffTime: 'string',
+      legalPersonIdCardFrontSide: 'string',
+      legalPersonName: 'string',
+      orderId: 'number',
+      otherFilesShrink: 'string',
+      ownerId: 'number',
+      qualificationGroupId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 10000****
+   */
+  data?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 25D5AFDE-8EBC-132E-8909-1FDC071DA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSmsQualificationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSmsQualificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSmsQualificationResponseBody,
     };
   }
 
@@ -13014,6 +15535,152 @@ export class UpdateSmsTemplateResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSmsTemplateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidPhoneCodeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 验证码
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  certifyCode?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * 手机号
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 137****1234
+   */
+  phoneNo?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certifyCode: 'CertifyCode',
+      ownerId: 'OwnerId',
+      phoneNo: 'PhoneNo',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyCode: 'string',
+      ownerId: 'number',
+      phoneNo: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidPhoneCodeResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A9486641****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidPhoneCodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidPhoneCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ValidPhoneCodeResponseBody,
     };
   }
 
@@ -14113,6 +16780,64 @@ export default class Client extends OpenApi {
   async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteShortUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除资质对客openAPI
+   * 
+   * @param request - DeleteSmsQualificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSmsQualificationResponse
+   */
+  async deleteSmsQualificationWithOptions(request: DeleteSmsQualificationRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSmsQualificationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationGroupId)) {
+      query["QualificationGroupId"] = request.qualificationGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSmsQualification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteSmsQualificationResponse>(await this.callApi(params, req, runtime), new DeleteSmsQualificationResponse({}));
+  }
+
+  /**
+   * 删除资质对客openAPI
+   * 
+   * @param request - DeleteSmsQualificationRequest
+   * @returns DeleteSmsQualificationResponse
+   */
+  async deleteSmsQualification(request: DeleteSmsQualificationRequest): Promise<DeleteSmsQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSmsQualificationWithOptions(request, runtime);
   }
 
   /**
@@ -15554,6 +18279,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询单个资质详情
+   * 
+   * @param request - QuerySingleSmsQualificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySingleSmsQualificationResponse
+   */
+  async querySingleSmsQualificationWithOptions(request: QuerySingleSmsQualificationRequest, runtime: $dara.RuntimeOptions): Promise<QuerySingleSmsQualificationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationGroupId)) {
+      query["QualificationGroupId"] = request.qualificationGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySingleSmsQualification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<QuerySingleSmsQualificationResponse>(await this.callApi(params, req, runtime), new QuerySingleSmsQualificationResponse({}));
+  }
+
+  /**
+   * 查询单个资质详情
+   * 
+   * @param request - QuerySingleSmsQualificationRequest
+   * @returns QuerySingleSmsQualificationResponse
+   */
+  async querySingleSmsQualification(request: QuerySingleSmsQualificationRequest): Promise<QuerySingleSmsQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySingleSmsQualificationWithOptions(request, runtime);
+  }
+
+  /**
    * 查询委托授权书
    * 
    * @param tmpReq - QuerySmsAuthorizationLetterRequest
@@ -15627,6 +18410,88 @@ export default class Client extends OpenApi {
   async querySmsAuthorizationLetter(request: QuerySmsAuthorizationLetterRequest): Promise<QuerySmsAuthorizationLetterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsAuthorizationLetterWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资质审核列表页
+   * 
+   * @param request - QuerySmsQualificationRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmsQualificationRecordResponse
+   */
+  async querySmsQualificationRecordWithOptions(request: QuerySmsQualificationRecordRequest, runtime: $dara.RuntimeOptions): Promise<QuerySmsQualificationRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!$dara.isNull(request.legalPersonName)) {
+      query["LegalPersonName"] = request.legalPersonName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.qualificationGroupName)) {
+      query["QualificationGroupName"] = request.qualificationGroupName;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.useBySelf)) {
+      query["UseBySelf"] = request.useBySelf;
+    }
+
+    if (!$dara.isNull(request.workOrderId)) {
+      query["WorkOrderId"] = request.workOrderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySmsQualificationRecord",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<QuerySmsQualificationRecordResponse>(await this.callApi(params, req, runtime), new QuerySmsQualificationRecordResponse({}));
+  }
+
+  /**
+   * 查询资质审核列表页
+   * 
+   * @param request - QuerySmsQualificationRecordRequest
+   * @returns QuerySmsQualificationRecordResponse
+   */
+  async querySmsQualificationRecord(request: QuerySmsQualificationRecordRequest): Promise<QuerySmsQualificationRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySmsQualificationRecordWithOptions(request, runtime);
   }
 
   /**
@@ -15897,6 +18762,60 @@ export default class Client extends OpenApi {
   async querySmsTemplateList(request: QuerySmsTemplateListRequest): Promise<QuerySmsTemplateListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.querySmsTemplateListWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证手机验证码
+   * 
+   * @param request - RequiredPhoneCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RequiredPhoneCodeResponse
+   */
+  async requiredPhoneCodeWithOptions(request: RequiredPhoneCodeRequest, runtime: $dara.RuntimeOptions): Promise<RequiredPhoneCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNo)) {
+      query["PhoneNo"] = request.phoneNo;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RequiredPhoneCode",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RequiredPhoneCodeResponse>(await this.callApi(params, req, runtime), new RequiredPhoneCodeResponse({}));
+  }
+
+  /**
+   * 验证手机验证码
+   * 
+   * @param request - RequiredPhoneCodeRequest
+   * @returns RequiredPhoneCodeResponse
+   */
+  async requiredPhoneCode(request: RequiredPhoneCodeRequest): Promise<RequiredPhoneCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.requiredPhoneCodeWithOptions(request, runtime);
   }
 
   /**
@@ -16342,6 +19261,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建资质对客openAPI
+   * 
+   * @param tmpReq - SubmitSmsQualificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSmsQualificationResponse
+   */
+  async submitSmsQualificationWithOptions(tmpReq: SubmitSmsQualificationRequest, runtime: $dara.RuntimeOptions): Promise<SubmitSmsQualificationResponse> {
+    tmpReq.validate();
+    let request = new SubmitSmsQualificationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.businessLicensePics)) {
+      request.businessLicensePicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessLicensePics, "BusinessLicensePics", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.otherFiles)) {
+      request.otherFilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.otherFiles, "OtherFiles", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adminIDCardExpDate)) {
+      query["AdminIDCardExpDate"] = request.adminIDCardExpDate;
+    }
+
+    if (!$dara.isNull(request.adminIDCardFrontFace)) {
+      query["AdminIDCardFrontFace"] = request.adminIDCardFrontFace;
+    }
+
+    if (!$dara.isNull(request.adminIDCardNo)) {
+      query["AdminIDCardNo"] = request.adminIDCardNo;
+    }
+
+    if (!$dara.isNull(request.adminIDCardPic)) {
+      query["AdminIDCardPic"] = request.adminIDCardPic;
+    }
+
+    if (!$dara.isNull(request.adminIDCardType)) {
+      query["AdminIDCardType"] = request.adminIDCardType;
+    }
+
+    if (!$dara.isNull(request.adminName)) {
+      query["AdminName"] = request.adminName;
+    }
+
+    if (!$dara.isNull(request.adminPhoneNo)) {
+      query["AdminPhoneNo"] = request.adminPhoneNo;
+    }
+
+    if (!$dara.isNull(request.businessLicensePicsShrink)) {
+      query["BusinessLicensePics"] = request.businessLicensePicsShrink;
+    }
+
+    if (!$dara.isNull(request.bussinessLicenseExpDate)) {
+      query["BussinessLicenseExpDate"] = request.bussinessLicenseExpDate;
+    }
+
+    if (!$dara.isNull(request.certifyCode)) {
+      query["CertifyCode"] = request.certifyCode;
+    }
+
+    if (!$dara.isNull(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!$dara.isNull(request.companyType)) {
+      query["CompanyType"] = request.companyType;
+    }
+
+    if (!$dara.isNull(request.legalPersonIDCardNo)) {
+      query["LegalPersonIDCardNo"] = request.legalPersonIDCardNo;
+    }
+
+    if (!$dara.isNull(request.legalPersonIDCardType)) {
+      query["LegalPersonIDCardType"] = request.legalPersonIDCardType;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardBackSide)) {
+      query["LegalPersonIdCardBackSide"] = request.legalPersonIdCardBackSide;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardEffTime)) {
+      query["LegalPersonIdCardEffTime"] = request.legalPersonIdCardEffTime;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardFrontSide)) {
+      query["LegalPersonIdCardFrontSide"] = request.legalPersonIdCardFrontSide;
+    }
+
+    if (!$dara.isNull(request.legalPersonName)) {
+      query["LegalPersonName"] = request.legalPersonName;
+    }
+
+    if (!$dara.isNull(request.organizationCode)) {
+      query["OrganizationCode"] = request.organizationCode;
+    }
+
+    if (!$dara.isNull(request.otherFilesShrink)) {
+      query["OtherFiles"] = request.otherFilesShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationName)) {
+      query["QualificationName"] = request.qualificationName;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.useBySelf)) {
+      query["UseBySelf"] = request.useBySelf;
+    }
+
+    if (!$dara.isNull(request.whetherShare)) {
+      query["WhetherShare"] = request.whetherShare;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSmsQualification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<SubmitSmsQualificationResponse>(await this.callApi(params, req, runtime), new SubmitSmsQualificationResponse({}));
+  }
+
+  /**
+   * 创建资质对客openAPI
+   * 
+   * @param request - SubmitSmsQualificationRequest
+   * @returns SubmitSmsQualificationResponse
+   */
+  async submitSmsQualification(request: SubmitSmsQualificationRequest): Promise<SubmitSmsQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSmsQualificationWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches tags to a message template.
    * 
    * @remarks
@@ -16564,6 +19639,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改资质对客openAPI
+   * 
+   * @param tmpReq - UpdateSmsQualificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSmsQualificationResponse
+   */
+  async updateSmsQualificationWithOptions(tmpReq: UpdateSmsQualificationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSmsQualificationResponse> {
+    tmpReq.validate();
+    let request = new UpdateSmsQualificationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.businessLicensePics)) {
+      request.businessLicensePicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessLicensePics, "BusinessLicensePics", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.otherFiles)) {
+      request.otherFilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.otherFiles, "OtherFiles", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.adminIDCardExpDate)) {
+      query["AdminIDCardExpDate"] = request.adminIDCardExpDate;
+    }
+
+    if (!$dara.isNull(request.adminIDCardFrontFace)) {
+      query["AdminIDCardFrontFace"] = request.adminIDCardFrontFace;
+    }
+
+    if (!$dara.isNull(request.adminIDCardNo)) {
+      query["AdminIDCardNo"] = request.adminIDCardNo;
+    }
+
+    if (!$dara.isNull(request.adminIDCardPic)) {
+      query["AdminIDCardPic"] = request.adminIDCardPic;
+    }
+
+    if (!$dara.isNull(request.adminIDCardType)) {
+      query["AdminIDCardType"] = request.adminIDCardType;
+    }
+
+    if (!$dara.isNull(request.adminName)) {
+      query["AdminName"] = request.adminName;
+    }
+
+    if (!$dara.isNull(request.adminPhoneNo)) {
+      query["AdminPhoneNo"] = request.adminPhoneNo;
+    }
+
+    if (!$dara.isNull(request.businessLicensePicsShrink)) {
+      query["BusinessLicensePics"] = request.businessLicensePicsShrink;
+    }
+
+    if (!$dara.isNull(request.bussinessLicenseExpDate)) {
+      query["BussinessLicenseExpDate"] = request.bussinessLicenseExpDate;
+    }
+
+    if (!$dara.isNull(request.certifyCode)) {
+      query["CertifyCode"] = request.certifyCode;
+    }
+
+    if (!$dara.isNull(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!$dara.isNull(request.legalPersonIDCardNo)) {
+      query["LegalPersonIDCardNo"] = request.legalPersonIDCardNo;
+    }
+
+    if (!$dara.isNull(request.legalPersonIDCardType)) {
+      query["LegalPersonIDCardType"] = request.legalPersonIDCardType;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardBackSide)) {
+      query["LegalPersonIdCardBackSide"] = request.legalPersonIdCardBackSide;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardEffTime)) {
+      query["LegalPersonIdCardEffTime"] = request.legalPersonIdCardEffTime;
+    }
+
+    if (!$dara.isNull(request.legalPersonIdCardFrontSide)) {
+      query["LegalPersonIdCardFrontSide"] = request.legalPersonIdCardFrontSide;
+    }
+
+    if (!$dara.isNull(request.legalPersonName)) {
+      query["LegalPersonName"] = request.legalPersonName;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.otherFilesShrink)) {
+      query["OtherFiles"] = request.otherFilesShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qualificationGroupId)) {
+      query["QualificationGroupId"] = request.qualificationGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSmsQualification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateSmsQualificationResponse>(await this.callApi(params, req, runtime), new UpdateSmsQualificationResponse({}));
+  }
+
+  /**
+   * 修改资质对客openAPI
+   * 
+   * @param request - UpdateSmsQualificationRequest
+   * @returns UpdateSmsQualificationResponse
+   */
+  async updateSmsQualification(request: UpdateSmsQualificationRequest): Promise<UpdateSmsQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSmsQualificationWithOptions(request, runtime);
+  }
+
+  /**
    * Update Text SMS Signature
    * 
    * @remarks
@@ -16773,6 +19988,64 @@ export default class Client extends OpenApi {
   async updateSmsTemplate(request: UpdateSmsTemplateRequest): Promise<UpdateSmsTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSmsTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 发送手机验证码
+   * 
+   * @param request - ValidPhoneCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidPhoneCodeResponse
+   */
+  async validPhoneCodeWithOptions(request: ValidPhoneCodeRequest, runtime: $dara.RuntimeOptions): Promise<ValidPhoneCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certifyCode)) {
+      query["CertifyCode"] = request.certifyCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNo)) {
+      query["PhoneNo"] = request.phoneNo;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidPhoneCode",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ValidPhoneCodeResponse>(await this.callApi(params, req, runtime), new ValidPhoneCodeResponse({}));
+  }
+
+  /**
+   * 发送手机验证码
+   * 
+   * @param request - ValidPhoneCodeRequest
+   * @returns ValidPhoneCodeResponse
+   */
+  async validPhoneCode(request: ValidPhoneCodeRequest): Promise<ValidPhoneCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validPhoneCodeWithOptions(request, runtime);
   }
 
 }
