@@ -4805,6 +4805,55 @@ export class GetQuotaResponseBodyDataSubQuotaInfoListBillingPolicy extends $dara
   }
 }
 
+export class GetQuotaResponseBodyDataSubQuotaInfoListParameter extends $dara.Model {
+  elasticReservedCU?: number;
+  enablePriority?: boolean;
+  forceReservedMin?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  maxCU?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  minCU?: number;
+  schedulerType?: string;
+  singleJobCULimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elasticReservedCU: 'elasticReservedCU',
+      enablePriority: 'enablePriority',
+      forceReservedMin: 'forceReservedMin',
+      maxCU: 'maxCU',
+      minCU: 'minCU',
+      schedulerType: 'schedulerType',
+      singleJobCULimit: 'singleJobCULimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticReservedCU: 'number',
+      enablePriority: 'boolean',
+      forceReservedMin: 'boolean',
+      maxCU: 'number',
+      minCU: 'number',
+      schedulerType: 'string',
+      singleJobCULimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQuotaResponseBodyDataSubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
@@ -5003,7 +5052,7 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
    * @remarks
    * The description of the quota.
    */
-  parameter?: { [key: string]: any };
+  parameter?: GetQuotaResponseBodyDataSubQuotaInfoListParameter;
   /**
    * @remarks
    * The ID of the parent resource.
@@ -5101,7 +5150,7 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
       id: 'string',
       name: 'string',
       nickName: 'string',
-      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameter: GetQuotaResponseBodyDataSubQuotaInfoListParameter,
       parentId: 'string',
       regionId: 'string',
       saleTag: GetQuotaResponseBodyDataSubQuotaInfoListSaleTag,
@@ -5118,8 +5167,8 @@ export class GetQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
     if(this.billingPolicy && typeof (this.billingPolicy as any).validate === 'function') {
       (this.billingPolicy as any).validate();
     }
-    if(this.parameter) {
-      $dara.Model.validateMap(this.parameter);
+    if(this.parameter && typeof (this.parameter as any).validate === 'function') {
+      (this.parameter as any).validate();
     }
     if(this.saleTag && typeof (this.saleTag as any).validate === 'function') {
       (this.saleTag as any).validate();
@@ -5535,6 +5584,55 @@ export class GetQuotaResponseBodySubQuotaInfoListBillingPolicy extends $dara.Mod
   }
 }
 
+export class GetQuotaResponseBodySubQuotaInfoListParameter extends $dara.Model {
+  elasticReservedCU?: number;
+  enablePriority?: boolean;
+  forceReservedMin?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  maxCU?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  minCU?: number;
+  schedulerType?: string;
+  singleJobCULimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elasticReservedCU: 'elasticReservedCU',
+      enablePriority: 'enablePriority',
+      forceReservedMin: 'forceReservedMin',
+      maxCU: 'maxCU',
+      minCU: 'minCU',
+      schedulerType: 'schedulerType',
+      singleJobCULimit: 'singleJobCULimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticReservedCU: 'number',
+      enablePriority: 'boolean',
+      forceReservedMin: 'boolean',
+      maxCU: 'number',
+      minCU: 'number',
+      schedulerType: 'string',
+      singleJobCULimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQuotaResponseBodySubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
@@ -5740,7 +5838,7 @@ export class GetQuotaResponseBodySubQuotaInfoList extends $dara.Model {
    * "schedulerType":"Fair",
    * }
    */
-  parameter?: { [key: string]: any };
+  parameter?: GetQuotaResponseBodySubQuotaInfoListParameter;
   /**
    * @remarks
    * The ID of the parent resource.
@@ -5838,7 +5936,7 @@ export class GetQuotaResponseBodySubQuotaInfoList extends $dara.Model {
       id: 'string',
       name: 'string',
       nickName: 'string',
-      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameter: GetQuotaResponseBodySubQuotaInfoListParameter,
       parentId: 'string',
       regionId: 'string',
       saleTag: GetQuotaResponseBodySubQuotaInfoListSaleTag,
@@ -5855,8 +5953,8 @@ export class GetQuotaResponseBodySubQuotaInfoList extends $dara.Model {
     if(this.billingPolicy && typeof (this.billingPolicy as any).validate === 'function') {
       (this.billingPolicy as any).validate();
     }
-    if(this.parameter) {
-      $dara.Model.validateMap(this.parameter);
+    if(this.parameter && typeof (this.parameter as any).validate === 'function') {
+      (this.parameter as any).validate();
     }
     if(this.saleTag && typeof (this.saleTag as any).validate === 'function') {
       (this.saleTag as any).validate();
@@ -12807,6 +12905,55 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolic
   }
 }
 
+export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
+  elasticReservedCU?: number;
+  enablePriority?: boolean;
+  forceReservedMin?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  maxCU?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  minCU?: number;
+  schedulerType?: string;
+  singleJobCULimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elasticReservedCU: 'elasticReservedCU',
+      enablePriority: 'enablePriority',
+      forceReservedMin: 'forceReservedMin',
+      maxCU: 'maxCU',
+      minCU: 'minCU',
+      schedulerType: 'schedulerType',
+      singleJobCULimit: 'singleJobCULimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticReservedCU: 'number',
+      enablePriority: 'boolean',
+      forceReservedMin: 'boolean',
+      maxCU: 'number',
+      minCU: 'number',
+      schedulerType: 'string',
+      singleJobCULimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
@@ -13012,7 +13159,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
    * "schedulerType":"Fair",
    * }
    */
-  parameter?: { [key: string]: any };
+  parameter?: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter;
   /**
    * @remarks
    * The ID of the parent resource.
@@ -13110,7 +13257,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
       id: 'string',
       name: 'string',
       nickName: 'string',
-      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameter: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter,
       parentId: 'string',
       regionId: 'string',
       saleTag: ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListSaleTag,
@@ -13127,8 +13274,8 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoList extends $da
     if(this.billingPolicy && typeof (this.billingPolicy as any).validate === 'function') {
       (this.billingPolicy as any).validate();
     }
-    if(this.parameter) {
-      $dara.Model.validateMap(this.parameter);
+    if(this.parameter && typeof (this.parameter as any).validate === 'function') {
+      (this.parameter as any).validate();
     }
     if(this.saleTag && typeof (this.saleTag as any).validate === 'function') {
       (this.saleTag as any).validate();
@@ -13707,6 +13854,55 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy ex
   }
 }
 
+export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
+  elasticReservedCU?: number;
+  enablePriority?: boolean;
+  forceReservedMin?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  maxCU?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  minCU?: number;
+  schedulerType?: string;
+  singleJobCULimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      elasticReservedCU: 'elasticReservedCU',
+      enablePriority: 'enablePriority',
+      forceReservedMin: 'forceReservedMin',
+      maxCU: 'maxCU',
+      minCU: 'minCU',
+      schedulerType: 'schedulerType',
+      singleJobCULimit: 'singleJobCULimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elasticReservedCU: 'number',
+      enablePriority: 'boolean',
+      forceReservedMin: 'boolean',
+      maxCU: 'number',
+      minCU: 'number',
+      schedulerType: 'string',
+      singleJobCULimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag extends $dara.Model {
   /**
    * @remarks
@@ -13912,7 +14108,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
    * "schedulerType":"Fair",
    * }
    */
-  parameter?: { [key: string]: any };
+  parameter?: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter;
   /**
    * @remarks
    * The ID of the parent resource.
@@ -14010,7 +14206,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
       id: 'string',
       name: 'string',
       nickName: 'string',
-      parameter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      parameter: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter,
       parentId: 'string',
       regionId: 'string',
       saleTag: ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListSaleTag,
@@ -14027,8 +14223,8 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoList extends $dara.M
     if(this.billingPolicy && typeof (this.billingPolicy as any).validate === 'function') {
       (this.billingPolicy as any).validate();
     }
-    if(this.parameter) {
-      $dara.Model.validateMap(this.parameter);
+    if(this.parameter && typeof (this.parameter as any).validate === 'function') {
+      (this.parameter as any).validate();
     }
     if(this.saleTag && typeof (this.saleTag as any).validate === 'function') {
       (this.saleTag as any).validate();
@@ -16661,21 +16857,36 @@ export class ListUsersByRoleResponseBodyData extends $dara.Model {
 
 export class QueryQuotaResponseBodyDataBillingPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   subscription: the subscription quota.
+   * *   payasyougo: the pay-as-you-go quota.
+   * 
    * @example
    * subscription
    */
   billingMethod?: string;
   /**
+   * @remarks
+   * In MaxCompute, instanceId and orderId are considered the same.
+   * 
    * @example
    * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The order specifications.
+   * 
    * @example
    * OdpsStandard
    */
   odpsSpecCode?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
    */
@@ -16708,8 +16919,15 @@ export class QueryQuotaResponseBodyDataBillingPolicy extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyDataSaleTag extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
+   */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The object type. Valid values: quota and project.
+   * 
    * @example
    * project
    */
@@ -16742,41 +16960,65 @@ export class QueryQuotaResponseBodyDataSaleTag extends $dara.Model {
 
 export class QueryQuotaResponseBodyDataScheduleInfo extends $dara.Model {
   /**
+   * @remarks
+   * The current quota plan that has taken effect based on the scheduling plan.
+   * 
    * @example
    * planA
    */
   currPlan?: string;
   /**
+   * @remarks
+   * The time when the plan specified by currPlan is scheduled.
+   * 
    * @example
    * 0800
    */
   currTime?: string;
   /**
+   * @remarks
+   * The quota plan that will take effect based on the scheduling plan.
+   * 
    * @example
    * planB
    */
   nextPlan?: string;
   /**
+   * @remarks
+   * The time when the plan specified by nextPlan is scheduled.
+   * 
    * @example
    * 1700
    */
   nextTime?: string;
   /**
+   * @remarks
+   * The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
+   * 
    * @example
    * planC
    */
   oncePlan?: string;
   /**
+   * @remarks
+   * The time when the quota plan specified by oncePlan is scheduled.
+   * 
    * @example
    * 1500
    */
   onceTime?: string;
   /**
+   * @remarks
+   * The operator name.
+   * 
    * @example
    * userA
    */
   operatorName?: string;
   /**
+   * @remarks
+   * The time zone of the project.
+   * 
    * @example
    * UTC+8
    */
@@ -16818,21 +17060,36 @@ export class QueryQuotaResponseBodyDataScheduleInfo extends $dara.Model {
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   subscription: the subscription quota.
+   * *   payasyougo: the pay-as-you-go quota.
+   * 
    * @example
    * subscription
    */
   billingMethod?: string;
   /**
+   * @remarks
+   * In MaxCompute, instanceId and orderId are considered the same.
+   * 
    * @example
    * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The order specifications.
+   * 
    * @example
    * OdpsStandard
    */
   odpsSpecCode?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
    */
@@ -16865,8 +17122,15 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy extends $da
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
+   */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The object type. Valid values: quota and project.
+   * 
    * @example
    * "quota"
    */
@@ -16899,41 +17163,65 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag extends $dara.Mod
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo extends $dara.Model {
   /**
+   * @remarks
+   * The current quota plan that has taken effect based on the scheduling plan.
+   * 
    * @example
    * planA
    */
   currPlan?: string;
   /**
+   * @remarks
+   * The time when the plan specified by currPlan is scheduled.
+   * 
    * @example
    * 0800
    */
   currTime?: string;
   /**
+   * @remarks
+   * The quota plan that will take effect based on the scheduling plan.
+   * 
    * @example
    * planB
    */
   nextPlan?: string;
   /**
+   * @remarks
+   * The time when the plan specified by nextPlan is scheduled.
+   * 
    * @example
    * 1700
    */
   nextTime?: string;
   /**
+   * @remarks
+   * The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
+   * 
    * @example
    * planC
    */
   oncePlan?: string;
   /**
+   * @remarks
+   * The time when the quota plan specified by oncePlan is scheduled.
+   * 
    * @example
    * 1500
    */
   onceTime?: string;
   /**
+   * @remarks
+   * The operator name.
+   * 
    * @example
    * userA
    */
   operatorName?: string;
   /**
+   * @remarks
+   * The time zone of the project.
+   * 
    * @example
    * UTC+8
    */
@@ -16974,80 +17262,137 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo extends $dar
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The order information.
+   */
   billingPolicy?: QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * AT-120N
    */
   cluster?: string;
   /**
+   * @remarks
+   * The time when the resource was created.
+   * 
    * @example
    * 1688653978768
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the quota plan.
+   * 
    * @example
    * 672863518
    */
   creatorId?: string;
   /**
+   * @remarks
+   * The role group name.
+   * 
    * @example
    * abc
    */
   groupName?: string;
   /**
+   * @remarks
+   * The ID of the level-2 quota.
+   * 
    * @example
    * 1000048
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the level-2 quota.
+   * 
    * @example
    * subquotaA
    */
   name?: string;
   /**
+   * @remarks
+   * The nickname of the level-2 quota.
+   * 
    * @example
    * subquotaA
    */
   nickName?: string;
   /**
+   * @remarks
+   * The quota description.
+   * 
    * @example
    * {\\"maxCU\\": 10, \\"minCU\\": 10, \\"adhocCU\\": 0, \\"schedulerType\\": \\"Fifo\\"}
    */
   parameter?: { [key: string]: any };
   /**
+   * @remarks
+   * The parent resource ID.
+   * 
    * @example
    * 0
    */
   parentId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
+   */
   saleTag?: QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag;
+  /**
+   * @remarks
+   * The information about the scheduling plan.
+   */
   scheduleInfo?: QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo;
   /**
+   * @remarks
+   * The status of the resource.
+   * 
    * @example
    * ON
    */
   status?: string;
   /**
+   * @remarks
+   * The resource tag of a quota.
+   * 
    * @example
    * abc
    */
   tag?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 478403690625249
    */
   tenantId?: string;
   /**
+   * @remarks
+   * This parameter corresponds to the resourceSystemType field.
+   * 
    * @example
    * FUXI_ONLINE
    */
   type?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -17120,46 +17465,71 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The order information.
+   */
   billingPolicy?: QueryQuotaResponseBodyDataBillingPolicy;
   /**
+   * @remarks
+   * The ID of the Managed Service for Prometheus cluster.
+   * 
    * @example
    * AT-120N
    */
   cluster?: string;
   /**
+   * @remarks
+   * The time when the resource was created.
+   * 
    * @example
    * 1714356241163
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the quota plan.
+   * 
    * @example
    * 1248953767546358
    */
   creatorId?: string;
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
    * abc
    */
   groupName?: string;
   /**
    * @remarks
-   * quota ID
+   * The quota ID.
    * 
    * @example
    * 2523
    */
   id?: string;
   /**
+   * @remarks
+   * The quota name.
+   * 
    * @example
    * quota_a
    */
   name?: string;
   /**
+   * @remarks
+   * The quota alias.
+   * 
    * @example
    * quota_nickname
    */
   nickName?: string;
   /**
+   * @remarks
+   * The quota description.
+   * 
    * @example
    * {"minCU":10,	
    * "adhocCU":0,
@@ -17169,39 +17539,72 @@ export class QueryQuotaResponseBodyData extends $dara.Model {
    */
   parameter?: { [key: string]: any };
   /**
+   * @remarks
+   * The parent resource ID.
+   * 
    * @example
    * null
    */
   parentId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
+   */
   saleTag?: QueryQuotaResponseBodyDataSaleTag;
+  /**
+   * @remarks
+   * The information about the scheduling plan.
+   */
   scheduleInfo?: QueryQuotaResponseBodyDataScheduleInfo;
   /**
+   * @remarks
+   * The status of the resource.
+   * 
    * @example
    * ON
    */
   status?: string;
+  /**
+   * @remarks
+   * The level-2 quotas.
+   */
   subQuotaInfoList?: QueryQuotaResponseBodyDataSubQuotaInfoList[];
   /**
+   * @remarks
+   * The resource tag of a quota.
+   * 
    * @example
    * abc
    */
   tag?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 478403690625249
    */
   tenantId?: string;
   /**
+   * @remarks
+   * This parameter corresponds to the resourceSystemType field.
+   * 
    * @example
    * FUXI_OFFLINE
    */
   type?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1
    */
@@ -17269,6 +17672,154 @@ export class QueryQuotaResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.subQuotaInfoList)) {
       $dara.Model.validateArray(this.subQuotaInfoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricResponseBodyDataMetrics extends $dara.Model {
+  metric?: { [key: string]: string };
+  values?: number[][];
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'metric',
+      values: 'values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      values: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+    };
+  }
+
+  validate() {
+    if(this.metric) {
+      $dara.Model.validateMap(this.metric);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * tunnel
+   */
+  category?: string;
+  metrics?: QueryTunnelMetricResponseBodyDataMetrics[];
+  /**
+   * @example
+   * slot_usage
+   */
+  name?: string;
+  /**
+   * @example
+   * 60
+   */
+  period?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      metrics: 'metrics',
+      name: 'name',
+      period: 'period',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      metrics: { 'type': 'array', 'itemType': QueryTunnelMetricResponseBodyDataMetrics },
+      name: 'string',
+      period: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricDetailResponseBodyDataMetrics extends $dara.Model {
+  metric?: { [key: string]: string };
+  /**
+   * @example
+   * "avgValue":"11.5"
+   */
+  value?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'metric',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      value: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(this.metric) {
+      $dara.Model.validateMap(this.metric);
+    }
+    if(this.value) {
+      $dara.Model.validateMap(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricDetailResponseBodyData extends $dara.Model {
+  metrics?: QueryTunnelMetricDetailResponseBodyDataMetrics[];
+  /**
+   * @example
+   * tableA
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metrics: 'metrics',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metrics: { 'type': 'array', 'itemType': QueryTunnelMetricDetailResponseBodyDataMetrics },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
     }
     super.validate();
   }
@@ -21080,6 +21631,8 @@ export class GetQuotaRequest extends $dara.Model {
    * 
    * @example
    * null
+   * 
+   * @deprecated
    */
   akProven?: string;
   /**
@@ -21096,6 +21649,8 @@ export class GetQuotaRequest extends $dara.Model {
    * 
    * @example
    * cn-chengdu
+   * 
+   * @deprecated
    */
   region?: string;
   /**
@@ -21104,6 +21659,8 @@ export class GetQuotaRequest extends $dara.Model {
    * 
    * @example
    * 520539530998273
+   * 
+   * @deprecated
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
@@ -25881,6 +26438,8 @@ export class ListQuotasRequest extends $dara.Model {
    * 
    * @example
    * ODPS
+   * 
+   * @deprecated
    */
   productId?: string;
   /**
@@ -25889,6 +26448,8 @@ export class ListQuotasRequest extends $dara.Model {
    * 
    * @example
    * cn-beijing
+   * 
+   * @deprecated
    */
   region?: string;
   /**
@@ -25905,6 +26466,8 @@ export class ListQuotasRequest extends $dara.Model {
    * 
    * @example
    * 280747109771520
+   * 
+   * @deprecated
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
@@ -26428,7 +26991,7 @@ export class ListStoragePartitionsInfoRequest extends $dara.Model {
    * The name of the partition that you want to use for fuzzy match.
    * 
    * @example
-   * 20241201
+   * ds=20241201
    */
   partitionPrefix?: string;
   /**
@@ -26550,7 +27113,7 @@ export class ListStoragePartitionsInfoShrinkRequest extends $dara.Model {
    * The name of the partition that you want to use for fuzzy match.
    * 
    * @example
-   * 20241201
+   * ds=20241201
    */
   partitionPrefix?: string;
   /**
@@ -27552,21 +28115,33 @@ export class ListUsersByRoleResponse extends $dara.Model {
 
 export class QueryQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The trusted AccessKey pairs.
+   * 
    * @example
    * null
    */
   akProven?: string;
   /**
+   * @remarks
+   * Specifies whether to include submodules. Valid values: true and false. -true: The request includes submodules. -false (default): The request does not include submodules.
+   * 
    * @example
    * false
    */
   mock?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-chengdu
    */
   region?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 483212237127906
    */
@@ -27599,19 +28174,39 @@ export class QueryQuotaRequest extends $dara.Model {
 }
 
 export class QueryQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryQuotaResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Exception information
+   */
   errorMsg?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc1eeed16675342848904412e08dd
    */
@@ -27665,6 +28260,369 @@ export class QueryQuotaResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryQuotaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricRequest extends $dara.Model {
+  codeList?: number[];
+  groupList?: string[];
+  operationList?: string[];
+  /**
+   * @example
+   * project_a
+   */
+  project?: string;
+  /**
+   * @example
+   * default
+   */
+  quotaNickname?: string;
+  tableList?: string[];
+  /**
+   * @example
+   * 10
+   */
+  topN?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1735536322
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1735534322
+   */
+  startTime?: number;
+  /**
+   * @example
+   * max
+   */
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeList: 'codeList',
+      groupList: 'groupList',
+      operationList: 'operationList',
+      project: 'project',
+      quotaNickname: 'quotaNickname',
+      tableList: 'tableList',
+      topN: 'topN',
+      endTime: 'endTime',
+      startTime: 'startTime',
+      strategy: 'strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeList: { 'type': 'array', 'itemType': 'number' },
+      groupList: { 'type': 'array', 'itemType': 'string' },
+      operationList: { 'type': 'array', 'itemType': 'string' },
+      project: 'string',
+      quotaNickname: 'string',
+      tableList: { 'type': 'array', 'itemType': 'string' },
+      topN: 'number',
+      endTime: 'number',
+      startTime: 'number',
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.codeList)) {
+      $dara.Model.validateArray(this.codeList);
+    }
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.operationList)) {
+      $dara.Model.validateArray(this.operationList);
+    }
+    if(Array.isArray(this.tableList)) {
+      $dara.Model.validateArray(this.tableList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricResponseBody extends $dara.Model {
+  data?: QueryTunnelMetricResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 0A3B1E82006A23A918C70905BF08AEC7
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 0bc3b4b016674434996033675e71ee
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryTunnelMetricResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTunnelMetricResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTunnelMetricResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricDetailRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  ascOrder?: boolean;
+  groupList?: string[];
+  /**
+   * @example
+   * 10
+   */
+  limit?: number;
+  operationList?: string[];
+  /**
+   * @example
+   * maxValue
+   */
+  orderColumn?: string;
+  /**
+   * @example
+   * project_a
+   */
+  project?: string;
+  /**
+   * @example
+   * quota_A
+   */
+  quotaNickname?: string;
+  tableList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1735536322
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1735534322
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ascOrder: 'ascOrder',
+      groupList: 'groupList',
+      limit: 'limit',
+      operationList: 'operationList',
+      orderColumn: 'orderColumn',
+      project: 'project',
+      quotaNickname: 'quotaNickname',
+      tableList: 'tableList',
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ascOrder: 'boolean',
+      groupList: { 'type': 'array', 'itemType': 'string' },
+      limit: 'number',
+      operationList: { 'type': 'array', 'itemType': 'string' },
+      orderColumn: 'string',
+      project: 'string',
+      quotaNickname: 'string',
+      tableList: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.operationList)) {
+      $dara.Model.validateArray(this.operationList);
+    }
+    if(Array.isArray(this.tableList)) {
+      $dara.Model.validateArray(this.tableList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricDetailResponseBody extends $dara.Model {
+  data?: QueryTunnelMetricDetailResponseBodyData;
+  /**
+   * @example
+   * OBJECT_NOT_EXIST
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * plan \\"***\\" does not exist
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 0a06dd4516687375802853481ec9fd
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryTunnelMetricDetailResponseBodyData,
+      errorCode: 'string',
+      errorMsg: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTunnelMetricDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTunnelMetricDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTunnelMetricDetailResponseBody,
     };
   }
 
@@ -29476,12 +30434,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ApplyComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new ApplyComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<ApplyComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new ApplyComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<ApplyComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new ApplyComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -29536,12 +30489,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new CreateComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<CreateComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new CreateComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<CreateComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new CreateComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -29600,12 +30548,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateMmsDataSourceResponse>(await this.callApi(params, req, runtime), new CreateMmsDataSourceResponse({}));
-    } else {
-      return $dara.cast<CreateMmsDataSourceResponse>(await this.execute(params, req, runtime), new CreateMmsDataSourceResponse({}));
-    }
-
+    return $dara.cast<CreateMmsDataSourceResponse>(await this.callApi(params, req, runtime), new CreateMmsDataSourceResponse({}));
   }
 
   /**
@@ -29640,12 +30583,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateMmsFetchMetadataJobResponse>(await this.callApi(params, req, runtime), new CreateMmsFetchMetadataJobResponse({}));
-    } else {
-      return $dara.cast<CreateMmsFetchMetadataJobResponse>(await this.execute(params, req, runtime), new CreateMmsFetchMetadataJobResponse({}));
-    }
-
+    return $dara.cast<CreateMmsFetchMetadataJobResponse>(await this.callApi(params, req, runtime), new CreateMmsFetchMetadataJobResponse({}));
   }
 
   /**
@@ -29764,12 +30702,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateMmsJobResponse>(await this.callApi(params, req, runtime), new CreateMmsJobResponse({}));
-    } else {
-      return $dara.cast<CreateMmsJobResponse>(await this.execute(params, req, runtime), new CreateMmsJobResponse({}));
-    }
-
+    return $dara.cast<CreateMmsJobResponse>(await this.callApi(params, req, runtime), new CreateMmsJobResponse({}));
   }
 
   /**
@@ -29815,12 +30748,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreatePackageResponse>(await this.callApi(params, req, runtime), new CreatePackageResponse({}));
-    } else {
-      return $dara.cast<CreatePackageResponse>(await this.execute(params, req, runtime), new CreatePackageResponse({}));
-    }
-
+    return $dara.cast<CreatePackageResponse>(await this.callApi(params, req, runtime), new CreatePackageResponse({}));
   }
 
   /**
@@ -29860,12 +30788,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
-    } else {
-      return $dara.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
-    }
-
+    return $dara.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
   /**
@@ -29915,12 +30838,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateQuotaPlanResponse>(await this.callApi(params, req, runtime), new CreateQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<CreateQuotaPlanResponse>(await this.execute(params, req, runtime), new CreateQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<CreateQuotaPlanResponse>(await this.callApi(params, req, runtime), new CreateQuotaPlanResponse({}));
   }
 
   /**
@@ -29960,12 +30878,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
-    } else {
-      return $dara.cast<CreateRoleResponse>(await this.execute(params, req, runtime), new CreateRoleResponse({}));
-    }
-
+    return $dara.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
   }
 
   /**
@@ -30002,12 +30915,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new DeleteComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<DeleteComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new DeleteComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<DeleteComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new DeleteComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -30042,12 +30950,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteMmsDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteMmsDataSourceResponse({}));
-    } else {
-      return $dara.cast<DeleteMmsDataSourceResponse>(await this.execute(params, req, runtime), new DeleteMmsDataSourceResponse({}));
-    }
-
+    return $dara.cast<DeleteMmsDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteMmsDataSourceResponse({}));
   }
 
   /**
@@ -30080,12 +30983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteMmsJobResponse>(await this.callApi(params, req, runtime), new DeleteMmsJobResponse({}));
-    } else {
-      return $dara.cast<DeleteMmsJobResponse>(await this.execute(params, req, runtime), new DeleteMmsJobResponse({}));
-    }
-
+    return $dara.cast<DeleteMmsJobResponse>(await this.callApi(params, req, runtime), new DeleteMmsJobResponse({}));
   }
 
   /**
@@ -30131,12 +31029,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteQuotaPlanResponse>(await this.callApi(params, req, runtime), new DeleteQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<DeleteQuotaPlanResponse>(await this.execute(params, req, runtime), new DeleteQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<DeleteQuotaPlanResponse>(await this.callApi(params, req, runtime), new DeleteQuotaPlanResponse({}));
   }
 
   /**
@@ -30173,12 +31066,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetComputeEffectivePlanResponse>(await this.callApi(params, req, runtime), new GetComputeEffectivePlanResponse({}));
-    } else {
-      return $dara.cast<GetComputeEffectivePlanResponse>(await this.execute(params, req, runtime), new GetComputeEffectivePlanResponse({}));
-    }
-
+    return $dara.cast<GetComputeEffectivePlanResponse>(await this.callApi(params, req, runtime), new GetComputeEffectivePlanResponse({}));
   }
 
   /**
@@ -30213,12 +31101,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new GetComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<GetComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new GetComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<GetComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new GetComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -30261,12 +31144,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetComputeQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetComputeQuotaScheduleResponse({}));
-    } else {
-      return $dara.cast<GetComputeQuotaScheduleResponse>(await this.execute(params, req, runtime), new GetComputeQuotaScheduleResponse({}));
-    }
-
+    return $dara.cast<GetComputeQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetComputeQuotaScheduleResponse({}));
   }
 
   /**
@@ -30303,12 +31181,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobInfoResponse>(await this.callApi(params, req, runtime), new GetJobInfoResponse({}));
-    } else {
-      return $dara.cast<GetJobInfoResponse>(await this.execute(params, req, runtime), new GetJobInfoResponse({}));
-    }
-
+    return $dara.cast<GetJobInfoResponse>(await this.callApi(params, req, runtime), new GetJobInfoResponse({}));
   }
 
   /**
@@ -30377,12 +31250,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobResourceUsageResponse>(await this.callApi(params, req, runtime), new GetJobResourceUsageResponse({}));
-    } else {
-      return $dara.cast<GetJobResourceUsageResponse>(await this.execute(params, req, runtime), new GetJobResourceUsageResponse({}));
-    }
-
+    return $dara.cast<GetJobResourceUsageResponse>(await this.callApi(params, req, runtime), new GetJobResourceUsageResponse({}));
   }
 
   /**
@@ -30417,12 +31285,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetMmsAsyncTaskResponse({}));
-    } else {
-      return $dara.cast<GetMmsAsyncTaskResponse>(await this.execute(params, req, runtime), new GetMmsAsyncTaskResponse({}));
-    }
-
+    return $dara.cast<GetMmsAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetMmsAsyncTaskResponse({}));
   }
 
   /**
@@ -30466,12 +31329,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsDataSourceResponse>(await this.callApi(params, req, runtime), new GetMmsDataSourceResponse({}));
-    } else {
-      return $dara.cast<GetMmsDataSourceResponse>(await this.execute(params, req, runtime), new GetMmsDataSourceResponse({}));
-    }
-
+    return $dara.cast<GetMmsDataSourceResponse>(await this.callApi(params, req, runtime), new GetMmsDataSourceResponse({}));
   }
 
   /**
@@ -30504,12 +31362,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsDbResponse>(await this.callApi(params, req, runtime), new GetMmsDbResponse({}));
-    } else {
-      return $dara.cast<GetMmsDbResponse>(await this.execute(params, req, runtime), new GetMmsDbResponse({}));
-    }
-
+    return $dara.cast<GetMmsDbResponse>(await this.callApi(params, req, runtime), new GetMmsDbResponse({}));
   }
 
   /**
@@ -30541,12 +31394,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsFetchMetadataJobResponse>(await this.callApi(params, req, runtime), new GetMmsFetchMetadataJobResponse({}));
-    } else {
-      return $dara.cast<GetMmsFetchMetadataJobResponse>(await this.execute(params, req, runtime), new GetMmsFetchMetadataJobResponse({}));
-    }
-
+    return $dara.cast<GetMmsFetchMetadataJobResponse>(await this.callApi(params, req, runtime), new GetMmsFetchMetadataJobResponse({}));
   }
 
   /**
@@ -30578,12 +31426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsJobResponse>(await this.callApi(params, req, runtime), new GetMmsJobResponse({}));
-    } else {
-      return $dara.cast<GetMmsJobResponse>(await this.execute(params, req, runtime), new GetMmsJobResponse({}));
-    }
-
+    return $dara.cast<GetMmsJobResponse>(await this.callApi(params, req, runtime), new GetMmsJobResponse({}));
   }
 
   /**
@@ -30615,12 +31458,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsPartitionResponse>(await this.callApi(params, req, runtime), new GetMmsPartitionResponse({}));
-    } else {
-      return $dara.cast<GetMmsPartitionResponse>(await this.execute(params, req, runtime), new GetMmsPartitionResponse({}));
-    }
-
+    return $dara.cast<GetMmsPartitionResponse>(await this.callApi(params, req, runtime), new GetMmsPartitionResponse({}));
   }
 
   /**
@@ -30652,12 +31490,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsTableResponse>(await this.callApi(params, req, runtime), new GetMmsTableResponse({}));
-    } else {
-      return $dara.cast<GetMmsTableResponse>(await this.execute(params, req, runtime), new GetMmsTableResponse({}));
-    }
-
+    return $dara.cast<GetMmsTableResponse>(await this.callApi(params, req, runtime), new GetMmsTableResponse({}));
   }
 
   /**
@@ -30689,12 +31522,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMmsTaskResponse>(await this.callApi(params, req, runtime), new GetMmsTaskResponse({}));
-    } else {
-      return $dara.cast<GetMmsTaskResponse>(await this.execute(params, req, runtime), new GetMmsTaskResponse({}));
-    }
-
+    return $dara.cast<GetMmsTaskResponse>(await this.callApi(params, req, runtime), new GetMmsTaskResponse({}));
   }
 
   /**
@@ -30736,12 +31564,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetPackageResponse>(await this.callApi(params, req, runtime), new GetPackageResponse({}));
-    } else {
-      return $dara.cast<GetPackageResponse>(await this.execute(params, req, runtime), new GetPackageResponse({}));
-    }
-
+    return $dara.cast<GetPackageResponse>(await this.callApi(params, req, runtime), new GetPackageResponse({}));
   }
 
   /**
@@ -30786,12 +31609,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
-    } else {
-      return $dara.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
-    }
-
+    return $dara.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
   }
 
   /**
@@ -30848,12 +31666,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
-    } else {
-      return $dara.cast<GetQuotaResponse>(await this.execute(params, req, runtime), new GetQuotaResponse({}));
-    }
-
+    return $dara.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
   }
 
   /**
@@ -30902,12 +31715,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetQuotaPlanResponse>(await this.callApi(params, req, runtime), new GetQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<GetQuotaPlanResponse>(await this.execute(params, req, runtime), new GetQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<GetQuotaPlanResponse>(await this.callApi(params, req, runtime), new GetQuotaPlanResponse({}));
   }
 
   /**
@@ -30960,12 +31768,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetQuotaScheduleResponse({}));
-    } else {
-      return $dara.cast<GetQuotaScheduleResponse>(await this.execute(params, req, runtime), new GetQuotaScheduleResponse({}));
-    }
-
+    return $dara.cast<GetQuotaScheduleResponse>(await this.callApi(params, req, runtime), new GetQuotaScheduleResponse({}));
   }
 
   /**
@@ -31052,12 +31855,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetQuotaUsageResponse>(await this.callApi(params, req, runtime), new GetQuotaUsageResponse({}));
-    } else {
-      return $dara.cast<GetQuotaUsageResponse>(await this.execute(params, req, runtime), new GetQuotaUsageResponse({}));
-    }
-
+    return $dara.cast<GetQuotaUsageResponse>(await this.callApi(params, req, runtime), new GetQuotaUsageResponse({}));
   }
 
   /**
@@ -31094,12 +31892,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRoleAclResponse>(await this.callApi(params, req, runtime), new GetRoleAclResponse({}));
-    } else {
-      return $dara.cast<GetRoleAclResponse>(await this.execute(params, req, runtime), new GetRoleAclResponse({}));
-    }
-
+    return $dara.cast<GetRoleAclResponse>(await this.callApi(params, req, runtime), new GetRoleAclResponse({}));
   }
 
   /**
@@ -31146,12 +31939,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRoleAclOnObjectResponse>(await this.callApi(params, req, runtime), new GetRoleAclOnObjectResponse({}));
-    } else {
-      return $dara.cast<GetRoleAclOnObjectResponse>(await this.execute(params, req, runtime), new GetRoleAclOnObjectResponse({}));
-    }
-
+    return $dara.cast<GetRoleAclOnObjectResponse>(await this.callApi(params, req, runtime), new GetRoleAclOnObjectResponse({}));
   }
 
   /**
@@ -31188,12 +31976,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRolePolicyResponse>(await this.callApi(params, req, runtime), new GetRolePolicyResponse({}));
-    } else {
-      return $dara.cast<GetRolePolicyResponse>(await this.execute(params, req, runtime), new GetRolePolicyResponse({}));
-    }
-
+    return $dara.cast<GetRolePolicyResponse>(await this.callApi(params, req, runtime), new GetRolePolicyResponse({}));
   }
 
   /**
@@ -31266,12 +32049,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRunningJobsResponse>(await this.callApi(params, req, runtime), new GetRunningJobsResponse({}));
-    } else {
-      return $dara.cast<GetRunningJobsResponse>(await this.execute(params, req, runtime), new GetRunningJobsResponse({}));
-    }
-
+    return $dara.cast<GetRunningJobsResponse>(await this.callApi(params, req, runtime), new GetRunningJobsResponse({}));
   }
 
   /**
@@ -31320,12 +32098,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTableInfoResponse>(await this.callApi(params, req, runtime), new GetTableInfoResponse({}));
-    } else {
-      return $dara.cast<GetTableInfoResponse>(await this.execute(params, req, runtime), new GetTableInfoResponse({}));
-    }
-
+    return $dara.cast<GetTableInfoResponse>(await this.callApi(params, req, runtime), new GetTableInfoResponse({}));
   }
 
   /**
@@ -31362,12 +32135,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTrustedProjectsResponse>(await this.callApi(params, req, runtime), new GetTrustedProjectsResponse({}));
-    } else {
-      return $dara.cast<GetTrustedProjectsResponse>(await this.execute(params, req, runtime), new GetTrustedProjectsResponse({}));
-    }
-
+    return $dara.cast<GetTrustedProjectsResponse>(await this.callApi(params, req, runtime), new GetTrustedProjectsResponse({}));
   }
 
   /**
@@ -31415,12 +32183,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<KillJobsResponse>(await this.callApi(params, req, runtime), new KillJobsResponse({}));
-    } else {
-      return $dara.cast<KillJobsResponse>(await this.execute(params, req, runtime), new KillJobsResponse({}));
-    }
-
+    return $dara.cast<KillJobsResponse>(await this.callApi(params, req, runtime), new KillJobsResponse({}));
   }
 
   /**
@@ -31505,12 +32268,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListComputeMetricsByInstanceResponse>(await this.callApi(params, req, runtime), new ListComputeMetricsByInstanceResponse({}));
-    } else {
-      return $dara.cast<ListComputeMetricsByInstanceResponse>(await this.execute(params, req, runtime), new ListComputeMetricsByInstanceResponse({}));
-    }
-
+    return $dara.cast<ListComputeMetricsByInstanceResponse>(await this.callApi(params, req, runtime), new ListComputeMetricsByInstanceResponse({}));
   }
 
   /**
@@ -31547,12 +32305,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new ListComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<ListComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new ListComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<ListComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new ListComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -31607,12 +32360,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
-    } else {
-      return $dara.cast<ListFunctionsResponse>(await this.execute(params, req, runtime), new ListFunctionsResponse({}));
-    }
-
+    return $dara.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
   /**
@@ -31735,12 +32483,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobInfosResponse>(await this.callApi(params, req, runtime), new ListJobInfosResponse({}));
-    } else {
-      return $dara.cast<ListJobInfosResponse>(await this.execute(params, req, runtime), new ListJobInfosResponse({}));
-    }
-
+    return $dara.cast<ListJobInfosResponse>(await this.callApi(params, req, runtime), new ListJobInfosResponse({}));
   }
 
   /**
@@ -31815,12 +32558,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobMetricResponse>(await this.callApi(params, req, runtime), new ListJobMetricResponse({}));
-    } else {
-      return $dara.cast<ListJobMetricResponse>(await this.execute(params, req, runtime), new ListJobMetricResponse({}));
-    }
-
+    return $dara.cast<ListJobMetricResponse>(await this.callApi(params, req, runtime), new ListJobMetricResponse({}));
   }
 
   /**
@@ -31939,12 +32677,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobSnapshotInfosResponse>(await this.callApi(params, req, runtime), new ListJobSnapshotInfosResponse({}));
-    } else {
-      return $dara.cast<ListJobSnapshotInfosResponse>(await this.execute(params, req, runtime), new ListJobSnapshotInfosResponse({}));
-    }
-
+    return $dara.cast<ListJobSnapshotInfosResponse>(await this.callApi(params, req, runtime), new ListJobSnapshotInfosResponse({}));
   }
 
   /**
@@ -32003,12 +32736,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsDataSourcesResponse>(await this.callApi(params, req, runtime), new ListMmsDataSourcesResponse({}));
-    } else {
-      return $dara.cast<ListMmsDataSourcesResponse>(await this.execute(params, req, runtime), new ListMmsDataSourcesResponse({}));
-    }
-
+    return $dara.cast<ListMmsDataSourcesResponse>(await this.callApi(params, req, runtime), new ListMmsDataSourcesResponse({}));
   }
 
   /**
@@ -32073,12 +32801,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsDbsResponse>(await this.callApi(params, req, runtime), new ListMmsDbsResponse({}));
-    } else {
-      return $dara.cast<ListMmsDbsResponse>(await this.execute(params, req, runtime), new ListMmsDbsResponse({}));
-    }
-
+    return $dara.cast<ListMmsDbsResponse>(await this.callApi(params, req, runtime), new ListMmsDbsResponse({}));
   }
 
   /**
@@ -32157,12 +32880,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsJobsResponse>(await this.callApi(params, req, runtime), new ListMmsJobsResponse({}));
-    } else {
-      return $dara.cast<ListMmsJobsResponse>(await this.execute(params, req, runtime), new ListMmsJobsResponse({}));
-    }
-
+    return $dara.cast<ListMmsJobsResponse>(await this.callApi(params, req, runtime), new ListMmsJobsResponse({}));
   }
 
   /**
@@ -32249,12 +32967,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsPartitionsResponse>(await this.callApi(params, req, runtime), new ListMmsPartitionsResponse({}));
-    } else {
-      return $dara.cast<ListMmsPartitionsResponse>(await this.execute(params, req, runtime), new ListMmsPartitionsResponse({}));
-    }
-
+    return $dara.cast<ListMmsPartitionsResponse>(await this.callApi(params, req, runtime), new ListMmsPartitionsResponse({}));
   }
 
   /**
@@ -32345,12 +33058,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsTablesResponse>(await this.callApi(params, req, runtime), new ListMmsTablesResponse({}));
-    } else {
-      return $dara.cast<ListMmsTablesResponse>(await this.execute(params, req, runtime), new ListMmsTablesResponse({}));
-    }
-
+    return $dara.cast<ListMmsTablesResponse>(await this.callApi(params, req, runtime), new ListMmsTablesResponse({}));
   }
 
   /**
@@ -32383,12 +33091,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsTaskLogsResponse>(await this.callApi(params, req, runtime), new ListMmsTaskLogsResponse({}));
-    } else {
-      return $dara.cast<ListMmsTaskLogsResponse>(await this.execute(params, req, runtime), new ListMmsTaskLogsResponse({}));
-    }
-
+    return $dara.cast<ListMmsTaskLogsResponse>(await this.callApi(params, req, runtime), new ListMmsTaskLogsResponse({}));
   }
 
   /**
@@ -32468,12 +33171,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMmsTasksResponse>(await this.callApi(params, req, runtime), new ListMmsTasksResponse({}));
-    } else {
-      return $dara.cast<ListMmsTasksResponse>(await this.execute(params, req, runtime), new ListMmsTasksResponse({}));
-    }
-
+    return $dara.cast<ListMmsTasksResponse>(await this.callApi(params, req, runtime), new ListMmsTasksResponse({}));
   }
 
   /**
@@ -32508,12 +33206,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPackagesResponse>(await this.callApi(params, req, runtime), new ListPackagesResponse({}));
-    } else {
-      return $dara.cast<ListPackagesResponse>(await this.execute(params, req, runtime), new ListPackagesResponse({}));
-    }
-
+    return $dara.cast<ListPackagesResponse>(await this.callApi(params, req, runtime), new ListPackagesResponse({}));
   }
 
   /**
@@ -32548,12 +33241,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListProjectUsersResponse>(await this.callApi(params, req, runtime), new ListProjectUsersResponse({}));
-    } else {
-      return $dara.cast<ListProjectUsersResponse>(await this.execute(params, req, runtime), new ListProjectUsersResponse({}));
-    }
-
+    return $dara.cast<ListProjectUsersResponse>(await this.callApi(params, req, runtime), new ListProjectUsersResponse({}));
   }
 
   /**
@@ -32632,12 +33320,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
-    } else {
-      return $dara.cast<ListProjectsResponse>(await this.execute(params, req, runtime), new ListProjectsResponse({}));
-    }
-
+    return $dara.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
   /**
@@ -32706,12 +33389,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
-    } else {
-      return $dara.cast<ListQuotasResponse>(await this.execute(params, req, runtime), new ListQuotasResponse({}));
-    }
-
+    return $dara.cast<ListQuotasResponse>(await this.callApi(params, req, runtime), new ListQuotasResponse({}));
   }
 
   /**
@@ -32760,12 +33438,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListQuotasPlansResponse>(await this.callApi(params, req, runtime), new ListQuotasPlansResponse({}));
-    } else {
-      return $dara.cast<ListQuotasPlansResponse>(await this.execute(params, req, runtime), new ListQuotasPlansResponse({}));
-    }
-
+    return $dara.cast<ListQuotasPlansResponse>(await this.callApi(params, req, runtime), new ListQuotasPlansResponse({}));
   }
 
   /**
@@ -32822,12 +33495,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
-    } else {
-      return $dara.cast<ListResourcesResponse>(await this.execute(params, req, runtime), new ListResourcesResponse({}));
-    }
-
+    return $dara.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
   }
 
   /**
@@ -32864,12 +33532,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
-    } else {
-      return $dara.cast<ListRolesResponse>(await this.execute(params, req, runtime), new ListRolesResponse({}));
-    }
-
+    return $dara.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
   /**
@@ -32954,12 +33617,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListStoragePartitionsInfoResponse>(await this.callApi(params, req, runtime), new ListStoragePartitionsInfoResponse({}));
-    } else {
-      return $dara.cast<ListStoragePartitionsInfoResponse>(await this.execute(params, req, runtime), new ListStoragePartitionsInfoResponse({}));
-    }
-
+    return $dara.cast<ListStoragePartitionsInfoResponse>(await this.callApi(params, req, runtime), new ListStoragePartitionsInfoResponse({}));
   }
 
   /**
@@ -33050,12 +33708,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListStorageTablesInfoResponse>(await this.callApi(params, req, runtime), new ListStorageTablesInfoResponse({}));
-    } else {
-      return $dara.cast<ListStorageTablesInfoResponse>(await this.execute(params, req, runtime), new ListStorageTablesInfoResponse({}));
-    }
-
+    return $dara.cast<ListStorageTablesInfoResponse>(await this.callApi(params, req, runtime), new ListStorageTablesInfoResponse({}));
   }
 
   /**
@@ -33116,12 +33769,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
-    } else {
-      return $dara.cast<ListTablesResponse>(await this.execute(params, req, runtime), new ListTablesResponse({}));
-    }
-
+    return $dara.cast<ListTablesResponse>(await this.callApi(params, req, runtime), new ListTablesResponse({}));
   }
 
   /**
@@ -33158,12 +33806,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTunnelQuotaTimerResponse>(await this.callApi(params, req, runtime), new ListTunnelQuotaTimerResponse({}));
-    } else {
-      return $dara.cast<ListTunnelQuotaTimerResponse>(await this.execute(params, req, runtime), new ListTunnelQuotaTimerResponse({}));
-    }
-
+    return $dara.cast<ListTunnelQuotaTimerResponse>(await this.callApi(params, req, runtime), new ListTunnelQuotaTimerResponse({}));
   }
 
   /**
@@ -33210,12 +33853,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
-    } else {
-      return $dara.cast<ListUsersResponse>(await this.execute(params, req, runtime), new ListUsersResponse({}));
-    }
-
+    return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   /**
@@ -33252,12 +33890,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListUsersByRoleResponse>(await this.callApi(params, req, runtime), new ListUsersByRoleResponse({}));
-    } else {
-      return $dara.cast<ListUsersByRoleResponse>(await this.execute(params, req, runtime), new ListUsersByRoleResponse({}));
-    }
-
+    return $dara.cast<ListUsersByRoleResponse>(await this.callApi(params, req, runtime), new ListUsersByRoleResponse({}));
   }
 
   /**
@@ -33271,6 +33904,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a specified level-1 quota group.
+   * 
    * @param request - QueryQuotaRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33310,15 +33945,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryQuotaResponse>(await this.callApi(params, req, runtime), new QueryQuotaResponse({}));
-    } else {
-      return $dara.cast<QueryQuotaResponse>(await this.execute(params, req, runtime), new QueryQuotaResponse({}));
-    }
-
+    return $dara.cast<QueryQuotaResponse>(await this.callApi(params, req, runtime), new QueryQuotaResponse({}));
   }
 
   /**
+   * Queries the information about a specified level-1 quota group.
+   * 
    * @param request - QueryQuotaRequest
    * @returns QueryQuotaResponse
    */
@@ -33326,6 +33958,172 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryQuotaWithOptions(nickname, request, headers, runtime);
+  }
+
+  /**
+   * 查询tunnel资源使用信息
+   * 
+   * @param request - QueryTunnelMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTunnelMetricResponse
+   */
+  async queryTunnelMetricWithOptions(metric: string, request: QueryTunnelMetricRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryTunnelMetricResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      query["strategy"] = request.strategy;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.codeList)) {
+      body["codeList"] = request.codeList;
+    }
+
+    if (!$dara.isNull(request.groupList)) {
+      body["groupList"] = request.groupList;
+    }
+
+    if (!$dara.isNull(request.operationList)) {
+      body["operationList"] = request.operationList;
+    }
+
+    if (!$dara.isNull(request.project)) {
+      body["project"] = request.project;
+    }
+
+    if (!$dara.isNull(request.quotaNickname)) {
+      body["quotaNickname"] = request.quotaNickname;
+    }
+
+    if (!$dara.isNull(request.tableList)) {
+      body["tableList"] = request.tableList;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      body["topN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTunnelMetric",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/tunnel/${$dara.URL.percentEncode(metric)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<QueryTunnelMetricResponse>(await this.callApi(params, req, runtime), new QueryTunnelMetricResponse({}));
+  }
+
+  /**
+   * 查询tunnel资源使用信息
+   * 
+   * @param request - QueryTunnelMetricRequest
+   * @returns QueryTunnelMetricResponse
+   */
+  async queryTunnelMetric(metric: string, request: QueryTunnelMetricRequest): Promise<QueryTunnelMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTunnelMetricWithOptions(metric, request, headers, runtime);
+  }
+
+  /**
+   * 查询tunnel资源使用详情
+   * 
+   * @param request - QueryTunnelMetricDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTunnelMetricDetailResponse
+   */
+  async queryTunnelMetricDetailWithOptions(metric: string, request: QueryTunnelMetricDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<QueryTunnelMetricDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ascOrder)) {
+      body["ascOrder"] = request.ascOrder;
+    }
+
+    if (!$dara.isNull(request.groupList)) {
+      body["groupList"] = request.groupList;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.operationList)) {
+      body["operationList"] = request.operationList;
+    }
+
+    if (!$dara.isNull(request.orderColumn)) {
+      body["orderColumn"] = request.orderColumn;
+    }
+
+    if (!$dara.isNull(request.project)) {
+      body["project"] = request.project;
+    }
+
+    if (!$dara.isNull(request.quotaNickname)) {
+      body["quotaNickname"] = request.quotaNickname;
+    }
+
+    if (!$dara.isNull(request.tableList)) {
+      body["tableList"] = request.tableList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTunnelMetricDetail",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/tunnel/${$dara.URL.percentEncode(metric)}/detail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<QueryTunnelMetricDetailResponse>(await this.callApi(params, req, runtime), new QueryTunnelMetricDetailResponse({}));
+  }
+
+  /**
+   * 查询tunnel资源使用详情
+   * 
+   * @param request - QueryTunnelMetricDetailRequest
+   * @returns QueryTunnelMetricDetailResponse
+   */
+  async queryTunnelMetricDetail(metric: string, request: QueryTunnelMetricDetailRequest): Promise<QueryTunnelMetricDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTunnelMetricDetailWithOptions(metric, request, headers, runtime);
   }
 
   /**
@@ -33348,12 +34146,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RetryMmsJobResponse>(await this.callApi(params, req, runtime), new RetryMmsJobResponse({}));
-    } else {
-      return $dara.cast<RetryMmsJobResponse>(await this.execute(params, req, runtime), new RetryMmsJobResponse({}));
-    }
-
+    return $dara.cast<RetryMmsJobResponse>(await this.callApi(params, req, runtime), new RetryMmsJobResponse({}));
   }
 
   /**
@@ -33385,12 +34178,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartMmsJobResponse>(await this.callApi(params, req, runtime), new StartMmsJobResponse({}));
-    } else {
-      return $dara.cast<StartMmsJobResponse>(await this.execute(params, req, runtime), new StartMmsJobResponse({}));
-    }
-
+    return $dara.cast<StartMmsJobResponse>(await this.callApi(params, req, runtime), new StartMmsJobResponse({}));
   }
 
   /**
@@ -33422,12 +34210,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopMmsJobResponse>(await this.callApi(params, req, runtime), new StopMmsJobResponse({}));
-    } else {
-      return $dara.cast<StopMmsJobResponse>(await this.execute(params, req, runtime), new StopMmsJobResponse({}));
-    }
-
+    return $dara.cast<StopMmsJobResponse>(await this.callApi(params, req, runtime), new StopMmsJobResponse({}));
   }
 
   /**
@@ -33477,12 +34260,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new UpdateComputeQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<UpdateComputeQuotaPlanResponse>(await this.execute(params, req, runtime), new UpdateComputeQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<UpdateComputeQuotaPlanResponse>(await this.callApi(params, req, runtime), new UpdateComputeQuotaPlanResponse({}));
   }
 
   /**
@@ -33536,12 +34314,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateComputeQuotaScheduleResponse>(await this.callApi(params, req, runtime), new UpdateComputeQuotaScheduleResponse({}));
-    } else {
-      return $dara.cast<UpdateComputeQuotaScheduleResponse>(await this.execute(params, req, runtime), new UpdateComputeQuotaScheduleResponse({}));
-    }
-
+    return $dara.cast<UpdateComputeQuotaScheduleResponse>(await this.callApi(params, req, runtime), new UpdateComputeQuotaScheduleResponse({}));
   }
 
   /**
@@ -33590,12 +34363,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateComputeSubQuotaResponse>(await this.callApi(params, req, runtime), new UpdateComputeSubQuotaResponse({}));
-    } else {
-      return $dara.cast<UpdateComputeSubQuotaResponse>(await this.execute(params, req, runtime), new UpdateComputeSubQuotaResponse({}));
-    }
-
+    return $dara.cast<UpdateComputeSubQuotaResponse>(await this.callApi(params, req, runtime), new UpdateComputeSubQuotaResponse({}));
   }
 
   /**
@@ -33652,12 +34420,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateMmsDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateMmsDataSourceResponse({}));
-    } else {
-      return $dara.cast<UpdateMmsDataSourceResponse>(await this.execute(params, req, runtime), new UpdateMmsDataSourceResponse({}));
-    }
-
+    return $dara.cast<UpdateMmsDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateMmsDataSourceResponse({}));
   }
 
   /**
@@ -33697,12 +34460,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdatePackageResponse>(await this.callApi(params, req, runtime), new UpdatePackageResponse({}));
-    } else {
-      return $dara.cast<UpdatePackageResponse>(await this.execute(params, req, runtime), new UpdatePackageResponse({}));
-    }
-
+    return $dara.cast<UpdatePackageResponse>(await this.callApi(params, req, runtime), new UpdatePackageResponse({}));
   }
 
   /**
@@ -33751,12 +34509,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateProjectBasicMetaResponse>(await this.callApi(params, req, runtime), new UpdateProjectBasicMetaResponse({}));
-    } else {
-      return $dara.cast<UpdateProjectBasicMetaResponse>(await this.execute(params, req, runtime), new UpdateProjectBasicMetaResponse({}));
-    }
-
+    return $dara.cast<UpdateProjectBasicMetaResponse>(await this.callApi(params, req, runtime), new UpdateProjectBasicMetaResponse({}));
   }
 
   /**
@@ -33801,12 +34554,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateProjectDefaultQuotaResponse>(await this.callApi(params, req, runtime), new UpdateProjectDefaultQuotaResponse({}));
-    } else {
-      return $dara.cast<UpdateProjectDefaultQuotaResponse>(await this.execute(params, req, runtime), new UpdateProjectDefaultQuotaResponse({}));
-    }
-
+    return $dara.cast<UpdateProjectDefaultQuotaResponse>(await this.callApi(params, req, runtime), new UpdateProjectDefaultQuotaResponse({}));
   }
 
   /**
@@ -33846,12 +34594,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateProjectIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateProjectIpWhiteListResponse({}));
-    } else {
-      return $dara.cast<UpdateProjectIpWhiteListResponse>(await this.execute(params, req, runtime), new UpdateProjectIpWhiteListResponse({}));
-    }
-
+    return $dara.cast<UpdateProjectIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateProjectIpWhiteListResponse({}));
   }
 
   /**
@@ -33901,12 +34644,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateQuotaPlanResponse>(await this.callApi(params, req, runtime), new UpdateQuotaPlanResponse({}));
-    } else {
-      return $dara.cast<UpdateQuotaPlanResponse>(await this.execute(params, req, runtime), new UpdateQuotaPlanResponse({}));
-    }
-
+    return $dara.cast<UpdateQuotaPlanResponse>(await this.callApi(params, req, runtime), new UpdateQuotaPlanResponse({}));
   }
 
   /**
@@ -33956,12 +34694,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateQuotaScheduleResponse>(await this.callApi(params, req, runtime), new UpdateQuotaScheduleResponse({}));
-    } else {
-      return $dara.cast<UpdateQuotaScheduleResponse>(await this.execute(params, req, runtime), new UpdateQuotaScheduleResponse({}));
-    }
-
+    return $dara.cast<UpdateQuotaScheduleResponse>(await this.callApi(params, req, runtime), new UpdateQuotaScheduleResponse({}));
   }
 
   /**
@@ -34010,12 +34743,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateTunnelQuotaTimerResponse>(await this.callApi(params, req, runtime), new UpdateTunnelQuotaTimerResponse({}));
-    } else {
-      return $dara.cast<UpdateTunnelQuotaTimerResponse>(await this.execute(params, req, runtime), new UpdateTunnelQuotaTimerResponse({}));
-    }
-
+    return $dara.cast<UpdateTunnelQuotaTimerResponse>(await this.callApi(params, req, runtime), new UpdateTunnelQuotaTimerResponse({}));
   }
 
   /**
