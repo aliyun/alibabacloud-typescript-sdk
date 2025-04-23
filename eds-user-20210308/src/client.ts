@@ -755,6 +755,43 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   }
 }
 
+export class DescribeOrgByLayerResponseBodyOrgs extends $dara.Model {
+  /**
+   * @example
+   * org-1mox****
+   */
+  orgId?: string;
+  orgName?: string;
+  /**
+   * @example
+   * org-ezqr****
+   */
+  parentOrgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+      parentOrgId: 'ParentOrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      orgName: 'string',
+      parentOrgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   /**
    * @remarks
@@ -1187,13 +1224,13 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
 export class FilterUsersRequestOrderParam extends $dara.Model {
   /**
    * @remarks
-   * The parameter based on which to sort query results.
+   * The field that you want to sort by.
    * 
    * Valid values:
    * 
    * *   EndUserId: the username.
-   * *   id: the ID of the user primary key.
-   * *   gmt_created: the time when the convenience user was created.
+   * *   id: the ID of the primary key.
+   * *   gmt_created: the creation time.
    * 
    * @example
    * id
@@ -1201,25 +1238,12 @@ export class FilterUsersRequestOrderParam extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * Specifies whether to sort query results in ascending or descending order.
+   * The direction of the sort.
    * 
    * Valid values:
    * 
-   * *   ASC: ascending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DESC (default): descending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   ASC: the ascending order.
+   * *   DESC (default): the descending order.
    * 
    * @example
    * ASC
@@ -1621,6 +1645,13 @@ export class FilterUsersResponseBodyUsersUserSetPropertiesModels extends $dara.M
 }
 
 export class FilterUsersResponseBodyUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The date when a convenience account is automatically locked.
+   * 
+   * @example
+   * 2023-03-03
+   */
   autoLockTime?: string;
   /**
    * @remarks
@@ -1733,7 +1764,23 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * Normal
    */
   ownerType?: string;
+  /**
+   * @remarks
+   * By default, user account passwords do not expire. However, you can set a validity period between 30 and 365 days. Once the period expires, end users must change their password before they can log on to terminals.
+   * 
+   * >  The feature is in invitational preview. If you want to use this feature, submit a ticket.
+   * 
+   * @example
+   * 30
+   */
   passwordExpireDays?: number;
+  /**
+   * @remarks
+   * The number of days remaining until the account password expires.
+   * 
+   * @example
+   * 10
+   */
   passwordExpireRestDays?: number;
   /**
    * @remarks
@@ -1761,25 +1808,12 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The status of the convenience user.
+   * The remarks on the convenience account.
    * 
    * Valid values:
    * 
-   * *   0: The convenience user is normal.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   9: The convenience user is locked.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   0: The convenience account is normal.
+   * *   9: The convenience account is locked.
    * 
    * @example
    * 0
@@ -1852,6 +1886,54 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
     if(Array.isArray(this.userSetPropertiesModels)) {
       $dara.Model.validateArray(this.userSetPropertiesModels);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitTenantAliasResponseBodyAliasInfo extends $dara.Model {
+  /**
+   * @example
+   * FrequencyExceedsLimit
+   */
+  aliasEditDisabledReason?: string;
+  /**
+   * @example
+   * False
+   */
+  aliasEditable?: boolean;
+  /**
+   * @example
+   * Customized
+   */
+  aliasSourceType?: string;
+  /**
+   * @example
+   * 2025-04-17 20:31:48
+   */
+  nextModifyTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasEditDisabledReason: 'AliasEditDisabledReason',
+      aliasEditable: 'AliasEditable',
+      aliasSourceType: 'AliasSourceType',
+      nextModifyTime: 'NextModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasEditDisabledReason: 'string',
+      aliasEditable: 'boolean',
+      aliasSourceType: 'string',
+      nextModifyTime: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3125,7 +3207,7 @@ export class CheckUsedPropertyValueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of convenience users that are associated with the property value.
+   * The number of convenience accounts that are associated with the specified custom property value.
    * 
    * @example
    * 1
@@ -3171,6 +3253,112 @@ export class CheckUsedPropertyValueResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckUsedPropertyValueResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrgRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  orgName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org-evk12ozjvmlxl****
+   */
+  parentOrgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgName: 'OrgName',
+      parentOrgId: 'ParentOrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgName: 'string',
+      parentOrgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrgResponseBody extends $dara.Model {
+  /**
+   * @example
+   * org-evk12ozjvmlxl****
+   */
+  orgId?: string;
+  /**
+   * @example
+   * 7A2C3803-C975-5871-A232-80A91009****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOrgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOrgResponseBody,
     };
   }
 
@@ -3445,7 +3633,7 @@ export class CreateUsersResponse extends $dara.Model {
 export class DeleteUserPropertyValueRequest extends $dara.Model {
   /**
    * @remarks
-   * The property ID.
+   * The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property ID.
    * 
    * This parameter is required.
    * 
@@ -3455,7 +3643,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   propertyId?: number;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID. You can call the [ListProperty](~~ListProperty~~) operation to query the property value ID.
    * 
    * This parameter is required.
    * 
@@ -3465,7 +3653,7 @@ export class DeleteUserPropertyValueRequest extends $dara.Model {
   propertyValueId?: number;
   /**
    * @remarks
-   * The ID of the convenience user.
+   * The user ID. You can call the [DescribeUsers](~~DescribeUsers~~) operation to query the user ID, which is the return value of the `Id` parameter.
    * 
    * This parameter is required.
    * 
@@ -3725,6 +3913,104 @@ export class DescribeMfaDevicesResponse extends $dara.Model {
   }
 }
 
+export class DescribeOrgByLayerRequest extends $dara.Model {
+  orgName?: string;
+  /**
+   * @example
+   * org-11fs****
+   */
+  parentOrgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgName: 'OrgName',
+      parentOrgId: 'ParentOrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgName: 'string',
+      parentOrgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrgByLayerResponseBody extends $dara.Model {
+  orgs?: DescribeOrgByLayerResponseBodyOrgs[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgs: 'Orgs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgs: { 'type': 'array', 'itemType': DescribeOrgByLayerResponseBodyOrgs },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.orgs)) {
+      $dara.Model.validateArray(this.orgs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrgByLayerResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOrgByLayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOrgByLayerResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOrgsRequest extends $dara.Model {
   /**
    * @remarks
@@ -3875,12 +4161,12 @@ export class DescribeUsersRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The list of usernames that must be exactly matched.
+   * The usernames that must be exactly matched.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The list of usernames to be exactly excluded.
+   * The usernames that must be exactly excluded.
    */
   excludeEndUserIds?: string[];
   /**
@@ -3904,10 +4190,10 @@ export class DescribeUsersRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
-   * *   Valid values: 1 to 500
-   * *   Default value: 500
+   * *   Valid values: 1 to 500.
+   * *   Default value: 500.
    * 
    * @example
    * 10
@@ -3996,12 +4282,12 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The list of usernames that must be exactly matched.
+   * The usernames that must be exactly matched.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The list of usernames to be exactly excluded.
+   * The usernames that must be exactly excluded.
    */
   excludeEndUserIds?: string[];
   /**
@@ -4025,10 +4311,10 @@ export class DescribeUsersShrinkRequest extends $dara.Model {
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
-   * *   Valid values: 1 to 500
-   * *   Default value: 500
+   * *   Valid values: 1 to 500.
+   * *   Default value: 500.
    * 
    * @example
    * 10
@@ -4123,7 +4409,7 @@ export class DescribeUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the convenience users.
+   * The convenience accounts.
    */
   users?: DescribeUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
@@ -4276,7 +4562,7 @@ export class FilterUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The parameters that are used to sort query results.
+   * The parameter that might affect the sorting logic.
    */
   orderParam?: FilterUsersRequestOrderParam;
   /**
@@ -4289,7 +4575,12 @@ export class FilterUsersRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The type of the account ownership.
+   * The activation type of the convenience account.
+   * 
+   * Valid values:
+   * 
+   * *   CreateFromManager: administrator-activated.
+   * *   Normal: user-activated.
    * 
    * @example
    * Normal
@@ -4454,7 +4745,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The parameters that are used to sort query results.
+   * The parameter that might affect the sorting logic.
    */
   orderParamShrink?: string;
   /**
@@ -4467,7 +4758,12 @@ export class FilterUsersShrinkRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The type of the account ownership.
+   * The activation type of the convenience account.
+   * 
+   * Valid values:
+   * 
+   * *   CreateFromManager: administrator-activated.
+   * *   Normal: user-activated.
    * 
    * @example
    * Normal
@@ -4561,7 +4857,7 @@ export class FilterUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the convenience user.
+   * The convenience accounts.
    */
   users?: FilterUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
@@ -4756,6 +5052,81 @@ export class GetManagerInfoByAuthCodeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetManagerInfoByAuthCodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitTenantAliasResponseBody extends $dara.Model {
+  aliasInfo?: InitTenantAliasResponseBodyAliasInfo;
+  /**
+   * @example
+   * WY23***
+   */
+  data?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasInfo: 'AliasInfo',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasInfo: InitTenantAliasResponseBodyAliasInfo,
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.aliasInfo && typeof (this.aliasInfo as any).validate === 'function') {
+      (this.aliasInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitTenantAliasResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InitTenantAliasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InitTenantAliasResponseBody,
     };
   }
 
@@ -5184,6 +5555,105 @@ export class LockUsersResponse extends $dara.Model {
   }
 }
 
+export class ModifyOrgRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org-76joc57khvnhdh***
+   */
+  orgId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  orgName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+      orgName: 'OrgName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+      orgName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOrgResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0296EDF8-3C8A-5128-8682-27B29C99****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOrgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyOrgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyOrgResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyUserRequest extends $dara.Model {
   /**
    * @remarks
@@ -5285,6 +5755,108 @@ export class ModifyUserResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveOrgRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org-5yy5icj981xe5****
+   */
+  newParentOrgId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org-5yy5icj981xe5****
+   */
+  orgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newParentOrgId: 'NewParentOrgId',
+      orgId: 'OrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newParentOrgId: 'string',
+      orgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveOrgResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveOrgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveOrgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MoveOrgResponseBody,
     };
   }
 
@@ -5488,6 +6060,98 @@ export class RemoveMfaDeviceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveMfaDeviceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveOrgRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * org-5yy5icj981xe5****
+   */
+  orgId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orgId: 'OrgId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orgId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveOrgResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 6C352609-EE7F-5603-B5E6-57C3EDDD****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveOrgResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveOrgResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveOrgResponseBody,
     };
   }
 
@@ -6470,12 +7134,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BatchSetDesktopManagerResponse>(await this.callApi(params, req, runtime), new BatchSetDesktopManagerResponse({}));
-    } else {
-      return $dara.cast<BatchSetDesktopManagerResponse>(await this.execute(params, req, runtime), new BatchSetDesktopManagerResponse({}));
-    }
-
+    return $dara.cast<BatchSetDesktopManagerResponse>(await this.callApi(params, req, runtime), new BatchSetDesktopManagerResponse({}));
   }
 
   /**
@@ -6521,12 +7180,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ChangeUserPasswordResponse>(await this.callApi(params, req, runtime), new ChangeUserPasswordResponse({}));
-    } else {
-      return $dara.cast<ChangeUserPasswordResponse>(await this.execute(params, req, runtime), new ChangeUserPasswordResponse({}));
-    }
-
+    return $dara.cast<ChangeUserPasswordResponse>(await this.callApi(params, req, runtime), new ChangeUserPasswordResponse({}));
   }
 
   /**
@@ -6568,12 +7222,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckUsedPropertyResponse>(await this.callApi(params, req, runtime), new CheckUsedPropertyResponse({}));
-    } else {
-      return $dara.cast<CheckUsedPropertyResponse>(await this.execute(params, req, runtime), new CheckUsedPropertyResponse({}));
-    }
-
+    return $dara.cast<CheckUsedPropertyResponse>(await this.callApi(params, req, runtime), new CheckUsedPropertyResponse({}));
   }
 
   /**
@@ -6588,7 +7237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a property value is associated with a user.
+   * Queries the number of convenience accounts that are associated with the specified custom property value.
    * 
    * @remarks
    * Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
@@ -6622,16 +7271,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckUsedPropertyValueResponse>(await this.callApi(params, req, runtime), new CheckUsedPropertyValueResponse({}));
-    } else {
-      return $dara.cast<CheckUsedPropertyValueResponse>(await this.execute(params, req, runtime), new CheckUsedPropertyValueResponse({}));
-    }
-
+    return $dara.cast<CheckUsedPropertyValueResponse>(await this.callApi(params, req, runtime), new CheckUsedPropertyValueResponse({}));
   }
 
   /**
-   * Checks whether a property value is associated with a user.
+   * Queries the number of convenience accounts that are associated with the specified custom property value.
    * 
    * @remarks
    * Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
@@ -6642,6 +7286,52 @@ export default class Client extends OpenApi {
   async checkUsedPropertyValue(request: CheckUsedPropertyValueRequest): Promise<CheckUsedPropertyValueResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkUsedPropertyValueWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建组织
+   * 
+   * @param request - CreateOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrgResponse
+   */
+  async createOrgWithOptions(request: CreateOrgRequest, runtime: $dara.RuntimeOptions): Promise<CreateOrgResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orgName)) {
+      query["OrgName"] = request.orgName;
+    }
+
+    if (!$dara.isNull(request.parentOrgId)) {
+      query["ParentOrgId"] = request.parentOrgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOrg",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateOrgResponse>(await this.callApi(params, req, runtime), new CreateOrgResponse({}));
+  }
+
+  /**
+   * 创建组织
+   * 
+   * @param request - CreateOrgRequest
+   * @returns CreateOrgResponse
+   */
+  async createOrg(request: CreateOrgRequest): Promise<CreateOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOrgWithOptions(request, runtime);
   }
 
   /**
@@ -6676,12 +7366,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreatePropertyResponse>(await this.callApi(params, req, runtime), new CreatePropertyResponse({}));
-    } else {
-      return $dara.cast<CreatePropertyResponse>(await this.execute(params, req, runtime), new CreatePropertyResponse({}));
-    }
-
+    return $dara.cast<CreatePropertyResponse>(await this.callApi(params, req, runtime), new CreatePropertyResponse({}));
   }
 
   /**
@@ -6744,12 +7429,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateUsersResponse>(await this.callApi(params, req, runtime), new CreateUsersResponse({}));
-    } else {
-      return $dara.cast<CreateUsersResponse>(await this.execute(params, req, runtime), new CreateUsersResponse({}));
-    }
-
+    return $dara.cast<CreateUsersResponse>(await this.callApi(params, req, runtime), new CreateUsersResponse({}));
   }
 
   /**
@@ -6805,12 +7485,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteUserPropertyValueResponse>(await this.callApi(params, req, runtime), new DeleteUserPropertyValueResponse({}));
-    } else {
-      return $dara.cast<DeleteUserPropertyValueResponse>(await this.execute(params, req, runtime), new DeleteUserPropertyValueResponse({}));
-    }
-
+    return $dara.cast<DeleteUserPropertyValueResponse>(await this.callApi(params, req, runtime), new DeleteUserPropertyValueResponse({}));
   }
 
   /**
@@ -6871,12 +7546,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeMfaDevicesResponse>(await this.callApi(params, req, runtime), new DescribeMfaDevicesResponse({}));
-    } else {
-      return $dara.cast<DescribeMfaDevicesResponse>(await this.execute(params, req, runtime), new DescribeMfaDevicesResponse({}));
-    }
-
+    return $dara.cast<DescribeMfaDevicesResponse>(await this.callApi(params, req, runtime), new DescribeMfaDevicesResponse({}));
   }
 
   /**
@@ -6888,6 +7558,52 @@ export default class Client extends OpenApi {
   async describeMfaDevices(request: DescribeMfaDevicesRequest): Promise<DescribeMfaDevicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeMfaDevicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查找下级组织
+   * 
+   * @param request - DescribeOrgByLayerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOrgByLayerResponse
+   */
+  async describeOrgByLayerWithOptions(request: DescribeOrgByLayerRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOrgByLayerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orgName)) {
+      body["OrgName"] = request.orgName;
+    }
+
+    if (!$dara.isNull(request.parentOrgId)) {
+      body["ParentOrgId"] = request.parentOrgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOrgByLayer",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeOrgByLayerResponse>(await this.callApi(params, req, runtime), new DescribeOrgByLayerResponse({}));
+  }
+
+  /**
+   * 查找下级组织
+   * 
+   * @param request - DescribeOrgByLayerRequest
+   * @returns DescribeOrgByLayerResponse
+   */
+  async describeOrgByLayer(request: DescribeOrgByLayerRequest): Promise<DescribeOrgByLayerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOrgByLayerWithOptions(request, runtime);
   }
 
   /**
@@ -6933,12 +7649,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeOrgsResponse>(await this.callApi(params, req, runtime), new DescribeOrgsResponse({}));
-    } else {
-      return $dara.cast<DescribeOrgsResponse>(await this.execute(params, req, runtime), new DescribeOrgsResponse({}));
-    }
-
+    return $dara.cast<DescribeOrgsResponse>(await this.callApi(params, req, runtime), new DescribeOrgsResponse({}));
   }
 
   /**
@@ -7047,12 +7758,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeUsersResponse>(await this.callApi(params, req, runtime), new DescribeUsersResponse({}));
-    } else {
-      return $dara.cast<DescribeUsersResponse>(await this.execute(params, req, runtime), new DescribeUsersResponse({}));
-    }
-
+    return $dara.cast<DescribeUsersResponse>(await this.callApi(params, req, runtime), new DescribeUsersResponse({}));
   }
 
   /**
@@ -7067,7 +7773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Filters convenience users by property.
+   * Filters convenience accounts by property.
    * 
    * @param tmpReq - FilterUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7156,16 +7862,11 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<FilterUsersResponse>(await this.callApi(params, req, runtime), new FilterUsersResponse({}));
-    } else {
-      return $dara.cast<FilterUsersResponse>(await this.execute(params, req, runtime), new FilterUsersResponse({}));
-    }
-
+    return $dara.cast<FilterUsersResponse>(await this.callApi(params, req, runtime), new FilterUsersResponse({}));
   }
 
   /**
-   * Filters convenience users by property.
+   * Filters convenience accounts by property.
    * 
    * @param request - FilterUsersRequest
    * @returns FilterUsersResponse
@@ -7203,12 +7904,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetManagerInfoByAuthCodeResponse>(await this.callApi(params, req, runtime), new GetManagerInfoByAuthCodeResponse({}));
-    } else {
-      return $dara.cast<GetManagerInfoByAuthCodeResponse>(await this.execute(params, req, runtime), new GetManagerInfoByAuthCodeResponse({}));
-    }
-
+    return $dara.cast<GetManagerInfoByAuthCodeResponse>(await this.callApi(params, req, runtime), new GetManagerInfoByAuthCodeResponse({}));
   }
 
   /**
@@ -7220,6 +7916,38 @@ export default class Client extends OpenApi {
   async getManagerInfoByAuthCode(request: GetManagerInfoByAuthCodeRequest): Promise<GetManagerInfoByAuthCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getManagerInfoByAuthCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 初始化TenantAlias
+   * 
+   * @param request - InitTenantAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitTenantAliasResponse
+   */
+  async initTenantAliasWithOptions(runtime: $dara.RuntimeOptions): Promise<InitTenantAliasResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "InitTenantAlias",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<InitTenantAliasResponse>(await this.callApi(params, req, runtime), new InitTenantAliasResponse({}));
+  }
+
+  /**
+   * 初始化TenantAlias
+   * @returns InitTenantAliasResponse
+   */
+  async initTenantAlias(): Promise<InitTenantAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initTenantAliasWithOptions(runtime);
   }
 
   /**
@@ -7242,12 +7970,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPropertyResponse>(await this.callApi(params, req, runtime), new ListPropertyResponse({}));
-    } else {
-      return $dara.cast<ListPropertyResponse>(await this.execute(params, req, runtime), new ListPropertyResponse({}));
-    }
-
+    return $dara.cast<ListPropertyResponse>(await this.callApi(params, req, runtime), new ListPropertyResponse({}));
   }
 
   /**
@@ -7287,12 +8010,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListPropertyValueResponse>(await this.callApi(params, req, runtime), new ListPropertyValueResponse({}));
-    } else {
-      return $dara.cast<ListPropertyValueResponse>(await this.execute(params, req, runtime), new ListPropertyValueResponse({}));
-    }
-
+    return $dara.cast<ListPropertyValueResponse>(await this.callApi(params, req, runtime), new ListPropertyValueResponse({}));
   }
 
   /**
@@ -7341,12 +8059,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<LockMfaDeviceResponse>(await this.callApi(params, req, runtime), new LockMfaDeviceResponse({}));
-    } else {
-      return $dara.cast<LockMfaDeviceResponse>(await this.execute(params, req, runtime), new LockMfaDeviceResponse({}));
-    }
-
+    return $dara.cast<LockMfaDeviceResponse>(await this.callApi(params, req, runtime), new LockMfaDeviceResponse({}));
   }
 
   /**
@@ -7397,12 +8110,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<LockUsersResponse>(await this.callApi(params, req, runtime), new LockUsersResponse({}));
-    } else {
-      return $dara.cast<LockUsersResponse>(await this.execute(params, req, runtime), new LockUsersResponse({}));
-    }
-
+    return $dara.cast<LockUsersResponse>(await this.callApi(params, req, runtime), new LockUsersResponse({}));
   }
 
   /**
@@ -7414,6 +8122,52 @@ export default class Client extends OpenApi {
   async lockUsers(request: LockUsersRequest): Promise<LockUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.lockUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改组织
+   * 
+   * @param request - ModifyOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOrgResponse
+   */
+  async modifyOrgWithOptions(request: ModifyOrgRequest, runtime: $dara.RuntimeOptions): Promise<ModifyOrgResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.orgName)) {
+      query["OrgName"] = request.orgName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOrg",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ModifyOrgResponse>(await this.callApi(params, req, runtime), new ModifyOrgResponse({}));
+  }
+
+  /**
+   * 修改组织
+   * 
+   * @param request - ModifyOrgRequest
+   * @returns ModifyOrgResponse
+   */
+  async modifyOrg(request: ModifyOrgRequest): Promise<ModifyOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOrgWithOptions(request, runtime);
   }
 
   /**
@@ -7452,12 +8206,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyUserResponse>(await this.callApi(params, req, runtime), new ModifyUserResponse({}));
-    } else {
-      return $dara.cast<ModifyUserResponse>(await this.execute(params, req, runtime), new ModifyUserResponse({}));
-    }
-
+    return $dara.cast<ModifyUserResponse>(await this.callApi(params, req, runtime), new ModifyUserResponse({}));
   }
 
   /**
@@ -7469,6 +8218,52 @@ export default class Client extends OpenApi {
   async modifyUser(request: ModifyUserRequest): Promise<ModifyUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 移动组织
+   * 
+   * @param request - MoveOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveOrgResponse
+   */
+  async moveOrgWithOptions(request: MoveOrgRequest, runtime: $dara.RuntimeOptions): Promise<MoveOrgResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.newParentOrgId)) {
+      body["NewParentOrgId"] = request.newParentOrgId;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveOrg",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<MoveOrgResponse>(await this.callApi(params, req, runtime), new MoveOrgResponse({}));
+  }
+
+  /**
+   * 移动组织
+   * 
+   * @param request - MoveOrgRequest
+   * @returns MoveOrgResponse
+   */
+  async moveOrg(request: MoveOrgRequest): Promise<MoveOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveOrgWithOptions(request, runtime);
   }
 
   /**
@@ -7491,12 +8286,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QuerySyncStatusByAliUidResponse>(await this.callApi(params, req, runtime), new QuerySyncStatusByAliUidResponse({}));
-    } else {
-      return $dara.cast<QuerySyncStatusByAliUidResponse>(await this.execute(params, req, runtime), new QuerySyncStatusByAliUidResponse({}));
-    }
-
+    return $dara.cast<QuerySyncStatusByAliUidResponse>(await this.callApi(params, req, runtime), new QuerySyncStatusByAliUidResponse({}));
   }
 
   /**
@@ -7543,12 +8333,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RemoveMfaDeviceResponse>(await this.callApi(params, req, runtime), new RemoveMfaDeviceResponse({}));
-    } else {
-      return $dara.cast<RemoveMfaDeviceResponse>(await this.execute(params, req, runtime), new RemoveMfaDeviceResponse({}));
-    }
-
+    return $dara.cast<RemoveMfaDeviceResponse>(await this.callApi(params, req, runtime), new RemoveMfaDeviceResponse({}));
   }
 
   /**
@@ -7563,6 +8348,48 @@ export default class Client extends OpenApi {
   async removeMfaDevice(request: RemoveMfaDeviceRequest): Promise<RemoveMfaDeviceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeMfaDeviceWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除组织
+   * 
+   * @param request - RemoveOrgRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveOrgResponse
+   */
+  async removeOrgWithOptions(request: RemoveOrgRequest, runtime: $dara.RuntimeOptions): Promise<RemoveOrgResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.orgId)) {
+      body["OrgId"] = request.orgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveOrg",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<RemoveOrgResponse>(await this.callApi(params, req, runtime), new RemoveOrgResponse({}));
+  }
+
+  /**
+   * 移除组织
+   * 
+   * @param request - RemoveOrgRequest
+   * @returns RemoveOrgResponse
+   */
+  async removeOrg(request: RemoveOrgRequest): Promise<RemoveOrgResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeOrgWithOptions(request, runtime);
   }
 
   /**
@@ -7593,12 +8420,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RemovePropertyResponse>(await this.callApi(params, req, runtime), new RemovePropertyResponse({}));
-    } else {
-      return $dara.cast<RemovePropertyResponse>(await this.execute(params, req, runtime), new RemovePropertyResponse({}));
-    }
-
+    return $dara.cast<RemovePropertyResponse>(await this.callApi(params, req, runtime), new RemovePropertyResponse({}));
   }
 
   /**
@@ -7640,12 +8462,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RemoveUsersResponse>(await this.callApi(params, req, runtime), new RemoveUsersResponse({}));
-    } else {
-      return $dara.cast<RemoveUsersResponse>(await this.execute(params, req, runtime), new RemoveUsersResponse({}));
-    }
-
+    return $dara.cast<RemoveUsersResponse>(await this.callApi(params, req, runtime), new RemoveUsersResponse({}));
   }
 
   /**
@@ -7691,12 +8508,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResetUserPasswordResponse>(await this.callApi(params, req, runtime), new ResetUserPasswordResponse({}));
-    } else {
-      return $dara.cast<ResetUserPasswordResponse>(await this.execute(params, req, runtime), new ResetUserPasswordResponse({}));
-    }
-
+    return $dara.cast<ResetUserPasswordResponse>(await this.callApi(params, req, runtime), new ResetUserPasswordResponse({}));
   }
 
   /**
@@ -7750,12 +8562,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SetUserPropertyValueResponse>(await this.callApi(params, req, runtime), new SetUserPropertyValueResponse({}));
-    } else {
-      return $dara.cast<SetUserPropertyValueResponse>(await this.execute(params, req, runtime), new SetUserPropertyValueResponse({}));
-    }
-
+    return $dara.cast<SetUserPropertyValueResponse>(await this.callApi(params, req, runtime), new SetUserPropertyValueResponse({}));
   }
 
   /**
@@ -7789,12 +8596,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SyncAllEduInfoResponse>(await this.callApi(params, req, runtime), new SyncAllEduInfoResponse({}));
-    } else {
-      return $dara.cast<SyncAllEduInfoResponse>(await this.execute(params, req, runtime), new SyncAllEduInfoResponse({}));
-    }
-
+    return $dara.cast<SyncAllEduInfoResponse>(await this.callApi(params, req, runtime), new SyncAllEduInfoResponse({}));
   }
 
   /**
@@ -7838,12 +8640,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnlockMfaDeviceResponse>(await this.callApi(params, req, runtime), new UnlockMfaDeviceResponse({}));
-    } else {
-      return $dara.cast<UnlockMfaDeviceResponse>(await this.execute(params, req, runtime), new UnlockMfaDeviceResponse({}));
-    }
-
+    return $dara.cast<UnlockMfaDeviceResponse>(await this.callApi(params, req, runtime), new UnlockMfaDeviceResponse({}));
   }
 
   /**
@@ -7891,12 +8688,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UnlockUsersResponse>(await this.callApi(params, req, runtime), new UnlockUsersResponse({}));
-    } else {
-      return $dara.cast<UnlockUsersResponse>(await this.execute(params, req, runtime), new UnlockUsersResponse({}));
-    }
-
+    return $dara.cast<UnlockUsersResponse>(await this.callApi(params, req, runtime), new UnlockUsersResponse({}));
   }
 
   /**
@@ -7946,12 +8738,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdatePropertyResponse>(await this.callApi(params, req, runtime), new UpdatePropertyResponse({}));
-    } else {
-      return $dara.cast<UpdatePropertyResponse>(await this.execute(params, req, runtime), new UpdatePropertyResponse({}));
-    }
-
+    return $dara.cast<UpdatePropertyResponse>(await this.callApi(params, req, runtime), new UpdatePropertyResponse({}));
   }
 
   /**
