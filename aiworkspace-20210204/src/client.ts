@@ -7,11 +7,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddImageRequestLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * system.chipType
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * GPU
    */
@@ -41,11 +47,36 @@ export class AddImageRequestLabels extends $dara.Model {
 
 export class AddImageLabelsRequestLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key. The following keys can be added:
+   * 
+   * *   system.chipType
+   * *   system.dsw.cudaVersion
+   * *   system.dsw.fromImageId
+   * *   system.dsw.fromInstanceId
+   * *   system.dsw.id
+   * *   system.dsw.os
+   * *   system.dsw.osVersion
+   * *   system.dsw.resourceType
+   * *   system.dsw.rootImageId
+   * *   system.dsw.stage
+   * *   system.dsw.tag
+   * *   system.dsw.type
+   * *   system.framework
+   * *   system.origin
+   * *   system.pythonVersion
+   * *   system.source
+   * *   system.supported.dlc
+   * *   system.supported.dsw
+   * 
    * @example
    * system.chipType
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * GPU
    */
@@ -76,11 +107,15 @@ export class AddImageLabelsRequestLabels extends $dara.Model {
 export class CreateMemberRequestMembers extends $dara.Model {
   /**
    * @remarks
+   * The list of roles.
+   * 
    * This parameter is required.
    */
   roles?: string[];
   /**
    * @remarks
+   * The member IDs. Multiple member IDs are separated by commas (,). You can call [ListMembers](https://help.aliyun.com/document_detail/449135.html) to obtain the member IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,17 +150,30 @@ export class CreateMemberRequestMembers extends $dara.Model {
 
 export class CreateMemberResponseBodyMembers extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * myDisplayName
    */
   displayName?: string;
   /**
+   * @remarks
+   * The member ID.
+   * 
    * @example
    * 145883-21513926******88039
    */
   memberId?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roles?: string[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 21513926******88039
    */
@@ -166,7 +214,7 @@ export class CreateProductOrdersRequestProductsInstanceProperties extends $dara.
    * The property code.
    * 
    * @example
-   * commodity_type。
+   * commodity_type
    */
   code?: string;
   /**
@@ -179,7 +227,7 @@ export class CreateProductOrdersRequestProductsInstanceProperties extends $dara.
    * The property value.
    * 
    * @example
-   * oss。
+   * oss
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -315,7 +363,21 @@ export class CreateProductOrdersRequestProducts extends $dara.Model {
 }
 
 export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * system.support.eas
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -343,6 +405,8 @@ export class CreateWorkspaceResourceRequestResourcesLabels extends $dara.Model {
 export class CreateWorkspaceResourceRequestResourcesQuotas extends $dara.Model {
   /**
    * @remarks
+   * The quota ID. You can call [ListQuotas](https://help.aliyun.com/document_detail/449144.html) to obtain the quota ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -373,6 +437,11 @@ export class CreateWorkspaceResourceRequestResourcesQuotas extends $dara.Model {
 export class CreateWorkspaceResourceRequestResources extends $dara.Model {
   /**
    * @remarks
+   * The environment type. Valid values:
+   * 
+   * *   dev: development environment
+   * *   prod: production environment
+   * 
    * This parameter is required.
    * 
    * @example
@@ -380,18 +449,36 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
    */
   envType?: string;
   /**
+   * @remarks
+   * The name of the resource group, which is unique within your Alibaba Cloud account.
+   * 
    * @example
    * groupName
    */
   groupName?: string;
   /**
+   * @remarks
+   * Specifies whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The tags added to the resource.
+   */
   labels?: CreateWorkspaceResourceRequestResourcesLabels[];
   /**
    * @remarks
+   * The resource name. Format:
+   * 
+   * *   The name must be 3 to 28 characters in length, and can contain only letters, digits, and underscores (_). The name must start with a letter.
+   * *   The name is unique in the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -399,15 +486,41 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * **This field is no longer used and will be removed. Use the ResourceType field instead.
+   * 
    * @example
    * MaxCompute
    */
   productType?: string;
+  /**
+   * @remarks
+   * The list of quotas. Only MaxCompute quotas are available.
+   */
   quotas?: CreateWorkspaceResourceRequestResourcesQuotas[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   MaxCompute
+   * *   ECS
+   * *   Lingjun
+   * *   ACS
+   * *   FLINK
+   * 
+   * @example
+   * MaxCompute
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The resource specifications in the JSON format.
+   */
   spec?: { [key: string]: any };
   /**
    * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -464,6 +577,9 @@ export class CreateWorkspaceResourceRequestResources extends $dara.Model {
 
 export class CreateWorkspaceResourceResponseBodyResources extends $dara.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * 1234
    */
@@ -491,16 +607,30 @@ export class CreateWorkspaceResourceResponseBodyResources extends $dara.Model {
 
 export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
   /**
+   * @remarks
+   * The returned status code. HTTP status code 200 indicates that the request was successful. Other HTTP status codes indicate that the request failed.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message. If the returned status code is 200, this parameter is empty.
+   * 
    * @example
    * Create Failed
    */
   message?: string;
   /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * *   CREATING: The workspace is being created.
+   * *   WORKSPACE_CREATED: The workspace is created.
+   * *   MEMBERS_ADDED: The member is added.
+   * *   ENABLED: The workspace is created and the member is added.
+   * 
    * @example
    * CREATING
    */
@@ -532,16 +662,25 @@ export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
 
 export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 17915******4216
    */
   userId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 17915******4216
    */
   userKp?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * username
    */
@@ -573,11 +712,17 @@ export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
 
 export class GetImageResponseBodyLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * system.chipType
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * GPU
    */
@@ -607,11 +752,24 @@ export class GetImageResponseBodyLabels extends $dara.Model {
 
 export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PUBLIC: All members can access the workspace.
+   * *   PRIVATE: Only the creator can access the workspace.
+   * *   ANY: All users can access the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The access type. If you set Accessibility to PUBLIC, all users can access the workspace. This parameter is invalid. If you set Accessibility to PRIVATE, the value of this parameter can be:
+   * 
+   * *   PRIVATE: Only the creator can access the workspace.
+   * *   ANY: All users can access the workspace.
+   * 
    * @example
    * CREATOR
    */
@@ -641,21 +799,33 @@ export class GetPermissionResponseBodyPermissionRules extends $dara.Model {
 
 export class GetWorkspaceResponseBodyOwner extends $dara.Model {
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * mings****t
    */
   displayName?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1157******94123
    */
   userId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1157******94123
    */
   userKp?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * mings****t
    */
@@ -689,6 +859,9 @@ export class GetWorkspaceResponseBodyOwner extends $dara.Model {
 
 export class ListExperimentRequestOptions extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to exactly match the experiment by name. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -756,11 +929,17 @@ export class ListImageLabelsResponseBodyLabels extends $dara.Model {
 
 export class ListImagesResponseBodyImagesLabels extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * system.chipType
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * GPU
    */
@@ -790,51 +969,104 @@ export class ListImagesResponseBodyImagesLabels extends $dara.Model {
 
 export class ListImagesResponseBodyImages extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the image. Valid values:
+   * 
+   * *   PUBLIC: All members can access the image.
+   * *   PRIVATE: Only the creator can access the image.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The image description.
+   * 
    * @example
    * desc
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-tzi7f9******s45t
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The image address, which includes the version number.
+   */
   imageUri?: string;
+  /**
+   * @remarks
+   * The image tags.
+   */
   labels?: ListImagesResponseBodyImagesLabels[];
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * tensorflow_2.9
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 15577******82932
    */
   parentUserId?: string;
+  /**
+   * @remarks
+   * The image size. Unit: GB.
+   * 
+   * @example
+   * 2
+   */
   size?: number;
+  /**
+   * @remarks
+   * 镜像来源 ID
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * 镜像来源类型
+   */
   sourceType?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 15577******82932
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 20******55
    */
@@ -892,27 +1124,46 @@ export class ListImagesResponseBodyImages extends $dara.Model {
 export class ListMembersResponseBodyMembers extends $dara.Model {
   accountName?: string;
   /**
+   * @remarks
+   * The display name of the member.
+   * 
    * @example
    * myDisplayName
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the user is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The member ID.
+   * 
    * @example
    * 14588*****51688039
    */
   memberId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * user1
    */
   memberName?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roles?: string[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 215139******88039
    */
@@ -953,13 +1204,52 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   }
 }
 
+export class ListModelsRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPermissionsResponseBodyPermissionsPermissionRules extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the permission rule. Valid values:
+   * 
+   * *   PUBLIC: All members in the workspace can access the permission rule.
+   * *   PRIVATE: Only the creator can access the permission rule.
+   * *   ANY: All users can access the permission rule.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The type of access. If you set Accessibility to PUBLIC, all users can access the workspace. This parameter is invalid. If you set Accessibility to PRIVATE, the permissions are determined based on the value of EntityAccessType. The value of EntityAccessType can be:
+   * 
+   * *   CREATOR: Only the creator can access the workspace.
+   * *   ANY: All users can access the workspace.
+   * 
    * @example
    * CREATOR
    */
@@ -989,10 +1279,17 @@ export class ListPermissionsResponseBodyPermissionsPermissionRules extends $dara
 
 export class ListPermissionsResponseBodyPermissions extends $dara.Model {
   /**
+   * @remarks
+   * The permission name, which is unique in a region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html). The example value PaiDLC:GetTensorboard indicates the permission to view details about a TensorBoard job on the Deep Learning Containers (DLC) page.
+   * 
    * @example
    * PaiDLC:GetTensorboard
    */
   permissionCode?: string;
+  /**
+   * @remarks
+   * The permission rules.
+   */
   permissionRules?: ListPermissionsResponseBodyPermissionsPermissionRules[];
   static names(): { [key: string]: string } {
     return {
@@ -1106,16 +1403,25 @@ export class ListProductsResponseBodyServices extends $dara.Model {
 
 export class ListQuotasResponseBodyQuotasSpecs extends $dara.Model {
   /**
+   * @remarks
+   * The specification name.
+   * 
    * @example
    * cu
    */
   name?: string;
   /**
+   * @remarks
+   * The specification type. The parameter can be left empty.
+   * 
    * @example
    * string
    */
   type?: string;
   /**
+   * @remarks
+   * The specification value.
+   * 
    * @example
    * 11500
    */
@@ -1146,33 +1452,63 @@ export class ListQuotasResponseBodyQuotasSpecs extends $dara.Model {
 }
 
 export class ListQuotasResponseBodyQuotas extends $dara.Model {
+  /**
+   * @remarks
+   * The alias of the quota.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The quota ID.
+   * 
    * @example
    * 1828233
    */
   id?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   isolate: subscription
+   * *   share: pay-as-you-go
+   * 
    * @example
    * isolate
    */
   mode?: string;
   /**
+   * @remarks
+   * The quota name.
+   * 
    * @example
    * quota-name
    */
   name?: string;
   /**
+   * @remarks
+   * The product code. Valid values:
+   * 
+   * *   PAI_isolate: CPU subscription resource groups of PAI
+   * *   PAI_share: GPU pay-as-you-go resource groups of PAI
+   * 
    * @example
    * MaxCompute_share
    */
   productCode?: string;
   /**
+   * @remarks
+   * The quota type. Valid value:
+   * 
+   * PAI: indicates GPU resource groups of MaxCompute.
+   * 
    * @example
    * MaxCompute
    */
   quotaType?: string;
   /**
+   * @remarks
+   * The quota specifications.
+   * 
    * @example
    * {\\"cu\\":\\"11500\\",\\"minCu\\":\\"2300\\",\\"parentId\\":\\"0\\"}
    */
@@ -1214,8 +1550,29 @@ export class ListQuotasResponseBodyQuotas extends $dara.Model {
 }
 
 export class ListResourcesResponseBodyResourcesEncryption extends $dara.Model {
+  /**
+   * @remarks
+   * The encryption algorithm.
+   * 
+   * @example
+   * AESCTR
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * Indicates whether the resources are encrypted.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The primary key for the encryption.
+   * 
+   * @example
+   * DEFAULT
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1243,6 +1600,13 @@ export class ListResourcesResponseBodyResourcesEncryption extends $dara.Model {
 }
 
 export class ListResourcesResponseBodyResourcesExecutor extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is invalid and deprecated.
+   * 
+   * @example
+   * 110973******7793
+   */
   ownerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1266,7 +1630,21 @@ export class ListResourcesResponseBodyResourcesExecutor extends $dara.Model {
 }
 
 export class ListResourcesResponseBodyResourcesLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * system.supported.dsw
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * true
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1293,11 +1671,17 @@ export class ListResourcesResponseBodyResourcesLabels extends $dara.Model {
 
 export class ListResourcesResponseBodyResourcesQuotasSpecs extends $dara.Model {
   /**
+   * @remarks
+   * The specification name.
+   * 
    * @example
    * cu
    */
   name?: string;
   /**
+   * @remarks
+   * The specification description.
+   * 
    * @example
    * 11500
    */
@@ -1327,37 +1711,80 @@ export class ListResourcesResponseBodyResourcesQuotasSpecs extends $dara.Model {
 
 export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
   /**
+   * @remarks
+   * The resource group type. Valid values:
+   * 
+   * *   CPU
+   * *   GPU
+   * 
    * @example
    * cpu
    */
   cardType?: string;
+  /**
+   * @remarks
+   * The alias of the quota.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The quota ID.
+   * 
    * @example
    * 123
    */
   id?: string;
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   isolate: subscription
+   * *   share: pay-as-you-go
+   * 
    * @example
    * develop
    */
   mode?: string;
   /**
+   * @remarks
+   * The quota name.
+   * 
    * @example
    * QuotaName
    */
   name?: string;
   /**
+   * @remarks
+   * The product code. Valid values:
+   * 
+   * *   PAI_isolate: CPU subscription resource groups of PAI
+   * *   PAI_share: GPU pay-as-you-go resource groups of PAI
+   * *   MaxCompute_share: pay-as-you-go resource groups of MaxCompute
+   * *   MaxCompute_isolate: subscription resource groups of MaxCompute
+   * *   DataWorks_isolate: subscription resource groups of DataWorks
+   * *   DataWorks_share: pay-as-you-go resource groups of DataWorks
+   * *   DLC_share: pay-as-you-go resource groups of Deep Learning Containers (DLC)
+   * 
    * @example
    * MaxCompute_isolate
    */
   productCode?: string;
   /**
+   * @remarks
+   * The quota type. Valid values:
+   * 
+   * *   PAI
+   * *   MaxCompute
+   * *   DLC
+   * 
    * @example
    * MaxCompute
    */
   quotaType?: string;
   /**
+   * @remarks
+   * The quota specifications.
+   * 
    * @example
    * {\\"cu\\":\\"11500\\",\\"minCu\\":\\"2300\\",\\"parentId\\":\\"0\\"}
    */
@@ -1401,52 +1828,112 @@ export class ListResourcesResponseBodyResourcesQuotas extends $dara.Model {
 }
 
 export class ListResourcesResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The encryption information, which is valid only for MaxCompute resources.
+   */
   encryption?: ListResourcesResponseBodyResourcesEncryption;
   /**
+   * @remarks
+   * The environment type. Valid values:
+   * 
+   * *   dev: development environment
+   * *   prod: production environment
+   * 
    * @example
    * prod
    */
   envType?: string;
+  /**
+   * @remarks
+   * This parameter is invalid and deprecated.
+   */
   executor?: ListResourcesResponseBodyResourcesExecutor;
   /**
+   * @remarks
+   * The time when the resource group is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The name of the resource group, which is unique within the Alibaba Cloud account.
+   * 
    * @example
    * groupName
    */
   groupName?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * 123
    */
   id?: string;
   /**
+   * @remarks
+   * Indicates whether the resource is the default resource. Each type of resources has a default resource. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: ListResourcesResponseBodyResourcesLabels[];
   /**
+   * @remarks
+   * The resource name.
+   * 
    * @example
    * ResourceName
    */
   name?: string;
   /**
+   * @remarks
+   * **This field is no longer used and will be removed. Use the ResourceType field.
+   * 
    * @example
    * MaxCompute
    */
   productType?: string;
+  /**
+   * @remarks
+   * The quotas.
+   */
   quotas?: ListResourcesResponseBodyResourcesQuotas[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   MaxCompute
+   * *   DLC
+   * *   FLINK
+   * 
+   * @example
+   * MaxCompute
+   */
   resourceType?: string;
   /**
+   * @remarks
+   * The resource specification.
+   * 
    * @example
    * 对于MaxCompute {"Endpoint": "odps.alibaba-inc.com", "Project": "mignshi"}
    */
   spec?: { [key: string]: any };
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 123
    */
@@ -1575,11 +2062,17 @@ export class ListUserConfigsResponseBodyConfigs extends $dara.Model {
 
 export class ListWorkspaceUsersResponseBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1611******3000
    */
   userId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * she******mo
    */
@@ -1811,7 +2304,21 @@ export class SetUserConfigsRequestConfigs extends $dara.Model {
 }
 
 export class UpdateWorkspaceResourceRequestLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * system.******
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * True
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3159,6 +3666,7 @@ export class Model extends $dara.Model {
    * pai
    */
   provider?: string;
+  tags?: Label[];
   /**
    * @example
    * text-classifiaction
@@ -3192,6 +3700,7 @@ export class Model extends $dara.Model {
       origin: 'Origin',
       ownerId: 'OwnerId',
       provider: 'Provider',
+      tags: 'Tags',
       task: 'Task',
       userId: 'UserId',
       workspaceId: 'WorkspaceId',
@@ -3216,6 +3725,7 @@ export class Model extends $dara.Model {
       origin: 'string',
       ownerId: 'string',
       provider: 'string',
+      tags: { 'type': 'array', 'itemType': Label },
       task: 'string',
       userId: 'string',
       workspaceId: 'string',
@@ -3231,6 +3741,9 @@ export class Model extends $dara.Model {
     }
     if(this.latestVersion && typeof (this.latestVersion as any).validate === 'function') {
       (this.latestVersion as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -3743,11 +4256,17 @@ export class TrialLabel extends $dara.Model {
 
 export class AcceptDataworksEventRequest extends $dara.Model {
   /**
+   * @remarks
+   * The event content in the message.
+   * 
    * @example
    * {"eventCode":"d****ct","projectId":"8***6","tenantId":4*******8,"operator":"115*****901"}
    */
   data?: { [key: string]: any };
   /**
+   * @remarks
+   * The message ID. You can obtain the ID from the message received when an extension point event is triggered. For more information about the message format, see [Message formats](https://help.aliyun.com/document_detail/436911.html).
+   * 
    * @example
    * 539306ba-*****-41a0-****-6dc81060985c
    */
@@ -3780,6 +4299,9 @@ export class AcceptDataworksEventRequest extends $dara.Model {
 
 export class AcceptDataworksEventResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ADF6D849-*****-7E7030F0CE53
    */
@@ -3842,33 +4364,91 @@ export class AcceptDataworksEventResponse extends $dara.Model {
 
 export class AddImageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the image. Valid values:
+   * 
+   * *   PUBLIC: The image is accessible to all members in the workspace.
+   * *   PRIVATE: The image is accessible only to the image creator.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The image description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The image ID. If you do not specify this parameter, the system automatically generates an image ID. The image ID must start with image- followed by 18 characters in letters or digits.
+   * 
+   * @example
+   * image-k83*****cv
+   */
   imageId?: string;
   /**
    * @remarks
+   * The URL of the image, which can be repeated. You can call [ListImage](https://help.aliyun.com/document_detail/449118.html) to view the image URL.
+   * 
    * This parameter is required.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/pai-compression/nlp:gpu
    */
   imageUri?: string;
+  /**
+   * @remarks
+   * The image tag, which is an array. Each element in the array contains a key-value pair. Alibaba Cloud images have the system.official=true tag. You can add the following keys to an image:
+   * 
+   * *   system.chipType
+   * *   system.dsw.cudaVersion
+   * *   system.dsw.fromImageId
+   * *   system.dsw.fromInstanceId
+   * *   system.dsw.id
+   * *   system.dsw.os
+   * *   system.dsw.osVersion
+   * *   system.dsw.resourceType
+   * *   system.dsw.rootImageId
+   * *   system.dsw.stage
+   * *   system.dsw.tag
+   * *   system.dsw.type
+   * *   system.framework
+   * *   system.origin
+   * *   system.pythonVersion
+   * *   system.source
+   * *   system.supported.dlc
+   * *   system.supported.dsw
+   */
   labels?: AddImageRequestLabels[];
   /**
    * @remarks
+   * The image name. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 50 characters in length.
+   * *   The name can contain lowercase letters, digits, and hyphens (-). The name must start with a lowercase letter.
+   * *   The name must be unique in a workspace.
+   * 
    * This parameter is required.
    * 
    * @example
    * nlp-compression
    */
   name?: string;
+  /**
+   * @remarks
+   * The size of the image. Unit: GB.
+   * 
+   * @example
+   * 2
+   */
   size?: number;
   sourceId?: string;
   sourceType?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 15******45
    */
@@ -3917,11 +4497,17 @@ export class AddImageRequest extends $dara.Model {
 
 export class AddImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-4c62******53uor
    */
   imageId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -3987,6 +4573,8 @@ export class AddImageResponse extends $dara.Model {
 export class AddImageLabelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of image tags.
+   * 
    * This parameter is required.
    */
   labels?: AddImageLabelsRequestLabels[];
@@ -4016,6 +4604,9 @@ export class AddImageLabelsRequest extends $dara.Model {
 
 export class AddImageLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -4078,6 +4669,9 @@ export class AddImageLabelsResponse extends $dara.Model {
 
 export class AddMemberRoleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -4140,16 +4734,25 @@ export class AddMemberRoleResponse extends $dara.Model {
 
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the target resource group. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
    * @example
    * rg-df********534dy
    */
   newResourceGroupId?: string;
   /**
+   * @remarks
+   * The resource ID, which is the workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 12**56
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource group type, which must be set to workspace.
+   * 
    * @example
    * workspace
    */
@@ -4181,6 +4784,9 @@ export class ChangeResourceGroupRequest extends $dara.Model {
 
 export class ChangeResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6****27E-****-5144-A002-89C****8660F
    */
@@ -4243,38 +4849,61 @@ export class ChangeResourceGroupResponse extends $dara.Model {
 
 export class CreateCodeSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the code build. Valid values:
+   * 
+   * *   PUBLIC: The code build is visible to all members in the workspace.
+   * *   PRIVATE: The code build is visible only to you and the administrator of the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The code branch.
+   * 
    * @example
    * master
    */
   codeBranch?: string;
   codeCommit?: string;
   /**
+   * @remarks
+   * The URL of the code repository.
+   * 
    * @example
    * https://code.aliyun.com/******
    */
   codeRepo?: string;
   /**
+   * @remarks
+   * The token used to access the code repository.
+   * 
    * @example
    * ***
    */
   codeRepoAccessToken?: string;
   /**
+   * @remarks
+   * The username of the code repository.
+   * 
    * @example
    * use***
    */
   codeRepoUserName?: string;
   /**
+   * @remarks
+   * The description of the code build, which helps you distinguish between code builds.
+   * 
    * @example
    * code source of dlc examples
    */
   description?: string;
   /**
    * @remarks
+   * The name of the code build.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4282,12 +4911,17 @@ export class CreateCodeSourceRequest extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * The local mount path of the code. By default, the code is mounted to the /root/code/ path.
+   * 
    * @example
    * /root/code/code-source-1
    */
   mountPath?: string;
   /**
    * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4335,11 +4969,17 @@ export class CreateCodeSourceRequest extends $dara.Model {
 
 export class CreateCodeSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created code build.
+   * 
    * @example
    * code-20********
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3**********
    */
@@ -4404,14 +5044,39 @@ export class CreateCodeSourceResponse extends $dara.Model {
 
 export class CreateDatasetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the workspace. Valid values:
+   * 
+   * *   PRIVATE (default): The workspace is visible only to you and the administrator of the workspace.
+   * *   PUBLIC: The workspace is visible to all users.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The number of dataset files.
+   * 
+   * @example
+   * 500
+   */
   dataCount?: number;
+  /**
+   * @remarks
+   * The size of the dataset file. Unit: bytes.
+   * 
+   * @example
+   * 10000
+   */
   dataSize?: number;
   /**
    * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS).
+   * *   NAS: File Storage NAS (NAS).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4419,16 +5084,100 @@ export class CreateDatasetRequest extends $dara.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The type of the dataset. Default value: COMMON. Valid values:
+   * 
+   * *   COMMON: common
+   * *   PIC: picture
+   * *   TEXT: text
+   * *   Video: video
+   * *   AUDIO: audio
+   * 
    * @example
    * COMMON
    */
   dataType?: string;
+  /**
+   * @remarks
+   * The description of the dataset. Descriptions are used to differentiate datasets.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The dataset configurations to be imported to a storage, such as OSS, NAS, or Cloud Parallel File Storage (CPFS).
+   * 
+   * **OSS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "bucket": "${bucket}",//The bucket name\\
+   * "path": "${path}" // The file path\\
+   * }\\
+   * 
+   * 
+   * **NAS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "path": "${path}", // The file system path\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system\\
+   * }\\
+   * 
+   * 
+   * **CPFS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "protocolServiceId":"${protocol_service_id}", // The file system protocol service\\
+   * "exportId": "${export_id}", // The file system export directory\\
+   * "path": "${path}", // The file system path\\
+   * }\\
+   * 
+   * 
+   * **CPFS for Lingjun**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "path": "${path}", // The file system path\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system, CPFS for Lingjun only\\
+   * "isVpcMount": boolean, // Whether the mount point is a virtual private cloud (VPC) mount point, CPFS for Lingjun only\\
+   * }\\
+   * 
+   * @example
+   * {
+   *     "region": "cn-wulanchabu",
+   *     "fileSystemId": "bmcpfs-xxxxxxxxxxx",
+   *     "path": "/mnt",
+   *     "mountTarget": "cpfs-xxxxxxxxxxxx-vpc-gacs9f.cn-wulanchabu.cpfs.aliyuncs.com",
+   *     "isVpcMount": true
+   * }
+   */
   importInfo?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: Label[];
+  /**
+   * @remarks
+   * The list of role names in the workspace that have read and write permissions on the mounted database. The names start with PAI are basic role names and the names start with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+   * 
+   * *   If you set the value to ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"], the account of the specified role is granted the read and write permissions.
+   * *   If you set the value to ["\\*"], all accounts are granted the read and write permissions.
+   * *   If you set the value to [], only the creator of the dataset has the read and write permissions.
+   */
   mountAccessReadWriteRoleIdList?: string[];
   /**
    * @remarks
+   * The dataset name. The name must meet the following requirements:
+   * 
+   * *   The name must start with a letter, digit, or Chinese character.
+   * *   The name can contain underscores (_) and hyphens (-).
+   * *   The name must be 1 to 127 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4436,6 +5185,9 @@ export class CreateDatasetRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can configure the mountPath field to specify the default mount path of the dataset.
+   * 
    * @example
    * {
    *   "mountPath": "/mnt/data/"
@@ -4444,32 +5196,83 @@ export class CreateDatasetRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
+   * The property of the dataset. Valid values:
+   * 
+   * *   FILE
+   * *   DIRECTORY
+   * 
    * This parameter is required.
    * 
    * @example
    * DIRECTORY
    */
   property?: string;
+  /**
+   * @remarks
+   * The dataset provider. The value cannot be set to pai.
+   * 
+   * @example
+   * Github
+   */
   provider?: string;
   /**
+   * @remarks
+   * The source type of the dataset. Valid values:
+   * 
+   * *   Ecs (default)
+   * *   Lingjun
+   * 
    * @example
    * Ecs
    */
   providerType?: string;
+  /**
+   * @remarks
+   * The ID of the source dataset of the labeled dataset.
+   * 
+   * @example
+   * d-bvfasdfxxxxj8o411
+   */
   sourceDatasetId?: string;
+  /**
+   * @remarks
+   * The version of the source dataset of the labeled dataset.
+   * 
+   * @example
+   * v2
+   */
   sourceDatasetVersion?: string;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
+   * *   If SourceType is set to USER, the value of SourceId can be a custom string.
+   * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
+   * *   If SourceType is set to PAI_PUBLIC_DATASET, the value of SourceId is empty by default.
+   * 
    * @example
    * jdnhf***fnrimv
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The type of the data source. Default value: USER. Valid values:
+   * 
+   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
+   * *   ITAG: a dataset generated from a labeling job of iTAG.
+   * *   USER: a dataset registered by a user.
+   * 
    * @example
    * USER
    */
   sourceType?: string;
   /**
    * @remarks
+   * The URI of the data source.
+   * 
+   * *   Value format when DataSourceType is set to OSS: `oss://bucket.endpoint/object`.
+   * *   Value formats when DataSourceType is set to NAS: General-purpose NAS: `nas://<nasfisid>.region/subpath/to/dir/`. CPFS 1.0: `nas://<cpfs-fsid>.region/subpath/to/dir/`. CPFS 2.0: `nas://<cpfs-fsid>.region/<protocolserviceid>/`. You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID: The ID for CPFS 1.0 is in the cpfs-<8-bit ASCII characters> format. The ID for CPFS 2.0 is in the cpfs-<16-bit ASCII characters> format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4477,13 +5280,30 @@ export class CreateDatasetRequest extends $dara.Model {
    */
   uri?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the dataset belongs. The workspace owner and administrator have permissions to create datasets for specified members in the workspace.
+   * 
    * @example
-   * 29884000000186970
+   * 2485765****023475
    */
   userId?: string;
+  /**
+   * @remarks
+   * The description of the dataset of the initial version.
+   * 
+   * @example
+   * The initial version
+   */
   versionDescription?: string;
+  /**
+   * @remarks
+   * The list of tags to be added to the dataset of the initial version.
+   */
   versionLabels?: Label[];
   /**
+   * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID. If you do not specify this parameter, the default workspace is used. If the default workspace does not exist, an error is reported.
+   * 
    * @example
    * 478**
    */
@@ -4564,11 +5384,17 @@ export class CreateDatasetRequest extends $dara.Model {
 
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-rbvg5*****jhc9ks92
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B2C51F93-1C07-5477-9705-5FDB****F19F
    */
@@ -4634,11 +5460,15 @@ export class CreateDatasetResponse extends $dara.Model {
 export class CreateDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
+   * The metadata of the file.
+   * 
    * This parameter is required.
    */
   datasetFileMetas?: DatasetFileMetaContentCreate[];
   /**
    * @remarks
+   * The dataset version name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4647,6 +5477,8 @@ export class CreateDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4682,17 +5514,36 @@ export class CreateDatasetFileMetasRequest extends $dara.Model {
 }
 
 export class CreateDatasetFileMetasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata that failed to be created.
+   */
   failedDetails?: DatasetFileMetaResponse[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the metadata records of all dataset files were created. The value true indicates that the metadata records of all dataset files are created. If the value is false, view the failure details specified by FailedDetails.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   status?: boolean;
+  /**
+   * @remarks
+   * The metadata that is created.
+   */
   succeedDetails?: DatasetFileMetaResponse[];
   static names(): { [key: string]: string } {
     return {
@@ -4764,13 +5615,28 @@ export class CreateDatasetFileMetasResponse extends $dara.Model {
 
 export class CreateDatasetJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * The job description.
+   */
   description?: string;
   /**
    * @remarks
+   * The job action.
+   * 
+   * Valid values:
+   * 
+   * *   SemanticIndex
+   * *   IntelligentTag
+   * *   FileMetaExport
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4778,12 +5644,21 @@ export class CreateDatasetJobRequest extends $dara.Model {
    */
   jobAction?: string;
   /**
+   * @remarks
+   * The job mode.
+   * 
+   * Valid values:
+   * 
+   * *   Full: full mode.
+   * 
    * @example
    * Full
    */
   jobMode?: string;
   /**
    * @remarks
+   * The job configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4792,6 +5667,8 @@ export class CreateDatasetJobRequest extends $dara.Model {
   jobSpec?: string;
   /**
    * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4831,11 +5708,17 @@ export class CreateDatasetJobRequest extends $dara.Model {
 
 export class CreateDatasetJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the dataset job.
+   * 
    * @example
    * dsjob-9jx1******uj9e
    */
   datasetJobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 99341606-****-0757724D97EE
    */
@@ -4901,6 +5784,16 @@ export class CreateDatasetJobResponse extends $dara.Model {
 export class CreateDatasetJobConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration content. Format:
+   * 
+   * *   MultimodalIntelligentTag
+   * 
+   * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+   * 
+   * *   MultimodalSemanticIndex
+   * 
+   * { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4909,6 +5802,13 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The configuration type.
+   * 
+   * Valid values:
+   * 
+   * *   MultimodalIntelligentTag
+   * *   MultimodalSemanticIndex
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4917,6 +5817,8 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4950,11 +5852,17 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
 
 export class CreateDatasetJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * dscfg-xxxxxxxxxxxxxx
    */
   datasetJobConfigId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -5018,6 +5926,10 @@ export class CreateDatasetJobConfigResponse extends $dara.Model {
 }
 
 export class CreateDatasetLabelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: Label[];
   static names(): { [key: string]: string } {
     return {
@@ -5045,6 +5957,9 @@ export class CreateDatasetLabelsRequest extends $dara.Model {
 
 export class CreateDatasetLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A083731B-4973-54D1-B324-E53****4DD44
    */
@@ -5483,13 +6398,16 @@ export class CreateDatasetVersionLabelsResponse extends $dara.Model {
 
 export class CreateExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the experiment. Valid values: PRIVATE (the experiment is visible only to the creator and the Alibaba Cloud account) and PUBLIC (the experiment is visible to all users). This parameter is optional and the default value is PRIVATE.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
    * @remarks
-   * Artifact的OSS存储路径
+   * The default artifact output path of all jobs that are associated with the experiment. Only Object Storage Service (OSS) paths are supported.
    * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/test
@@ -5497,12 +6415,16 @@ export class CreateExperimentRequest extends $dara.Model {
   artifactUri?: string;
   /**
    * @remarks
-   * 标签
+   * The tags.
    */
   labels?: LabelInfo[];
   /**
    * @remarks
-   * 名称
+   * The experiment name. The name must meet the following requirements:
+   * 
+   * *   The name must start with a letter.
+   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
+   * *   The name must be 1 to 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -5512,7 +6434,7 @@ export class CreateExperimentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 工作空间ID
+   * The workspace ID.
    * 
    * This parameter is required.
    * 
@@ -5553,10 +6475,14 @@ export class CreateExperimentRequest extends $dara.Model {
 }
 
 export class CreateExperimentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data. If the operation is asynchronously implemented, the job ID is returned.
+   */
   experimentId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -5620,6 +6546,8 @@ export class CreateExperimentResponse extends $dara.Model {
 export class CreateMemberRequest extends $dara.Model {
   /**
    * @remarks
+   * The members.
+   * 
    * This parameter is required.
    */
   members?: CreateMemberRequestMembers[];
@@ -5648,8 +6576,15 @@ export class CreateMemberRequest extends $dara.Model {
 }
 
 export class CreateMemberResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned members.
+   */
   members?: CreateMemberResponseBodyMembers[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DA869D1B-035A-43B2-ACC1-C56681BD9FAA
    */
@@ -5803,6 +6738,7 @@ export class CreateModelRequest extends $dara.Model {
    * ModelScope
    */
   origin?: string;
+  tag?: Label[];
   /**
    * @remarks
    * The task of the model. Describes the specific problem that the model solves. Example: text-classification.
@@ -5831,6 +6767,7 @@ export class CreateModelRequest extends $dara.Model {
       modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
+      tag: 'Tag',
       task: 'Task',
       workspaceId: 'WorkspaceId',
     };
@@ -5848,6 +6785,7 @@ export class CreateModelRequest extends $dara.Model {
       modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
+      tag: { 'type': 'array', 'itemType': Label },
       task: 'string',
       workspaceId: 'string',
     };
@@ -5859,6 +6797,9 @@ export class CreateModelRequest extends $dara.Model {
     }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }
@@ -6375,6 +7316,10 @@ export class CreateModelVersionResponse extends $dara.Model {
 }
 
 export class CreateModelVersionLabelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: Label[];
   static names(): { [key: string]: string } {
     return {
@@ -6402,6 +7347,9 @@ export class CreateModelVersionLabelsRequest extends $dara.Model {
 
 export class CreateModelVersionLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -6913,12 +7861,22 @@ export class CreateWorkspaceResponse extends $dara.Model {
 
 export class CreateWorkspaceResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The operation to perform. Valid values:
+   * 
+   * *   CreateAndAttach: creates resources and associates the resources with a workspace.
+   * *   Attach: associates resources with a workspace.
+   * 
+   * >  MaxCompute supports only the Attach operation.
+   * 
    * @example
    * CreateAndAttach
    */
   option?: string;
   /**
    * @remarks
+   * The resources.
+   * 
    * This parameter is required.
    */
   resources?: CreateWorkspaceResourceRequestResources[];
@@ -6950,12 +7908,22 @@ export class CreateWorkspaceResourceRequest extends $dara.Model {
 
 export class CreateWorkspaceResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1e195c5116124202371861018d5bde
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resources.
+   */
   resources?: CreateWorkspaceResourceResponseBodyResources[];
   /**
+   * @remarks
+   * The total number of resources.
+   * 
    * @example
    * 1
    */
@@ -7100,6 +8068,9 @@ export class DeleteCodeSourceResponse extends $dara.Model {
 
 export class DeleteDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0F049F0-8D69-5BAC-8F10-B******A34C
    */
@@ -7163,6 +8134,8 @@ export class DeleteDatasetResponse extends $dara.Model {
 export class DeleteDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
+   * The metadata ID of the dataset file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7170,11 +8143,17 @@ export class DeleteDatasetFileMetasRequest extends $dara.Model {
    */
   datasetFileMetaIds?: string;
   /**
+   * @remarks
+   * The dataset version.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 132602
    */
@@ -7205,13 +8184,23 @@ export class DeleteDatasetFileMetasRequest extends $dara.Model {
 }
 
 export class DeleteDatasetFileMetasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata records that fail to be deleted for the dataset files.
+   */
   failedDetails?: DatasetFileMetaResponse[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the metadata records of all dataset files were deleted. The value true indicates that the metadata records of all dataset files are deleted. If the value is false, view the failure details specified by FailedDetails.
+   * 
    * @example
    * true
    */
@@ -7281,6 +8270,9 @@ export class DeleteDatasetFileMetasResponse extends $dara.Model {
 
 export class DeleteDatasetJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
@@ -7343,6 +8335,9 @@ export class DeleteDatasetJobResponse extends $dara.Model {
 
 export class DeleteDatasetJobConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 513663
    */
@@ -7370,6 +8365,9 @@ export class DeleteDatasetJobConfigRequest extends $dara.Model {
 
 export class DeleteDatasetJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DA869D1B-035A-43B2-ACC1-C56681BD9FAA
    */
@@ -7432,6 +8430,9 @@ export class DeleteDatasetJobConfigResponse extends $dara.Model {
 
 export class DeleteDatasetLabelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tag key. You can call [GetDataset](https://help.aliyun.com/document_detail/457218.html) to obtain the tag key. Multiple tag keys are separated by commas (,).
+   * 
    * @example
    * key1,key2
    */
@@ -7459,6 +8460,9 @@ export class DeleteDatasetLabelsRequest extends $dara.Model {
 
 export class DeleteDatasetLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 64B50C1D-D4C2-560C-86A3-A6ED****16D
    */
@@ -7584,6 +8588,8 @@ export class DeleteDatasetVersionResponse extends $dara.Model {
 export class DeleteDatasetVersionLabelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The tag keys. Multiple tags are separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7612,6 +8618,10 @@ export class DeleteDatasetVersionLabelsRequest extends $dara.Model {
 }
 
 export class DeleteDatasetVersionLabelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7671,6 +8681,9 @@ export class DeleteDatasetVersionLabelsResponse extends $dara.Model {
 
 export class DeleteExperimentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8D7B2E70-F770-505B-A672-09F1D8F2EC1E
    */
@@ -7733,6 +8746,9 @@ export class DeleteExperimentResponse extends $dara.Model {
 
 export class DeleteExperimentLabelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -7977,6 +8993,9 @@ export class DeleteModelResponse extends $dara.Model {
 
 export class DeleteModelLabelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The label key to be deleted. To delete multiple label keys, separate them with commas (,).
+   * 
    * @example
    * key1,key2
    */
@@ -8004,6 +9023,9 @@ export class DeleteModelLabelsRequest extends $dara.Model {
 
 export class DeleteModelLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -8066,6 +9088,9 @@ export class DeleteModelLabelsResponse extends $dara.Model {
 
 export class DeleteModelVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -8289,7 +9314,7 @@ export class DeleteRunResponse extends $dara.Model {
 export class DeleteRunLabelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ADF6D849-*****-7E7030F0CE53
@@ -8448,6 +9473,9 @@ export class DeleteUserConfigResponse extends $dara.Model {
 
 export class DeleteWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -8510,22 +9538,61 @@ export class DeleteWorkspaceResponse extends $dara.Model {
 
 export class DeleteWorkspaceResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the resource group. You can call [ListResources](https://help.aliyun.com/document_detail/449143.html) to obtain the name of the resource group.
+   * 
    * @example
    * group
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The tags. Multiple tags are separated by commas (,).
+   * 
+   * @example
+   * system.supported.eas=true
+   */
   labels?: string;
   /**
+   * @remarks
+   * The operation to perform. Valid values:
+   * 
+   * *   DetachAndDelete: disassociates a resource from a workspace and deletes the resource in the workspace. This is the default value.
+   * *   Detach: disassociates a resource group from a workspace.
+   * 
    * @example
    * DetachAndDelete
    */
   option?: string;
   /**
+   * @remarks
+   * **This field is no longer used and will be removed. Use the ResourceType field instead.
+   * 
    * @example
    * DLC
    */
   productType?: string;
+  /**
+   * @remarks
+   * The resource IDs. Multiple resource IDs are separated by commas (,). The GroupName values for the specified resources must be the same. You cannot leave both GroupName and ResourceIds empty. You can specify both parameters.
+   * 
+   * @example
+   * Resource-dks******jkf,Resource-adf******dss
+   */
   resourceIds?: string;
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   ECS
+   * *   Lingjun
+   * *   ACS
+   * *   FLINK
+   * *   MaxCompute (This resource type is valid only if Option is set to Detach.)
+   * 
+   * @example
+   * DLC
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8560,10 +9627,17 @@ export class DeleteWorkspaceResourceRequest extends $dara.Model {
 
 export class DeleteWorkspaceResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   */
   resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8836,47 +9910,162 @@ export class GetCodeSourceResponse extends $dara.Model {
 
 export class GetDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the workspace. Valid values:
+   * 
+   * *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
+   * *   PUBLIC: The workspace is visible to all users.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * *   OSS: Object Storage Service (OSS)
+   * *   NAS: File Storage NAS (NAS)
+   * 
    * @example
    * NAS
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The data type. Valid values:
+   * 
+   * *   COMMON: common
+   * *   PIC: picture
+   * *   TEXT: text
+   * *   VIDEO: video
+   * *   AUDIO: audio
+   * 
    * @example
    * COMMON
    */
   dataType?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-rbvg5wz****c9ks92
    */
   datasetId?: string;
+  /**
+   * @remarks
+   * The description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The dataset configurations to be imported to a storage, such as OSS, NAS, or CPFS.
+   * 
+   * **OSS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "bucket": "${bucket}",// The bucket name\\
+   * "path": "${path}" // The file path\\
+   * }\\
+   * 
+   * 
+   * **NAS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "path": "${path}", // The file system path\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system\\
+   * }\\
+   * 
+   * 
+   * **CPFS**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "protocolServiceId":"${protocol_service_id}", // The file system protocol service\\
+   * "exportId": "${export_id}", // The file system export directory\\
+   * "path": "${path}", // The file system path\\
+   * }\\
+   * 
+   * 
+   * **CPFS for Lingjun**
+   * 
+   * {\\
+   * "region": "${region}",// The region ID\\
+   * "fileSystemId": "${file_system_id}", // The file system ID\\
+   * "path": "${path}", // The file system path\\
+   * "mountTarget": "${mount_target}" // The mount point of the file system, CPFS for Lingjun only\\
+   * "isVpcMount": boolean, // Whether the mount point is a VPC mount point, CPFS for Lingjun only\\
+   * }\\
+   * 
+   * @example
+   * {
+   *     "region": "cn-wulanchabu",
+   *     "fileSystemId": "bmcpfs-xxxxxxxxxxx",
+   *     "path": "/mnt",
+   *     "mountTarget": "cpfs-xxxxxxxxxxxx-vpc-gacs9f.cn-wulanchabu.cpfs.aliyuncs.com",
+   *     "isVpcMount": true
+   * }
+   */
   importInfo?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: Label[];
+  /**
+   * @remarks
+   * The latest version of the dataset.
+   */
   latestVersion?: DatasetVersion;
+  /**
+   * @remarks
+   * The access permission on the dataset when the dataset is mounted. Valid values:
+   * 
+   * *   RO: read-only permissions
+   * *   RW: read and write permissions
+   * 
+   * @example
+   * RW
+   */
   mountAccess?: string;
+  /**
+   * @remarks
+   * The list of role names in the workspace that have read and write permissions on the mounted database. The names start with PAI are basic role names and the names start with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+   */
   mountAccessReadWriteRoleIdList?: string[];
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * myName
    */
   name?: string;
   /**
+   * @remarks
+   * The extended fields of the dataset v1 (initial version). The value is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can use the mountPath field to specify the default mount path of the dataset.
+   * 
    * @example
    * {
    *   "mountPath": "/mnt/data/"
@@ -8884,46 +10073,122 @@ export class GetDatasetResponseBody extends $dara.Model {
    */
   options?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Could account.
+   * 
    * @example
    * 1631044****3440
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The property of the dataset of the initial version v1. Valid values:
+   * 
+   * *   FILE
+   * *   DIRECTORY
+   * 
    * @example
    * DIRECTORY
    */
   property?: string;
+  /**
+   * @remarks
+   * The dataset provider. If the value pai is returned, the dataset is a public dataset in PAI.
+   * 
+   * @example
+   * pai
+   */
   provider?: string;
+  /**
+   * @remarks
+   * The type of the data source for the dataset. Valid values:
+   * 
+   * *   Ecs (default)
+   * *   Lingjun
+   * 
+   * @example
+   * Ecs
+   */
   providerType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the source dataset generated from a labeling job of iTAG.
+   * 
+   * @example
+   * d-rcdg3wxxxxxhc5jk87
+   */
   sourceDatasetId?: string;
+  /**
+   * @remarks
+   * The version of the source dataset generated from a labeling job of iTAG.
+   * 
+   * @example
+   * v2
+   */
   sourceDatasetVersion?: string;
   /**
+   * @remarks
+   * The ID of the source for the dataset v1 (initial version). Valid values:
+   * 
+   * *   If SourceType is set to USER, the value of SourceId can be a custom string.
+   * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
+   * *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
+   * 
    * @example
    * jdnhf***fnrimv
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The type of the source for the dataset v1 (initial version). Valid values:
+   * 
+   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
+   * *   ITAG: a dataset generated from a labeling job of iTAG.
+   * *   USER: a dataset registered by a user.
+   * 
    * @example
    * USER
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The labeling template for the source dataset generated from a labeling job of iTAG.
+   * 
+   * @example
+   * TextClassification
+   */
   tagTemplateType?: string;
   /**
+   * @remarks
+   * The URI of the initial version v1.
+   * 
+   * *   Sample format for the OSS data source: `oss://bucket.endpoint/object`
+   * *   Sample formats for the NAS data source: `nas://<nasfisid>.region/subpath/to/dir/`: General-purpose NAS. `nas://<cpfs-fsid>.region/subpath/to/dir/`: Cloud Parallel File Storage (CPFS) 1.0. `nas://<cpfs-fsid>.region/<protocolserviceid>/`: CPFS 2.0. You can distinguish CPFS 1.0 and CPFS 2.0 file systems based on the format of the file system ID. The ID for CPFS 1.0 is in the cpfs-<8-bit ASCII characters> format. The ID for CPFS 2.0 is in the cpfs-<16-bit ASCII characters> format.
+   * 
    * @example
    * nas://09f****f2.cn-hangzhou/
    */
   uri?: string;
   /**
+   * @remarks
+   * The ID of the user to which the dataset belongs.
+   * 
    * @example
    * 2485765****023475
    */
   userId?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the dataset belongs.
+   * 
    * @example
    * 478**
    */
@@ -9047,11 +10312,17 @@ export class GetDatasetResponse extends $dara.Model {
 
 export class GetDatasetFileMetaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 1234
    */
@@ -9080,14 +10351,42 @@ export class GetDatasetFileMetaRequest extends $dara.Model {
 }
 
 export class GetDatasetFileMetaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The queried metadata records of dataset files.
+   */
   datasetFileMeta?: DatasetFileMetaContentGet;
+  /**
+   * @remarks
+   * The dataset ID.
+   * 
+   * @example
+   * d-rbvg5wz****c9ks92
+   */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 1234
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9156,13 +10455,148 @@ export class GetDatasetFileMetaResponse extends $dara.Model {
   }
 }
 
-export class GetDatasetJobRequest extends $dara.Model {
+export class GetDatasetFileMetasStatisticsRequest extends $dara.Model {
   /**
+   * @example
+   * filedir
+   */
+  aggregateBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 145883
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregateBy: 'AggregateBy',
+      datasetVersion: 'DatasetVersion',
+      maxResults: 'MaxResults',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregateBy: 'string',
+      datasetVersion: 'string',
+      maxResults: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetFileMetasStatisticsResponseBody extends $dara.Model {
+  datasetFileMetasStats?: DatasetFileMetasStat[];
+  /**
+   * @example
+   * 73
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * ADF6D849-*****-7E7030F0CE53
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetFileMetasStats: 'DatasetFileMetasStats',
+      totalCount: 'TotalCount',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetFileMetasStats: { 'type': 'array', 'itemType': DatasetFileMetasStat },
+      totalCount: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.datasetFileMetasStats)) {
+      $dara.Model.validateArray(this.datasetFileMetasStats);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetFileMetasStatisticsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatasetFileMetasStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatasetFileMetasStatisticsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset version name.
+   * 
+   * @example
+   * v1
+   */
+  datasetVersion?: string;
+  /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 478**
    */
@@ -9192,53 +10626,111 @@ export class GetDatasetJobRequest extends $dara.Model {
 
 export class GetDatasetJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The total number of completed files.
+   * 
    * @example
    * 990
    */
   completedFileCount?: number;
   /**
+   * @remarks
+   * The time when the job is started.
+   * 
    * @example
    * 2024-11-15T07:06:42Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The job description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The total number of failed files.
+   * 
    * @example
    * 10
    */
   failedFileCount?: number;
   /**
+   * @remarks
+   * The time when the job ends.
+   * 
    * @example
    * 2024-07-16T02:03:23Z
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The action that is performed on the job.
+   * 
+   * Valid values:
+   * 
+   * *   SemanticIndex: semantic indexing
+   * *   IntelligentTag: smart labeling
+   * *   FileMetaExport: metadata export
+   * 
    * @example
    * SemanticIndex
    */
   jobAction?: string;
   /**
+   * @remarks
+   * The job mode.
+   * 
+   * Valid value:
+   * 
+   * *   Full: full data mode.
+   * 
    * @example
    * Full
    */
   jobMode?: string;
   /**
+   * @remarks
+   * The job details.
+   * 
    * @example
    * {\\"modelId\\":\\"xxx\\"}
    */
   jobSpec?: string;
+  /**
+   * @remarks
+   * The job logs.
+   */
   logs?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 64B50C1D-D4C2-560C-86A3-A6ED****16D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Succeeded
+   * *   Failed
+   * *   Running
+   * *   Pending
+   * *   PartialFailed
+   * *   Deleting
+   * *   ManuallyStop
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The total number of job files.
+   * 
    * @example
    * 1000
    */
@@ -9326,6 +10818,9 @@ export class GetDatasetJobResponse extends $dara.Model {
 
 export class GetDatasetJobConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 114243
    */
@@ -9353,38 +10848,69 @@ export class GetDatasetJobConfigRequest extends $dara.Model {
 
 export class GetDatasetJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The configuration content. Configuration format for MultimodalIntelligentTag:
+   * 
+   * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+   * 
+   * MultimodalSemanticIndex
+   * 
+   * { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+   * 
    * @example
    * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
    */
   config?: string;
   /**
+   * @remarks
+   * The configuration type. Valid values:
+   * 
+   * *   MultimodalIntelligentTag
+   * *   MultimodalSemanticIndex
+   * 
    * @example
    * MultimodalIntelligentTag
    */
   configType?: string;
   /**
+   * @remarks
+   * The time when the configuration is created.
+   * 
    * @example
    * 2024-10-16T01:44:10Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The dataset ID.
+   * 
    * @example
    * d-lfd60v0p****ujtsdx
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The time when the configuration is modified.
+   * 
    * @example
    * 2024-12-26T02:17:18Z
    */
   modifyTime?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D5BFFEE3-6025-443F-8A03-02D619B5C4B9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 114243
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9457,91 +10983,156 @@ export class GetDatasetJobConfigResponse extends $dara.Model {
 export class GetDatasetVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 数据集的数据量
+   * The number of data records.
+   * 
+   * @example
+   * 10000
    */
   dataCount?: number;
   /**
    * @remarks
-   * 数据集版本的数据大小。
+   * The size of the dataset.
+   * 
+   * @example
+   * 10000
    */
   dataSize?: number;
   /**
    * @remarks
-   * 数据源类型。支持以下取值：
-   * - OSS：阿里云对象存储（OSS）。
-   * - NAS：阿里云文件存储（NAS）。
+   * The type of the data source.
    * 
    * This parameter is required.
    */
   dataSourceType?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The request ID.
+   * 
+   * @example
+   * d-dkdbnnap0g7b6su4yg
    */
   datasetId?: string;
   /**
    * @remarks
-   * 数据集版本的描述信息。
+   * The version description.
    */
   description?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2023-12-13T10:22:05.694Z
+   */
   gmtCreateTime?: string;
   /**
    * @remarks
-   * 创建时间。
+   * The last modification time.
+   * 
+   * @example
+   * 2023-12-13T10:22:05.694Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The dataset configurations to be imported to a storage, such as Object Storage Service (OSS), File Storage NAS (NAS), or Cloud Parallel File Storage (CPFS).
+   * 
+   * **OSS**
+   * 
+   * { "region": "${region}",// The region ID. $bucket = $options["bucket"]; // The bucket name. "path": "${path}" // The file path. }
+   * 
+   * **NAS**
+   * 
+   * **CPFS**
+   * 
+   * **CPFS for Lingjun**
+   * 
+   * @example
+   * {
+   *     "region": "cn-wulanchabu",
+   *     "fileSystemId": "bmcpfs-xxxxxxxxxxx",
+   *     "path": "/mnt",
+   *     "mountTarget": "cpfs-xxxxxxxxxxxx-vpc-gacs9f.cn-wulanchabu.cpfs.aliyuncs.com",
+   *     "isVpcMount": true
+   * }
+   */
   importInfo?: string;
   /**
    * @remarks
-   * 代表资源标签的资源属性字段
+   * The resource tags.
    */
   labels?: Label[];
+  /**
+   * @remarks
+   * The access permission on the dataset when the dataset is mounted. Valid values:
+   * 
+   * *   RO: read-only permissions
+   * *   RW: read and write permissions
+   * 
+   * @example
+   * RO
+   */
   mountAccess?: string;
   /**
    * @remarks
-   * 扩展字段，JsonString类型。
-   * 当DLC使用数据集时，可通过配置mountPath字段指定数据集默认挂载路径。
+   * The extended fields.
+   * 
+   * @example
+   * {
+   *   "mountPath": "/mnt/data/"
+   * }
    */
   options?: string;
   /**
    * @remarks
-   * 数据集的属性。支持以下取值：
-   * - FILE：文件。
-   * - DIRECTORY：文件夹。
+   * The property of the dataset.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * DIRECTORY
    */
   property?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C55DF3DA-F120-5E37-A374-F49365531701
+   */
   requestId?: string;
   /**
    * @remarks
-   * 数据来源ID。
+   * The ID of the source dataset.
+   * 
+   * @example
+   * d-rbvg5wzljzjhc9ks92
    */
   sourceId?: string;
   /**
    * @remarks
-   * 数据来源类型，默认为USER。支持以下取值：
-   * - PAI-PUBLIC-DATASET：PAI公共数据集。
-   * - ITAG：iTAG模块标注结果生成的数据集。
-   * - USER：用户注册的数据集。
+   * The type of the data source.
+   * 
+   * @example
+   * USER
    */
   sourceType?: string;
   /**
    * @remarks
-   * Uri配置样例如下：
-   * - 数据源类型为OSS：`oss://bucket.endpoint/object`
-   * - 数据源类型为NAS：
-   * 通用型NAS格式为：`nas://<nasfisid>.region/subpath/to/dir/`；
-   * CPFS1.0：`nas://<cpfs-fsid>.region/subpath/to/dir/`；
-   * CPFS2.0：`nas://<cpfs-fsid>.region/<protocolserviceid>/`。
-   * CPFS1.0和CPFS2.0根据fsid的格式来区分：CPFS1.0 格式为cpfs-<8位ascii字符>；CPFS2.0 格式为cpfs-<16为ascii字符>。
+   * The sample URI of the dataset.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * oss://ai4d-br7hx9ngzelo2o6uip.oss-cn-shanghai.aliyuncs.com/365349/data-1157703270994901/datasets/aka108o/
    */
   uri?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The version name of the dataset.
+   * 
+   * @example
+   * v1
    */
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -9637,6 +11228,12 @@ export class GetDatasetVersionResponse extends $dara.Model {
 
 export class GetDefaultWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to show the details of the default workspace. The details include the conditions of the workspace in different phases. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
@@ -9663,50 +11260,99 @@ export class GetDefaultWorkspaceRequest extends $dara.Model {
 }
 
 export class GetDefaultWorkspaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The conditions of the default workspace in the creation process.
+   */
   conditions?: GetDefaultWorkspaceResponseBodyConditions[];
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account.
+   * 
    * @example
    * 17915******4216
    */
   creator?: string;
   /**
+   * @remarks
+   * The workspace description.
+   * 
    * @example
    * workspace description example
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the workspace.
+   * 
    * @example
    * workspace-example
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The environments of the workspace. Valid values:
+   * 
+   * *   Workspaces in basic mode can run only in the production environment.
+   * *   Workspaces in standard mode can run in both the development and production environments.
+   */
   envTypes?: string[];
   /**
+   * @remarks
+   * The time when the workspace was created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the workspace was modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account.
+   */
   owner?: GetDefaultWorkspaceResponseBodyOwner;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The workspace status. Valid values:
+   * 
+   * *   ENABLED
+   * *   INITIALIZING
+   * *   FAILURE
+   * *   DISABLED
+   * *   FROZEN
+   * *   UPDATING
+   * 
    * @example
    * ENABLED
    */
   status?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1234
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The workspace name, which is unique in a region.
+   * 
    * @example
    * workspace-example
    */
@@ -9870,6 +11516,12 @@ export class GetExperimentResponse extends $dara.Model {
 
 export class GetImageRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to display non-essential information, which contains tags. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
@@ -9897,51 +11549,104 @@ export class GetImageRequest extends $dara.Model {
 
 export class GetImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the image. Valid values:
+   * 
+   * *   PUBLIC: All members can access the workspace.
+   * *   PRIVATE: Only the creator can access the workspace.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
+  /**
+   * @remarks
+   * The image description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The time when the image is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the image is modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * The image address, which contains the version number.
+   * 
    * @example
    * registry.cn-hangzhou.aliyuncs.******ession/nlp:gpu
    */
   imageUri?: string;
+  /**
+   * @remarks
+   * The image tags, which are of the array data type. Each element in the array contains a key-value pair. The key of official tags is system.official and the tag value is true.
+   */
   labels?: GetImageResponseBodyLabels[];
   /**
+   * @remarks
+   * The image name.
+   * 
    * @example
    * nlp-compression
    */
   name?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account of the creator.
+   * 
    * @example
    * 15577******8921
    */
   parentUserId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The size of the image. Unit: GB.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * 镜像来源 ID
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * 镜像来源类型
+   */
   sourceType?: string;
   /**
+   * @remarks
+   * The user ID of the image.
+   * 
    * @example
    * 15577******8921
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 15945
    */
@@ -10032,8 +11737,18 @@ export class GetImageResponse extends $dara.Model {
 }
 
 export class GetMemberRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The member ID. You must specify only one of the following parameters: UserId and MemberId.
+   * 
+   * @example
+   * 145883-21513926******88039
+   */
   memberId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account. You can call [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html) to obtain the ID of the Alibaba Cloud account. You must specify only one of the following parameters: UserId and MemberId.
+   * 
    * @example
    * 21513926******88039
    */
@@ -10063,32 +11778,54 @@ export class GetMemberRequest extends $dara.Model {
 
 export class GetMemberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the member.
+   * 
    * @example
    * myDisplayName
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the workspace is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The member ID.
+   * 
    * @example
    * 145883-21513926******88039
    */
   memberId?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * user1
    */
   memberName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of roles.
+   */
   roles?: string[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 21513926******88039
    */
@@ -10166,81 +11903,160 @@ export class GetMemberResponse extends $dara.Model {
 
 export class GetModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the workspace.
+   * 
+   * *   PRIVATE: The workspace is visible only to you and the administrator of the workspace.
+   * *   PUBLIC: The workspace is visible to all users.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The domain. This parameter specifies the domain for which the model is developed. Valid values: nlp and cv. nlp indicates natural language processing and cv indicates computer vision.
+   * 
    * @example
    * cv
    */
   domain?: string;
+  /**
+   * @remarks
+   * Other information about the model.
+   * 
+   * @example
+   * {
+   * 	"RatingCount": 2866,
+   * 	"Rating": 4.94,
+   * 	"FavoriteCount": 34992,
+   * 	"CommentCount": 754,
+   * 	"CoverUris": ["https://e***u.oss-cn-hangzhou.aliyuncs.com/drea***w.png"],
+   * 	"TippedAmountCount": 32,
+   * 	"DownloadCount": 606056
+   * }
+   */
   extraInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the model is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the model is last modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * The model tags.
+   */
   labels?: Label[];
+  /**
+   * @remarks
+   * The latest version of the model.
+   */
   latestVersion?: ModelVersion;
+  /**
+   * @remarks
+   * The model description.
+   */
   modelDescription?: string;
   /**
+   * @remarks
+   * The documentation of the model.
+   * 
    * @example
    * https://***.md
    */
   modelDoc?: string;
   /**
+   * @remarks
+   * The model ID.
+   * 
    * @example
    * model-rbvg5wzljz****ks92
    */
   modelId?: string;
+  /**
+   * @remarks
+   * The model name.
+   */
   modelName?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Checkpoint
    */
   modelType?: string;
   /**
+   * @remarks
+   * The sequence number of the model.
+   * 
    * @example
    * 1
    */
   orderNumber?: number;
   /**
+   * @remarks
+   * The source of the model. The community or organization to which the model belongs, such as ModelScope or HuggingFace.
+   * 
    * @example
    * ModelScope
    */
   origin?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 1234567890******
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The provider.
+   * 
    * @example
    * pai
    */
   provider?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task of the model. This parameter describes specific issues that the model solves, such as text-classification.
+   * 
    * @example
    * text-classification
    */
   task?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1234567890******
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 234**
    */
@@ -10350,96 +12166,208 @@ export class GetModelResponse extends $dara.Model {
 
 export class GetModelVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The approval status. Valid values:
+   * 
+   * *   Pending
+   * *   Approved
+   * *   Rejected
+   * 
    * @example
    * Approved
    */
   approvalStatus?: string;
   /**
+   * @remarks
+   * The compression configuration.
+   * 
    * @example
    * {}
    */
   compressionSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * The evaluation configuration.
+   * 
    * @example
    * {}
    */
   evaluationSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * The additional information.
+   * 
    * @example
-   * {}
+   * {
+   * 	"CoverUris": ["https://e***u.oss-cn-hangzhou.aliyuncs.com/st****017.preview.png"],
+   * 	"TrainedWords": ["albedo_overlord"]
+   * }
    */
   extraInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * The model format. Valid values:
+   * 
+   * *   OfflineModel
+   * *   SavedModel
+   * *   Keras H5
+   * *   Frozen Pb
+   * *   Caffe Prototxt
+   * *   TorchScript
+   * *   XGBoost
+   * *   PMML
+   * *   AlinkModel
+   * *   ONNX
+   * 
    * @example
    * SavedModel
    */
   formatType?: string;
   /**
+   * @remarks
+   * The model framework. Valid values:
+   * 
+   * *   Pytorch -XGBoost
+   * *   Keras
+   * *   Caffe
+   * *   Alink
+   * *   Xflow
+   * *   TensorFlow
+   * 
    * @example
    * TensorFlow
    */
   frameworkType?: string;
   /**
+   * @remarks
+   * The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Describes how to apply to downstream inference services. For example, describes the processor and container of Elastic Algorithm Service (EAS).
+   * 
    * @example
    * {
    *     "Processor": "tensorflow_gpu_1.12"
    * }
    */
   inferenceSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * The labels.
+   */
   labels?: Label[];
   /**
+   * @remarks
+   * The metrics.
+   * 
    * @example
    * {}
    */
   metrics?: { [key: string]: any };
   /**
+   * @remarks
+   * The extended field. The value of this parameter is a JSON string.
+   * 
    * @example
    * {}
    */
   options?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 1234567890******
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The source ID.
+   * 
+   * *   If the source type is Custom, this field is not limited.
+   * *   If the source type is PAIFlow or TrainingService, the format is:
+   * 
+   * <!---->
+   * 
+   *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * 
+   * Take note of the following parameters:
+   * 
+   * *   region is the region ID.
+   * *   workspaceId is the ID of the workspace.
+   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
+   * *   id is a unique identifier.
+   * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source type of the model. Valid values:
+   * 
+   * *   Custom
+   * *   PAIFlow
+   * *   TrainingService
+   * 
    * @example
    * PAIFlow
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The training configurations used for fine-tuning and incremental training.
+   * 
    * @example
    * {}
    */
   trainingSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * The URI of the model version, which is the location where the model is stored. Valid values:
+   * 
+   * *   The HTTP(S) address of the model. Example: `https://myweb.com/mymodel.tar.gz`.
+   * *   The Object Storage Service (OSS) path of the model, in the format of `oss://<bucket>.<endpoint>/object`. For endpoint, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html). Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
+   */
   uri?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1234567890******
    */
   userId?: string;
+  /**
+   * @remarks
+   * The version description.
+   */
   versionDescription?: string;
   /**
+   * @remarks
+   * The model version.
+   * 
    * @example
    * 0.1.0
    */
@@ -10563,17 +12491,43 @@ export class GetModelVersionResponse extends $dara.Model {
 
 export class GetPermissionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PUBLIC: All members in the workspace can access the workspace.
+   * *   PRIVATE: Only the creator can access the workspace.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that is used to create the workspace.
+   * 
    * @example
    * 17915******4216
    */
   creator?: string;
   labels?: { [key: string]: any };
+  /**
+   * @remarks
+   * The configuration. Separate multiple configurations with commas (,). Valid values:
+   * 
+   * *   ResourceEmpty: The Resource parameter is not configured.
+   * *   DisableRam: The RAM check is not performed.
+   * 
+   * @example
+   * ResourceEmpty,DisableRam
+   */
   option?: string;
+  /**
+   * @remarks
+   * The resource.
+   * 
+   * @example
+   * job/dlc-ksd******s12
+   */
   resource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10609,17 +12563,43 @@ export class GetPermissionRequest extends $dara.Model {
 
 export class GetPermissionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility. Valid values:
+   * 
+   * *   PUBLIC: All members in the workspace can access the workspace.
+   * *   PRIVATE: Only the creator can access the workspace.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that is used to create the workspace.
+   * 
    * @example
    * 17915******4216
    */
   creator?: string;
   labelsShrink?: string;
+  /**
+   * @remarks
+   * The configuration. Separate multiple configurations with commas (,). Valid values:
+   * 
+   * *   ResourceEmpty: The Resource parameter is not configured.
+   * *   DisableRam: The RAM check is not performed.
+   * 
+   * @example
+   * ResourceEmpty,DisableRam
+   */
   option?: string;
+  /**
+   * @remarks
+   * The resource.
+   * 
+   * @example
+   * job/dlc-ksd******s12
+   */
   resource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10652,12 +12632,22 @@ export class GetPermissionShrinkRequest extends $dara.Model {
 
 export class GetPermissionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The permission name, which is unique in a region. For more information about permissions, see [Appendix: Roles and permissions](https://help.aliyun.com/document_detail/2840449.html).
+   * 
    * @example
    * PaiDLC:ListJobs
    */
   permissionCode?: string;
+  /**
+   * @remarks
+   * The permission rules.
+   */
   permissionRules?: GetPermissionResponseBodyPermissionRules[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -10727,6 +12717,9 @@ export class GetPermissionResponse extends $dara.Model {
 
 export class GetRunRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to obtain the Metrics, Params, and Labels information. Default value: false.
+   * 
    * @example
    * true
    */
@@ -10789,6 +12782,12 @@ export class GetRunResponse extends $dara.Model {
 
 export class GetWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to display supplementary information such as the workspace owner. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * true
    */
@@ -10815,61 +12814,126 @@ export class GetWorkspaceRequest extends $dara.Model {
 }
 
 export class GetWorkspaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The names of the administrator accounts.
+   */
   adminNames?: string[];
   /**
+   * @remarks
+   * The ID of the user who creates the workspace.
+   * 
    * @example
    * 1157******94123
    */
   creator?: string;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
    * workspace description example
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the workspace.
+   * 
    * @example
    * workspace-example
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The environment information of the workspace.
+   * 
+   * *   Workspaces in basic mode can run only in the production environment.
+   * *   Workspaces in standard mode can run in both the development and production environments.
+   */
   envTypes?: string[];
   /**
+   * @remarks
+   * The additional information, which only contains the TenantId field.
+   * 
    * @example
    * {"TenantId": "4286******98"}
    */
   extraInfos?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the workspace is created, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The time when the workspace is modified, in UTC. The time follows the ISO 8601 standard.
+   * 
    * @example
    * 2021-01-21T17:12:35.232Z
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Indicates whether the workspace is the default workspace. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The information about the workspace owner. This parameter is valid only when Verbose is set to true.
+   */
   owner?: GetWorkspaceResponseBodyOwner;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0F049F0-8D69-5BAC-8F10-B4DED1B5A34C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmwp7rkyq****
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The workspace state. Valid values:
+   * 
+   * *   ENABLED
+   * *   INITIALIZING
+   * *   FAILURE:
+   * *   DISABLED
+   * *   FROZEN
+   * *   UPDATING
+   * 
    * @example
    * ENABLED
    */
   status?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 1234
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * workspace-example
    */
@@ -10972,31 +13036,59 @@ export class GetWorkspaceResponse extends $dara.Model {
 
 export class ListCodeSourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the code source. Fuzzy match is supported.
+   * 
    * @example
    * MyDataSource
    */
   displayName?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page.
+   * 
+   * Valid values:
+   * 
+   * *   asc: ascending order. This is the default value.
+   * *   desc: descending order.
+   * 
    * @example
    * desc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The field used for sorting. Valid values:
+   * 
+   * *   GmtModifyTime: the time when the source code is modified.
+   * *   DisplayName: the display name.
+   * *   CodeSourceId: the ID of the code source.
+   * *   GmtCreateTime: the time when the code source is created. This is the default value.
+   * 
    * @example
    * GmtModifyTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 1234
    */
@@ -11033,13 +13125,23 @@ export class ListCodeSourcesRequest extends $dara.Model {
 }
 
 export class ListCodeSourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The code sources.
+   */
   codeSources?: CodeSourceItem[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of code sources that meet the filter conditions.
+   * 
    * @example
    * 2
    */
@@ -11110,6 +13212,8 @@ export class ListCodeSourcesResponse extends $dara.Model {
 export class ListDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
+   * The dataset version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11118,6 +13222,8 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
+   * The end time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -11131,16 +13237,30 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   endTagUpdateTime?: string;
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * >  If you do not configure this parameter, the data on the first page is returned. A return value other than Null of this parameter indicates that not all entries have been returned. You can use this value as an input parameter to obtain entries on the next page. The value Null indicates that all query results have been returned.
+   * 
    * @example
    * 90a6ee35-****-4cd4-927e-1f45e1cb8b62_1729644433000
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy. Default value: ASC.
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 1000.
+   * 
    * @example
    * 10
    * 
@@ -11154,24 +13274,45 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   queryTagsExclude?: string[];
   queryTagsIncludeAll?: string[];
   queryTagsIncludeAny?: string[];
+  /**
+   * @remarks
+   * The text content to be queried.
+   */
   queryText?: string;
   /**
+   * @remarks
+   * The retrieval type.
+   * 
+   * *   TAG (default)
+   * *   VECTOR
+   * 
    * @example
    * TAG
    */
   queryType?: string;
   /**
+   * @remarks
+   * The similarity score. Only dataset files whose similarity score is greater than the value of ScoreThreshold are returned. This parameter is valid only when QueryType is set to VECTOR.
+   * 
    * @example
    * 0.6
    */
   scoreThreshold?: number;
   /**
+   * @remarks
+   * The field used to sort the results. Default value: GmtCreateTime. Valid values:
+   * 
+   * *   FileCreateTime (default): The results are sorted by the time when the file is created.
+   * *   FileUpdateTime: The results are sorted by the time when the file is last modified.
+   * 
    * @example
    * FileCreateTime
    */
   sortBy?: string;
   /**
    * @remarks
+   * The start time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -11185,12 +13326,17 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   startTagUpdateTime?: string;
   thumbnailMode?: string;
   /**
+   * @remarks
+   * The number of search results to return. A maximum of Top K search results can be returned. This parameter is valid only when QueryType is set to VECTOR.
+   * 
    * @example
    * 100
    */
   topK?: number;
   /**
    * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11277,6 +13423,8 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
 export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The dataset version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11285,6 +13433,8 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   datasetVersion?: string;
   /**
    * @remarks
+   * The end time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -11298,16 +13448,30 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   endTagUpdateTime?: string;
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token.
+   * 
+   * >  If you do not configure this parameter, the data on the first page is returned. A return value other than Null of this parameter indicates that not all entries have been returned. You can use this value as an input parameter to obtain entries on the next page. The value Null indicates that all query results have been returned.
+   * 
    * @example
    * 90a6ee35-****-4cd4-927e-1f45e1cb8b62_1729644433000
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy. Default value: ASC.
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 1000.
+   * 
    * @example
    * 10
    * 
@@ -11321,24 +13485,45 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   queryTagsExcludeShrink?: string;
   queryTagsIncludeAllShrink?: string;
   queryTagsIncludeAnyShrink?: string;
+  /**
+   * @remarks
+   * The text content to be queried.
+   */
   queryText?: string;
   /**
+   * @remarks
+   * The retrieval type.
+   * 
+   * *   TAG (default)
+   * *   VECTOR
+   * 
    * @example
    * TAG
    */
   queryType?: string;
   /**
+   * @remarks
+   * The similarity score. Only dataset files whose similarity score is greater than the value of ScoreThreshold are returned. This parameter is valid only when QueryType is set to VECTOR.
+   * 
    * @example
    * 0.6
    */
   scoreThreshold?: number;
   /**
+   * @remarks
+   * The field used to sort the results. Default value: GmtCreateTime. Valid values:
+   * 
+   * *   FileCreateTime (default): The results are sorted by the time when the file is created.
+   * *   FileUpdateTime: The results are sorted by the time when the file is last modified.
+   * 
    * @example
    * FileCreateTime
    */
   sortBy?: string;
   /**
    * @remarks
+   * The start time when the file is updated. This parameter is used when you want to query file metadata during a period of time. The time follows the ISO 8601 standard. This parameter is valid only when QueryType is set to TAG.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -11352,12 +13537,17 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
   startTagUpdateTime?: string;
   thumbnailMode?: string;
   /**
+   * @remarks
+   * The number of search results to return. A maximum of Top K search results can be returned. This parameter is valid only when QueryType is set to VECTOR.
+   * 
    * @example
    * 100
    */
   topK?: number;
   /**
    * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11430,16 +13620,40 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
 }
 
 export class ListDatasetFileMetasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata records of the dataset files.
+   */
   datasetFileMetas?: DatasetFileMeta[];
+  /**
+   * @remarks
+   * The dataset ID.
+   * 
+   * @example
+   * d-rbvg5*****jhc9ks92
+   */
   datasetId?: string;
+  /**
+   * @remarks
+   * The dataset version.
+   * 
+   * @example
+   * v1
+   */
   datasetVersion?: string;
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. If the number of results exceeds the maximum number of entries allowed per page, a pagination token is returned. This token can be used as an input parameter to obtain the next page of results. If all results are obtained, no token is returned.
+   * 
    * @example
    * 90******-f5c5-4cd4-927e-1f45e1cb8b62_1729644433000
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 30
    * 
@@ -11447,10 +13661,20 @@ export class ListDatasetFileMetasResponseBody extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 123
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 105173
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11527,21 +13751,36 @@ export class ListDatasetFileMetasResponse extends $dara.Model {
 
 export class ListDatasetJobConfigsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration type.
+   * 
+   * *   MultimodalIntelligentTag
+   * *   MultimodalSemanticIndex
+   * 
    * @example
    * MultimodalIntelligentTag
    */
   configType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 431514
    */
@@ -11574,13 +13813,23 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
 }
 
 export class ListDatasetJobConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset job configurations.
+   */
   datasetJobConfigs?: DatasetJobConfig[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 15
    */
@@ -11650,26 +13899,41 @@ export class ListDatasetJobConfigsResponse extends $dara.Model {
 
 export class ListDatasetJobsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version name.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The action to be performed on the job.
+   * 
    * @example
    * SemanticIndex
    */
   jobAction?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 1234
    */
@@ -11704,12 +13968,23 @@ export class ListDatasetJobsRequest extends $dara.Model {
 }
 
 export class ListDatasetJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The jobs in the dataset.
+   */
   datasetJobs?: DatasetJob[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8D7B2E70-F770-505B-A672-09F1D8F2EC1E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of jobs.
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11776,18 +14051,36 @@ export class ListDatasetJobsResponse extends $dara.Model {
 
 export class ListDatasetVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset tag keys, which are used to filter datasets. Datasets whose tag keys or tag values contain a specified string are filtered.
+   * 
    * @example
    * key1,key2
    */
   labelKeys?: string;
+  /**
+   * @remarks
+   * The dataset tag values, which are used to filter datasets. Datasets whose tag keys or tag values contain a specified string are filtered.
+   * 
+   * @example
+   * value1,value2
+   */
   labelValues?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. Default value: ASC. Valid values:
+   * 
+   * *   ASC: ascending order
+   * *   DESC: descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
    * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11796,6 +14089,8 @@ export class ListDatasetVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11803,21 +14098,69 @@ export class ListDatasetVersionsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The dataset properties. Valid values:
+   * 
+   * *   DIRECTORY
+   * *   FILE
+   * 
    * @example
    * DIRECTORY
    */
   properties?: string;
   /**
+   * @remarks
+   * The field used to sort the results in queries by page. Default value: GmtCreateTime.
+   * 
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
+   * Valid values:
+   * 
+   * *   SourceType
+   * *   DataSourceType
+   * *   DataSize
+   * *   DataCount
+   * *   Property
+   * *   GmtCreateTime: The results are sorted by creation time. This is the default value.
+   * *   GmtModifiedTime: The results are sorted by modification time.
+   * *   DatasetId
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
+   * *   If SourceType is set to USER, the value of SourceId is a custom string.
+   * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
+   * *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
+   * 
    * @example
    * d-a0xbe5n03bhqof46ce
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source type. Valid values:
+   * 
+   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
+   * *   ITAG: a dataset generated from a labeling job of iTAG.
+   * *   USER: a dataset registered by a user.
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * 
    * @example
    * USER
    */
@@ -11860,19 +14203,39 @@ export class ListDatasetVersionsRequest extends $dara.Model {
 }
 
 export class ListDatasetVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The dataset versions.
+   */
   datasetVersions?: DatasetVersion[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0648C5BB-68D0-54D2-92A5-607135B8806B
+   */
   requestId?: string;
   /**
+   * @remarks
+   * The number of dataset versions that meet the filter conditions.
+   * 
    * @example
    * 5
    */
@@ -11946,59 +14309,142 @@ export class ListDatasetVersionsResponse extends $dara.Model {
 
 export class ListDatasetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The storage types of the data source. Multiple data source types are separated by commas (,). Valid values:
+   * 
+   * *   NAS: File Storage NAS (NAS).
+   * *   OSS: Object Storage Service (OSS).
+   * 
    * @example
    * OSS
    */
   dataSourceTypes?: string;
   /**
+   * @remarks
+   * The dataset types. Multiple dataset types are separated by commas (,). Valid values:
+   * 
+   * *   Video: video
+   * *   COMMON: common
+   * *   TEXT: text
+   * *   PIC: picture
+   * *   AUDIO: audio
+   * 
    * @example
    * COMMON,TEXT
    */
   dataTypes?: string;
   /**
+   * @remarks
+   * The dataset tag, which is used to filter datasets. Datasets whose tag key or tag value contains a specified string are filtered.
+   * 
    * @example
    * test
    */
   label?: string;
   /**
+   * @remarks
+   * The dataset name. Fuzzy search based on the dataset name is supported.
+   * 
    * @example
    * myName
    */
   name?: string;
   /**
+   * @remarks
+   * The order of specific fields of the entries on the returned page. Valid values: ASC and DESC. Default value: ASC.
+   * 
+   * *   ASC: The entries are sorted in ascending order.
+   * *   DESC: The entries are sorted in descending order.
+   * 
    * @example
    * ASC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The dataset properties. Multiple properties are separated by commas (,). Valid values:
+   * 
+   * *   DIRECTORY
+   * *   FILE
+   * 
    * @example
    * FILE
    */
   properties?: string;
+  /**
+   * @remarks
+   * The dataset provider. If the value pai is returned, the dataset is a public dataset provided by PAI.
+   * 
+   * @example
+   * pai
+   */
   provider?: string;
+  /**
+   * @remarks
+   * The field used for sorting.
+   * 
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The ID of the iTAG labeled dataset that is used as the source dataset.
+   * 
+   * @example
+   * d-rcdg3wxxxxxhc5jk87
+   */
   sourceDatasetId?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
+   * *   If SourceType is set to USER, the value of SourceId is a custom string.
+   * *   If SourceType is set to ITAG, the value of SourceId is the ID of the labeling job of iTAG.
+   * *   If SourceType is set to PAI_PUBLIC_DATASET, SourceId is empty by default.
+   * 
    * @example
    * d-rbvg5wzljzjhc9ks92
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source types. Multiple source types are separated by commas (,). Valid values:
+   * 
+   * *   PAI-PUBLIC-DATASET: a public dataset of Platform for AI (PAI).
+   * *   ITAG: a dataset generated from a labeling job of iTAG.
+   * *   USER: a dataset registered by a user.
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * 
    * @example
    * USER,ITAG
    */
   sourceTypes?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID. If you do not specify this parameter, the default workspace is used. If the default workspace does not exist, an error is reported.
+   * 
    * @example
    * 324**
    */
@@ -12051,13 +14497,23 @@ export class ListDatasetsRequest extends $dara.Model {
 }
 
 export class ListDatasetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The datasets.
+   */
   datasets?: Dataset[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 15
    */
@@ -12127,57 +14583,99 @@ export class ListDatasetsResponse extends $dara.Model {
 
 export class ListExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`.
+   * 
    * @example
    * is_evaluation:true
    */
   labels?: string;
   /**
+   * @remarks
+   * The maximum number of entries in the request. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The experiment name.
+   * 
    * @example
    * exp-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The optional parameters.
+   */
   options?: ListExperimentRequestOptions;
   /**
+   * @remarks
+   * The order of specific fields of results in a paged query (ascending or descending).
+   * 
+   * *   ASC: ascending order
+   * *   DESC: descending order. This is the default value.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The strings used for sorting. The following fields can be used for sorting: GmtCreateTime, Name, GmtModifiedTime, and ExperimentId. The sorting order can be ASC (default) and DESC.
+   * 
    * @example
    * GmtCreateTime DESC,Name ASC
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number. The value starts from 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The pagination token, which starts from 0. Default value: 0.
+   * 
    * @example
    * 0
    */
   pageToken?: number;
   /**
+   * @remarks
+   * The field used for sorting. The GmtCreateTime field is used.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Specifies whether to obtain the LatestRun value that is related to the experiment.
+   * 
    * @example
    * false
    */
   verbose?: boolean;
   /**
+   * @remarks
+   * The ID of the workspace to which the experiment belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * >  If you do not specify a workspace ID, the system returns the experiments in the default workspace.
+   * 
    * @example
    * 151739
    */
@@ -12230,57 +14728,99 @@ export class ListExperimentRequest extends $dara.Model {
 
 export class ListExperimentShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`.
+   * 
    * @example
    * is_evaluation:true
    */
   labels?: string;
   /**
+   * @remarks
+   * The maximum number of entries in the request. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The experiment name.
+   * 
    * @example
    * exp-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The optional parameters.
+   */
   optionsShrink?: string;
   /**
+   * @remarks
+   * The order of specific fields of results in a paged query (ascending or descending).
+   * 
+   * *   ASC: ascending order
+   * *   DESC: descending order. This is the default value.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The strings used for sorting. The following fields can be used for sorting: GmtCreateTime, Name, GmtModifiedTime, and ExperimentId. The sorting order can be ASC (default) and DESC.
+   * 
    * @example
    * GmtCreateTime DESC,Name ASC
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number. The value starts from 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The pagination token, which starts from 0. Default value: 0.
+   * 
    * @example
    * 0
    */
   pageToken?: number;
   /**
+   * @remarks
+   * The field used for sorting. The GmtCreateTime field is used.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Specifies whether to obtain the LatestRun value that is related to the experiment.
+   * 
    * @example
    * false
    */
   verbose?: boolean;
   /**
+   * @remarks
+   * The ID of the workspace to which the experiment belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * >  If you do not specify a workspace ID, the system returns the experiments in the default workspace.
+   * 
    * @example
    * 151739
    */
@@ -12329,18 +14869,31 @@ export class ListExperimentShrinkRequest extends $dara.Model {
 }
 
 export class ListExperimentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of experiments.
+   */
   experiments?: Experiment[];
   /**
+   * @remarks
+   * The pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 0
    */
   nextPageToken?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0C6835C5-A424-5AFB-ACC2-F1E3CA1ABF7C
    */
@@ -12566,45 +15119,111 @@ export class ListImageLabelsResponse extends $dara.Model {
 }
 
 export class ListImagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The visibility of the image. This parameter is valid only for custom images.
+   * 
+   * *   PUBLIC: The image is visible to all users.
+   * *   PRIVATE: The image is visible only to you and the administrator of the workspace.
+   * 
+   * @example
+   * PUBLIC
+   */
   accessibility?: string;
   imageUri?: string;
   /**
+   * @remarks
+   * The tag filter conditions. Multiple conditions are separated by commas (,). The format of a single condition filter is `key=value`. The following keys are supported:
+   * 
+   * *   system.chipType
+   * *   system.dsw.cudaVersion
+   * *   system.dsw.fromImageId
+   * *   system.dsw.fromInstanceId
+   * *   system.dsw.id
+   * *   system.dsw.os
+   * *   system.dsw.osVersion
+   * *   system.dsw.resourceType
+   * *   system.dsw.rootImageId
+   * *   system.dsw.stage
+   * *   system.dsw.tag
+   * *   system.dsw.type
+   * *   system.framework
+   * *   system.origin
+   * *   system.pythonVersion
+   * *   system.source
+   * *   system.supported.dlc
+   * *   system.supported.dsw
+   * 
    * @example
    * system.framework=XGBoost 1.6.0,system.official=true
    */
   labels?: string;
   /**
+   * @remarks
+   * The image name. Fuzzy match is supported.
+   * 
    * @example
    * tensorflow_2.9
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy. Default value: ASC. Valid values:
+   * 
+   * *   ASC: ascending order
+   * *   DESC: descending order.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The image name and description that are used for fuzzy search.
+   * 
+   * @example
+   * name
+   */
   query?: string;
   /**
+   * @remarks
+   * The field used for sorting. The GmtCreateTime field is used.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * Specifies whether to display non-essential information, which contains tags. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   verbose?: boolean;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 20******55
    */
@@ -12651,13 +15270,23 @@ export class ListImagesRequest extends $dara.Model {
 }
 
 export class ListImagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The images.
+   */
   images?: ListImagesResponseBodyImages[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of returned images.
+   * 
    * @example
    * 2
    */
@@ -12727,21 +15356,41 @@ export class ListImagesResponse extends $dara.Model {
 
 export class ListMembersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The member name. Fuzzy match is supported.
+   * 
    * @example
    * zhangsan
    */
   memberName?: string;
   /**
+   * @remarks
+   * The page number of the workspace list. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The roles that are used to filter members. Multiple roles are separated by commas (,). Valid values:
+   * 
+   * *   PAI.AlgoDeveloper: algorithm developer
+   * *   PAI.AlgoOperator: algorithm O\\&M engineer
+   * *   PAI.LabelManager: labeling administrator
+   * *   PAI.MaxComputeDeveloper: MaxCompute developer
+   * *   PAI.WorkspaceAdmin: administrator
+   * *   PAI.WorkspaceGuest: guest
+   * *   PAI.WorkspaceOwner: owner
+   * 
    * @example
    * PAI.AlgoDeveloper
    */
@@ -12774,13 +15423,23 @@ export class ListMembersRequest extends $dara.Model {
 }
 
 export class ListMembersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The members.
+   */
   members?: ListMembersResponseBodyMembers[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of members that meet the filter conditions.
+   * 
    * @example
    * 1
    */
@@ -12850,56 +15509,132 @@ export class ListMembersResponse extends $dara.Model {
 
 export class ListModelVersionsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The approval status based on which the model versions are queried. Valid values:
+   * 
+   * *   Pending
+   * *   Approved
+   * *   Rejected
+   * 
    * @example
    * Approved
    */
   approvalStatus?: string;
   /**
+   * @remarks
+   * The model format used to filter model versions. Valid values:
+   * 
+   * *   OfflineModel
+   * *   SavedModel
+   * *   Keras H5
+   * *   Frozen Pb
+   * *   Caffe Prototxt
+   * *   TorchScript
+   * *   XGBoost
+   * *   PMML
+   * *   AlinkModel
+   * *   ONNX
+   * 
    * @example
    * SavedModel
    */
   formatType?: string;
   /**
+   * @remarks
+   * The framework used to filter model versions.
+   * 
+   * *   Pytorch -XGBoost
+   * *   Keras
+   * *   Caffe
+   * *   Alink
+   * *   Xflow
+   * *   TensorFlow
+   * 
    * @example
    * TensorFlow
    */
   frameworkType?: string;
   /**
+   * @remarks
+   * The label. Model versions whose label key or label value contains a specific label are filtered.
+   * 
    * @example
    * key1
    */
   label?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. Default value: ASC.
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The field used to sort the results. The GmtCreateTime field is used for sorting.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The source ID.
+   * 
+   * *   If the source type is Custom, this field is not limited.
+   * *   If the source type is PAIFlow or TrainingService, the format is:
+   * 
+   * <!---->
+   * 
+   *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * 
+   * Take note of the following parameters:
+   * 
+   * *   region is the region ID.
+   * *   workspaceId is the ID of the workspace.
+   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
+   * *   id is a unique identifier.
+   * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The source type used to filter model versions. Valid values:
+   * 
+   * *   Custom (default)
+   * *   PAIFlow
+   * *   TrainingService
+   * 
    * @example
    * PAIFlow
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The model version used to filter model versions.
+   * 
    * @example
    * 1.0.1
    */
@@ -12947,15 +15682,25 @@ export class ListModelVersionsRequest extends $dara.Model {
 
 export class ListModelVersionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC***3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of model versions.
+   * 
    * @example
    * 15
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The model versions.
+   */
   versions?: ModelVersion[];
   static names(): { [key: string]: string } {
     return {
@@ -13022,67 +15767,114 @@ export class ListModelVersionsResponse extends $dara.Model {
 
 export class ListModelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The collection where the model is located. You can specify multiple collections and separate them with commas (,).
+   * 
    * @example
    * AI4D,QuickStart
    */
   collections?: string;
   /**
+   * @remarks
+   * The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
+   * 
    * @example
    * nlp
    */
   domain?: string;
   /**
+   * @remarks
+   * The label. Models whose label key or label value contains a specific label are filtered.
+   * 
    * @example
    * key1
    */
   label?: string;
+  /**
+   * @remarks
+   * The model name used to filter the returned models.
+   */
   modelName?: string;
   /**
+   * @remarks
+   * The model type.
+   * 
    * @example
    * Endpoint
    */
   modelType?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. Default value: ASC.
+   * 
+   * *   ASC
+   * *   DESC
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The model source used to filter the models that belong to a community or organization, such as ModelScope and Hugging Face.
+   * 
    * @example
    * ModelScope
    */
   origin?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The provider. If you configure this parameter, only the models exposed by the provider are returned. If you leave this parameter empty, only models owned by the user are returned.
+   * 
    * @example
    * pai
    */
   provider?: string;
   /**
+   * @remarks
+   * The query condition. For example, if you set the value to nlp, all models that match ModelName, Domain, Task, LabelKey, and LabelValue are returned.
+   * 
    * @example
    * nlp
    */
   query?: string;
   /**
+   * @remarks
+   * The field used to sort the results. The GmtCreateTime field is used for sorting.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
+  tag?: ListModelsRequestTag[];
   /**
+   * @remarks
+   * The task used to filter the models that belong to the task type. Example: text-classification.
+   * 
    * @example
    * text-classification
    */
   task?: string;
   /**
+   * @remarks
+   * The workspace ID. Only models in this workspace are queried. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 324**
    */
@@ -13101,6 +15893,7 @@ export class ListModelsRequest extends $dara.Model {
       provider: 'Provider',
       query: 'Query',
       sortBy: 'SortBy',
+      tag: 'Tag',
       task: 'Task',
       workspaceId: 'WorkspaceId',
     };
@@ -13120,6 +15913,173 @@ export class ListModelsRequest extends $dara.Model {
       provider: 'string',
       query: 'string',
       sortBy: 'string',
+      tag: { 'type': 'array', 'itemType': ListModelsRequestTag },
+      task: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListModelsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The collection where the model is located. You can specify multiple collections and separate them with commas (,).
+   * 
+   * @example
+   * AI4D,QuickStart
+   */
+  collections?: string;
+  /**
+   * @remarks
+   * The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
+   * 
+   * @example
+   * nlp
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The label. Models whose label key or label value contains a specific label are filtered.
+   * 
+   * @example
+   * key1
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The model name used to filter the returned models.
+   */
+  modelName?: string;
+  /**
+   * @remarks
+   * The model type.
+   * 
+   * @example
+   * Endpoint
+   */
+  modelType?: string;
+  /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. Default value: ASC.
+   * 
+   * *   ASC
+   * *   DESC
+   * 
+   * @example
+   * DESC
+   */
+  order?: string;
+  /**
+   * @remarks
+   * The model source used to filter the models that belong to a community or organization, such as ModelScope and Hugging Face.
+   * 
+   * @example
+   * ModelScope
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The provider. If you configure this parameter, only the models exposed by the provider are returned. If you leave this parameter empty, only models owned by the user are returned.
+   * 
+   * @example
+   * pai
+   */
+  provider?: string;
+  /**
+   * @remarks
+   * The query condition. For example, if you set the value to nlp, all models that match ModelName, Domain, Task, LabelKey, and LabelValue are returned.
+   * 
+   * @example
+   * nlp
+   */
+  query?: string;
+  /**
+   * @remarks
+   * The field used to sort the results. The GmtCreateTime field is used for sorting.
+   * 
+   * @example
+   * GmtCreateTime
+   */
+  sortBy?: string;
+  tagShrink?: string;
+  /**
+   * @remarks
+   * The task used to filter the models that belong to the task type. Example: text-classification.
+   * 
+   * @example
+   * text-classification
+   */
+  task?: string;
+  /**
+   * @remarks
+   * The workspace ID. Only models in this workspace are queried. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * @example
+   * 324**
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collections: 'Collections',
+      domain: 'Domain',
+      label: 'Label',
+      modelName: 'ModelName',
+      modelType: 'ModelType',
+      order: 'Order',
+      origin: 'Origin',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      provider: 'Provider',
+      query: 'Query',
+      sortBy: 'SortBy',
+      tagShrink: 'Tag',
+      task: 'Task',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collections: 'string',
+      domain: 'string',
+      label: 'string',
+      modelName: 'string',
+      modelType: 'string',
+      order: 'string',
+      origin: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      provider: 'string',
+      query: 'string',
+      sortBy: 'string',
+      tagShrink: 'string',
       task: 'string',
       workspaceId: 'string',
     };
@@ -13135,13 +16095,23 @@ export class ListModelsRequest extends $dara.Model {
 }
 
 export class ListModelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The models.
+   */
   models?: Model[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of models.
+   * 
    * @example
    * 15
    */
@@ -13210,13 +16180,23 @@ export class ListModelsResponse extends $dara.Model {
 }
 
 export class ListPermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The permissions.
+   */
   permissions?: ListPermissionsResponseBodyPermissions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2AE63638-5420-56DC-B******8174039A0
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of permissions that meet the filter conditions.
+   * 
    * @example
    * 1
    */
@@ -13397,6 +16377,9 @@ export class ListProductsResponse extends $dara.Model {
 
 export class ListQuotasRequest extends $dara.Model {
   /**
+   * @remarks
+   * The quota name. Fuzzy search is supported.
+   * 
    * @example
    * quota-name
    */
@@ -13423,13 +16406,23 @@ export class ListQuotasRequest extends $dara.Model {
 }
 
 export class ListQuotasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned quotas.
+   */
   quotas?: ListQuotasResponseBodyQuotas[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of quotas that meet the filter conditions.
+   * 
    * @example
    * 1
    */
@@ -13499,45 +16492,123 @@ export class ListQuotasResponse extends $dara.Model {
 
 export class ListResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the resource group. You can call [ListResources](https://help.aliyun.com/document_detail/449143.html) to obtain the name of the resource group.
+   * 
    * @example
    * group
    */
   groupName?: string;
+  /**
+   * @remarks
+   * Tag-based filter conditions. Multiple conditions are separated by commas (,). Only resources that meet all the specified tag-based filter conditions are returned.
+   * 
+   * This parameter is available only for resources whose ProductType is ACS.
+   * 
+   * @example
+   * system.supported.dsw=true,system.supported.dlc=true
+   */
   labels?: string;
   /**
+   * @remarks
+   * The operation to perform. Valid values:
+   * 
+   * *   ListResourceByWorkspace: obtains the resources in the workspace. This is the default value.
+   * *   ListResource: obtains the resources of the user.
+   * 
    * @example
    * ListResourceByWorkspace
    */
   option?: string;
   /**
+   * @remarks
+   * The page number. The pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **This field is no longer used and will be removed. Use the ResourceType field instead.
+   * 
    * @example
    * MaxCompute
    */
   productTypes?: string;
+  /**
+   * @remarks
+   * The quota IDs, which are separated by commas (,). Only resources that contain all the specified quotas are returned.
+   * 
+   * >  This parameter is available only for resources whose ResourceTypes is ACS.
+   * 
+   * @example
+   * quota-k******da,quota-cd******w
+   */
   quotaIds?: string;
   /**
+   * @remarks
+   * The resource name. The value must meet the following requirements:
+   * 
+   * *   The name must be 3 to 28 characters in length.
+   * *   The name is unique in the region.
+   * 
    * @example
    * resource
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The resource types. Valid values:
+   * 
+   * *   MaxCompute
+   * *   ECS
+   * *   Lingjun
+   * *   ACS
+   * *   FLINK
+   * 
+   * @example
+   * MaxCompute
+   */
   resourceTypes?: string;
   /**
+   * @remarks
+   * Specifies whether to show detailed information, which includes the Quotas field. Valid values:
+   * 
+   * *   true (default)
+   * *   false
+   * 
    * @example
    * true
    */
   verbose?: boolean;
+  /**
+   * @remarks
+   * The fields to return. Multiple fields are separated by commas (,). Valid values:
+   * 
+   * *   Quota
+   * *   Label
+   * *   IsDefault
+   * 
+   * @example
+   * Quota,IsDefault
+   */
   verboseFields?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * *   This parameter is required when the Option parameter is set to ListResourceByWorkspace.
+   * *   You do not need to configure this parameter when the Option parameter is set to ListResource.
+   * 
    * @example
    * 123
    */
@@ -13587,12 +16658,22 @@ export class ListResourcesRequest extends $dara.Model {
 
 export class ListResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1e195c5116124202371861018d5bde
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resources.
+   */
   resources?: ListResourcesResponseBodyResources[];
   /**
+   * @remarks
+   * The number of resources that meet the filter conditions.
+   * 
    * @example
    * 2
    */
@@ -13663,6 +16744,8 @@ export class ListResourcesResponse extends $dara.Model {
 export class ListRunMetricsRequest extends $dara.Model {
   /**
    * @remarks
+   * The metric key of the run.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13670,11 +16753,17 @@ export class ListRunMetricsRequest extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The maximum number of entries in the request. Default value: 10.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token, which starts from 0. Default value: 0.
+   * 
    * @example
    * 0
    */
@@ -13705,8 +16794,15 @@ export class ListRunMetricsRequest extends $dara.Model {
 }
 
 export class ListRunMetricsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metrics.
+   */
   metrics?: RunMetric[];
   /**
+   * @remarks
+   * The pagination token that is used to retrieve the next page. You do not need to specify this parameter for the first request. You must specify the pagination token in the result of the previous query. If the pagination token is 0, no next page exists. You can obtain the pagination token that is used to retrieve the next page in the value of the **NextPageToken** field.
+   * 
    * @example
    * 0
    */
@@ -13784,76 +16880,135 @@ export class ListRunMetricsResponse extends $dara.Model {
 
 export class ListRunsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the experiment that the run belongs.
+   * 
    * @example
    * exp-1zpfthdx******
    */
   experimentId?: string;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * The label. Exact match is supported. Valid values:
+   * 
+   * *   Single-label query: Set the value to is_evaluation.
+   * *   Multi-label query (not recommended in non-special scenarios and may have performance issues): Set the value to is_evaluation:true,LLM_evaluation:true. Multiple labels are separated with commas (,), indicating that the key-value pairs of multiple labels must be matched at the same time.
+   * 
    * @example
    * is_evaluation:true
    */
   labels?: string;
   /**
+   * @remarks
+   * The maximum number of entries in the request. Default value: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The run name.
+   * 
    * @example
    * myName
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted by the specific field on the returned page. This parameter must be used together with SortBy.
+   * 
+   * *   ASC
+   * *   DESC (default)
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The strings by which the results are sorted. The following parameters can be used to sort the results: GmtCreateTime and Name. The sorting order can be ASC (default) and DESC. Separate multiple strings with commas (,).
+   * 
    * @example
    * GmtCreateTime DESC,Name ASC
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number. The value must be greater than 0. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The pagination token, which starts from 0. Default value: 0.
+   * 
    * @example
    * 0
    */
   pageToken?: number;
   /**
+   * @remarks
+   * The field used for sorting. Valid values:
+   * 
+   * *   Name: the name of the run.
+   * *   GmtCreateTime: the time when the run is created.
+   * 
    * @example
    * GmtCreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The ID of the workload associated with the run.
+   * 
    * @example
    * job-rbvg5wzlj****
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The type of the workload associated with the run.
+   * 
    * @example
    * TrainingService
    */
   sourceType?: string;
   /**
+   * @remarks
+   * Specifies whether to show detailed information, including Metrics, Params, and Labels. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
    * @example
    * true
    */
   verbose?: boolean;
   /**
+   * @remarks
+   * The ID of the workspace to which the experiment belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
+   * >  If you do not specify a workspace ID, the system returns the runs of the default workspace.
+   * 
    * @example
    * 22840
    */
@@ -13909,19 +17064,29 @@ export class ListRunsRequest extends $dara.Model {
 
 export class ListRunsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The pagination token that is used to retrieve the next page. You do not need to specify this parameter for the first request. You must specify the pagination token in the result of the previous query. If the pagination token is 0, no next page exists. You can obtain the pagination token that is used to retrieve the next page in the value of the **NextPageToken** field.
+   * 
    * @example
    * 0
    */
   nextPageToken?: number;
+  /**
+   * @remarks
+   * The runs.
+   */
   runs?: Run[];
   /**
+   * @remarks
+   * The total number of entries returned. By default, this parameter is not returned.
+   * 
    * @example
    * 1
    */
   totalCount?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ADF6D849-*****-7E7030F0CE53
@@ -14118,6 +17283,13 @@ export class ListUserConfigsResponse extends $dara.Model {
 }
 
 export class ListWorkspaceUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The display names of users who can be added to the workspace as members.
+   * 
+   * @example
+   * doctest****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14142,15 +17314,25 @@ export class ListWorkspaceUsersRequest extends $dara.Model {
 
 export class ListWorkspaceUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1e195c5116124202371861018d5bde
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of users who meet the filter conditions.
+   * 
    * @example
    * 2
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The users.
+   */
   users?: ListWorkspaceUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -14272,7 +17454,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID. To obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/zh/resource-management/resource-group/user-guide/view-basic-information-of-a-resource-group?spm=a2c4g.11186623.help-menu-94362.d_2_0_1.86386c21FKqhTk\\&scm=20140722.H_151181._.OR_help-T_cn~zh-V_1).
+   * The resource group ID. To obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmwp7rky****
@@ -14485,6 +17667,10 @@ export class ListWorkspacesResponse extends $dara.Model {
 }
 
 export class LogRunMetricsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The metrics.
+   */
   metrics?: RunMetric[];
   static names(): { [key: string]: string } {
     return {
@@ -14513,7 +17699,7 @@ export class LogRunMetricsRequest extends $dara.Model {
 export class LogRunMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ADF6D849-*****-7E7030F0CE53
@@ -14577,11 +17763,17 @@ export class LogRunMetricsResponse extends $dara.Model {
 
 export class PublishCodeSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the code source that is successfully published.
+   * 
    * @example
    * code-a797*******
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -14646,6 +17838,9 @@ export class PublishCodeSourceResponse extends $dara.Model {
 
 export class PublishDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0F049F0-8D69-5BAC-8F10-B******A34C
    */
@@ -14708,11 +17903,17 @@ export class PublishDatasetResponse extends $dara.Model {
 
 export class PublishImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * image-dk******fa
    */
   imageId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0F049F0-8D69-5BAC-8F10-B******A34C
    */
@@ -14777,6 +17978,9 @@ export class PublishImageResponse extends $dara.Model {
 
 export class RemoveImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -14839,6 +18043,9 @@ export class RemoveImageResponse extends $dara.Model {
 
 export class RemoveImageLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -14901,6 +18108,9 @@ export class RemoveImageLabelsResponse extends $dara.Model {
 
 export class RemoveMemberRoleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -14962,6 +18172,10 @@ export class RemoveMemberRoleResponse extends $dara.Model {
 }
 
 export class SetExperimentLabelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The tags.
+   */
   labels?: LabelInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -14989,6 +18203,9 @@ export class SetExperimentLabelsRequest extends $dara.Model {
 
 export class SetExperimentLabelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -15146,11 +18363,17 @@ export class SetUserConfigsResponse extends $dara.Model {
 
 export class StopDatasetJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 478**
    */
@@ -15180,6 +18403,9 @@ export class StopDatasetJobRequest extends $dara.Model {
 
 export class StopDatasetJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F620FFD3-FFDC-5873-A70C-6971CC45F467
    */
@@ -15242,17 +18468,62 @@ export class StopDatasetJobResponse extends $dara.Model {
 
 export class UpdateCodeSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the code branch.
+   * 
    * @example
    * dev
    */
   codeBranch?: string;
+  /**
+   * @remarks
+   * The code commit ID.
+   * 
+   * @example
+   * 3a6*****
+   */
   codeCommit?: string;
+  /**
+   * @remarks
+   * The address of the code repository.
+   * 
+   * @example
+   * https://code.aliyun.com/******
+   */
   codeRepo?: string;
+  /**
+   * @remarks
+   * The access token corresponding to the username.
+   * 
+   * @example
+   * ***
+   */
   codeRepoAccessToken?: string;
+  /**
+   * @remarks
+   * The username used to access the code repository.
+   * 
+   * @example
+   * demo-user
+   */
   codeRepoUserName?: string;
+  /**
+   * @remarks
+   * The description of the code build.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the code build.
+   * 
+   * @example
+   * MyCodeSource1
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The default mount path.
+   * 
    * @example
    * /root/code/code-source-1
    */
@@ -15294,11 +18565,17 @@ export class UpdateCodeSourceRequest extends $dara.Model {
 
 export class UpdateCodeSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the code build.
+   * 
    * @example
    * code-20********
    */
   codeSourceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -15362,14 +18639,32 @@ export class UpdateCodeSourceResponse extends $dara.Model {
 }
 
 export class UpdateDatasetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the dataset.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The list of role names in the workspace that have read and write permissions on the mounted database. The names start with PAI are basic role names and the names start with role- are custom role names. If the list contains asterisks (\\*), all roles have read and write permissions.
+   * 
+   * *   If you set the value to ["PAI.AlgoOperator", "role-hiuwpd01ncrokkgp21"], the account of the specified role is granted the read and write permissions.
+   * *   If you set the value to ["\\*"], all accounts are granted the read and write permissions.
+   * *   If you set the value to [], only the creator of the dataset has the read and write permissions.
+   */
   mountAccessReadWriteRoleIdList?: string[];
   /**
+   * @remarks
+   * The dataset name. You can call [ListDatasets](https://help.aliyun.com/document_detail/457222.html) to obtain the dataset name.
+   * 
    * @example
    * myName
    */
   name?: string;
   /**
+   * @remarks
+   * The extended field, which is a JSON string. When you use the dataset in Deep Learning Containers (DLC), you can configure the mountPath field to specify the default mount path of the dataset.
+   * 
    * @example
    * {
    *   "mountPath": "/mnt/data/"
@@ -15408,6 +18703,9 @@ export class UpdateDatasetRequest extends $dara.Model {
 
 export class UpdateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -15471,20 +18769,31 @@ export class UpdateDatasetResponse extends $dara.Model {
 export class UpdateDatasetFileMetasRequest extends $dara.Model {
   /**
    * @remarks
+   * The metadata records to be updated for the dataset files.
+   * 
    * This parameter is required.
    */
   datasetFileMetas?: DatasetFileMetaConentUpdate[];
   /**
+   * @remarks
+   * The dataset version.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
   /**
+   * @remarks
+   * The ID of the tagging job that is associated with the metadata tag of the dataset file.
+   * 
    * @example
    * dsjob-hv0b1****u8taig3y
    */
   tagJobId?: string;
   /**
+   * @remarks
+   * The ID of the workspace to which the dataset belongs. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 796**
    */
@@ -15520,13 +18829,23 @@ export class UpdateDatasetFileMetasRequest extends $dara.Model {
 }
 
 export class UpdateDatasetFileMetasResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata records that fail to be updated for the dataset files.
+   */
   failedDetails?: DatasetFileMetaResponse[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the metadata records of all dataset files were updated. Valid values: true and false. If the value is false, view the failure details specified by FailedDetails.
+   * 
    * @example
    * true
    */
@@ -15596,12 +18915,22 @@ export class UpdateDatasetFileMetasResponse extends $dara.Model {
 
 export class UpdateDatasetJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The dataset version name.
+   * 
    * @example
    * v1
    */
   datasetVersion?: string;
+  /**
+   * @remarks
+   * The dataset job description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 478**
    */
@@ -15633,6 +18962,9 @@ export class UpdateDatasetJobRequest extends $dara.Model {
 
 export class UpdateDatasetJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -15695,16 +19027,36 @@ export class UpdateDatasetJobResponse extends $dara.Model {
 
 export class UpdateDatasetJobConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration content. Formats:
+   * 
+   * *   MultimodalIntelligentTag
+   * 
+   * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
+   * 
+   * *   MultimodalSemanticIndex
+   * 
+   * { "defaultModelId": "xxx" "defaultModelVersion":"1.0.0" }
+   * 
    * @example
    * { "apiKey":"sk-xxxxxxxxxxxxxxxxxxxxx" }
    */
   config?: string;
   /**
+   * @remarks
+   * The configuration type.
+   * 
+   * *   MultimodalIntelligentTag
+   * *   MultimodalSemanticIndex
+   * 
    * @example
    * MultimodalSemanticIndex
    */
   configType?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 167497
    */
@@ -15736,6 +19088,9 @@ export class UpdateDatasetJobConfigRequest extends $dara.Model {
 
 export class UpdateDatasetJobConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5BFFEE3-6025-443F-8A03-02D619B5C4B9
    */
@@ -15906,6 +19261,9 @@ export class UpdateDatasetVersionResponse extends $dara.Model {
 
 export class UpdateDefaultWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
+   * 
    * @example
    * 12345
    */
@@ -15933,6 +19291,9 @@ export class UpdateDefaultWorkspaceRequest extends $dara.Model {
 
 export class UpdateDefaultWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 17915******4216
    */
@@ -15995,13 +19356,23 @@ export class UpdateDefaultWorkspaceResponse extends $dara.Model {
 
 export class UpdateExperimentRequest extends $dara.Model {
   /**
+   * @remarks
+   * The accessibility of the experiment in the workspace. Valid values:
+   * 
+   * *   PRIVATE: The experiment is accessible only to you and the administrator of the workspace.
+   * *   PUBLIC: The experiment is accessible to all users in the workspace.
+   * 
    * @example
    * PRIVATE
    */
   accessibility?: string;
   /**
    * @remarks
-   * 名称
+   * The experiment name. The name must meet the following requirements:
+   * 
+   * *   The name must start with a letter.
+   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
+   * *   The name must be 1 to 63 characters in length.
    * 
    * @example
    * myName
@@ -16032,6 +19403,9 @@ export class UpdateExperimentRequest extends $dara.Model {
 
 export class UpdateExperimentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -16094,39 +19468,86 @@ export class UpdateExperimentResponse extends $dara.Model {
 
 export class UpdateModelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the model in the workspace. Valid values:
+   * 
+   * *   PRIVATE: The model is visible only to you and the administrator of the workspace.
+   * *   PUBLIC: The model is visible to all users in the workspace.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
+   * @remarks
+   * The domain. This parameter describes the domain in which the model is applied. Valid values: nlp (natural language processing) and cv (computer vision).
+   * 
    * @example
    * nlp
    */
   domain?: string;
+  /**
+   * @remarks
+   * Other information about the model.
+   * 
+   * @example
+   * {
+   * 	"RatingCount": 2866,
+   * 	"Rating": 4.94,
+   * 	"FavoriteCount": 34992,
+   * 	"CommentCount": 754,
+   * 	"CoverUris": ["https://e***u.oss-cn-hangzhou.aliyuncs.com/drea***w.png"],
+   * 	"TippedAmountCount": 32,
+   * 	"DownloadCount": 606056
+   * }
+   */
   extraInfo?: { [key: string]: any };
+  /**
+   * @remarks
+   * The model description.
+   */
   modelDescription?: string;
   /**
+   * @remarks
+   * The documentation of the model.
+   * 
    * @example
    * https://*.md
    */
   modelDoc?: string;
+  /**
+   * @remarks
+   * The model name, which must be 1 to 127 characters in length.
+   */
   modelName?: string;
   /**
+   * @remarks
+   * The model type. Valid values: Checkpoint and LoRA.
+   * 
    * @example
    * Checkpoint
    */
   modelType?: string;
   /**
+   * @remarks
+   * The sequence number of the model. This parameter can be used for custom sorting.
+   * 
    * @example
-   * 101
+   * 0
    */
   orderNumber?: number;
   /**
+   * @remarks
+   * The source of the model. This parameter describes the community or organization to which the source model belongs. Valid values: ModelScope and HuggingFace.
+   * 
    * @example
    * ModelScope
    */
   origin?: string;
   /**
+   * @remarks
+   * The task. This parameter specifies the specific issue that the model resolves. Example: text-classification.
+   * 
    * @example
    * text-classification
    */
@@ -16175,6 +19596,9 @@ export class UpdateModelRequest extends $dara.Model {
 
 export class UpdateModelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A0F049F0-8D69-5BAC-8F10-B******A34C
    */
@@ -16237,55 +19661,130 @@ export class UpdateModelResponse extends $dara.Model {
 
 export class UpdateModelVersionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The approval status. Valid values:
+   * 
+   * *   Pending
+   * *   Approved
+   * *   Rejected
+   * 
    * @example
    * Approved
    */
   approvalStatus?: string;
   /**
+   * @remarks
+   * The compression configuration.
+   * 
    * @example
    * {}
    */
   compressionSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * The evaluation configuration.
+   * 
    * @example
    * {}
    */
   evaluationSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * The additional information.
+   * 
    * @example
-   * {}
+   * {
+   * 	"CoverUris": ["https://e***u.oss-cn-hangzhou.aliyuncs.com/st****017.preview.png"],
+   * 	"TrainedWords": ["albedo_overlord"]
+   * }
    */
   extraInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * Describes how to apply to downstream inference services. For example, describes the processor and container of Elastic Algorithm Service (EAS). Example: `{ "processor": "tensorflow_gpu_1.12" }`.
+   * 
    * @example
    * {     "processor": "tensorflow_gpu_1.12" }
    */
   inferenceSpec?: { [key: string]: any };
   /**
+   * @remarks
+   * The model metrics. The length after serialization is limited to 8,192.
+   * 
    * @example
-   * {}
+   * {
+   *   "Results": [{
+   *     "Dataset": {
+   *       "DatasetId": "d-sdkjanksaklerhfd"
+   *     },
+   *     "Metrics": {
+   *       "cer": 0.175
+   *     }
+   *   }, {
+   *     "Dataset": {
+   *       "Uri": "oss://xxxx/"
+   *     },
+   *     "Metrics": {
+   *       "cer": 0.172
+   *     }
+   *   }]
+   * }
    */
   metrics?: { [key: string]: any };
   /**
+   * @remarks
+   * The extended field, which is of the JsonString type.
+   * 
    * @example
    * {}
    */
   options?: string;
   /**
+   * @remarks
+   * The source ID.
+   * 
+   * *   If the source type is Custom, this field is not limited.
+   * *   If the source type is PAIFlow or TrainingService, the format is:
+   * 
+   * <!---->
+   * 
+   *     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+   * 
+   * Take note of the following parameters:
+   * 
+   * *   region is the region ID.
+   * *   workspaceId is the ID of the workspace.
+   * *   kind is the type. Valid values: PipelineRun (PAIFlow) and ServiceJob (training service).
+   * *   id is a unique identifier.
+   * 
    * @example
    * region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
    */
   sourceId?: string;
   /**
+   * @remarks
+   * The type of the model source. Valid values:
+   * 
+   * *   Custom (default)
+   * *   PAIFlow
+   * *   TrainingService
+   * 
    * @example
    * PAIFlow
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The training configurations used for fine-tuning and incremental training.
+   * 
    * @example
    * {}
    */
   trainingSpec?: { [key: string]: any };
+  /**
+   * @remarks
+   * The model version description.
+   */
   versionDescription?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16348,6 +19847,9 @@ export class UpdateModelVersionRequest extends $dara.Model {
 
 export class UpdateModelVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D5BFFEE3-6025-443F-8A03-02D61***C4B9
    */
@@ -16529,11 +20031,21 @@ export class UpdateRunResponse extends $dara.Model {
 
 export class UpdateWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace description.
+   * 
    * @example
    * Description
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the workspace.
+   * 
+   * *   The name must be 3 to 23 characters in length, and can contain letters, underscores (_), and digits.
+   * *   The name must start with a letter.
+   * *   The name must be unique in the current region.
+   * 
    * @example
    * workspace-example
    */
@@ -16563,6 +20075,9 @@ export class UpdateWorkspaceRequest extends $dara.Model {
 
 export class UpdateWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
@@ -16625,23 +20140,64 @@ export class UpdateWorkspaceResponse extends $dara.Model {
 
 export class UpdateWorkspaceResourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The group name.
+   * 
    * @example
    * group-kjds******sd
    */
   groupName?: string;
   /**
+   * @remarks
+   * Specifies whether the resource is the default resource. This parameter can only be set to true and cannot be set to false.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The resource tags. If you specify multiple tags, only resources that meet all the specified tag-based filter conditions are returned.
+   */
   labels?: UpdateWorkspaceResourceRequestLabels[];
   /**
+   * @remarks
+   * **This field is no longer used and will be removed. Use the ResourceType field.
+   * 
    * @example
    * MaxCompute
    */
   productType?: string;
+  /**
+   * @remarks
+   * The resource IDs.
+   * 
+   * You cannot leave both GroupName and ResourceIds empty. If you specify both the parameters, the value of GroupName of each resource ID in the dataset must be the same.
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * *   MaxCompute
+   * *   ECS
+   * *   Lingjun
+   * *   ACS
+   * *   FLINK
+   * 
+   * @example
+   * MaxCompute
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The specification of the resource.
+   * 
+   * @example
+   * {
+   *       "clusterType": "share"
+   * }
+   */
   spec?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -16687,10 +20243,20 @@ export class UpdateWorkspaceResourceRequest extends $dara.Model {
 
 export class UpdateWorkspaceResourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The updated resource IDs.
+   * 
+   * @example
+   * Resource-dks******jkf
+   */
   resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -16777,7 +20343,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受并处理Dataworks发送的事件
+   * Receives and processes system event messages sent by DataWorks.
+   * 
+   * @remarks
+   * This operation can be called only by the internal system and cannot be called by external users.
    * 
    * @param request - AcceptDataworksEventRequest
    * @param headers - map
@@ -16814,7 +20383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受并处理Dataworks发送的事件
+   * Receives and processes system event messages sent by DataWorks.
+   * 
+   * @remarks
+   * This operation can be called only by the internal system and cannot be called by external users.
    * 
    * @param request - AcceptDataworksEventRequest
    * @returns AcceptDataworksEventResponse
@@ -16826,7 +20398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加 Image
+   * Adds a custom image to a workspace.
    * 
    * @param request - AddImageRequest
    * @param headers - map
@@ -16895,7 +20467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加 Image
+   * Adds a custom image to a workspace.
    * 
    * @param request - AddImageRequest
    * @returns AddImageResponse
@@ -16907,7 +20479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加 Image 的标签
+   * Adds tags to an image.
    * 
    * @param request - AddImageLabelsRequest
    * @param headers - map
@@ -16940,7 +20512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加 Image 的标签
+   * Adds tags to an image.
    * 
    * @param request - AddImageLabelsRequest
    * @returns AddImageLabelsResponse
@@ -16952,7 +20524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加成员角色
+   * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16977,7 +20549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加成员角色
+   * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
    * @returns AddMemberRoleResponse
    */
   async addMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<AddMemberRoleResponse> {
@@ -16987,7 +20559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更改资源组
+   * Changes the resource group to which a resource belongs based on the ID.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -17028,7 +20600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更改资源组
+   * Changes the resource group to which a resource belongs based on the ID.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -17040,7 +20612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个代码源配置
+   * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
    * 
    * @param request - CreateCodeSourceRequest
    * @param headers - map
@@ -17109,7 +20681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个代码源配置
+   * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
    * 
    * @param request - CreateCodeSourceRequest
    * @returns CreateCodeSourceResponse
@@ -17121,7 +20693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集
+   * Creates a dataset.
    * 
    * @param request - CreateDatasetRequest
    * @param headers - map
@@ -17242,7 +20814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集
+   * Creates a dataset.
    * 
    * @param request - CreateDatasetRequest
    * @returns CreateDatasetResponse
@@ -17254,7 +20826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建数据集下的文件元数据记录
+   * Creates the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @param headers - map
@@ -17295,7 +20867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建数据集下的文件元数据记录
+   * Creates the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - CreateDatasetFileMetasRequest
    * @returns CreateDatasetFileMetasResponse
@@ -17307,7 +20879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集任务
+   * Creates a dataset job.
    * 
    * @param request - CreateDatasetJobRequest
    * @param headers - map
@@ -17360,7 +20932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集任务
+   * Creates a dataset job.
    * 
    * @param request - CreateDatasetJobRequest
    * @returns CreateDatasetJobResponse
@@ -17372,7 +20944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集任务配置
+   * Creates a job configuration for a dataset.
    * 
    * @param request - CreateDatasetJobConfigRequest
    * @param headers - map
@@ -17413,7 +20985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集任务配置
+   * Creates a job configuration for a dataset.
    * 
    * @param request - CreateDatasetJobConfigRequest
    * @returns CreateDatasetJobConfigResponse
@@ -17425,7 +20997,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新 Dataset 的标签
+   * Creates tags for a dataset.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
+   * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
    * 
    * @param request - CreateDatasetLabelsRequest
    * @param headers - map
@@ -17458,7 +21035,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新 Dataset 的标签
+   * Creates tags for a dataset.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
+   * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
    * 
    * @param request - CreateDatasetLabelsRequest
    * @returns CreateDatasetLabelsResponse
@@ -17600,7 +21182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实验
+   * Creates an experiment.
    * 
    * @param request - CreateExperimentRequest
    * @param headers - map
@@ -17649,7 +21231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实验
+   * Creates an experiment.
    * 
    * @param request - CreateExperimentRequest
    * @returns CreateExperimentResponse
@@ -17661,7 +21243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建成员
+   * Adds a user to a workspace as a member. You can add multiple users as members.
    * 
    * @param request - CreateMemberRequest
    * @param headers - map
@@ -17694,7 +21276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建成员
+   * Adds a user to a workspace as a member. You can add multiple users as members.
    * 
    * @param request - CreateMemberRequest
    * @returns CreateMemberResponse
@@ -17754,6 +21336,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.origin)) {
       body["Origin"] = request.origin;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!$dara.isNull(request.task)) {
@@ -17945,7 +21531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新模型版本的标签
+   * Creates a tag for a model version.
    * 
    * @param request - CreateModelVersionLabelsRequest
    * @param headers - map
@@ -17978,7 +21564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或更新模型版本的标签
+   * Creates a tag for a model version.
    * 
    * @param request - CreateModelVersionLabelsRequest
    * @returns CreateModelVersionLabelsResponse
@@ -18165,7 +21751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源
+   * Associates resources with a workspace.
    * 
    * @param request - CreateWorkspaceResourceRequest
    * @param headers - map
@@ -18202,7 +21788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源
+   * Associates resources with a workspace.
    * 
    * @param request - CreateWorkspaceResourceRequest
    * @returns CreateWorkspaceResourceResponse
@@ -18249,7 +21835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集
+   * Deletes a dataset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18274,7 +21860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集
+   * Deletes a dataset.
    * @returns DeleteDatasetResponse
    */
   async deleteDataset(DatasetId: string): Promise<DeleteDatasetResponse> {
@@ -18284,7 +21870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除数据集下的文件元数据记录
+   * Deletes the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - DeleteDatasetFileMetasRequest
    * @param headers - map
@@ -18325,7 +21911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除数据集下的文件元数据记录
+   * Deletes the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - DeleteDatasetFileMetasRequest
    * @returns DeleteDatasetFileMetasResponse
@@ -18337,7 +21923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集任务
+   * Deletes a dataset job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18362,7 +21948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集任务
+   * Deletes a dataset job.
    * @returns DeleteDatasetJobResponse
    */
   async deleteDatasetJob(DatasetId: string, DatasetJobId: string): Promise<DeleteDatasetJobResponse> {
@@ -18372,7 +21958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集任务配置
+   * Deletes a job configuration for a dataset.
    * 
    * @param request - DeleteDatasetJobConfigRequest
    * @param headers - map
@@ -18405,7 +21991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集任务配置
+   * Deletes a job configuration for a dataset.
    * 
    * @param request - DeleteDatasetJobConfigRequest
    * @returns DeleteDatasetJobConfigResponse
@@ -18417,7 +22003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Dataset 的标签
+   * Deletes a dataset tag.
    * 
    * @param request - DeleteDatasetLabelsRequest
    * @param headers - map
@@ -18450,7 +22036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Dataset 的标签
+   * Deletes a dataset tag.
    * 
    * @param request - DeleteDatasetLabelsRequest
    * @returns DeleteDatasetLabelsResponse
@@ -18497,7 +22083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集版本的标签。
+   * Deletes tags for a dataset version.
    * 
    * @param request - DeleteDatasetVersionLabelsRequest
    * @param headers - map
@@ -18530,7 +22116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集版本的标签。
+   * Deletes tags for a dataset version.
    * 
    * @param request - DeleteDatasetVersionLabelsRequest
    * @returns DeleteDatasetVersionLabelsResponse
@@ -18542,7 +22128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实验
+   * Deletes an experiment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18567,7 +22153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实验
+   * Deletes an experiment.
    * @returns DeleteExperimentResponse
    */
   async deleteExperiment(ExperimentId: string): Promise<DeleteExperimentResponse> {
@@ -18577,7 +22163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实验标签
+   * Deletes an experiment tag.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18602,7 +22188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实验标签
+   * Deletes an experiment tag.
    * @returns DeleteExperimentLabelResponse
    */
   async deleteExperimentLabel(ExperimentId: string, Key: string): Promise<DeleteExperimentLabelResponse> {
@@ -18692,7 +22278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型的标签
+   * Deletes the labels of a model.
    * 
    * @param request - DeleteModelLabelsRequest
    * @param headers - map
@@ -18725,7 +22311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型的标签
+   * Deletes the labels of a model.
    * 
    * @param request - DeleteModelLabelsRequest
    * @returns DeleteModelLabelsResponse
@@ -18737,7 +22323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型版本
+   * Deletes a model version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18762,7 +22348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型版本
+   * Deletes a model version.
    * @returns DeleteModelVersionResponse
    */
   async deleteModelVersion(ModelId: string, VersionName: string): Promise<DeleteModelVersionResponse> {
@@ -18852,7 +22438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Run标签
+   * Deletes a tag that is added to a run.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18877,7 +22463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Run标签
+   * Deletes a tag that is added to a run.
    * @returns DeleteRunLabelResponse
    */
   async deleteRunLabel(RunId: string, Key: string): Promise<DeleteRunLabelResponse> {
@@ -18932,7 +22518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18957,7 +22543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
    * @returns DeleteWorkspaceResponse
    */
   async deleteWorkspace(WorkspaceId: string): Promise<DeleteWorkspaceResponse> {
@@ -18967,7 +22553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间资源
+   * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
    * 
    * @param request - DeleteWorkspaceResourceRequest
    * @param headers - map
@@ -19020,7 +22606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间资源
+   * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
    * 
    * @param request - DeleteWorkspaceResourceRequest
    * @returns DeleteWorkspaceResourceResponse
@@ -19067,7 +22653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集
+   * Obtains a dataset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19092,7 +22678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集
+   * Obtains a dataset.
    * @returns GetDatasetResponse
    */
   async getDataset(DatasetId: string): Promise<GetDatasetResponse> {
@@ -19102,7 +22688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集下的指定文件元数据记录
+   * Queries the metadata records of specific files in a dataset.
    * 
    * @param request - GetDatasetFileMetaRequest
    * @param headers - map
@@ -19139,7 +22725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集下的指定文件元数据记录
+   * Queries the metadata records of specific files in a dataset.
    * 
    * @param request - GetDatasetFileMetaRequest
    * @returns GetDatasetFileMetaResponse
@@ -19151,7 +22737,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务
+   * 获取数据集下元数据的统计信息。
+   * 
+   * @param request - GetDatasetFileMetasStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetFileMetasStatisticsResponse
+   */
+  async getDatasetFileMetasStatisticsWithOptions(DatasetId: string, request: GetDatasetFileMetasStatisticsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetDatasetFileMetasStatisticsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aggregateBy)) {
+      query["AggregateBy"] = request.aggregateBy;
+    }
+
+    if (!$dara.isNull(request.datasetVersion)) {
+      query["DatasetVersion"] = request.datasetVersion;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatasetFileMetasStatistics",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/statistics/datasets/${$dara.URL.percentEncode(DatasetId)}/datasetfilemetas`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<GetDatasetFileMetasStatisticsResponse>(await this.callApi(params, req, runtime), new GetDatasetFileMetasStatisticsResponse({}));
+  }
+
+  /**
+   * 获取数据集下元数据的统计信息。
+   * 
+   * @param request - GetDatasetFileMetasStatisticsRequest
+   * @returns GetDatasetFileMetasStatisticsResponse
+   */
+  async getDatasetFileMetasStatistics(DatasetId: string, request: GetDatasetFileMetasStatisticsRequest): Promise<GetDatasetFileMetasStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatasetFileMetasStatisticsWithOptions(DatasetId, request, headers, runtime);
+  }
+
+  /**
+   * Obtains a dataset job.
    * 
    * @param request - GetDatasetJobRequest
    * @param headers - map
@@ -19188,7 +22831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务
+   * Obtains a dataset job.
    * 
    * @param request - GetDatasetJobRequest
    * @returns GetDatasetJobResponse
@@ -19200,7 +22843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务配置
+   * Obtains a job configuration for a dataset.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @param headers - map
@@ -19233,7 +22876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务配置
+   * Obtains a job configuration for a dataset.
    * 
    * @param request - GetDatasetJobConfigRequest
    * @returns GetDatasetJobConfigResponse
@@ -19245,7 +22888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定版本的数据集信息
+   * Obtains the information about a specified version of a dataset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19270,7 +22913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定版本的数据集信息
+   * Obtains the information about a specified version of a dataset.
    * @returns GetDatasetVersionResponse
    */
   async getDatasetVersion(DatasetId: string, VersionName: string): Promise<GetDatasetVersionResponse> {
@@ -19280,7 +22923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取默认工作空间
+   * Queries information about the default workspace.
    * 
    * @param request - GetDefaultWorkspaceRequest
    * @param headers - map
@@ -19313,7 +22956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取默认工作空间
+   * Queries information about the default workspace.
    * 
    * @param request - GetDefaultWorkspaceRequest
    * @returns GetDefaultWorkspaceResponse
@@ -19370,7 +23013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取镜像
+   * Obtains the information about an image.
    * 
    * @param request - GetImageRequest
    * @param headers - map
@@ -19403,7 +23046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取镜像
+   * Obtains the information about an image.
    * 
    * @param request - GetImageRequest
    * @returns GetImageResponse
@@ -19415,7 +23058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取成员
+   * Obtains a member in a workspace.
    * 
    * @param request - GetMemberRequest
    * @param headers - map
@@ -19452,7 +23095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取成员
+   * Obtains a member in a workspace.
    * 
    * @param request - GetMemberRequest
    * @returns GetMemberResponse
@@ -19464,7 +23107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型
+   * Obtains the details of a specified model.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19489,7 +23132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型
+   * Obtains the details of a specified model.
    * @returns GetModelResponse
    */
   async getModel(ModelId: string): Promise<GetModelResponse> {
@@ -19499,7 +23142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型版本
+   * Queries a model version.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19524,7 +23167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型版本
+   * Queries a model version.
    * @returns GetModelVersionResponse
    */
   async getModelVersion(ModelId: string, VersionName: string): Promise<GetModelVersionResponse> {
@@ -19534,7 +23177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限，若无权限则返回错误
+   * Obtains permissions on a workspace.
    * 
    * @param tmpReq - GetPermissionRequest
    * @param headers - map
@@ -19589,7 +23232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限，若无权限则返回错误
+   * Obtains permissions on a workspace.
    * 
    * @param request - GetPermissionRequest
    * @returns GetPermissionResponse
@@ -19601,7 +23244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run详情
+   * Queries the run information.
    * 
    * @param request - GetRunRequest
    * @param headers - map
@@ -19634,7 +23277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run详情
+   * Queries the run information.
    * 
    * @param request - GetRunRequest
    * @returns GetRunResponse
@@ -19646,7 +23289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间
+   * Queries the details about a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @param headers - map
@@ -19679,7 +23322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间
+   * Queries the details about a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -19691,7 +23334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码源配置列表
+   * Lists code sources. Pagination, sorting, and filtering by condition are supported.
    * 
    * @param request - ListCodeSourcesRequest
    * @param headers - map
@@ -19744,7 +23387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码源配置列表
+   * Lists code sources. Pagination, sorting, and filtering by condition are supported.
    * 
    * @param request - ListCodeSourcesRequest
    * @returns ListCodeSourcesResponse
@@ -19756,7 +23399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集文件列表
+   * Queries a list of dataset files.
    * 
    * @param tmpReq - ListDatasetFileMetasRequest
    * @param headers - map
@@ -19895,7 +23538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据集文件列表
+   * Queries a list of dataset files.
    * 
    * @param request - ListDatasetFileMetasRequest
    * @returns ListDatasetFileMetasResponse
@@ -19907,7 +23550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询数据集任务配置
+   * Queries the dataset job configurations at a time.
    * 
    * @param request - ListDatasetJobConfigsRequest
    * @param headers - map
@@ -19952,7 +23595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询数据集任务配置
+   * Queries the dataset job configurations at a time.
    * 
    * @param request - ListDatasetJobConfigsRequest
    * @returns ListDatasetJobConfigsResponse
@@ -19964,7 +23607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务
+   * Lists jobs in a dataset.
    * 
    * @param request - ListDatasetJobsRequest
    * @param headers - map
@@ -20013,7 +23656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集任务
+   * Lists jobs in a dataset.
    * 
    * @param request - ListDatasetJobsRequest
    * @returns ListDatasetJobsResponse
@@ -20025,7 +23668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集版本列表
+   * Lists dataset versions.
    * 
    * @param request - ListDatasetVersionsRequest
    * @param headers - map
@@ -20090,7 +23733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集版本列表
+   * Lists dataset versions.
    * 
    * @param request - ListDatasetVersionsRequest
    * @returns ListDatasetVersionsResponse
@@ -20102,7 +23745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集列表
+   * Lists the datasets in a workspace.
    * 
    * @param request - ListDatasetsRequest
    * @param headers - map
@@ -20187,7 +23830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集列表
+   * Lists the datasets in a workspace.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -20199,7 +23842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实验列表
+   * Lists experiments.
    * 
    * @param tmpReq - ListExperimentRequest
    * @param headers - map
@@ -20282,7 +23925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实验列表
+   * Lists experiments.
    * 
    * @param request - ListExperimentRequest
    * @returns ListExperimentResponse
@@ -20355,7 +23998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举已注册镜像
+   * Queries a list of images.
    * 
    * @param request - ListImagesRequest
    * @param headers - map
@@ -20428,7 +24071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举已注册镜像
+   * Queries a list of images.
    * 
    * @param request - ListImagesRequest
    * @returns ListImagesResponse
@@ -20440,7 +24083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举工作空间成员
+   * Obtains the members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -20485,7 +24128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举工作空间成员
+   * Obtains the members in a workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -20497,7 +24140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型版本列表
+   * Queries a list of model versions.
    * 
    * @param request - ListModelVersionsRequest
    * @param headers - map
@@ -20570,7 +24213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型版本列表
+   * Queries a list of model versions.
    * 
    * @param request - ListModelVersionsRequest
    * @returns ListModelVersionsResponse
@@ -20582,15 +24225,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型列表
+   * Queries a list of models.
    * 
-   * @param request - ListModelsRequest
+   * @param tmpReq - ListModelsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListModelsResponse
    */
-  async listModelsWithOptions(request: ListModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListModelsResponse> {
-    request.validate();
+  async listModelsWithOptions(tmpReq: ListModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListModelsResponse> {
+    tmpReq.validate();
+    let request = new ListModelsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.collections)) {
       query["Collections"] = request.collections;
@@ -20640,6 +24289,10 @@ export default class Client extends OpenApi {
       query["SortBy"] = request.sortBy;
     }
 
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
     if (!$dara.isNull(request.task)) {
       query["Task"] = request.task;
     }
@@ -20667,7 +24320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模型列表
+   * Queries a list of models.
    * 
    * @param request - ListModelsRequest
    * @returns ListModelsResponse
@@ -20679,7 +24332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举权限
+   * Lists the permissions that a user has in a workspace.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20704,7 +24357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举权限
+   * Lists the permissions that a user has in a workspace.
    * @returns ListPermissionsResponse
    */
   async listPermissions(WorkspaceId: string): Promise<ListPermissionsResponse> {
@@ -20767,7 +24420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已有配额列表
+   * Obtains the list of quotas.
    * 
    * @param request - ListQuotasRequest
    * @param headers - map
@@ -20800,7 +24453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已有配额列表
+   * Obtains the list of quotas.
    * 
    * @param request - ListQuotasRequest
    * @returns ListQuotasResponse
@@ -20812,7 +24465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举工作空间资源
+   * Queries the resources that are associated with a workspace.
    * 
    * @param request - ListResourcesRequest
    * @param headers - map
@@ -20889,7 +24542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举工作空间资源
+   * Queries the resources that are associated with a workspace.
    * 
    * @param request - ListResourcesRequest
    * @returns ListResourcesResponse
@@ -20901,7 +24554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run的指标记录列表
+   * Lists the metrics for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @param headers - map
@@ -20942,7 +24595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run的指标记录列表
+   * Lists the metrics for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @returns ListRunMetricsResponse
@@ -20954,7 +24607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run列表
+   * Queries a list of runs.
    * 
    * @param request - ListRunsRequest
    * @param headers - map
@@ -21043,7 +24696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Run列表
+   * Queries a list of runs.
    * 
    * @param request - ListRunsRequest
    * @returns ListRunsResponse
@@ -21104,7 +24757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作空间的可变为成员的用户
+   * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @param headers - map
@@ -21137,7 +24790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作空间的可变为成员的用户
+   * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
    * 
    * @param request - ListWorkspaceUsersRequest
    * @returns ListWorkspaceUsersResponse
@@ -21244,7 +24897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量记录Run的指标
+   * Logs multiple metrics for a run at a time.
    * 
    * @param request - LogRunMetricsRequest
    * @param headers - map
@@ -21277,7 +24930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量记录Run的指标
+   * Logs multiple metrics for a run at a time.
    * 
    * @param request - LogRunMetricsRequest
    * @returns LogRunMetricsResponse
@@ -21289,7 +24942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布一个代码源配置为本工作空间下所有人可见
+   * Publishes a private code source to a workspace to make the code source publicly accessible.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21314,7 +24967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布一个代码源配置为本工作空间下所有人可见
+   * Publishes a private code source to a workspace to make the code source publicly accessible.
    * @returns PublishCodeSourceResponse
    */
   async publishCodeSource(CodeSourceId: string): Promise<PublishCodeSourceResponse> {
@@ -21324,7 +24977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集
+   * Publishes a private dataset in a workspace.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21349,7 +25002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集
+   * Publishes a private dataset in a workspace.
    * @returns PublishDatasetResponse
    */
   async publishDataset(DatasetId: string): Promise<PublishDatasetResponse> {
@@ -21359,7 +25012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布 Image
+   * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21384,7 +25037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布 Image
+   * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
    * @returns PublishImageResponse
    */
   async publishImage(ImageId: string): Promise<PublishImageResponse> {
@@ -21394,7 +25047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Image
+   * Removes an image.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21419,7 +25072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Image
+   * Removes an image.
    * @returns RemoveImageResponse
    */
   async removeImage(ImageId: string): Promise<RemoveImageResponse> {
@@ -21429,7 +25082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Image 的标签
+   * Removes an image tag.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21454,7 +25107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Image 的标签
+   * Removes an image tag.
    * @returns RemoveImageLabelsResponse
    */
   async removeImageLabels(ImageId: string, LabelKey: string): Promise<RemoveImageLabelsResponse> {
@@ -21464,7 +25117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除成员角色
+   * Removes a member role.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21489,7 +25142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除成员角色
+   * Removes a member role.
    * @returns RemoveMemberRoleResponse
    */
   async removeMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<RemoveMemberRoleResponse> {
@@ -21499,7 +25152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实验标签
+   * Updates a experiment tag.
    * 
    * @param request - SetExperimentLabelsRequest
    * @param headers - map
@@ -21532,7 +25185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实验标签
+   * Updates a experiment tag.
    * 
    * @param request - SetExperimentLabelsRequest
    * @returns SetExperimentLabelsResponse
@@ -21589,7 +25242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止数据集任务
+   * Stops a dataset job.
    * 
    * @param request - StopDatasetJobRequest
    * @param headers - map
@@ -21626,7 +25279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止数据集任务
+   * Stops a dataset job.
    * 
    * @param request - StopDatasetJobRequest
    * @returns StopDatasetJobResponse
@@ -21638,7 +25291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新代码配置
+   * Updates a code build.
    * 
    * @param request - UpdateCodeSourceRequest
    * @param headers - map
@@ -21699,7 +25352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新代码配置
+   * Updates a code build.
    * 
    * @param request - UpdateCodeSourceRequest
    * @returns UpdateCodeSourceResponse
@@ -21711,7 +25364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集
+   * Updates the name, description, and other information about a dataset.
    * 
    * @param request - UpdateDatasetRequest
    * @param headers - map
@@ -21756,7 +25409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集
+   * Updates the name, description, and other information about a dataset.
    * 
    * @param request - UpdateDatasetRequest
    * @returns UpdateDatasetResponse
@@ -21768,7 +25421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新数据集下的文件元数据记录
+   * Updates the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - UpdateDatasetFileMetasRequest
    * @param headers - map
@@ -21813,7 +25466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新数据集下的文件元数据记录
+   * Updates the metadata records of multiple files in a dataset at a time.
    * 
    * @param request - UpdateDatasetFileMetasRequest
    * @returns UpdateDatasetFileMetasResponse
@@ -21825,7 +25478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集任务
+   * Updates a dataset job.
    * 
    * @param request - UpdateDatasetJobRequest
    * @param headers - map
@@ -21866,7 +25519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集任务
+   * Updates a dataset job.
    * 
    * @param request - UpdateDatasetJobRequest
    * @returns UpdateDatasetJobResponse
@@ -21878,7 +25531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集任务配置
+   * Updates a job configuration for a dataset.
    * 
    * @param request - UpdateDatasetJobConfigRequest
    * @param headers - map
@@ -21919,7 +25572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集任务配置
+   * Updates a job configuration for a dataset.
    * 
    * @param request - UpdateDatasetJobConfigRequest
    * @returns UpdateDatasetJobConfigResponse
@@ -21988,7 +25641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新默认工作空间
+   * Specifies a workspace as the default workspace.
    * 
    * @param request - UpdateDefaultWorkspaceRequest
    * @param headers - map
@@ -22021,7 +25674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新默认工作空间
+   * Specifies a workspace as the default workspace.
    * 
    * @param request - UpdateDefaultWorkspaceRequest
    * @returns UpdateDefaultWorkspaceResponse
@@ -22033,7 +25686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实验
+   * Updates an experiment.
    * 
    * @param request - UpdateExperimentRequest
    * @param headers - map
@@ -22070,7 +25723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实验
+   * Updates an experiment.
    * 
    * @param request - UpdateExperimentRequest
    * @returns UpdateExperimentResponse
@@ -22082,7 +25735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the basic configuration information about a model.
    * 
    * @param request - UpdateModelRequest
    * @param headers - map
@@ -22151,7 +25804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型
+   * Updates the basic configuration information about a model.
    * 
    * @param request - UpdateModelRequest
    * @returns UpdateModelResponse
@@ -22163,7 +25816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型版本
+   * Updates a model version.
    * 
    * @param request - UpdateModelVersionRequest
    * @param headers - map
@@ -22236,7 +25889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新模型版本
+   * Updates a model version.
    * 
    * @param request - UpdateModelVersionRequest
    * @returns UpdateModelVersionResponse
@@ -22301,7 +25954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates the name and description of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @param headers - map
@@ -22338,7 +25991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates the name and description of a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse
@@ -22350,7 +26003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间资源
+   * Updates the resources of a workspace.
    * 
    * @param request - UpdateWorkspaceResourceRequest
    * @param headers - map
@@ -22407,7 +26060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间资源
+   * Updates the resources of a workspace.
    * 
    * @param request - UpdateWorkspaceResourceRequest
    * @returns UpdateWorkspaceResourceResponse
