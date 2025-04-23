@@ -15813,6 +15813,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
    * 13
    */
   cpu?: number;
+  ephemeralStorage?: number;
   /**
    * @remarks
    * The memory usage. Unit: GiB per minute.
@@ -15824,6 +15825,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
   static names(): { [key: string]: string } {
     return {
       cpu: 'Cpu',
+      ephemeralStorage: 'EphemeralStorage',
       memory: 'Memory',
     };
   }
@@ -15831,6 +15833,7 @@ export class QueryResourceStaticsResponseBodyDataRealTimeRes extends $dara.Model
   static types(): { [key: string]: any } {
     return {
       cpu: 'number',
+      ephemeralStorage: 'number',
       memory: 'number',
     };
   }
@@ -15854,6 +15857,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
    * 3354
    */
   cpu?: number;
+  cu?: number;
+  ephemeralStorage?: number;
   idleCpu?: number;
   /**
    * @remarks
@@ -15867,6 +15872,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
     return {
       activeCpu: 'ActiveCpu',
       cpu: 'Cpu',
+      cu: 'Cu',
+      ephemeralStorage: 'EphemeralStorage',
       idleCpu: 'IdleCpu',
       memory: 'Memory',
     };
@@ -15876,6 +15883,8 @@ export class QueryResourceStaticsResponseBodyDataSummary extends $dara.Model {
     return {
       activeCpu: 'number',
       cpu: 'number',
+      cu: 'number',
+      ephemeralStorage: 'number',
       idleCpu: 'number',
       memory: 'number',
     };
@@ -33997,6 +34006,7 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
    * 4096
    */
   memory?: number;
+  newSaeVersion?: string;
   resourceType?: string;
   /**
    * @remarks
@@ -34013,6 +34023,7 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
     return {
       cpu: 'Cpu',
       memory: 'Memory',
+      newSaeVersion: 'NewSaeVersion',
       resourceType: 'ResourceType',
       workload: 'Workload',
     };
@@ -34022,6 +34033,7 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
     return {
       cpu: 'number',
       memory: 'number',
+      newSaeVersion: 'string',
       resourceType: 'string',
       workload: 'string',
     };
@@ -52177,6 +52189,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.memory)) {
       query["Memory"] = request.memory;
+    }
+
+    if (!$dara.isNull(request.newSaeVersion)) {
+      query["NewSaeVersion"] = request.newSaeVersion;
     }
 
     if (!$dara.isNull(request.resourceType)) {
