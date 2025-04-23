@@ -5182,6 +5182,7 @@ export class CreateResourceRequest extends $dara.Model {
    * The custom tag.
    */
   labels?: { [key: string]: string };
+  resourceName?: string;
   /**
    * @remarks
    * The type of the resource group. Valid values:
@@ -5223,6 +5224,7 @@ export class CreateResourceRequest extends $dara.Model {
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
       labels: 'Labels',
+      resourceName: 'ResourceName',
       resourceType: 'ResourceType',
       selfManagedResourceOptions: 'SelfManagedResourceOptions',
       systemDiskSize: 'SystemDiskSize',
@@ -5237,6 +5239,7 @@ export class CreateResourceRequest extends $dara.Model {
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      resourceName: 'string',
       resourceType: 'string',
       selfManagedResourceOptions: CreateResourceRequestSelfManagedResourceOptions,
       systemDiskSize: 'number',
@@ -5438,6 +5441,8 @@ export class CreateResourceInstancesRequest extends $dara.Model {
    * 
    * @example
    * x112223333
+   * 
+   * @deprecated
    */
   userData?: string;
   /**
@@ -18702,6 +18707,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      body["ResourceName"] = request.resourceName;
     }
 
     if (!$dara.isNull(request.resourceType)) {
