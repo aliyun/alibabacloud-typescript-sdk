@@ -2611,6 +2611,9 @@ export class InitializeRequest extends $dara.Model {
    * *
    */
   crop?: string;
+  dateOfBirth?: string;
+  dateOfExpiry?: string;
+  docPageConfig?: string[];
   docScanMode?: string;
   /**
    * @example
@@ -2618,6 +2621,7 @@ export class InitializeRequest extends $dara.Model {
    */
   docType?: string;
   docVideo?: string;
+  documentNumber?: string;
   experienceCode?: string;
   facePictureBase64?: string;
   /**
@@ -2637,6 +2641,7 @@ export class InitializeRequest extends $dara.Model {
   idSpoof?: string;
   idThreshold?: string;
   languageConfig?: string;
+  MRTDInput?: string;
   /**
    * @example
    * e0c34a***353888
@@ -2683,6 +2688,7 @@ export class InitializeRequest extends $dara.Model {
   showGuidePage?: string;
   showOcrResult?: string;
   styleConfig?: string;
+  useNFC?: string;
   static names(): { [key: string]: string } {
     return {
       appQualityCheck: 'AppQualityCheck',
@@ -2690,9 +2696,13 @@ export class InitializeRequest extends $dara.Model {
       callbackToken: 'CallbackToken',
       callbackUrl: 'CallbackUrl',
       crop: 'Crop',
+      dateOfBirth: 'DateOfBirth',
+      dateOfExpiry: 'DateOfExpiry',
+      docPageConfig: 'DocPageConfig',
       docScanMode: 'DocScanMode',
       docType: 'DocType',
       docVideo: 'DocVideo',
+      documentNumber: 'DocumentNumber',
       experienceCode: 'ExperienceCode',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
@@ -2700,6 +2710,7 @@ export class InitializeRequest extends $dara.Model {
       idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
       languageConfig: 'LanguageConfig',
+      MRTDInput: 'MRTDInput',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       metaInfo: 'MetaInfo',
@@ -2715,6 +2726,7 @@ export class InitializeRequest extends $dara.Model {
       showGuidePage: 'ShowGuidePage',
       showOcrResult: 'ShowOcrResult',
       styleConfig: 'StyleConfig',
+      useNFC: 'UseNFC',
     };
   }
 
@@ -2725,9 +2737,13 @@ export class InitializeRequest extends $dara.Model {
       callbackToken: 'string',
       callbackUrl: 'string',
       crop: 'string',
+      dateOfBirth: 'string',
+      dateOfExpiry: 'string',
+      docPageConfig: { 'type': 'array', 'itemType': 'string' },
       docScanMode: 'string',
       docType: 'string',
       docVideo: 'string',
+      documentNumber: 'string',
       experienceCode: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
@@ -2735,6 +2751,7 @@ export class InitializeRequest extends $dara.Model {
       idSpoof: 'string',
       idThreshold: 'string',
       languageConfig: 'string',
+      MRTDInput: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       metaInfo: 'string',
@@ -2750,6 +2767,189 @@ export class InitializeRequest extends $dara.Model {
       showGuidePage: 'string',
       showOcrResult: 'string',
       styleConfig: 'string',
+      useNFC: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.docPageConfig)) {
+      $dara.Model.validateArray(this.docPageConfig);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InitializeShrinkRequest extends $dara.Model {
+  appQualityCheck?: string;
+  authorize?: string;
+  callbackToken?: string;
+  callbackUrl?: string;
+  /**
+   * @example
+   * *
+   */
+  crop?: string;
+  dateOfBirth?: string;
+  dateOfExpiry?: string;
+  docPageConfigShrink?: string;
+  docScanMode?: string;
+  /**
+   * @example
+   * 01000000
+   */
+  docType?: string;
+  docVideo?: string;
+  documentNumber?: string;
+  experienceCode?: string;
+  facePictureBase64?: string;
+  /**
+   * @example
+   * ***
+   */
+  facePictureUrl?: string;
+  /**
+   * @example
+   * *
+   */
+  idFaceQuality?: string;
+  /**
+   * @example
+   * Y
+   */
+  idSpoof?: string;
+  idThreshold?: string;
+  languageConfig?: string;
+  MRTDInput?: string;
+  /**
+   * @example
+   * e0c34a***353888
+   */
+  merchantBizId?: string;
+  /**
+   * @example
+   * 1221****6543
+   */
+  merchantUserId?: string;
+  /**
+   * @example
+   * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
+   */
+  metaInfo?: string;
+  model?: string;
+  /**
+   * @remarks
+   * OCR。
+   * 
+   * @example
+   * *
+   */
+  ocr?: string;
+  procedurePriority?: string;
+  /**
+   * @example
+   * eKYC
+   */
+  productCode?: string;
+  productFlow?: string;
+  /**
+   * @example
+   * http*****
+   */
+  returnUrl?: string;
+  /**
+   * @example
+   * PAY**
+   */
+  sceneCode?: string;
+  securityLevel?: string;
+  showAlbumIcon?: string;
+  showGuidePage?: string;
+  showOcrResult?: string;
+  styleConfig?: string;
+  useNFC?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appQualityCheck: 'AppQualityCheck',
+      authorize: 'Authorize',
+      callbackToken: 'CallbackToken',
+      callbackUrl: 'CallbackUrl',
+      crop: 'Crop',
+      dateOfBirth: 'DateOfBirth',
+      dateOfExpiry: 'DateOfExpiry',
+      docPageConfigShrink: 'DocPageConfig',
+      docScanMode: 'DocScanMode',
+      docType: 'DocType',
+      docVideo: 'DocVideo',
+      documentNumber: 'DocumentNumber',
+      experienceCode: 'ExperienceCode',
+      facePictureBase64: 'FacePictureBase64',
+      facePictureUrl: 'FacePictureUrl',
+      idFaceQuality: 'IdFaceQuality',
+      idSpoof: 'IdSpoof',
+      idThreshold: 'IdThreshold',
+      languageConfig: 'LanguageConfig',
+      MRTDInput: 'MRTDInput',
+      merchantBizId: 'MerchantBizId',
+      merchantUserId: 'MerchantUserId',
+      metaInfo: 'MetaInfo',
+      model: 'Model',
+      ocr: 'Ocr',
+      procedurePriority: 'ProcedurePriority',
+      productCode: 'ProductCode',
+      productFlow: 'ProductFlow',
+      returnUrl: 'ReturnUrl',
+      sceneCode: 'SceneCode',
+      securityLevel: 'SecurityLevel',
+      showAlbumIcon: 'ShowAlbumIcon',
+      showGuidePage: 'ShowGuidePage',
+      showOcrResult: 'ShowOcrResult',
+      styleConfig: 'StyleConfig',
+      useNFC: 'UseNFC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appQualityCheck: 'string',
+      authorize: 'string',
+      callbackToken: 'string',
+      callbackUrl: 'string',
+      crop: 'string',
+      dateOfBirth: 'string',
+      dateOfExpiry: 'string',
+      docPageConfigShrink: 'string',
+      docScanMode: 'string',
+      docType: 'string',
+      docVideo: 'string',
+      documentNumber: 'string',
+      experienceCode: 'string',
+      facePictureBase64: 'string',
+      facePictureUrl: 'string',
+      idFaceQuality: 'string',
+      idSpoof: 'string',
+      idThreshold: 'string',
+      languageConfig: 'string',
+      MRTDInput: 'string',
+      merchantBizId: 'string',
+      merchantUserId: 'string',
+      metaInfo: 'string',
+      model: 'string',
+      ocr: 'string',
+      procedurePriority: 'string',
+      productCode: 'string',
+      productFlow: 'string',
+      returnUrl: 'string',
+      sceneCode: 'string',
+      securityLevel: 'string',
+      showAlbumIcon: 'string',
+      showGuidePage: 'string',
+      showOcrResult: 'string',
+      styleConfig: 'string',
+      useNFC: 'string',
     };
   }
 
@@ -3850,12 +4050,18 @@ export default class Client extends OpenApi {
   /**
    * 认证初始化
    * 
-   * @param request - InitializeRequest
+   * @param tmpReq - InitializeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitializeResponse
    */
-  async initializeWithOptions(request: InitializeRequest, runtime: $dara.RuntimeOptions): Promise<InitializeResponse> {
-    request.validate();
+  async initializeWithOptions(tmpReq: InitializeRequest, runtime: $dara.RuntimeOptions): Promise<InitializeResponse> {
+    tmpReq.validate();
+    let request = new InitializeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.docPageConfig)) {
+      request.docPageConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docPageConfig, "DocPageConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appQualityCheck)) {
       query["AppQualityCheck"] = request.appQualityCheck;
@@ -3877,6 +4083,18 @@ export default class Client extends OpenApi {
       query["Crop"] = request.crop;
     }
 
+    if (!$dara.isNull(request.dateOfBirth)) {
+      query["DateOfBirth"] = request.dateOfBirth;
+    }
+
+    if (!$dara.isNull(request.dateOfExpiry)) {
+      query["DateOfExpiry"] = request.dateOfExpiry;
+    }
+
+    if (!$dara.isNull(request.docPageConfigShrink)) {
+      query["DocPageConfig"] = request.docPageConfigShrink;
+    }
+
     if (!$dara.isNull(request.docScanMode)) {
       query["DocScanMode"] = request.docScanMode;
     }
@@ -3887,6 +4105,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.docVideo)) {
       query["DocVideo"] = request.docVideo;
+    }
+
+    if (!$dara.isNull(request.documentNumber)) {
+      query["DocumentNumber"] = request.documentNumber;
     }
 
     if (!$dara.isNull(request.experienceCode)) {
@@ -3911,6 +4133,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.languageConfig)) {
       query["LanguageConfig"] = request.languageConfig;
+    }
+
+    if (!$dara.isNull(request.MRTDInput)) {
+      query["MRTDInput"] = request.MRTDInput;
     }
 
     if (!$dara.isNull(request.merchantBizId)) {
@@ -3971,6 +4197,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.styleConfig)) {
       query["StyleConfig"] = request.styleConfig;
+    }
+
+    if (!$dara.isNull(request.useNFC)) {
+      query["UseNFC"] = request.useNFC;
     }
 
     let body : {[key: string ]: any} = { };
