@@ -2178,6 +2178,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dara.Model {
+  biz?: string;
   /**
    * @remarks
    * The business type of the media asset.
@@ -2324,6 +2325,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      biz: 'Biz',
       businessType: 'BusinessType',
       category: 'Category',
       coverURL: 'CoverURL',
@@ -2347,6 +2349,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      biz: 'string',
       businessType: 'string',
       category: 'string',
       coverURL: 'string',
