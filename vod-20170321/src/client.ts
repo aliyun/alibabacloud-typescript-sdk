@@ -10303,6 +10303,94 @@ export class GetJobDetailResponseBodyTranscodeJobDetail extends $dara.Model {
   }
 }
 
+export class GetJobDetailResponseBodyWorkflowTaskDetailWorkflow extends $dara.Model {
+  appId?: string;
+  createTime?: string;
+  modifiedTime?: string;
+  name?: string;
+  status?: string;
+  type?: string;
+  workflowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      createTime: 'CreateTime',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      status: 'Status',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      createTime: 'string',
+      modifiedTime: 'string',
+      name: 'string',
+      status: 'string',
+      type: 'string',
+      workflowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDetailResponseBodyWorkflowTaskDetail extends $dara.Model {
+  activityResults?: string;
+  createTime?: string;
+  finishTime?: string;
+  status?: string;
+  taskId?: string;
+  taskInput?: string;
+  userData?: string;
+  workflow?: GetJobDetailResponseBodyWorkflowTaskDetailWorkflow;
+  static names(): { [key: string]: string } {
+    return {
+      activityResults: 'ActivityResults',
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskInput: 'TaskInput',
+      userData: 'UserData',
+      workflow: 'Workflow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityResults: 'string',
+      createTime: 'string',
+      finishTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskInput: 'string',
+      userData: 'string',
+      workflow: GetJobDetailResponseBodyWorkflowTaskDetailWorkflow,
+    };
+  }
+
+  validate() {
+    if(this.workflow && typeof (this.workflow as any).validate === 'function') {
+      (this.workflow as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList extends $dara.Model {
   /**
    * @remarks
@@ -35695,6 +35783,7 @@ export class GetJobDetailResponseBody extends $dara.Model {
    * The details of the transcoding task. This parameter takes effect only when the jobType parameter is set to Transcode.
    */
   transcodeJobDetail?: GetJobDetailResponseBodyTranscodeJobDetail;
+  workflowTaskDetail?: GetJobDetailResponseBodyWorkflowTaskDetail;
   static names(): { [key: string]: string } {
     return {
       AIJobDetail: 'AIJobDetail',
@@ -35702,6 +35791,7 @@ export class GetJobDetailResponseBody extends $dara.Model {
       requestId: 'RequestId',
       snapshotJobDetail: 'SnapshotJobDetail',
       transcodeJobDetail: 'TranscodeJobDetail',
+      workflowTaskDetail: 'WorkflowTaskDetail',
     };
   }
 
@@ -35712,6 +35802,7 @@ export class GetJobDetailResponseBody extends $dara.Model {
       requestId: 'string',
       snapshotJobDetail: GetJobDetailResponseBodySnapshotJobDetail,
       transcodeJobDetail: GetJobDetailResponseBodyTranscodeJobDetail,
+      workflowTaskDetail: GetJobDetailResponseBodyWorkflowTaskDetail,
     };
   }
 
@@ -35724,6 +35815,9 @@ export class GetJobDetailResponseBody extends $dara.Model {
     }
     if(this.transcodeJobDetail && typeof (this.transcodeJobDetail as any).validate === 'function') {
       (this.transcodeJobDetail as any).validate();
+    }
+    if(this.workflowTaskDetail && typeof (this.workflowTaskDetail as any).validate === 'function') {
+      (this.workflowTaskDetail as any).validate();
     }
     super.validate();
   }
