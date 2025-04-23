@@ -3240,6 +3240,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    */
   updateTime?: string;
   username?: string;
+  workshop?: string;
   static names(): { [key: string]: string } {
     return {
       appStatus: 'AppStatus',
@@ -3270,6 +3271,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       srcIP: 'SrcIP',
       updateTime: 'UpdateTime',
       username: 'Username',
+      workshop: 'Workshop',
     };
   }
 
@@ -3303,6 +3305,7 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       srcIP: 'string',
       updateTime: 'string',
       username: 'string',
+      workshop: 'string',
     };
   }
 
@@ -7759,6 +7762,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    */
   updateTime?: string;
   username?: string;
+  workshop?: string;
   static names(): { [key: string]: string } {
     return {
       appStatus: 'AppStatus',
@@ -7788,6 +7792,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       srcIP: 'SrcIP',
       updateTime: 'UpdateTime',
       username: 'Username',
+      workshop: 'Workshop',
     };
   }
 
@@ -7820,6 +7825,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
       srcIP: 'string',
       updateTime: 'string',
       username: 'string',
+      workshop: 'string',
     };
   }
 
@@ -20408,6 +20414,7 @@ export class ListUserDevicesRequest extends $dara.Model {
   sharingStatus?: boolean;
   sortBy?: string;
   username?: string;
+  workshop?: string;
   static names(): { [key: string]: string } {
     return {
       appStatuses: 'AppStatuses',
@@ -20430,6 +20437,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       sharingStatus: 'SharingStatus',
       sortBy: 'SortBy',
       username: 'Username',
+      workshop: 'Workshop',
     };
   }
 
@@ -20455,6 +20463,7 @@ export class ListUserDevicesRequest extends $dara.Model {
       sharingStatus: 'boolean',
       sortBy: 'string',
       username: 'string',
+      workshop: 'string',
     };
   }
 
