@@ -25099,15 +25099,18 @@ export class QueryConfigResponseBodyDataNacosRunningEnv extends $dara.Model {
    * true
    */
   emptyProtect?: boolean;
+  grayAuth?: string;
   static names(): { [key: string]: string } {
     return {
       emptyProtect: 'emptyProtect',
+      grayAuth: 'grayAuth',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       emptyProtect: 'boolean',
+      grayAuth: 'string',
     };
   }
 
