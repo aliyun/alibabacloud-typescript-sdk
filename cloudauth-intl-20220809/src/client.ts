@@ -1,8 +1,13 @@
 // This file is auto-generated, don't edit it
 /**
  */
+import OSS, * as $OSS from '@alicloud/oss-client';
+import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
+import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
+import FileForm, * as $FileForm from '@alicloud/tea-fileform';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
 export class CardOcrResponseBodyResult extends $dara.Model {
@@ -203,6 +208,49 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
   validate() {
     if(Array.isArray(this.logInfo)) {
       $dara.Model.validateArray(this.logInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
+  materialInfo?: string;
+  /**
+   * @example
+   * 1
+   */
+  result?: string;
+  riskScore?: { [key: string]: string };
+  /**
+   * @example
+   * PS
+   */
+  riskTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialInfo: 'MaterialInfo',
+      result: 'Result',
+      riskScore: 'RiskScore',
+      riskTag: 'RiskTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialInfo: 'string',
+      result: 'string',
+      riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      riskTag: 'string',
+    };
+  }
+
+  validate() {
+    if(this.riskScore) {
+      $dara.Model.validateMap(this.riskScore);
     }
     super.validate();
   }
@@ -1109,6 +1157,202 @@ export class CheckVerifyLogResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CheckVerifyLogResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyIntlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0101
+   */
+  credName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  credType?: string;
+  imageFile?: string;
+  /**
+   * @example
+   * https://oss-bj01.avic.com/eavic-prod-commodity/pic/commodity/94677ee6-1067-4287-8ff4-6e030ef3a5a8.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credName: 'CredName',
+      credType: 'CredType',
+      imageFile: 'ImageFile',
+      imageUrl: 'ImageUrl',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credName: 'string',
+      credType: 'string',
+      imageFile: 'string',
+      imageUrl: 'string',
+      productCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyIntlAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0101
+   */
+  credName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 01
+   */
+  credType?: string;
+  imageFileObject?: Readable;
+  /**
+   * @example
+   * https://oss-bj01.avic.com/eavic-prod-commodity/pic/commodity/94677ee6-1067-4287-8ff4-6e030ef3a5a8.jpg
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credName: 'CredName',
+      credType: 'CredType',
+      imageFileObject: 'ImageFile',
+      imageUrl: 'ImageUrl',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credName: 'string',
+      credType: 'string',
+      imageFileObject: 'Readable',
+      imageUrl: 'string',
+      productCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyIntlResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 130A2C10-B9EE-4D84-88E3-5384FF039795
+   */
+  requestId?: string;
+  resultObject?: CredentialVerifyIntlResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: CredentialVerifyIntlResponseBodyResultObject,
+    };
+  }
+
+  validate() {
+    if(this.resultObject && typeof (this.resultObject as any).validate === 'function') {
+      (this.resultObject as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialVerifyIntlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CredentialVerifyIntlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CredentialVerifyIntlResponseBody,
     };
   }
 
@@ -3387,6 +3631,141 @@ export default class Client extends OpenApi {
   async checkVerifyLog(request: CheckVerifyLogRequest): Promise<CheckVerifyLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkVerifyLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 凭证核验
+   * 
+   * @param request - CredentialVerifyIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialVerifyIntlResponse
+   */
+  async credentialVerifyIntlWithOptions(request: CredentialVerifyIntlRequest, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credName)) {
+      query["CredName"] = request.credName;
+    }
+
+    if (!$dara.isNull(request.credType)) {
+      query["CredType"] = request.credType;
+    }
+
+    if (!$dara.isNull(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageFile)) {
+      body["ImageFile"] = request.imageFile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialVerifyIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CredentialVerifyIntlResponse>(await this.callApi(params, req, runtime), new CredentialVerifyIntlResponse({}));
+  }
+
+  /**
+   * 凭证核验
+   * 
+   * @param request - CredentialVerifyIntlRequest
+   * @returns CredentialVerifyIntlResponse
+   */
+  async credentialVerifyIntl(request: CredentialVerifyIntlRequest): Promise<CredentialVerifyIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialVerifyIntlWithOptions(request, runtime);
+  }
+
+  async credentialVerifyIntlAdvance(request: CredentialVerifyIntlAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<CredentialVerifyIntlResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "Cloudauth-intl",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let credentialVerifyIntlReq = new CredentialVerifyIntlRequest({ });
+    OpenApiUtil.convert(request, credentialVerifyIntlReq);
+    if (!$dara.isNull(request.imageFileObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.imageFileObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      credentialVerifyIntlReq.imageFile = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let credentialVerifyIntlResp = await this.credentialVerifyIntlWithOptions(credentialVerifyIntlReq, runtime);
+    return credentialVerifyIntlResp;
   }
 
   /**
