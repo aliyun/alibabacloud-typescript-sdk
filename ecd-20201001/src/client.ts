@@ -255,11 +255,48 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
   }
 }
 
+export class GetMcpResourceResponseBodyDataDesktopInfo extends $dara.Model {
+  appId?: string;
+  authCode?: string;
+  connectionProperties?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      authCode: 'AuthCode',
+      connectionProperties: 'ConnectionProperties',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      authCode: 'string',
+      connectionProperties: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMcpResourceResponseBodyData extends $dara.Model {
+  desktopInfo?: GetMcpResourceResponseBodyDataDesktopInfo;
   resourceUrl?: string;
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
+      desktopInfo: 'DesktopInfo',
       resourceUrl: 'ResourceUrl',
       sessionId: 'SessionId',
     };
@@ -267,12 +304,16 @@ export class GetMcpResourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      desktopInfo: GetMcpResourceResponseBodyDataDesktopInfo,
       resourceUrl: 'string',
       sessionId: 'string',
     };
   }
 
   validate() {
+    if(this.desktopInfo && typeof (this.desktopInfo as any).validate === 'function') {
+      (this.desktopInfo as any).validate();
+    }
     super.validate();
   }
 
