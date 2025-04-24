@@ -770,6 +770,7 @@ export class CreateFunctionInput extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
@@ -840,6 +841,7 @@ export class CreateFunctionInput extends $dara.Model {
       description: 'description',
       disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
+      enableLongLiving: 'enableLongLiving',
       environmentVariables: 'environmentVariables',
       functionName: 'functionName',
       gpuConfig: 'gpuConfig',
@@ -872,6 +874,7 @@ export class CreateFunctionInput extends $dara.Model {
       description: 'string',
       disableOndemand: 'boolean',
       diskSize: 'number',
+      enableLongLiving: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionName: 'string',
       gpuConfig: GPUConfig,
@@ -1912,6 +1915,7 @@ export class Function extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
    * @example
@@ -2021,6 +2025,7 @@ export class Function extends $dara.Model {
       description: 'description',
       disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
+      enableLongLiving: 'enableLongLiving',
       environmentVariables: 'environmentVariables',
       functionArn: 'functionArn',
       functionId: 'functionId',
@@ -2065,6 +2070,7 @@ export class Function extends $dara.Model {
       description: 'string',
       disableOndemand: 'boolean',
       diskSize: 'number',
+      enableLongLiving: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       functionArn: 'string',
       functionId: 'string',
@@ -5462,6 +5468,7 @@ export class UpdateFunctionInput extends $dara.Model {
    * 512
    */
   diskSize?: number;
+  enableLongLiving?: boolean;
   environmentVariables?: { [key: string]: string };
   gpuConfig?: GPUConfig;
   /**
@@ -5513,6 +5520,7 @@ export class UpdateFunctionInput extends $dara.Model {
       description: 'description',
       disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
+      enableLongLiving: 'enableLongLiving',
       environmentVariables: 'environmentVariables',
       gpuConfig: 'gpuConfig',
       handler: 'handler',
@@ -5543,6 +5551,7 @@ export class UpdateFunctionInput extends $dara.Model {
       description: 'string',
       disableOndemand: 'boolean',
       diskSize: 'number',
+      enableLongLiving: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gpuConfig: GPUConfig,
       handler: 'string',
