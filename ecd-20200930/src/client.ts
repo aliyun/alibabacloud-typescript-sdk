@@ -935,6 +935,7 @@ export class CreateCenterPolicyRequestDeviceRules extends $dara.Model {
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -956,6 +957,7 @@ export class CreateCenterPolicyRequestDeviceRules extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -967,6 +969,7 @@ export class CreateCenterPolicyRequestDeviceRules extends $dara.Model {
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -2826,6 +2829,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -2847,6 +2851,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -2858,6 +2863,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -4234,6 +4240,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -4249,6 +4256,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -4260,6 +4268,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -4663,6 +4672,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * tcp
    */
   internetCommunicationProtocol?: string;
+  internetPrinter?: string;
   /**
    * @remarks
    * The read/write permissions on the on-premises drive.
@@ -4972,6 +4982,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * 1
    */
   resourceGroupCount?: number;
+  safeMenu?: string;
   /**
    * @remarks
    * The effective scope of the policy.
@@ -5232,6 +5243,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      internetPrinter: 'InternetPrinter',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -5271,6 +5283,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       resolutionModel: 'ResolutionModel',
       resolutionWidth: 'ResolutionWidth',
       resourceGroupCount: 'ResourceGroupCount',
+      safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       smoothEnhancement: 'SmoothEnhancement',
@@ -5335,6 +5348,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
+      internetPrinter: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
@@ -5374,6 +5388,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       resolutionModel: 'string',
       resolutionWidth: 'number',
       resourceGroupCount: 'number',
+      safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       smoothEnhancement: 'string',
@@ -11134,6 +11149,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
    * xxxxImageID
    */
   newImageName?: string;
+  reason?: string;
   /**
    * @remarks
    * The status of the image modification.
@@ -11164,6 +11180,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
       imageName: 'ImageName',
       newImageId: 'NewImageId',
       newImageName: 'NewImageName',
+      reason: 'Reason',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -11175,6 +11192,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
       imageName: 'string',
       newImageId: 'string',
       newImageName: 'string',
+      reason: 'string',
       status: 'number',
       updateTime: 'string',
     };
@@ -13946,6 +13964,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -13967,6 +13986,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -13978,6 +13998,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -14506,6 +14527,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * BOTH
    */
   internetCommunicationProtocol?: string;
+  internetPrinter?: string;
   /**
    * @remarks
    * The permissions on local disk mapping.
@@ -14904,6 +14926,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * center
    */
   resourceRegionId?: string;
+  safeMenu?: string;
   /**
    * @remarks
    * The effective scope of the policy.
@@ -15256,6 +15279,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       html5Access: 'Html5Access',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      internetPrinter: 'InternetPrinter',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -15297,6 +15321,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       resolutionWidth: 'ResolutionWidth',
       resourceGroupCount: 'ResourceGroupCount',
       resourceRegionId: 'ResourceRegionId',
+      safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       smoothEnhancement: 'SmoothEnhancement',
@@ -15364,6 +15389,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       html5Access: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
+      internetPrinter: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
@@ -15405,6 +15431,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       resolutionWidth: 'number',
       resourceGroupCount: 'number',
       resourceRegionId: 'string',
+      safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       smoothEnhancement: 'string',
@@ -20183,6 +20210,7 @@ export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -20204,6 +20232,7 @@ export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -20215,6 +20244,7 @@ export class ModifyCenterPolicyRequestDeviceRules extends $dara.Model {
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -21453,6 +21483,7 @@ export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
    * 2:0
    */
   optCommand?: string;
+  platforms?: string;
   /**
    * @remarks
    * The redirection type.
@@ -21474,6 +21505,7 @@ export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
       deviceType: 'DeviceType',
       deviceVid: 'DeviceVid',
       optCommand: 'OptCommand',
+      platforms: 'Platforms',
       redirectType: 'RedirectType',
     };
   }
@@ -21485,6 +21517,7 @@ export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
       deviceType: 'string',
       deviceVid: 'string',
       optCommand: 'string',
+      platforms: 'string',
       redirectType: 'string',
     };
   }
@@ -29172,6 +29205,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * both
    */
   internetCommunicationProtocol?: string;
+  internetPrinter?: string;
   /**
    * @remarks
    * The read/write permissions on the on-premises drive.
@@ -29544,6 +29578,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * desktop
    */
   resourceType?: string;
+  safeMenu?: string;
   /**
    * @remarks
    * The effective scope of the policy.
@@ -29920,6 +29955,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       gpuAcceleration: 'GpuAcceleration',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      internetPrinter: 'InternetPrinter',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -29957,6 +29993,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       resolutionModel: 'ResolutionModel',
       resolutionWidth: 'ResolutionWidth',
       resourceType: 'ResourceType',
+      safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       sessionMaxRateKbps: 'SessionMaxRateKbps',
@@ -30024,6 +30061,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       gpuAcceleration: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
+      internetPrinter: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
@@ -30061,6 +30099,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       resolutionModel: 'string',
       resolutionWidth: 'number',
       resourceType: 'string',
+      safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       sessionMaxRateKbps: 'number',
@@ -55948,6 +55987,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * both
    */
   internetCommunicationProtocol?: string;
+  internetPrinter?: string;
   /**
    * @remarks
    * The read/write permissions on the on-premises drive.
@@ -56343,6 +56383,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * The security group rules that you want to delete.
    */
   revokeSecurityPolicyRule?: ModifyCenterPolicyRequestRevokeSecurityPolicyRule[];
+  safeMenu?: string;
   /**
    * @remarks
    * The effective scope of the policy.
@@ -56724,6 +56765,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       gpuAcceleration: 'GpuAcceleration',
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
+      internetPrinter: 'InternetPrinter',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -56764,6 +56806,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       resourceType: 'ResourceType',
       revokeAccessPolicyRule: 'RevokeAccessPolicyRule',
       revokeSecurityPolicyRule: 'RevokeSecurityPolicyRule',
+      safeMenu: 'SafeMenu',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       sessionMaxRateKbps: 'SessionMaxRateKbps',
@@ -56831,6 +56874,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       gpuAcceleration: 'string',
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
+      internetPrinter: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
@@ -56871,6 +56915,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       resourceType: 'string',
       revokeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeAccessPolicyRule },
       revokeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestRevokeSecurityPolicyRule },
+      safeMenu: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       sessionMaxRateKbps: 'number',
@@ -70095,6 +70140,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建无地域策略
+   * 
    * @param request - CreateCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCenterPolicyResponse
@@ -70220,6 +70267,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.internetCommunicationProtocol)) {
       query["InternetCommunicationProtocol"] = request.internetCommunicationProtocol;
+    }
+
+    if (!$dara.isNull(request.internetPrinter)) {
+      query["InternetPrinter"] = request.internetPrinter;
     }
 
     if (!$dara.isNull(request.localDrive)) {
@@ -70370,6 +70421,10 @@ export default class Client extends OpenApi {
       query["ResourceType"] = request.resourceType;
     }
 
+    if (!$dara.isNull(request.safeMenu)) {
+      query["SafeMenu"] = request.safeMenu;
+    }
+
     if (!$dara.isNull(request.scope)) {
       query["Scope"] = request.scope;
     }
@@ -70516,6 +70571,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建无地域策略
+   * 
    * @param request - CreateCenterPolicyRequest
    * @returns CreateCenterPolicyResponse
    */
@@ -79458,6 +79515,10 @@ export default class Client extends OpenApi {
       query["InternetCommunicationProtocol"] = request.internetCommunicationProtocol;
     }
 
+    if (!$dara.isNull(request.internetPrinter)) {
+      query["InternetPrinter"] = request.internetPrinter;
+    }
+
     if (!$dara.isNull(request.localDrive)) {
       query["LocalDrive"] = request.localDrive;
     }
@@ -79616,6 +79677,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.revokeSecurityPolicyRule)) {
       query["RevokeSecurityPolicyRule"] = request.revokeSecurityPolicyRule;
+    }
+
+    if (!$dara.isNull(request.safeMenu)) {
+      query["SafeMenu"] = request.safeMenu;
     }
 
     if (!$dara.isNull(request.scope)) {
