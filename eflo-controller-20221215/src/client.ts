@@ -754,8 +754,37 @@ export class CreateClusterRequestNodeGroupsNodes extends $dara.Model {
 }
 
 export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The disk type. Valid values:
+   * 
+   * *   cloud_ssd: standard SSD
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD that is used as the system disk. Valid values:
+   * 
+   * *   PL0: A single ESSD can provide up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can provide up to 50,000 random read/write IOPS.
+   * 
+   * 
+   * Default value: PL1.
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * The size. Unit: GB.
+   * 
+   * @example
+   * 20
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -783,6 +812,7 @@ export class CreateClusterRequestNodeGroupsSystemDisk extends $dara.Model {
 }
 
 export class CreateClusterRequestNodeGroups extends $dara.Model {
+  fileSystemMountEnabled?: boolean;
   /**
    * @remarks
    * System image ID
@@ -791,6 +821,14 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * i190297201634099844192
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * sc-key
+   */
+  keyPairName?: string;
   /**
    * @remarks
    * Machine type
@@ -820,6 +858,10 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * Node list
    */
   nodes?: CreateClusterRequestNodeGroupsNodes[];
+  /**
+   * @remarks
+   * SystemDisk
+   */
   systemDisk?: CreateClusterRequestNodeGroupsSystemDisk;
   /**
    * @remarks
@@ -839,7 +881,9 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
       imageId: 'ImageId',
+      keyPairName: 'KeyPairName',
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
@@ -852,7 +896,9 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileSystemMountEnabled: 'boolean',
       imageId: 'string',
+      keyPairName: 'string',
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
@@ -1552,8 +1598,37 @@ export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
 }
 
 export class CreateNodeGroupRequestNodeGroupSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * Disk performance level
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The performance level of the disk if the disk is an ESSD. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * 
+   * 
+   * Default value: PL1.
+   * 
+   * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL!
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * System disk size
+   * 
+   * @example
+   * 250
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1591,6 +1666,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * cn-wulanchabu-b
    */
   az?: string;
+  fileSystemMountEnabled?: boolean;
   /**
    * @remarks
    * Image ID.
@@ -1601,6 +1677,14 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * i191887641687336652616
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * test-keypair
+   */
+  keyPairName?: string;
   /**
    * @remarks
    * Machine type
@@ -1629,6 +1713,10 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
+  /**
+   * @remarks
+   * SystemDisk
+   */
   systemDisk?: CreateNodeGroupRequestNodeGroupSystemDisk;
   /**
    * @remarks
@@ -1643,7 +1731,9 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       az: 'Az',
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
       imageId: 'ImageId',
+      keyPairName: 'KeyPairName',
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
@@ -1655,7 +1745,9 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       az: 'string',
+      fileSystemMountEnabled: 'boolean',
       imageId: 'string',
+      keyPairName: 'string',
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
@@ -1668,6 +1760,40 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
     if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
       (this.systemDisk as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscRequestTag extends $dara.Model {
+  /**
+   * @example
+   * key001
+   */
+  key?: string;
+  /**
+   * @example
+   * value001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -2640,10 +2766,52 @@ export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
 }
 
 export class DescribeNodeResponseBodyDisks extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the disk.
+   * 
+   * *   cloud_ssd: all-flash disk.
+   * 
+   * @example
+   * cloud_essd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The ID of the disk.
+   * 
+   * @example
+   * d-bp1fi88ryk4yah8a6yos
+   */
   diskId?: string;
+  /**
+   * @remarks
+   * The performance level of the ESSD. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * 
+   * @example
+   * PL1
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the disk. Unit: GiB.
+   * 
+   * @example
+   * 100
+   */
   size?: number;
+  /**
+   * @remarks
+   * The type of the disk. Valid values:
+   * 
+   * *   system: system disk
+   * 
+   * @example
+   * system
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4116,6 +4284,11 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
+   * whether or not support file system mount
+   */
+  fileSystemMountEnabled?: boolean;
+  /**
+   * @remarks
    * Hostname
    * 
    * @example
@@ -4241,6 +4414,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
       imageId: 'ImageId',
@@ -4265,6 +4439,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       commodityCode: 'string',
       createTime: 'string',
       expiredTime: 'string',
+      fileSystemMountEnabled: 'boolean',
       hostname: 'string',
       hpnZone: 'string',
       imageId: 'string',
@@ -5856,6 +6031,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
    * created by ga2_prepare
    */
   description?: string;
+  fileSystemMountEnabled?: boolean;
   /**
    * @remarks
    * Group ID.
@@ -5926,6 +6102,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
       description: 'Description',
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
       groupId: 'GroupId',
       groupName: 'GroupName',
       imageId: 'ImageId',
@@ -5943,6 +6120,7 @@ export class ListNodeGroupsResponseBodyGroups extends $dara.Model {
       clusterName: 'string',
       createTime: 'string',
       description: 'string',
+      fileSystemMountEnabled: 'boolean',
       groupId: 'string',
       groupName: 'string',
       imageId: 'string',
@@ -6121,6 +6299,179 @@ export class ListUserClusterTypesResponseBodyClusterTypes extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsRequestTag extends $dara.Model {
+  /**
+   * @example
+   * key001
+   */
+  key?: string;
+  /**
+   * @example
+   * value001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsShrinkRequestTag extends $dara.Model {
+  /**
+   * @example
+   * key001
+   */
+  key?: string;
+  /**
+   * @example
+   * value001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsResponseBodyVscsTags extends $dara.Model {
+  /**
+   * @example
+   * key001
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * value001
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsResponseBodyVscs extends $dara.Model {
+  /**
+   * @example
+   * e01-cn-fzh47xd7u08
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * rg-acfm2zkwhkns57i
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  status?: string;
+  tags?: ListVscsResponseBodyVscsTags[];
+  /**
+   * @remarks
+   * VscId
+   * 
+   * @example
+   * vsc-001
+   */
+  vscId?: string;
+  /**
+   * @example
+   * test_name
+   */
+  vscName?: string;
+  /**
+   * @example
+   * primary
+   */
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tags: 'Tags',
+      vscId: 'VscId',
+      vscName: 'VscName',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      tags: { 'type': 'array', 'itemType': ListVscsResponseBodyVscsTags },
+      vscId: 'string',
+      vscName: 'string',
+      vscType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -7824,6 +8175,142 @@ export class CreateSessionResponse extends $dara.Model {
   }
 }
 
+export class CreateVscRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
+  resourceGroupId?: string;
+  tag?: CreateVscRequestTag[];
+  /**
+   * @example
+   * test_name
+   */
+  vscName?: string;
+  /**
+   * @example
+   * primary
+   */
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      nodeId: 'NodeId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+      vscName: 'VscName',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      nodeId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateVscRequestTag },
+      vscName: 'string',
+      vscType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  /**
+   * @example
+   * vsc-001
+   */
+  vscId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vscId: 'VscId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vscId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVscResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVscResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVscResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $dara.Model {
   /**
    * @remarks
@@ -8008,6 +8495,108 @@ export class DeleteNodeGroupResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNodeGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsc-001
+   */
+  vscId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      vscId: 'VscId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      vscId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVscResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVscResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVscResponseBody,
     };
   }
 
@@ -8890,6 +9479,10 @@ export class DescribeNodeResponseBody extends $dara.Model {
    * 2022-09-30T03:35:53Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Disk infos
+   */
   disks?: DescribeNodeResponseBodyDisks[];
   /**
    * @remarks
@@ -8899,6 +9492,11 @@ export class DescribeNodeResponseBody extends $dara.Model {
    * 2022-06-23T16:00:00Z
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * 是否支持文件存储挂载
+   */
+  fileSystemMountEnabled?: boolean;
   /**
    * @remarks
    * Hostname
@@ -9025,6 +9623,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       createTime: 'CreateTime',
       disks: 'Disks',
       expiredTime: 'ExpiredTime',
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
       imageId: 'ImageId',
@@ -9050,6 +9649,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       createTime: 'string',
       disks: { 'type': 'array', 'itemType': DescribeNodeResponseBodyDisks },
       expiredTime: 'string',
+      fileSystemMountEnabled: 'boolean',
       hostname: 'string',
       hpnZone: 'string',
       imageId: 'string',
@@ -9523,6 +10123,146 @@ export class DescribeTaskResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsc-001
+   */
+  vscId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vscId: 'VscId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vscId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscResponseBody extends $dara.Model {
+  /**
+   * @example
+   * e01-cn-kvw44e6dn04
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  /**
+   * @example
+   * rg-aek2k3rqlvv6ytq
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  status?: string;
+  /**
+   * @remarks
+   * VscId
+   * 
+   * @example
+   * vsc-001
+   */
+  vscId?: string;
+  /**
+   * @example
+   * test_name
+   */
+  vscName?: string;
+  /**
+   * @example
+   * primary
+   */
+  vscType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      vscId: 'VscId',
+      vscName: 'VscName',
+      vscType: 'VscType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      vscId: 'string',
+      vscName: 'string',
+      vscType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVscResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVscResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVscResponseBody,
     };
   }
 
@@ -11450,6 +12190,218 @@ export class ListUserClusterTypesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListUserClusterTypesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsRequest extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 563d42ae0b17572449ec8c97f7f66069
+   */
+  nextToken?: string;
+  nodeIds?: string[];
+  /**
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
+  resourceGroupId?: string;
+  tag?: ListVscsRequestTag[];
+  /**
+   * @example
+   * test_name
+   */
+  vscName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeIds: 'NodeIds',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+      vscName: 'VscName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListVscsRequestTag },
+      vscName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 563d42ae0b17572449ec8c97f7f66069
+   */
+  nextToken?: string;
+  nodeIdsShrink?: string;
+  /**
+   * @example
+   * rg-aek2xdkc6icwfha
+   */
+  resourceGroupId?: string;
+  tag?: ListVscsShrinkRequestTag[];
+  /**
+   * @example
+   * test_name
+   */
+  vscName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      nodeIdsShrink: 'NodeIds',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+      vscName: 'VscName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      nodeIdsShrink: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListVscsShrinkRequestTag },
+      vscName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3a6b93229825ac667104463b56790c91
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 03668372-18FF-5959-98D9-6B36A4643C7A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  vscs?: ListVscsResponseBodyVscs[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      vscs: 'Vscs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      vscs: { 'type': 'array', 'itemType': ListVscsResponseBodyVscs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vscs)) {
+      $dara.Model.validateArray(this.vscs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVscsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVscsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVscsResponseBody,
     };
   }
 
@@ -13511,6 +14463,15 @@ export class UntagResourcesResponse extends $dara.Model {
 }
 
 export class UpdateNodeGroupRequest extends $dara.Model {
+  fileSystemMountEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * sc-key
+   */
+  keyPairName?: string;
   /**
    * @remarks
    * Node group name
@@ -13539,6 +14500,8 @@ export class UpdateNodeGroupRequest extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      fileSystemMountEnabled: 'FileSystemMountEnabled',
+      keyPairName: 'KeyPairName',
       newNodeGroupName: 'NewNodeGroupName',
       nodeGroupId: 'NodeGroupId',
       userData: 'UserData',
@@ -13547,6 +14510,8 @@ export class UpdateNodeGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileSystemMountEnabled: 'boolean',
+      keyPairName: 'string',
       newNodeGroupName: 'string',
       nodeGroupId: 'string',
       userData: 'string',
@@ -13571,15 +14536,25 @@ export class UpdateNodeGroupResponseBody extends $dara.Model {
    * 8F065DDD-6996-5973-9691-9EC57BD0072E
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Task ID
+   * 
+   * @example
+   * i15374011238111706
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -14185,6 +15160,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Vsc
+   * 
+   * @param request - CreateVscRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVscResponse
+   */
+  async createVscWithOptions(request: CreateVscRequest, runtime: $dara.RuntimeOptions): Promise<CreateVscResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vscName)) {
+      body["VscName"] = request.vscName;
+    }
+
+    if (!$dara.isNull(request.vscType)) {
+      body["VscType"] = request.vscType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVsc",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateVscResponse>(await this.callApi(params, req, runtime), new CreateVscResponse({}));
+  }
+
+  /**
+   * 创建Vsc
+   * 
+   * @param request - CreateVscRequest
+   * @returns CreateVscResponse
+   */
+  async createVsc(request: CreateVscRequest): Promise<CreateVscResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVscWithOptions(request, runtime);
+  }
+
+  /**
    * Delete cluster instance
    * 
    * @param request - DeleteClusterRequest
@@ -14276,6 +15315,54 @@ export default class Client extends OpenApi {
   async deleteNodeGroup(request: DeleteNodeGroupRequest): Promise<DeleteNodeGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNodeGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Vsc
+   * 
+   * @param request - DeleteVscRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVscResponse
+   */
+  async deleteVscWithOptions(request: DeleteVscRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVscResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.vscId)) {
+      body["VscId"] = request.vscId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVsc",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteVscResponse>(await this.callApi(params, req, runtime), new DeleteVscResponse({}));
+  }
+
+  /**
+   * 删除Vsc
+   * 
+   * @param request - DeleteVscRequest
+   * @returns DeleteVscResponse
+   */
+  async deleteVsc(request: DeleteVscRequest): Promise<DeleteVscResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVscWithOptions(request, runtime);
   }
 
   /**
@@ -14640,6 +15727,48 @@ export default class Client extends OpenApi {
   async describeTask(request: DescribeTaskRequest): Promise<DescribeTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取单个Vsc详情
+   * 
+   * @param request - DescribeVscRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVscResponse
+   */
+  async describeVscWithOptions(request: DescribeVscRequest, runtime: $dara.RuntimeOptions): Promise<DescribeVscResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.vscId)) {
+      body["VscId"] = request.vscId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVsc",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeVscResponse>(await this.callApi(params, req, runtime), new DescribeVscResponse({}));
+  }
+
+  /**
+   * 获取单个Vsc详情
+   * 
+   * @param request - DescribeVscRequest
+   * @returns DescribeVscResponse
+   */
+  async describeVsc(request: DescribeVscRequest): Promise<DescribeVscResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVscWithOptions(request, runtime);
   }
 
   /**
@@ -15365,6 +16494,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Vsc列表
+   * 
+   * @param tmpReq - ListVscsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVscsResponse
+   */
+  async listVscsWithOptions(tmpReq: ListVscsRequest, runtime: $dara.RuntimeOptions): Promise<ListVscsResponse> {
+    tmpReq.validate();
+    let request = new ListVscsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeIds)) {
+      request.nodeIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeIds, "NodeIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeIdsShrink)) {
+      body["NodeIds"] = request.nodeIdsShrink;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.vscName)) {
+      body["VscName"] = request.vscName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVscs",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListVscsResponse>(await this.callApi(params, req, runtime), new ListVscsResponse({}));
+  }
+
+  /**
+   * 查询Vsc列表
+   * 
+   * @param request - ListVscsRequest
+   * @returns ListVscsResponse
+   */
+  async listVscs(request: ListVscsRequest): Promise<ListVscsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVscsWithOptions(request, runtime);
+  }
+
+  /**
    * Reboot Machine
    * 
    * @param tmpReq - RebootNodesRequest
@@ -15965,6 +17164,14 @@ export default class Client extends OpenApi {
   async updateNodeGroupWithOptions(request: UpdateNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNodeGroupResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileSystemMountEnabled)) {
+      body["FileSystemMountEnabled"] = request.fileSystemMountEnabled;
+    }
+
+    if (!$dara.isNull(request.keyPairName)) {
+      body["KeyPairName"] = request.keyPairName;
+    }
+
     if (!$dara.isNull(request.newNodeGroupName)) {
       body["NewNodeGroupName"] = request.newNodeGroupName;
     }
