@@ -3138,6 +3138,79 @@ export class DescribeApplicationConfigResponseBodyDataConfigMapMountDesc extends
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc extends $dara.Model {
+  configMapId?: number;
+  configMapName?: string;
+  key?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configMapId: 'ConfigMapId',
+      configMapName: 'ConfigMapName',
+      key: 'Key',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configMapId: 'number',
+      configMapName: 'string',
+      key: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationConfigResponseBodyDataInitContainersConfig extends $dara.Model {
+  command?: string;
+  commandArgs?: string;
+  configMapMountDesc?: DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc[];
+  envs?: string;
+  imageUrl?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      envs: 'Envs',
+      imageUrl: 'ImageUrl',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc },
+      envs: 'string',
+      imageUrl: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configMapMountDesc)) {
+      $dara.Model.validateArray(this.configMapMountDesc);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataMountDesc extends $dara.Model {
   /**
    * @remarks
@@ -3621,6 +3694,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * docker.io/library/nginx:1.14.2
    */
   imageUrl?: string;
+  initContainersConfig?: DescribeApplicationConfigResponseBodyDataInitContainersConfig[];
   /**
    * @remarks
    * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
@@ -4130,6 +4204,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
+      initContainersConfig: 'InitContainersConfig',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -4217,6 +4292,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
+      initContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfig },
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
@@ -4278,6 +4354,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.configMapMountDesc)) {
       $dara.Model.validateArray(this.configMapMountDesc);
+    }
+    if(Array.isArray(this.initContainersConfig)) {
+      $dara.Model.validateArray(this.initContainersConfig);
     }
     if(Array.isArray(this.mountDesc)) {
       $dara.Model.validateArray(this.mountDesc);
@@ -19440,6 +19519,44 @@ export class ImageRegistryConfig extends $dara.Model {
   }
 }
 
+export class InitContainerConfig extends $dara.Model {
+  command?: string;
+  commandArgs?: string;
+  configMapMountDesc?: string;
+  envs?: string;
+  imageUrl?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      envs: 'Envs',
+      imageUrl: 'ImageUrl',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: 'string',
+      envs: 'string',
+      imageUrl: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InputCodeLocation extends $dara.Model {
   ossBucketName?: string;
   ossObjectName?: string;
@@ -24821,6 +24938,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
    */
   imageUrl?: string;
+  initContainersConfig?: InitContainerConfig[];
   /**
    * @remarks
    * custom-args
@@ -25149,6 +25267,7 @@ export class CreateApplicationRequest extends $dara.Model {
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
+      initContainersConfig: 'InitContainersConfig',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -25227,6 +25346,7 @@ export class CreateApplicationRequest extends $dara.Model {
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
+      initContainersConfig: { 'type': 'array', 'itemType': InitContainerConfig },
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
@@ -25279,6 +25399,9 @@ export class CreateApplicationRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.initContainersConfig)) {
+      $dara.Model.validateArray(this.initContainersConfig);
+    }
     if(Array.isArray(this.sidecarContainersConfig)) {
       $dara.Model.validateArray(this.sidecarContainersConfig);
     }
@@ -25427,6 +25550,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
    */
   imageUrl?: string;
+  initContainersConfigShrink?: string;
   /**
    * @remarks
    * custom-args
@@ -25755,6 +25879,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
+      initContainersConfigShrink: 'InitContainersConfig',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -25833,6 +25958,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
+      initContainersConfigShrink: 'string',
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
@@ -30286,6 +30412,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
    */
   imageUrl?: string;
+  initContainersConfig?: InitContainerConfig[];
   /**
    * @remarks
    * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
@@ -30750,6 +30877,7 @@ export class DeployApplicationRequest extends $dara.Model {
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
+      initContainersConfig: 'InitContainersConfig',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -30826,6 +30954,7 @@ export class DeployApplicationRequest extends $dara.Model {
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
+      initContainersConfig: { 'type': 'array', 'itemType': InitContainerConfig },
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
@@ -30877,6 +31006,9 @@ export class DeployApplicationRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.initContainersConfig)) {
+      $dara.Model.validateArray(this.initContainersConfig);
+    }
     if(Array.isArray(this.sidecarContainersConfig)) {
       $dara.Model.validateArray(this.sidecarContainersConfig);
     }
@@ -31114,6 +31246,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
    */
   imageUrl?: string;
+  initContainersConfigShrink?: string;
   /**
    * @remarks
    * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
@@ -31578,6 +31711,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
+      initContainersConfigShrink: 'InitContainersConfig',
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
@@ -31654,6 +31788,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
+      initContainersConfigShrink: 'string',
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
@@ -49491,6 +49626,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new CreateApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.initContainersConfig)) {
+      request.initContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.initContainersConfig, "InitContainersConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
       request.sidecarContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sidecarContainersConfig, "SidecarContainersConfig", "json");
     }
@@ -49755,6 +49894,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableSidecarResourceIsolated)) {
       body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated;
+    }
+
+    if (!$dara.isNull(request.initContainersConfigShrink)) {
+      body["InitContainersConfig"] = request.initContainersConfigShrink;
     }
 
     if (!$dara.isNull(request.microRegistrationConfig)) {
@@ -51243,6 +51386,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new DeployApplicationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.initContainersConfig)) {
+      request.initContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.initContainersConfig, "InitContainersConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sidecarContainersConfig)) {
       request.sidecarContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sidecarContainersConfig, "SidecarContainersConfig", "json");
     }
@@ -51495,6 +51642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableSidecarResourceIsolated)) {
       body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated;
+    }
+
+    if (!$dara.isNull(request.initContainersConfigShrink)) {
+      body["InitContainersConfig"] = request.initContainersConfigShrink;
     }
 
     if (!$dara.isNull(request.microRegistrationConfig)) {
