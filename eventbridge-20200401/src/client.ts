@@ -5,6 +5,185 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class SinkBaiLianParametersAfter extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkBaiLianParametersBefore extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkBaiLianParametersOffset extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkBaiLianParametersOp extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkBaiLianParametersPartition extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleForProductResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  checkPass?: boolean;
+  /**
+   * @example
+   * AliyunServiceRoleForEventBridgeConnectVPC
+   */
+  stsRoleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkPass: 'CheckPass',
+      stsRoleName: 'StsRoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkPass: 'boolean',
+      stsRoleName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApiDestinationRequestHttpApiParameters extends $dara.Model {
   /**
    * @remarks
@@ -6279,6 +6458,7 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
 
 export class CreateEventStreamingRequestSink extends $dara.Model {
   sinkApacheRocketMQCheckpointParameters?: CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters;
+  sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: CreateEventStreamingRequestSinkSinkDashVectorParameters;
@@ -6332,6 +6512,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       sinkApacheRocketMQCheckpointParameters: 'SinkApacheRocketMQCheckpointParameters',
+      sinkBaiLianParameters: 'SinkBaiLianParameters',
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
@@ -6352,6 +6533,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       sinkApacheRocketMQCheckpointParameters: CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters,
+      sinkBaiLianParameters: SinkBaiLianParameters,
       sinkCustomizedKafkaConnectorParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: CreateEventStreamingRequestSinkSinkDashVectorParameters,
@@ -6372,6 +6554,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
   validate() {
     if(this.sinkApacheRocketMQCheckpointParameters && typeof (this.sinkApacheRocketMQCheckpointParameters as any).validate === 'function') {
       (this.sinkApacheRocketMQCheckpointParameters as any).validate();
+    }
+    if(this.sinkBaiLianParameters && typeof (this.sinkBaiLianParameters as any).validate === 'function') {
+      (this.sinkBaiLianParameters as any).validate();
     }
     if(this.sinkCustomizedKafkaConnectorParameters && typeof (this.sinkCustomizedKafkaConnectorParameters as any).validate === 'function') {
       (this.sinkCustomizedKafkaConnectorParameters as any).validate();
@@ -7471,6 +7656,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
    * The parameters that are configured if you specify ApsaraMQ for MQTT as the event source.
    */
   sourceMQTTParameters?: CreateEventStreamingRequestSourceSourceMQTTParameters;
+  sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: CreateEventStreamingRequestSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters;
   /**
@@ -7504,6 +7690,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
@@ -7524,6 +7711,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceKafkaParameters: CreateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: CreateEventStreamingRequestSourceSourceMNSParameters,
       sourceMQTTParameters: CreateEventStreamingRequestSourceSourceMQTTParameters,
+      sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: CreateEventStreamingRequestSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters,
       sourcePrometheusParameters: CreateEventStreamingRequestSourceSourcePrometheusParameters,
@@ -7558,6 +7746,9 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
     }
     if(this.sourceMQTTParameters && typeof (this.sourceMQTTParameters as any).validate === 'function') {
       (this.sourceMQTTParameters as any).validate();
+    }
+    if(this.sourceMySQLParameters && typeof (this.sourceMySQLParameters as any).validate === 'function') {
+      (this.sourceMySQLParameters as any).validate();
     }
     if(this.sourceOSSParameters && typeof (this.sourceOSSParameters as any).validate === 'function') {
       (this.sourceOSSParameters as any).validate();
@@ -13398,6 +13589,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $dar
 
 export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
   sinkApacheRocketMQCheckpointParameters?: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters;
+  sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters;
@@ -13442,6 +13634,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       sinkApacheRocketMQCheckpointParameters: 'SinkApacheRocketMQCheckpointParameters',
+      sinkBaiLianParameters: 'SinkBaiLianParameters',
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
@@ -13461,6 +13654,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       sinkApacheRocketMQCheckpointParameters: GetEventStreamingResponseBodyDataSinkSinkApacheRocketMQCheckpointParameters,
+      sinkBaiLianParameters: SinkBaiLianParameters,
       sinkCustomizedKafkaConnectorParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters,
@@ -13480,6 +13674,9 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
   validate() {
     if(this.sinkApacheRocketMQCheckpointParameters && typeof (this.sinkApacheRocketMQCheckpointParameters as any).validate === 'function') {
       (this.sinkApacheRocketMQCheckpointParameters as any).validate();
+    }
+    if(this.sinkBaiLianParameters && typeof (this.sinkBaiLianParameters as any).validate === 'function') {
+      (this.sinkBaiLianParameters as any).validate();
     }
     if(this.sinkCustomizedKafkaConnectorParameters && typeof (this.sinkCustomizedKafkaConnectorParameters as any).validate === 'function') {
       (this.sinkCustomizedKafkaConnectorParameters as any).validate();
@@ -14506,6 +14703,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
    * The parameters that are returned if ApsaraMQ for MQTT is specified as the event source.
    */
   sourceMQTTParameters?: GetEventStreamingResponseBodyDataSourceSourceMQTTParameters;
+  sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: GetEventStreamingResponseBodyDataSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters;
   sourcePrometheusParameters?: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters;
@@ -14535,6 +14733,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
@@ -14555,6 +14754,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
       sourceKafkaParameters: GetEventStreamingResponseBodyDataSourceSourceKafkaParameters,
       sourceMNSParameters: GetEventStreamingResponseBodyDataSourceSourceMNSParameters,
       sourceMQTTParameters: GetEventStreamingResponseBodyDataSourceSourceMQTTParameters,
+      sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: GetEventStreamingResponseBodyDataSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters,
       sourcePrometheusParameters: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters,
@@ -14589,6 +14789,9 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
     }
     if(this.sourceMQTTParameters && typeof (this.sourceMQTTParameters as any).validate === 'function') {
       (this.sourceMQTTParameters as any).validate();
+    }
+    if(this.sourceMySQLParameters && typeof (this.sourceMySQLParameters as any).validate === 'function') {
+      (this.sourceMySQLParameters as any).validate();
     }
     if(this.sourceOSSParameters && typeof (this.sourceOSSParameters as any).validate === 'function') {
       (this.sourceOSSParameters as any).validate();
@@ -20256,6 +20459,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dara.Model {
   sinkApacheRocketMQCheckpointParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters;
+  sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
@@ -20300,6 +20504,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   static names(): { [key: string]: string } {
     return {
       sinkApacheRocketMQCheckpointParameters: 'SinkApacheRocketMQCheckpointParameters',
+      sinkBaiLianParameters: 'SinkBaiLianParameters',
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
@@ -20319,6 +20524,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   static types(): { [key: string]: any } {
     return {
       sinkApacheRocketMQCheckpointParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters,
+      sinkBaiLianParameters: SinkBaiLianParameters,
       sinkCustomizedKafkaConnectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters,
@@ -20338,6 +20544,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   validate() {
     if(this.sinkApacheRocketMQCheckpointParameters && typeof (this.sinkApacheRocketMQCheckpointParameters as any).validate === 'function') {
       (this.sinkApacheRocketMQCheckpointParameters as any).validate();
+    }
+    if(this.sinkBaiLianParameters && typeof (this.sinkBaiLianParameters as any).validate === 'function') {
+      (this.sinkBaiLianParameters as any).validate();
     }
     if(this.sinkCustomizedKafkaConnectorParameters && typeof (this.sinkCustomizedKafkaConnectorParameters as any).validate === 'function') {
       (this.sinkCustomizedKafkaConnectorParameters as any).validate();
@@ -21375,6 +21584,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
    * The parameters that are returned if ApsaraMQ for MQTT is specified as the event source.
    */
   sourceMQTTParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters;
+  sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters;
   sourcePrometheusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters;
@@ -21404,6 +21614,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
@@ -21424,6 +21635,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters,
       sourceMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters,
       sourceMQTTParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters,
+      sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters,
       sourcePrometheusParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters,
@@ -21458,6 +21670,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
     }
     if(this.sourceMQTTParameters && typeof (this.sourceMQTTParameters as any).validate === 'function') {
       (this.sourceMQTTParameters as any).validate();
+    }
+    if(this.sourceMySQLParameters && typeof (this.sourceMySQLParameters as any).validate === 'function') {
+      (this.sourceMySQLParameters as any).validate();
     }
     if(this.sourceOSSParameters && typeof (this.sourceOSSParameters as any).validate === 'function') {
       (this.sourceOSSParameters as any).validate();
@@ -29543,6 +29758,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
 
 export class UpdateEventStreamingRequestSink extends $dara.Model {
   sinkApacheRocketMQCheckpointParameters?: UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters;
+  sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: UpdateEventStreamingRequestSinkSinkDashVectorParameters;
@@ -29592,6 +29808,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       sinkApacheRocketMQCheckpointParameters: 'SinkApacheRocketMQCheckpointParameters',
+      sinkBaiLianParameters: 'SinkBaiLianParameters',
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
@@ -29612,6 +29829,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       sinkApacheRocketMQCheckpointParameters: UpdateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters,
+      sinkBaiLianParameters: SinkBaiLianParameters,
       sinkCustomizedKafkaConnectorParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: UpdateEventStreamingRequestSinkSinkDashVectorParameters,
@@ -29632,6 +29850,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   validate() {
     if(this.sinkApacheRocketMQCheckpointParameters && typeof (this.sinkApacheRocketMQCheckpointParameters as any).validate === 'function') {
       (this.sinkApacheRocketMQCheckpointParameters as any).validate();
+    }
+    if(this.sinkBaiLianParameters && typeof (this.sinkBaiLianParameters as any).validate === 'function') {
+      (this.sinkBaiLianParameters as any).validate();
     }
     if(this.sinkCustomizedKafkaConnectorParameters && typeof (this.sinkCustomizedKafkaConnectorParameters as any).validate === 'function') {
       (this.sinkCustomizedKafkaConnectorParameters as any).validate();
@@ -30665,6 +30886,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
    * The parameters that are configured if you specify ApsaraMQ for MQTT as the event source.
    */
   sourceMQTTParameters?: UpdateEventStreamingRequestSourceSourceMQTTParameters;
+  sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: UpdateEventStreamingRequestSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters;
   /**
@@ -30698,6 +30920,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
       sourceMQTTParameters: 'SourceMQTTParameters',
+      sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
@@ -30718,6 +30941,7 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
       sourceKafkaParameters: UpdateEventStreamingRequestSourceSourceKafkaParameters,
       sourceMNSParameters: UpdateEventStreamingRequestSourceSourceMNSParameters,
       sourceMQTTParameters: UpdateEventStreamingRequestSourceSourceMQTTParameters,
+      sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: UpdateEventStreamingRequestSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: UpdateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters,
       sourcePrometheusParameters: UpdateEventStreamingRequestSourceSourcePrometheusParameters,
@@ -30752,6 +30976,9 @@ export class UpdateEventStreamingRequestSource extends $dara.Model {
     }
     if(this.sourceMQTTParameters && typeof (this.sourceMQTTParameters as any).validate === 'function') {
       (this.sourceMQTTParameters as any).validate();
+    }
+    if(this.sourceMySQLParameters && typeof (this.sourceMySQLParameters as any).validate === 'function') {
+      (this.sourceMySQLParameters as any).validate();
     }
     if(this.sourceOSSParameters && typeof (this.sourceOSSParameters as any).validate === 'function') {
       (this.sourceOSSParameters as any).validate();
@@ -30801,6 +31028,243 @@ export class UpdateEventStreamingRequestTransforms extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SinkBaiLianParameters extends $dara.Model {
+  after?: SinkBaiLianParametersAfter;
+  applicationType?: string;
+  before?: SinkBaiLianParametersBefore;
+  context?: any;
+  extend?: any;
+  offset?: SinkBaiLianParametersOffset;
+  op?: SinkBaiLianParametersOp;
+  partition?: SinkBaiLianParametersPartition;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      after: 'After',
+      applicationType: 'ApplicationType',
+      before: 'Before',
+      context: 'Context',
+      extend: 'Extend',
+      offset: 'Offset',
+      op: 'Op',
+      partition: 'Partition',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      after: SinkBaiLianParametersAfter,
+      applicationType: 'string',
+      before: SinkBaiLianParametersBefore,
+      context: 'any',
+      extend: 'any',
+      offset: SinkBaiLianParametersOffset,
+      op: SinkBaiLianParametersOp,
+      partition: SinkBaiLianParametersPartition,
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.after && typeof (this.after as any).validate === 'function') {
+      (this.after as any).validate();
+    }
+    if(this.before && typeof (this.before as any).validate === 'function') {
+      (this.before as any).validate();
+    }
+    if(this.offset && typeof (this.offset as any).validate === 'function') {
+      (this.offset as any).validate();
+    }
+    if(this.op && typeof (this.op as any).validate === 'function') {
+      (this.op as any).validate();
+    }
+    if(this.partition && typeof (this.partition as any).validate === 'function') {
+      (this.partition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SourceMySQLParameters extends $dara.Model {
+  databaseName?: string;
+  hostName?: string;
+  includeSchemaChanges?: string;
+  networkType?: string;
+  password?: string;
+  port?: number;
+  regionId?: string;
+  securityGroupId?: string;
+  snapshotMode?: string;
+  tableNames?: string;
+  user?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseName: 'DatabaseName',
+      hostName: 'HostName',
+      includeSchemaChanges: 'IncludeSchemaChanges',
+      networkType: 'NetworkType',
+      password: 'Password',
+      port: 'Port',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      snapshotMode: 'SnapshotMode',
+      tableNames: 'TableNames',
+      user: 'User',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseName: 'string',
+      hostName: 'string',
+      includeSchemaChanges: 'string',
+      networkType: 'string',
+      password: 'string',
+      port: 'number',
+      regionId: 'string',
+      securityGroupId: 'string',
+      snapshotMode: 'string',
+      tableNames: 'string',
+      user: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleForProductRequest extends $dara.Model {
+  /**
+   * @example
+   * AliyunServiceRoleForEventBridgeConnectVPC
+   */
+  productName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productName: 'ProductName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleForProductResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: CheckServiceLinkedRoleForProductResponseBodyData;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 34AD682D-5B91-5773-8132-AA38C130****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CheckServiceLinkedRoleForProductResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleForProductResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckServiceLinkedRoleForProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckServiceLinkedRoleForProductResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -38623,6 +39087,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查账号是否存在ServiceLinkedRole授权
+   * 
+   * @param request - CheckServiceLinkedRoleForProductRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckServiceLinkedRoleForProductResponse
+   */
+  async checkServiceLinkedRoleForProductWithOptions(request: CheckServiceLinkedRoleForProductRequest, runtime: $dara.RuntimeOptions): Promise<CheckServiceLinkedRoleForProductResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckServiceLinkedRoleForProduct",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CheckServiceLinkedRoleForProductResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleForProductResponse({}));
+  }
+
+  /**
+   * 检查账号是否存在ServiceLinkedRole授权
+   * 
+   * @param request - CheckServiceLinkedRoleForProductRequest
+   * @returns CheckServiceLinkedRoleForProductResponse
+   */
+  async checkServiceLinkedRoleForProduct(request: CheckServiceLinkedRoleForProductRequest): Promise<CheckServiceLinkedRoleForProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkServiceLinkedRoleForProductWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an API destination.
    * 
    * @remarks
@@ -38671,12 +39177,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateApiDestinationResponse>(await this.callApi(params, req, runtime), new CreateApiDestinationResponse({}));
-    } else {
-      return $dara.cast<CreateApiDestinationResponse>(await this.execute(params, req, runtime), new CreateApiDestinationResponse({}));
-    }
-
+    return $dara.cast<CreateApiDestinationResponse>(await this.callApi(params, req, runtime), new CreateApiDestinationResponse({}));
   }
 
   /**
@@ -38746,12 +39247,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateConnectionResponse>(await this.callApi(params, req, runtime), new CreateConnectionResponse({}));
-    } else {
-      return $dara.cast<CreateConnectionResponse>(await this.execute(params, req, runtime), new CreateConnectionResponse({}));
-    }
-
+    return $dara.cast<CreateConnectionResponse>(await this.callApi(params, req, runtime), new CreateConnectionResponse({}));
   }
 
   /**
@@ -38803,12 +39299,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEventBusResponse>(await this.callApi(params, req, runtime), new CreateEventBusResponse({}));
-    } else {
-      return $dara.cast<CreateEventBusResponse>(await this.execute(params, req, runtime), new CreateEventBusResponse({}));
-    }
-
+    return $dara.cast<CreateEventBusResponse>(await this.callApi(params, req, runtime), new CreateEventBusResponse({}));
   }
 
   /**
@@ -38938,12 +39429,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEventSourceResponse>(await this.callApi(params, req, runtime), new CreateEventSourceResponse({}));
-    } else {
-      return $dara.cast<CreateEventSourceResponse>(await this.execute(params, req, runtime), new CreateEventSourceResponse({}));
-    }
-
+    return $dara.cast<CreateEventSourceResponse>(await this.callApi(params, req, runtime), new CreateEventSourceResponse({}));
   }
 
   /**
@@ -39037,12 +39523,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEventStreamingResponse>(await this.callApi(params, req, runtime), new CreateEventStreamingResponse({}));
-    } else {
-      return $dara.cast<CreateEventStreamingResponse>(await this.execute(params, req, runtime), new CreateEventStreamingResponse({}));
-    }
-
+    return $dara.cast<CreateEventStreamingResponse>(await this.callApi(params, req, runtime), new CreateEventStreamingResponse({}));
   }
 
   /**
@@ -39116,12 +39597,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
-    } else {
-      return $dara.cast<CreateRuleResponse>(await this.execute(params, req, runtime), new CreateRuleResponse({}));
-    }
-
+    return $dara.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
   }
 
   /**
@@ -39169,12 +39645,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateServiceLinkedRoleForProductResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleForProductResponse({}));
-    } else {
-      return $dara.cast<CreateServiceLinkedRoleForProductResponse>(await this.execute(params, req, runtime), new CreateServiceLinkedRoleForProductResponse({}));
-    }
-
+    return $dara.cast<CreateServiceLinkedRoleForProductResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleForProductResponse({}));
   }
 
   /**
@@ -39222,12 +39693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteApiDestinationResponse>(await this.callApi(params, req, runtime), new DeleteApiDestinationResponse({}));
-    } else {
-      return $dara.cast<DeleteApiDestinationResponse>(await this.execute(params, req, runtime), new DeleteApiDestinationResponse({}));
-    }
-
+    return $dara.cast<DeleteApiDestinationResponse>(await this.callApi(params, req, runtime), new DeleteApiDestinationResponse({}));
   }
 
   /**
@@ -39275,12 +39741,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteConnectionResponse>(await this.callApi(params, req, runtime), new DeleteConnectionResponse({}));
-    } else {
-      return $dara.cast<DeleteConnectionResponse>(await this.execute(params, req, runtime), new DeleteConnectionResponse({}));
-    }
-
+    return $dara.cast<DeleteConnectionResponse>(await this.callApi(params, req, runtime), new DeleteConnectionResponse({}));
   }
 
   /**
@@ -39328,12 +39789,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEventBusResponse>(await this.callApi(params, req, runtime), new DeleteEventBusResponse({}));
-    } else {
-      return $dara.cast<DeleteEventBusResponse>(await this.execute(params, req, runtime), new DeleteEventBusResponse({}));
-    }
-
+    return $dara.cast<DeleteEventBusResponse>(await this.callApi(params, req, runtime), new DeleteEventBusResponse({}));
   }
 
   /**
@@ -39385,12 +39841,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEventSourceResponse>(await this.callApi(params, req, runtime), new DeleteEventSourceResponse({}));
-    } else {
-      return $dara.cast<DeleteEventSourceResponse>(await this.execute(params, req, runtime), new DeleteEventSourceResponse({}));
-    }
-
+    return $dara.cast<DeleteEventSourceResponse>(await this.callApi(params, req, runtime), new DeleteEventSourceResponse({}));
   }
 
   /**
@@ -39438,12 +39889,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEventStreamingResponse>(await this.callApi(params, req, runtime), new DeleteEventStreamingResponse({}));
-    } else {
-      return $dara.cast<DeleteEventStreamingResponse>(await this.execute(params, req, runtime), new DeleteEventStreamingResponse({}));
-    }
-
+    return $dara.cast<DeleteEventStreamingResponse>(await this.callApi(params, req, runtime), new DeleteEventStreamingResponse({}));
   }
 
   /**
@@ -39495,12 +39941,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
-    } else {
-      return $dara.cast<DeleteRuleResponse>(await this.execute(params, req, runtime), new DeleteRuleResponse({}));
-    }
-
+    return $dara.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
   /**
@@ -39562,12 +40003,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteTargetsResponse>(await this.callApi(params, req, runtime), new DeleteTargetsResponse({}));
-    } else {
-      return $dara.cast<DeleteTargetsResponse>(await this.execute(params, req, runtime), new DeleteTargetsResponse({}));
-    }
-
+    return $dara.cast<DeleteTargetsResponse>(await this.callApi(params, req, runtime), new DeleteTargetsResponse({}));
   }
 
   /**
@@ -39619,12 +40055,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DisableRuleResponse>(await this.callApi(params, req, runtime), new DisableRuleResponse({}));
-    } else {
-      return $dara.cast<DisableRuleResponse>(await this.execute(params, req, runtime), new DisableRuleResponse({}));
-    }
-
+    return $dara.cast<DisableRuleResponse>(await this.callApi(params, req, runtime), new DisableRuleResponse({}));
   }
 
   /**
@@ -39676,12 +40107,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EnableRuleResponse>(await this.callApi(params, req, runtime), new EnableRuleResponse({}));
-    } else {
-      return $dara.cast<EnableRuleResponse>(await this.execute(params, req, runtime), new EnableRuleResponse({}));
-    }
-
+    return $dara.cast<EnableRuleResponse>(await this.callApi(params, req, runtime), new EnableRuleResponse({}));
   }
 
   /**
@@ -39746,12 +40172,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<EventCenterQueryEventsResponse>(await this.callApi(params, req, runtime), new EventCenterQueryEventsResponse({}));
-    } else {
-      return $dara.cast<EventCenterQueryEventsResponse>(await this.execute(params, req, runtime), new EventCenterQueryEventsResponse({}));
-    }
-
+    return $dara.cast<EventCenterQueryEventsResponse>(await this.callApi(params, req, runtime), new EventCenterQueryEventsResponse({}));
   }
 
   /**
@@ -39796,12 +40217,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetApiDestinationResponse>(await this.callApi(params, req, runtime), new GetApiDestinationResponse({}));
-    } else {
-      return $dara.cast<GetApiDestinationResponse>(await this.execute(params, req, runtime), new GetApiDestinationResponse({}));
-    }
-
+    return $dara.cast<GetApiDestinationResponse>(await this.callApi(params, req, runtime), new GetApiDestinationResponse({}));
   }
 
   /**
@@ -39849,12 +40265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetConnectionResponse>(await this.callApi(params, req, runtime), new GetConnectionResponse({}));
-    } else {
-      return $dara.cast<GetConnectionResponse>(await this.execute(params, req, runtime), new GetConnectionResponse({}));
-    }
-
+    return $dara.cast<GetConnectionResponse>(await this.callApi(params, req, runtime), new GetConnectionResponse({}));
   }
 
   /**
@@ -39902,12 +40313,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEventBusResponse>(await this.callApi(params, req, runtime), new GetEventBusResponse({}));
-    } else {
-      return $dara.cast<GetEventBusResponse>(await this.execute(params, req, runtime), new GetEventBusResponse({}));
-    }
-
+    return $dara.cast<GetEventBusResponse>(await this.callApi(params, req, runtime), new GetEventBusResponse({}));
   }
 
   /**
@@ -39955,12 +40361,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEventStreamingResponse>(await this.callApi(params, req, runtime), new GetEventStreamingResponse({}));
-    } else {
-      return $dara.cast<GetEventStreamingResponse>(await this.execute(params, req, runtime), new GetEventStreamingResponse({}));
-    }
-
+    return $dara.cast<GetEventStreamingResponse>(await this.callApi(params, req, runtime), new GetEventStreamingResponse({}));
   }
 
   /**
@@ -40012,12 +40413,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRuleResponse>(await this.callApi(params, req, runtime), new GetRuleResponse({}));
-    } else {
-      return $dara.cast<GetRuleResponse>(await this.execute(params, req, runtime), new GetRuleResponse({}));
-    }
-
+    return $dara.cast<GetRuleResponse>(await this.callApi(params, req, runtime), new GetRuleResponse({}));
   }
 
   /**
@@ -40057,12 +40453,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAliyunOfficialEventSourcesResponse>(await this.callApi(params, req, runtime), new ListAliyunOfficialEventSourcesResponse({}));
-    } else {
-      return $dara.cast<ListAliyunOfficialEventSourcesResponse>(await this.execute(params, req, runtime), new ListAliyunOfficialEventSourcesResponse({}));
-    }
-
+    return $dara.cast<ListAliyunOfficialEventSourcesResponse>(await this.callApi(params, req, runtime), new ListAliyunOfficialEventSourcesResponse({}));
   }
 
   /**
@@ -40120,12 +40511,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListApiDestinationsResponse>(await this.callApi(params, req, runtime), new ListApiDestinationsResponse({}));
-    } else {
-      return $dara.cast<ListApiDestinationsResponse>(await this.execute(params, req, runtime), new ListApiDestinationsResponse({}));
-    }
-
+    return $dara.cast<ListApiDestinationsResponse>(await this.callApi(params, req, runtime), new ListApiDestinationsResponse({}));
   }
 
   /**
@@ -40181,12 +40567,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListConnectionsResponse>(await this.callApi(params, req, runtime), new ListConnectionsResponse({}));
-    } else {
-      return $dara.cast<ListConnectionsResponse>(await this.execute(params, req, runtime), new ListConnectionsResponse({}));
-    }
-
+    return $dara.cast<ListConnectionsResponse>(await this.callApi(params, req, runtime), new ListConnectionsResponse({}));
   }
 
   /**
@@ -40242,12 +40623,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEventBusesResponse>(await this.callApi(params, req, runtime), new ListEventBusesResponse({}));
-    } else {
-      return $dara.cast<ListEventBusesResponse>(await this.execute(params, req, runtime), new ListEventBusesResponse({}));
-    }
-
+    return $dara.cast<ListEventBusesResponse>(await this.callApi(params, req, runtime), new ListEventBusesResponse({}));
   }
 
   /**
@@ -40315,12 +40691,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEventStreamingsResponse>(await this.callApi(params, req, runtime), new ListEventStreamingsResponse({}));
-    } else {
-      return $dara.cast<ListEventStreamingsResponse>(await this.execute(params, req, runtime), new ListEventStreamingsResponse({}));
-    }
-
+    return $dara.cast<ListEventStreamingsResponse>(await this.callApi(params, req, runtime), new ListEventStreamingsResponse({}));
   }
 
   /**
@@ -40380,12 +40751,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListRulesResponse>(await this.callApi(params, req, runtime), new ListRulesResponse({}));
-    } else {
-      return $dara.cast<ListRulesResponse>(await this.execute(params, req, runtime), new ListRulesResponse({}));
-    }
-
+    return $dara.cast<ListRulesResponse>(await this.callApi(params, req, runtime), new ListRulesResponse({}));
   }
 
   /**
@@ -40446,12 +40812,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTargetsResponse>(await this.callApi(params, req, runtime), new ListTargetsResponse({}));
-    } else {
-      return $dara.cast<ListTargetsResponse>(await this.execute(params, req, runtime), new ListTargetsResponse({}));
-    }
-
+    return $dara.cast<ListTargetsResponse>(await this.callApi(params, req, runtime), new ListTargetsResponse({}));
   }
 
   /**
@@ -40508,12 +40869,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListUserDefinedEventSourcesResponse>(await this.callApi(params, req, runtime), new ListUserDefinedEventSourcesResponse({}));
-    } else {
-      return $dara.cast<ListUserDefinedEventSourcesResponse>(await this.execute(params, req, runtime), new ListUserDefinedEventSourcesResponse({}));
-    }
-
+    return $dara.cast<ListUserDefinedEventSourcesResponse>(await this.callApi(params, req, runtime), new ListUserDefinedEventSourcesResponse({}));
   }
 
   /**
@@ -40561,12 +40917,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PauseEventStreamingResponse>(await this.callApi(params, req, runtime), new PauseEventStreamingResponse({}));
-    } else {
-      return $dara.cast<PauseEventStreamingResponse>(await this.execute(params, req, runtime), new PauseEventStreamingResponse({}));
-    }
-
+    return $dara.cast<PauseEventStreamingResponse>(await this.callApi(params, req, runtime), new PauseEventStreamingResponse({}));
   }
 
   /**
@@ -40628,12 +40979,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PutTargetsResponse>(await this.callApi(params, req, runtime), new PutTargetsResponse({}));
-    } else {
-      return $dara.cast<PutTargetsResponse>(await this.execute(params, req, runtime), new PutTargetsResponse({}));
-    }
-
+    return $dara.cast<PutTargetsResponse>(await this.callApi(params, req, runtime), new PutTargetsResponse({}));
   }
 
   /**
@@ -40689,12 +41035,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryEventResponse>(await this.callApi(params, req, runtime), new QueryEventResponse({}));
-    } else {
-      return $dara.cast<QueryEventResponse>(await this.execute(params, req, runtime), new QueryEventResponse({}));
-    }
-
+    return $dara.cast<QueryEventResponse>(await this.callApi(params, req, runtime), new QueryEventResponse({}));
   }
 
   /**
@@ -40746,12 +41087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryEventTracesResponse>(await this.callApi(params, req, runtime), new QueryEventTracesResponse({}));
-    } else {
-      return $dara.cast<QueryEventTracesResponse>(await this.execute(params, req, runtime), new QueryEventTracesResponse({}));
-    }
-
+    return $dara.cast<QueryEventTracesResponse>(await this.callApi(params, req, runtime), new QueryEventTracesResponse({}));
   }
 
   /**
@@ -40807,12 +41143,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryTracedEventByEventIdResponse>(await this.callApi(params, req, runtime), new QueryTracedEventByEventIdResponse({}));
-    } else {
-      return $dara.cast<QueryTracedEventByEventIdResponse>(await this.execute(params, req, runtime), new QueryTracedEventByEventIdResponse({}));
-    }
-
+    return $dara.cast<QueryTracedEventByEventIdResponse>(await this.callApi(params, req, runtime), new QueryTracedEventByEventIdResponse({}));
   }
 
   /**
@@ -40888,12 +41219,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryTracedEventsResponse>(await this.callApi(params, req, runtime), new QueryTracedEventsResponse({}));
-    } else {
-      return $dara.cast<QueryTracedEventsResponse>(await this.execute(params, req, runtime), new QueryTracedEventsResponse({}));
-    }
-
+    return $dara.cast<QueryTracedEventsResponse>(await this.callApi(params, req, runtime), new QueryTracedEventsResponse({}));
   }
 
   /**
@@ -40941,12 +41267,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartEventStreamingResponse>(await this.callApi(params, req, runtime), new StartEventStreamingResponse({}));
-    } else {
-      return $dara.cast<StartEventStreamingResponse>(await this.execute(params, req, runtime), new StartEventStreamingResponse({}));
-    }
-
+    return $dara.cast<StartEventStreamingResponse>(await this.callApi(params, req, runtime), new StartEventStreamingResponse({}));
   }
 
   /**
@@ -40998,12 +41319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TestEventPatternResponse>(await this.callApi(params, req, runtime), new TestEventPatternResponse({}));
-    } else {
-      return $dara.cast<TestEventPatternResponse>(await this.execute(params, req, runtime), new TestEventPatternResponse({}));
-    }
-
+    return $dara.cast<TestEventPatternResponse>(await this.callApi(params, req, runtime), new TestEventPatternResponse({}));
   }
 
   /**
@@ -41069,12 +41385,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateApiDestinationResponse>(await this.callApi(params, req, runtime), new UpdateApiDestinationResponse({}));
-    } else {
-      return $dara.cast<UpdateApiDestinationResponse>(await this.execute(params, req, runtime), new UpdateApiDestinationResponse({}));
-    }
-
+    return $dara.cast<UpdateApiDestinationResponse>(await this.callApi(params, req, runtime), new UpdateApiDestinationResponse({}));
   }
 
   /**
@@ -41144,12 +41455,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateConnectionResponse>(await this.callApi(params, req, runtime), new UpdateConnectionResponse({}));
-    } else {
-      return $dara.cast<UpdateConnectionResponse>(await this.execute(params, req, runtime), new UpdateConnectionResponse({}));
-    }
-
+    return $dara.cast<UpdateConnectionResponse>(await this.callApi(params, req, runtime), new UpdateConnectionResponse({}));
   }
 
   /**
@@ -41201,12 +41507,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateEventBusResponse>(await this.callApi(params, req, runtime), new UpdateEventBusResponse({}));
-    } else {
-      return $dara.cast<UpdateEventBusResponse>(await this.execute(params, req, runtime), new UpdateEventBusResponse({}));
-    }
-
+    return $dara.cast<UpdateEventBusResponse>(await this.callApi(params, req, runtime), new UpdateEventBusResponse({}));
   }
 
   /**
@@ -41336,12 +41637,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateEventSourceResponse>(await this.callApi(params, req, runtime), new UpdateEventSourceResponse({}));
-    } else {
-      return $dara.cast<UpdateEventSourceResponse>(await this.execute(params, req, runtime), new UpdateEventSourceResponse({}));
-    }
-
+    return $dara.cast<UpdateEventSourceResponse>(await this.callApi(params, req, runtime), new UpdateEventSourceResponse({}));
   }
 
   /**
@@ -41431,12 +41727,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateEventStreamingResponse>(await this.callApi(params, req, runtime), new UpdateEventStreamingResponse({}));
-    } else {
-      return $dara.cast<UpdateEventStreamingResponse>(await this.execute(params, req, runtime), new UpdateEventStreamingResponse({}));
-    }
-
+    return $dara.cast<UpdateEventStreamingResponse>(await this.callApi(params, req, runtime), new UpdateEventStreamingResponse({}));
   }
 
   /**
@@ -41500,12 +41791,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateRuleResponse>(await this.callApi(params, req, runtime), new UpdateRuleResponse({}));
-    } else {
-      return $dara.cast<UpdateRuleResponse>(await this.execute(params, req, runtime), new UpdateRuleResponse({}));
-    }
-
+    return $dara.cast<UpdateRuleResponse>(await this.callApi(params, req, runtime), new UpdateRuleResponse({}));
   }
 
   /**
