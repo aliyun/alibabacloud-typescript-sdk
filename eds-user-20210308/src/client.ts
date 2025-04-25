@@ -3556,6 +3556,7 @@ export class CreateUsersRequest extends $dara.Model {
 }
 
 export class CreateUsersResponseBody extends $dara.Model {
+  allSucceed?: boolean;
   /**
    * @remarks
    * The result of user creation.
@@ -3571,6 +3572,7 @@ export class CreateUsersResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      allSucceed: 'AllSucceed',
       createResult: 'CreateResult',
       requestId: 'RequestId',
     };
@@ -3578,6 +3580,7 @@ export class CreateUsersResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allSucceed: 'boolean',
       createResult: CreateUsersResponseBodyCreateResult,
       requestId: 'string',
     };
