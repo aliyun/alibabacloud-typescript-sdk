@@ -873,6 +873,47 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   }
 }
 
+export class CreatePolicyGroupRequestWatermark extends $dara.Model {
+  watermarkColor?: number;
+  watermarkCustomText?: string;
+  watermarkFontSize?: number;
+  watermarkSwitch?: string;
+  watermarkTransparencyValue?: number;
+  watermarkTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      watermarkColor: 'WatermarkColor',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkSwitch: 'WatermarkSwitch',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkTypes: 'WatermarkTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      watermarkColor: 'number',
+      watermarkCustomText: 'string',
+      watermarkFontSize: 'number',
+      watermarkSwitch: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.watermarkTypes)) {
+      $dara.Model.validateArray(this.watermarkTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScreenshotResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
@@ -3455,6 +3496,47 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources 
   }
 }
 
+export class ListPolicyGroupsResponseBodyPolicyGroupModelWatermark extends $dara.Model {
+  watermarkColor?: number;
+  watermarkCustomText?: string;
+  watermarkFontSize?: number;
+  watermarkSwitch?: string;
+  watermarkTransparencyValue?: number;
+  watermarkTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      watermarkColor: 'WatermarkColor',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkSwitch: 'WatermarkSwitch',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkTypes: 'WatermarkTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      watermarkColor: 'number',
+      watermarkCustomText: 'string',
+      watermarkFontSize: 'number',
+      watermarkSwitch: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.watermarkTypes)) {
+      $dara.Model.validateArray(this.watermarkTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
   /**
    * @remarks
@@ -3571,6 +3653,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
    * 1920
    */
   sessionResolutionWidth?: number;
+  watermark?: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark;
   static names(): { [key: string]: string } {
     return {
       cameraRedirect: 'CameraRedirect',
@@ -3585,6 +3668,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
       policyRelatedResources: 'PolicyRelatedResources',
       sessionResolutionHeight: 'SessionResolutionHeight',
       sessionResolutionWidth: 'SessionResolutionWidth',
+      watermark: 'Watermark',
     };
   }
 
@@ -3602,6 +3686,7 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
       policyRelatedResources: ListPolicyGroupsResponseBodyPolicyGroupModelPolicyRelatedResources,
       sessionResolutionHeight: 'number',
       sessionResolutionWidth: 'number',
+      watermark: ListPolicyGroupsResponseBodyPolicyGroupModelWatermark,
     };
   }
 
@@ -3611,6 +3696,9 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $dara.Model {
     }
     if(this.policyRelatedResources && typeof (this.policyRelatedResources as any).validate === 'function') {
       (this.policyRelatedResources as any).validate();
+    }
+    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
+      (this.watermark as any).validate();
     }
     super.validate();
   }
@@ -3747,6 +3835,47 @@ export class ModifyPolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   validate() {
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestWatermark extends $dara.Model {
+  watermarkColor?: number;
+  watermarkCustomText?: string;
+  watermarkFontSize?: number;
+  watermarkSwitch?: string;
+  watermarkTransparencyValue?: number;
+  watermarkTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      watermarkColor: 'WatermarkColor',
+      watermarkCustomText: 'WatermarkCustomText',
+      watermarkFontSize: 'WatermarkFontSize',
+      watermarkSwitch: 'WatermarkSwitch',
+      watermarkTransparencyValue: 'WatermarkTransparencyValue',
+      watermarkTypes: 'WatermarkTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      watermarkColor: 'number',
+      watermarkCustomText: 'string',
+      watermarkFontSize: 'number',
+      watermarkSwitch: 'string',
+      watermarkTransparencyValue: 'number',
+      watermarkTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.watermarkTypes)) {
+      $dara.Model.validateArray(this.watermarkTypes);
     }
     super.validate();
   }
@@ -6360,6 +6489,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * 720
    */
   resolutionWidth?: number;
+  watermark?: CreatePolicyGroupRequestWatermark;
   static names(): { [key: string]: string } {
     return {
       cameraRedirect: 'CameraRedirect',
@@ -6372,6 +6502,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
       policyType: 'PolicyType',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
+      watermark: 'Watermark',
     };
   }
 
@@ -6387,12 +6518,16 @@ export class CreatePolicyGroupRequest extends $dara.Model {
       policyType: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
+      watermark: CreatePolicyGroupRequestWatermark,
     };
   }
 
   validate() {
     if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
       (this.netRedirectPolicy as any).validate();
+    }
+    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
+      (this.watermark as any).validate();
     }
     super.validate();
   }
@@ -6502,6 +6637,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
    * 720
    */
   resolutionWidth?: number;
+  watermarkShrink?: string;
   static names(): { [key: string]: string } {
     return {
       cameraRedirect: 'CameraRedirect',
@@ -6514,6 +6650,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
       policyType: 'PolicyType',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
+      watermarkShrink: 'Watermark',
     };
   }
 
@@ -6529,6 +6666,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
       policyType: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
+      watermarkShrink: 'string',
     };
   }
 
@@ -11885,6 +12023,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
    * 720
    */
   resolutionWidth?: number;
+  watermark?: ModifyPolicyGroupRequestWatermark;
   static names(): { [key: string]: string } {
     return {
       cameraRedirect: 'CameraRedirect',
@@ -11897,6 +12036,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
+      watermark: 'Watermark',
     };
   }
 
@@ -11912,12 +12052,16 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
       policyGroupName: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
+      watermark: ModifyPolicyGroupRequestWatermark,
     };
   }
 
   validate() {
     if(this.netRedirectPolicy && typeof (this.netRedirectPolicy as any).validate === 'function') {
       (this.netRedirectPolicy as any).validate();
+    }
+    if(this.watermark && typeof (this.watermark as any).validate === 'function') {
+      (this.watermark as any).validate();
     }
     super.validate();
   }
@@ -12034,6 +12178,7 @@ export class ModifyPolicyGroupShrinkRequest extends $dara.Model {
    * 720
    */
   resolutionWidth?: number;
+  watermarkShrink?: string;
   static names(): { [key: string]: string } {
     return {
       cameraRedirect: 'CameraRedirect',
@@ -12046,6 +12191,7 @@ export class ModifyPolicyGroupShrinkRequest extends $dara.Model {
       policyGroupName: 'PolicyGroupName',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
+      watermarkShrink: 'Watermark',
     };
   }
 
@@ -12061,6 +12207,7 @@ export class ModifyPolicyGroupShrinkRequest extends $dara.Model {
       policyGroupName: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
+      watermarkShrink: 'string',
     };
   }
 
@@ -12713,6 +12860,7 @@ export class RenewAndroidInstanceGroupsResponse extends $dara.Model {
 }
 
 export class RenewCloudPhoneNodesRequest extends $dara.Model {
+  autoPay?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the auto-renewal feature.
@@ -12757,6 +12905,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
   periodUnit?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       nodeIds: 'NodeIds',
       period: 'Period',
@@ -12766,6 +12915,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       autoRenew: 'boolean',
       nodeIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
@@ -13948,6 +14098,108 @@ export class UpdateInstanceGroupImageResponse extends $dara.Model {
   }
 }
 
+export class UpdateInstanceImageRequest extends $dara.Model {
+  /**
+   * @example
+   * imgc-075cllfeuazh0****
+   */
+  imageId?: string;
+  instanceIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      instanceIdList: 'InstanceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIdList)) {
+      $dara.Model.validateArray(this.instanceIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceImageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1A923337-44D9-5CAD-9A53-95084BD4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * t-1ljew7on6ay0j****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceImageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceImageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
@@ -14945,6 +15197,10 @@ export default class Client extends OpenApi {
       request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.watermark)) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermark, "Watermark", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.cameraRedirect)) {
       body["CameraRedirect"] = request.cameraRedirect;
@@ -14984,6 +15240,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resolutionWidth)) {
       body["ResolutionWidth"] = request.resolutionWidth;
+    }
+
+    if (!$dara.isNull(request.watermarkShrink)) {
+      body["Watermark"] = request.watermarkShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -16546,7 +16806,7 @@ export default class Client extends OpenApi {
    * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
    * 
    * @remarks
-   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
+   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
    * 
    * @param request - GenerateCoordinationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16584,7 +16844,7 @@ export default class Client extends OpenApi {
    * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
    * 
    * @remarks
-   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
+   * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
    * 
    * @param request - GenerateCoordinationCodeRequest
    * @returns GenerateCoordinationCodeResponse
@@ -17071,6 +17331,10 @@ export default class Client extends OpenApi {
       request.netRedirectPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.netRedirectPolicy, "NetRedirectPolicy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.watermark)) {
+      request.watermarkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.watermark, "Watermark", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.cameraRedirect)) {
       body["CameraRedirect"] = request.cameraRedirect;
@@ -17110,6 +17374,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resolutionWidth)) {
       body["ResolutionWidth"] = request.resolutionWidth;
+    }
+
+    if (!$dara.isNull(request.watermarkShrink)) {
+      body["Watermark"] = request.watermarkShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17383,6 +17651,11 @@ export default class Client extends OpenApi {
    */
   async renewCloudPhoneNodesWithOptions(request: RenewCloudPhoneNodesRequest, runtime: $dara.RuntimeOptions): Promise<RenewCloudPhoneNodesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
@@ -17401,6 +17674,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -17914,6 +18188,52 @@ export default class Client extends OpenApi {
   async updateInstanceGroupImage(request: UpdateInstanceGroupImageRequest): Promise<UpdateInstanceGroupImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceGroupImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新实例镜像
+   * 
+   * @param request - UpdateInstanceImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceImageResponse
+   */
+  async updateInstanceImageWithOptions(request: UpdateInstanceImageRequest, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstanceImage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<UpdateInstanceImageResponse>(await this.callApi(params, req, runtime), new UpdateInstanceImageResponse({}));
+  }
+
+  /**
+   * 更新实例镜像
+   * 
+   * @param request - UpdateInstanceImageRequest
+   * @returns UpdateInstanceImageResponse
+   */
+  async updateInstanceImage(request: UpdateInstanceImageRequest): Promise<UpdateInstanceImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstanceImageWithOptions(request, runtime);
   }
 
   /**
