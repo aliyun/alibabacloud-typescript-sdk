@@ -420,6 +420,110 @@ export class CreateBatchRepeatJobResponseBodyJobGroup extends $dara.Model {
   }
 }
 
+export class CreateBeebotIntentRequestIntentDefinition extends $dara.Model {
+  aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      intentName: 'IntentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      intentName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentLgfRequestLgfDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ruleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intentId: 'IntentId',
+      ruleText: 'RuleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intentId: 'number',
+      ruleText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentUserSayRequestUserSayDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      intentId: 'IntentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      intentId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @example
@@ -974,6 +1078,81 @@ export class CreateScriptResponseBodyScript extends $dara.Model {
       scriptName: 'string',
       status: 'string',
       updateTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBeebotIntentResponseBodyIntent extends $dara.Model {
+  aliasName?: string;
+  /**
+   * @example
+   * 2025-04-21 10:29:59.+0800
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1252504
+   */
+  createUserId?: string;
+  /**
+   * @example
+   * xxx@voice-navigator-testonaliyun.com
+   */
+  createUserName?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  intentName?: string;
+  /**
+   * @example
+   * 2025-04-21 15:52:57.+0800
+   */
+  modifyTime?: string;
+  /**
+   * @example
+   * 1252504
+   */
+  modifyUserId?: string;
+  /**
+   * @example
+   * xxx@voice-navigator-testonaliyun.com
+   */
+  modifyUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      createTime: 'CreateTime',
+      createUserId: 'CreateUserId',
+      createUserName: 'CreateUserName',
+      intentId: 'IntentId',
+      intentName: 'IntentName',
+      modifyTime: 'ModifyTime',
+      modifyUserId: 'ModifyUserId',
+      modifyUserName: 'ModifyUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      createTime: 'string',
+      createUserId: 'string',
+      createUserName: 'string',
+      intentId: 'number',
+      intentName: 'string',
+      modifyTime: 'string',
+      modifyUserId: 'string',
+      modifyUserName: 'string',
     };
   }
 
@@ -3194,6 +3373,35 @@ export class DescribeNumberDistrictInfoStatusResponseBodyParsingVersion extends 
   }
 }
 
+export class DescribeScriptResponseBodyScriptNluProfile extends $dara.Model {
+  fcFunction?: string;
+  fcHttpTriggerUrl?: string;
+  fcRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fcFunction: 'FcFunction',
+      fcHttpTriggerUrl: 'FcHttpTriggerUrl',
+      fcRegion: 'FcRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fcFunction: 'string',
+      fcHttpTriggerUrl: 'string',
+      fcRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScriptResponseBodyScript extends $dara.Model {
   agentId?: number;
   agentKey?: string;
@@ -3245,6 +3453,8 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
    * true
    */
   newBargeInEnable?: boolean;
+  nluEngine?: string;
+  nluProfile?: DescribeScriptResponseBodyScriptNluProfile;
   scene?: string;
   scriptDescription?: string;
   /**
@@ -3284,6 +3494,8 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
       longWaitEnable: 'LongWaitEnable',
       miniPlaybackEnable: 'MiniPlaybackEnable',
       newBargeInEnable: 'NewBargeInEnable',
+      nluEngine: 'NluEngine',
+      nluProfile: 'NluProfile',
       scene: 'Scene',
       scriptDescription: 'ScriptDescription',
       scriptId: 'ScriptId',
@@ -3310,6 +3522,8 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
       longWaitEnable: 'boolean',
       miniPlaybackEnable: 'boolean',
       newBargeInEnable: 'boolean',
+      nluEngine: 'string',
+      nluProfile: DescribeScriptResponseBodyScriptNluProfile,
       scene: 'string',
       scriptDescription: 'string',
       scriptId: 'string',
@@ -3321,6 +3535,9 @@ export class DescribeScriptResponseBodyScript extends $dara.Model {
   }
 
   validate() {
+    if(this.nluProfile && typeof (this.nluProfile as any).validate === 'function') {
+      (this.nluProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -6216,6 +6433,183 @@ export class ListApiPluginsResponseBodyApiPlugins extends $dara.Model {
   }
 }
 
+export class ListBeebotIntentResponseBodyIntents extends $dara.Model {
+  aliasName?: string;
+  /**
+   * @example
+   * 2025-04-21 16:03:15.+0800
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1252504
+   */
+  createUserId?: string;
+  /**
+   * @example
+   * xxx@voice-navigator-testonaliyun.com
+   */
+  createUserName?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  intentName?: string;
+  /**
+   * @example
+   * 2025-04-21 16:03:15.+0800
+   */
+  modifyTime?: string;
+  /**
+   * @example
+   * 1252504
+   */
+  modifyUserId?: string;
+  /**
+   * @example
+   * xxx@voice-navigator-testonaliyun.com
+   */
+  modifyUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      createTime: 'CreateTime',
+      createUserId: 'CreateUserId',
+      createUserName: 'CreateUserName',
+      intentId: 'IntentId',
+      intentName: 'IntentName',
+      modifyTime: 'ModifyTime',
+      modifyUserId: 'ModifyUserId',
+      modifyUserName: 'ModifyUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      createTime: 'string',
+      createUserId: 'string',
+      createUserName: 'string',
+      intentId: 'number',
+      intentName: 'string',
+      modifyTime: 'string',
+      modifyUserId: 'string',
+      modifyUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentLgfResponseBodyLgfs extends $dara.Model {
+  /**
+   * @example
+   * 2025-04-21 10:54:18.+0800
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @example
+   * 2025-04-21 10:54:18.+0800
+   */
+  modifyTime?: string;
+  ruleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      intentId: 'IntentId',
+      lgfId: 'LgfId',
+      modifyTime: 'ModifyTime',
+      ruleText: 'RuleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      intentId: 'number',
+      lgfId: 'number',
+      modifyTime: 'string',
+      ruleText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentUserSayResponseBodyUserSays extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * 2025-04-21 14:16:05.+0800
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * 2025-04-21 14:16:05.+0800
+   */
+  modifyTime?: string;
+  /**
+   * @example
+   * 17448458
+   */
+  userSayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      createTime: 'CreateTime',
+      intentId: 'IntentId',
+      modifyTime: 'ModifyTime',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      intentId: 'number',
+      modifyTime: 'string',
+      userSayId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   /**
    * @example
@@ -6749,6 +7143,526 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   validate() {
     if(Array.isArray(this.resourceTags)) {
       $dara.Model.validateArray(this.resourceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListRuleCheck extends $dara.Model {
+  error?: string[];
+  /**
+   * @example
+   * true
+   */
+  strict?: boolean;
+  text?: string;
+  warning?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      error: 'Error',
+      strict: 'Strict',
+      text: 'Text',
+      warning: 'Warning',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      error: { 'type': 'array', 'itemType': 'string' },
+      strict: 'boolean',
+      text: 'string',
+      warning: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.error)) {
+      $dara.Model.validateArray(this.error);
+    }
+    if(Array.isArray(this.warning)) {
+      $dara.Model.validateArray(this.warning);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch extends $dara.Model {
+  /**
+   * @example
+   * b9932604-08ae-4525-bbe5-c8cce3066070
+   */
+  id?: string;
+  /**
+   * @example
+   * SQL_SUB_QUERY
+   */
+  label?: string;
+  name?: string;
+  /**
+   * @example
+   * PASSKEY
+   */
+  type?: string;
+  /**
+   * @example
+   * BASE_VALIDATE_FILTER_SWITCH
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      label: 'Label',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      label: 'string',
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  aliyunFunction?: string;
+  /**
+   * @example
+   * test
+   */
+  aliyunService?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * GA setup for HPC cn4-HPC-EndUserServer-GlobalAccelerator
+   */
+  description?: string;
+  /**
+   * @example
+   * cn-hangzhou.log.aliyuncs.com
+   */
+  endPoint?: string;
+  /**
+   * @example
+   * count
+   */
+  function?: string;
+  name?: string;
+  params?: { [key: string]: any };
+  switch?: ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch[];
+  /**
+   * @example
+   * cluster
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunFunction: 'AliyunFunction',
+      aliyunService: 'AliyunService',
+      code: 'Code',
+      description: 'Description',
+      endPoint: 'EndPoint',
+      function: 'Function',
+      name: 'Name',
+      params: 'Params',
+      switch: 'Switch',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunFunction: 'string',
+      aliyunService: 'string',
+      code: 'string',
+      description: 'string',
+      endPoint: 'string',
+      function: 'string',
+      name: 'string',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      switch: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.params) {
+      $dara.Model.validateMap(this.params);
+    }
+    if(Array.isArray(this.switch)) {
+      $dara.Model.validateArray(this.switch);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListSlotTags extends $dara.Model {
+  /**
+   * @example
+   * 17448458
+   */
+  userSayId?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userSayId: 'UserSayId',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userSayId: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
+  feedbackFunctions?: ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions[];
+  /**
+   * @example
+   * test
+   */
+  feedbackType?: string;
+  /**
+   * @example
+   * 9ec31b50-32b8-11eb-9478-19d2d885afdb
+   */
+  id?: string;
+  /**
+   * @example
+   * false
+   */
+  isArray?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isEncrypt?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isInteractive?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isNecessary?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  lifeSpan?: number;
+  name?: string;
+  question?: string[];
+  tags?: ListIntentionsResponseBodyDataIntentListSlotTags[];
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedbackFunctions: 'FeedbackFunctions',
+      feedbackType: 'FeedbackType',
+      id: 'Id',
+      isArray: 'IsArray',
+      isEncrypt: 'IsEncrypt',
+      isInteractive: 'IsInteractive',
+      isNecessary: 'IsNecessary',
+      lifeSpan: 'LifeSpan',
+      name: 'Name',
+      question: 'Question',
+      tags: 'Tags',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedbackFunctions: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions },
+      feedbackType: 'string',
+      id: 'string',
+      isArray: 'boolean',
+      isEncrypt: 'boolean',
+      isInteractive: 'boolean',
+      isNecessary: 'boolean',
+      lifeSpan: 'number',
+      name: 'string',
+      question: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListSlotTags },
+      value: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.feedbackFunctions)) {
+      $dara.Model.validateArray(this.feedbackFunctions);
+    }
+    if(Array.isArray(this.question)) {
+      $dara.Model.validateArray(this.question);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListUserSayUserSayData extends $dara.Model {
+  /**
+   * @example
+   * 9ec31b50-32b8-11eb-9478-19d2d885afdb
+   */
+  slotId?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      slotId: 'SlotId',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slotId: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentListUserSay extends $dara.Model {
+  /**
+   * @example
+   * 1234567
+   */
+  fromId?: string;
+  /**
+   * @example
+   * 17448458
+   */
+  id?: string;
+  /**
+   * @example
+   * true
+   */
+  strict?: boolean;
+  userSayData?: ListIntentionsResponseBodyDataIntentListUserSayUserSayData[];
+  static names(): { [key: string]: string } {
+    return {
+      fromId: 'FromId',
+      id: 'Id',
+      strict: 'Strict',
+      userSayData: 'UserSayData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromId: 'string',
+      id: 'string',
+      strict: 'boolean',
+      userSayData: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListUserSayUserSayData },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userSayData)) {
+      $dara.Model.validateArray(this.userSayData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
+  alias?: string[];
+  /**
+   * @example
+   * chatbot-cn-n7QmzrUnNe
+   */
+  botId?: number;
+  /**
+   * @example
+   * 111
+   */
+  botName?: string;
+  /**
+   * @example
+   * 50099
+   */
+  dialogId?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  id?: number;
+  /**
+   * @example
+   * zh-cn
+   */
+  language?: string;
+  name?: string;
+  ruleCheck?: ListIntentionsResponseBodyDataIntentListRuleCheck[];
+  slot?: ListIntentionsResponseBodyDataIntentListSlot[];
+  /**
+   * @example
+   * 43258
+   */
+  tableId?: number;
+  /**
+   * @example
+   * 0
+   */
+  type?: number;
+  userSay?: ListIntentionsResponseBodyDataIntentListUserSay[];
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      botId: 'BotId',
+      botName: 'BotName',
+      dialogId: 'DialogId',
+      id: 'Id',
+      language: 'Language',
+      name: 'Name',
+      ruleCheck: 'RuleCheck',
+      slot: 'Slot',
+      tableId: 'TableId',
+      type: 'Type',
+      userSay: 'UserSay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: { 'type': 'array', 'itemType': 'string' },
+      botId: 'number',
+      botName: 'string',
+      dialogId: 'string',
+      id: 'number',
+      language: 'string',
+      name: 'string',
+      ruleCheck: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListRuleCheck },
+      slot: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListSlot },
+      tableId: 'number',
+      type: 'number',
+      userSay: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentListUserSay },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.alias)) {
+      $dara.Model.validateArray(this.alias);
+    }
+    if(Array.isArray(this.ruleCheck)) {
+      $dara.Model.validateArray(this.ruleCheck);
+    }
+    if(Array.isArray(this.slot)) {
+      $dara.Model.validateArray(this.slot);
+    }
+    if(Array.isArray(this.userSay)) {
+      $dara.Model.validateArray(this.userSay);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * chatbot-cn-n7QmzrUnNe
+   */
+  botId?: string;
+  intentList?: ListIntentionsResponseBodyDataIntentList[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      botId: 'BotId',
+      intentList: 'IntentList',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      botId: 'string',
+      intentList: { 'type': 'array', 'itemType': ListIntentionsResponseBodyDataIntentList },
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.intentList)) {
+      $dara.Model.validateArray(this.intentList);
     }
     super.validate();
   }
@@ -8875,6 +9789,35 @@ export class ListScriptVoiceConfigsResponseBodyScriptVoiceConfigs extends $dara.
   }
 }
 
+export class ListScriptsResponseBodyScriptsListNluProfile extends $dara.Model {
+  fcFunction?: string;
+  fcHttpTriggerUrl?: string;
+  fcRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fcFunction: 'FcFunction',
+      fcHttpTriggerUrl: 'FcHttpTriggerUrl',
+      fcRegion: 'FcRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fcFunction: 'string',
+      fcHttpTriggerUrl: 'string',
+      fcRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   agentKey?: string;
   agentLlm?: boolean;
@@ -8922,6 +9865,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   newBargeInEnable?: boolean;
   nluAccessType?: string;
   nluEngine?: string;
+  nluProfile?: ListScriptsResponseBodyScriptsListNluProfile;
   rejectReason?: string;
   scene?: string;
   scriptDescription?: string;
@@ -8958,6 +9902,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
       newBargeInEnable: 'NewBargeInEnable',
       nluAccessType: 'NluAccessType',
       nluEngine: 'NluEngine',
+      nluProfile: 'NluProfile',
       rejectReason: 'RejectReason',
       scene: 'Scene',
       scriptDescription: 'ScriptDescription',
@@ -8985,6 +9930,7 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
       newBargeInEnable: 'boolean',
       nluAccessType: 'string',
       nluEngine: 'string',
+      nluProfile: ListScriptsResponseBodyScriptsListNluProfile,
       rejectReason: 'string',
       scene: 'string',
       scriptDescription: 'string',
@@ -8997,6 +9943,9 @@ export class ListScriptsResponseBodyScriptsList extends $dara.Model {
   }
 
   validate() {
+    if(this.nluProfile && typeof (this.nluProfile as any).validate === 'function') {
+      (this.nluProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -9605,6 +10554,110 @@ export class ModifyBatchJobsResponseBodyJobGroup extends $dara.Model {
     if(this.strategy && typeof (this.strategy as any).validate === 'function') {
       (this.strategy as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentRequestIntentDefinition extends $dara.Model {
+  aliasName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliasName: 'AliasName',
+      intentName: 'IntentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliasName: 'string',
+      intentName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentLgfRequestLgfDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ruleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      intentId: 'IntentId',
+      ruleText: 'RuleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      intentId: 'number',
+      ruleText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentUserSayRequestUserSayDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      intentId: 'IntentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      intentId: 'number',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -14166,6 +15219,609 @@ export class CreateBatchRepeatJobResponse extends $dara.Model {
   }
 }
 
+export class CreateBeebotIntentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentDefinition?: CreateBeebotIntentRequestIntentDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentDefinition: 'IntentDefinition',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentDefinition: CreateBeebotIntentRequestIntentDefinition,
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.intentDefinition && typeof (this.intentDefinition as any).validate === 'function') {
+      (this.intentDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentDefinitionShrink: 'IntentDefinition',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentDefinitionShrink: 'string',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      intentId: 'IntentId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      intentId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBeebotIntentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBeebotIntentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentLgfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lgfDefinition?: CreateBeebotIntentLgfRequestLgfDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lgfDefinition: 'LgfDefinition',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lgfDefinition: CreateBeebotIntentLgfRequestLgfDefinition,
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.lgfDefinition && typeof (this.lgfDefinition as any).validate === 'function') {
+      (this.lgfDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentLgfShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lgfDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lgfDefinitionShrink: 'LgfDefinition',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lgfDefinitionShrink: 'string',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentLgfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      lgfId: 'LgfId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      lgfId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentLgfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBeebotIntentLgfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBeebotIntentLgfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentUserSayRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userSayDefinition?: CreateBeebotIntentUserSayRequestUserSayDefinition;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      scriptId: 'ScriptId',
+      userSayDefinition: 'UserSayDefinition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      scriptId: 'string',
+      userSayDefinition: CreateBeebotIntentUserSayRequestUserSayDefinition,
+    };
+  }
+
+  validate() {
+    if(this.userSayDefinition && typeof (this.userSayDefinition as any).validate === 'function') {
+      (this.userSayDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentUserSayShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userSayDefinitionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      scriptId: 'ScriptId',
+      userSayDefinitionShrink: 'UserSayDefinition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      scriptId: 'string',
+      userSayDefinitionShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentUserSayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0B219FCB-EC71-1F08-BB1B-0E87C20158C8
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 17448458
+   */
+  userSayId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      userSayId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBeebotIntentUserSayResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBeebotIntentUserSayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBeebotIntentUserSayResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDialogueFlowRequest extends $dara.Model {
   /**
    * @remarks
@@ -16008,6 +17664,7 @@ export class CreateScriptRequest extends $dara.Model {
    * This parameter is required.
    */
   scriptName?: string;
+  scriptNluProfileJsonString?: string;
   /**
    * @example
    * []
@@ -16037,6 +17694,7 @@ export class CreateScriptRequest extends $dara.Model {
       scriptContent: 'ScriptContent',
       scriptDescription: 'ScriptDescription',
       scriptName: 'ScriptName',
+      scriptNluProfileJsonString: 'ScriptNluProfileJsonString',
       scriptWaveform: 'ScriptWaveform',
       ttsConfig: 'TtsConfig',
     };
@@ -16061,6 +17719,7 @@ export class CreateScriptRequest extends $dara.Model {
       scriptContent: { 'type': 'array', 'itemType': 'string' },
       scriptDescription: 'string',
       scriptName: 'string',
+      scriptNluProfileJsonString: 'string',
       scriptWaveform: { 'type': 'array', 'itemType': 'string' },
       ttsConfig: 'string',
     };
@@ -16982,6 +18641,488 @@ export class DeleteAllNumberDistrictInfoResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteAllNumberDistrictInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      intentId: 'IntentId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      intentId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBeebotIntentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBeebotIntentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentLgfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      lgfId: 'LgfId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentId: 'number',
+      lgfId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentLgfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0B219FCB-EC71-1F08-BB1B-0E87C20158C8
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      lgfId: 'LgfId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      lgfId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentLgfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBeebotIntentLgfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBeebotIntentLgfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentUserSayRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17448458
+   */
+  userSayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      scriptId: 'ScriptId',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentId: 'string',
+      scriptId: 'string',
+      userSayId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentUserSayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0B219FCB-EC71-1F08-BB1B-0E87C20158C8
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 17448458
+   */
+  userSayId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      userSayId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBeebotIntentUserSayResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBeebotIntentUserSayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBeebotIntentUserSayResponseBody,
     };
   }
 
@@ -18450,6 +20591,166 @@ export class DeleteScriptWaveformResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteScriptWaveformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBeebotIntentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBeebotIntentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0B219FCB-EC71-1F08-BB1B-0E87C20158C8
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  intent?: DescribeBeebotIntentResponseBodyIntent;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      intent: 'Intent',
+      intentId: 'IntentId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      intent: DescribeBeebotIntentResponseBodyIntent,
+      intentId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.intent && typeof (this.intent as any).validate === 'function') {
+      (this.intent as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBeebotIntentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBeebotIntentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBeebotIntentResponseBody,
     };
   }
 
@@ -25763,6 +28064,587 @@ export class ListApiPluginsResponse extends $dara.Model {
   }
 }
 
+export class ListBeebotIntentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  intentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentName: 'IntentName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  intents?: ListBeebotIntentResponseBodyIntents[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      intents: 'Intents',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      intents: { 'type': 'array', 'itemType': ListBeebotIntentResponseBodyIntents },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.intents)) {
+      $dara.Model.validateArray(this.intents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBeebotIntentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBeebotIntentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentLgfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: string;
+  lgfText?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      lgfText: 'LgfText',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentId: 'string',
+      lgfText: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentLgfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  lgfs?: ListBeebotIntentLgfResponseBodyLgfs[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      lgfs: 'Lgfs',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      lgfs: { 'type': 'array', 'itemType': ListBeebotIntentLgfResponseBodyLgfs },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lgfs)) {
+      $dara.Model.validateArray(this.lgfs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentLgfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBeebotIntentLgfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBeebotIntentLgfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentUserSayRequest extends $dara.Model {
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      instanceId: 'string',
+      intentId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentUserSayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D7BBFCDF-59B0-1ADA-BCA3-4B77F642DDFB
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 0956D5DA-0978-5DC9-94B0-C68527DA7475
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  userSays?: ListBeebotIntentUserSayResponseBodyUserSays[];
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      userSays: 'UserSays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      userSays: { 'type': 'array', 'itemType': ListBeebotIntentUserSayResponseBodyUserSays },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userSays)) {
+      $dara.Model.validateArray(this.userSays);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBeebotIntentUserSayResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBeebotIntentUserSayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBeebotIntentUserSayResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChatbotInstancesRequest extends $dara.Model {
   agentKey?: string;
   /**
@@ -26625,6 +29507,181 @@ export class ListInstancesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  annotationMissionDataSourceType?: number;
+  /**
+   * @example
+   * chatbot-cn-n7QmzrUnNe
+   */
+  botId?: string;
+  /**
+   * @example
+   * 2
+   */
+  environment?: number;
+  /**
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  userNick?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotationMissionDataSourceType: 'AnnotationMissionDataSourceType',
+      botId: 'BotId',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      intentId: 'IntentId',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      scriptId: 'ScriptId',
+      userNick: 'UserNick',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotationMissionDataSourceType: 'number',
+      botId: 'string',
+      environment: 'number',
+      instanceId: 'string',
+      intentId: 'number',
+      pageIndex: 'number',
+      pageSize: 'number',
+      scriptId: 'string',
+      userNick: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListIntentionsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListIntentionsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIntentionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIntentionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIntentionsResponseBody,
     };
   }
 
@@ -29438,6 +32495,669 @@ export class ModifyBatchJobsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyBatchJobsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentDefinition?: ModifyBeebotIntentRequestIntentDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentDefinition: 'IntentDefinition',
+      intentId: 'IntentId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentDefinition: ModifyBeebotIntentRequestIntentDefinition,
+      intentId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.intentDefinition && typeof (this.intentDefinition as any).validate === 'function') {
+      (this.intentDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  intentDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      intentDefinitionShrink: 'IntentDefinition',
+      intentId: 'IntentId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      intentDefinitionShrink: 'string',
+      intentId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentResponseBody extends $dara.Model {
+  /**
+   * @example
+   * A1F21BF2-CB21-1968-8039-C74699E7DDEB
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 10717802
+   */
+  intentId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 8785D26A-7406-50A1-9653-1313C292E23B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      intentId: 'IntentId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      intentId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyBeebotIntentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyBeebotIntentResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentLgfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lgfDefinition?: ModifyBeebotIntentLgfRequestLgfDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lgfDefinition: 'LgfDefinition',
+      lgfId: 'LgfId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lgfDefinition: ModifyBeebotIntentLgfRequestLgfDefinition,
+      lgfId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.lgfDefinition && typeof (this.lgfDefinition as any).validate === 'function') {
+      (this.lgfDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentLgfShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  lgfDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lgfDefinitionShrink: 'LgfDefinition',
+      lgfId: 'LgfId',
+      scriptId: 'ScriptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lgfDefinitionShrink: 'string',
+      lgfId: 'number',
+      scriptId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentLgfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * A1F21BF2-CB21-1968-8039-C74699E7DDEB
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 302C67BD-19FF-5B66-A45D-F95544604155
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      lgfId: 'LgfId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      lgfId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentLgfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyBeebotIntentLgfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyBeebotIntentLgfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentUserSayRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userSayDefinition?: ModifyBeebotIntentUserSayRequestUserSayDefinition;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17448458
+   */
+  userSayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      scriptId: 'ScriptId',
+      userSayDefinition: 'UserSayDefinition',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      scriptId: 'string',
+      userSayDefinition: ModifyBeebotIntentUserSayRequestUserSayDefinition,
+      userSayId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.userSayDefinition && typeof (this.userSayDefinition as any).validate === 'function') {
+      (this.userSayDefinition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentUserSayShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
+   */
+  scriptId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userSayDefinitionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17448458
+   */
+  userSayId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      scriptId: 'ScriptId',
+      userSayDefinitionShrink: 'UserSayDefinition',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      scriptId: 'string',
+      userSayDefinitionShrink: 'string',
+      userSayId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentUserSayResponseBody extends $dara.Model {
+  /**
+   * @example
+   * A1F21BF2-CB21-1968-8039-C74699E7DDEB
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * Success
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 17448458
+   */
+  userSayId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      userSayId: 'UserSayId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      userSayId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBeebotIntentUserSayResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyBeebotIntentUserSayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyBeebotIntentUserSayResponseBody,
     };
   }
 
@@ -36187,12 +39907,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ApplyNumberDistrictInfoParsingResultResponse>(await this.callApi(params, req, runtime), new ApplyNumberDistrictInfoParsingResultResponse({}));
-    } else {
-      return $dara.cast<ApplyNumberDistrictInfoParsingResultResponse>(await this.execute(params, req, runtime), new ApplyNumberDistrictInfoParsingResultResponse({}));
-    }
-
+    return $dara.cast<ApplyNumberDistrictInfoParsingResultResponse>(await this.callApi(params, req, runtime), new ApplyNumberDistrictInfoParsingResultResponse({}));
   }
 
   /**
@@ -36260,12 +39975,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AssignJobsResponse>(await this.callApi(params, req, runtime), new AssignJobsResponse({}));
-    } else {
-      return $dara.cast<AssignJobsResponse>(await this.execute(params, req, runtime), new AssignJobsResponse({}));
-    }
-
+    return $dara.cast<AssignJobsResponse>(await this.callApi(params, req, runtime), new AssignJobsResponse({}));
   }
 
   /**
@@ -36323,12 +40033,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CancelJobsResponse>(await this.callApi(params, req, runtime), new CancelJobsResponse({}));
-    } else {
-      return $dara.cast<CancelJobsResponse>(await this.execute(params, req, runtime), new CancelJobsResponse({}));
-    }
-
+    return $dara.cast<CancelJobsResponse>(await this.callApi(params, req, runtime), new CancelJobsResponse({}));
   }
 
   /**
@@ -36370,12 +40075,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
-    } else {
-      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
-    }
-
+    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
   /**
@@ -36465,12 +40165,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateAgentProfileResponse>(await this.callApi(params, req, runtime), new CreateAgentProfileResponse({}));
-    } else {
-      return $dara.cast<CreateAgentProfileResponse>(await this.execute(params, req, runtime), new CreateAgentProfileResponse({}));
-    }
-
+    return $dara.cast<CreateAgentProfileResponse>(await this.callApi(params, req, runtime), new CreateAgentProfileResponse({}));
   }
 
   /**
@@ -36582,12 +40277,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateAnnotationMissionResponse>(await this.callApi(params, req, runtime), new CreateAnnotationMissionResponse({}));
-    } else {
-      return $dara.cast<CreateAnnotationMissionResponse>(await this.execute(params, req, runtime), new CreateAnnotationMissionResponse({}));
-    }
-
+    return $dara.cast<CreateAnnotationMissionResponse>(await this.callApi(params, req, runtime), new CreateAnnotationMissionResponse({}));
   }
 
   /**
@@ -36657,12 +40347,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateBatchJobsResponse>(await this.callApi(params, req, runtime), new CreateBatchJobsResponse({}));
-    } else {
-      return $dara.cast<CreateBatchJobsResponse>(await this.execute(params, req, runtime), new CreateBatchJobsResponse({}));
-    }
-
+    return $dara.cast<CreateBatchJobsResponse>(await this.callApi(params, req, runtime), new CreateBatchJobsResponse({}));
   }
 
   /**
@@ -36754,12 +40439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateBatchRepeatJobResponse>(await this.callApi(params, req, runtime), new CreateBatchRepeatJobResponse({}));
-    } else {
-      return $dara.cast<CreateBatchRepeatJobResponse>(await this.execute(params, req, runtime), new CreateBatchRepeatJobResponse({}));
-    }
-
+    return $dara.cast<CreateBatchRepeatJobResponse>(await this.callApi(params, req, runtime), new CreateBatchRepeatJobResponse({}));
   }
 
   /**
@@ -36771,6 +40451,174 @@ export default class Client extends OpenApi {
   async createBatchRepeatJob(request: CreateBatchRepeatJobRequest): Promise<CreateBatchRepeatJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBatchRepeatJobWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateBeebotIntent
+   * 
+   * @param tmpReq - CreateBeebotIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBeebotIntentResponse
+   */
+  async createBeebotIntentWithOptions(tmpReq: CreateBeebotIntentRequest, runtime: $dara.RuntimeOptions): Promise<CreateBeebotIntentResponse> {
+    tmpReq.validate();
+    let request = new CreateBeebotIntentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.intentDefinition)) {
+      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intentDefinition, "IntentDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentDefinitionShrink)) {
+      query["IntentDefinition"] = request.intentDefinitionShrink;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBeebotIntent",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateBeebotIntentResponse>(await this.callApi(params, req, runtime), new CreateBeebotIntentResponse({}));
+  }
+
+  /**
+   * CreateBeebotIntent
+   * 
+   * @param request - CreateBeebotIntentRequest
+   * @returns CreateBeebotIntentResponse
+   */
+  async createBeebotIntent(request: CreateBeebotIntentRequest): Promise<CreateBeebotIntentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBeebotIntentWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateBeebotIntentLgf
+   * 
+   * @param tmpReq - CreateBeebotIntentLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBeebotIntentLgfResponse
+   */
+  async createBeebotIntentLgfWithOptions(tmpReq: CreateBeebotIntentLgfRequest, runtime: $dara.RuntimeOptions): Promise<CreateBeebotIntentLgfResponse> {
+    tmpReq.validate();
+    let request = new CreateBeebotIntentLgfShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.lgfDefinition)) {
+      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lgfDefinition, "LgfDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lgfDefinitionShrink)) {
+      query["LgfDefinition"] = request.lgfDefinitionShrink;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBeebotIntentLgf",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateBeebotIntentLgfResponse>(await this.callApi(params, req, runtime), new CreateBeebotIntentLgfResponse({}));
+  }
+
+  /**
+   * CreateBeebotIntentLgf
+   * 
+   * @param request - CreateBeebotIntentLgfRequest
+   * @returns CreateBeebotIntentLgfResponse
+   */
+  async createBeebotIntentLgf(request: CreateBeebotIntentLgfRequest): Promise<CreateBeebotIntentLgfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBeebotIntentLgfWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateBeebotIntentUserSay
+   * 
+   * @param tmpReq - CreateBeebotIntentUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBeebotIntentUserSayResponse
+   */
+  async createBeebotIntentUserSayWithOptions(tmpReq: CreateBeebotIntentUserSayRequest, runtime: $dara.RuntimeOptions): Promise<CreateBeebotIntentUserSayResponse> {
+    tmpReq.validate();
+    let request = new CreateBeebotIntentUserSayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.userSayDefinition)) {
+      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSayDefinition, "UserSayDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.userSayDefinitionShrink)) {
+      query["UserSayDefinition"] = request.userSayDefinitionShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBeebotIntentUserSay",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<CreateBeebotIntentUserSayResponse>(await this.callApi(params, req, runtime), new CreateBeebotIntentUserSayResponse({}));
+  }
+
+  /**
+   * CreateBeebotIntentUserSay
+   * 
+   * @param request - CreateBeebotIntentUserSayRequest
+   * @returns CreateBeebotIntentUserSayResponse
+   */
+  async createBeebotIntentUserSay(request: CreateBeebotIntentUserSayRequest): Promise<CreateBeebotIntentUserSayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBeebotIntentUserSayWithOptions(request, runtime);
   }
 
   /**
@@ -36811,12 +40659,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDialogueFlowResponse>(await this.callApi(params, req, runtime), new CreateDialogueFlowResponse({}));
-    } else {
-      return $dara.cast<CreateDialogueFlowResponse>(await this.execute(params, req, runtime), new CreateDialogueFlowResponse({}));
-    }
-
+    return $dara.cast<CreateDialogueFlowResponse>(await this.callApi(params, req, runtime), new CreateDialogueFlowResponse({}));
   }
 
   /**
@@ -36850,12 +40693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDownloadUrlResponse>(await this.callApi(params, req, runtime), new CreateDownloadUrlResponse({}));
-    } else {
-      return $dara.cast<CreateDownloadUrlResponse>(await this.execute(params, req, runtime), new CreateDownloadUrlResponse({}));
-    }
-
+    return $dara.cast<CreateDownloadUrlResponse>(await this.callApi(params, req, runtime), new CreateDownloadUrlResponse({}));
   }
 
   /**
@@ -36913,12 +40751,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateGlobalQuestionResponse>(await this.callApi(params, req, runtime), new CreateGlobalQuestionResponse({}));
-    } else {
-      return $dara.cast<CreateGlobalQuestionResponse>(await this.execute(params, req, runtime), new CreateGlobalQuestionResponse({}));
-    }
-
+    return $dara.cast<CreateGlobalQuestionResponse>(await this.callApi(params, req, runtime), new CreateGlobalQuestionResponse({}));
   }
 
   /**
@@ -36976,12 +40809,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
-    } else {
-      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
-    }
-
+    return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
   /**
@@ -37025,12 +40853,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateInstanceBindNumberResponse>(await this.callApi(params, req, runtime), new CreateInstanceBindNumberResponse({}));
-    } else {
-      return $dara.cast<CreateInstanceBindNumberResponse>(await this.execute(params, req, runtime), new CreateInstanceBindNumberResponse({}));
-    }
-
+    return $dara.cast<CreateInstanceBindNumberResponse>(await this.callApi(params, req, runtime), new CreateInstanceBindNumberResponse({}));
   }
 
   /**
@@ -37090,12 +40913,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateIntentResponse>(await this.callApi(params, req, runtime), new CreateIntentResponse({}));
-    } else {
-      return $dara.cast<CreateIntentResponse>(await this.execute(params, req, runtime), new CreateIntentResponse({}));
-    }
-
+    return $dara.cast<CreateIntentResponse>(await this.callApi(params, req, runtime), new CreateIntentResponse({}));
   }
 
   /**
@@ -37137,12 +40955,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateJobDataParsingTaskResponse>(await this.callApi(params, req, runtime), new CreateJobDataParsingTaskResponse({}));
-    } else {
-      return $dara.cast<CreateJobDataParsingTaskResponse>(await this.execute(params, req, runtime), new CreateJobDataParsingTaskResponse({}));
-    }
-
+    return $dara.cast<CreateJobDataParsingTaskResponse>(await this.callApi(params, req, runtime), new CreateJobDataParsingTaskResponse({}));
   }
 
   /**
@@ -37228,12 +41041,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateJobGroupResponse>(await this.callApi(params, req, runtime), new CreateJobGroupResponse({}));
-    } else {
-      return $dara.cast<CreateJobGroupResponse>(await this.execute(params, req, runtime), new CreateJobGroupResponse({}));
-    }
-
+    return $dara.cast<CreateJobGroupResponse>(await this.callApi(params, req, runtime), new CreateJobGroupResponse({}));
   }
 
   /**
@@ -37279,12 +41087,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateJobGroupExportTaskResponse>(await this.callApi(params, req, runtime), new CreateJobGroupExportTaskResponse({}));
-    } else {
-      return $dara.cast<CreateJobGroupExportTaskResponse>(await this.execute(params, req, runtime), new CreateJobGroupExportTaskResponse({}));
-    }
-
+    return $dara.cast<CreateJobGroupExportTaskResponse>(await this.callApi(params, req, runtime), new CreateJobGroupExportTaskResponse({}));
   }
 
   /**
@@ -37324,12 +41127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateNumberDistrictInfoDownloadUrlResponse>(await this.callApi(params, req, runtime), new CreateNumberDistrictInfoDownloadUrlResponse({}));
-    } else {
-      return $dara.cast<CreateNumberDistrictInfoDownloadUrlResponse>(await this.execute(params, req, runtime), new CreateNumberDistrictInfoDownloadUrlResponse({}));
-    }
-
+    return $dara.cast<CreateNumberDistrictInfoDownloadUrlResponse>(await this.callApi(params, req, runtime), new CreateNumberDistrictInfoDownloadUrlResponse({}));
   }
 
   /**
@@ -37375,12 +41173,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateNumberDistrictInfoParsingTaskResponse>(await this.callApi(params, req, runtime), new CreateNumberDistrictInfoParsingTaskResponse({}));
-    } else {
-      return $dara.cast<CreateNumberDistrictInfoParsingTaskResponse>(await this.execute(params, req, runtime), new CreateNumberDistrictInfoParsingTaskResponse({}));
-    }
-
+    return $dara.cast<CreateNumberDistrictInfoParsingTaskResponse>(await this.callApi(params, req, runtime), new CreateNumberDistrictInfoParsingTaskResponse({}));
   }
 
   /**
@@ -37434,12 +41227,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new CreateOutboundCallNumberResponse({}));
-    } else {
-      return $dara.cast<CreateOutboundCallNumberResponse>(await this.execute(params, req, runtime), new CreateOutboundCallNumberResponse({}));
-    }
-
+    return $dara.cast<CreateOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new CreateOutboundCallNumberResponse({}));
   }
 
   /**
@@ -37454,6 +41242,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建场景
+   * 
    * @param request - CreateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScriptResponse
@@ -37529,6 +41319,10 @@ export default class Client extends OpenApi {
       query["ScriptName"] = request.scriptName;
     }
 
+    if (!$dara.isNull(request.scriptNluProfileJsonString)) {
+      query["ScriptNluProfileJsonString"] = request.scriptNluProfileJsonString;
+    }
+
     if (!$dara.isNull(request.scriptWaveform)) {
       query["ScriptWaveform"] = request.scriptWaveform;
     }
@@ -37551,15 +41345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateScriptResponse>(await this.callApi(params, req, runtime), new CreateScriptResponse({}));
-    } else {
-      return $dara.cast<CreateScriptResponse>(await this.execute(params, req, runtime), new CreateScriptResponse({}));
-    }
-
+    return $dara.cast<CreateScriptResponse>(await this.callApi(params, req, runtime), new CreateScriptResponse({}));
   }
 
   /**
+   * 新建场景
+   * 
    * @param request - CreateScriptRequest
    * @returns CreateScriptResponse
    */
@@ -37610,12 +41401,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateScriptWaveformResponse>(await this.callApi(params, req, runtime), new CreateScriptWaveformResponse({}));
-    } else {
-      return $dara.cast<CreateScriptWaveformResponse>(await this.execute(params, req, runtime), new CreateScriptWaveformResponse({}));
-    }
-
+    return $dara.cast<CreateScriptWaveformResponse>(await this.callApi(params, req, runtime), new CreateScriptWaveformResponse({}));
   }
 
   /**
@@ -37665,12 +41451,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateTagResponse>(await this.callApi(params, req, runtime), new CreateTagResponse({}));
-    } else {
-      return $dara.cast<CreateTagResponse>(await this.execute(params, req, runtime), new CreateTagResponse({}));
-    }
-
+    return $dara.cast<CreateTagResponse>(await this.callApi(params, req, runtime), new CreateTagResponse({}));
   }
 
   /**
@@ -37706,12 +41487,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateTaskExportTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskExportTaskResponse({}));
-    } else {
-      return $dara.cast<CreateTaskExportTaskResponse>(await this.execute(params, req, runtime), new CreateTaskExportTaskResponse({}));
-    }
-
+    return $dara.cast<CreateTaskExportTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskExportTaskResponse({}));
   }
 
   /**
@@ -37761,12 +41537,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteAgentProfilesResponse>(await this.callApi(params, req, runtime), new DeleteAgentProfilesResponse({}));
-    } else {
-      return $dara.cast<DeleteAgentProfilesResponse>(await this.execute(params, req, runtime), new DeleteAgentProfilesResponse({}));
-    }
-
+    return $dara.cast<DeleteAgentProfilesResponse>(await this.callApi(params, req, runtime), new DeleteAgentProfilesResponse({}));
   }
 
   /**
@@ -37798,12 +41569,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteAllNumberDistrictInfoResponse>(await this.callApi(params, req, runtime), new DeleteAllNumberDistrictInfoResponse({}));
-    } else {
-      return $dara.cast<DeleteAllNumberDistrictInfoResponse>(await this.execute(params, req, runtime), new DeleteAllNumberDistrictInfoResponse({}));
-    }
-
+    return $dara.cast<DeleteAllNumberDistrictInfoResponse>(await this.callApi(params, req, runtime), new DeleteAllNumberDistrictInfoResponse({}));
   }
 
   /**
@@ -37813,6 +41579,164 @@ export default class Client extends OpenApi {
   async deleteAllNumberDistrictInfo(): Promise<DeleteAllNumberDistrictInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAllNumberDistrictInfoWithOptions(runtime);
+  }
+
+  /**
+   * DeleteBeebotIntent
+   * 
+   * @param request - DeleteBeebotIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBeebotIntentResponse
+   */
+  async deleteBeebotIntentWithOptions(request: DeleteBeebotIntentRequest, runtime: $dara.RuntimeOptions): Promise<DeleteBeebotIntentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBeebotIntent",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteBeebotIntentResponse>(await this.callApi(params, req, runtime), new DeleteBeebotIntentResponse({}));
+  }
+
+  /**
+   * DeleteBeebotIntent
+   * 
+   * @param request - DeleteBeebotIntentRequest
+   * @returns DeleteBeebotIntentResponse
+   */
+  async deleteBeebotIntent(request: DeleteBeebotIntentRequest): Promise<DeleteBeebotIntentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBeebotIntentWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteBeebotIntentLgf
+   * 
+   * @param request - DeleteBeebotIntentLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBeebotIntentLgfResponse
+   */
+  async deleteBeebotIntentLgfWithOptions(request: DeleteBeebotIntentLgfRequest, runtime: $dara.RuntimeOptions): Promise<DeleteBeebotIntentLgfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.lgfId)) {
+      query["LgfId"] = request.lgfId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBeebotIntentLgf",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteBeebotIntentLgfResponse>(await this.callApi(params, req, runtime), new DeleteBeebotIntentLgfResponse({}));
+  }
+
+  /**
+   * DeleteBeebotIntentLgf
+   * 
+   * @param request - DeleteBeebotIntentLgfRequest
+   * @returns DeleteBeebotIntentLgfResponse
+   */
+  async deleteBeebotIntentLgf(request: DeleteBeebotIntentLgfRequest): Promise<DeleteBeebotIntentLgfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBeebotIntentLgfWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteBeebotIntentUserSay
+   * 
+   * @param request - DeleteBeebotIntentUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBeebotIntentUserSayResponse
+   */
+  async deleteBeebotIntentUserSayWithOptions(request: DeleteBeebotIntentUserSayRequest, runtime: $dara.RuntimeOptions): Promise<DeleteBeebotIntentUserSayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.userSayId)) {
+      query["UserSayId"] = request.userSayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBeebotIntentUserSay",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DeleteBeebotIntentUserSayResponse>(await this.callApi(params, req, runtime), new DeleteBeebotIntentUserSayResponse({}));
+  }
+
+  /**
+   * DeleteBeebotIntentUserSay
+   * 
+   * @param request - DeleteBeebotIntentUserSayRequest
+   * @returns DeleteBeebotIntentUserSayResponse
+   */
+  async deleteBeebotIntentUserSay(request: DeleteBeebotIntentUserSayRequest): Promise<DeleteBeebotIntentUserSayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBeebotIntentUserSayWithOptions(request, runtime);
   }
 
   /**
@@ -37849,12 +41773,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteContactBlockListResponse>(await this.callApi(params, req, runtime), new DeleteContactBlockListResponse({}));
-    } else {
-      return $dara.cast<DeleteContactBlockListResponse>(await this.execute(params, req, runtime), new DeleteContactBlockListResponse({}));
-    }
-
+    return $dara.cast<DeleteContactBlockListResponse>(await this.callApi(params, req, runtime), new DeleteContactBlockListResponse({}));
   }
 
   /**
@@ -37900,12 +41819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteContactWhiteListResponse>(await this.callApi(params, req, runtime), new DeleteContactWhiteListResponse({}));
-    } else {
-      return $dara.cast<DeleteContactWhiteListResponse>(await this.execute(params, req, runtime), new DeleteContactWhiteListResponse({}));
-    }
-
+    return $dara.cast<DeleteContactWhiteListResponse>(await this.callApi(params, req, runtime), new DeleteContactWhiteListResponse({}));
   }
 
   /**
@@ -37951,12 +41865,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDialogueFlowResponse>(await this.callApi(params, req, runtime), new DeleteDialogueFlowResponse({}));
-    } else {
-      return $dara.cast<DeleteDialogueFlowResponse>(await this.execute(params, req, runtime), new DeleteDialogueFlowResponse({}));
-    }
-
+    return $dara.cast<DeleteDialogueFlowResponse>(await this.callApi(params, req, runtime), new DeleteDialogueFlowResponse({}));
   }
 
   /**
@@ -38002,12 +41911,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteGlobalQuestionResponse>(await this.callApi(params, req, runtime), new DeleteGlobalQuestionResponse({}));
-    } else {
-      return $dara.cast<DeleteGlobalQuestionResponse>(await this.execute(params, req, runtime), new DeleteGlobalQuestionResponse({}));
-    }
-
+    return $dara.cast<DeleteGlobalQuestionResponse>(await this.callApi(params, req, runtime), new DeleteGlobalQuestionResponse({}));
   }
 
   /**
@@ -38045,12 +41949,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
-    } else {
-      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
-    }
-
+    return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
   /**
@@ -38096,12 +41995,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteIntentResponse>(await this.callApi(params, req, runtime), new DeleteIntentResponse({}));
-    } else {
-      return $dara.cast<DeleteIntentResponse>(await this.execute(params, req, runtime), new DeleteIntentResponse({}));
-    }
-
+    return $dara.cast<DeleteIntentResponse>(await this.callApi(params, req, runtime), new DeleteIntentResponse({}));
   }
 
   /**
@@ -38143,12 +42037,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteJobGroupResponse>(await this.callApi(params, req, runtime), new DeleteJobGroupResponse({}));
-    } else {
-      return $dara.cast<DeleteJobGroupResponse>(await this.execute(params, req, runtime), new DeleteJobGroupResponse({}));
-    }
-
+    return $dara.cast<DeleteJobGroupResponse>(await this.callApi(params, req, runtime), new DeleteJobGroupResponse({}));
   }
 
   /**
@@ -38190,12 +42079,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new DeleteOutboundCallNumberResponse({}));
-    } else {
-      return $dara.cast<DeleteOutboundCallNumberResponse>(await this.execute(params, req, runtime), new DeleteOutboundCallNumberResponse({}));
-    }
-
+    return $dara.cast<DeleteOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new DeleteOutboundCallNumberResponse({}));
   }
 
   /**
@@ -38237,12 +42121,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteScriptResponse>(await this.callApi(params, req, runtime), new DeleteScriptResponse({}));
-    } else {
-      return $dara.cast<DeleteScriptResponse>(await this.execute(params, req, runtime), new DeleteScriptResponse({}));
-    }
-
+    return $dara.cast<DeleteScriptResponse>(await this.callApi(params, req, runtime), new DeleteScriptResponse({}));
   }
 
   /**
@@ -38288,12 +42167,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteScriptRecordingResponse>(await this.callApi(params, req, runtime), new DeleteScriptRecordingResponse({}));
-    } else {
-      return $dara.cast<DeleteScriptRecordingResponse>(await this.execute(params, req, runtime), new DeleteScriptRecordingResponse({}));
-    }
-
+    return $dara.cast<DeleteScriptRecordingResponse>(await this.callApi(params, req, runtime), new DeleteScriptRecordingResponse({}));
   }
 
   /**
@@ -38339,12 +42213,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteScriptWaveformResponse>(await this.callApi(params, req, runtime), new DeleteScriptWaveformResponse({}));
-    } else {
-      return $dara.cast<DeleteScriptWaveformResponse>(await this.execute(params, req, runtime), new DeleteScriptWaveformResponse({}));
-    }
-
+    return $dara.cast<DeleteScriptWaveformResponse>(await this.callApi(params, req, runtime), new DeleteScriptWaveformResponse({}));
   }
 
   /**
@@ -38354,6 +42223,62 @@ export default class Client extends OpenApi {
   async deleteScriptWaveform(request: DeleteScriptWaveformRequest): Promise<DeleteScriptWaveformResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteScriptWaveformWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeBeebotIntent
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeBeebotIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBeebotIntentResponse
+   */
+  async describeBeebotIntentWithOptions(request: DescribeBeebotIntentRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBeebotIntentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBeebotIntent",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<DescribeBeebotIntentResponse>(await this.callApi(params, req, runtime), new DescribeBeebotIntentResponse({}));
+  }
+
+  /**
+   * DescribeBeebotIntent
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DescribeBeebotIntentRequest
+   * @returns DescribeBeebotIntentResponse
+   */
+  async describeBeebotIntent(request: DescribeBeebotIntentRequest): Promise<DescribeBeebotIntentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBeebotIntentWithOptions(request, runtime);
   }
 
   /**
@@ -38390,12 +42315,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDialogueNodeStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDialogueNodeStatisticsResponse({}));
-    } else {
-      return $dara.cast<DescribeDialogueNodeStatisticsResponse>(await this.execute(params, req, runtime), new DescribeDialogueNodeStatisticsResponse({}));
-    }
-
+    return $dara.cast<DescribeDialogueNodeStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeDialogueNodeStatisticsResponse({}));
   }
 
   /**
@@ -38439,12 +42359,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeDsReportsResponse>(await this.callApi(params, req, runtime), new DescribeDsReportsResponse({}));
-    } else {
-      return $dara.cast<DescribeDsReportsResponse>(await this.execute(params, req, runtime), new DescribeDsReportsResponse({}));
-    }
-
+    return $dara.cast<DescribeDsReportsResponse>(await this.callApi(params, req, runtime), new DescribeDsReportsResponse({}));
   }
 
   /**
@@ -38492,12 +42407,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeGlobalQuestionResponse>(await this.callApi(params, req, runtime), new DescribeGlobalQuestionResponse({}));
-    } else {
-      return $dara.cast<DescribeGlobalQuestionResponse>(await this.execute(params, req, runtime), new DescribeGlobalQuestionResponse({}));
-    }
-
+    return $dara.cast<DescribeGlobalQuestionResponse>(await this.callApi(params, req, runtime), new DescribeGlobalQuestionResponse({}));
   }
 
   /**
@@ -38539,12 +42449,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeGroupExecutingInfoResponse>(await this.callApi(params, req, runtime), new DescribeGroupExecutingInfoResponse({}));
-    } else {
-      return $dara.cast<DescribeGroupExecutingInfoResponse>(await this.execute(params, req, runtime), new DescribeGroupExecutingInfoResponse({}));
-    }
-
+    return $dara.cast<DescribeGroupExecutingInfoResponse>(await this.callApi(params, req, runtime), new DescribeGroupExecutingInfoResponse({}));
   }
 
   /**
@@ -38584,12 +42489,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
-    } else {
-      return $dara.cast<DescribeInstanceResponse>(await this.execute(params, req, runtime), new DescribeInstanceResponse({}));
-    }
-
+    return $dara.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
   /**
@@ -38637,12 +42537,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeIntentResponse>(await this.callApi(params, req, runtime), new DescribeIntentResponse({}));
-    } else {
-      return $dara.cast<DescribeIntentResponse>(await this.execute(params, req, runtime), new DescribeIntentResponse({}));
-    }
-
+    return $dara.cast<DescribeIntentResponse>(await this.callApi(params, req, runtime), new DescribeIntentResponse({}));
   }
 
   /**
@@ -38688,12 +42583,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeIntentStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeIntentStatisticsResponse({}));
-    } else {
-      return $dara.cast<DescribeIntentStatisticsResponse>(await this.execute(params, req, runtime), new DescribeIntentStatisticsResponse({}));
-    }
-
+    return $dara.cast<DescribeIntentStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeIntentStatisticsResponse({}));
   }
 
   /**
@@ -38741,12 +42631,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeJobResponse>(await this.callApi(params, req, runtime), new DescribeJobResponse({}));
-    } else {
-      return $dara.cast<DescribeJobResponse>(await this.execute(params, req, runtime), new DescribeJobResponse({}));
-    }
-
+    return $dara.cast<DescribeJobResponse>(await this.callApi(params, req, runtime), new DescribeJobResponse({}));
   }
 
   /**
@@ -38790,12 +42675,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeJobDataParsingTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeJobDataParsingTaskProgressResponse({}));
-    } else {
-      return $dara.cast<DescribeJobDataParsingTaskProgressResponse>(await this.execute(params, req, runtime), new DescribeJobDataParsingTaskProgressResponse({}));
-    }
-
+    return $dara.cast<DescribeJobDataParsingTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeJobDataParsingTaskProgressResponse({}));
   }
 
   /**
@@ -38843,12 +42723,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeJobGroupResponse>(await this.callApi(params, req, runtime), new DescribeJobGroupResponse({}));
-    } else {
-      return $dara.cast<DescribeJobGroupResponse>(await this.execute(params, req, runtime), new DescribeJobGroupResponse({}));
-    }
-
+    return $dara.cast<DescribeJobGroupResponse>(await this.callApi(params, req, runtime), new DescribeJobGroupResponse({}));
   }
 
   /**
@@ -38892,12 +42767,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeJobGroupExportTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeJobGroupExportTaskProgressResponse({}));
-    } else {
-      return $dara.cast<DescribeJobGroupExportTaskProgressResponse>(await this.execute(params, req, runtime), new DescribeJobGroupExportTaskProgressResponse({}));
-    }
-
+    return $dara.cast<DescribeJobGroupExportTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeJobGroupExportTaskProgressResponse({}));
   }
 
   /**
@@ -38929,12 +42799,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeNumberDistrictInfoStatusResponse>(await this.callApi(params, req, runtime), new DescribeNumberDistrictInfoStatusResponse({}));
-    } else {
-      return $dara.cast<DescribeNumberDistrictInfoStatusResponse>(await this.execute(params, req, runtime), new DescribeNumberDistrictInfoStatusResponse({}));
-    }
-
+    return $dara.cast<DescribeNumberDistrictInfoStatusResponse>(await this.callApi(params, req, runtime), new DescribeNumberDistrictInfoStatusResponse({}));
   }
 
   /**
@@ -38947,6 +42812,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取场景信息
+   * 
    * @param request - DescribeScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeScriptResponse
@@ -38976,15 +42843,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeScriptResponse>(await this.callApi(params, req, runtime), new DescribeScriptResponse({}));
-    } else {
-      return $dara.cast<DescribeScriptResponse>(await this.execute(params, req, runtime), new DescribeScriptResponse({}));
-    }
-
+    return $dara.cast<DescribeScriptResponse>(await this.callApi(params, req, runtime), new DescribeScriptResponse({}));
   }
 
   /**
+   * 获取场景信息
+   * 
    * @param request - DescribeScriptRequest
    * @returns DescribeScriptResponse
    */
@@ -39027,12 +42891,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeScriptVoiceConfigResponse>(await this.callApi(params, req, runtime), new DescribeScriptVoiceConfigResponse({}));
-    } else {
-      return $dara.cast<DescribeScriptVoiceConfigResponse>(await this.execute(params, req, runtime), new DescribeScriptVoiceConfigResponse({}));
-    }
-
+    return $dara.cast<DescribeScriptVoiceConfigResponse>(await this.callApi(params, req, runtime), new DescribeScriptVoiceConfigResponse({}));
   }
 
   /**
@@ -39074,12 +42933,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeTTSConfigResponse>(await this.callApi(params, req, runtime), new DescribeTTSConfigResponse({}));
-    } else {
-      return $dara.cast<DescribeTTSConfigResponse>(await this.execute(params, req, runtime), new DescribeTTSConfigResponse({}));
-    }
-
+    return $dara.cast<DescribeTTSConfigResponse>(await this.callApi(params, req, runtime), new DescribeTTSConfigResponse({}));
   }
 
   /**
@@ -39165,12 +43019,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeTTSDemoResponse>(await this.callApi(params, req, runtime), new DescribeTTSDemoResponse({}));
-    } else {
-      return $dara.cast<DescribeTTSDemoResponse>(await this.execute(params, req, runtime), new DescribeTTSDemoResponse({}));
-    }
-
+    return $dara.cast<DescribeTTSDemoResponse>(await this.callApi(params, req, runtime), new DescribeTTSDemoResponse({}));
   }
 
   /**
@@ -39212,12 +43061,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeTagHitsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeTagHitsSummaryResponse({}));
-    } else {
-      return $dara.cast<DescribeTagHitsSummaryResponse>(await this.execute(params, req, runtime), new DescribeTagHitsSummaryResponse({}));
-    }
-
+    return $dara.cast<DescribeTagHitsSummaryResponse>(await this.callApi(params, req, runtime), new DescribeTagHitsSummaryResponse({}));
   }
 
   /**
@@ -39257,12 +43101,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeTenantBindNumberResponse>(await this.callApi(params, req, runtime), new DescribeTenantBindNumberResponse({}));
-    } else {
-      return $dara.cast<DescribeTenantBindNumberResponse>(await this.execute(params, req, runtime), new DescribeTenantBindNumberResponse({}));
-    }
-
+    return $dara.cast<DescribeTenantBindNumberResponse>(await this.callApi(params, req, runtime), new DescribeTenantBindNumberResponse({}));
   }
 
   /**
@@ -39342,12 +43181,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DialogueResponse>(await this.callApi(params, req, runtime), new DialogueResponse({}));
-    } else {
-      return $dara.cast<DialogueResponse>(await this.execute(params, req, runtime), new DialogueResponse({}));
-    }
-
+    return $dara.cast<DialogueResponse>(await this.callApi(params, req, runtime), new DialogueResponse({}));
   }
 
   /**
@@ -39387,12 +43221,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DismissNumberDistrictInfoParsingResultResponse>(await this.callApi(params, req, runtime), new DismissNumberDistrictInfoParsingResultResponse({}));
-    } else {
-      return $dara.cast<DismissNumberDistrictInfoParsingResultResponse>(await this.execute(params, req, runtime), new DismissNumberDistrictInfoParsingResultResponse({}));
-    }
-
+    return $dara.cast<DismissNumberDistrictInfoParsingResultResponse>(await this.callApi(params, req, runtime), new DismissNumberDistrictInfoParsingResultResponse({}));
   }
 
   /**
@@ -39442,12 +43271,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DownloadRecordingResponse>(await this.callApi(params, req, runtime), new DownloadRecordingResponse({}));
-    } else {
-      return $dara.cast<DownloadRecordingResponse>(await this.execute(params, req, runtime), new DownloadRecordingResponse({}));
-    }
-
+    return $dara.cast<DownloadRecordingResponse>(await this.callApi(params, req, runtime), new DownloadRecordingResponse({}));
   }
 
   /**
@@ -39495,12 +43319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DownloadScriptRecordingResponse>(await this.callApi(params, req, runtime), new DownloadScriptRecordingResponse({}));
-    } else {
-      return $dara.cast<DownloadScriptRecordingResponse>(await this.execute(params, req, runtime), new DownloadScriptRecordingResponse({}));
-    }
-
+    return $dara.cast<DownloadScriptRecordingResponse>(await this.callApi(params, req, runtime), new DownloadScriptRecordingResponse({}));
   }
 
   /**
@@ -39546,12 +43365,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DuplicateScriptResponse>(await this.callApi(params, req, runtime), new DuplicateScriptResponse({}));
-    } else {
-      return $dara.cast<DuplicateScriptResponse>(await this.execute(params, req, runtime), new DuplicateScriptResponse({}));
-    }
-
+    return $dara.cast<DuplicateScriptResponse>(await this.callApi(params, req, runtime), new DuplicateScriptResponse({}));
   }
 
   /**
@@ -39593,12 +43407,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ExportScriptResponse>(await this.callApi(params, req, runtime), new ExportScriptResponse({}));
-    } else {
-      return $dara.cast<ExportScriptResponse>(await this.execute(params, req, runtime), new ExportScriptResponse({}));
-    }
-
+    return $dara.cast<ExportScriptResponse>(await this.callApi(params, req, runtime), new ExportScriptResponse({}));
   }
 
   /**
@@ -39640,12 +43449,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateUploadUrlResponse>(await this.callApi(params, req, runtime), new GenerateUploadUrlResponse({}));
-    } else {
-      return $dara.cast<GenerateUploadUrlResponse>(await this.execute(params, req, runtime), new GenerateUploadUrlResponse({}));
-    }
-
+    return $dara.cast<GenerateUploadUrlResponse>(await this.callApi(params, req, runtime), new GenerateUploadUrlResponse({}));
   }
 
   /**
@@ -39687,12 +43491,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAfterAnswerDelayPlaybackResponse>(await this.callApi(params, req, runtime), new GetAfterAnswerDelayPlaybackResponse({}));
-    } else {
-      return $dara.cast<GetAfterAnswerDelayPlaybackResponse>(await this.execute(params, req, runtime), new GetAfterAnswerDelayPlaybackResponse({}));
-    }
-
+    return $dara.cast<GetAfterAnswerDelayPlaybackResponse>(await this.callApi(params, req, runtime), new GetAfterAnswerDelayPlaybackResponse({}));
   }
 
   /**
@@ -39738,12 +43537,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAgentProfileResponse>(await this.callApi(params, req, runtime), new GetAgentProfileResponse({}));
-    } else {
-      return $dara.cast<GetAgentProfileResponse>(await this.execute(params, req, runtime), new GetAgentProfileResponse({}));
-    }
-
+    return $dara.cast<GetAgentProfileResponse>(await this.callApi(params, req, runtime), new GetAgentProfileResponse({}));
   }
 
   /**
@@ -39785,12 +43579,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAgentProfileTemplateResponse>(await this.callApi(params, req, runtime), new GetAgentProfileTemplateResponse({}));
-    } else {
-      return $dara.cast<GetAgentProfileTemplateResponse>(await this.execute(params, req, runtime), new GetAgentProfileTemplateResponse({}));
-    }
-
+    return $dara.cast<GetAgentProfileTemplateResponse>(await this.callApi(params, req, runtime), new GetAgentProfileTemplateResponse({}));
   }
 
   /**
@@ -39828,12 +43617,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAnnotationMissionSummaryResponse>(await this.callApi(params, req, runtime), new GetAnnotationMissionSummaryResponse({}));
-    } else {
-      return $dara.cast<GetAnnotationMissionSummaryResponse>(await this.execute(params, req, runtime), new GetAnnotationMissionSummaryResponse({}));
-    }
-
+    return $dara.cast<GetAnnotationMissionSummaryResponse>(await this.callApi(params, req, runtime), new GetAnnotationMissionSummaryResponse({}));
   }
 
   /**
@@ -39879,12 +43663,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAnnotationMissionTagInfoListResponse>(await this.callApi(params, req, runtime), new GetAnnotationMissionTagInfoListResponse({}));
-    } else {
-      return $dara.cast<GetAnnotationMissionTagInfoListResponse>(await this.execute(params, req, runtime), new GetAnnotationMissionTagInfoListResponse({}));
-    }
-
+    return $dara.cast<GetAnnotationMissionTagInfoListResponse>(await this.callApi(params, req, runtime), new GetAnnotationMissionTagInfoListResponse({}));
   }
 
   /**
@@ -39926,12 +43705,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAsrServerInfoResponse>(await this.callApi(params, req, runtime), new GetAsrServerInfoResponse({}));
-    } else {
-      return $dara.cast<GetAsrServerInfoResponse>(await this.execute(params, req, runtime), new GetAsrServerInfoResponse({}));
-    }
-
+    return $dara.cast<GetAsrServerInfoResponse>(await this.callApi(params, req, runtime), new GetAsrServerInfoResponse({}));
   }
 
   /**
@@ -39973,12 +43747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetBaseStrategyPeriodResponse>(await this.callApi(params, req, runtime), new GetBaseStrategyPeriodResponse({}));
-    } else {
-      return $dara.cast<GetBaseStrategyPeriodResponse>(await this.execute(params, req, runtime), new GetBaseStrategyPeriodResponse({}));
-    }
-
+    return $dara.cast<GetBaseStrategyPeriodResponse>(await this.callApi(params, req, runtime), new GetBaseStrategyPeriodResponse({}));
   }
 
   /**
@@ -40008,12 +43777,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetConcurrentConversationQuotaResponse>(await this.callApi(params, req, runtime), new GetConcurrentConversationQuotaResponse({}));
-    } else {
-      return $dara.cast<GetConcurrentConversationQuotaResponse>(await this.execute(params, req, runtime), new GetConcurrentConversationQuotaResponse({}));
-    }
-
+    return $dara.cast<GetConcurrentConversationQuotaResponse>(await this.callApi(params, req, runtime), new GetConcurrentConversationQuotaResponse({}));
   }
 
   /**
@@ -40062,12 +43826,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetContactBlockListResponse>(await this.callApi(params, req, runtime), new GetContactBlockListResponse({}));
-    } else {
-      return $dara.cast<GetContactBlockListResponse>(await this.execute(params, req, runtime), new GetContactBlockListResponse({}));
-    }
-
+    return $dara.cast<GetContactBlockListResponse>(await this.callApi(params, req, runtime), new GetContactBlockListResponse({}));
   }
 
   /**
@@ -40117,12 +43876,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetContactWhiteListResponse>(await this.callApi(params, req, runtime), new GetContactWhiteListResponse({}));
-    } else {
-      return $dara.cast<GetContactWhiteListResponse>(await this.execute(params, req, runtime), new GetContactWhiteListResponse({}));
-    }
-
+    return $dara.cast<GetContactWhiteListResponse>(await this.callApi(params, req, runtime), new GetContactWhiteListResponse({}));
   }
 
   /**
@@ -40160,12 +43914,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCurrentConcurrencyResponse>(await this.callApi(params, req, runtime), new GetCurrentConcurrencyResponse({}));
-    } else {
-      return $dara.cast<GetCurrentConcurrencyResponse>(await this.execute(params, req, runtime), new GetCurrentConcurrencyResponse({}));
-    }
-
+    return $dara.cast<GetCurrentConcurrencyResponse>(await this.callApi(params, req, runtime), new GetCurrentConcurrencyResponse({}));
   }
 
   /**
@@ -40207,12 +43956,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEffectiveDaysResponse>(await this.callApi(params, req, runtime), new GetEffectiveDaysResponse({}));
-    } else {
-      return $dara.cast<GetEffectiveDaysResponse>(await this.execute(params, req, runtime), new GetEffectiveDaysResponse({}));
-    }
-
+    return $dara.cast<GetEffectiveDaysResponse>(await this.callApi(params, req, runtime), new GetEffectiveDaysResponse({}));
   }
 
   /**
@@ -40254,12 +43998,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEmptyNumberNoMoreCallsInfoResponse>(await this.callApi(params, req, runtime), new GetEmptyNumberNoMoreCallsInfoResponse({}));
-    } else {
-      return $dara.cast<GetEmptyNumberNoMoreCallsInfoResponse>(await this.execute(params, req, runtime), new GetEmptyNumberNoMoreCallsInfoResponse({}));
-    }
-
+    return $dara.cast<GetEmptyNumberNoMoreCallsInfoResponse>(await this.callApi(params, req, runtime), new GetEmptyNumberNoMoreCallsInfoResponse({}));
   }
 
   /**
@@ -40313,12 +44052,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobDataUploadParamsResponse>(await this.callApi(params, req, runtime), new GetJobDataUploadParamsResponse({}));
-    } else {
-      return $dara.cast<GetJobDataUploadParamsResponse>(await this.execute(params, req, runtime), new GetJobDataUploadParamsResponse({}));
-    }
-
+    return $dara.cast<GetJobDataUploadParamsResponse>(await this.callApi(params, req, runtime), new GetJobDataUploadParamsResponse({}));
   }
 
   /**
@@ -40360,12 +44094,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMaxAttemptsPerDayResponse>(await this.callApi(params, req, runtime), new GetMaxAttemptsPerDayResponse({}));
-    } else {
-      return $dara.cast<GetMaxAttemptsPerDayResponse>(await this.execute(params, req, runtime), new GetMaxAttemptsPerDayResponse({}));
-    }
-
+    return $dara.cast<GetMaxAttemptsPerDayResponse>(await this.callApi(params, req, runtime), new GetMaxAttemptsPerDayResponse({}));
   }
 
   /**
@@ -40397,12 +44126,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetNumberDistrictInfoTemplateDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetNumberDistrictInfoTemplateDownloadUrlResponse({}));
-    } else {
-      return $dara.cast<GetNumberDistrictInfoTemplateDownloadUrlResponse>(await this.execute(params, req, runtime), new GetNumberDistrictInfoTemplateDownloadUrlResponse({}));
-    }
-
+    return $dara.cast<GetNumberDistrictInfoTemplateDownloadUrlResponse>(await this.callApi(params, req, runtime), new GetNumberDistrictInfoTemplateDownloadUrlResponse({}));
   }
 
   /**
@@ -40438,12 +44162,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRealtimeConcurrencyReportResponse>(await this.callApi(params, req, runtime), new GetRealtimeConcurrencyReportResponse({}));
-    } else {
-      return $dara.cast<GetRealtimeConcurrencyReportResponse>(await this.execute(params, req, runtime), new GetRealtimeConcurrencyReportResponse({}));
-    }
-
+    return $dara.cast<GetRealtimeConcurrencyReportResponse>(await this.callApi(params, req, runtime), new GetRealtimeConcurrencyReportResponse({}));
   }
 
   /**
@@ -40483,12 +44202,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSummaryInfoResponse>(await this.callApi(params, req, runtime), new GetSummaryInfoResponse({}));
-    } else {
-      return $dara.cast<GetSummaryInfoResponse>(await this.execute(params, req, runtime), new GetSummaryInfoResponse({}));
-    }
-
+    return $dara.cast<GetSummaryInfoResponse>(await this.callApi(params, req, runtime), new GetSummaryInfoResponse({}));
   }
 
   /**
@@ -40522,12 +44236,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTaskByUuidResponse>(await this.callApi(params, req, runtime), new GetTaskByUuidResponse({}));
-    } else {
-      return $dara.cast<GetTaskByUuidResponse>(await this.execute(params, req, runtime), new GetTaskByUuidResponse({}));
-    }
-
+    return $dara.cast<GetTaskByUuidResponse>(await this.callApi(params, req, runtime), new GetTaskByUuidResponse({}));
   }
 
   /**
@@ -40557,12 +44266,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetVersionResponse>(await this.callApi(params, req, runtime), new GetVersionResponse({}));
-    } else {
-      return $dara.cast<GetVersionResponse>(await this.execute(params, req, runtime), new GetVersionResponse({}));
-    }
-
+    return $dara.cast<GetVersionResponse>(await this.callApi(params, req, runtime), new GetVersionResponse({}));
   }
 
   /**
@@ -40607,12 +44311,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ImportScriptResponse>(await this.callApi(params, req, runtime), new ImportScriptResponse({}));
-    } else {
-      return $dara.cast<ImportScriptResponse>(await this.execute(params, req, runtime), new ImportScriptResponse({}));
-    }
-
+    return $dara.cast<ImportScriptResponse>(await this.callApi(params, req, runtime), new ImportScriptResponse({}));
   }
 
   /**
@@ -40660,12 +44359,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<InflightTaskTimeoutResponse>(await this.callApi(params, req, runtime), new InflightTaskTimeoutResponse({}));
-    } else {
-      return $dara.cast<InflightTaskTimeoutResponse>(await this.execute(params, req, runtime), new InflightTaskTimeoutResponse({}));
-    }
-
+    return $dara.cast<InflightTaskTimeoutResponse>(await this.callApi(params, req, runtime), new InflightTaskTimeoutResponse({}));
   }
 
   /**
@@ -40713,12 +44407,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAgentProfilesResponse>(await this.callApi(params, req, runtime), new ListAgentProfilesResponse({}));
-    } else {
-      return $dara.cast<ListAgentProfilesResponse>(await this.execute(params, req, runtime), new ListAgentProfilesResponse({}));
-    }
-
+    return $dara.cast<ListAgentProfilesResponse>(await this.callApi(params, req, runtime), new ListAgentProfilesResponse({}));
   }
 
   /**
@@ -40750,12 +44439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAllTenantBindNumberBindingResponse>(await this.callApi(params, req, runtime), new ListAllTenantBindNumberBindingResponse({}));
-    } else {
-      return $dara.cast<ListAllTenantBindNumberBindingResponse>(await this.execute(params, req, runtime), new ListAllTenantBindNumberBindingResponse({}));
-    }
-
+    return $dara.cast<ListAllTenantBindNumberBindingResponse>(await this.callApi(params, req, runtime), new ListAllTenantBindNumberBindingResponse({}));
   }
 
   /**
@@ -40825,12 +44509,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAnnotationMissionResponse>(await this.callApi(params, req, runtime), new ListAnnotationMissionResponse({}));
-    } else {
-      return $dara.cast<ListAnnotationMissionResponse>(await this.execute(params, req, runtime), new ListAnnotationMissionResponse({}));
-    }
-
+    return $dara.cast<ListAnnotationMissionResponse>(await this.callApi(params, req, runtime), new ListAnnotationMissionResponse({}));
   }
 
   /**
@@ -40888,12 +44567,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListAnnotationMissionSessionResponse>(await this.callApi(params, req, runtime), new ListAnnotationMissionSessionResponse({}));
-    } else {
-      return $dara.cast<ListAnnotationMissionSessionResponse>(await this.execute(params, req, runtime), new ListAnnotationMissionSessionResponse({}));
-    }
-
+    return $dara.cast<ListAnnotationMissionSessionResponse>(await this.callApi(params, req, runtime), new ListAnnotationMissionSessionResponse({}));
   }
 
   /**
@@ -40943,12 +44617,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListApiPluginsResponse>(await this.callApi(params, req, runtime), new ListApiPluginsResponse({}));
-    } else {
-      return $dara.cast<ListApiPluginsResponse>(await this.execute(params, req, runtime), new ListApiPluginsResponse({}));
-    }
-
+    return $dara.cast<ListApiPluginsResponse>(await this.callApi(params, req, runtime), new ListApiPluginsResponse({}));
   }
 
   /**
@@ -40958,6 +44627,188 @@ export default class Client extends OpenApi {
   async listApiPlugins(request: ListApiPluginsRequest): Promise<ListApiPluginsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApiPluginsWithOptions(request, runtime);
+  }
+
+  /**
+   * ListBeebotIntent
+   * 
+   * @param request - ListBeebotIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBeebotIntentResponse
+   */
+  async listBeebotIntentWithOptions(request: ListBeebotIntentRequest, runtime: $dara.RuntimeOptions): Promise<ListBeebotIntentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentName)) {
+      query["IntentName"] = request.intentName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBeebotIntent",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListBeebotIntentResponse>(await this.callApi(params, req, runtime), new ListBeebotIntentResponse({}));
+  }
+
+  /**
+   * ListBeebotIntent
+   * 
+   * @param request - ListBeebotIntentRequest
+   * @returns ListBeebotIntentResponse
+   */
+  async listBeebotIntent(request: ListBeebotIntentRequest): Promise<ListBeebotIntentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBeebotIntentWithOptions(request, runtime);
+  }
+
+  /**
+   * ListBeebotIntentLgf
+   * 
+   * @param request - ListBeebotIntentLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBeebotIntentLgfResponse
+   */
+  async listBeebotIntentLgfWithOptions(request: ListBeebotIntentLgfRequest, runtime: $dara.RuntimeOptions): Promise<ListBeebotIntentLgfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.lgfText)) {
+      query["LgfText"] = request.lgfText;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBeebotIntentLgf",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListBeebotIntentLgfResponse>(await this.callApi(params, req, runtime), new ListBeebotIntentLgfResponse({}));
+  }
+
+  /**
+   * ListBeebotIntentLgf
+   * 
+   * @param request - ListBeebotIntentLgfRequest
+   * @returns ListBeebotIntentLgfResponse
+   */
+  async listBeebotIntentLgf(request: ListBeebotIntentLgfRequest): Promise<ListBeebotIntentLgfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBeebotIntentLgfWithOptions(request, runtime);
+  }
+
+  /**
+   * ListBeebotIntentUserSay
+   * 
+   * @param request - ListBeebotIntentUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBeebotIntentUserSayResponse
+   */
+  async listBeebotIntentUserSayWithOptions(request: ListBeebotIntentUserSayRequest, runtime: $dara.RuntimeOptions): Promise<ListBeebotIntentUserSayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBeebotIntentUserSay",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListBeebotIntentUserSayResponse>(await this.callApi(params, req, runtime), new ListBeebotIntentUserSayResponse({}));
+  }
+
+  /**
+   * ListBeebotIntentUserSay
+   * 
+   * @param request - ListBeebotIntentUserSayRequest
+   * @returns ListBeebotIntentUserSayResponse
+   */
+  async listBeebotIntentUserSay(request: ListBeebotIntentUserSayRequest): Promise<ListBeebotIntentUserSayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBeebotIntentUserSayWithOptions(request, runtime);
   }
 
   /**
@@ -40994,12 +44845,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListChatbotInstancesResponse>(await this.callApi(params, req, runtime), new ListChatbotInstancesResponse({}));
-    } else {
-      return $dara.cast<ListChatbotInstancesResponse>(await this.execute(params, req, runtime), new ListChatbotInstancesResponse({}));
-    }
-
+    return $dara.cast<ListChatbotInstancesResponse>(await this.callApi(params, req, runtime), new ListChatbotInstancesResponse({}));
   }
 
   /**
@@ -41041,12 +44887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListDialogueFlowsResponse>(await this.callApi(params, req, runtime), new ListDialogueFlowsResponse({}));
-    } else {
-      return $dara.cast<ListDialogueFlowsResponse>(await this.execute(params, req, runtime), new ListDialogueFlowsResponse({}));
-    }
-
+    return $dara.cast<ListDialogueFlowsResponse>(await this.callApi(params, req, runtime), new ListDialogueFlowsResponse({}));
   }
 
   /**
@@ -41080,12 +44921,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListDownloadTasksResponse>(await this.callApi(params, req, runtime), new ListDownloadTasksResponse({}));
-    } else {
-      return $dara.cast<ListDownloadTasksResponse>(await this.execute(params, req, runtime), new ListDownloadTasksResponse({}));
-    }
-
+    return $dara.cast<ListDownloadTasksResponse>(await this.callApi(params, req, runtime), new ListDownloadTasksResponse({}));
   }
 
   /**
@@ -41119,12 +44955,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListFlashSmsTemplatesResponse>(await this.callApi(params, req, runtime), new ListFlashSmsTemplatesResponse({}));
-    } else {
-      return $dara.cast<ListFlashSmsTemplatesResponse>(await this.execute(params, req, runtime), new ListFlashSmsTemplatesResponse({}));
-    }
-
+    return $dara.cast<ListFlashSmsTemplatesResponse>(await this.callApi(params, req, runtime), new ListFlashSmsTemplatesResponse({}));
   }
 
   /**
@@ -41174,12 +45005,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListGlobalQuestionsResponse>(await this.callApi(params, req, runtime), new ListGlobalQuestionsResponse({}));
-    } else {
-      return $dara.cast<ListGlobalQuestionsResponse>(await this.execute(params, req, runtime), new ListGlobalQuestionsResponse({}));
-    }
-
+    return $dara.cast<ListGlobalQuestionsResponse>(await this.callApi(params, req, runtime), new ListGlobalQuestionsResponse({}));
   }
 
   /**
@@ -41233,12 +45059,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
-    } else {
-      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
-    }
-
+    return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   /**
@@ -41248,6 +45069,80 @@ export default class Client extends OpenApi {
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 意图列表
+   * 
+   * @param request - ListIntentionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntentionsResponse
+   */
+  async listIntentionsWithOptions(request: ListIntentionsRequest, runtime: $dara.RuntimeOptions): Promise<ListIntentionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.annotationMissionDataSourceType)) {
+      query["AnnotationMissionDataSourceType"] = request.annotationMissionDataSourceType;
+    }
+
+    if (!$dara.isNull(request.botId)) {
+      query["BotId"] = request.botId;
+    }
+
+    if (!$dara.isNull(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.userNick)) {
+      query["UserNick"] = request.userNick;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntentions",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ListIntentionsResponse>(await this.callApi(params, req, runtime), new ListIntentionsResponse({}));
+  }
+
+  /**
+   * 意图列表
+   * 
+   * @param request - ListIntentionsRequest
+   * @returns ListIntentionsResponse
+   */
+  async listIntentions(request: ListIntentionsRequest): Promise<ListIntentionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIntentionsWithOptions(request, runtime);
   }
 
   /**
@@ -41292,12 +45187,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListIntentsResponse>(await this.callApi(params, req, runtime), new ListIntentsResponse({}));
-    } else {
-      return $dara.cast<ListIntentsResponse>(await this.execute(params, req, runtime), new ListIntentsResponse({}));
-    }
-
+    return $dara.cast<ListIntentsResponse>(await this.callApi(params, req, runtime), new ListIntentsResponse({}));
   }
 
   /**
@@ -41367,12 +45257,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobGroupsResponse>(await this.callApi(params, req, runtime), new ListJobGroupsResponse({}));
-    } else {
-      return $dara.cast<ListJobGroupsResponse>(await this.execute(params, req, runtime), new ListJobGroupsResponse({}));
-    }
-
+    return $dara.cast<ListJobGroupsResponse>(await this.callApi(params, req, runtime), new ListJobGroupsResponse({}));
   }
 
   /**
@@ -41406,12 +45291,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobGroupsAsyncResponse>(await this.callApi(params, req, runtime), new ListJobGroupsAsyncResponse({}));
-    } else {
-      return $dara.cast<ListJobGroupsAsyncResponse>(await this.execute(params, req, runtime), new ListJobGroupsAsyncResponse({}));
-    }
-
+    return $dara.cast<ListJobGroupsAsyncResponse>(await this.callApi(params, req, runtime), new ListJobGroupsAsyncResponse({}));
   }
 
   /**
@@ -41455,12 +45335,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
-    } else {
-      return $dara.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
-    }
-
+    return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
   }
 
   /**
@@ -41520,12 +45395,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobsByGroupResponse>(await this.callApi(params, req, runtime), new ListJobsByGroupResponse({}));
-    } else {
-      return $dara.cast<ListJobsByGroupResponse>(await this.execute(params, req, runtime), new ListJobsByGroupResponse({}));
-    }
-
+    return $dara.cast<ListJobsByGroupResponse>(await this.callApi(params, req, runtime), new ListJobsByGroupResponse({}));
   }
 
   /**
@@ -41571,12 +45441,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListOutboundCallNumbersResponse>(await this.callApi(params, req, runtime), new ListOutboundCallNumbersResponse({}));
-    } else {
-      return $dara.cast<ListOutboundCallNumbersResponse>(await this.execute(params, req, runtime), new ListOutboundCallNumbersResponse({}));
-    }
-
+    return $dara.cast<ListOutboundCallNumbersResponse>(await this.callApi(params, req, runtime), new ListOutboundCallNumbersResponse({}));
   }
 
   /**
@@ -41622,12 +45487,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListResourceTagsResponse>(await this.callApi(params, req, runtime), new ListResourceTagsResponse({}));
-    } else {
-      return $dara.cast<ListResourceTagsResponse>(await this.execute(params, req, runtime), new ListResourceTagsResponse({}));
-    }
-
+    return $dara.cast<ListResourceTagsResponse>(await this.callApi(params, req, runtime), new ListResourceTagsResponse({}));
   }
 
   /**
@@ -41665,12 +45525,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSchedulerInstancesResponse>(await this.callApi(params, req, runtime), new ListSchedulerInstancesResponse({}));
-    } else {
-      return $dara.cast<ListSchedulerInstancesResponse>(await this.execute(params, req, runtime), new ListSchedulerInstancesResponse({}));
-    }
-
+    return $dara.cast<ListSchedulerInstancesResponse>(await this.callApi(params, req, runtime), new ListSchedulerInstancesResponse({}));
   }
 
   /**
@@ -41720,12 +45575,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScriptPublishHistoriesResponse>(await this.callApi(params, req, runtime), new ListScriptPublishHistoriesResponse({}));
-    } else {
-      return $dara.cast<ListScriptPublishHistoriesResponse>(await this.execute(params, req, runtime), new ListScriptPublishHistoriesResponse({}));
-    }
-
+    return $dara.cast<ListScriptPublishHistoriesResponse>(await this.callApi(params, req, runtime), new ListScriptPublishHistoriesResponse({}));
   }
 
   /**
@@ -41791,12 +45641,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScriptRecordingResponse>(await this.callApi(params, req, runtime), new ListScriptRecordingResponse({}));
-    } else {
-      return $dara.cast<ListScriptRecordingResponse>(await this.execute(params, req, runtime), new ListScriptRecordingResponse({}));
-    }
-
+    return $dara.cast<ListScriptRecordingResponse>(await this.callApi(params, req, runtime), new ListScriptRecordingResponse({}));
   }
 
   /**
@@ -41846,12 +45691,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScriptVoiceConfigsResponse>(await this.callApi(params, req, runtime), new ListScriptVoiceConfigsResponse({}));
-    } else {
-      return $dara.cast<ListScriptVoiceConfigsResponse>(await this.execute(params, req, runtime), new ListScriptVoiceConfigsResponse({}));
-    }
-
+    return $dara.cast<ListScriptVoiceConfigsResponse>(await this.callApi(params, req, runtime), new ListScriptVoiceConfigsResponse({}));
   }
 
   /**
@@ -41907,12 +45747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScriptsResponse>(await this.callApi(params, req, runtime), new ListScriptsResponse({}));
-    } else {
-      return $dara.cast<ListScriptsResponse>(await this.execute(params, req, runtime), new ListScriptsResponse({}));
-    }
-
+    return $dara.cast<ListScriptsResponse>(await this.callApi(params, req, runtime), new ListScriptsResponse({}));
   }
 
   /**
@@ -41968,12 +45803,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
-    } else {
-      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
-    }
-
+    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   /**
@@ -42015,12 +45845,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
-    } else {
-      return $dara.cast<ListTagsResponse>(await this.execute(params, req, runtime), new ListTagsResponse({}));
-    }
-
+    return $dara.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
   }
 
   /**
@@ -42112,12 +45937,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyAgentProfileResponse>(await this.callApi(params, req, runtime), new ModifyAgentProfileResponse({}));
-    } else {
-      return $dara.cast<ModifyAgentProfileResponse>(await this.execute(params, req, runtime), new ModifyAgentProfileResponse({}));
-    }
-
+    return $dara.cast<ModifyAgentProfileResponse>(await this.callApi(params, req, runtime), new ModifyAgentProfileResponse({}));
   }
 
   /**
@@ -42167,12 +45987,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyAnnotationMissionResponse>(await this.callApi(params, req, runtime), new ModifyAnnotationMissionResponse({}));
-    } else {
-      return $dara.cast<ModifyAnnotationMissionResponse>(await this.execute(params, req, runtime), new ModifyAnnotationMissionResponse({}));
-    }
-
+    return $dara.cast<ModifyAnnotationMissionResponse>(await this.callApi(params, req, runtime), new ModifyAnnotationMissionResponse({}));
   }
 
   /**
@@ -42246,12 +46061,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyBatchJobsResponse>(await this.callApi(params, req, runtime), new ModifyBatchJobsResponse({}));
-    } else {
-      return $dara.cast<ModifyBatchJobsResponse>(await this.execute(params, req, runtime), new ModifyBatchJobsResponse({}));
-    }
-
+    return $dara.cast<ModifyBatchJobsResponse>(await this.callApi(params, req, runtime), new ModifyBatchJobsResponse({}));
   }
 
   /**
@@ -42261,6 +46071,186 @@ export default class Client extends OpenApi {
   async modifyBatchJobs(request: ModifyBatchJobsRequest): Promise<ModifyBatchJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyBatchJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyBeebotIntent
+   * 
+   * @param tmpReq - ModifyBeebotIntentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBeebotIntentResponse
+   */
+  async modifyBeebotIntentWithOptions(tmpReq: ModifyBeebotIntentRequest, runtime: $dara.RuntimeOptions): Promise<ModifyBeebotIntentResponse> {
+    tmpReq.validate();
+    let request = new ModifyBeebotIntentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.intentDefinition)) {
+      request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.intentDefinition, "IntentDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.intentDefinitionShrink)) {
+      query["IntentDefinition"] = request.intentDefinitionShrink;
+    }
+
+    if (!$dara.isNull(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBeebotIntent",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ModifyBeebotIntentResponse>(await this.callApi(params, req, runtime), new ModifyBeebotIntentResponse({}));
+  }
+
+  /**
+   * ModifyBeebotIntent
+   * 
+   * @param request - ModifyBeebotIntentRequest
+   * @returns ModifyBeebotIntentResponse
+   */
+  async modifyBeebotIntent(request: ModifyBeebotIntentRequest): Promise<ModifyBeebotIntentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBeebotIntentWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyBeebotIntentLgf
+   * 
+   * @param tmpReq - ModifyBeebotIntentLgfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBeebotIntentLgfResponse
+   */
+  async modifyBeebotIntentLgfWithOptions(tmpReq: ModifyBeebotIntentLgfRequest, runtime: $dara.RuntimeOptions): Promise<ModifyBeebotIntentLgfResponse> {
+    tmpReq.validate();
+    let request = new ModifyBeebotIntentLgfShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.lgfDefinition)) {
+      request.lgfDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lgfDefinition, "LgfDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lgfDefinitionShrink)) {
+      query["LgfDefinition"] = request.lgfDefinitionShrink;
+    }
+
+    if (!$dara.isNull(request.lgfId)) {
+      query["LgfId"] = request.lgfId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBeebotIntentLgf",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ModifyBeebotIntentLgfResponse>(await this.callApi(params, req, runtime), new ModifyBeebotIntentLgfResponse({}));
+  }
+
+  /**
+   * ModifyBeebotIntentLgf
+   * 
+   * @param request - ModifyBeebotIntentLgfRequest
+   * @returns ModifyBeebotIntentLgfResponse
+   */
+  async modifyBeebotIntentLgf(request: ModifyBeebotIntentLgfRequest): Promise<ModifyBeebotIntentLgfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBeebotIntentLgfWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyBeebotIntentUserSay
+   * 
+   * @param tmpReq - ModifyBeebotIntentUserSayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBeebotIntentUserSayResponse
+   */
+  async modifyBeebotIntentUserSayWithOptions(tmpReq: ModifyBeebotIntentUserSayRequest, runtime: $dara.RuntimeOptions): Promise<ModifyBeebotIntentUserSayResponse> {
+    tmpReq.validate();
+    let request = new ModifyBeebotIntentUserSayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.userSayDefinition)) {
+      request.userSayDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userSayDefinition, "UserSayDefinition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.userSayDefinitionShrink)) {
+      query["UserSayDefinition"] = request.userSayDefinitionShrink;
+    }
+
+    if (!$dara.isNull(request.userSayId)) {
+      query["UserSayId"] = request.userSayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBeebotIntentUserSay",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<ModifyBeebotIntentUserSayResponse>(await this.callApi(params, req, runtime), new ModifyBeebotIntentUserSayResponse({}));
+  }
+
+  /**
+   * ModifyBeebotIntentUserSay
+   * 
+   * @param request - ModifyBeebotIntentUserSayRequest
+   * @returns ModifyBeebotIntentUserSayResponse
+   */
+  async modifyBeebotIntentUserSay(request: ModifyBeebotIntentUserSayRequest): Promise<ModifyBeebotIntentUserSayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBeebotIntentUserSayWithOptions(request, runtime);
   }
 
   /**
@@ -42305,12 +46295,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyDialogueFlowResponse>(await this.callApi(params, req, runtime), new ModifyDialogueFlowResponse({}));
-    } else {
-      return $dara.cast<ModifyDialogueFlowResponse>(await this.execute(params, req, runtime), new ModifyDialogueFlowResponse({}));
-    }
-
+    return $dara.cast<ModifyDialogueFlowResponse>(await this.callApi(params, req, runtime), new ModifyDialogueFlowResponse({}));
   }
 
   /**
@@ -42356,12 +46341,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyEmptyNumberNoMoreCallsInfoResponse>(await this.callApi(params, req, runtime), new ModifyEmptyNumberNoMoreCallsInfoResponse({}));
-    } else {
-      return $dara.cast<ModifyEmptyNumberNoMoreCallsInfoResponse>(await this.execute(params, req, runtime), new ModifyEmptyNumberNoMoreCallsInfoResponse({}));
-    }
-
+    return $dara.cast<ModifyEmptyNumberNoMoreCallsInfoResponse>(await this.callApi(params, req, runtime), new ModifyEmptyNumberNoMoreCallsInfoResponse({}));
   }
 
   /**
@@ -42423,12 +46403,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyGlobalQuestionResponse>(await this.callApi(params, req, runtime), new ModifyGlobalQuestionResponse({}));
-    } else {
-      return $dara.cast<ModifyGlobalQuestionResponse>(await this.execute(params, req, runtime), new ModifyGlobalQuestionResponse({}));
-    }
-
+    return $dara.cast<ModifyGlobalQuestionResponse>(await this.callApi(params, req, runtime), new ModifyGlobalQuestionResponse({}));
   }
 
   /**
@@ -42482,12 +46457,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
-    } else {
-      return $dara.cast<ModifyInstanceResponse>(await this.execute(params, req, runtime), new ModifyInstanceResponse({}));
-    }
-
+    return $dara.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
   }
 
   /**
@@ -42549,12 +46519,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyIntentResponse>(await this.callApi(params, req, runtime), new ModifyIntentResponse({}));
-    } else {
-      return $dara.cast<ModifyIntentResponse>(await this.execute(params, req, runtime), new ModifyIntentResponse({}));
-    }
-
+    return $dara.cast<ModifyIntentResponse>(await this.callApi(params, req, runtime), new ModifyIntentResponse({}));
   }
 
   /**
@@ -42648,12 +46613,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyJobGroupResponse>(await this.callApi(params, req, runtime), new ModifyJobGroupResponse({}));
-    } else {
-      return $dara.cast<ModifyJobGroupResponse>(await this.execute(params, req, runtime), new ModifyJobGroupResponse({}));
-    }
-
+    return $dara.cast<ModifyJobGroupResponse>(await this.callApi(params, req, runtime), new ModifyJobGroupResponse({}));
   }
 
   /**
@@ -42709,12 +46669,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new ModifyOutboundCallNumberResponse({}));
-    } else {
-      return $dara.cast<ModifyOutboundCallNumberResponse>(await this.execute(params, req, runtime), new ModifyOutboundCallNumberResponse({}));
-    }
-
+    return $dara.cast<ModifyOutboundCallNumberResponse>(await this.callApi(params, req, runtime), new ModifyOutboundCallNumberResponse({}));
   }
 
   /**
@@ -42842,12 +46797,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyScriptResponse>(await this.callApi(params, req, runtime), new ModifyScriptResponse({}));
-    } else {
-      return $dara.cast<ModifyScriptResponse>(await this.execute(params, req, runtime), new ModifyScriptResponse({}));
-    }
-
+    return $dara.cast<ModifyScriptResponse>(await this.callApi(params, req, runtime), new ModifyScriptResponse({}));
   }
 
   /**
@@ -42901,12 +46851,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyScriptVoiceConfigResponse>(await this.callApi(params, req, runtime), new ModifyScriptVoiceConfigResponse({}));
-    } else {
-      return $dara.cast<ModifyScriptVoiceConfigResponse>(await this.execute(params, req, runtime), new ModifyScriptVoiceConfigResponse({}));
-    }
-
+    return $dara.cast<ModifyScriptVoiceConfigResponse>(await this.callApi(params, req, runtime), new ModifyScriptVoiceConfigResponse({}));
   }
 
   /**
@@ -42972,12 +46917,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyTTSConfigResponse>(await this.callApi(params, req, runtime), new ModifyTTSConfigResponse({}));
-    } else {
-      return $dara.cast<ModifyTTSConfigResponse>(await this.execute(params, req, runtime), new ModifyTTSConfigResponse({}));
-    }
-
+    return $dara.cast<ModifyTTSConfigResponse>(await this.callApi(params, req, runtime), new ModifyTTSConfigResponse({}));
   }
 
   /**
@@ -43027,12 +46967,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModifyTagGroupsResponse>(await this.callApi(params, req, runtime), new ModifyTagGroupsResponse({}));
-    } else {
-      return $dara.cast<ModifyTagGroupsResponse>(await this.execute(params, req, runtime), new ModifyTagGroupsResponse({}));
-    }
-
+    return $dara.cast<ModifyTagGroupsResponse>(await this.callApi(params, req, runtime), new ModifyTagGroupsResponse({}));
   }
 
   /**
@@ -43078,12 +47013,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PublishScriptResponse>(await this.callApi(params, req, runtime), new PublishScriptResponse({}));
-    } else {
-      return $dara.cast<PublishScriptResponse>(await this.execute(params, req, runtime), new PublishScriptResponse({}));
-    }
-
+    return $dara.cast<PublishScriptResponse>(await this.callApi(params, req, runtime), new PublishScriptResponse({}));
   }
 
   /**
@@ -43125,12 +47055,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<PublishScriptForDebugResponse>(await this.callApi(params, req, runtime), new PublishScriptForDebugResponse({}));
-    } else {
-      return $dara.cast<PublishScriptForDebugResponse>(await this.execute(params, req, runtime), new PublishScriptForDebugResponse({}));
-    }
-
+    return $dara.cast<PublishScriptForDebugResponse>(await this.callApi(params, req, runtime), new PublishScriptForDebugResponse({}));
   }
 
   /**
@@ -43206,12 +47131,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryJobsResponse>(await this.callApi(params, req, runtime), new QueryJobsResponse({}));
-    } else {
-      return $dara.cast<QueryJobsResponse>(await this.execute(params, req, runtime), new QueryJobsResponse({}));
-    }
-
+    return $dara.cast<QueryJobsResponse>(await this.callApi(params, req, runtime), new QueryJobsResponse({}));
   }
 
   /**
@@ -43299,12 +47219,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryJobsWithResultResponse>(await this.callApi(params, req, runtime), new QueryJobsWithResultResponse({}));
-    } else {
-      return $dara.cast<QueryJobsWithResultResponse>(await this.execute(params, req, runtime), new QueryJobsWithResultResponse({}));
-    }
-
+    return $dara.cast<QueryJobsWithResultResponse>(await this.callApi(params, req, runtime), new QueryJobsWithResultResponse({}));
   }
 
   /**
@@ -43350,12 +47265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryScriptWaveformsResponse>(await this.callApi(params, req, runtime), new QueryScriptWaveformsResponse({}));
-    } else {
-      return $dara.cast<QueryScriptWaveformsResponse>(await this.execute(params, req, runtime), new QueryScriptWaveformsResponse({}));
-    }
-
+    return $dara.cast<QueryScriptWaveformsResponse>(await this.callApi(params, req, runtime), new QueryScriptWaveformsResponse({}));
   }
 
   /**
@@ -43405,12 +47315,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<QueryScriptsByStatusResponse>(await this.callApi(params, req, runtime), new QueryScriptsByStatusResponse({}));
-    } else {
-      return $dara.cast<QueryScriptsByStatusResponse>(await this.execute(params, req, runtime), new QueryScriptsByStatusResponse({}));
-    }
-
+    return $dara.cast<QueryScriptsByStatusResponse>(await this.callApi(params, req, runtime), new QueryScriptsByStatusResponse({}));
   }
 
   /**
@@ -43476,12 +47381,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RecordFailureResponse>(await this.callApi(params, req, runtime), new RecordFailureResponse({}));
-    } else {
-      return $dara.cast<RecordFailureResponse>(await this.execute(params, req, runtime), new RecordFailureResponse({}));
-    }
-
+    return $dara.cast<RecordFailureResponse>(await this.callApi(params, req, runtime), new RecordFailureResponse({}));
   }
 
   /**
@@ -43539,12 +47439,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ResumeJobsResponse>(await this.callApi(params, req, runtime), new ResumeJobsResponse({}));
-    } else {
-      return $dara.cast<ResumeJobsResponse>(await this.execute(params, req, runtime), new ResumeJobsResponse({}));
-    }
-
+    return $dara.cast<ResumeJobsResponse>(await this.callApi(params, req, runtime), new ResumeJobsResponse({}));
   }
 
   /**
@@ -43590,12 +47485,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RollbackScriptResponse>(await this.callApi(params, req, runtime), new RollbackScriptResponse({}));
-    } else {
-      return $dara.cast<RollbackScriptResponse>(await this.execute(params, req, runtime), new RollbackScriptResponse({}));
-    }
-
+    return $dara.cast<RollbackScriptResponse>(await this.callApi(params, req, runtime), new RollbackScriptResponse({}));
   }
 
   /**
@@ -43641,12 +47531,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveAfterAnswerDelayPlaybackResponse>(await this.callApi(params, req, runtime), new SaveAfterAnswerDelayPlaybackResponse({}));
-    } else {
-      return $dara.cast<SaveAfterAnswerDelayPlaybackResponse>(await this.execute(params, req, runtime), new SaveAfterAnswerDelayPlaybackResponse({}));
-    }
-
+    return $dara.cast<SaveAfterAnswerDelayPlaybackResponse>(await this.callApi(params, req, runtime), new SaveAfterAnswerDelayPlaybackResponse({}));
   }
 
   /**
@@ -43708,12 +47593,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveAnnotationMissionSessionListResponse>(await this.callApi(params, req, runtime), new SaveAnnotationMissionSessionListResponse({}));
-    } else {
-      return $dara.cast<SaveAnnotationMissionSessionListResponse>(await this.execute(params, req, runtime), new SaveAnnotationMissionSessionListResponse({}));
-    }
-
+    return $dara.cast<SaveAnnotationMissionSessionListResponse>(await this.callApi(params, req, runtime), new SaveAnnotationMissionSessionListResponse({}));
   }
 
   /**
@@ -43763,12 +47643,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveAnnotationMissionTagInfoListResponse>(await this.callApi(params, req, runtime), new SaveAnnotationMissionTagInfoListResponse({}));
-    } else {
-      return $dara.cast<SaveAnnotationMissionTagInfoListResponse>(await this.execute(params, req, runtime), new SaveAnnotationMissionTagInfoListResponse({}));
-    }
-
+    return $dara.cast<SaveAnnotationMissionTagInfoListResponse>(await this.callApi(params, req, runtime), new SaveAnnotationMissionTagInfoListResponse({}));
   }
 
   /**
@@ -43826,12 +47701,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveBaseStrategyPeriodResponse>(await this.callApi(params, req, runtime), new SaveBaseStrategyPeriodResponse({}));
-    } else {
-      return $dara.cast<SaveBaseStrategyPeriodResponse>(await this.execute(params, req, runtime), new SaveBaseStrategyPeriodResponse({}));
-    }
-
+    return $dara.cast<SaveBaseStrategyPeriodResponse>(await this.callApi(params, req, runtime), new SaveBaseStrategyPeriodResponse({}));
   }
 
   /**
@@ -43877,12 +47747,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveContactBlockListResponse>(await this.callApi(params, req, runtime), new SaveContactBlockListResponse({}));
-    } else {
-      return $dara.cast<SaveContactBlockListResponse>(await this.execute(params, req, runtime), new SaveContactBlockListResponse({}));
-    }
-
+    return $dara.cast<SaveContactBlockListResponse>(await this.callApi(params, req, runtime), new SaveContactBlockListResponse({}));
   }
 
   /**
@@ -43928,12 +47793,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveContactWhiteListResponse>(await this.callApi(params, req, runtime), new SaveContactWhiteListResponse({}));
-    } else {
-      return $dara.cast<SaveContactWhiteListResponse>(await this.execute(params, req, runtime), new SaveContactWhiteListResponse({}));
-    }
-
+    return $dara.cast<SaveContactWhiteListResponse>(await this.callApi(params, req, runtime), new SaveContactWhiteListResponse({}));
   }
 
   /**
@@ -43979,12 +47839,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveEffectiveDaysResponse>(await this.callApi(params, req, runtime), new SaveEffectiveDaysResponse({}));
-    } else {
-      return $dara.cast<SaveEffectiveDaysResponse>(await this.execute(params, req, runtime), new SaveEffectiveDaysResponse({}));
-    }
-
+    return $dara.cast<SaveEffectiveDaysResponse>(await this.callApi(params, req, runtime), new SaveEffectiveDaysResponse({}));
   }
 
   /**
@@ -44030,12 +47885,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SaveMaxAttemptsPerDayResponse>(await this.callApi(params, req, runtime), new SaveMaxAttemptsPerDayResponse({}));
-    } else {
-      return $dara.cast<SaveMaxAttemptsPerDayResponse>(await this.execute(params, req, runtime), new SaveMaxAttemptsPerDayResponse({}));
-    }
-
+    return $dara.cast<SaveMaxAttemptsPerDayResponse>(await this.callApi(params, req, runtime), new SaveMaxAttemptsPerDayResponse({}));
   }
 
   /**
@@ -44069,12 +47919,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SearchTaskResponse>(await this.callApi(params, req, runtime), new SearchTaskResponse({}));
-    } else {
-      return $dara.cast<SearchTaskResponse>(await this.execute(params, req, runtime), new SearchTaskResponse({}));
-    }
-
+    return $dara.cast<SearchTaskResponse>(await this.callApi(params, req, runtime), new SearchTaskResponse({}));
   }
 
   /**
@@ -44132,12 +47977,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartJobResponse>(await this.callApi(params, req, runtime), new StartJobResponse({}));
-    } else {
-      return $dara.cast<StartJobResponse>(await this.execute(params, req, runtime), new StartJobResponse({}));
-    }
-
+    return $dara.cast<StartJobResponse>(await this.callApi(params, req, runtime), new StartJobResponse({}));
   }
 
   /**
@@ -44179,12 +48019,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitBatchJobsResponse>(await this.callApi(params, req, runtime), new SubmitBatchJobsResponse({}));
-    } else {
-      return $dara.cast<SubmitBatchJobsResponse>(await this.execute(params, req, runtime), new SubmitBatchJobsResponse({}));
-    }
-
+    return $dara.cast<SubmitBatchJobsResponse>(await this.callApi(params, req, runtime), new SubmitBatchJobsResponse({}));
   }
 
   /**
@@ -44234,12 +48069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitRecordingResponse>(await this.callApi(params, req, runtime), new SubmitRecordingResponse({}));
-    } else {
-      return $dara.cast<SubmitRecordingResponse>(await this.execute(params, req, runtime), new SubmitRecordingResponse({}));
-    }
-
+    return $dara.cast<SubmitRecordingResponse>(await this.callApi(params, req, runtime), new SubmitRecordingResponse({}));
   }
 
   /**
@@ -44289,12 +48119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SubmitScriptReviewResponse>(await this.callApi(params, req, runtime), new SubmitScriptReviewResponse({}));
-    } else {
-      return $dara.cast<SubmitScriptReviewResponse>(await this.execute(params, req, runtime), new SubmitScriptReviewResponse({}));
-    }
-
+    return $dara.cast<SubmitScriptReviewResponse>(await this.callApi(params, req, runtime), new SubmitScriptReviewResponse({}));
   }
 
   /**
@@ -44340,12 +48165,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SuspendCallResponse>(await this.callApi(params, req, runtime), new SuspendCallResponse({}));
-    } else {
-      return $dara.cast<SuspendCallResponse>(await this.execute(params, req, runtime), new SuspendCallResponse({}));
-    }
-
+    return $dara.cast<SuspendCallResponse>(await this.callApi(params, req, runtime), new SuspendCallResponse({}));
   }
 
   /**
@@ -44391,12 +48211,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SuspendCallWithFileResponse>(await this.callApi(params, req, runtime), new SuspendCallWithFileResponse({}));
-    } else {
-      return $dara.cast<SuspendCallWithFileResponse>(await this.execute(params, req, runtime), new SuspendCallWithFileResponse({}));
-    }
-
+    return $dara.cast<SuspendCallWithFileResponse>(await this.callApi(params, req, runtime), new SuspendCallWithFileResponse({}));
   }
 
   /**
@@ -44454,12 +48269,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SuspendJobsResponse>(await this.callApi(params, req, runtime), new SuspendJobsResponse({}));
-    } else {
-      return $dara.cast<SuspendJobsResponse>(await this.execute(params, req, runtime), new SuspendJobsResponse({}));
-    }
-
+    return $dara.cast<SuspendJobsResponse>(await this.callApi(params, req, runtime), new SuspendJobsResponse({}));
   }
 
   /**
@@ -44512,12 +48322,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
-    } else {
-      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
-    }
-
+    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   /**
@@ -44568,12 +48373,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TaskPreparingResponse>(await this.callApi(params, req, runtime), new TaskPreparingResponse({}));
-    } else {
-      return $dara.cast<TaskPreparingResponse>(await this.execute(params, req, runtime), new TaskPreparingResponse({}));
-    }
-
+    return $dara.cast<TaskPreparingResponse>(await this.callApi(params, req, runtime), new TaskPreparingResponse({}));
   }
 
   /**
@@ -44617,12 +48417,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TerminateCallResponse>(await this.callApi(params, req, runtime), new TerminateCallResponse({}));
-    } else {
-      return $dara.cast<TerminateCallResponse>(await this.execute(params, req, runtime), new TerminateCallResponse({}));
-    }
-
+    return $dara.cast<TerminateCallResponse>(await this.callApi(params, req, runtime), new TerminateCallResponse({}));
   }
 
   /**
@@ -44676,12 +48471,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
-    } else {
-      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
-    }
-
+    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   /**
@@ -44735,12 +48525,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UploadScriptRecordingResponse>(await this.callApi(params, req, runtime), new UploadScriptRecordingResponse({}));
-    } else {
-      return $dara.cast<UploadScriptRecordingResponse>(await this.execute(params, req, runtime), new UploadScriptRecordingResponse({}));
-    }
-
+    return $dara.cast<UploadScriptRecordingResponse>(await this.callApi(params, req, runtime), new UploadScriptRecordingResponse({}));
   }
 
   /**
@@ -44787,12 +48572,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<WithdrawScriptReviewResponse>(await this.callApi(params, req, runtime), new WithdrawScriptReviewResponse({}));
-    } else {
-      return $dara.cast<WithdrawScriptReviewResponse>(await this.execute(params, req, runtime), new WithdrawScriptReviewResponse({}));
-    }
-
+    return $dara.cast<WithdrawScriptReviewResponse>(await this.callApi(params, req, runtime), new WithdrawScriptReviewResponse({}));
   }
 
   /**
