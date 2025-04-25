@@ -1,6350 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AccessPageSetAclRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * FREE_ACCESS
-   */
-  accessMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a-062wec3cwmayw****
-   */
-  accessPageId?: string;
-  /**
-   * @example
-   * notepad_test
-   */
-  accessPageName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 7
-   */
-  effectTime?: number;
-  /**
-   * @example
-   * Day
-   */
-  unit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessMode: 'AccessMode',
-      accessPageId: 'AccessPageId',
-      accessPageName: 'AccessPageName',
-      effectTime: 'EffectTime',
-      unit: 'Unit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessMode: 'string',
-      accessPageId: 'string',
-      accessPageName: 'string',
-      effectTime: 'number',
-      unit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AccessPageSetAclResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * InternalError
-   */
-  message?: string;
-  /**
-   * @example
-   * E25FC620-6B6F-12D2-A992-AD8727DC****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AccessPageSetAclResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AccessPageSetAclResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AccessPageSetAclResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApproveOtaTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the region where the delivery group resides. You can call the [ListRegions](https://help.aliyun.com/document_detail/428500.html) operation to query the list of regions supported by App Streaming.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The type of the OTA update task.
-   * 
-   * Valid values:
-   * 
-   * *   Fota: update of the system components of Alibaba Cloud Workspace
-   * *   AppUpdate
-   * *   ImageUpdate
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Fota
-   */
-  otaType?: string;
-  /**
-   * @remarks
-   * The start time of the OTA update task. The time follows the ISO 8601 standard.
-   * 
-   * This parameter is required.
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-   * 
-   * @example
-   * 2022-08-04T14:36:00+08:00
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * >  Each successful call to the `ApproveOtaTask` operation causes a value change of this parameter.`` Before you call this operation, call the `ListAppInstanceGroup` operation again to obtain the latest value of this parameter.``
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ota-be7jzm29wrrz5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      bizRegionId: 'BizRegionId',
-      otaType: 'OtaType',
-      startTime: 'StartTime',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      bizRegionId: 'string',
-      otaType: 'string',
-      startTime: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApproveOtaTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The execution result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
-   * 
-   * @example
-   * OtaTask.Running
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message. If the value of `Code` is `success`, this parameter is not returned.
-   * 
-   * @example
-   * The task is running and cannot be sumitted.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApproveOtaTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ApproveOtaTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ApproveOtaTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AskSessionPackagePriceRequest extends $tea.Model {
-  chargeType?: string;
-  maxSessions?: number;
-  period?: number;
-  periodUnit?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @example
-   * 0
-   */
-  sessionPackageType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * appstreaming.general.entry
-   */
-  sessionSpec?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Windows
-   */
-  sessionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'ChargeType',
-      maxSessions: 'MaxSessions',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      region: 'Region',
-      sessionPackageType: 'SessionPackageType',
-      sessionSpec: 'SessionSpec',
-      sessionType: 'SessionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      maxSessions: 'number',
-      period: 'number',
-      periodUnit: 'string',
-      region: 'string',
-      sessionPackageType: 'string',
-      sessionSpec: 'string',
-      sessionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AskSessionPackagePriceResponseBody extends $tea.Model {
-  data?: AskSessionPackagePriceResponseBodyData[];
-  /**
-   * @example
-   * 2C64D9E5-DFCD-10A5-A911-xxxxxxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': AskSessionPackagePriceResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AskSessionPackagePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AskSessionPackagePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AskSessionPackagePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  appInstancePersistentId?: string;
-  authorizeUserIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  unAuthorizeUserIds?: string[];
-  userMeta?: AuthorizeInstanceGroupRequestUserMeta;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstancePersistentId: 'AppInstancePersistentId',
-      authorizeUserIds: 'AuthorizeUserIds',
-      productType: 'ProductType',
-      unAuthorizeUserIds: 'UnAuthorizeUserIds',
-      userMeta: 'UserMeta',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstancePersistentId: 'string',
-      authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
-      productType: 'string',
-      unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
-      userMeta: AuthorizeInstanceGroupRequestUserMeta,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeInstanceGroupShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  appInstancePersistentId?: string;
-  authorizeUserIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  unAuthorizeUserIds?: string[];
-  userMetaShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstancePersistentId: 'AppInstancePersistentId',
-      authorizeUserIds: 'AuthorizeUserIds',
-      productType: 'ProductType',
-      unAuthorizeUserIds: 'UnAuthorizeUserIds',
-      userMetaShrink: 'UserMeta',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstancePersistentId: 'string',
-      authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
-      productType: 'string',
-      unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
-      userMetaShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthorizeInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AuthorizeInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AuthorizeInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BuySessionPackageRequest extends $tea.Model {
-  autoPay?: boolean;
-  chargeType?: string;
-  maxSessions?: number;
-  period?: number;
-  periodUnit?: string;
-  /**
-   * @example
-   * p-xxxxxxxxxxxxx
-   */
-  projectId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  sessionPackageName?: string;
-  /**
-   * @example
-   * 0
-   */
-  sessionPackageType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * appstreaming.general.entry
-   */
-  sessionSpec?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Windows
-   */
-  sessionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      chargeType: 'ChargeType',
-      maxSessions: 'MaxSessions',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      projectId: 'ProjectId',
-      region: 'Region',
-      sessionPackageName: 'SessionPackageName',
-      sessionPackageType: 'SessionPackageType',
-      sessionSpec: 'SessionSpec',
-      sessionType: 'SessionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      chargeType: 'string',
-      maxSessions: 'number',
-      period: 'number',
-      periodUnit: 'string',
-      projectId: 'string',
-      region: 'string',
-      sessionPackageName: 'string',
-      sessionPackageType: 'string',
-      sessionSpec: 'string',
-      sessionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BuySessionPackageResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * There is a missing parameter.
-   */
-  message?: string;
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
-   */
-  requestId?: string;
-  /**
-   * @example
-   * tp-xxxxxxxxxx
-   */
-  sessionPackageId?: number;
-  /**
-   * @example
-   * false
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      sessionPackageId: 'SessionPackageId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      sessionPackageId: 'number',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BuySessionPackageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BuySessionPackageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BuySessionPackageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessPageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  accessPageName?: string;
-  /**
-   * @example
-   * c-e-06gdesdaxez****
-   */
-  cloudEnvId?: string;
-  /**
-   * @example
-   * 7
-   */
-  effectTime?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * p-065zdecaer07h****
-   */
-  projectId?: string;
-  projectName?: string;
-  /**
-   * @example
-   * Day
-   */
-  unit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessPageName: 'AccessPageName',
-      cloudEnvId: 'CloudEnvId',
-      effectTime: 'EffectTime',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      unit: 'Unit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessPageName: 'string',
-      cloudEnvId: 'string',
-      effectTime: 'number',
-      projectId: 'string',
-      projectName: 'string',
-      unit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessPageResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * a-06xnr5lyp77e7****
-   */
-  data?: string;
-  message?: string;
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessPageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccessPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccessPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * img-8z4nztpaqvay4****
-   */
-  appCenterImageId?: string;
-  appInstanceGroupName?: string;
-  appPackageType?: string;
-  appPolicyId?: string;
-  /**
-   * @example
-   * App
-   * 
-   * **if can be null:**
-   * true
-   */
-  authMode?: string;
-  /**
-   * @example
-   * false
-   */
-  autoPay?: boolean;
-  /**
-   * @example
-   * false
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Node
-   */
-  chargeResourceMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  clusterId?: string;
-  network?: CreateAppInstanceGroupRequestNetwork;
-  nodePool?: CreateAppInstanceGroupRequestNodePool;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  periodUnit?: string;
-  /**
-   * @example
-   * cag-b2ron*******
-   */
-  preOpenAppId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @example
-   * 17440009****
-   */
-  promotionId?: string;
-  runtimePolicy?: CreateAppInstanceGroupRequestRuntimePolicy;
-  securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 15
-   */
-  sessionTimeout?: number;
-  storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
-  subPayType?: string;
-  userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
-  userInfo?: CreateAppInstanceGroupRequestUserInfo;
-  users?: string[];
-  videoPolicy?: CreateAppInstanceGroupRequestVideoPolicy;
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageId: 'AppCenterImageId',
-      appInstanceGroupName: 'AppInstanceGroupName',
-      appPackageType: 'AppPackageType',
-      appPolicyId: 'AppPolicyId',
-      authMode: 'AuthMode',
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bizRegionId: 'BizRegionId',
-      chargeResourceMode: 'ChargeResourceMode',
-      chargeType: 'ChargeType',
-      clusterId: 'ClusterId',
-      network: 'Network',
-      nodePool: 'NodePool',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      preOpenAppId: 'PreOpenAppId',
-      productType: 'ProductType',
-      promotionId: 'PromotionId',
-      runtimePolicy: 'RuntimePolicy',
-      securityPolicy: 'SecurityPolicy',
-      sessionTimeout: 'SessionTimeout',
-      storagePolicy: 'StoragePolicy',
-      subPayType: 'SubPayType',
-      userDefinePolicy: 'UserDefinePolicy',
-      userInfo: 'UserInfo',
-      users: 'Users',
-      videoPolicy: 'VideoPolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageId: 'string',
-      appInstanceGroupName: 'string',
-      appPackageType: 'string',
-      appPolicyId: 'string',
-      authMode: 'string',
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bizRegionId: 'string',
-      chargeResourceMode: 'string',
-      chargeType: 'string',
-      clusterId: 'string',
-      network: CreateAppInstanceGroupRequestNetwork,
-      nodePool: CreateAppInstanceGroupRequestNodePool,
-      period: 'number',
-      periodUnit: 'string',
-      preOpenAppId: 'string',
-      productType: 'string',
-      promotionId: 'string',
-      runtimePolicy: CreateAppInstanceGroupRequestRuntimePolicy,
-      securityPolicy: CreateAppInstanceGroupRequestSecurityPolicy,
-      sessionTimeout: 'number',
-      storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
-      subPayType: 'string',
-      userDefinePolicy: CreateAppInstanceGroupRequestUserDefinePolicy,
-      userInfo: CreateAppInstanceGroupRequestUserInfo,
-      users: { 'type': 'array', 'itemType': 'string' },
-      videoPolicy: CreateAppInstanceGroupRequestVideoPolicy,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * img-8z4nztpaqvay4****
-   */
-  appCenterImageId?: string;
-  appInstanceGroupName?: string;
-  appPackageType?: string;
-  appPolicyId?: string;
-  /**
-   * @example
-   * App
-   * 
-   * **if can be null:**
-   * true
-   */
-  authMode?: string;
-  /**
-   * @example
-   * false
-   */
-  autoPay?: boolean;
-  /**
-   * @example
-   * false
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Node
-   */
-  chargeResourceMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  clusterId?: string;
-  networkShrink?: string;
-  nodePoolShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  periodUnit?: string;
-  /**
-   * @example
-   * cag-b2ron*******
-   */
-  preOpenAppId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @example
-   * 17440009****
-   */
-  promotionId?: string;
-  runtimePolicyShrink?: string;
-  securityPolicyShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 15
-   */
-  sessionTimeout?: number;
-  storagePolicyShrink?: string;
-  subPayType?: string;
-  userDefinePolicyShrink?: string;
-  userInfoShrink?: string;
-  users?: string[];
-  videoPolicyShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageId: 'AppCenterImageId',
-      appInstanceGroupName: 'AppInstanceGroupName',
-      appPackageType: 'AppPackageType',
-      appPolicyId: 'AppPolicyId',
-      authMode: 'AuthMode',
-      autoPay: 'AutoPay',
-      autoRenew: 'AutoRenew',
-      bizRegionId: 'BizRegionId',
-      chargeResourceMode: 'ChargeResourceMode',
-      chargeType: 'ChargeType',
-      clusterId: 'ClusterId',
-      networkShrink: 'Network',
-      nodePoolShrink: 'NodePool',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      preOpenAppId: 'PreOpenAppId',
-      productType: 'ProductType',
-      promotionId: 'PromotionId',
-      runtimePolicyShrink: 'RuntimePolicy',
-      securityPolicyShrink: 'SecurityPolicy',
-      sessionTimeout: 'SessionTimeout',
-      storagePolicyShrink: 'StoragePolicy',
-      subPayType: 'SubPayType',
-      userDefinePolicyShrink: 'UserDefinePolicy',
-      userInfoShrink: 'UserInfo',
-      users: 'Users',
-      videoPolicyShrink: 'VideoPolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageId: 'string',
-      appInstanceGroupName: 'string',
-      appPackageType: 'string',
-      appPolicyId: 'string',
-      authMode: 'string',
-      autoPay: 'boolean',
-      autoRenew: 'boolean',
-      bizRegionId: 'string',
-      chargeResourceMode: 'string',
-      chargeType: 'string',
-      clusterId: 'string',
-      networkShrink: 'string',
-      nodePoolShrink: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      preOpenAppId: 'string',
-      productType: 'string',
-      promotionId: 'string',
-      runtimePolicyShrink: 'string',
-      securityPolicyShrink: 'string',
-      sessionTimeout: 'number',
-      storagePolicyShrink: 'string',
-      subPayType: 'string',
-      userDefinePolicyShrink: 'string',
-      userInfoShrink: 'string',
-      users: { 'type': 'array', 'itemType': 'string' },
-      videoPolicyShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceGroupResponseBody extends $tea.Model {
-  appInstanceGroupModel?: CreateAppInstanceGroupResponseBodyAppInstanceGroupModel;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupModel: 'AppInstanceGroupModel',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupModel: CreateAppInstanceGroupResponseBodyAppInstanceGroupModel,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateImageFromAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The image name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test_name
-   */
-  appCenterImageName?: string;
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageName: 'AppCenterImageName',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageName: 'string',
-      appInstanceGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateImageFromAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * @example
-   * img-bp13mu****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateImageFromAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateImageFromAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateImageFromAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessPageRequest extends $tea.Model {
-  /**
-   * @example
-   * a-075nu7bcqim2wvxli
-   */
-  accessPageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessPageId: 'AccessPageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessPageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessPageResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessPageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccessPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccessPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstancesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the [listAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The IDs of application instances.
-   * 
-   * This parameter is required.
-   * 
-   * **if can be null:**
-   * false
-   */
-  appInstanceIds?: string[];
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceIds: 'AppInstanceIds',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceIds: { 'type': 'array', 'itemType': 'string' },
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstancesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  deleteAppInstanceModels?: DeleteAppInstancesResponseBodyDeleteAppInstanceModels[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deleteAppInstanceModels: 'DeleteAppInstanceModels',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteAppInstanceModels: { 'type': 'array', 'itemType': DeleteAppInstancesResponseBodyDeleteAppInstanceModels },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAppInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAppInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAppInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessPageSessionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a-062wec3cwmayw****
-   */
-  accessPageId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
-   */
-  accessPageToken?: string;
-  /**
-   * @example
-   * Banca******
-   */
-  externalUserId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessPageId: 'AccessPageId',
-      accessPageToken: 'AccessPageToken',
-      externalUserId: 'ExternalUserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessPageId: 'string',
-      accessPageToken: 'string',
-      externalUserId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessPageSessionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  data?: GetAccessPageSessionResponseBodyData;
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetAccessPageSessionResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessPageSessionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccessPageSessionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessPageSessionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * AppInstanceGroupModels
-   */
-  appInstanceGroupModels?: GetAppInstanceGroupResponseBodyAppInstanceGroupModels;
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupModels: 'AppInstanceGroupModels',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupModels: GetAppInstanceGroupResponseBodyAppInstanceGroupModels,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionTicketRequest extends $tea.Model {
-  /**
-   * @example
-   * INTERNET
-   * 
-   * **if can be null:**
-   * true
-   */
-  accessType?: string;
-  /**
-   * @remarks
-   * The application ID.
-   * 
-   * >  This parameter is required for the first call to this operation and optional for subsequent calls to the operation.
-   * 
-   * @example
-   * ca-e4s0puhmwi7v****
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The delivery groups.
-   * 
-   * > *   If you configure this parameter, the system assigns application instances only among the specified authorized delivery groups. 
-   * > *   This parameter is required if you configure `AppInstanceId` or `AppInstancePersistentId`.
-   */
-  appInstanceGroupIdList?: string[];
-  /**
-   * @remarks
-   * The ID of the application instance.
-   * 
-   * > *   If you configure this parameter, the system attempts to assign only the specified application instance.
-   * > *   If you configure this parameter, you must also configure `AppInstanceGroupIdList` and the number of delivery groups specified by `AppInstanceGroupIdList` must be 1.
-   * 
-   * @example
-   * ai-1rznfnrvsa99d****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the persistent session.
-   * 
-   * @example
-   * p-0bxls9m3cl7s****
-   */
-  appInstancePersistentId?: string;
-  /**
-   * @remarks
-   * The parameters that are configured to start the application. For information about how to obtain these parameters, see [Obtain parameters configured to install and start an application](https://help.aliyun.com/document_detail/426045.html).
-   * 
-   * @example
-   * /q /n
-   */
-  appStartParam?: string;
-  /**
-   * @remarks
-   * The application version. If you configure this parameter, only an application of the specified version is started. If you do not configure this parameter, an application of a random authorized version is started.
-   * 
-   * @example
-   * 1.0.0
-   */
-  appVersion?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * >  If you configure this parameter, the system assigns application instances only among the delivery groups that reside in the specified region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the convenience account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * alice
-   */
-  endUserId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid values:
-   * 
-   * *   CloudApp: App Streaming
-   * *   AndroidCloud: Cloud Phone
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * >  This parameter is required for calls other than the first call to this operation. You can use this parameter to query the task status and connection credential.
-   * 
-   * @example
-   * 28778acb-a469-4bc0-8e0f****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessType: 'AccessType',
-      appId: 'AppId',
-      appInstanceGroupIdList: 'AppInstanceGroupIdList',
-      appInstanceId: 'AppInstanceId',
-      appInstancePersistentId: 'AppInstancePersistentId',
-      appStartParam: 'AppStartParam',
-      appVersion: 'AppVersion',
-      bizRegionId: 'BizRegionId',
-      endUserId: 'EndUserId',
-      productType: 'ProductType',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessType: 'string',
-      appId: 'string',
-      appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
-      appInstanceId: 'string',
-      appInstancePersistentId: 'string',
-      appStartParam: 'string',
-      appVersion: 'string',
-      bizRegionId: 'string',
-      endUserId: 'string',
-      productType: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionTicketResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-53fvrq1oan****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the application instance.
-   * 
-   * @example
-   * ai-7ybdeiyoeh5e****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the persistent session.
-   * 
-   * @example
-   * p-0bxls9m3cl7s****
-   */
-  appInstancePersistentId?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The operating system.
-   * 
-   * Valid value:
-   * 
-   * *   Windows: the Windows operating system
-   * 
-   * @example
-   * Windows
-   */
-  osType?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * f3d1b31c-605e-4d04-a896****
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The task status.
-   * 
-   * Valid values:
-   * 
-   * *   Finished: The task is complete.
-   * *   Failed: The task failed.
-   * *   Running: The task is being executed.
-   * 
-   * @example
-   * Running
-   */
-  taskStatus?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 148871678899****
-   */
-  tenantId?: number;
-  /**
-   * @remarks
-   * The credential that is used to connect to App Streaming.
-   * 
-   * >  This parameter is displayed for calls other than the first call to this operation.
-   * 
-   * @example
-   * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****
-   */
-  ticket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      appInstancePersistentId: 'AppInstancePersistentId',
-      bizRegionId: 'BizRegionId',
-      osType: 'OsType',
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      tenantId: 'TenantId',
-      ticket: 'Ticket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      appInstancePersistentId: 'string',
-      bizRegionId: 'string',
-      osType: 'string',
-      requestId: 'string',
-      taskId: 'string',
-      taskStatus: 'string',
-      tenantId: 'number',
-      ticket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionTicketResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConnectionTicketResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConnectionTicketResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDebugAppInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the `listAppInstanceGroup` operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDebugAppInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The application ID.
-   * 
-   * @example
-   * __DEBUG_APP
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the application instance.
-   * 
-   * @example
-   * ai-7ybdeiyoeh5e****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the application version.
-   * 
-   * @example
-   * 1.1
-   */
-  appVersion?: string;
-  /**
-   * @remarks
-   * The authorization code. This authorization code is valid for 3 minutes and can be used only once, regardless of whether the authentication succeeds. If multiple authentication codes are generated for a user, only the latest authentication code takes effect.
-   * 
-   * @example
-   * e4e169bea1cc48e8afac53**********
-   */
-  authCode?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * __debug__
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      appVersion: 'AppVersion',
-      authCode: 'AuthCode',
-      requestId: 'RequestId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      appVersion: 'string',
-      authCode: 'string',
-      requestId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDebugAppInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDebugAppInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDebugAppInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOtaTaskByTaskIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ota-be7jzm29wrrz5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOtaTaskByTaskIdResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * OtaTask.Running
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The task is running and cannot be sumitted.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The OTA version.
-   * 
-   * @example
-   * 0.0.1-R-20220708.110604
-   */
-  otaVersion?: string;
-  /**
-   * @remarks
-   * The version description.
-   */
-  releaseNote?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The execution time of the OTA update task. The time follows the ISO 8601 standard.
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-   * 
-   * @example
-   * 2022-08-04T14:36:00+08:00
-   */
-  taskStartTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      otaVersion: 'OtaVersion',
-      releaseNote: 'ReleaseNote',
-      requestId: 'RequestId',
-      taskStartTime: 'TaskStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      otaVersion: 'string',
-      releaseNote: 'string',
-      requestId: 'string',
-      taskStartTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOtaTaskByTaskIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetOtaTaskByTaskIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetOtaTaskByTaskIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcePriceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of resources to purchase.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  amount?: number;
-  /**
-   * @remarks
-   * The type ID of the sessions that you purchase. You can call the `ListAppInstanceType` operation to obtain the ID.
-   * 
-   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
-   * 
-   * @example
-   * appstreaming.general
-   */
-  appInstanceType?: string;
-  /**
-   * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai).
-   * *   cn-hangzhou: China (Hangzhou)
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * PrePaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The ID of the resource type that you purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) to obtain the ID.
-   * 
-   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
-   * 
-   * Valid values:
-   * 
-   * *   appstreaming.vgpu.8c16g.4g: WUYING - Graphics - 8 vCPUs, 16 GiB Memory, 4 GiB GPU Memory
-   * *   appstreaming.general.8c16g: WUYING - General - 8 vCPUs, 16 GiB Memory
-   * *   appstreaming.general.4c8g: WUYING - General - 4 vCPUs, 8 GiB Memory
-   * *   appstreaming.vgpu.14c93g.12g: WUYING - Graphics - 14 vCPUs, 93 GiB Memory, 12 GiB GPU Memory.
-   * *   appstreaming.vgpu.8c31g.16g: WUYING - Graphics - 8 vCPUs, 31 GiB Memory, 16 GiB GPU Memory
-   * 
-   * @example
-   * appstreaming.vgpu.4c8g.2g
-   */
-  nodeInstanceType?: string;
-  /**
-   * @remarks
-   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
-   * 
-   * *   1 Week
-   * *   1 Month
-   * *   2 Month
-   * *   3 Month
-   * *   6 Month
-   * *   1 Year
-   * *   2 Year
-   * *   3 Year
-   * 
-   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Week
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      appInstanceType: 'AppInstanceType',
-      bizRegionId: 'BizRegionId',
-      chargeType: 'ChargeType',
-      nodeInstanceType: 'NodeInstanceType',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      appInstanceType: 'string',
-      bizRegionId: 'string',
-      chargeType: 'string',
-      nodeInstanceType: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcePriceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidParameter.ProductType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The parameter ProductType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The price objects.
-   * 
-   * This parameter is returned only if a value is specified for AppInstanceType.
-   */
-  priceList?: GetResourcePriceResponseBodyPriceList[];
-  /**
-   * @remarks
-   * The price object.
-   * 
-   * This parameter is returned only if a value is specified for NodeInstanceType.
-   */
-  priceModel?: GetResourcePriceResponseBodyPriceModel;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      priceList: 'PriceList',
-      priceModel: 'PriceModel',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      priceList: { 'type': 'array', 'itemType': GetResourcePriceResponseBodyPriceList },
-      priceModel: GetResourcePriceResponseBodyPriceModel,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourcePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourcePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceRenewPriceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
-   * 
-   * *   1 Week
-   * *   1 Month
-   * *   2 Month
-   * *   3 Month
-   * *   6 Month
-   * *   1 Year
-   * *   2 Year
-   * *   3 Year
-   * 
-   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Week
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceRenewPriceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The price object.
-   */
-  data?: GetResourceRenewPriceResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetResourceRenewPriceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceRenewPriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourceRenewPriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourceRenewPriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessPagesRequest extends $tea.Model {
-  /**
-   * @example
-   * a-062wec3cwmayw****
-   */
-  accessPageId?: string;
-  accessPageName?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 100
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * p-065zdecaer07h****
-   */
-  projectId?: string;
-  /**
-   * @example
-   * ASC
-   */
-  sortType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessPageId: 'AccessPageId',
-      accessPageName: 'AccessPageName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      sortType: 'SortType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessPageId: 'string',
-      accessPageName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      sortType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessPagesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * 22
-   */
-  count?: string;
-  data?: ListAccessPagesResponseBodyData[];
-  /**
-   * @example
-   * InternalError
-   */
-  message?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: string;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: string;
-  /**
-   * @example
-   * AF8361BD-5ECB-139A-B019-2E0350CC****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'string',
-      data: { 'type': 'array', 'itemType': ListAccessPagesResponseBodyData },
-      message: 'string',
-      pageNumber: 'string',
-      pageSize: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessPagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccessPagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccessPagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The image ID of the app. You can obtain the ID from the Images page in the App Streaming console.
-   * 
-   * @example
-   * img-8z4nztpaqvay4****
-   */
-  appCenterImageId?: string;
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The name of the delivery groups to query. Fuzzy match is used for queries. For example, if you set this parameter to `Office App`, all delivery groups whose names contain `Office App` are queried, such as `My Office Apps` and `Office App A`.
-   */
-  appInstanceGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-hangzhou: China (Hangzhou)
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
-   * 
-   * @example
-   * appstreaming.vgpu.4c8g.2g
-   */
-  nodeInstanceType?: string;
-  /**
-   * @example
-   * cn-hongkong+dir-643067****
-   */
-  officeSiteId?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. The value cannot be greater than `100`.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The region ID
-   * 
-   * @example
-   * cn-hangzhou
-   * 
-   * @deprecated
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The status of the delivery groups.
-   */
-  status?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageId: 'AppCenterImageId',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceGroupName: 'AppInstanceGroupName',
-      bizRegionId: 'BizRegionId',
-      nodeInstanceType: 'NodeInstanceType',
-      officeSiteId: 'OfficeSiteId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productType: 'ProductType',
-      regionId: 'RegionId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageId: 'string',
-      appInstanceGroupId: 'string',
-      appInstanceGroupName: 'string',
-      bizRegionId: 'string',
-      nodeInstanceType: 'string',
-      officeSiteId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productType: 'string',
-      regionId: 'string',
-      status: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The delivery groups.
-   */
-  appInstanceGroupModels?: ListAppInstanceGroupResponseBodyAppInstanceGroupModels[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupModels: 'AppInstanceGroupModels',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupModels: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModels },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstancesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-4p5f8tj16yb8b****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the application instance.
-   * 
-   * @example
-   * ai-azn3kmwruh1vl****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The IDs of the application instances. Up to 100 IDs can be specified.
-   * 
-   * **if can be null:**
-   * false
-   */
-  appInstanceIdList?: string[];
-  /**
-   * @remarks
-   * Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  includeDeleted?: boolean;
-  /**
-   * @remarks
-   * The page number. Default value: `1`. We recommend that you specify this parameter.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The status of the application instances.
-   * 
-   * **if can be null:**
-   * false
-   */
-  status?: string[];
-  /**
-   * @remarks
-   * The user IDs. You can specify up to 100 IDs.
-   */
-  userIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      appInstanceIdList: 'AppInstanceIdList',
-      includeDeleted: 'IncludeDeleted',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      status: 'Status',
-      userIdList: 'UserIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      appInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      includeDeleted: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      status: { 'type': 'array', 'itemType': 'string' },
-      userIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstancesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The app instances.
-   */
-  appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
-  /**
-   * @remarks
-   * The page number of the returned page. We recommend that you configure this parameter.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries returned on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 18
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceModels: 'AppInstanceModels',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceModels: { 'type': 'array', 'itemType': ListAppInstancesResponseBodyAppInstanceModels },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAppInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAppInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAppInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindInfoRequest extends $tea.Model {
-  appIdList?: string[];
-  appInstanceGroupIdList?: string[];
-  appInstanceIdList?: string[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  userIdList?: string[];
-  wyIdList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appIdList: 'AppIdList',
-      appInstanceGroupIdList: 'AppInstanceGroupIdList',
-      appInstanceIdList: 'AppInstanceIdList',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      userIdList: 'UserIdList',
-      wyIdList: 'WyIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appIdList: { 'type': 'array', 'itemType': 'string' },
-      appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
-      appInstanceIdList: { 'type': 'array', 'itemType': 'string' },
-      pageNumber: 'number',
-      pageSize: 'number',
-      userIdList: { 'type': 'array', 'itemType': 'string' },
-      wyIdList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindInfoResponseBody extends $tea.Model {
-  bindInfoModels?: ListBindInfoResponseBodyBindInfoModels[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * AD2D0761-1FE5-549D-B169-D3F8D19C****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bindInfoModels: 'BindInfoModels',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bindInfoModels: { 'type': 'array', 'itemType': ListBindInfoResponseBodyBindInfoModels },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBindInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListBindInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListBindInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInstanceTypeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the region where the resource resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-hangzhou: China (Hangzhou)
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  cpu?: number;
-  gpu?: number;
-  gpuMemory?: number;
-  /**
-   * @remarks
-   * The language that you want to use.
-   * 
-   * Valid values:
-   * 
-   * *   en-US: English (US)
-   * *   zh-CN: Simplified Chinese
-   * 
-   * @example
-   * zh-CN
-   */
-  language?: string;
-  memory?: number;
-  /**
-   * @remarks
-   * The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
-   * 
-   * @example
-   * appstreaming.vgpu.4c8g.2g
-   */
-  nodeInstanceType?: string;
-  nodeInstanceTypeFamily?: string;
-  orderBy?: string;
-  /**
-   * @remarks
-   * The operating system that is supported.
-   * 
-   * Valid value:
-   * 
-   * *   Windows: the Windows operating system
-   * 
-   * @example
-   * Windows
-   */
-  osType?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  sortType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      cpu: 'Cpu',
-      gpu: 'Gpu',
-      gpuMemory: 'GpuMemory',
-      language: 'Language',
-      memory: 'Memory',
-      nodeInstanceType: 'NodeInstanceType',
-      nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
-      orderBy: 'OrderBy',
-      osType: 'OsType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productType: 'ProductType',
-      sortType: 'SortType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      cpu: 'number',
-      gpu: 'number',
-      gpuMemory: 'number',
-      language: 'string',
-      memory: 'number',
-      nodeInstanceType: 'string',
-      nodeInstanceTypeFamily: 'string',
-      orderBy: 'string',
-      osType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productType: 'string',
-      sortType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInstanceTypeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The resource types.
-   */
-  nodeInstanceTypeModels?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels[];
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 6
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nodeInstanceTypeModels: 'NodeInstanceTypeModels',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeInstanceTypeModels: { 'type': 'array', 'itemType': ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodeInstanceTypeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNodeInstanceTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNodeInstanceTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-53fvrq1oanz6c****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The page number. Pages start from page 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 200.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 100
-   */
-  count?: number;
-  /**
-   * @remarks
-   * The resource nodes.
-   */
-  nodeModels?: ListNodesResponseBodyNodeModels[];
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  perPageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  toPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      nodeModels: 'NodeModels',
-      perPageSize: 'PerPageSize',
-      requestId: 'RequestId',
-      toPage: 'ToPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      nodeModels: { 'type': 'array', 'itemType': ListNodesResponseBodyNodeModels },
-      perPageSize: 'number',
-      requestId: 'string',
-      toPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOtaTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-53fvrq1oanz6c****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The type of the OTA update task.
-   * 
-   * Valid values:
-   * 
-   * *   Fota: update of the system components of Alibaba Cloud Workspace
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Fota
-   */
-  otaType?: string;
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      otaType: 'OtaType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      otaType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOtaTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The OTA update tasks.
-   */
-  taskList?: ListOtaTaskResponseBodyTaskList[];
-  /**
-   * @remarks
-   * The total number of OTA update tasks.
-   * 
-   * @example
-   * 6
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      taskList: 'TaskList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      taskList: { 'type': 'array', 'itemType': ListOtaTaskResponseBodyTaskList },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOtaTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListOtaTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListOtaTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersistentAppInstancesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aig-0bxls9m9arax6****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * **if can be null:**
-   * false
-   */
-  appInstancePersistentIds?: string[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstancePersistentIds: 'AppInstancePersistentIds',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstancePersistentIds: { 'type': 'array', 'itemType': 'string' },
-      pageNumber: 'number',
-      pageSize: 'number',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersistentAppInstancesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  persistentAppInstanceModels?: ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels[];
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      persistentAppInstanceModels: 'PersistentAppInstanceModels',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      persistentAppInstanceModels: { 'type': 'array', 'itemType': ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPersistentAppInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListPersistentAppInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListPersistentAppInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * null
-   */
-  bizSource?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizSource: 'BizSource',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizSource: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The region IDs.
-   */
-  regionModels?: ListRegionsResponseBodyRegionModels[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionModels: 'RegionModels',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionModels: { 'type': 'array', 'itemType': ListRegionsResponseBodyRegionModels },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionPackagesRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 100
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * p-xxxxxxxxxxxx
-   */
-  projectId?: string;
-  /**
-   * @example
-   * tp-xxxxxxxx
-   */
-  sessionPackageId?: string;
-  sessionPackageName?: string;
-  /**
-   * @example
-   * ASC
-   */
-  sortType?: string;
-  stateList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      sessionPackageId: 'SessionPackageId',
-      sessionPackageName: 'SessionPackageName',
-      sortType: 'SortType',
-      stateList: 'StateList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'string',
-      sessionPackageId: 'string',
-      sessionPackageName: 'string',
-      sortType: 'string',
-      stateList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionPackagesResponseBody extends $tea.Model {
-  data?: ListSessionPackagesResponseBodyData[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 100
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListSessionPackagesResponseBodyData },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionPackagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSessionPackagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSessionPackagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagCloudResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of entries per page. Maximum value: 1000. Default value: 50.
-   * 
-   * @example
-   * 50
-   * 
-   * **if can be null:**
-   * true
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * ptnJAAAAAAAxNzE5OTEwNQ==
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
-   */
-  resourceIds?: string[];
-  /**
-   * @remarks
-   * The type of the cloud resource.
-   * 
-   * Valid values:
-   * 
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * AppInstanceGroupId
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tag type.
-   * 
-   * Valid values:
-   * 
-   * *   All (default): all tags.
-   * *   Custom: custom tag.
-   * *   System: system tag.
-   * 
-   * @example
-   * Custom
-   * 
-   * **if can be null:**
-   * true
-   */
-  scope?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      resourceIds: 'ResourceIds',
-      resourceType: 'ResourceType',
-      scope: 'Scope',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      scope: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagCloudResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the next query is required.
-   * 
-   * @example
-   * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The tags added to the cloud resources.
-   */
-  resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
-  /**
-   * @remarks
-   * The total number of entries.
-   * 
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      resourceTags: 'ResourceTags',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      resourceTags: { 'type': 'array', 'itemType': ListTagCloudResourcesResponseBodyResourceTags },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagCloudResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagCloudResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagCloudResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantConfigResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The user configurations.
-   */
-  tenantConfigModel?: ListTenantConfigResponseBodyTenantConfigModel;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tenantConfigModel: 'TenantConfigModel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tenantConfigModel: ListTenantConfigResponseBodyTenantConfigModel,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTenantConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTenantConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogOffAllSessionsInAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidParameter.ProductType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The parameter ProductType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogOffAllSessionsInAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: LogOffAllSessionsInAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LogOffAllSessionsInAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The name of the delivery group.
-   */
-  appInstanceGroupName?: string;
-  /**
-   * @remarks
-   * The network settings.
-   * 
-   * >  If you want to use this parameter, submit a ticket.
-   */
-  network?: ModifyAppInstanceGroupAttributeRequestNetwork;
-  /**
-   * @remarks
-   * The information about the resource group.
-   */
-  nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
-  /**
-   * @remarks
-   * Specifies whether only one application can be opened in a session.
-   * 
-   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  perSessionPerApp?: boolean;
-  /**
-   * @remarks
-   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
-   * 
-   * @example
-   * ca-b2ronxxd****
-   */
-  preOpenAppId?: string;
-  /**
-   * @remarks
-   * The pre-open mode.
-   * 
-   * Valid values:
-   * 
-   * *   SINGLE_APP: enables the pre-open mode for a single application.
-   * *   OFF: disables the pre-open mode. This is the default value.
-   * 
-   * @example
-   * OFF
-   */
-  preOpenMode?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The security policy.
-   */
-  securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
-  /**
-   * @remarks
-   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
-   * 
-   * @example
-   * 15
-   */
-  sessionTimeout?: number;
-  /**
-   * @remarks
-   * The storage policy.
-   */
-  storagePolicy?: ModifyAppInstanceGroupAttributeRequestStoragePolicy;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceGroupName: 'AppInstanceGroupName',
-      network: 'Network',
-      nodePool: 'NodePool',
-      perSessionPerApp: 'PerSessionPerApp',
-      preOpenAppId: 'PreOpenAppId',
-      preOpenMode: 'PreOpenMode',
-      productType: 'ProductType',
-      securityPolicy: 'SecurityPolicy',
-      sessionTimeout: 'SessionTimeout',
-      storagePolicy: 'StoragePolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceGroupName: 'string',
-      network: ModifyAppInstanceGroupAttributeRequestNetwork,
-      nodePool: ModifyAppInstanceGroupAttributeRequestNodePool,
-      perSessionPerApp: 'boolean',
-      preOpenAppId: 'string',
-      preOpenMode: 'string',
-      productType: 'string',
-      securityPolicy: ModifyAppInstanceGroupAttributeRequestSecurityPolicy,
-      sessionTimeout: 'number',
-      storagePolicy: ModifyAppInstanceGroupAttributeRequestStoragePolicy,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The name of the delivery group.
-   */
-  appInstanceGroupName?: string;
-  /**
-   * @remarks
-   * The network settings.
-   * 
-   * >  If you want to use this parameter, submit a ticket.
-   */
-  networkShrink?: string;
-  /**
-   * @remarks
-   * The information about the resource group.
-   */
-  nodePoolShrink?: string;
-  /**
-   * @remarks
-   * Specifies whether only one application can be opened in a session.
-   * 
-   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  perSessionPerApp?: boolean;
-  /**
-   * @remarks
-   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
-   * 
-   * @example
-   * ca-b2ronxxd****
-   */
-  preOpenAppId?: string;
-  /**
-   * @remarks
-   * The pre-open mode.
-   * 
-   * Valid values:
-   * 
-   * *   SINGLE_APP: enables the pre-open mode for a single application.
-   * *   OFF: disables the pre-open mode. This is the default value.
-   * 
-   * @example
-   * OFF
-   */
-  preOpenMode?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The security policy.
-   */
-  securityPolicyShrink?: string;
-  /**
-   * @remarks
-   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
-   * 
-   * @example
-   * 15
-   */
-  sessionTimeout?: number;
-  /**
-   * @remarks
-   * The storage policy.
-   */
-  storagePolicyShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceGroupName: 'AppInstanceGroupName',
-      networkShrink: 'Network',
-      nodePoolShrink: 'NodePool',
-      perSessionPerApp: 'PerSessionPerApp',
-      preOpenAppId: 'PreOpenAppId',
-      preOpenMode: 'PreOpenMode',
-      productType: 'ProductType',
-      securityPolicyShrink: 'SecurityPolicy',
-      sessionTimeout: 'SessionTimeout',
-      storagePolicyShrink: 'StoragePolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceGroupName: 'string',
-      networkShrink: 'string',
-      nodePoolShrink: 'string',
-      perSessionPerApp: 'boolean',
-      preOpenAppId: 'string',
-      preOpenMode: 'string',
-      productType: 'string',
-      securityPolicyShrink: 'string',
-      sessionTimeout: 'number',
-      storagePolicyShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppInstanceGroupAttributeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidParameter.ProductType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The parameter ProductType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppInstanceGroupAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAppInstanceGroupAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAppInstanceGroupAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pg-ee2znjktwgxu2****
-   */
-  appPolicyId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  videoPolicy?: ModifyAppPolicyRequestVideoPolicy;
-  static names(): { [key: string]: string } {
-    return {
-      appPolicyId: 'AppPolicyId',
-      productType: 'ProductType',
-      videoPolicy: 'VideoPolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appPolicyId: 'string',
-      productType: 'string',
-      videoPolicy: ModifyAppPolicyRequestVideoPolicy,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppPolicyShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pg-ee2znjktwgxu2****
-   */
-  appPolicyId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  videoPolicyShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appPolicyId: 'AppPolicyId',
-      productType: 'ProductType',
-      videoPolicyShrink: 'VideoPolicy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appPolicyId: 'string',
-      productType: 'string',
-      videoPolicyShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAppPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAppPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAppPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAmountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The parameters related to the configuration change of the node pool.
-   * 
-   * This parameter is required.
-   */
-  nodePool?: ModifyNodePoolAmountRequestNodePool;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      nodePool: 'NodePool',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      nodePool: ModifyNodePoolAmountRequestNodePool,
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAmountShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The parameters related to the configuration change of the node pool.
-   * 
-   * This parameter is required.
-   */
-  nodePoolShrink?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      nodePoolShrink: 'NodePool',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      nodePoolShrink: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAmountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ModifyNodePoolAmountResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ModifyNodePoolAmountResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAmountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyNodePoolAmountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyNodePoolAmountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAttributeRequest extends $tea.Model {
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @example
-   * 2
-   */
-  nodeCapacity?: number;
-  nodePoolStrategy?: ModifyNodePoolAttributeRequestNodePoolStrategy;
-  /**
-   * @example
-   * rg-ew7va2g1wl3vm****
-   */
-  poolId?: string;
-  /**
-   * @remarks
-   * 产品类型。
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      nodeCapacity: 'NodeCapacity',
-      nodePoolStrategy: 'NodePoolStrategy',
-      poolId: 'PoolId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      nodeCapacity: 'number',
-      nodePoolStrategy: ModifyNodePoolAttributeRequestNodePoolStrategy,
-      poolId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAttributeShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @example
-   * 2
-   */
-  nodeCapacity?: number;
-  nodePoolStrategyShrink?: string;
-  /**
-   * @example
-   * rg-ew7va2g1wl3vm****
-   */
-  poolId?: string;
-  /**
-   * @remarks
-   * 产品类型。
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizRegionId: 'BizRegionId',
-      nodeCapacity: 'NodeCapacity',
-      nodePoolStrategyShrink: 'NodePoolStrategy',
-      poolId: 'PoolId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizRegionId: 'string',
-      nodeCapacity: 'number',
-      nodePoolStrategyShrink: 'string',
-      poolId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAttributeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * InvalidParameter.PoolId
-   */
-  code?: string;
-  /**
-   * @example
-   * The parameter PoolId is invalid.
-   */
-  message?: string;
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNodePoolAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyNodePoolAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyNodePoolAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyTenantConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the resource expiration reminder feature.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  appInstanceGroupExpireRemind?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupExpireRemind: 'AppInstanceGroupExpireRemind',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupExpireRemind: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyTenantConfigResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyTenantConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyTenantConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyTenantConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageListAppInstanceGroupUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The number of the page to return. We recommend that you configure this parameter.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to be return on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageListAppInstanceGroupUserResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The users.
-   */
-  users?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      users: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PageListAppInstanceGroupUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PageListAppInstanceGroupUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PageListAppInstanceGroupUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAppInstanceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable automatic payment.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false: manual payment. This is the default value.
-   * 
-   * @example
-   * false
-   */
-  autoPay?: boolean;
-  /**
-   * @remarks
-   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
-   * 
-   * *   1 Week
-   * *   1 Month
-   * *   2 Month
-   * *   3 Month
-   * *   6 Month
-   * *   1 Year
-   * *   2 Year
-   * *   3 Year
-   * 
-   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Week
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  /**
-   * @remarks
-   * The promotion ID. You can call the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation to obtain the ID.
-   * 
-   * @example
-   * 17440009****
-   */
-  promotionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      autoPay: 'AutoPay',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      productType: 'ProductType',
-      promotionId: 'PromotionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      autoPay: 'boolean',
-      period: 'number',
-      periodUnit: 'string',
-      productType: 'string',
-      promotionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAppInstanceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidParameter.ProductType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The parameter ProductType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 123456****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewAppInstanceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewAppInstanceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewAppInstanceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagCloudResourcesRequest extends $tea.Model {
-  resourceIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * AppInstanceGroupId
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tags?: TagCloudResourcesRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceIds: 'ResourceIds',
-      resourceType: 'ResourceType',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tags: { 'type': 'array', 'itemType': TagCloudResourcesRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagCloudResourcesResponseBody extends $tea.Model {
-  failedResources?: TagCloudResourcesResponseBodyFailedResources[];
-  /**
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedResources: 'FailedResources',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResources: { 'type': 'array', 'itemType': TagCloudResourcesResponseBodyFailedResources },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagCloudResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagCloudResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagCloudResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the delivery group. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The session ID. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
-   * 
-   * @example
-   * ai-d297eyf83g5ni****
-   */
-  appInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the persistent session. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
-   * 
-   * @example
-   * p-0bxls9m3cl7s****
-   */
-  appInstancePersistentId?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * alice
-   */
-  endUserId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appInstanceGroupId: 'AppInstanceGroupId',
-      appInstanceId: 'AppInstanceId',
-      appInstancePersistentId: 'AppInstancePersistentId',
-      endUserId: 'EndUserId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appInstanceGroupId: 'string',
-      appInstanceId: 'string',
-      appInstancePersistentId: 'string',
-      endUserId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagCloudResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
-   */
-  resourceIds?: string[];
-  /**
-   * @remarks
-   * The type of the resource from which you want to remove tags.
-   * 
-   * Valid values:
-   * 
-   * *   AppId: app ID.
-   * *   WyId: Alibaba Cloud Workspace user ID.
-   * *   AppInstanceGroupId: delivery group ID.
-   * *   AliUid: tenant ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * AppInstanceGroupId
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The tags that you want to remove from the cloud resources. System and custom tags are supported. You can specify up to 10 tags.
-   * 
-   * Valid values for system tags:
-   * 
-   * *   `System/Scheduler/GRAYSCALE`: canary tags.
-   * *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
-   * 
-   * This parameter is required.
-   */
-  tagKeys?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceIds: 'ResourceIds',
-      resourceType: 'ResourceType',
-      tagKeys: 'TagKeys',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceIds: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKeys: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagCloudResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The cloud resources whose tags failed to be removed and the corresponding tags.
-   */
-  failedResources?: UntagCloudResourcesResponseBodyFailedResources[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * E25FC620-6B6F-12D2-A992-AD8727DC****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedResources: 'FailedResources',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResources: { 'type': 'array', 'itemType': UntagCloudResourcesResponseBodyFailedResources },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagCloudResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagCloudResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagCloudResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppInstanceGroupImageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * img-8z4nztpaqvay4****
-   */
-  appCenterImageId?: string;
-  /**
-   * @remarks
-   * The ID of the delivery group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * aig-9ciijz60n4xsv****
-   */
-  appInstanceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
-   * 
-   * Valid values:
-   * 
-   * *   cn-shanghai: China (Shanghai).
-   * *   cn-hangzhou: China (Hangzhou)
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * The product type.
-   * 
-   * Valid value:
-   * 
-   * *   CloudApp: App Streaming
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CloudApp
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appCenterImageId: 'AppCenterImageId',
-      appInstanceGroupId: 'AppInstanceGroupId',
-      bizRegionId: 'BizRegionId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appCenterImageId: 'string',
-      appInstanceGroupId: 'string',
-      bizRegionId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppInstanceGroupImageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidParameter.ProductType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The parameter ProductType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAppInstanceGroupImageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateAppInstanceGroupImageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateAppInstanceGroupImageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AskSessionPackagePriceResponseBodyDataPrice extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class AskSessionPackagePriceResponseBodyDataPrice extends $dara.Model {
   /**
    * @example
    * CNY
@@ -6383,12 +44,16 @@ export class AskSessionPackagePriceResponseBodyDataPrice extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AskSessionPackagePriceResponseBodyData extends $tea.Model {
+export class AskSessionPackagePriceResponseBodyData extends $dara.Model {
   price?: AskSessionPackagePriceResponseBodyDataPrice;
   static names(): { [key: string]: string } {
     return {
@@ -6402,13 +67,39 @@ export class AskSessionPackagePriceResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.price && typeof (this.price as any).validate === 'function') {
+      (this.price as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AuthorizeInstanceGroupRequestUserMeta extends $tea.Model {
+export class AuthorizeInstanceGroupRequestUserMeta extends $dara.Model {
+  /**
+   * @remarks
+   * The AD domain name.
+   * 
+   * @example
+   * example.com
+   */
   adDomain?: string;
+  /**
+   * @remarks
+   * The user type.
+   * 
+   * Valid values:
+   * 
+   * *   ad: Active Directory (AD) account
+   * *   simple: convenience account
+   * 
+   * @example
+   * simple
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6424,12 +115,16 @@ export class AuthorizeInstanceGroupRequestUserMeta extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNetworkDomainRules extends $tea.Model {
+export class CreateAppInstanceGroupRequestNetworkDomainRules extends $dara.Model {
   domain?: string;
   policy?: string;
   static names(): { [key: string]: string } {
@@ -6446,12 +141,16 @@ export class CreateAppInstanceGroupRequestNetworkDomainRules extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
+export class CreateAppInstanceGroupRequestNetworkRoutes extends $dara.Model {
   /**
    * @example
    * 139.196.XX.XX/32
@@ -6476,12 +175,16 @@ export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
+export class CreateAppInstanceGroupRequestNetwork extends $dara.Model {
   domainRules?: CreateAppInstanceGroupRequestNetworkDomainRules[];
   /**
    * @example
@@ -6518,12 +221,25 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.domainRules)) {
+      $dara.Model.validateArray(this.domainRules);
+    }
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @example
    * 2
@@ -6555,12 +271,16 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $tea.Model {
+export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $dara.Model {
   /**
    * @example
    * weekly
@@ -6584,12 +304,22 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceValues)) {
+      $dara.Model.validateArray(this.recurrenceValues);
+    }
+    if(Array.isArray(this.timerPeriods)) {
+      $dara.Model.validateArray(this.timerPeriods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
+export class CreateAppInstanceGroupRequestNodePool extends $dara.Model {
   maxIdleAppInstanceAmount?: number;
   /**
    * @example
@@ -6679,12 +409,19 @@ export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceSchedules)) {
+      $dara.Model.validateArray(this.recurrenceSchedules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestRuntimePolicy extends $tea.Model {
+export class CreateAppInstanceGroupRequestRuntimePolicy extends $dara.Model {
   debugMode?: string;
   perSessionPerApp?: boolean;
   /**
@@ -6727,12 +464,16 @@ export class CreateAppInstanceGroupRequestRuntimePolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestSecurityPolicy extends $tea.Model {
+export class CreateAppInstanceGroupRequestSecurityPolicy extends $dara.Model {
   /**
    * @example
    * true
@@ -6757,12 +498,16 @@ export class CreateAppInstanceGroupRequestSecurityPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestStoragePolicyUserProfile extends $tea.Model {
+export class CreateAppInstanceGroupRequestStoragePolicyUserProfile extends $dara.Model {
   remoteStoragePath?: string;
   remoteStorageType?: string;
   userProfileSwitch?: boolean;
@@ -6782,12 +527,16 @@ export class CreateAppInstanceGroupRequestStoragePolicyUserProfile extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestStoragePolicy extends $tea.Model {
+export class CreateAppInstanceGroupRequestStoragePolicy extends $dara.Model {
   storageTypeList?: string[];
   userProfile?: CreateAppInstanceGroupRequestStoragePolicyUserProfile;
   static names(): { [key: string]: string } {
@@ -6804,12 +553,22 @@ export class CreateAppInstanceGroupRequestStoragePolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.storageTypeList)) {
+      $dara.Model.validateArray(this.storageTypeList);
+    }
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestUserDefinePolicy extends $tea.Model {
+export class CreateAppInstanceGroupRequestUserDefinePolicy extends $dara.Model {
   customConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6823,12 +582,16 @@ export class CreateAppInstanceGroupRequestUserDefinePolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestUserInfo extends $tea.Model {
+export class CreateAppInstanceGroupRequestUserInfo extends $dara.Model {
   /**
    * @example
    * Simple
@@ -6846,12 +609,16 @@ export class CreateAppInstanceGroupRequestUserInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupRequestVideoPolicy extends $tea.Model {
+export class CreateAppInstanceGroupRequestVideoPolicy extends $dara.Model {
   frameRate?: number;
   sessionResolutionHeight?: number;
   sessionResolutionWidth?: number;
@@ -6880,12 +647,16 @@ export class CreateAppInstanceGroupRequestVideoPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $tea.Model {
+export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $dara.Model {
   /**
    * @example
    * aig-9ciijz60n4xsv****
@@ -6917,12 +688,16 @@ export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $tea.Model {
+export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara.Model {
   /**
    * @remarks
    * The ID of the application instance.
@@ -6978,12 +753,16 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAccessPageSessionResponseBodyData extends $tea.Model {
+export class GetAccessPageSessionResponseBodyData extends $dara.Model {
   /**
    * @example
    * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDBzQU5DTGVsZ0RqMnAyMGpZdUNkRDMrNTlLekpzUTRXNElPWVdjWGIwZ2QrUkNyais0ZGM3WUJGM1NBdVFJWWl2ejhaWDlvakh1cDJ4c0Vpc3lrQ1I4RVEzeDhIYXdCb2pRRDJReklaQTZIbU52VjdrRlNlWkxQTXV3Y0hNTEZTTkxKaDNOY1BtU0tVYTNqWVVUMFUyKzNqWDBRMXdLM29ZQnJaOFVoL2RWY0xpem5tWEhHTmE0THVGRCtrajloSWlFT0w3b2w4OHY1cjBPelpHZnh4aXlVbk1yQURnRHhoK1F6K3UvdXYxaFYyQ3UwVlduTHJ3cDNRM3hYWWtORW81N00xYWZ4cTJBdWplVmx3aGVxOHd4dDl2Y3NGVGMxNFpPL2hudWdoeGJkaz0NCkdXVG9rZW5QYXJ0Mj0NCkFzcEF1dGhUb2tlbj0wME5LTnlLZXE3UGpzNzNzeURrdEs2NUlaenpYb05WNWxnY3BjVTJMd2NKUEoyMk53WmlrSGNaaDdNVGk2azlLazNyeHFCd2FHZTlmc2NUbFljUDJ0MEVldXRha2paUklMM0x3a0RsT1BZZTZxYmtsay9STHFrajg4dWg0ZFZNTHE2QkF0WVRSeW9ZTC9WUHhaVWxyZEZOQT09DQpBZXNLZXlWZXJzaW9uPTE3MDEyMzk1ODc4NzcNCkdhdGV3YXlEb21haW5BZGRyZXNzPWd3LWFwcC1jbi1oYW5nemhvdS1pLWFwcC10ZXN0MC13aW4ud3V5aW5nLmFsaXl1bmNzLmNvbQ0KR2F0ZXdheUFkZHJlc3M9NDcuOTkuMjIzLjE0OQ0KR2F0ZXdheVBvcnQ9NTkxMg0KR2F0ZXdheVdzc1BvcnQ9ODAwOA0KU3RyZWFtVHlwZT0wDQpSdGNHd1Rva2VuPVAwMFJkc013dVdQVkt4MGtRYUNkSlY3MUc2OC9iaWFhSEJwVn******
@@ -7011,12 +790,16 @@ export class GetAccessPageSessionResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $dara.Model {
   appIcon?: string;
   /**
    * @example
@@ -7046,12 +829,16 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @example
    * 5
@@ -7083,12 +870,16 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $dara.Model {
   /**
    * @example
    * Weekly
@@ -7112,12 +903,22 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceValues)) {
+      $dara.Model.validateArray(this.recurrenceValues);
+    }
+    if(Array.isArray(this.timerPeriods)) {
+      $dara.Model.validateArray(this.timerPeriods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $dara.Model {
   /**
    * @example
    * 2
@@ -7249,12 +1050,19 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceSchedules)) {
+      $dara.Model.validateArray(this.recurrenceSchedules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $dara.Model {
   /**
    * @example
    * 0.0.1-D-20220630.11****
@@ -7286,12 +1094,16 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.Model {
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   amount?: number;
   /**
    * @example
@@ -7505,12 +1317,25 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
     };
   }
 
+  validate() {
+    if(Array.isArray(this.apps)) {
+      $dara.Model.validateArray(this.apps);
+    }
+    if(Array.isArray(this.nodePool)) {
+      $dara.Model.validateArray(this.nodePool);
+    }
+    if(this.otaInfo && typeof (this.otaInfo as any).validate === 'function') {
+      (this.otaInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceListPricePromotions extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.Model {
   /**
    * @remarks
    * The coupon code.
@@ -7570,12 +1395,16 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceListPrice extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
   /**
    * @remarks
    * The currency type.
@@ -7633,12 +1462,19 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.promotions)) {
+      $dara.Model.validateArray(this.promotions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceListRules extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceListRules extends $dara.Model {
   /**
    * @remarks
    * The description of the price calculation rule.
@@ -7666,12 +1502,16 @@ export class GetResourcePriceResponseBodyPriceListRules extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceList extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceList extends $dara.Model {
   /**
    * @remarks
    * The price details.
@@ -7711,12 +1551,22 @@ export class GetResourcePriceResponseBodyPriceList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.price && typeof (this.price as any).validate === 'function') {
+      (this.price as any).validate();
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara.Model {
   /**
    * @remarks
    * The coupon code.
@@ -7776,12 +1626,16 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceModelPrice extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
   /**
    * @remarks
    * The currency type.
@@ -7839,12 +1693,19 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.promotions)) {
+      $dara.Model.validateArray(this.promotions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceModelRules extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceModelRules extends $dara.Model {
   /**
    * @remarks
    * The description of the price calculation rule.
@@ -7872,12 +1733,16 @@ export class GetResourcePriceResponseBodyPriceModelRules extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourcePriceResponseBodyPriceModel extends $tea.Model {
+export class GetResourcePriceResponseBodyPriceModel extends $dara.Model {
   /**
    * @remarks
    * The price details.
@@ -7902,12 +1767,22 @@ export class GetResourcePriceResponseBodyPriceModel extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.price && typeof (this.price as any).validate === 'function') {
+      (this.price as any).validate();
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $tea.Model {
+export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.Model {
   /**
    * @remarks
    * The coupon code.
@@ -7967,12 +1842,16 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceRenewPriceResponseBodyDataPrice extends $tea.Model {
+export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   /**
    * @remarks
    * The currency type.
@@ -8030,12 +1909,19 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.promotions)) {
+      $dara.Model.validateArray(this.promotions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceRenewPriceResponseBodyDataRules extends $tea.Model {
+export class GetResourceRenewPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
    * The description of the price calculation rule.
@@ -8063,12 +1949,16 @@ export class GetResourceRenewPriceResponseBodyDataRules extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceRenewPriceResponseBodyData extends $tea.Model {
+export class GetResourceRenewPriceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The price details.
@@ -8093,12 +1983,22 @@ export class GetResourceRenewPriceResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.price && typeof (this.price as any).validate === 'function') {
+      (this.price as any).validate();
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAccessPagesResponseBodyData extends $tea.Model {
+export class ListAccessPagesResponseBodyData extends $dara.Model {
   accessMode?: string;
   /**
    * @example
@@ -8192,12 +2092,42 @@ export class ListAccessPagesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
+export class ListAppInstanceGroupRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $dara.Model {
   /**
    * @remarks
    * The app icon.
@@ -8252,12 +2182,16 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @remarks
    * The number of destination resources.
@@ -8298,12 +2232,16 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecur
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
    * The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
@@ -8342,12 +2280,22 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecur
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceValues)) {
+      $dara.Model.validateArray(this.recurrenceValues);
+    }
+    if(Array.isArray(this.timerPeriods)) {
+      $dara.Model.validateArray(this.timerPeriods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $dara.Model {
   /**
    * @remarks
    * The number of resources purchased when the delivery group was created.
@@ -8556,12 +2504,19 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceSchedules)) {
+      $dara.Model.validateArray(this.recurrenceSchedules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $dara.Model {
   /**
    * @remarks
    * The new OTA version. A null value indicates that no new version is available.
@@ -8602,12 +2557,16 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo exten
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -8648,12 +2607,45 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsResourceTags 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.Model {
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $dara.Model {
+  key?: string;
+  scope?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   /**
    * @remarks
    * The number of subscription resources. Minimum value: 1.
@@ -8937,6 +2929,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
    * PUBLISHED
    */
   status?: string;
+  tags?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -8972,6 +2965,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -9010,7 +3004,27 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
       skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags },
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.apps)) {
+      $dara.Model.validateArray(this.apps);
+    }
+    if(Array.isArray(this.nodePool)) {
+      $dara.Model.validateArray(this.nodePool);
+    }
+    if(this.otaInfo && typeof (this.otaInfo as any).validate === 'function') {
+      (this.otaInfo as any).validate();
+    }
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -9018,7 +3032,7 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
   }
 }
 
-export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $tea.Model {
+export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara.Model {
   /**
    * @remarks
    * The ID of the end user that is bound to the application instance.
@@ -9049,12 +3063,16 @@ export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
+export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   /**
    * @remarks
    * The ID of the delivery group.
@@ -9177,12 +3195,19 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.bindInfo && typeof (this.bindInfo as any).validate === 'function') {
+      (this.bindInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBindInfoResponseBodyBindInfoModels extends $tea.Model {
+export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   /**
    * @example
    * simple
@@ -9256,12 +3281,16 @@ export class ListBindInfoResponseBodyBindInfoModels extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $tea.Model {
+export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dara.Model {
   /**
    * @remarks
    * The number of vCPUs.
@@ -9363,12 +3392,16 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodesResponseBodyNodeModels extends $tea.Model {
+export class ListNodesResponseBodyNodeModels extends $dara.Model {
   /**
    * @remarks
    * The billing method of the resource node.
@@ -9408,12 +3441,16 @@ export class ListNodesResponseBodyNodeModels extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOtaTaskResponseBodyTaskList extends $tea.Model {
+export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
    * The OTA version.
@@ -9475,12 +3512,16 @@ export class ListOtaTaskResponseBodyTaskList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels extends $tea.Model {
+export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels extends $dara.Model {
   /**
    * @example
    * aig-0bxls9m9arax6****
@@ -9543,12 +3584,19 @@ export class ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.authorizedUsers)) {
+      $dara.Model.validateArray(this.authorizedUsers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegionsResponseBodyRegionModels extends $tea.Model {
+export class ListRegionsResponseBodyRegionModels extends $dara.Model {
   /**
    * @remarks
    * The region ID.
@@ -9569,12 +3617,16 @@ export class ListRegionsResponseBodyRegionModels extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSessionPackagesResponseBodyDataInstanceObject extends $tea.Model {
+export class ListSessionPackagesResponseBodyDataInstanceObject extends $dara.Model {
   /**
    * @example
    * 2024-05-28T16:00:00Z
@@ -9641,12 +3693,16 @@ export class ListSessionPackagesResponseBodyDataInstanceObject extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSessionPackagesResponseBodyData extends $tea.Model {
+export class ListSessionPackagesResponseBodyData extends $dara.Model {
   /**
    * @example
    * 500
@@ -9767,12 +3823,19 @@ export class ListSessionPackagesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.instanceObject && typeof (this.instanceObject as any).validate === 'function') {
+      (this.instanceObject as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagCloudResourcesResponseBodyResourceTagsTags extends $tea.Model {
+export class ListTagCloudResourcesResponseBodyResourceTagsTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -9818,12 +3881,16 @@ export class ListTagCloudResourcesResponseBodyResourceTagsTags extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagCloudResourcesResponseBodyResourceTags extends $tea.Model {
+export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
   /**
    * @remarks
    * The resource ID.
@@ -9868,12 +3935,19 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTenantConfigResponseBodyTenantConfigModel extends $tea.Model {
+export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the resource expiration reminder feature is enabled.
@@ -9899,12 +3973,16 @@ export class ListTenantConfigResponseBodyTenantConfigModel extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $dara.Model {
   /**
    * @remarks
    * The domain name.
@@ -9940,12 +4018,16 @@ export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestNetwork extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestNetwork extends $dara.Model {
   /**
    * @remarks
    * The domain name rules.
@@ -9963,12 +4045,19 @@ export class ModifyAppInstanceGroupAttributeRequestNetwork extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.domainRules)) {
+      $dara.Model.validateArray(this.domainRules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestNodePool extends $dara.Model {
   /**
    * @remarks
    * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
@@ -10005,12 +4094,16 @@ export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to reset after unbinding from a delivery group.
@@ -10051,12 +4144,16 @@ export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile extends $dara.Model {
   /**
    * @remarks
    * The ID of the File Storage NAS (NAS) file system used to store user data.
@@ -10092,12 +4189,16 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow extends $dara.Model {
   fileSystemId?: string;
   profileFollowSwitch?: boolean;
   static names(): { [key: string]: string } {
@@ -10114,12 +4215,16 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $tea.Model {
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.Model {
   /**
    * @remarks
    * The storage types.
@@ -10147,12 +4252,25 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $tea.Mo
     };
   }
 
+  validate() {
+    if(Array.isArray(this.storageTypeList)) {
+      $dara.Model.validateArray(this.storageTypeList);
+    }
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
+    }
+    if(this.userProfileFollow && typeof (this.userProfileFollow as any).validate === 'function') {
+      (this.userProfileFollow as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyAppPolicyRequestVideoPolicy extends $tea.Model {
+export class ModifyAppPolicyRequestVideoPolicy extends $dara.Model {
   /**
    * @example
    * 60
@@ -10208,12 +4326,16 @@ export class ModifyAppPolicyRequestVideoPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyNodePoolAmountRequestNodePool extends $tea.Model {
+export class ModifyNodePoolAmountRequestNodePool extends $dara.Model {
   /**
    * @remarks
    * The total number of subscription nodes after the change.
@@ -10257,12 +4379,19 @@ export class ModifyNodePoolAmountRequestNodePool extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.prePaidNodeAmountModifyNodeIds)) {
+      $dara.Model.validateArray(this.prePaidNodeAmountModifyNodeIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyNodePoolAmountResponseBodyData extends $tea.Model {
+export class ModifyNodePoolAmountResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The order ID.
@@ -10283,12 +4412,16 @@ export class ModifyNodePoolAmountResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $tea.Model {
+export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $dara.Model {
   /**
    * @remarks
    * 资源数量。
@@ -10329,12 +4462,16 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $tea.Model {
+export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $dara.Model {
   /**
    * @remarks
    * 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
@@ -10375,12 +4512,22 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceValues)) {
+      $dara.Model.validateArray(this.recurrenceValues);
+    }
+    if(Array.isArray(this.timerPeriods)) {
+      $dara.Model.validateArray(this.timerPeriods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
+export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $dara.Model {
   maxIdleAppInstanceAmount?: number;
   /**
    * @example
@@ -10476,12 +4623,19 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.recurrenceSchedules)) {
+      $dara.Model.validateArray(this.recurrenceSchedules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagCloudResourcesRequestTags extends $tea.Model {
+export class TagCloudResourcesRequestTags extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10512,12 +4666,16 @@ export class TagCloudResourcesRequestTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagCloudResourcesResponseBodyFailedResourcesTags extends $tea.Model {
+export class TagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Model {
   /**
    * @example
    * System/Scheduler/STOP_NEW_USER_CONNECTION
@@ -10549,12 +4707,16 @@ export class TagCloudResourcesResponseBodyFailedResourcesTags extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagCloudResourcesResponseBodyFailedResources extends $tea.Model {
+export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
   /**
    * @example
    * TAG_KEY_DUPLICATED
@@ -10596,12 +4758,19 @@ export class TagCloudResourcesResponseBodyFailedResources extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagCloudResourcesResponseBodyFailedResourcesTags extends $tea.Model {
+export class UntagCloudResourcesResponseBodyFailedResourcesTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -10637,12 +4806,16 @@ export class UntagCloudResourcesResponseBodyFailedResourcesTags extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagCloudResourcesResponseBodyFailedResources extends $tea.Model {
+export class UntagCloudResourcesResponseBodyFailedResources extends $dara.Model {
   /**
    * @remarks
    * The error code.
@@ -10707,6 +4880,7366 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FREE_ACCESS
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a-062wec3cwmayw****
+   */
+  accessPageId?: string;
+  /**
+   * @example
+   * notepad_test
+   */
+  accessPageName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
+  effectTime?: number;
+  /**
+   * @example
+   * Day
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessMode: 'AccessMode',
+      accessPageId: 'AccessPageId',
+      accessPageName: 'AccessPageName',
+      effectTime: 'EffectTime',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessMode: 'string',
+      accessPageId: 'string',
+      accessPageName: 'string',
+      effectTime: 'number',
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * InternalError
+   */
+  message?: string;
+  /**
+   * @example
+   * E25FC620-6B6F-12D2-A992-AD8727DC****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccessPageSetAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AccessPageSetAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AccessPageSetAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOtaTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the delivery group resides. You can call the [ListRegions](https://help.aliyun.com/document_detail/428500.html) operation to query the list of regions supported by App Streaming.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The type of the OTA update task.
+   * 
+   * Valid values:
+   * 
+   * *   Fota: update of the system components of Alibaba Cloud Workspace
+   * *   AppUpdate
+   * *   ImageUpdate
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Fota
+   */
+  otaType?: string;
+  /**
+   * @remarks
+   * The start time of the OTA update task. The time follows the ISO 8601 standard.
+   * 
+   * This parameter is required.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-08-04T14:36:00+08:00
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * >  Each successful call to the `ApproveOtaTask` operation causes a value change of this parameter.`` Before you call this operation, call the `ListAppInstanceGroup` operation again to obtain the latest value of this parameter.``
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      bizRegionId: 'BizRegionId',
+      otaType: 'OtaType',
+      startTime: 'StartTime',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      bizRegionId: 'string',
+      otaType: 'string',
+      startTime: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOtaTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The execution result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * 
+   * @example
+   * OtaTask.Running
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message. If the value of `Code` is `success`, this parameter is not returned.
+   * 
+   * @example
+   * The task is running and cannot be sumitted.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveOtaTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveOtaTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApproveOtaTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceRequest extends $dara.Model {
+  chargeType?: string;
+  maxSessions?: number;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * 0
+   */
+  sessionPackageType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * appstreaming.general.entry
+   */
+  sessionSpec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
+  sessionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      maxSessions: 'MaxSessions',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      region: 'Region',
+      sessionPackageType: 'SessionPackageType',
+      sessionSpec: 'SessionSpec',
+      sessionType: 'SessionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      maxSessions: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      region: 'string',
+      sessionPackageType: 'string',
+      sessionSpec: 'string',
+      sessionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponseBody extends $dara.Model {
+  data?: AskSessionPackagePriceResponseBodyData[];
+  /**
+   * @example
+   * 2C64D9E5-DFCD-10A5-A911-xxxxxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': AskSessionPackagePriceResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AskSessionPackagePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AskSessionPackagePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AskSessionPackagePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizeInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * 持久会话ID。
+   * 
+   * @example
+   * p-0cc7s3mw2fg4j****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The IDs of the users that you want to add to the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   */
+  authorizeUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The IDs of the users that you want to remove from the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   */
+  unAuthorizeUserIds?: string[];
+  /**
+   * @remarks
+   * The user information.
+   */
+  userMeta?: AuthorizeInstanceGroupRequestUserMeta;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      authorizeUserIds: 'AuthorizeUserIds',
+      productType: 'ProductType',
+      unAuthorizeUserIds: 'UnAuthorizeUserIds',
+      userMeta: 'UserMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstancePersistentId: 'string',
+      authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      productType: 'string',
+      unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      userMeta: AuthorizeInstanceGroupRequestUserMeta,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeUserIds)) {
+      $dara.Model.validateArray(this.authorizeUserIds);
+    }
+    if(Array.isArray(this.unAuthorizeUserIds)) {
+      $dara.Model.validateArray(this.unAuthorizeUserIds);
+    }
+    if(this.userMeta && typeof (this.userMeta as any).validate === 'function') {
+      (this.userMeta as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizeInstanceGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * 持久会话ID。
+   * 
+   * @example
+   * p-0cc7s3mw2fg4j****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The IDs of the users that you want to add to the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   */
+  authorizeUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The IDs of the users that you want to remove from the authorization list of the delivery group. You can specify 1 to 100 user IDs.
+   */
+  unAuthorizeUserIds?: string[];
+  /**
+   * @remarks
+   * The user information.
+   */
+  userMetaShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      authorizeUserIds: 'AuthorizeUserIds',
+      productType: 'ProductType',
+      unAuthorizeUserIds: 'UnAuthorizeUserIds',
+      userMetaShrink: 'UserMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstancePersistentId: 'string',
+      authorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      productType: 'string',
+      unAuthorizeUserIds: { 'type': 'array', 'itemType': 'string' },
+      userMetaShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authorizeUserIds)) {
+      $dara.Model.validateArray(this.authorizeUserIds);
+    }
+    if(Array.isArray(this.unAuthorizeUserIds)) {
+      $dara.Model.validateArray(this.unAuthorizeUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizeInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizeInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AuthorizeInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySessionPackageRequest extends $dara.Model {
+  autoPay?: boolean;
+  chargeType?: string;
+  maxSessions?: number;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @example
+   * p-xxxxxxxxxxxxx
+   */
+  projectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  sessionPackageName?: string;
+  /**
+   * @example
+   * 0
+   */
+  sessionPackageType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * appstreaming.general.entry
+   */
+  sessionSpec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
+  sessionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      chargeType: 'ChargeType',
+      maxSessions: 'MaxSessions',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      projectId: 'ProjectId',
+      region: 'Region',
+      sessionPackageName: 'SessionPackageName',
+      sessionPackageType: 'SessionPackageType',
+      sessionSpec: 'SessionSpec',
+      sessionType: 'SessionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      chargeType: 'string',
+      maxSessions: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      projectId: 'string',
+      region: 'string',
+      sessionPackageName: 'string',
+      sessionPackageType: 'string',
+      sessionSpec: 'string',
+      sessionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySessionPackageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * There is a missing parameter.
+   */
+  message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * tp-xxxxxxxxxx
+   */
+  sessionPackageId?: number;
+  /**
+   * @example
+   * false
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      sessionPackageId: 'SessionPackageId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      sessionPackageId: 'number',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySessionPackageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BuySessionPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BuySessionPackageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  accessPageName?: string;
+  /**
+   * @example
+   * c-e-06gdesdaxez****
+   */
+  cloudEnvId?: string;
+  /**
+   * @example
+   * 7
+   */
+  effectTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * p-065zdecaer07h****
+   */
+  projectId?: string;
+  projectName?: string;
+  /**
+   * @example
+   * Day
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageName: 'AccessPageName',
+      cloudEnvId: 'CloudEnvId',
+      effectTime: 'EffectTime',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageName: 'string',
+      cloudEnvId: 'string',
+      effectTime: 'number',
+      projectId: 'string',
+      projectName: 'string',
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * a-06xnr5lyp77e7****
+   */
+  data?: string;
+  message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccessPageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccessPageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
+  appCenterImageId?: string;
+  appInstanceGroupName?: string;
+  appPackageType?: string;
+  appPolicyId?: string;
+  /**
+   * @example
+   * App
+   * 
+   * **if can be null:**
+   * true
+   */
+  authMode?: string;
+  /**
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
+  chargeResourceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  clusterId?: string;
+  network?: CreateAppInstanceGroupRequestNetwork;
+  nodePool?: CreateAppInstanceGroupRequestNodePool;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * cag-b2ron*******
+   */
+  preOpenAppId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @example
+   * 17440009****
+   */
+  promotionId?: string;
+  runtimePolicy?: CreateAppInstanceGroupRequestRuntimePolicy;
+  securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
+  sessionTimeout?: number;
+  storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
+  subPayType?: string;
+  userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
+  userInfo?: CreateAppInstanceGroupRequestUserInfo;
+  users?: string[];
+  videoPolicy?: CreateAppInstanceGroupRequestVideoPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageId: 'AppCenterImageId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+      appPackageType: 'AppPackageType',
+      appPolicyId: 'AppPolicyId',
+      authMode: 'AuthMode',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bizRegionId: 'BizRegionId',
+      chargeResourceMode: 'ChargeResourceMode',
+      chargeType: 'ChargeType',
+      clusterId: 'ClusterId',
+      network: 'Network',
+      nodePool: 'NodePool',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      preOpenAppId: 'PreOpenAppId',
+      productType: 'ProductType',
+      promotionId: 'PromotionId',
+      runtimePolicy: 'RuntimePolicy',
+      securityPolicy: 'SecurityPolicy',
+      sessionTimeout: 'SessionTimeout',
+      storagePolicy: 'StoragePolicy',
+      subPayType: 'SubPayType',
+      userDefinePolicy: 'UserDefinePolicy',
+      userInfo: 'UserInfo',
+      users: 'Users',
+      videoPolicy: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageId: 'string',
+      appInstanceGroupName: 'string',
+      appPackageType: 'string',
+      appPolicyId: 'string',
+      authMode: 'string',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bizRegionId: 'string',
+      chargeResourceMode: 'string',
+      chargeType: 'string',
+      clusterId: 'string',
+      network: CreateAppInstanceGroupRequestNetwork,
+      nodePool: CreateAppInstanceGroupRequestNodePool,
+      period: 'number',
+      periodUnit: 'string',
+      preOpenAppId: 'string',
+      productType: 'string',
+      promotionId: 'string',
+      runtimePolicy: CreateAppInstanceGroupRequestRuntimePolicy,
+      securityPolicy: CreateAppInstanceGroupRequestSecurityPolicy,
+      sessionTimeout: 'number',
+      storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
+      subPayType: 'string',
+      userDefinePolicy: CreateAppInstanceGroupRequestUserDefinePolicy,
+      userInfo: CreateAppInstanceGroupRequestUserInfo,
+      users: { 'type': 'array', 'itemType': 'string' },
+      videoPolicy: CreateAppInstanceGroupRequestVideoPolicy,
+    };
+  }
+
+  validate() {
+    if(this.network && typeof (this.network as any).validate === 'function') {
+      (this.network as any).validate();
+    }
+    if(this.nodePool && typeof (this.nodePool as any).validate === 'function') {
+      (this.nodePool as any).validate();
+    }
+    if(this.runtimePolicy && typeof (this.runtimePolicy as any).validate === 'function') {
+      (this.runtimePolicy as any).validate();
+    }
+    if(this.securityPolicy && typeof (this.securityPolicy as any).validate === 'function') {
+      (this.securityPolicy as any).validate();
+    }
+    if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
+      (this.storagePolicy as any).validate();
+    }
+    if(this.userDefinePolicy && typeof (this.userDefinePolicy as any).validate === 'function') {
+      (this.userDefinePolicy as any).validate();
+    }
+    if(this.userInfo && typeof (this.userInfo as any).validate === 'function') {
+      (this.userInfo as any).validate();
+    }
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    if(this.videoPolicy && typeof (this.videoPolicy as any).validate === 'function') {
+      (this.videoPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
+  appCenterImageId?: string;
+  appInstanceGroupName?: string;
+  appPackageType?: string;
+  appPolicyId?: string;
+  /**
+   * @example
+   * App
+   * 
+   * **if can be null:**
+   * true
+   */
+  authMode?: string;
+  /**
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
+  chargeResourceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  clusterId?: string;
+  networkShrink?: string;
+  nodePoolShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * cag-b2ron*******
+   */
+  preOpenAppId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @example
+   * 17440009****
+   */
+  promotionId?: string;
+  runtimePolicyShrink?: string;
+  securityPolicyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
+  sessionTimeout?: number;
+  storagePolicyShrink?: string;
+  subPayType?: string;
+  userDefinePolicyShrink?: string;
+  userInfoShrink?: string;
+  users?: string[];
+  videoPolicyShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageId: 'AppCenterImageId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+      appPackageType: 'AppPackageType',
+      appPolicyId: 'AppPolicyId',
+      authMode: 'AuthMode',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bizRegionId: 'BizRegionId',
+      chargeResourceMode: 'ChargeResourceMode',
+      chargeType: 'ChargeType',
+      clusterId: 'ClusterId',
+      networkShrink: 'Network',
+      nodePoolShrink: 'NodePool',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      preOpenAppId: 'PreOpenAppId',
+      productType: 'ProductType',
+      promotionId: 'PromotionId',
+      runtimePolicyShrink: 'RuntimePolicy',
+      securityPolicyShrink: 'SecurityPolicy',
+      sessionTimeout: 'SessionTimeout',
+      storagePolicyShrink: 'StoragePolicy',
+      subPayType: 'SubPayType',
+      userDefinePolicyShrink: 'UserDefinePolicy',
+      userInfoShrink: 'UserInfo',
+      users: 'Users',
+      videoPolicyShrink: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageId: 'string',
+      appInstanceGroupName: 'string',
+      appPackageType: 'string',
+      appPolicyId: 'string',
+      authMode: 'string',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bizRegionId: 'string',
+      chargeResourceMode: 'string',
+      chargeType: 'string',
+      clusterId: 'string',
+      networkShrink: 'string',
+      nodePoolShrink: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      preOpenAppId: 'string',
+      productType: 'string',
+      promotionId: 'string',
+      runtimePolicyShrink: 'string',
+      securityPolicyShrink: 'string',
+      sessionTimeout: 'number',
+      storagePolicyShrink: 'string',
+      subPayType: 'string',
+      userDefinePolicyShrink: 'string',
+      userInfoShrink: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
+      videoPolicyShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupResponseBody extends $dara.Model {
+  appInstanceGroupModel?: CreateAppInstanceGroupResponseBodyAppInstanceGroupModel;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupModel: 'AppInstanceGroupModel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupModel: CreateAppInstanceGroupResponseBodyAppInstanceGroupModel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appInstanceGroupModel && typeof (this.appInstanceGroupModel as any).validate === 'function') {
+      (this.appInstanceGroupModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_name
+   */
+  appCenterImageName?: string;
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageName: 'AppCenterImageName',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageName: 'string',
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * img-bp13mu****
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageFromAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageFromAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageFromAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageRequest extends $dara.Model {
+  /**
+   * @example
+   * a-075nu7bcqim2wvxli
+   */
+  accessPageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccessPageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccessPageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the [listAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of application instances.
+   * 
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * false
+   */
+  appInstanceIds?: string[];
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceIds: 'AppInstanceIds',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstanceIds)) {
+      $dara.Model.validateArray(this.appInstanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  deleteAppInstanceModels?: DeleteAppInstancesResponseBodyDeleteAppInstanceModels[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteAppInstanceModels: 'DeleteAppInstanceModels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteAppInstanceModels: { 'type': 'array', 'itemType': DeleteAppInstancesResponseBodyDeleteAppInstanceModels },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deleteAppInstanceModels)) {
+      $dara.Model.validateArray(this.deleteAppInstanceModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a-062wec3cwmayw****
+   */
+  accessPageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
+   */
+  accessPageToken?: string;
+  /**
+   * @example
+   * Banca******
+   */
+  externalUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      accessPageToken: 'AccessPageToken',
+      externalUserId: 'ExternalUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+      accessPageToken: 'string',
+      externalUserId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: GetAccessPageSessionResponseBodyData;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAccessPageSessionResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccessPageSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessPageSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccessPageSessionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * AppInstanceGroupModels
+   */
+  appInstanceGroupModels?: GetAppInstanceGroupResponseBodyAppInstanceGroupModels;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupModels: 'AppInstanceGroupModels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupModels: GetAppInstanceGroupResponseBodyAppInstanceGroupModels,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.appInstanceGroupModels && typeof (this.appInstanceGroupModels as any).validate === 'function') {
+      (this.appInstanceGroupModels as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketRequest extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   * 
+   * **if can be null:**
+   * true
+   */
+  accessType?: string;
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * >  This parameter is required for the first call to this operation and optional for subsequent calls to the operation.
+   * 
+   * @example
+   * ca-e4s0puhmwi7v****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The delivery groups.
+   * 
+   * > *   If you configure this parameter, the system assigns application instances only among the specified authorized delivery groups. 
+   * > *   This parameter is required if you configure `AppInstanceId` or `AppInstancePersistentId`.
+   */
+  appInstanceGroupIdList?: string[];
+  /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * > *   If you configure this parameter, the system attempts to assign only the specified application instance.
+   * > *   If you configure this parameter, you must also configure `AppInstanceGroupIdList` and the number of delivery groups specified by `AppInstanceGroupIdList` must be 1.
+   * 
+   * @example
+   * ai-1rznfnrvsa99d****
+   */
+  appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The parameters that are configured to start the application. For information about how to obtain these parameters, see [Obtain parameters configured to install and start an application](https://help.aliyun.com/document_detail/426045.html).
+   * 
+   * @example
+   * /q /n
+   */
+  appStartParam?: string;
+  /**
+   * @remarks
+   * The application version. If you configure this parameter, only an application of the specified version is started. If you do not configure this parameter, an application of a random authorized version is started.
+   * 
+   * @example
+   * 1.0.0
+   */
+  appVersion?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  If you configure this parameter, the system assigns application instances only among the delivery groups that reside in the specified region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the convenience account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alice
+   */
+  endUserId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudApp: App Streaming
+   * *   AndroidCloud: Cloud Phone
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * >  This parameter is required for calls other than the first call to this operation. You can use this parameter to query the task status and connection credential.
+   * 
+   * @example
+   * 28778acb-a469-4bc0-8e0f****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      appId: 'AppId',
+      appInstanceGroupIdList: 'AppInstanceGroupIdList',
+      appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      appStartParam: 'AppStartParam',
+      appVersion: 'AppVersion',
+      bizRegionId: 'BizRegionId',
+      endUserId: 'EndUserId',
+      productType: 'ProductType',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      appId: 'string',
+      appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      appInstanceId: 'string',
+      appInstancePersistentId: 'string',
+      appStartParam: 'string',
+      appVersion: 'string',
+      bizRegionId: 'string',
+      endUserId: 'string',
+      productType: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstanceGroupIdList)) {
+      $dara.Model.validateArray(this.appInstanceGroupIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * @example
+   * aig-53fvrq1oan****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * @example
+   * ai-7ybdeiyoeh5e****
+   */
+  appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The operating system.
+   * 
+   * Valid value:
+   * 
+   * *   Windows: the Windows operating system
+   * 
+   * @example
+   * Windows
+   */
+  osType?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * f3d1b31c-605e-4d04-a896****
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * Valid values:
+   * 
+   * *   Finished: The task is complete.
+   * *   Failed: The task failed.
+   * *   Running: The task is being executed.
+   * 
+   * @example
+   * Running
+   */
+  taskStatus?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 148871678899****
+   */
+  tenantId?: number;
+  /**
+   * @remarks
+   * The credential that is used to connect to App Streaming.
+   * 
+   * >  This parameter is displayed for calls other than the first call to this operation.
+   * 
+   * @example
+   * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****
+   */
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      bizRegionId: 'BizRegionId',
+      osType: 'OsType',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+      tenantId: 'TenantId',
+      ticket: 'Ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appInstancePersistentId: 'string',
+      bizRegionId: 'string',
+      osType: 'string',
+      requestId: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+      tenantId: 'number',
+      ticket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConnectionTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConnectionTicketResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the `listAppInstanceGroup` operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * __DEBUG_APP
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * @example
+   * ai-7ybdeiyoeh5e****
+   */
+  appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the application version.
+   * 
+   * @example
+   * 1.1
+   */
+  appVersion?: string;
+  /**
+   * @remarks
+   * The authorization code. This authorization code is valid for 3 minutes and can be used only once, regardless of whether the authentication succeeds. If multiple authentication codes are generated for a user, only the latest authentication code takes effect.
+   * 
+   * @example
+   * e4e169bea1cc48e8afac53**********
+   */
+  authCode?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * __debug__
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appVersion: 'AppVersion',
+      authCode: 'AuthCode',
+      requestId: 'RequestId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appVersion: 'string',
+      authCode: 'string',
+      requestId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDebugAppInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDebugAppInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDebugAppInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOtaTaskByTaskIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * OtaTask.Running
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The task is running and cannot be sumitted.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The OTA version.
+   * 
+   * @example
+   * 0.0.1-R-20220708.110604
+   */
+  otaVersion?: string;
+  /**
+   * @remarks
+   * The version description.
+   */
+  releaseNote?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The execution time of the OTA update task. The time follows the ISO 8601 standard.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-08-04T14:36:00+08:00
+   */
+  taskStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      otaVersion: 'OtaVersion',
+      releaseNote: 'ReleaseNote',
+      requestId: 'RequestId',
+      taskStartTime: 'TaskStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      otaVersion: 'string',
+      releaseNote: 'string',
+      requestId: 'string',
+      taskStartTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOtaTaskByTaskIdResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOtaTaskByTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOtaTaskByTaskIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of resources to purchase.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The type ID of the sessions that you purchase. You can call the `ListAppInstanceType` operation to obtain the ID.
+   * 
+   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
+   * 
+   * @example
+   * appstreaming.general
+   */
+  appInstanceType?: string;
+  /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai).
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go
+   * *   PrePaid: subscription
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The ID of the resource type that you purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) to obtain the ID.
+   * 
+   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
+   * 
+   * Valid values:
+   * 
+   * *   appstreaming.vgpu.8c16g.4g: WUYING - Graphics - 8 vCPUs, 16 GiB Memory, 4 GiB GPU Memory
+   * *   appstreaming.general.8c16g: WUYING - General - 8 vCPUs, 16 GiB Memory
+   * *   appstreaming.general.4c8g: WUYING - General - 4 vCPUs, 8 GiB Memory
+   * *   appstreaming.vgpu.14c93g.12g: WUYING - Graphics - 14 vCPUs, 93 GiB Memory, 12 GiB GPU Memory.
+   * *   appstreaming.vgpu.8c31g.16g: WUYING - Graphics - 8 vCPUs, 31 GiB Memory, 16 GiB GPU Memory
+   * 
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
+  nodeInstanceType?: string;
+  /**
+   * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Week
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      appInstanceType: 'AppInstanceType',
+      bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
+      nodeInstanceType: 'NodeInstanceType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      appInstanceType: 'string',
+      bizRegionId: 'string',
+      chargeType: 'string',
+      nodeInstanceType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidParameter.ProductType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The parameter ProductType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The price objects.
+   * 
+   * This parameter is returned only if a value is specified for AppInstanceType.
+   */
+  priceList?: GetResourcePriceResponseBodyPriceList[];
+  /**
+   * @remarks
+   * The price object.
+   * 
+   * This parameter is returned only if a value is specified for NodeInstanceType.
+   */
+  priceModel?: GetResourcePriceResponseBodyPriceModel;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      priceList: 'PriceList',
+      priceModel: 'PriceModel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      priceList: { 'type': 'array', 'itemType': GetResourcePriceResponseBodyPriceList },
+      priceModel: GetResourcePriceResponseBodyPriceModel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.priceList)) {
+      $dara.Model.validateArray(this.priceList);
+    }
+    if(this.priceModel && typeof (this.priceModel as any).validate === 'function') {
+      (this.priceModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourcePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourcePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourcePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRenewPriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Week
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRenewPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price object.
+   */
+  data?: GetResourceRenewPriceResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetResourceRenewPriceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceRenewPriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceRenewPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetResourceRenewPriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesRequest extends $dara.Model {
+  /**
+   * @example
+   * a-062wec3cwmayw****
+   */
+  accessPageId?: string;
+  accessPageName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * p-065zdecaer07h****
+   */
+  projectId?: string;
+  /**
+   * @example
+   * ASC
+   */
+  sortType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPageId: 'AccessPageId',
+      accessPageName: 'AccessPageName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPageId: 'string',
+      accessPageName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      sortType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 22
+   */
+  count?: string;
+  data?: ListAccessPagesResponseBodyData[];
+  /**
+   * @example
+   * InternalError
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * AF8361BD-5ECB-139A-B019-2E0350CC****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'string',
+      data: { 'type': 'array', 'itemType': ListAccessPagesResponseBodyData },
+      message: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessPagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessPagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccessPagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The image ID of the app. You can obtain the ID from the Images page in the App Streaming console.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
+  appCenterImageId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery groups to query. Fuzzy match is used for queries. For example, if you set this parameter to `Office App`, all delivery groups whose names contain `Office App` are queried, such as `My Office Apps` and `Office App A`.
+   */
+  appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
+   * 
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
+  nodeInstanceType?: string;
+  /**
+   * @example
+   * cn-hongkong+dir-643067****
+   */
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. The value cannot be greater than `100`.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The region ID
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * @deprecated
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the delivery groups.
+   */
+  status?: string[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  tag?: ListAppInstanceGroupRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageId: 'AppCenterImageId',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+      bizRegionId: 'BizRegionId',
+      nodeInstanceType: 'NodeInstanceType',
+      officeSiteId: 'OfficeSiteId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+      regionId: 'RegionId',
+      status: 'Status',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageId: 'string',
+      appInstanceGroupId: 'string',
+      appInstanceGroupName: 'string',
+      bizRegionId: 'string',
+      nodeInstanceType: 'string',
+      officeSiteId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+      regionId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': ListAppInstanceGroupRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery groups.
+   */
+  appInstanceGroupModels?: ListAppInstanceGroupResponseBodyAppInstanceGroupModels[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupModels: 'AppInstanceGroupModels',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupModels: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModels },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstanceGroupModels)) {
+      $dara.Model.validateArray(this.appInstanceGroupModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-4p5f8tj16yb8b****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * @example
+   * ai-azn3kmwruh1vl****
+   */
+  appInstanceId?: string;
+  /**
+   * @remarks
+   * The IDs of the application instances. Up to 100 IDs can be specified.
+   * 
+   * **if can be null:**
+   * false
+   */
+  appInstanceIdList?: string[];
+  /**
+   * @remarks
+   * Specifies whether to query the information about deleted app instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  includeDeleted?: boolean;
+  /**
+   * @remarks
+   * The page number. Default value: `1`. We recommend that you specify this parameter.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. The value cannot be greater than `100`. Default value: `20`. We recommend that you specify this parameter.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The status of the application instances.
+   * 
+   * **if can be null:**
+   * false
+   */
+  status?: string[];
+  /**
+   * @remarks
+   * The user IDs. You can specify up to 100 IDs.
+   */
+  userIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appInstanceIdList: 'AppInstanceIdList',
+      includeDeleted: 'IncludeDeleted',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      status: 'Status',
+      userIdList: 'UserIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      includeDeleted: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      status: { 'type': 'array', 'itemType': 'string' },
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstanceIdList)) {
+      $dara.Model.validateArray(this.appInstanceIdList);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    if(Array.isArray(this.userIdList)) {
+      $dara.Model.validateArray(this.userIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The app instances.
+   */
+  appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
+  /**
+   * @remarks
+   * The page number of the returned page. We recommend that you configure this parameter.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 18
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceModels: 'AppInstanceModels',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceModels: { 'type': 'array', 'itemType': ListAppInstancesResponseBodyAppInstanceModels },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstanceModels)) {
+      $dara.Model.validateArray(this.appInstanceModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAppInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAppInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindInfoRequest extends $dara.Model {
+  appIdList?: string[];
+  appInstanceGroupIdList?: string[];
+  appInstanceIdList?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  userIdList?: string[];
+  wyIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appIdList: 'AppIdList',
+      appInstanceGroupIdList: 'AppInstanceGroupIdList',
+      appInstanceIdList: 'AppInstanceIdList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      userIdList: 'UserIdList',
+      wyIdList: 'WyIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appIdList: { 'type': 'array', 'itemType': 'string' },
+      appInstanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      appInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      userIdList: { 'type': 'array', 'itemType': 'string' },
+      wyIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appIdList)) {
+      $dara.Model.validateArray(this.appIdList);
+    }
+    if(Array.isArray(this.appInstanceGroupIdList)) {
+      $dara.Model.validateArray(this.appInstanceGroupIdList);
+    }
+    if(Array.isArray(this.appInstanceIdList)) {
+      $dara.Model.validateArray(this.appInstanceIdList);
+    }
+    if(Array.isArray(this.userIdList)) {
+      $dara.Model.validateArray(this.userIdList);
+    }
+    if(Array.isArray(this.wyIdList)) {
+      $dara.Model.validateArray(this.wyIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindInfoResponseBody extends $dara.Model {
+  bindInfoModels?: ListBindInfoResponseBodyBindInfoModels[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AD2D0761-1FE5-549D-B169-D3F8D19C****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bindInfoModels: 'BindInfoModels',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindInfoModels: { 'type': 'array', 'itemType': ListBindInfoResponseBodyBindInfoModels },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bindInfoModels)) {
+      $dara.Model.validateArray(this.bindInfoModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBindInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBindInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListBindInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInstanceTypeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the region where the resource resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  cpu?: number;
+  gpu?: number;
+  gpuMemory?: number;
+  /**
+   * @remarks
+   * The language that you want to use.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English (US)
+   * *   zh-CN: Simplified Chinese
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  memory?: number;
+  /**
+   * @remarks
+   * The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
+   * 
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
+  nodeInstanceType?: string;
+  nodeInstanceTypeFamily?: string;
+  orderBy?: string;
+  /**
+   * @remarks
+   * The operating system that is supported.
+   * 
+   * Valid value:
+   * 
+   * *   Windows: the Windows operating system
+   * 
+   * @example
+   * Windows
+   */
+  osType?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  sortType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizRegionId: 'BizRegionId',
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      gpuMemory: 'GpuMemory',
+      language: 'Language',
+      memory: 'Memory',
+      nodeInstanceType: 'NodeInstanceType',
+      nodeInstanceTypeFamily: 'NodeInstanceTypeFamily',
+      orderBy: 'OrderBy',
+      osType: 'OsType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizRegionId: 'string',
+      cpu: 'number',
+      gpu: 'number',
+      gpuMemory: 'number',
+      language: 'string',
+      memory: 'number',
+      nodeInstanceType: 'string',
+      nodeInstanceTypeFamily: 'string',
+      orderBy: 'string',
+      osType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+      sortType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInstanceTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types.
+   */
+  nodeInstanceTypeModels?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 6
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodeInstanceTypeModels: 'NodeInstanceTypeModels',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeInstanceTypeModels: { 'type': 'array', 'itemType': ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeInstanceTypeModels)) {
+      $dara.Model.validateArray(this.nodeInstanceTypeModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodeInstanceTypeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeInstanceTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodeInstanceTypeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-53fvrq1oanz6c****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 200.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The resource nodes.
+   */
+  nodeModels?: ListNodesResponseBodyNodeModels[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  perPageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  toPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      nodeModels: 'NodeModels',
+      perPageSize: 'PerPageSize',
+      requestId: 'RequestId',
+      toPage: 'ToPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      nodeModels: { 'type': 'array', 'itemType': ListNodesResponseBodyNodeModels },
+      perPageSize: 'number',
+      requestId: 'string',
+      toPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.nodeModels)) {
+      $dara.Model.validateArray(this.nodeModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNodesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOtaTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-53fvrq1oanz6c****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the OTA update task.
+   * 
+   * Valid values:
+   * 
+   * *   Fota: update of the system components of Alibaba Cloud Workspace
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Fota
+   */
+  otaType?: string;
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      otaType: 'OtaType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      otaType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOtaTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The OTA update tasks.
+   */
+  taskList?: ListOtaTaskResponseBodyTaskList[];
+  /**
+   * @remarks
+   * The total number of OTA update tasks.
+   * 
+   * @example
+   * 6
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      taskList: 'TaskList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      taskList: { 'type': 'array', 'itemType': ListOtaTaskResponseBodyTaskList },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskList)) {
+      $dara.Model.validateArray(this.taskList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOtaTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOtaTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListOtaTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersistentAppInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-0bxls9m9arax6****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
+  appInstancePersistentIds?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstancePersistentIds: 'AppInstancePersistentIds',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstancePersistentIds: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appInstancePersistentIds)) {
+      $dara.Model.validateArray(this.appInstancePersistentIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersistentAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  persistentAppInstanceModels?: ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      persistentAppInstanceModels: 'PersistentAppInstanceModels',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      persistentAppInstanceModels: { 'type': 'array', 'itemType': ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.persistentAppInstanceModels)) {
+      $dara.Model.validateArray(this.persistentAppInstanceModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPersistentAppInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPersistentAppInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPersistentAppInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  bizSource?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizSource: 'BizSource',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizSource: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The region IDs.
+   */
+  regionModels?: ListRegionsResponseBodyRegionModels[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionModels: 'RegionModels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionModels: { 'type': 'array', 'itemType': ListRegionsResponseBodyRegionModels },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionModels)) {
+      $dara.Model.validateArray(this.regionModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * p-xxxxxxxxxxxx
+   */
+  projectId?: string;
+  /**
+   * @example
+   * tp-xxxxxxxx
+   */
+  sessionPackageId?: string;
+  sessionPackageName?: string;
+  /**
+   * @example
+   * ASC
+   */
+  sortType?: string;
+  stateList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sessionPackageId: 'SessionPackageId',
+      sessionPackageName: 'SessionPackageName',
+      sortType: 'SortType',
+      stateList: 'StateList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'string',
+      sessionPackageId: 'string',
+      sessionPackageName: 'string',
+      sortType: 'string',
+      stateList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.stateList)) {
+      $dara.Model.validateArray(this.stateList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponseBody extends $dara.Model {
+  data?: ListSessionPackagesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListSessionPackagesResponseBodyData },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSessionPackagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSessionPackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSessionPackagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: 1000. Default value: 50.
+   * 
+   * @example
+   * 50
+   * 
+   * **if can be null:**
+   * true
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * ptnJAAAAAAAxNzE5OTEwNQ==
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
+   */
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag type.
+   * 
+   * Valid values:
+   * 
+   * *   All (default): all tags.
+   * *   Custom: custom tag.
+   * *   System: system tag.
+   * 
+   * @example
+   * Custom
+   * 
+   * **if can be null:**
+   * true
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      scope: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the next query is required.
+   * 
+   * @example
+   * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The tags added to the cloud resources.
+   */
+  resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceTags: 'ResourceTags',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resourceTags: { 'type': 'array', 'itemType': ListTagCloudResourcesResponseBodyResourceTags },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagCloudResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTenantConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The user configurations.
+   */
+  tenantConfigModel?: ListTenantConfigResponseBodyTenantConfigModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tenantConfigModel: 'TenantConfigModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tenantConfigModel: ListTenantConfigResponseBodyTenantConfigModel,
+    };
+  }
+
+  validate() {
+    if(this.tenantConfigModel && typeof (this.tenantConfigModel as any).validate === 'function') {
+      (this.tenantConfigModel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTenantConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTenantConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTenantConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogOffAllSessionsInAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidParameter.ProductType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The parameter ProductType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogOffAllSessionsInAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LogOffAllSessionsInAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LogOffAllSessionsInAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery group.
+   */
+  appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The network settings.
+   * 
+   * >  If you want to use this parameter, submit a ticket.
+   */
+  network?: ModifyAppInstanceGroupAttributeRequestNetwork;
+  /**
+   * @remarks
+   * The information about the resource group.
+   */
+  nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
+  /**
+   * @remarks
+   * Specifies whether only one application can be opened in a session.
+   * 
+   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  perSessionPerApp?: boolean;
+  /**
+   * @remarks
+   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+   * 
+   * @example
+   * ca-b2ronxxd****
+   */
+  preOpenAppId?: string;
+  /**
+   * @remarks
+   * The pre-open mode.
+   * 
+   * Valid values:
+   * 
+   * *   SINGLE_APP: enables the pre-open mode for a single application.
+   * *   OFF: disables the pre-open mode. This is the default value.
+   * 
+   * @example
+   * OFF
+   */
+  preOpenMode?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
+  securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
+  /**
+   * @remarks
+   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * 
+   * @example
+   * 15
+   */
+  sessionTimeout?: number;
+  /**
+   * @remarks
+   * The storage policy.
+   */
+  storagePolicy?: ModifyAppInstanceGroupAttributeRequestStoragePolicy;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+      network: 'Network',
+      nodePool: 'NodePool',
+      perSessionPerApp: 'PerSessionPerApp',
+      preOpenAppId: 'PreOpenAppId',
+      preOpenMode: 'PreOpenMode',
+      productType: 'ProductType',
+      securityPolicy: 'SecurityPolicy',
+      sessionTimeout: 'SessionTimeout',
+      storagePolicy: 'StoragePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceGroupName: 'string',
+      network: ModifyAppInstanceGroupAttributeRequestNetwork,
+      nodePool: ModifyAppInstanceGroupAttributeRequestNodePool,
+      perSessionPerApp: 'boolean',
+      preOpenAppId: 'string',
+      preOpenMode: 'string',
+      productType: 'string',
+      securityPolicy: ModifyAppInstanceGroupAttributeRequestSecurityPolicy,
+      sessionTimeout: 'number',
+      storagePolicy: ModifyAppInstanceGroupAttributeRequestStoragePolicy,
+    };
+  }
+
+  validate() {
+    if(this.network && typeof (this.network as any).validate === 'function') {
+      (this.network as any).validate();
+    }
+    if(this.nodePool && typeof (this.nodePool as any).validate === 'function') {
+      (this.nodePool as any).validate();
+    }
+    if(this.securityPolicy && typeof (this.securityPolicy as any).validate === 'function') {
+      (this.securityPolicy as any).validate();
+    }
+    if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
+      (this.storagePolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery group.
+   */
+  appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The network settings.
+   * 
+   * >  If you want to use this parameter, submit a ticket.
+   */
+  networkShrink?: string;
+  /**
+   * @remarks
+   * The information about the resource group.
+   */
+  nodePoolShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether only one application can be opened in a session.
+   * 
+   * *   After you enable this feature, the system assigns a session to each application if you open multiple applications in a delivery group. This consumes a larger number of sessions.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  perSessionPerApp?: boolean;
+  /**
+   * @remarks
+   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+   * 
+   * @example
+   * ca-b2ronxxd****
+   */
+  preOpenAppId?: string;
+  /**
+   * @remarks
+   * The pre-open mode.
+   * 
+   * Valid values:
+   * 
+   * *   SINGLE_APP: enables the pre-open mode for a single application.
+   * *   OFF: disables the pre-open mode. This is the default value.
+   * 
+   * @example
+   * OFF
+   */
+  preOpenMode?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
+  securityPolicyShrink?: string;
+  /**
+   * @remarks
+   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * 
+   * @example
+   * 15
+   */
+  sessionTimeout?: number;
+  /**
+   * @remarks
+   * The storage policy.
+   */
+  storagePolicyShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+      networkShrink: 'Network',
+      nodePoolShrink: 'NodePool',
+      perSessionPerApp: 'PerSessionPerApp',
+      preOpenAppId: 'PreOpenAppId',
+      preOpenMode: 'PreOpenMode',
+      productType: 'ProductType',
+      securityPolicyShrink: 'SecurityPolicy',
+      sessionTimeout: 'SessionTimeout',
+      storagePolicyShrink: 'StoragePolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceGroupName: 'string',
+      networkShrink: 'string',
+      nodePoolShrink: 'string',
+      perSessionPerApp: 'boolean',
+      preOpenAppId: 'string',
+      preOpenMode: 'string',
+      productType: 'string',
+      securityPolicyShrink: 'string',
+      sessionTimeout: 'number',
+      storagePolicyShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidParameter.ProductType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The parameter ProductType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppInstanceGroupAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppInstanceGroupAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-ee2znjktwgxu2****
+   */
+  appPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  videoPolicy?: ModifyAppPolicyRequestVideoPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      appPolicyId: 'AppPolicyId',
+      productType: 'ProductType',
+      videoPolicy: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appPolicyId: 'string',
+      productType: 'string',
+      videoPolicy: ModifyAppPolicyRequestVideoPolicy,
+    };
+  }
+
+  validate() {
+    if(this.videoPolicy && typeof (this.videoPolicy as any).validate === 'function') {
+      (this.videoPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-ee2znjktwgxu2****
+   */
+  appPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  videoPolicyShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appPolicyId: 'AppPolicyId',
+      productType: 'ProductType',
+      videoPolicyShrink: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appPolicyId: 'string',
+      productType: 'string',
+      videoPolicyShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The parameters related to the configuration change of the node pool.
+   * 
+   * This parameter is required.
+   */
+  nodePool?: ModifyNodePoolAmountRequestNodePool;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      nodePool: 'NodePool',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      nodePool: ModifyNodePoolAmountRequestNodePool,
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.nodePool && typeof (this.nodePool as any).validate === 'function') {
+      (this.nodePool as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The parameters related to the configuration change of the node pool.
+   * 
+   * This parameter is required.
+   */
+  nodePoolShrink?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      nodePoolShrink: 'NodePool',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      nodePoolShrink: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ModifyNodePoolAmountResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ModifyNodePoolAmountResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAmountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNodePoolAmountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNodePoolAmountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAttributeRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @example
+   * 2
+   */
+  nodeCapacity?: number;
+  nodePoolStrategy?: ModifyNodePoolAttributeRequestNodePoolStrategy;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
+  poolId?: string;
+  /**
+   * @remarks
+   * 产品类型。
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizRegionId: 'BizRegionId',
+      nodeCapacity: 'NodeCapacity',
+      nodePoolStrategy: 'NodePoolStrategy',
+      poolId: 'PoolId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizRegionId: 'string',
+      nodeCapacity: 'number',
+      nodePoolStrategy: ModifyNodePoolAttributeRequestNodePoolStrategy,
+      poolId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.nodePoolStrategy && typeof (this.nodePoolStrategy as any).validate === 'function') {
+      (this.nodePoolStrategy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAttributeShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @example
+   * 2
+   */
+  nodeCapacity?: number;
+  nodePoolStrategyShrink?: string;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
+  poolId?: string;
+  /**
+   * @remarks
+   * 产品类型。
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizRegionId: 'BizRegionId',
+      nodeCapacity: 'NodeCapacity',
+      nodePoolStrategyShrink: 'NodePoolStrategy',
+      poolId: 'PoolId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizRegionId: 'string',
+      nodeCapacity: 'number',
+      nodePoolStrategyShrink: 'string',
+      poolId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAttributeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * InvalidParameter.PoolId
+   */
+  code?: string;
+  /**
+   * @example
+   * The parameter PoolId is invalid.
+   */
+  message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNodePoolAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNodePoolAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyNodePoolAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the resource expiration reminder feature.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  appInstanceGroupExpireRemind?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupExpireRemind: 'AppInstanceGroupExpireRemind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupExpireRemind: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTenantConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTenantConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTenantConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageListAppInstanceGroupUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. We recommend that you configure this parameter.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to be return on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageListAppInstanceGroupUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The users.
+   */
+  users?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageListAppInstanceGroupUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PageListAppInstanceGroupUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PageListAppInstanceGroupUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewAppInstanceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false: manual payment. This is the default value.
+   * 
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Week
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The promotion ID. You can call the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation to obtain the ID.
+   * 
+   * @example
+   * 17440009****
+   */
+  promotionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      autoPay: 'AutoPay',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      productType: 'ProductType',
+      promotionId: 'PromotionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      autoPay: 'boolean',
+      period: 'number',
+      periodUnit: 'string',
+      productType: 'string',
+      promotionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewAppInstanceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidParameter.ProductType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The parameter ProductType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 123456****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewAppInstanceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewAppInstanceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewAppInstanceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesRequest extends $dara.Model {
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tags?: TagCloudResourcesRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tags: { 'type': 'array', 'itemType': TagCloudResourcesRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponseBody extends $dara.Model {
+  failedResources?: TagCloudResourcesResponseBodyFailedResources[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'array', 'itemType': TagCloudResourcesResponseBodyFailedResources },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResources)) {
+      $dara.Model.validateArray(this.failedResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagCloudResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The session ID. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * 
+   * @example
+   * ai-d297eyf83g5ni****
+   */
+  appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session. You can call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the ID.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * alice
+   */
+  endUserId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
+      endUserId: 'EndUserId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceId: 'string',
+      appInstancePersistentId: 'string',
+      endUserId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
+   */
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource from which you want to remove tags.
+   * 
+   * Valid values:
+   * 
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AppInstanceGroupId
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags that you want to remove from the cloud resources. System and custom tags are supported. You can specify up to 10 tags.
+   * 
+   * Valid values for system tags:
+   * 
+   * *   `System/Scheduler/GRAYSCALE`: canary tags.
+   * *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
+   * 
+   * This parameter is required.
+   */
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud resources whose tags failed to be removed and the corresponding tags.
+   */
+  failedResources?: UntagCloudResourcesResponseBodyFailedResources[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E25FC620-6B6F-12D2-A992-AD8727DC****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedResources: 'FailedResources',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResources: { 'type': 'array', 'itemType': UntagCloudResourcesResponseBodyFailedResources },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResources)) {
+      $dara.Model.validateArray(this.failedResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagCloudResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagCloudResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagCloudResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
+  appCenterImageId?: string;
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai).
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  bizRegionId?: string;
+  /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCenterImageId: 'AppCenterImageId',
+      appInstanceGroupId: 'AppInstanceGroupId',
+      bizRegionId: 'BizRegionId',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCenterImageId: 'string',
+      appInstanceGroupId: 'string',
+      bizRegionId: 'string',
+      productType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppInstanceGroupImageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidParameter.ProductType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The parameter ProductType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppInstanceGroupImageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAppInstanceGroupImageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAppInstanceGroupImageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -10715,7 +12248,7 @@ export class UntagCloudResourcesResponseBodyFailedResources extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "";
@@ -10725,15 +12258,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -10743,33 +12276,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AccessPageSetAclResponse
    */
-  async accessPageSetAclWithOptions(request: AccessPageSetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageSetAclResponse> {
-    Util.validateModel(request);
+  async accessPageSetAclWithOptions(request: AccessPageSetAclRequest, runtime: $dara.RuntimeOptions): Promise<AccessPageSetAclResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessMode)) {
+    if (!$dara.isNull(request.accessMode)) {
       query["AccessMode"] = request.accessMode;
     }
 
-    if (!Util.isUnset(request.accessPageId)) {
+    if (!$dara.isNull(request.accessPageId)) {
       query["AccessPageId"] = request.accessPageId;
     }
 
-    if (!Util.isUnset(request.accessPageName)) {
+    if (!$dara.isNull(request.accessPageName)) {
       query["AccessPageName"] = request.accessPageName;
     }
 
-    if (!Util.isUnset(request.effectTime)) {
+    if (!$dara.isNull(request.effectTime)) {
       query["EffectTime"] = request.effectTime;
     }
 
-    if (!Util.isUnset(request.unit)) {
+    if (!$dara.isNull(request.unit)) {
       query["Unit"] = request.unit;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AccessPageSetAcl",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -10780,12 +12313,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
-    } else {
-      return $tea.cast<AccessPageSetAclResponse>(await this.execute(params, req, runtime), new AccessPageSetAclResponse({}));
-    }
-
+    return $dara.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
   }
 
   /**
@@ -10795,7 +12323,7 @@ export default class Client extends OpenApi {
    * @returns AccessPageSetAclResponse
    */
   async accessPageSetAcl(request: AccessPageSetAclRequest): Promise<AccessPageSetAclResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.accessPageSetAclWithOptions(request, runtime);
   }
 
@@ -10806,33 +12334,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApproveOtaTaskResponse
    */
-  async approveOtaTaskWithOptions(request: ApproveOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOtaTaskResponse> {
-    Util.validateModel(request);
+  async approveOtaTaskWithOptions(request: ApproveOtaTaskRequest, runtime: $dara.RuntimeOptions): Promise<ApproveOtaTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.otaType)) {
+    if (!$dara.isNull(request.otaType)) {
       body["OtaType"] = request.otaType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ApproveOtaTask",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -10843,12 +12371,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ApproveOtaTaskResponse>(await this.callApi(params, req, runtime), new ApproveOtaTaskResponse({}));
-    } else {
-      return $tea.cast<ApproveOtaTaskResponse>(await this.execute(params, req, runtime), new ApproveOtaTaskResponse({}));
-    }
-
+    return $dara.cast<ApproveOtaTaskResponse>(await this.callApi(params, req, runtime), new ApproveOtaTaskResponse({}));
   }
 
   /**
@@ -10858,7 +12381,7 @@ export default class Client extends OpenApi {
    * @returns ApproveOtaTaskResponse
    */
   async approveOtaTask(request: ApproveOtaTaskRequest): Promise<ApproveOtaTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.approveOtaTaskWithOptions(request, runtime);
   }
 
@@ -10869,45 +12392,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AskSessionPackagePriceResponse
    */
-  async askSessionPackagePriceWithOptions(request: AskSessionPackagePriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackagePriceResponse> {
-    Util.validateModel(request);
+  async askSessionPackagePriceWithOptions(request: AskSessionPackagePriceRequest, runtime: $dara.RuntimeOptions): Promise<AskSessionPackagePriceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.maxSessions)) {
+    if (!$dara.isNull(request.maxSessions)) {
       query["MaxSessions"] = request.maxSessions;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.sessionPackageType)) {
+    if (!$dara.isNull(request.sessionPackageType)) {
       query["SessionPackageType"] = request.sessionPackageType;
     }
 
-    if (!Util.isUnset(request.sessionSpec)) {
+    if (!$dara.isNull(request.sessionSpec)) {
       query["SessionSpec"] = request.sessionSpec;
     }
 
-    if (!Util.isUnset(request.sessionType)) {
+    if (!$dara.isNull(request.sessionType)) {
       query["SessionType"] = request.sessionType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AskSessionPackagePrice",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -10918,12 +12441,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
-    } else {
-      return $tea.cast<AskSessionPackagePriceResponse>(await this.execute(params, req, runtime), new AskSessionPackagePriceResponse({}));
-    }
-
+    return $dara.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
   }
 
   /**
@@ -10933,7 +12451,7 @@ export default class Client extends OpenApi {
    * @returns AskSessionPackagePriceResponse
    */
   async askSessionPackagePrice(request: AskSessionPackagePriceRequest): Promise<AskSessionPackagePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.askSessionPackagePriceWithOptions(request, runtime);
   }
 
@@ -10944,37 +12462,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AuthorizeInstanceGroupResponse
    */
-  async authorizeInstanceGroupWithOptions(tmpReq: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
-    Util.validateModel(tmpReq);
+  async authorizeInstanceGroupWithOptions(tmpReq: AuthorizeInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
+    tmpReq.validate();
     let request = new AuthorizeInstanceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.userMeta)) {
+    if (!$dara.isNull(tmpReq.userMeta)) {
       request.userMetaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userMeta, "UserMeta", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstancePersistentId)) {
+    if (!$dara.isNull(request.appInstancePersistentId)) {
       body["AppInstancePersistentId"] = request.appInstancePersistentId;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authorizeUserIds)) {
+    if (!$dara.isNull(request.authorizeUserIds)) {
       bodyFlat["AuthorizeUserIds"] = request.authorizeUserIds;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.unAuthorizeUserIds)) {
+    if (!$dara.isNull(request.unAuthorizeUserIds)) {
       bodyFlat["UnAuthorizeUserIds"] = request.unAuthorizeUserIds;
     }
 
-    if (!Util.isUnset(request.userMetaShrink)) {
+    if (!$dara.isNull(request.userMetaShrink)) {
       body["UserMeta"] = request.userMetaShrink;
     }
 
@@ -10982,10 +12500,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AuthorizeInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -10996,12 +12514,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AuthorizeInstanceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<AuthorizeInstanceGroupResponse>(await this.execute(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<AuthorizeInstanceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
   }
 
   /**
@@ -11011,7 +12524,7 @@ export default class Client extends OpenApi {
    * @returns AuthorizeInstanceGroupResponse
    */
   async authorizeInstanceGroup(request: AuthorizeInstanceGroupRequest): Promise<AuthorizeInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.authorizeInstanceGroupWithOptions(request, runtime);
   }
 
@@ -11022,57 +12535,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BuySessionPackageResponse
    */
-  async buySessionPackageWithOptions(request: BuySessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<BuySessionPackageResponse> {
-    Util.validateModel(request);
+  async buySessionPackageWithOptions(request: BuySessionPackageRequest, runtime: $dara.RuntimeOptions): Promise<BuySessionPackageResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.autoPay)) {
+    if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.maxSessions)) {
+    if (!$dara.isNull(request.maxSessions)) {
       query["MaxSessions"] = request.maxSessions;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.sessionPackageName)) {
+    if (!$dara.isNull(request.sessionPackageName)) {
       query["SessionPackageName"] = request.sessionPackageName;
     }
 
-    if (!Util.isUnset(request.sessionPackageType)) {
+    if (!$dara.isNull(request.sessionPackageType)) {
       query["SessionPackageType"] = request.sessionPackageType;
     }
 
-    if (!Util.isUnset(request.sessionSpec)) {
+    if (!$dara.isNull(request.sessionSpec)) {
       query["SessionSpec"] = request.sessionSpec;
     }
 
-    if (!Util.isUnset(request.sessionType)) {
+    if (!$dara.isNull(request.sessionType)) {
       query["SessionType"] = request.sessionType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BuySessionPackage",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11083,12 +12596,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
-    } else {
-      return $tea.cast<BuySessionPackageResponse>(await this.execute(params, req, runtime), new BuySessionPackageResponse({}));
-    }
-
+    return $dara.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
   }
 
   /**
@@ -11098,7 +12606,7 @@ export default class Client extends OpenApi {
    * @returns BuySessionPackageResponse
    */
   async buySessionPackage(request: BuySessionPackageRequest): Promise<BuySessionPackageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.buySessionPackageWithOptions(request, runtime);
   }
 
@@ -11109,37 +12617,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccessPageResponse
    */
-  async createAccessPageWithOptions(request: CreateAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessPageResponse> {
-    Util.validateModel(request);
+  async createAccessPageWithOptions(request: CreateAccessPageRequest, runtime: $dara.RuntimeOptions): Promise<CreateAccessPageResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessPageName)) {
+    if (!$dara.isNull(request.accessPageName)) {
       query["AccessPageName"] = request.accessPageName;
     }
 
-    if (!Util.isUnset(request.cloudEnvId)) {
+    if (!$dara.isNull(request.cloudEnvId)) {
       query["CloudEnvId"] = request.cloudEnvId;
     }
 
-    if (!Util.isUnset(request.effectTime)) {
+    if (!$dara.isNull(request.effectTime)) {
       query["EffectTime"] = request.effectTime;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
 
-    if (!Util.isUnset(request.unit)) {
+    if (!$dara.isNull(request.unit)) {
       query["Unit"] = request.unit;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccessPage",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11150,12 +12658,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
-    } else {
-      return $tea.cast<CreateAccessPageResponse>(await this.execute(params, req, runtime), new CreateAccessPageResponse({}));
-    }
-
+    return $dara.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
   }
 
   /**
@@ -11165,7 +12668,7 @@ export default class Client extends OpenApi {
    * @returns CreateAccessPageResponse
    */
   async createAccessPage(request: CreateAccessPageRequest): Promise<CreateAccessPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccessPageWithOptions(request, runtime);
   }
 
@@ -11176,157 +12679,157 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppInstanceGroupResponse
    */
-  async createAppInstanceGroupWithOptions(tmpReq: CreateAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppInstanceGroupResponse> {
-    Util.validateModel(tmpReq);
+  async createAppInstanceGroupWithOptions(tmpReq: CreateAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateAppInstanceGroupResponse> {
+    tmpReq.validate();
     let request = new CreateAppInstanceGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.network)) {
+    if (!$dara.isNull(tmpReq.network)) {
       request.networkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.network, "Network", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nodePool)) {
+    if (!$dara.isNull(tmpReq.nodePool)) {
       request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
     }
 
-    if (!Util.isUnset(tmpReq.runtimePolicy)) {
+    if (!$dara.isNull(tmpReq.runtimePolicy)) {
       request.runtimePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimePolicy, "RuntimePolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.securityPolicy)) {
+    if (!$dara.isNull(tmpReq.securityPolicy)) {
       request.securityPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityPolicy, "SecurityPolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storagePolicy)) {
+    if (!$dara.isNull(tmpReq.storagePolicy)) {
       request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userDefinePolicy)) {
+    if (!$dara.isNull(tmpReq.userDefinePolicy)) {
       request.userDefinePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userDefinePolicy, "UserDefinePolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.userInfo)) {
+    if (!$dara.isNull(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.videoPolicy)) {
+    if (!$dara.isNull(tmpReq.videoPolicy)) {
       request.videoPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoPolicy, "VideoPolicy", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.userDefinePolicyShrink)) {
+    if (!$dara.isNull(request.userDefinePolicyShrink)) {
       query["UserDefinePolicy"] = request.userDefinePolicyShrink;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appCenterImageId)) {
+    if (!$dara.isNull(request.appCenterImageId)) {
       body["AppCenterImageId"] = request.appCenterImageId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupName)) {
+    if (!$dara.isNull(request.appInstanceGroupName)) {
       body["AppInstanceGroupName"] = request.appInstanceGroupName;
     }
 
-    if (!Util.isUnset(request.appPackageType)) {
+    if (!$dara.isNull(request.appPackageType)) {
       body["AppPackageType"] = request.appPackageType;
     }
 
-    if (!Util.isUnset(request.appPolicyId)) {
+    if (!$dara.isNull(request.appPolicyId)) {
       body["AppPolicyId"] = request.appPolicyId;
     }
 
-    if (!Util.isUnset(request.authMode)) {
+    if (!$dara.isNull(request.authMode)) {
       body["AuthMode"] = request.authMode;
     }
 
-    if (!Util.isUnset(request.autoPay)) {
+    if (!$dara.isNull(request.autoPay)) {
       body["AutoPay"] = request.autoPay;
     }
 
-    if (!Util.isUnset(request.autoRenew)) {
+    if (!$dara.isNull(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.chargeResourceMode)) {
+    if (!$dara.isNull(request.chargeResourceMode)) {
       body["ChargeResourceMode"] = request.chargeResourceMode;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.networkShrink)) {
+    if (!$dara.isNull(request.networkShrink)) {
       body["Network"] = request.networkShrink;
     }
 
-    if (!Util.isUnset(request.nodePoolShrink)) {
+    if (!$dara.isNull(request.nodePoolShrink)) {
       body["NodePool"] = request.nodePoolShrink;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       body["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       body["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.preOpenAppId)) {
+    if (!$dara.isNull(request.preOpenAppId)) {
       body["PreOpenAppId"] = request.preOpenAppId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.promotionId)) {
+    if (!$dara.isNull(request.promotionId)) {
       body["PromotionId"] = request.promotionId;
     }
 
-    if (!Util.isUnset(request.runtimePolicyShrink)) {
+    if (!$dara.isNull(request.runtimePolicyShrink)) {
       body["RuntimePolicy"] = request.runtimePolicyShrink;
     }
 
-    if (!Util.isUnset(request.securityPolicyShrink)) {
+    if (!$dara.isNull(request.securityPolicyShrink)) {
       body["SecurityPolicy"] = request.securityPolicyShrink;
     }
 
-    if (!Util.isUnset(request.sessionTimeout)) {
+    if (!$dara.isNull(request.sessionTimeout)) {
       body["SessionTimeout"] = request.sessionTimeout;
     }
 
-    if (!Util.isUnset(request.storagePolicyShrink)) {
+    if (!$dara.isNull(request.storagePolicyShrink)) {
       body["StoragePolicy"] = request.storagePolicyShrink;
     }
 
-    if (!Util.isUnset(request.subPayType)) {
+    if (!$dara.isNull(request.subPayType)) {
       body["SubPayType"] = request.subPayType;
     }
 
-    if (!Util.isUnset(request.userInfoShrink)) {
+    if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
 
-    if (!Util.isUnset(request.users)) {
+    if (!$dara.isNull(request.users)) {
       body["Users"] = request.users;
     }
 
-    if (!Util.isUnset(request.videoPolicyShrink)) {
+    if (!$dara.isNull(request.videoPolicyShrink)) {
       body["VideoPolicy"] = request.videoPolicyShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11337,12 +12840,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<CreateAppInstanceGroupResponse>(await this.execute(params, req, runtime), new CreateAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<CreateAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAppInstanceGroupResponse({}));
   }
 
   /**
@@ -11352,7 +12850,7 @@ export default class Client extends OpenApi {
    * @returns CreateAppInstanceGroupResponse
    */
   async createAppInstanceGroup(request: CreateAppInstanceGroupRequest): Promise<CreateAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -11363,25 +12861,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateImageFromAppInstanceGroupResponse
    */
-  async createImageFromAppInstanceGroupWithOptions(request: CreateImageFromAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageFromAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async createImageFromAppInstanceGroupWithOptions(request: CreateImageFromAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateImageFromAppInstanceGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appCenterImageName)) {
+    if (!$dara.isNull(request.appCenterImageName)) {
       body["AppCenterImageName"] = request.appCenterImageName;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateImageFromAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11392,12 +12890,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<CreateImageFromAppInstanceGroupResponse>(await this.execute(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
   }
 
   /**
@@ -11407,7 +12900,7 @@ export default class Client extends OpenApi {
    * @returns CreateImageFromAppInstanceGroupResponse
    */
   async createImageFromAppInstanceGroup(request: CreateImageFromAppInstanceGroupRequest): Promise<CreateImageFromAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createImageFromAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -11418,17 +12911,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccessPageResponse
    */
-  async deleteAccessPageWithOptions(request: DeleteAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessPageResponse> {
-    Util.validateModel(request);
+  async deleteAccessPageWithOptions(request: DeleteAccessPageRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccessPageResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessPageId)) {
+    if (!$dara.isNull(request.accessPageId)) {
       query["AccessPageId"] = request.accessPageId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccessPage",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11439,12 +12932,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
-    } else {
-      return $tea.cast<DeleteAccessPageResponse>(await this.execute(params, req, runtime), new DeleteAccessPageResponse({}));
-    }
-
+    return $dara.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
   }
 
   /**
@@ -11454,7 +12942,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAccessPageResponse
    */
   async deleteAccessPage(request: DeleteAccessPageRequest): Promise<DeleteAccessPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccessPageWithOptions(request, runtime);
   }
 
@@ -11468,21 +12956,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppInstanceGroupResponse
    */
-  async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11493,12 +12981,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<DeleteAppInstanceGroupResponse>(await this.execute(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<DeleteAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
   }
 
   /**
@@ -11511,7 +12994,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAppInstanceGroupResponse
    */
   async deleteAppInstanceGroup(request: DeleteAppInstanceGroupRequest): Promise<DeleteAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -11525,25 +13008,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppInstancesResponse
    */
-  async deleteAppInstancesWithOptions(request: DeleteAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstancesResponse> {
-    Util.validateModel(request);
+  async deleteAppInstancesWithOptions(request: DeleteAppInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAppInstancesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstanceIds)) {
+    if (!$dara.isNull(request.appInstanceIds)) {
       body["AppInstanceIds"] = request.appInstanceIds;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAppInstances",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11554,12 +13037,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteAppInstancesResponse>(await this.callApi(params, req, runtime), new DeleteAppInstancesResponse({}));
-    } else {
-      return $tea.cast<DeleteAppInstancesResponse>(await this.execute(params, req, runtime), new DeleteAppInstancesResponse({}));
-    }
-
+    return $dara.cast<DeleteAppInstancesResponse>(await this.callApi(params, req, runtime), new DeleteAppInstancesResponse({}));
   }
 
   /**
@@ -11572,7 +13050,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAppInstancesResponse
    */
   async deleteAppInstances(request: DeleteAppInstancesRequest): Promise<DeleteAppInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstancesWithOptions(request, runtime);
   }
 
@@ -11583,25 +13061,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccessPageSessionResponse
    */
-  async getAccessPageSessionWithOptions(request: GetAccessPageSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessPageSessionResponse> {
-    Util.validateModel(request);
+  async getAccessPageSessionWithOptions(request: GetAccessPageSessionRequest, runtime: $dara.RuntimeOptions): Promise<GetAccessPageSessionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessPageId)) {
+    if (!$dara.isNull(request.accessPageId)) {
       query["AccessPageId"] = request.accessPageId;
     }
 
-    if (!Util.isUnset(request.accessPageToken)) {
+    if (!$dara.isNull(request.accessPageToken)) {
       query["AccessPageToken"] = request.accessPageToken;
     }
 
-    if (!Util.isUnset(request.externalUserId)) {
+    if (!$dara.isNull(request.externalUserId)) {
       query["ExternalUserId"] = request.externalUserId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessPageSession",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11612,12 +13090,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
-    } else {
-      return $tea.cast<GetAccessPageSessionResponse>(await this.execute(params, req, runtime), new GetAccessPageSessionResponse({}));
-    }
-
+    return $dara.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
   }
 
   /**
@@ -11627,7 +13100,7 @@ export default class Client extends OpenApi {
    * @returns GetAccessPageSessionResponse
    */
   async getAccessPageSession(request: GetAccessPageSessionRequest): Promise<GetAccessPageSessionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessPageSessionWithOptions(request, runtime);
   }
 
@@ -11638,21 +13111,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppInstanceGroupResponse
    */
-  async getAppInstanceGroupWithOptions(request: GetAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async getAppInstanceGroupWithOptions(request: GetAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetAppInstanceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11663,12 +13136,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new GetAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<GetAppInstanceGroupResponse>(await this.execute(params, req, runtime), new GetAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<GetAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new GetAppInstanceGroupResponse({}));
   }
 
   /**
@@ -11678,7 +13146,7 @@ export default class Client extends OpenApi {
    * @returns GetAppInstanceGroupResponse
    */
   async getAppInstanceGroup(request: GetAppInstanceGroupRequest): Promise<GetAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -11694,57 +13162,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConnectionTicketResponse
    */
-  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
-    Util.validateModel(request);
+  async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<GetConnectionTicketResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessType)) {
+    if (!$dara.isNull(request.accessType)) {
       body["AccessType"] = request.accessType;
     }
 
-    if (!Util.isUnset(request.appId)) {
+    if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupIdList)) {
+    if (!$dara.isNull(request.appInstanceGroupIdList)) {
       body["AppInstanceGroupIdList"] = request.appInstanceGroupIdList;
     }
 
-    if (!Util.isUnset(request.appInstanceId)) {
+    if (!$dara.isNull(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!Util.isUnset(request.appInstancePersistentId)) {
+    if (!$dara.isNull(request.appInstancePersistentId)) {
       body["AppInstancePersistentId"] = request.appInstancePersistentId;
     }
 
-    if (!Util.isUnset(request.appStartParam)) {
+    if (!$dara.isNull(request.appStartParam)) {
       body["AppStartParam"] = request.appStartParam;
     }
 
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConnectionTicket",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11755,12 +13223,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
-    } else {
-      return $tea.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
-    }
-
+    return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
   }
 
   /**
@@ -11775,7 +13238,7 @@ export default class Client extends OpenApi {
    * @returns GetConnectionTicketResponse
    */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
   }
 
@@ -11786,21 +13249,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDebugAppInstanceResponse
    */
-  async getDebugAppInstanceWithOptions(request: GetDebugAppInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetDebugAppInstanceResponse> {
-    Util.validateModel(request);
+  async getDebugAppInstanceWithOptions(request: GetDebugAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<GetDebugAppInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDebugAppInstance",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11811,12 +13274,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
-    } else {
-      return $tea.cast<GetDebugAppInstanceResponse>(await this.execute(params, req, runtime), new GetDebugAppInstanceResponse({}));
-    }
-
+    return $dara.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
   }
 
   /**
@@ -11826,7 +13284,7 @@ export default class Client extends OpenApi {
    * @returns GetDebugAppInstanceResponse
    */
   async getDebugAppInstance(request: GetDebugAppInstanceRequest): Promise<GetDebugAppInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDebugAppInstanceWithOptions(request, runtime);
   }
 
@@ -11837,17 +13295,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOtaTaskByTaskIdResponse
    */
-  async getOtaTaskByTaskIdWithOptions(request: GetOtaTaskByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<GetOtaTaskByTaskIdResponse> {
-    Util.validateModel(request);
+  async getOtaTaskByTaskIdWithOptions(request: GetOtaTaskByTaskIdRequest, runtime: $dara.RuntimeOptions): Promise<GetOtaTaskByTaskIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOtaTaskByTaskId",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11858,12 +13316,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetOtaTaskByTaskIdResponse>(await this.callApi(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
-    } else {
-      return $tea.cast<GetOtaTaskByTaskIdResponse>(await this.execute(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
-    }
-
+    return $dara.cast<GetOtaTaskByTaskIdResponse>(await this.callApi(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
   }
 
   /**
@@ -11873,7 +13326,7 @@ export default class Client extends OpenApi {
    * @returns GetOtaTaskByTaskIdResponse
    */
   async getOtaTaskByTaskId(request: GetOtaTaskByTaskIdRequest): Promise<GetOtaTaskByTaskIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOtaTaskByTaskIdWithOptions(request, runtime);
   }
 
@@ -11884,45 +13337,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourcePriceResponse
    */
-  async getResourcePriceWithOptions(request: GetResourcePriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePriceResponse> {
-    Util.validateModel(request);
+  async getResourcePriceWithOptions(request: GetResourcePriceRequest, runtime: $dara.RuntimeOptions): Promise<GetResourcePriceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.amount)) {
+    if (!$dara.isNull(request.amount)) {
       query["Amount"] = request.amount;
     }
 
-    if (!Util.isUnset(request.appInstanceType)) {
+    if (!$dara.isNull(request.appInstanceType)) {
       query["AppInstanceType"] = request.appInstanceType;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.nodeInstanceType)) {
+    if (!$dara.isNull(request.nodeInstanceType)) {
       query["NodeInstanceType"] = request.nodeInstanceType;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourcePrice",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11933,12 +13386,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourcePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePriceResponse({}));
-    } else {
-      return $tea.cast<GetResourcePriceResponse>(await this.execute(params, req, runtime), new GetResourcePriceResponse({}));
-    }
-
+    return $dara.cast<GetResourcePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePriceResponse({}));
   }
 
   /**
@@ -11948,7 +13396,7 @@ export default class Client extends OpenApi {
    * @returns GetResourcePriceResponse
    */
   async getResourcePrice(request: GetResourcePriceRequest): Promise<GetResourcePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourcePriceWithOptions(request, runtime);
   }
 
@@ -11959,29 +13407,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceRenewPriceResponse
    */
-  async getResourceRenewPriceWithOptions(request: GetResourceRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceRenewPriceResponse> {
-    Util.validateModel(request);
+  async getResourceRenewPriceWithOptions(request: GetResourceRenewPriceRequest, runtime: $dara.RuntimeOptions): Promise<GetResourceRenewPriceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceRenewPrice",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -11992,12 +13440,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetResourceRenewPriceResponse>(await this.callApi(params, req, runtime), new GetResourceRenewPriceResponse({}));
-    } else {
-      return $tea.cast<GetResourceRenewPriceResponse>(await this.execute(params, req, runtime), new GetResourceRenewPriceResponse({}));
-    }
-
+    return $dara.cast<GetResourceRenewPriceResponse>(await this.callApi(params, req, runtime), new GetResourceRenewPriceResponse({}));
   }
 
   /**
@@ -12007,7 +13450,7 @@ export default class Client extends OpenApi {
    * @returns GetResourceRenewPriceResponse
    */
   async getResourceRenewPrice(request: GetResourceRenewPriceRequest): Promise<GetResourceRenewPriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceRenewPriceWithOptions(request, runtime);
   }
 
@@ -12018,37 +13461,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccessPagesResponse
    */
-  async listAccessPagesWithOptions(request: ListAccessPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessPagesResponse> {
-    Util.validateModel(request);
+  async listAccessPagesWithOptions(request: ListAccessPagesRequest, runtime: $dara.RuntimeOptions): Promise<ListAccessPagesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessPageId)) {
+    if (!$dara.isNull(request.accessPageId)) {
       query["AccessPageId"] = request.accessPageId;
     }
 
-    if (!Util.isUnset(request.accessPageName)) {
+    if (!$dara.isNull(request.accessPageName)) {
       query["AccessPageName"] = request.accessPageName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.sortType)) {
+    if (!$dara.isNull(request.sortType)) {
       query["SortType"] = request.sortType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccessPages",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12059,12 +13502,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
-    } else {
-      return $tea.cast<ListAccessPagesResponse>(await this.execute(params, req, runtime), new ListAccessPagesResponse({}));
-    }
-
+    return $dara.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
   }
 
   /**
@@ -12074,7 +13512,7 @@ export default class Client extends OpenApi {
    * @returns ListAccessPagesResponse
    */
   async listAccessPages(request: ListAccessPagesRequest): Promise<ListAccessPagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccessPagesWithOptions(request, runtime);
   }
 
@@ -12085,59 +13523,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppInstanceGroupResponse
    */
-  async listAppInstanceGroupWithOptions(request: ListAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async listAppInstanceGroupWithOptions(request: ListAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListAppInstanceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appCenterImageId)) {
+    if (!$dara.isNull(request.appCenterImageId)) {
       query["AppCenterImageId"] = request.appCenterImageId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupName)) {
+    if (!$dara.isNull(request.appInstanceGroupName)) {
       query["AppInstanceGroupName"] = request.appInstanceGroupName;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.nodeInstanceType)) {
+    if (!$dara.isNull(request.nodeInstanceType)) {
       query["NodeInstanceType"] = request.nodeInstanceType;
     }
 
-    if (!Util.isUnset(request.officeSiteId)) {
+    if (!$dara.isNull(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12148,12 +13590,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new ListAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<ListAppInstanceGroupResponse>(await this.execute(params, req, runtime), new ListAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<ListAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new ListAppInstanceGroupResponse({}));
   }
 
   /**
@@ -12163,7 +13600,7 @@ export default class Client extends OpenApi {
    * @returns ListAppInstanceGroupResponse
    */
   async listAppInstanceGroup(request: ListAppInstanceGroupRequest): Promise<ListAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -12174,47 +13611,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppInstancesResponse
    */
-  async listAppInstancesWithOptions(request: ListAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstancesResponse> {
-    Util.validateModel(request);
+  async listAppInstancesWithOptions(request: ListAppInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListAppInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstanceId)) {
+    if (!$dara.isNull(request.appInstanceId)) {
       query["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!Util.isUnset(request.includeDeleted)) {
+    if (!$dara.isNull(request.includeDeleted)) {
       query["IncludeDeleted"] = request.includeDeleted;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.userIdList)) {
+    if (!$dara.isNull(request.userIdList)) {
       query["UserIdList"] = request.userIdList;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceIdList)) {
+    if (!$dara.isNull(request.appInstanceIdList)) {
       body["AppInstanceIdList"] = request.appInstanceIdList;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAppInstances",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12225,12 +13662,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAppInstancesResponse>(await this.callApi(params, req, runtime), new ListAppInstancesResponse({}));
-    } else {
-      return $tea.cast<ListAppInstancesResponse>(await this.execute(params, req, runtime), new ListAppInstancesResponse({}));
-    }
-
+    return $dara.cast<ListAppInstancesResponse>(await this.callApi(params, req, runtime), new ListAppInstancesResponse({}));
   }
 
   /**
@@ -12240,7 +13672,7 @@ export default class Client extends OpenApi {
    * @returns ListAppInstancesResponse
    */
   async listAppInstances(request: ListAppInstancesRequest): Promise<ListAppInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppInstancesWithOptions(request, runtime);
   }
 
@@ -12251,41 +13683,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListBindInfoResponse
    */
-  async listBindInfoWithOptions(request: ListBindInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListBindInfoResponse> {
-    Util.validateModel(request);
+  async listBindInfoWithOptions(request: ListBindInfoRequest, runtime: $dara.RuntimeOptions): Promise<ListBindInfoResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appIdList)) {
+    if (!$dara.isNull(request.appIdList)) {
       body["AppIdList"] = request.appIdList;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupIdList)) {
+    if (!$dara.isNull(request.appInstanceGroupIdList)) {
       body["AppInstanceGroupIdList"] = request.appInstanceGroupIdList;
     }
 
-    if (!Util.isUnset(request.appInstanceIdList)) {
+    if (!$dara.isNull(request.appInstanceIdList)) {
       body["AppInstanceIdList"] = request.appInstanceIdList;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.userIdList)) {
+    if (!$dara.isNull(request.userIdList)) {
       body["UserIdList"] = request.userIdList;
     }
 
-    if (!Util.isUnset(request.wyIdList)) {
+    if (!$dara.isNull(request.wyIdList)) {
       body["WyIdList"] = request.wyIdList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListBindInfo",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12296,12 +13728,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListBindInfoResponse>(await this.callApi(params, req, runtime), new ListBindInfoResponse({}));
-    } else {
-      return $tea.cast<ListBindInfoResponse>(await this.execute(params, req, runtime), new ListBindInfoResponse({}));
-    }
-
+    return $dara.cast<ListBindInfoResponse>(await this.callApi(params, req, runtime), new ListBindInfoResponse({}));
   }
 
   /**
@@ -12311,7 +13738,7 @@ export default class Client extends OpenApi {
    * @returns ListBindInfoResponse
    */
   async listBindInfo(request: ListBindInfoRequest): Promise<ListBindInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listBindInfoWithOptions(request, runtime);
   }
 
@@ -12322,69 +13749,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodeInstanceTypeResponse
    */
-  async listNodeInstanceTypeWithOptions(request: ListNodeInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInstanceTypeResponse> {
-    Util.validateModel(request);
+  async listNodeInstanceTypeWithOptions(request: ListNodeInstanceTypeRequest, runtime: $dara.RuntimeOptions): Promise<ListNodeInstanceTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.cpu)) {
+    if (!$dara.isNull(request.cpu)) {
       query["Cpu"] = request.cpu;
     }
 
-    if (!Util.isUnset(request.gpu)) {
+    if (!$dara.isNull(request.gpu)) {
       query["Gpu"] = request.gpu;
     }
 
-    if (!Util.isUnset(request.gpuMemory)) {
+    if (!$dara.isNull(request.gpuMemory)) {
       query["GpuMemory"] = request.gpuMemory;
     }
 
-    if (!Util.isUnset(request.language)) {
+    if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
-    if (!Util.isUnset(request.memory)) {
+    if (!$dara.isNull(request.memory)) {
       query["Memory"] = request.memory;
     }
 
-    if (!Util.isUnset(request.nodeInstanceType)) {
+    if (!$dara.isNull(request.nodeInstanceType)) {
       query["NodeInstanceType"] = request.nodeInstanceType;
     }
 
-    if (!Util.isUnset(request.nodeInstanceTypeFamily)) {
+    if (!$dara.isNull(request.nodeInstanceTypeFamily)) {
       query["NodeInstanceTypeFamily"] = request.nodeInstanceTypeFamily;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.osType)) {
+    if (!$dara.isNull(request.osType)) {
       query["OsType"] = request.osType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.sortType)) {
+    if (!$dara.isNull(request.sortType)) {
       query["SortType"] = request.sortType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNodeInstanceType",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12395,12 +13822,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListNodeInstanceTypeResponse>(await this.callApi(params, req, runtime), new ListNodeInstanceTypeResponse({}));
-    } else {
-      return $tea.cast<ListNodeInstanceTypeResponse>(await this.execute(params, req, runtime), new ListNodeInstanceTypeResponse({}));
-    }
-
+    return $dara.cast<ListNodeInstanceTypeResponse>(await this.callApi(params, req, runtime), new ListNodeInstanceTypeResponse({}));
   }
 
   /**
@@ -12410,7 +13832,7 @@ export default class Client extends OpenApi {
    * @returns ListNodeInstanceTypeResponse
    */
   async listNodeInstanceType(request: ListNodeInstanceTypeRequest): Promise<ListNodeInstanceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodeInstanceTypeWithOptions(request, runtime);
   }
 
@@ -12421,29 +13843,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodesResponse
    */
-  async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
-    Util.validateModel(request);
+  async listNodesWithOptions(request: ListNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListNodesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNodes",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12454,12 +13876,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
-    } else {
-      return $tea.cast<ListNodesResponse>(await this.execute(params, req, runtime), new ListNodesResponse({}));
-    }
-
+    return $dara.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
   }
 
   /**
@@ -12469,7 +13886,7 @@ export default class Client extends OpenApi {
    * @returns ListNodesResponse
    */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
   }
 
@@ -12480,29 +13897,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOtaTaskResponse
    */
-  async listOtaTaskWithOptions(request: ListOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListOtaTaskResponse> {
-    Util.validateModel(request);
+  async listOtaTaskWithOptions(request: ListOtaTaskRequest, runtime: $dara.RuntimeOptions): Promise<ListOtaTaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.otaType)) {
+    if (!$dara.isNull(request.otaType)) {
       body["OtaType"] = request.otaType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListOtaTask",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12513,12 +13930,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListOtaTaskResponse>(await this.callApi(params, req, runtime), new ListOtaTaskResponse({}));
-    } else {
-      return $tea.cast<ListOtaTaskResponse>(await this.execute(params, req, runtime), new ListOtaTaskResponse({}));
-    }
-
+    return $dara.cast<ListOtaTaskResponse>(await this.callApi(params, req, runtime), new ListOtaTaskResponse({}));
   }
 
   /**
@@ -12528,7 +13940,7 @@ export default class Client extends OpenApi {
    * @returns ListOtaTaskResponse
    */
   async listOtaTask(request: ListOtaTaskRequest): Promise<ListOtaTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listOtaTaskWithOptions(request, runtime);
   }
 
@@ -12539,33 +13951,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPersistentAppInstancesResponse
    */
-  async listPersistentAppInstancesWithOptions(request: ListPersistentAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListPersistentAppInstancesResponse> {
-    Util.validateModel(request);
+  async listPersistentAppInstancesWithOptions(request: ListPersistentAppInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListPersistentAppInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstancePersistentIds)) {
+    if (!$dara.isNull(request.appInstancePersistentIds)) {
       query["AppInstancePersistentIds"] = request.appInstancePersistentIds;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPersistentAppInstances",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12576,12 +13988,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListPersistentAppInstancesResponse>(await this.callApi(params, req, runtime), new ListPersistentAppInstancesResponse({}));
-    } else {
-      return $tea.cast<ListPersistentAppInstancesResponse>(await this.execute(params, req, runtime), new ListPersistentAppInstancesResponse({}));
-    }
-
+    return $dara.cast<ListPersistentAppInstancesResponse>(await this.callApi(params, req, runtime), new ListPersistentAppInstancesResponse({}));
   }
 
   /**
@@ -12591,7 +13998,7 @@ export default class Client extends OpenApi {
    * @returns ListPersistentAppInstancesResponse
    */
   async listPersistentAppInstances(request: ListPersistentAppInstancesRequest): Promise<ListPersistentAppInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPersistentAppInstancesWithOptions(request, runtime);
   }
 
@@ -12605,21 +14012,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
    */
-  async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
-    Util.validateModel(request);
+  async listRegionsWithOptions(request: ListRegionsRequest, runtime: $dara.RuntimeOptions): Promise<ListRegionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizSource)) {
+    if (!$dara.isNull(request.bizSource)) {
       query["BizSource"] = request.bizSource;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRegions",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12630,12 +14037,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
-    } else {
-      return $tea.cast<ListRegionsResponse>(await this.execute(params, req, runtime), new ListRegionsResponse({}));
-    }
-
+    return $dara.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
   /**
@@ -12648,7 +14050,7 @@ export default class Client extends OpenApi {
    * @returns ListRegionsResponse
    */
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegionsWithOptions(request, runtime);
   }
 
@@ -12659,41 +14061,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSessionPackagesResponse
    */
-  async listSessionPackagesWithOptions(request: ListSessionPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionPackagesResponse> {
-    Util.validateModel(request);
+  async listSessionPackagesWithOptions(request: ListSessionPackagesRequest, runtime: $dara.RuntimeOptions): Promise<ListSessionPackagesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.sessionPackageId)) {
+    if (!$dara.isNull(request.sessionPackageId)) {
       query["SessionPackageId"] = request.sessionPackageId;
     }
 
-    if (!Util.isUnset(request.sessionPackageName)) {
+    if (!$dara.isNull(request.sessionPackageName)) {
       query["SessionPackageName"] = request.sessionPackageName;
     }
 
-    if (!Util.isUnset(request.sortType)) {
+    if (!$dara.isNull(request.sortType)) {
       query["SortType"] = request.sortType;
     }
 
-    if (!Util.isUnset(request.stateList)) {
+    if (!$dara.isNull(request.stateList)) {
       query["StateList"] = request.stateList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSessionPackages",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12704,12 +14106,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
-    } else {
-      return $tea.cast<ListSessionPackagesResponse>(await this.execute(params, req, runtime), new ListSessionPackagesResponse({}));
-    }
-
+    return $dara.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
   }
 
   /**
@@ -12719,7 +14116,7 @@ export default class Client extends OpenApi {
    * @returns ListSessionPackagesResponse
    */
   async listSessionPackages(request: ListSessionPackagesRequest): Promise<ListSessionPackagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSessionPackagesWithOptions(request, runtime);
   }
 
@@ -12730,33 +14127,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagCloudResourcesResponse
    */
-  async listTagCloudResourcesWithOptions(request: ListTagCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagCloudResourcesResponse> {
-    Util.validateModel(request);
+  async listTagCloudResourcesWithOptions(request: ListTagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagCloudResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceIds)) {
+    if (!$dara.isNull(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.scope)) {
+    if (!$dara.isNull(request.scope)) {
       body["Scope"] = request.scope;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagCloudResources",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12767,12 +14164,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTagCloudResourcesResponse>(await this.callApi(params, req, runtime), new ListTagCloudResourcesResponse({}));
-    } else {
-      return $tea.cast<ListTagCloudResourcesResponse>(await this.execute(params, req, runtime), new ListTagCloudResourcesResponse({}));
-    }
-
+    return $dara.cast<ListTagCloudResourcesResponse>(await this.callApi(params, req, runtime), new ListTagCloudResourcesResponse({}));
   }
 
   /**
@@ -12782,7 +14174,7 @@ export default class Client extends OpenApi {
    * @returns ListTagCloudResourcesResponse
    */
   async listTagCloudResources(request: ListTagCloudResourcesRequest): Promise<ListTagCloudResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagCloudResourcesWithOptions(request, runtime);
   }
 
@@ -12793,9 +14185,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTenantConfigResponse
    */
-  async listTenantConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListTenantConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listTenantConfigWithOptions(runtime: $dara.RuntimeOptions): Promise<ListTenantConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListTenantConfig",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12806,12 +14198,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTenantConfigResponse>(await this.callApi(params, req, runtime), new ListTenantConfigResponse({}));
-    } else {
-      return $tea.cast<ListTenantConfigResponse>(await this.execute(params, req, runtime), new ListTenantConfigResponse({}));
-    }
-
+    return $dara.cast<ListTenantConfigResponse>(await this.callApi(params, req, runtime), new ListTenantConfigResponse({}));
   }
 
   /**
@@ -12819,7 +14206,7 @@ export default class Client extends OpenApi {
    * @returns ListTenantConfigResponse
    */
   async listTenantConfig(): Promise<ListTenantConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTenantConfigWithOptions(runtime);
   }
 
@@ -12833,21 +14220,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LogOffAllSessionsInAppInstanceGroupResponse
    */
-  async logOffAllSessionsInAppInstanceGroupWithOptions(request: LogOffAllSessionsInAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async logOffAllSessionsInAppInstanceGroupWithOptions(request: LogOffAllSessionsInAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LogOffAllSessionsInAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12858,12 +14245,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.execute(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
   }
 
   /**
@@ -12876,7 +14258,7 @@ export default class Client extends OpenApi {
    * @returns LogOffAllSessionsInAppInstanceGroupResponse
    */
   async logOffAllSessionsInAppInstanceGroup(request: LogOffAllSessionsInAppInstanceGroupRequest): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.logOffAllSessionsInAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -12887,77 +14269,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAppInstanceGroupAttributeResponse
    */
-  async modifyAppInstanceGroupAttributeWithOptions(tmpReq: ModifyAppInstanceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppInstanceGroupAttributeResponse> {
-    Util.validateModel(tmpReq);
+  async modifyAppInstanceGroupAttributeWithOptions(tmpReq: ModifyAppInstanceGroupAttributeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAppInstanceGroupAttributeResponse> {
+    tmpReq.validate();
     let request = new ModifyAppInstanceGroupAttributeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.network)) {
+    if (!$dara.isNull(tmpReq.network)) {
       request.networkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.network, "Network", "json");
     }
 
-    if (!Util.isUnset(tmpReq.nodePool)) {
+    if (!$dara.isNull(tmpReq.nodePool)) {
       request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
     }
 
-    if (!Util.isUnset(tmpReq.securityPolicy)) {
+    if (!$dara.isNull(tmpReq.securityPolicy)) {
       request.securityPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityPolicy, "SecurityPolicy", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storagePolicy)) {
+    if (!$dara.isNull(tmpReq.storagePolicy)) {
       request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupName)) {
+    if (!$dara.isNull(request.appInstanceGroupName)) {
       query["AppInstanceGroupName"] = request.appInstanceGroupName;
     }
 
-    if (!Util.isUnset(request.nodePoolShrink)) {
+    if (!$dara.isNull(request.nodePoolShrink)) {
       query["NodePool"] = request.nodePoolShrink;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.sessionTimeout)) {
+    if (!$dara.isNull(request.sessionTimeout)) {
       query["SessionTimeout"] = request.sessionTimeout;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.networkShrink)) {
+    if (!$dara.isNull(request.networkShrink)) {
       body["Network"] = request.networkShrink;
     }
 
-    if (!Util.isUnset(request.perSessionPerApp)) {
+    if (!$dara.isNull(request.perSessionPerApp)) {
       body["PerSessionPerApp"] = request.perSessionPerApp;
     }
 
-    if (!Util.isUnset(request.preOpenAppId)) {
+    if (!$dara.isNull(request.preOpenAppId)) {
       body["PreOpenAppId"] = request.preOpenAppId;
     }
 
-    if (!Util.isUnset(request.preOpenMode)) {
+    if (!$dara.isNull(request.preOpenMode)) {
       body["PreOpenMode"] = request.preOpenMode;
     }
 
-    if (!Util.isUnset(request.securityPolicyShrink)) {
+    if (!$dara.isNull(request.securityPolicyShrink)) {
       body["SecurityPolicy"] = request.securityPolicyShrink;
     }
 
-    if (!Util.isUnset(request.storagePolicyShrink)) {
+    if (!$dara.isNull(request.storagePolicyShrink)) {
       body["StoragePolicy"] = request.storagePolicyShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAppInstanceGroupAttribute",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -12968,12 +14350,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyAppInstanceGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
-    } else {
-      return $tea.cast<ModifyAppInstanceGroupAttributeResponse>(await this.execute(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
-    }
-
+    return $dara.cast<ModifyAppInstanceGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
   }
 
   /**
@@ -12983,7 +14360,7 @@ export default class Client extends OpenApi {
    * @returns ModifyAppInstanceGroupAttributeResponse
    */
   async modifyAppInstanceGroupAttribute(request: ModifyAppInstanceGroupAttributeRequest): Promise<ModifyAppInstanceGroupAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppInstanceGroupAttributeWithOptions(request, runtime);
   }
 
@@ -12994,31 +14371,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAppPolicyResponse
    */
-  async modifyAppPolicyWithOptions(tmpReq: ModifyAppPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async modifyAppPolicyWithOptions(tmpReq: ModifyAppPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAppPolicyResponse> {
+    tmpReq.validate();
     let request = new ModifyAppPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.videoPolicy)) {
+    if (!$dara.isNull(tmpReq.videoPolicy)) {
       request.videoPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoPolicy, "VideoPolicy", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.appPolicyId)) {
+    if (!$dara.isNull(request.appPolicyId)) {
       query["AppPolicyId"] = request.appPolicyId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.videoPolicyShrink)) {
+    if (!$dara.isNull(request.videoPolicyShrink)) {
       query["VideoPolicy"] = request.videoPolicyShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAppPolicy",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13029,12 +14406,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyAppPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAppPolicyResponse({}));
-    } else {
-      return $tea.cast<ModifyAppPolicyResponse>(await this.execute(params, req, runtime), new ModifyAppPolicyResponse({}));
-    }
-
+    return $dara.cast<ModifyAppPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAppPolicyResponse({}));
   }
 
   /**
@@ -13044,7 +14416,7 @@ export default class Client extends OpenApi {
    * @returns ModifyAppPolicyResponse
    */
   async modifyAppPolicy(request: ModifyAppPolicyRequest): Promise<ModifyAppPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppPolicyWithOptions(request, runtime);
   }
 
@@ -13055,31 +14427,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyNodePoolAmountResponse
    */
-  async modifyNodePoolAmountWithOptions(tmpReq: ModifyNodePoolAmountRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolAmountResponse> {
-    Util.validateModel(tmpReq);
+  async modifyNodePoolAmountWithOptions(tmpReq: ModifyNodePoolAmountRequest, runtime: $dara.RuntimeOptions): Promise<ModifyNodePoolAmountResponse> {
+    tmpReq.validate();
     let request = new ModifyNodePoolAmountShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodePool)) {
+    if (!$dara.isNull(tmpReq.nodePool)) {
       request.nodePoolShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePool, "NodePool", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.nodePoolShrink)) {
+    if (!$dara.isNull(request.nodePoolShrink)) {
       body["NodePool"] = request.nodePoolShrink;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyNodePoolAmount",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13090,12 +14462,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyNodePoolAmountResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAmountResponse({}));
-    } else {
-      return $tea.cast<ModifyNodePoolAmountResponse>(await this.execute(params, req, runtime), new ModifyNodePoolAmountResponse({}));
-    }
-
+    return $dara.cast<ModifyNodePoolAmountResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAmountResponse({}));
   }
 
   /**
@@ -13105,7 +14472,7 @@ export default class Client extends OpenApi {
    * @returns ModifyNodePoolAmountResponse
    */
   async modifyNodePoolAmount(request: ModifyNodePoolAmountRequest): Promise<ModifyNodePoolAmountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyNodePoolAmountWithOptions(request, runtime);
   }
 
@@ -13114,39 +14481,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyNodePoolAttributeResponse
    */
-  async modifyNodePoolAttributeWithOptions(tmpReq: ModifyNodePoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolAttributeResponse> {
-    Util.validateModel(tmpReq);
+  async modifyNodePoolAttributeWithOptions(tmpReq: ModifyNodePoolAttributeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyNodePoolAttributeResponse> {
+    tmpReq.validate();
     let request = new ModifyNodePoolAttributeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.nodePoolStrategy)) {
+    if (!$dara.isNull(tmpReq.nodePoolStrategy)) {
       request.nodePoolStrategyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodePoolStrategy, "NodePoolStrategy", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.nodeCapacity)) {
+    if (!$dara.isNull(request.nodeCapacity)) {
       body["NodeCapacity"] = request.nodeCapacity;
     }
 
-    if (!Util.isUnset(request.nodePoolStrategyShrink)) {
+    if (!$dara.isNull(request.nodePoolStrategyShrink)) {
       body["NodePoolStrategy"] = request.nodePoolStrategyShrink;
     }
 
-    if (!Util.isUnset(request.poolId)) {
+    if (!$dara.isNull(request.poolId)) {
       body["PoolId"] = request.poolId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyNodePoolAttribute",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13157,12 +14524,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyNodePoolAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
-    } else {
-      return $tea.cast<ModifyNodePoolAttributeResponse>(await this.execute(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
-    }
-
+    return $dara.cast<ModifyNodePoolAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
   }
 
   /**
@@ -13170,7 +14532,7 @@ export default class Client extends OpenApi {
    * @returns ModifyNodePoolAttributeResponse
    */
   async modifyNodePoolAttribute(request: ModifyNodePoolAttributeRequest): Promise<ModifyNodePoolAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyNodePoolAttributeWithOptions(request, runtime);
   }
 
@@ -13181,17 +14543,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyTenantConfigResponse
    */
-  async modifyTenantConfigWithOptions(request: ModifyTenantConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantConfigResponse> {
-    Util.validateModel(request);
+  async modifyTenantConfigWithOptions(request: ModifyTenantConfigRequest, runtime: $dara.RuntimeOptions): Promise<ModifyTenantConfigResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupExpireRemind)) {
+    if (!$dara.isNull(request.appInstanceGroupExpireRemind)) {
       body["AppInstanceGroupExpireRemind"] = request.appInstanceGroupExpireRemind;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyTenantConfig",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13202,12 +14564,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyTenantConfigResponse>(await this.callApi(params, req, runtime), new ModifyTenantConfigResponse({}));
-    } else {
-      return $tea.cast<ModifyTenantConfigResponse>(await this.execute(params, req, runtime), new ModifyTenantConfigResponse({}));
-    }
-
+    return $dara.cast<ModifyTenantConfigResponse>(await this.callApi(params, req, runtime), new ModifyTenantConfigResponse({}));
   }
 
   /**
@@ -13217,7 +14574,7 @@ export default class Client extends OpenApi {
    * @returns ModifyTenantConfigResponse
    */
   async modifyTenantConfig(request: ModifyTenantConfigRequest): Promise<ModifyTenantConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyTenantConfigWithOptions(request, runtime);
   }
 
@@ -13228,29 +14585,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PageListAppInstanceGroupUserResponse
    */
-  async pageListAppInstanceGroupUserWithOptions(request: PageListAppInstanceGroupUserRequest, runtime: $Util.RuntimeOptions): Promise<PageListAppInstanceGroupUserResponse> {
-    Util.validateModel(request);
+  async pageListAppInstanceGroupUserWithOptions(request: PageListAppInstanceGroupUserRequest, runtime: $dara.RuntimeOptions): Promise<PageListAppInstanceGroupUserResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PageListAppInstanceGroupUser",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13261,12 +14618,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<PageListAppInstanceGroupUserResponse>(await this.callApi(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
-    } else {
-      return $tea.cast<PageListAppInstanceGroupUserResponse>(await this.execute(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
-    }
-
+    return $dara.cast<PageListAppInstanceGroupUserResponse>(await this.callApi(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
   }
 
   /**
@@ -13276,7 +14628,7 @@ export default class Client extends OpenApi {
    * @returns PageListAppInstanceGroupUserResponse
    */
   async pageListAppInstanceGroupUser(request: PageListAppInstanceGroupUserRequest): Promise<PageListAppInstanceGroupUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pageListAppInstanceGroupUserWithOptions(request, runtime);
   }
 
@@ -13290,37 +14642,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewAppInstanceGroupResponse
    */
-  async renewAppInstanceGroupWithOptions(request: RenewAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewAppInstanceGroupResponse> {
-    Util.validateModel(request);
+  async renewAppInstanceGroupWithOptions(request: RenewAppInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<RenewAppInstanceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.autoPay)) {
+    if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.promotionId)) {
+    if (!$dara.isNull(request.promotionId)) {
       query["PromotionId"] = request.promotionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RenewAppInstanceGroup",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13331,12 +14683,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RenewAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new RenewAppInstanceGroupResponse({}));
-    } else {
-      return $tea.cast<RenewAppInstanceGroupResponse>(await this.execute(params, req, runtime), new RenewAppInstanceGroupResponse({}));
-    }
-
+    return $dara.cast<RenewAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new RenewAppInstanceGroupResponse({}));
   }
 
   /**
@@ -13349,7 +14696,7 @@ export default class Client extends OpenApi {
    * @returns RenewAppInstanceGroupResponse
    */
   async renewAppInstanceGroup(request: RenewAppInstanceGroupRequest): Promise<RenewAppInstanceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.renewAppInstanceGroupWithOptions(request, runtime);
   }
 
@@ -13360,25 +14707,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagCloudResourcesResponse
    */
-  async tagCloudResourcesWithOptions(request: TagCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagCloudResourcesResponse> {
-    Util.validateModel(request);
+  async tagCloudResourcesWithOptions(request: TagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagCloudResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceIds)) {
+    if (!$dara.isNull(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       body["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagCloudResources",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13389,12 +14736,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<TagCloudResourcesResponse>(await this.callApi(params, req, runtime), new TagCloudResourcesResponse({}));
-    } else {
-      return $tea.cast<TagCloudResourcesResponse>(await this.execute(params, req, runtime), new TagCloudResourcesResponse({}));
-    }
-
+    return $dara.cast<TagCloudResourcesResponse>(await this.callApi(params, req, runtime), new TagCloudResourcesResponse({}));
   }
 
   /**
@@ -13404,7 +14746,7 @@ export default class Client extends OpenApi {
    * @returns TagCloudResourcesResponse
    */
   async tagCloudResources(request: TagCloudResourcesRequest): Promise<TagCloudResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagCloudResourcesWithOptions(request, runtime);
   }
 
@@ -13415,33 +14757,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindResponse
    */
-  async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
-    Util.validateModel(request);
+  async unbindWithOptions(request: UnbindRequest, runtime: $dara.RuntimeOptions): Promise<UnbindResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       body["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.appInstanceId)) {
+    if (!$dara.isNull(request.appInstanceId)) {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
-    if (!Util.isUnset(request.appInstancePersistentId)) {
+    if (!$dara.isNull(request.appInstancePersistentId)) {
       body["AppInstancePersistentId"] = request.appInstancePersistentId;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "Unbind",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13452,12 +14794,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
-    } else {
-      return $tea.cast<UnbindResponse>(await this.execute(params, req, runtime), new UnbindResponse({}));
-    }
-
+    return $dara.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
   }
 
   /**
@@ -13467,7 +14804,7 @@ export default class Client extends OpenApi {
    * @returns UnbindResponse
    */
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindWithOptions(request, runtime);
   }
 
@@ -13478,25 +14815,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagCloudResourcesResponse
    */
-  async untagCloudResourcesWithOptions(request: UntagCloudResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagCloudResourcesResponse> {
-    Util.validateModel(request);
+  async untagCloudResourcesWithOptions(request: UntagCloudResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagCloudResourcesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceIds)) {
+    if (!$dara.isNull(request.resourceIds)) {
       body["ResourceIds"] = request.resourceIds;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKeys)) {
+    if (!$dara.isNull(request.tagKeys)) {
       body["TagKeys"] = request.tagKeys;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagCloudResources",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13507,12 +14844,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UntagCloudResourcesResponse>(await this.callApi(params, req, runtime), new UntagCloudResourcesResponse({}));
-    } else {
-      return $tea.cast<UntagCloudResourcesResponse>(await this.execute(params, req, runtime), new UntagCloudResourcesResponse({}));
-    }
-
+    return $dara.cast<UntagCloudResourcesResponse>(await this.callApi(params, req, runtime), new UntagCloudResourcesResponse({}));
   }
 
   /**
@@ -13522,7 +14854,7 @@ export default class Client extends OpenApi {
    * @returns UntagCloudResourcesResponse
    */
   async untagCloudResources(request: UntagCloudResourcesRequest): Promise<UntagCloudResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagCloudResourcesWithOptions(request, runtime);
   }
 
@@ -13538,29 +14870,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAppInstanceGroupImageResponse
    */
-  async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
-    Util.validateModel(request);
+  async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appCenterImageId)) {
+    if (!$dara.isNull(request.appCenterImageId)) {
       query["AppCenterImageId"] = request.appCenterImageId;
     }
 
-    if (!Util.isUnset(request.appInstanceGroupId)) {
+    if (!$dara.isNull(request.appInstanceGroupId)) {
       query["AppInstanceGroupId"] = request.appInstanceGroupId;
     }
 
-    if (!Util.isUnset(request.bizRegionId)) {
+    if (!$dara.isNull(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAppInstanceGroupImage",
       version: "2021-09-01",
       protocol: "HTTPS",
@@ -13571,12 +14903,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateAppInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
-    } else {
-      return $tea.cast<UpdateAppInstanceGroupImageResponse>(await this.execute(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
-    }
-
+    return $dara.cast<UpdateAppInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
   }
 
   /**
@@ -13591,7 +14918,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAppInstanceGroupImageResponse
    */
   async updateAppInstanceGroupImage(request: UpdateAppInstanceGroupImageRequest): Promise<UpdateAppInstanceGroupImageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAppInstanceGroupImageWithOptions(request, runtime);
   }
 
