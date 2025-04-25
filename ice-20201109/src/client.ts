@@ -10121,6 +10121,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
+  flowFailover?: string;
   /**
    * @remarks
    * The flow ID.
@@ -10156,6 +10157,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      flowFailover: 'FlowFailover',
       flowId: 'FlowId',
       flowName: 'FlowName',
       flowStatus: 'FlowStatus',
@@ -10166,6 +10168,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      flowFailover: 'string',
       flowId: 'string',
       flowName: 'string',
       flowStatus: 'string',
@@ -10183,6 +10186,15 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
 }
 
 export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
+  backupCidrs?: string;
+  backupCreateTime?: string;
+  backupInputName?: string;
+  backupInputStatus?: string;
+  backupInputUrl?: string;
+  backupMaxBitrate?: number;
+  backupSrtLatency?: number;
+  backupSrtPassphrase?: string;
+  backupSrtPbkeyLen?: number;
   /**
    * @remarks
    * The IP address whitelist in CIDR format. CIDR blocks are separated with commas (,).
@@ -10223,6 +10235,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
    * RTMP-PUSH
    */
   inputProtocol?: string;
+  inputStatus?: string;
   /**
    * @remarks
    * The source URL.
@@ -10288,10 +10301,20 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   srtPbkeyLen?: number;
   static names(): { [key: string]: string } {
     return {
+      backupCidrs: 'BackupCidrs',
+      backupCreateTime: 'BackupCreateTime',
+      backupInputName: 'BackupInputName',
+      backupInputStatus: 'BackupInputStatus',
+      backupInputUrl: 'BackupInputUrl',
+      backupMaxBitrate: 'BackupMaxBitrate',
+      backupSrtLatency: 'BackupSrtLatency',
+      backupSrtPassphrase: 'BackupSrtPassphrase',
+      backupSrtPbkeyLen: 'BackupSrtPbkeyLen',
       cidrs: 'Cidrs',
       createTime: 'CreateTime',
       inputName: 'InputName',
       inputProtocol: 'InputProtocol',
+      inputStatus: 'InputStatus',
       inputUrl: 'InputUrl',
       maxBitrate: 'MaxBitrate',
       pairFlowId: 'PairFlowId',
@@ -10304,10 +10327,20 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backupCidrs: 'string',
+      backupCreateTime: 'string',
+      backupInputName: 'string',
+      backupInputStatus: 'string',
+      backupInputUrl: 'string',
+      backupMaxBitrate: 'number',
+      backupSrtLatency: 'number',
+      backupSrtPassphrase: 'string',
+      backupSrtPbkeyLen: 'number',
       cidrs: 'string',
       createTime: 'string',
       inputName: 'string',
       inputProtocol: 'string',
+      inputStatus: 'string',
       inputUrl: 'string',
       maxBitrate: 'number',
       pairFlowId: 'string',
@@ -10344,6 +10377,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
+  forbid?: string;
   /**
    * @remarks
    * The output name.
@@ -10435,6 +10469,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
     return {
       cidrs: 'Cidrs',
       createTime: 'CreateTime',
+      forbid: 'Forbid',
       outputName: 'OutputName',
       outputProtocol: 'OutputProtocol',
       outputUrl: 'OutputUrl',
@@ -10451,6 +10486,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
     return {
       cidrs: 'string',
       createTime: 'string',
+      forbid: 'string',
       outputName: 'string',
       outputProtocol: 'string',
       outputUrl: 'string',
@@ -61648,15 +61684,18 @@ export class DeleteMediaConnectFlowInputRequest extends $dara.Model {
    * 0381f478-7d53-4076-9d5f-27680a6f73e7
    */
   flowId?: string;
+  inputName?: string;
   static names(): { [key: string]: string } {
     return {
       flowId: 'FlowId',
+      inputName: 'InputName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       flowId: 'string',
+      inputName: 'string',
     };
   }
 
@@ -99864,6 +99903,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
    * rtmp://pull.test.alivecdn.com/live/alitest
    */
   inputFromUrl?: string;
+  inputName?: string;
   /**
    * @remarks
    * The maximum bitrate. Unit: bit/s.
@@ -99901,6 +99941,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
       cidrs: 'Cidrs',
       flowId: 'FlowId',
       inputFromUrl: 'InputFromUrl',
+      inputName: 'InputName',
       maxBitrate: 'MaxBitrate',
       srtLatency: 'SrtLatency',
       srtPassphrase: 'SrtPassphrase',
@@ -99913,6 +99954,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
       cidrs: 'string',
       flowId: 'string',
       inputFromUrl: 'string',
+      inputName: 'string',
       maxBitrate: 'number',
       srtLatency: 'number',
       srtPassphrase: 'string',
@@ -106531,6 +106573,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.flowId)) {
       query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.inputName)) {
+      query["InputName"] = request.inputName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -120596,6 +120642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.inputFromUrl)) {
       query["InputFromUrl"] = request.inputFromUrl;
+    }
+
+    if (!$dara.isNull(request.inputName)) {
+      query["InputName"] = request.inputName;
     }
 
     if (!$dara.isNull(request.maxBitrate)) {
