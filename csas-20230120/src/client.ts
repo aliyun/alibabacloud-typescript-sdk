@@ -260,6 +260,7 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
    * approval-schema-090134f1ebff****
    */
   domainWhitelistSchemaId?: string;
+  endpointHardeningSchemaId?: string;
   /**
    * @example
    * approval-schema-090134f1ebff****
@@ -270,6 +271,7 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
    * approval-schema-090134f1ebff****
    */
   softwareBlockSchemaId?: string;
+  softwareHardeningSchemaId?: string;
   static names(): { [key: string]: string } {
     return {
       appUninstallSchemaId: 'AppUninstallSchemaId',
@@ -277,8 +279,10 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
       dlpSendSchemaId: 'DlpSendSchemaId',
       domainBlacklistSchemaId: 'DomainBlacklistSchemaId',
       domainWhitelistSchemaId: 'DomainWhitelistSchemaId',
+      endpointHardeningSchemaId: 'EndpointHardeningSchemaId',
       peripheralBlockSchemaId: 'PeripheralBlockSchemaId',
       softwareBlockSchemaId: 'SoftwareBlockSchemaId',
+      softwareHardeningSchemaId: 'SoftwareHardeningSchemaId',
     };
   }
 
@@ -289,8 +293,10 @@ export class CreateApprovalProcessRequestMatchSchemas extends $dara.Model {
       dlpSendSchemaId: 'string',
       domainBlacklistSchemaId: 'string',
       domainWhitelistSchemaId: 'string',
+      endpointHardeningSchemaId: 'string',
       peripheralBlockSchemaId: 'string',
       softwareBlockSchemaId: 'string',
+      softwareHardeningSchemaId: 'string',
     };
   }
 
@@ -468,6 +474,35 @@ export class CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
   }
 }
 
+export class CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
   policyIds?: string[];
   /**
@@ -564,6 +599,35 @@ export class CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
   }
 }
 
+export class CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   appUninstallPolicies?: CreateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
@@ -576,6 +640,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   dlpSendPolicies?: CreateApprovalProcessResponseBodyProcessDlpSendPolicies;
   domainBlacklistPolicies?: CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   domainWhitelistPolicies?: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  endpointHardeningPolicies?: CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   peripheralBlockPolicies?: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
   /**
    * @example
@@ -585,6 +650,7 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
   processName?: string;
   processNodes?: CreateApprovalProcessResponseBodyProcessProcessNodes[][];
   softwareBlockPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  softwareHardeningPolicies?: CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
@@ -594,11 +660,13 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: 'DlpSendPolicies',
       domainBlacklistPolicies: 'DomainBlacklistPolicies',
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      endpointHardeningPolicies: 'EndpointHardeningPolicies',
       peripheralBlockPolicies: 'PeripheralBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
       softwareBlockPolicies: 'SoftwareBlockPolicies',
+      softwareHardeningPolicies: 'SoftwareHardeningPolicies',
     };
   }
 
@@ -611,11 +679,13 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: CreateApprovalProcessResponseBodyProcessDlpSendPolicies,
       domainBlacklistPolicies: CreateApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
       domainWhitelistPolicies: CreateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      endpointHardeningPolicies: CreateApprovalProcessResponseBodyProcessEndpointHardeningPolicies,
       peripheralBlockPolicies: CreateApprovalProcessResponseBodyProcessPeripheralBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': CreateApprovalProcessResponseBodyProcessProcessNodes } },
       softwareBlockPolicies: CreateApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+      softwareHardeningPolicies: CreateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies,
     };
   }
 
@@ -635,6 +705,9 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
     if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
       (this.domainWhitelistPolicies as any).validate();
     }
+    if(this.endpointHardeningPolicies && typeof (this.endpointHardeningPolicies as any).validate === 'function') {
+      (this.endpointHardeningPolicies as any).validate();
+    }
     if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
       (this.peripheralBlockPolicies as any).validate();
     }
@@ -643,6 +716,9 @@ export class CreateApprovalProcessResponseBodyProcess extends $dara.Model {
     }
     if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
       (this.softwareBlockPolicies as any).validate();
+    }
+    if(this.softwareHardeningPolicies && typeof (this.softwareHardeningPolicies as any).validate === 'function') {
+      (this.softwareHardeningPolicies as any).validate();
     }
     super.validate();
   }
@@ -1886,6 +1962,35 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extend
   }
 }
 
+export class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies extends $dara.Model {
   policyIds?: string[];
   /**
@@ -1982,6 +2087,35 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends 
   }
 }
 
+export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   appUninstallPolicies?: GetApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
@@ -1994,6 +2128,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   dlpSendPolicies?: GetApprovalProcessResponseBodyProcessDlpSendPolicies;
   domainBlacklistPolicies?: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   domainWhitelistPolicies?: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  endpointHardeningPolicies?: GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   peripheralBlockPolicies?: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies;
   /**
    * @example
@@ -2003,6 +2138,7 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
   processName?: string;
   processNodes?: GetApprovalProcessResponseBodyProcessProcessNodes[][];
   softwareBlockPolicies?: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  softwareHardeningPolicies?: GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
@@ -2012,11 +2148,13 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: 'DlpSendPolicies',
       domainBlacklistPolicies: 'DomainBlacklistPolicies',
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      endpointHardeningPolicies: 'EndpointHardeningPolicies',
       peripheralBlockPolicies: 'PeripheralBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
       softwareBlockPolicies: 'SoftwareBlockPolicies',
+      softwareHardeningPolicies: 'SoftwareHardeningPolicies',
     };
   }
 
@@ -2029,11 +2167,13 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: GetApprovalProcessResponseBodyProcessDlpSendPolicies,
       domainBlacklistPolicies: GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
       domainWhitelistPolicies: GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      endpointHardeningPolicies: GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies,
       peripheralBlockPolicies: GetApprovalProcessResponseBodyProcessPeripheralBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': GetApprovalProcessResponseBodyProcessProcessNodes } },
       softwareBlockPolicies: GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+      softwareHardeningPolicies: GetApprovalProcessResponseBodyProcessSoftwareHardeningPolicies,
     };
   }
 
@@ -2053,6 +2193,9 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
     if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
       (this.domainWhitelistPolicies as any).validate();
     }
+    if(this.endpointHardeningPolicies && typeof (this.endpointHardeningPolicies as any).validate === 'function') {
+      (this.endpointHardeningPolicies as any).validate();
+    }
     if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
       (this.peripheralBlockPolicies as any).validate();
     }
@@ -2061,6 +2204,9 @@ export class GetApprovalProcessResponseBodyProcess extends $dara.Model {
     }
     if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
       (this.softwareBlockPolicies as any).validate();
+    }
+    if(this.softwareHardeningPolicies && typeof (this.softwareHardeningPolicies as any).validate === 'function') {
+      (this.softwareHardeningPolicies as any).validate();
     }
     super.validate();
   }
@@ -4001,6 +4147,35 @@ export class ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies e
   }
 }
 
+export class ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies extends $dara.Model {
   policyIds?: string[];
   /**
@@ -4097,6 +4272,35 @@ export class ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies ext
   }
 }
 
+export class ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   appUninstallPolicies?: ListApprovalProcessesResponseBodyProcessesAppUninstallPolicies;
   /**
@@ -4109,6 +4313,7 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   dlpSendPolicies?: ListApprovalProcessesResponseBodyProcessesDlpSendPolicies;
   domainBlacklistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies;
   domainWhitelistPolicies?: ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies;
+  endpointHardeningPolicies?: ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies;
   peripheralBlockPolicies?: ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies;
   /**
    * @example
@@ -4118,6 +4323,7 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
   processName?: string;
   processNodes?: ListApprovalProcessesResponseBodyProcessesProcessNodes[][];
   softwareBlockPolicies?: ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies;
+  softwareHardeningPolicies?: ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
@@ -4127,11 +4333,13 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
       dlpSendPolicies: 'DlpSendPolicies',
       domainBlacklistPolicies: 'DomainBlacklistPolicies',
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      endpointHardeningPolicies: 'EndpointHardeningPolicies',
       peripheralBlockPolicies: 'PeripheralBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
       softwareBlockPolicies: 'SoftwareBlockPolicies',
+      softwareHardeningPolicies: 'SoftwareHardeningPolicies',
     };
   }
 
@@ -4144,11 +4352,13 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
       dlpSendPolicies: ListApprovalProcessesResponseBodyProcessesDlpSendPolicies,
       domainBlacklistPolicies: ListApprovalProcessesResponseBodyProcessesDomainBlacklistPolicies,
       domainWhitelistPolicies: ListApprovalProcessesResponseBodyProcessesDomainWhitelistPolicies,
+      endpointHardeningPolicies: ListApprovalProcessesResponseBodyProcessesEndpointHardeningPolicies,
       peripheralBlockPolicies: ListApprovalProcessesResponseBodyProcessesPeripheralBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': ListApprovalProcessesResponseBodyProcessesProcessNodes } },
       softwareBlockPolicies: ListApprovalProcessesResponseBodyProcessesSoftwareBlockPolicies,
+      softwareHardeningPolicies: ListApprovalProcessesResponseBodyProcessesSoftwareHardeningPolicies,
     };
   }
 
@@ -4168,6 +4378,9 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
     if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
       (this.domainWhitelistPolicies as any).validate();
     }
+    if(this.endpointHardeningPolicies && typeof (this.endpointHardeningPolicies as any).validate === 'function') {
+      (this.endpointHardeningPolicies as any).validate();
+    }
     if(this.peripheralBlockPolicies && typeof (this.peripheralBlockPolicies as any).validate === 'function') {
       (this.peripheralBlockPolicies as any).validate();
     }
@@ -4176,6 +4389,9 @@ export class ListApprovalProcessesResponseBodyProcesses extends $dara.Model {
     }
     if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
       (this.softwareBlockPolicies as any).validate();
+    }
+    if(this.softwareHardeningPolicies && typeof (this.softwareHardeningPolicies as any).validate === 'function') {
+      (this.softwareHardeningPolicies as any).validate();
     }
     super.validate();
   }
@@ -8421,6 +8637,7 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
    * approval-schema-090134f1ebff****
    */
   domainWhitelistSchemaId?: string;
+  endpointHardeningSchemaId?: string;
   /**
    * @example
    * approval-schema-090134f1ebff****
@@ -8431,6 +8648,7 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
    * approval-schema-090134f1ebff****
    */
   softwareBlockSchemaId?: string;
+  softwareHardeningSchemaId?: string;
   static names(): { [key: string]: string } {
     return {
       appUninstallSchemaId: 'AppUninstallSchemaId',
@@ -8438,8 +8656,10 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
       dlpSendSchemaId: 'DlpSendSchemaId',
       domainBlacklistSchemaId: 'DomainBlacklistSchemaId',
       domainWhitelistSchemaId: 'DomainWhitelistSchemaId',
+      endpointHardeningSchemaId: 'EndpointHardeningSchemaId',
       peripheralBlockSchemaId: 'PeripheralBlockSchemaId',
       softwareBlockSchemaId: 'SoftwareBlockSchemaId',
+      softwareHardeningSchemaId: 'SoftwareHardeningSchemaId',
     };
   }
 
@@ -8450,8 +8670,10 @@ export class UpdateApprovalProcessRequestMatchSchemas extends $dara.Model {
       dlpSendSchemaId: 'string',
       domainBlacklistSchemaId: 'string',
       domainWhitelistSchemaId: 'string',
+      endpointHardeningSchemaId: 'string',
       peripheralBlockSchemaId: 'string',
       softwareBlockSchemaId: 'string',
+      softwareHardeningSchemaId: 'string',
     };
   }
 
@@ -8629,6 +8851,35 @@ export class UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies ext
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies extends $dara.Model {
   policyIds?: string[];
   /**
@@ -8725,6 +8976,35 @@ export class UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies exten
   }
 }
 
+export class UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies extends $dara.Model {
+  policyIds?: string[];
+  schemaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyIds: 'PolicyIds',
+      schemaId: 'SchemaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      schemaId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   appUninstallPolicies?: UpdateApprovalProcessResponseBodyProcessAppUninstallPolicies;
   /**
@@ -8737,6 +9017,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   dlpSendPolicies?: UpdateApprovalProcessResponseBodyProcessDlpSendPolicies;
   domainBlacklistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies;
   domainWhitelistPolicies?: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies;
+  endpointHardeningPolicies?: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies;
   peripheraBlockPolicies?: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies;
   /**
    * @example
@@ -8746,6 +9027,7 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
   processName?: string;
   processNodes?: UpdateApprovalProcessResponseBodyProcessProcessNodes[][];
   softwareBlockPolicies?: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies;
+  softwareHardeningPolicies?: UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies;
   static names(): { [key: string]: string } {
     return {
       appUninstallPolicies: 'AppUninstallPolicies',
@@ -8755,11 +9037,13 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: 'DlpSendPolicies',
       domainBlacklistPolicies: 'DomainBlacklistPolicies',
       domainWhitelistPolicies: 'DomainWhitelistPolicies',
+      endpointHardeningPolicies: 'EndpointHardeningPolicies',
       peripheraBlockPolicies: 'PeripheraBlockPolicies',
       processId: 'ProcessId',
       processName: 'ProcessName',
       processNodes: 'ProcessNodes',
       softwareBlockPolicies: 'SoftwareBlockPolicies',
+      softwareHardeningPolicies: 'SoftwareHardeningPolicies',
     };
   }
 
@@ -8772,11 +9056,13 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
       dlpSendPolicies: UpdateApprovalProcessResponseBodyProcessDlpSendPolicies,
       domainBlacklistPolicies: UpdateApprovalProcessResponseBodyProcessDomainBlacklistPolicies,
       domainWhitelistPolicies: UpdateApprovalProcessResponseBodyProcessDomainWhitelistPolicies,
+      endpointHardeningPolicies: UpdateApprovalProcessResponseBodyProcessEndpointHardeningPolicies,
       peripheraBlockPolicies: UpdateApprovalProcessResponseBodyProcessPeripheraBlockPolicies,
       processId: 'string',
       processName: 'string',
       processNodes: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': UpdateApprovalProcessResponseBodyProcessProcessNodes } },
       softwareBlockPolicies: UpdateApprovalProcessResponseBodyProcessSoftwareBlockPolicies,
+      softwareHardeningPolicies: UpdateApprovalProcessResponseBodyProcessSoftwareHardeningPolicies,
     };
   }
 
@@ -8796,6 +9082,9 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
     if(this.domainWhitelistPolicies && typeof (this.domainWhitelistPolicies as any).validate === 'function') {
       (this.domainWhitelistPolicies as any).validate();
     }
+    if(this.endpointHardeningPolicies && typeof (this.endpointHardeningPolicies as any).validate === 'function') {
+      (this.endpointHardeningPolicies as any).validate();
+    }
     if(this.peripheraBlockPolicies && typeof (this.peripheraBlockPolicies as any).validate === 'function') {
       (this.peripheraBlockPolicies as any).validate();
     }
@@ -8804,6 +9093,9 @@ export class UpdateApprovalProcessResponseBodyProcess extends $dara.Model {
     }
     if(this.softwareBlockPolicies && typeof (this.softwareBlockPolicies as any).validate === 'function') {
       (this.softwareBlockPolicies as any).validate();
+    }
+    if(this.softwareHardeningPolicies && typeof (this.softwareHardeningPolicies as any).validate === 'function') {
+      (this.softwareHardeningPolicies as any).validate();
     }
     super.validate();
   }
