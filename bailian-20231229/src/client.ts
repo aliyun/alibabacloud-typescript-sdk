@@ -8321,6 +8321,8 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
    * The list of primary key IDs of the category.
    */
   categoryIds?: string[];
+  chunkMode?: string;
+  chunkSize?: number;
   /**
    * @remarks
    * The list of the primary key IDs of the documents.
@@ -8336,6 +8338,8 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
    * 79c0aly8zw
    */
   indexId?: string;
+  overlapSize?: number;
+  separator?: string;
   /**
    * @remarks
    * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
@@ -8354,8 +8358,12 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categoryIds: 'CategoryIds',
+      chunkMode: 'ChunkMode',
+      chunkSize: 'ChunkSize',
       documentIds: 'DocumentIds',
       indexId: 'IndexId',
+      overlapSize: 'OverlapSize',
+      separator: 'Separator',
       sourceType: 'SourceType',
     };
   }
@@ -8363,8 +8371,12 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categoryIds: { 'type': 'array', 'itemType': 'string' },
+      chunkMode: 'string',
+      chunkSize: 'number',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       indexId: 'string',
+      overlapSize: 'number',
+      separator: 'string',
       sourceType: 'string',
     };
   }
@@ -8390,6 +8402,8 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
    * The list of primary key IDs of the category.
    */
   categoryIdsShrink?: string;
+  chunkMode?: string;
+  chunkSize?: number;
   /**
    * @remarks
    * The list of the primary key IDs of the documents.
@@ -8405,6 +8419,8 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
    * 79c0aly8zw
    */
   indexId?: string;
+  overlapSize?: number;
+  separator?: string;
   /**
    * @remarks
    * The data type of [Data Management](https://bailian.console.aliyun.com/#/data-center). For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values:
@@ -8423,8 +8439,12 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categoryIdsShrink: 'CategoryIds',
+      chunkMode: 'ChunkMode',
+      chunkSize: 'ChunkSize',
       documentIdsShrink: 'DocumentIds',
       indexId: 'IndexId',
+      overlapSize: 'OverlapSize',
+      separator: 'Separator',
       sourceType: 'SourceType',
     };
   }
@@ -8432,8 +8452,12 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categoryIdsShrink: 'string',
+      chunkMode: 'string',
+      chunkSize: 'number',
       documentIdsShrink: 'string',
       indexId: 'string',
+      overlapSize: 'number',
+      separator: 'string',
       sourceType: 'string',
     };
   }
@@ -11306,12 +11330,28 @@ export default class Client extends OpenApi {
       query["CategoryIds"] = request.categoryIdsShrink;
     }
 
+    if (!$dara.isNull(request.chunkMode)) {
+      query["ChunkMode"] = request.chunkMode;
+    }
+
+    if (!$dara.isNull(request.chunkSize)) {
+      query["ChunkSize"] = request.chunkSize;
+    }
+
     if (!$dara.isNull(request.documentIdsShrink)) {
       query["DocumentIds"] = request.documentIdsShrink;
     }
 
     if (!$dara.isNull(request.indexId)) {
       query["IndexId"] = request.indexId;
+    }
+
+    if (!$dara.isNull(request.overlapSize)) {
+      query["OverlapSize"] = request.overlapSize;
+    }
+
+    if (!$dara.isNull(request.separator)) {
+      query["Separator"] = request.separator;
     }
 
     if (!$dara.isNull(request.sourceType)) {
