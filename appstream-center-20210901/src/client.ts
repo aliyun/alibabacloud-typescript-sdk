@@ -1103,6 +1103,35 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
   }
 }
 
+export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $dara.Model {
+  key?: string;
+  scope?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      scope: 'Scope',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      scope: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   amount?: number;
   /**
@@ -1241,6 +1270,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * PUBLISHED
    */
   status?: string;
+  tags?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -1276,6 +1306,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
       skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -1314,6 +1345,7 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
       skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags },
     };
   }
 
@@ -1326,6 +1358,9 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
     }
     if(this.otaInfo && typeof (this.otaInfo as any).validate === 'function') {
       (this.otaInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
