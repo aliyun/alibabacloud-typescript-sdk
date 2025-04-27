@@ -1383,6 +1383,32 @@ export class GetAICoachScriptResponseBodySampleDialogueList extends $dara.Model 
   }
 }
 
+export class GetAICoachScriptResponseBodyScoreConfig extends $dara.Model {
+  enabled?: boolean;
+  passScore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      passScore: 'passScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      passScore: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
   /**
    * @example
@@ -7487,6 +7513,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
    */
   requestId?: string;
   sampleDialogueList?: GetAICoachScriptResponseBodySampleDialogueList[];
+  scoreConfig?: GetAICoachScriptResponseBodyScoreConfig;
   /**
    * @example
    * 1
@@ -7545,6 +7572,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       points: 'points',
       requestId: 'requestId',
       sampleDialogueList: 'sampleDialogueList',
+      scoreConfig: 'scoreConfig',
       scriptRecordId: 'scriptRecordId',
       sparringTipContent: 'sparringTipContent',
       sparringTipTitle: 'sparringTipTitle',
@@ -7586,6 +7614,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       points: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPoints },
       requestId: 'string',
       sampleDialogueList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodySampleDialogueList },
+      scoreConfig: GetAICoachScriptResponseBodyScoreConfig,
       scriptRecordId: 'string',
       sparringTipContent: 'string',
       sparringTipTitle: 'string',
@@ -7621,6 +7650,9 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.sampleDialogueList)) {
       $dara.Model.validateArray(this.sampleDialogueList);
+    }
+    if(this.scoreConfig && typeof (this.scoreConfig as any).validate === 'function') {
+      (this.scoreConfig as any).validate();
     }
     if(this.weights && typeof (this.weights as any).validate === 'function') {
       (this.weights as any).validate();
