@@ -1,13 +1,345 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
+export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $dara.Model {
+  /**
+   * @example
+   * simple
+   */
+  accountType?: string;
+  /**
+   * @example
+   * null
+   */
+  cookies?: string;
+  /**
+   * @example
+   * idp-hlyexfvwert9m8****
+   */
+  idpId?: string;
+  idpName?: string;
+  idpNameEN?: string;
+  idpProvider?: string;
+  /**
+   * @example
+   * true
+   */
+  jumpSwitch?: string;
+  /**
+   * @example
+   * SAML
+   */
+  ssoProtocol?: string;
+  ssoServiceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountType: 'AccountType',
+      cookies: 'Cookies',
+      idpId: 'IdpId',
+      idpName: 'IdpName',
+      idpNameEN: 'IdpNameEN',
+      idpProvider: 'IdpProvider',
+      jumpSwitch: 'JumpSwitch',
+      ssoProtocol: 'SsoProtocol',
+      ssoServiceUrl: 'SsoServiceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountType: 'string',
+      cookies: 'string',
+      idpId: 'string',
+      idpName: 'string',
+      idpNameEN: 'string',
+      idpProvider: 'string',
+      jumpSwitch: 'string',
+      ssoProtocol: 'string',
+      ssoServiceUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   */
+  accessType?: string;
+  /**
+   * @example
+   * cn-shanghai+dir-448204****
+   */
+  officeSiteId?: string;
+  /**
+   * @example
+   * 26842
+   */
+  providerId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  ssoServiceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      officeSiteId: 'OfficeSiteId',
+      providerId: 'ProviderId',
+      regionId: 'RegionId',
+      ssoServiceUrl: 'SsoServiceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      officeSiteId: 'string',
+      providerId: 'string',
+      regionId: 'string',
+      ssoServiceUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   */
+  accessType?: string;
+  /**
+   * @example
+   * Or09****
+   */
+  tenantAlias?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      tenantAlias: 'TenantAlias',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      tenantAlias: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyMfaTypeList extends $dara.Model {
+  name?: string;
+  stage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      stage: 'Stage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      stage: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyPasswordStrategy extends $dara.Model {
+  tenantAlternativeChars?: string[];
+  /**
+   * @example
+   * 12
+   */
+  tenantPasswordLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tenantAlternativeChars: 'TenantAlternativeChars',
+      tenantPasswordLength: 'TenantPasswordLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantAlternativeChars: { 'type': 'array', 'itemType': 'string' },
+      tenantPasswordLength: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tenantAlternativeChars)) {
+      $dara.Model.validateArray(this.tenantAlternativeChars);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyRiskVerifyInfo extends $dara.Model {
+  /**
+   * @example
+   * ppas***@aliyun.com
+   */
+  email?: string;
+  /**
+   * @example
+   * 12000
+   */
+  lastLockDuration?: number;
+  /**
+   * @example
+   * true
+   */
+  locked?: boolean;
+  /**
+   * @example
+   * 1826717****
+   */
+  phone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'Email',
+      lastLockDuration: 'LastLockDuration',
+      locked: 'Locked',
+      phone: 'Phone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      lastLockDuration: 'number',
+      locked: 'boolean',
+      phone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoginTokenResponseBodyTenantInfos extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   */
+  accessType?: string;
+  /**
+   * @example
+   * Up830***
+   */
+  tenantAlias?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      tenantAlias: 'TenantAlias',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      tenantAlias: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
+  /**
+   * @example
+   * be4be09e-cd00-4b4c-add7-11b4d8****
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * sts****
+   */
+  stsToken?: string;
+  /**
+   * @example
+   * 105552640689****
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      stsToken: 'StsToken',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      stsToken: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FindIdpListByLoginIdentifierRequest extends $dara.Model {
   availableFeatures?: { [key: string]: string };
   /**
    * @example
@@ -72,12 +404,22 @@ export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.availableFeatures) {
+      $dara.Model.validateMap(this.availableFeatures);
+    }
+    if(Array.isArray(this.supportTypes)) {
+      $dara.Model.validateArray(this.supportTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FindIdpListByLoginIdentifierShrinkRequest extends $tea.Model {
+export class FindIdpListByLoginIdentifierShrinkRequest extends $dara.Model {
   availableFeaturesShrink?: string;
   /**
    * @example
@@ -142,12 +484,19 @@ export class FindIdpListByLoginIdentifierShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.supportTypes)) {
+      $dara.Model.validateArray(this.supportTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FindIdpListByLoginIdentifierResponseBody extends $tea.Model {
+export class FindIdpListByLoginIdentifierResponseBody extends $dara.Model {
   idpInfos?: FindIdpListByLoginIdentifierResponseBodyIdpInfos[];
   officeSiteInfo?: FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo;
   popRegionConfig?: { [key: string]: string };
@@ -184,12 +533,28 @@ export class FindIdpListByLoginIdentifierResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.idpInfos)) {
+      $dara.Model.validateArray(this.idpInfos);
+    }
+    if(this.officeSiteInfo && typeof (this.officeSiteInfo as any).validate === 'function') {
+      (this.officeSiteInfo as any).validate();
+    }
+    if(this.popRegionConfig) {
+      $dara.Model.validateMap(this.popRegionConfig);
+    }
+    if(this.tenantAliasInfo && typeof (this.tenantAliasInfo as any).validate === 'function') {
+      (this.tenantAliasInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FindIdpListByLoginIdentifierResponse extends $tea.Model {
+export class FindIdpListByLoginIdentifierResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: FindIdpListByLoginIdentifierResponseBody;
@@ -209,12 +574,22 @@ export class FindIdpListByLoginIdentifierResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLoginTokenRequest extends $tea.Model {
+export class GetLoginTokenRequest extends $dara.Model {
   /**
    * @example
    * 182901
@@ -229,6 +604,7 @@ export class GetLoginTokenRequest extends $tea.Model {
    * 05967f80-6f51-46cb-a27c-****
    */
   clientId?: string;
+  clientName?: string;
   /**
    * @example
    * windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
@@ -345,6 +721,7 @@ export class GetLoginTokenRequest extends $tea.Model {
    * 321123
    */
   phoneVerifyCode?: string;
+  profileRegion?: string;
   /**
    * @example
    * cn-shanghai
@@ -385,6 +762,7 @@ export class GetLoginTokenRequest extends $tea.Model {
       authenticationCode: 'AuthenticationCode',
       availableFeatures: 'AvailableFeatures',
       clientId: 'ClientId',
+      clientName: 'ClientName',
       clientOS: 'ClientOS',
       clientType: 'ClientType',
       clientVersion: 'ClientVersion',
@@ -409,6 +787,7 @@ export class GetLoginTokenRequest extends $tea.Model {
       password: 'Password',
       phone: 'Phone',
       phoneVerifyCode: 'PhoneVerifyCode',
+      profileRegion: 'ProfileRegion',
       regionId: 'RegionId',
       sessionId: 'SessionId',
       ssoExtendsCookies: 'SsoExtendsCookies',
@@ -424,6 +803,7 @@ export class GetLoginTokenRequest extends $tea.Model {
       authenticationCode: 'string',
       availableFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       clientId: 'string',
+      clientName: 'string',
       clientOS: 'string',
       clientType: 'string',
       clientVersion: 'string',
@@ -448,6 +828,7 @@ export class GetLoginTokenRequest extends $tea.Model {
       password: 'string',
       phone: 'string',
       phoneVerifyCode: 'string',
+      profileRegion: 'string',
       regionId: 'string',
       sessionId: 'string',
       ssoExtendsCookies: 'string',
@@ -458,12 +839,19 @@ export class GetLoginTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.availableFeatures) {
+      $dara.Model.validateMap(this.availableFeatures);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLoginTokenShrinkRequest extends $tea.Model {
+export class GetLoginTokenShrinkRequest extends $dara.Model {
   /**
    * @example
    * 182901
@@ -478,6 +866,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
    * 05967f80-6f51-46cb-a27c-****
    */
   clientId?: string;
+  clientName?: string;
   /**
    * @example
    * windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
@@ -594,6 +983,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
    * 321123
    */
   phoneVerifyCode?: string;
+  profileRegion?: string;
   /**
    * @example
    * cn-shanghai
@@ -634,6 +1024,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
       authenticationCode: 'AuthenticationCode',
       availableFeaturesShrink: 'AvailableFeatures',
       clientId: 'ClientId',
+      clientName: 'ClientName',
       clientOS: 'ClientOS',
       clientType: 'ClientType',
       clientVersion: 'ClientVersion',
@@ -658,6 +1049,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
       password: 'Password',
       phone: 'Phone',
       phoneVerifyCode: 'PhoneVerifyCode',
+      profileRegion: 'ProfileRegion',
       regionId: 'RegionId',
       sessionId: 'SessionId',
       ssoExtendsCookies: 'SsoExtendsCookies',
@@ -673,6 +1065,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
       authenticationCode: 'string',
       availableFeaturesShrink: 'string',
       clientId: 'string',
+      clientName: 'string',
       clientOS: 'string',
       clientType: 'string',
       clientVersion: 'string',
@@ -697,6 +1090,7 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
       password: 'string',
       phone: 'string',
       phoneVerifyCode: 'string',
+      profileRegion: 'string',
       regionId: 'string',
       sessionId: 'string',
       ssoExtendsCookies: 'string',
@@ -707,12 +1101,16 @@ export class GetLoginTokenShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLoginTokenResponseBody extends $tea.Model {
+export class GetLoginTokenResponseBody extends $dara.Model {
   /**
    * @example
    * INTERNET
@@ -769,6 +1167,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
    * MFABind
    */
   nextStage?: string;
+  nickName?: string;
   officeSites?: string[];
   passwordStrategy?: GetLoginTokenResponseBodyPasswordStrategy;
   /**
@@ -843,6 +1242,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       loginToken: 'LoginToken',
       mfaTypeList: 'MfaTypeList',
       nextStage: 'NextStage',
+      nickName: 'NickName',
       officeSites: 'OfficeSites',
       passwordStrategy: 'PasswordStrategy',
       phone: 'Phone',
@@ -876,6 +1276,7 @@ export class GetLoginTokenResponseBody extends $tea.Model {
       loginToken: 'string',
       mfaTypeList: { 'type': 'array', 'itemType': GetLoginTokenResponseBodyMfaTypeList },
       nextStage: 'string',
+      nickName: 'string',
       officeSites: { 'type': 'array', 'itemType': 'string' },
       passwordStrategy: GetLoginTokenResponseBodyPasswordStrategy,
       phone: 'string',
@@ -895,12 +1296,34 @@ export class GetLoginTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.mfaTypeList)) {
+      $dara.Model.validateArray(this.mfaTypeList);
+    }
+    if(Array.isArray(this.officeSites)) {
+      $dara.Model.validateArray(this.officeSites);
+    }
+    if(this.passwordStrategy && typeof (this.passwordStrategy as any).validate === 'function') {
+      (this.passwordStrategy as any).validate();
+    }
+    if(this.props) {
+      $dara.Model.validateMap(this.props);
+    }
+    if(this.riskVerifyInfo && typeof (this.riskVerifyInfo as any).validate === 'function') {
+      (this.riskVerifyInfo as any).validate();
+    }
+    if(Array.isArray(this.tenantInfos)) {
+      $dara.Model.validateArray(this.tenantInfos);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLoginTokenResponse extends $tea.Model {
+export class GetLoginTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetLoginTokenResponseBody;
@@ -920,12 +1343,22 @@ export class GetLoginTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStsTokenRequest extends $tea.Model {
+export class GetStsTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -981,12 +1414,16 @@ export class GetStsTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStsTokenResponseBody extends $tea.Model {
+export class GetStsTokenResponseBody extends $dara.Model {
   /**
    * @example
    * CCF92035-6231-5ABB-930E-1E003C32****
@@ -1007,12 +1444,19 @@ export class GetStsTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.stsTokenModel && typeof (this.stsTokenModel as any).validate === 'function') {
+      (this.stsTokenModel as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetStsTokenResponse extends $tea.Model {
+export class GetStsTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetStsTokenResponseBody;
@@ -1032,12 +1476,22 @@ export class GetStsTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshLoginTokenRequest extends $tea.Model {
+export class RefreshLoginTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1116,12 +1570,16 @@ export class RefreshLoginTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshLoginTokenResponseBody extends $tea.Model {
+export class RefreshLoginTokenResponseBody extends $dara.Model {
   /**
    * @example
    * v12369636c721ba6b3ddb1683341016775c3f63e4d0e78f120f9a0544ed826b7af7daf747c402f0d0730b52f451b70****
@@ -1146,12 +1604,16 @@ export class RefreshLoginTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RefreshLoginTokenResponse extends $tea.Model {
+export class RefreshLoginTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RefreshLoginTokenResponseBody;
@@ -1171,303 +1633,14 @@ export class RefreshLoginTokenResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindIdpListByLoginIdentifierResponseBodyIdpInfos extends $tea.Model {
-  /**
-   * @example
-   * simple
-   */
-  accountType?: string;
-  /**
-   * @example
-   * null
-   */
-  cookies?: string;
-  /**
-   * @example
-   * idp-hlyexfvwert9m8****
-   */
-  idpId?: string;
-  idpName?: string;
-  idpNameEN?: string;
-  idpProvider?: string;
-  /**
-   * @example
-   * true
-   */
-  jumpSwitch?: string;
-  /**
-   * @example
-   * SAML
-   */
-  ssoProtocol?: string;
-  ssoServiceUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountType: 'AccountType',
-      cookies: 'Cookies',
-      idpId: 'IdpId',
-      idpName: 'IdpName',
-      idpNameEN: 'IdpNameEN',
-      idpProvider: 'IdpProvider',
-      jumpSwitch: 'JumpSwitch',
-      ssoProtocol: 'SsoProtocol',
-      ssoServiceUrl: 'SsoServiceUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountType: 'string',
-      cookies: 'string',
-      idpId: 'string',
-      idpName: 'string',
-      idpNameEN: 'string',
-      idpProvider: 'string',
-      jumpSwitch: 'string',
-      ssoProtocol: 'string',
-      ssoServiceUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $tea.Model {
-  /**
-   * @example
-   * INTERNET
-   */
-  accessType?: string;
-  /**
-   * @example
-   * cn-shanghai+dir-448204****
-   */
-  officeSiteId?: string;
-  /**
-   * @example
-   * 26842
-   */
-  providerId?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  ssoServiceUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessType: 'AccessType',
-      officeSiteId: 'OfficeSiteId',
-      providerId: 'ProviderId',
-      regionId: 'RegionId',
-      ssoServiceUrl: 'SsoServiceUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessType: 'string',
-      officeSiteId: 'string',
-      providerId: 'string',
-      regionId: 'string',
-      ssoServiceUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $tea.Model {
-  /**
-   * @example
-   * INTERNET
-   */
-  accessType?: string;
-  /**
-   * @example
-   * Or09****
-   */
-  tenantAlias?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessType: 'AccessType',
-      tenantAlias: 'TenantAlias',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessType: 'string',
-      tenantAlias: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginTokenResponseBodyMfaTypeList extends $tea.Model {
-  name?: string;
-  stage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      stage: 'Stage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      stage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginTokenResponseBodyPasswordStrategy extends $tea.Model {
-  tenantAlternativeChars?: string[];
-  /**
-   * @example
-   * 12
-   */
-  tenantPasswordLength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      tenantAlternativeChars: 'TenantAlternativeChars',
-      tenantPasswordLength: 'TenantPasswordLength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tenantAlternativeChars: { 'type': 'array', 'itemType': 'string' },
-      tenantPasswordLength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginTokenResponseBodyRiskVerifyInfo extends $tea.Model {
-  /**
-   * @example
-   * ppas***@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 12000
-   */
-  lastLockDuration?: number;
-  /**
-   * @example
-   * true
-   */
-  locked?: boolean;
-  /**
-   * @example
-   * 1826717****
-   */
-  phone?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lastLockDuration: 'LastLockDuration',
-      locked: 'Locked',
-      phone: 'Phone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lastLockDuration: 'number',
-      locked: 'boolean',
-      phone: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLoginTokenResponseBodyTenantInfos extends $tea.Model {
-  /**
-   * @example
-   * INTERNET
-   */
-  accessType?: string;
-  /**
-   * @example
-   * Up830***
-   */
-  tenantAlias?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessType: 'AccessType',
-      tenantAlias: 'TenantAlias',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessType: 'string',
-      tenantAlias: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetStsTokenResponseBodyStsTokenModel extends $tea.Model {
-  /**
-   * @example
-   * be4be09e-cd00-4b4c-add7-11b4d8****
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * sts****
-   */
-  stsToken?: string;
-  /**
-   * @example
-   * 105552640689****
-   */
-  tenantId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sessionId: 'SessionId',
-      stsToken: 'StsToken',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sessionId: 'string',
-      stsToken: 'string',
-      tenantId: 'number',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1478,7 +1651,7 @@ export class GetStsTokenResponseBodyStsTokenModel extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "";
@@ -1488,15 +1661,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -1506,57 +1679,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FindIdpListByLoginIdentifierResponse
    */
-  async findIdpListByLoginIdentifierWithOptions(tmpReq: FindIdpListByLoginIdentifierRequest, runtime: $Util.RuntimeOptions): Promise<FindIdpListByLoginIdentifierResponse> {
-    Util.validateModel(tmpReq);
+  async findIdpListByLoginIdentifierWithOptions(tmpReq: FindIdpListByLoginIdentifierRequest, runtime: $dara.RuntimeOptions): Promise<FindIdpListByLoginIdentifierResponse> {
+    tmpReq.validate();
     let request = new FindIdpListByLoginIdentifierShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.availableFeatures)) {
+    if (!$dara.isNull(tmpReq.availableFeatures)) {
       request.availableFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures, "AvailableFeatures", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.availableFeaturesShrink)) {
+    if (!$dara.isNull(request.availableFeaturesShrink)) {
       query["AvailableFeatures"] = request.availableFeaturesShrink;
     }
 
-    if (!Util.isUnset(request.clientIp)) {
+    if (!$dara.isNull(request.clientIp)) {
       query["ClientIp"] = request.clientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientChannel)) {
+    if (!$dara.isNull(request.clientChannel)) {
       body["ClientChannel"] = request.clientChannel;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientOS)) {
+    if (!$dara.isNull(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.loginIdentifier)) {
+    if (!$dara.isNull(request.loginIdentifier)) {
       body["LoginIdentifier"] = request.loginIdentifier;
     }
 
-    if (!Util.isUnset(request.supportTypes)) {
+    if (!$dara.isNull(request.supportTypes)) {
       body["SupportTypes"] = request.supportTypes;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FindIdpListByLoginIdentifier",
       version: "2021-02-20",
       protocol: "HTTPS",
@@ -1567,7 +1740,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FindIdpListByLoginIdentifierResponse>(await this.callApi(params, req, runtime), new FindIdpListByLoginIdentifierResponse({}));
+    return $dara.cast<FindIdpListByLoginIdentifierResponse>(await this.callApi(params, req, runtime), new FindIdpListByLoginIdentifierResponse({}));
   }
 
   /**
@@ -1577,7 +1750,7 @@ export default class Client extends OpenApi {
    * @returns FindIdpListByLoginIdentifierResponse
    */
   async findIdpListByLoginIdentifier(request: FindIdpListByLoginIdentifierRequest): Promise<FindIdpListByLoginIdentifierResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.findIdpListByLoginIdentifierWithOptions(request, runtime);
   }
 
@@ -1588,155 +1761,163 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginTokenResponse
    */
-  async getLoginTokenWithOptions(tmpReq: GetLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginTokenResponse> {
-    Util.validateModel(tmpReq);
+  async getLoginTokenWithOptions(tmpReq: GetLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<GetLoginTokenResponse> {
+    tmpReq.validate();
     let request = new GetLoginTokenShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.availableFeatures)) {
+    if (!$dara.isNull(tmpReq.availableFeatures)) {
       request.availableFeaturesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.availableFeatures, "AvailableFeatures", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.authenticationCode)) {
+    if (!$dara.isNull(request.authenticationCode)) {
       query["AuthenticationCode"] = request.authenticationCode;
     }
 
-    if (!Util.isUnset(request.availableFeaturesShrink)) {
+    if (!$dara.isNull(request.availableFeaturesShrink)) {
       query["AvailableFeatures"] = request.availableFeaturesShrink;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientOS)) {
+    if (!$dara.isNull(request.clientName)) {
+      query["ClientName"] = request.clientName;
+    }
+
+    if (!$dara.isNull(request.clientOS)) {
       query["ClientOS"] = request.clientOS;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.currentStage)) {
+    if (!$dara.isNull(request.currentStage)) {
       query["CurrentStage"] = request.currentStage;
     }
 
-    if (!Util.isUnset(request.directoryId)) {
+    if (!$dara.isNull(request.directoryId)) {
       query["DirectoryId"] = request.directoryId;
     }
 
-    if (!Util.isUnset(request.encryptedFingerPrintData)) {
+    if (!$dara.isNull(request.encryptedFingerPrintData)) {
       query["EncryptedFingerPrintData"] = request.encryptedFingerPrintData;
     }
 
-    if (!Util.isUnset(request.encryptedKey)) {
+    if (!$dara.isNull(request.encryptedKey)) {
       query["EncryptedKey"] = request.encryptedKey;
     }
 
-    if (!Util.isUnset(request.encryptedPassword)) {
+    if (!$dara.isNull(request.encryptedPassword)) {
       query["EncryptedPassword"] = request.encryptedPassword;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.fingerPrintData)) {
+    if (!$dara.isNull(request.fingerPrintData)) {
       query["FingerPrintData"] = request.fingerPrintData;
     }
 
-    if (!Util.isUnset(request.idpId)) {
+    if (!$dara.isNull(request.idpId)) {
       query["IdpId"] = request.idpId;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       query["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.keepAlive)) {
+    if (!$dara.isNull(request.keepAlive)) {
       query["KeepAlive"] = request.keepAlive;
     }
 
-    if (!Util.isUnset(request.keepAliveToken)) {
+    if (!$dara.isNull(request.keepAliveToken)) {
       query["KeepAliveToken"] = request.keepAliveToken;
     }
 
-    if (!Util.isUnset(request.loginIdentifier)) {
+    if (!$dara.isNull(request.loginIdentifier)) {
       query["LoginIdentifier"] = request.loginIdentifier;
     }
 
-    if (!Util.isUnset(request.loginName)) {
+    if (!$dara.isNull(request.loginName)) {
       query["LoginName"] = request.loginName;
     }
 
-    if (!Util.isUnset(request.mfaType)) {
+    if (!$dara.isNull(request.mfaType)) {
       query["MfaType"] = request.mfaType;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.newPassword)) {
+    if (!$dara.isNull(request.newPassword)) {
       query["NewPassword"] = request.newPassword;
     }
 
-    if (!Util.isUnset(request.officeSiteId)) {
+    if (!$dara.isNull(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
     }
 
-    if (!Util.isUnset(request.oldPassword)) {
+    if (!$dara.isNull(request.oldPassword)) {
       query["OldPassword"] = request.oldPassword;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.phone)) {
+    if (!$dara.isNull(request.phone)) {
       query["Phone"] = request.phone;
     }
 
-    if (!Util.isUnset(request.phoneVerifyCode)) {
+    if (!$dara.isNull(request.phoneVerifyCode)) {
       query["PhoneVerifyCode"] = request.phoneVerifyCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.profileRegion)) {
+      query["ProfileRegion"] = request.profileRegion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.ssoExtendsCookies)) {
+    if (!$dara.isNull(request.ssoExtendsCookies)) {
       query["SsoExtendsCookies"] = request.ssoExtendsCookies;
     }
 
-    if (!Util.isUnset(request.ssoSessionToken)) {
+    if (!$dara.isNull(request.ssoSessionToken)) {
       query["SsoSessionToken"] = request.ssoSessionToken;
     }
 
-    if (!Util.isUnset(request.tokenCode)) {
+    if (!$dara.isNull(request.tokenCode)) {
       query["TokenCode"] = request.tokenCode;
     }
 
-    if (!Util.isUnset(request.umidToken)) {
+    if (!$dara.isNull(request.umidToken)) {
       query["UmidToken"] = request.umidToken;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLoginToken",
       version: "2021-02-20",
       protocol: "HTTPS",
@@ -1747,7 +1928,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
+    return $dara.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
   }
 
   /**
@@ -1757,7 +1938,7 @@ export default class Client extends OpenApi {
    * @returns GetLoginTokenResponse
    */
   async getLoginToken(request: GetLoginTokenRequest): Promise<GetLoginTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLoginTokenWithOptions(request, runtime);
   }
 
@@ -1768,37 +1949,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStsTokenResponse
    */
-  async getStsTokenWithOptions(request: GetStsTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetStsTokenResponse> {
-    Util.validateModel(request);
+  async getStsTokenWithOptions(request: GetStsTokenRequest, runtime: $dara.RuntimeOptions): Promise<GetStsTokenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.authCode)) {
+    if (!$dara.isNull(request.authCode)) {
       body["AuthCode"] = request.authCode;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientIp)) {
+    if (!$dara.isNull(request.clientIp)) {
       body["ClientIp"] = request.clientIp;
     }
 
-    if (!Util.isUnset(request.clientOS)) {
+    if (!$dara.isNull(request.clientOS)) {
       body["ClientOS"] = request.clientOS;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       body["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       body["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetStsToken",
       version: "2021-02-20",
       protocol: "HTTPS",
@@ -1809,7 +1990,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetStsTokenResponse>(await this.callApi(params, req, runtime), new GetStsTokenResponse({}));
+    return $dara.cast<GetStsTokenResponse>(await this.callApi(params, req, runtime), new GetStsTokenResponse({}));
   }
 
   /**
@@ -1819,7 +2000,7 @@ export default class Client extends OpenApi {
    * @returns GetStsTokenResponse
    */
   async getStsToken(request: GetStsTokenRequest): Promise<GetStsTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getStsTokenWithOptions(request, runtime);
   }
 
@@ -1828,49 +2009,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshLoginTokenResponse
    */
-  async refreshLoginTokenWithOptions(request: RefreshLoginTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshLoginTokenResponse> {
-    Util.validateModel(request);
+  async refreshLoginTokenWithOptions(request: RefreshLoginTokenRequest, runtime: $dara.RuntimeOptions): Promise<RefreshLoginTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientType)) {
+    if (!$dara.isNull(request.clientType)) {
       query["ClientType"] = request.clientType;
     }
 
-    if (!Util.isUnset(request.endUserId)) {
+    if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
     }
 
-    if (!Util.isUnset(request.loginIdentifier)) {
+    if (!$dara.isNull(request.loginIdentifier)) {
       query["LoginIdentifier"] = request.loginIdentifier;
     }
 
-    if (!Util.isUnset(request.loginToken)) {
+    if (!$dara.isNull(request.loginToken)) {
       query["LoginToken"] = request.loginToken;
     }
 
-    if (!Util.isUnset(request.officeSiteId)) {
+    if (!$dara.isNull(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
     }
 
-    if (!Util.isUnset(request.profileRegion)) {
+    if (!$dara.isNull(request.profileRegion)) {
       query["ProfileRegion"] = request.profileRegion;
     }
 
-    if (!Util.isUnset(request.sessionId)) {
+    if (!$dara.isNull(request.sessionId)) {
       query["SessionId"] = request.sessionId;
     }
 
-    if (!Util.isUnset(request.uuid)) {
+    if (!$dara.isNull(request.uuid)) {
       query["Uuid"] = request.uuid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RefreshLoginToken",
       version: "2021-02-20",
       protocol: "HTTPS",
@@ -1881,7 +2062,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
+    return $dara.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
   }
 
   /**
@@ -1889,7 +2070,7 @@ export default class Client extends OpenApi {
    * @returns RefreshLoginTokenResponse
    */
   async refreshLoginToken(request: RefreshLoginTokenRequest): Promise<RefreshLoginTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.refreshLoginTokenWithOptions(request, runtime);
   }
 
