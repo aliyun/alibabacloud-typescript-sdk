@@ -14419,12 +14419,16 @@ export class ListServicesRequest extends $dara.Model {
    * quota12345
    */
   quotaId?: string;
+  resourceAliasName?: string;
+  resourceId?: string;
   /**
    * @remarks
    * The name or ID of the resource group to which the service belongs.
    * 
    * @example
    * eas-r-hd0qwy8cxxxx
+   * 
+   * @deprecated
    */
   resourceName?: string;
   resourceType?: string;
@@ -14693,6 +14697,8 @@ export class ListServicesRequest extends $dara.Model {
       pageSize: 'PageSize',
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
+      resourceAliasName: 'ResourceAliasName',
+      resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceType: 'ResourceType',
       role: 'Role',
@@ -14717,6 +14723,8 @@ export class ListServicesRequest extends $dara.Model {
       pageSize: 'number',
       parentServiceUid: 'string',
       quotaId: 'string',
+      resourceAliasName: 'string',
+      resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',
       role: 'string',
@@ -14815,12 +14823,16 @@ export class ListServicesShrinkRequest extends $dara.Model {
    * quota12345
    */
   quotaId?: string;
+  resourceAliasName?: string;
+  resourceId?: string;
   /**
    * @remarks
    * The name or ID of the resource group to which the service belongs.
    * 
    * @example
    * eas-r-hd0qwy8cxxxx
+   * 
+   * @deprecated
    */
   resourceName?: string;
   resourceType?: string;
@@ -15089,6 +15101,8 @@ export class ListServicesShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       parentServiceUid: 'ParentServiceUid',
       quotaId: 'QuotaId',
+      resourceAliasName: 'ResourceAliasName',
+      resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceType: 'ResourceType',
       role: 'Role',
@@ -15113,6 +15127,8 @@ export class ListServicesShrinkRequest extends $dara.Model {
       pageSize: 'number',
       parentServiceUid: 'string',
       quotaId: 'string',
+      resourceAliasName: 'string',
+      resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',
       role: 'string',
@@ -21753,6 +21769,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
+    }
+
+    if (!$dara.isNull(request.resourceAliasName)) {
+      query["ResourceAliasName"] = request.resourceAliasName;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
     }
 
     if (!$dara.isNull(request.resourceName)) {
